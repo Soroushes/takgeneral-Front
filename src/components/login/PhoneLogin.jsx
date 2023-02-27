@@ -12,7 +12,6 @@ const PhoneLogin = ({ error, phoneNumber, setPhoneNumber }) => {
         id="filled-hidden-label-normal"
         variant="filled"
         fullWidth
-        dir={"ltr"}
       />
     </>
   );

@@ -4,14 +4,8 @@
     src: url('./font/IRANSans.woff2') format('woff2'),
     url('./font/IRANSans.woff') format('woff');
 }
-html{
+html , body , #__next{
     height: 100%;
-}
-body{
-    height: 100%;
-}
-#root{
-     height: 100%;
 }
 *{
     margin: 0;

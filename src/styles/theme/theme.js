@@ -1,13 +1,14 @@
 import {createTheme} from "@mui/material";
 
 const theme = createTheme({
+    direction : "rtl" ,
     palette : {
         primary : {
             main: '#0037ff',
-            light : '#ff3d18'
+            light : '#2a74c9'
         },
         secondary : {
-            main : '#2a74c9'
+            main : '#ff3d18'
         }
     } ,
     typography : {
