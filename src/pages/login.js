@@ -1,35 +1,36 @@
 import {Box, Button, Container, Grid, Typography, Input} from "@mui/material";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import {useEffect, useState} from "react";
-import Counter from "@/components/login/Counter";
 import {phoneValidator} from "../helpers/phoneValidator";
 import PhoneLogin from "@/components/login/PhoneLogin";
 import {useCounter} from "@/hooks/useCounter";
+import OtpInput from "react18-input-otp";
+
 const boxStyles = {
-    width : 450 ,
-    px : 3 ,
+    width: 450,
+    px: 3,
     background: "white",
     borderRadius: 3,
     position: "relative"
 }
 const Login = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [validate, setValidate] = useState(false);
-    const {count , startTimer} = useCounter(120) ;
+    const [validate, setValidate] = useState(true);
+    const {count, startTimer} = useCounter(120);
     console.log(count)
     const [error, setError] = useState(false);
-    const [otp, setOtp  ] = useState('');
+    const [otp, setOtp] = useState('');
     const [res, setRes] = useState('');
     const getRes = async () => {
 
     }
     const onSubmit = () => {
-       getRes();
+        getRes();
     };
-    useEffect(()=>{
+    useEffect(() => {
         console.log('effect')
-        startTimer() ;
-    },[])
+        startTimer();
+    }, [])
     return (
         <Container maxWidth={"lg"} sx={{height: "100%", p: 0}}>
             <Grid sx={{height: "100%"}} container justifyContent={'center'} alignItems={'center'}>
@@ -45,10 +46,8 @@ const Login = () => {
                                 <Typography component={'p'} variant={'subtitle2'} style={{marginBottom: 10}}>کد تایید
                                     برای شماره ی {phoneNumber} پیامک شد </Typography>
                                 <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                                    <Input onChange={setOtp} value={otp} dir={'ltr'} autoFocus={true}
-                                           inputClassName={'otp-input'}/>
+                                        <OtpInput containerStyle={{display : "flex" ,width : "100%" , justifyContent : "space-between"}} inputStyle={{height : 50 , width : 50}} onChange={setOtp} numInputs={5} dir={'ltr'} value={otp} autoFocus={true} inputClassName={'otp-input'} isInputNum={true}/>
                                 </Box>
-                                <Counter/>
                             </>
                             :
                             <PhoneLogin error={error} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber}/>
