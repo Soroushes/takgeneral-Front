@@ -5,7 +5,7 @@ import {
   Grid,
   Typography,
   Input,
-  TextField,
+  TextField, useTheme,
 } from "@mui/material";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import {useEffect, useState} from "react";
@@ -25,9 +25,10 @@ const boxStyles = {
 const Login = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [validate, setValidate] = useState(false);
-  let {count, startTimer} = useCounter(5);
+  const {count, startTimer , isFinished} = useCounter(5);
   const [error, setError] = useState(false);
   const [otp, setOtp] = useState("");
+  const {palette} = useTheme() ;
   const [numResult, setNumResult] = useState("");
   const getRes = () => {
     // return (
@@ -39,11 +40,8 @@ const Login = () => {
     // )
   };
   const onSubmit = async () => {
-    let newNum = phoneValidator(phoneNumber);
-    if (newNum) {
       setValidate(true);
       startTimer();
-    }
   };
   return (
     <Container maxWidth={"lg"} sx={{height: "100%", p: 0}}>
@@ -61,39 +59,36 @@ const Login = () => {
             />
           </Box>
           <Box sx={{display : 'flex' ,flexDirection : 'column ' , gap : 1}}>
-            <Typography component={"h1"}>
-              {validate ? "کد تایید را وارد کنید" : "ورود و ثبت نام"}
+            <Typography sx={{mb : 1}} component={"h1"} variant={'h6'} >
+              {validate ? "کد تایید را وارد کنید" : "ورود / ثبت نام"}
             </Typography>
-            {validate ? (
-              " "
-            ) : (
+            {validate ? null : (
               <Typography variant={"button"} component={"h1"}>
-                {" "}
                 سلام!
               </Typography>
             )}
             <Typography variant={"button"} component={"h1"}>
               {validate
-                ? `کد تایید برای شماره ی ${phoneNumber} پیامک شد${" "}`
-                : `${" "} شماره موبایل خود را وارد کنید`}
+                ? `کد تایید برای شماره ی ${phoneNumber} پیامک شد`
+                : ` شماره موبایل خود را وارد کنید`}
             </Typography>
             {validate ? (
               <>
                 <Box sx={{display: "flex", justifyContent: "space-between"}}>
                   <OtpInput
-                                      containerStyle={{
+                      containerStyle={{
                         rounded : '2',
                       display: "flex",
                       width: "100%",
                       justifyContent: "space-between",
                       direction: "ltr",
                     }}
-                    inputStyle={{height: 50, width: 50}}
+                    inputStyle={{height: 50, backgroundColor :palette.gray.lighter , width: 50 , borderRadius : "10px" , border : `1px solid ${palette.gray.dark}` , }}
                     onChange={setOtp}
                     numInputs={5}
                     value={otp}
+                    focusStyle={{border : `1px solid ${palette.primary.main}`}}
                     shouldAutoFocus
-                    inputClassName={"otp-input"}
                     isInputNum={true}
                   />
                 </Box>
@@ -103,7 +98,7 @@ const Login = () => {
                     justifyContent: "space-between",
                     my: 2,
                   }}>
-                  {count === " 00  : 00" ? (
+                  {isFinished ? (
                     <Typography
                       sx={{
                         fontSize: 12,
@@ -114,7 +109,6 @@ const Login = () => {
                     </Typography>
                   ) : (
                     <Typography sx={{fontSize: 14}}>
-                      {" "}
                       مانده تا ارسال مجدد{count}
                     </Typography>
                   )}
@@ -145,6 +139,7 @@ const Login = () => {
               لطفا شماره تلفن را به درستی وارد کنید
             </Typography>
           )}
+
           <Box>
             <Button
               onClick={onSubmit}

@@ -9,5 +9,20 @@ html , body , #__next{
 }
 *{
     margin: 0;
+    writing-mode: bt-lr;
     padding : 0
+}
+::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+    height: 100%; /* Height of the scrollbar */
+    background-color: #F5F5F5; /* Background color of the scrollbar */
+    direction: ltr; /* Change the direction of the scrollbar to right-to-left */
+    writing-mode: vertical-lr; /* Change the writing mode to vertical right-to-left */
+    position: fixed; /* Fix the position of the scrollbar */
+    right: 0; /* Position the scrollbar on the right side of the page */
+    top: 0; /* Position the scrollbar at the top of the page */
+}
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
 }

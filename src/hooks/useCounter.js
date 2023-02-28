@@ -1,19 +1,23 @@
-import {useState} from "react";
-
+import {useEffect, useState} from "react";
+let timerInterval;
 export const useCounter = (number) => {
-    let [count, setCount] = useState(number);
+    const [count, setCount] = useState(number);
+    const [isFinished, setIsFinished] = useState(false);
     const startTimer = () => {
-        const timerInterval = setInterval(() => {
-            console.log(count)
-            if (count <= 0) {
-                return clearInterval(timerInterval);
-            }
-            setCount(--count);
+        timerInterval = setInterval(() => {
+            setCount(prevState => --prevState);
         }, 1000);
     }
+    useEffect(() => {
+        if (count === 0) {
+            clearInterval(timerInterval);
+            setIsFinished(true);
+        }
+    }, [count]) ;
+
     let min = Math.floor(count / 60);
     min = min < 10 ? `0${min}` : min;
     let sec = count % 60;
     sec = sec < 10 ? ` 0${sec} ` : sec;
-    return {count: `${sec} : ${min}`, startTimer , setCount}
+    return {count: `${sec} : ${min}`, startTimer, setCount, isFinished}
 }
