@@ -8,13 +8,11 @@ import {
   TextField, useTheme,
 } from "@mui/material";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import {useEffect, useState} from "react";
+import { useState} from "react";
 import {phoneValidator} from "../helpers/phoneValidator";
-import PhoneLogin from "@/components/login/PhoneLogin";
 import {useCounter} from "@/hooks/useCounter";
 import OtpInput from "react18-input-otp";
 import axios from "axios";
-
 const boxStyles = {
   width: 450,
   px: 3,
@@ -28,20 +26,43 @@ const Login = () => {
   const {count, startTimer , isFinished} = useCounter(5);
   const [error, setError] = useState(false);
   const [otp, setOtp] = useState("");
-  const {palette} = useTheme() ;
-  const [numResult, setNumResult] = useState("");
-  const getRes = () => {
-    // return (
-    //     axios({
-    //         url: 'http://45.139.10.189/user-register-or-login-send-otp/',
-    //         method: 'POST',
-    //         data : {phone_number : phoneNumber}
-    //     })
-    // )
+  const { palette } = useTheme();
+  const getCode = async () => {
+    try {
+      const code = await axios({
+        url: 'http://45.139.10.189/user-register-or-login-send-otp/',
+        method: 'POST',
+        data: { phone_number: phoneNumber }
+      })
+      console.log(code.data)
+      
+    } catch (err) {
+      console.log(err)
+    }
   };
-  const onSubmit = async () => {
+  const getResult = async()=>{
+    try{
+      const result = await axios({
+        url: 'http://45.139.10.189/user-verify-otp/',
+        method: 'POST', 
+        data: {
+          phone_number: phoneNumber, 
+          code : otp
+        }
+      })
+      console.log(result)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  const onSubmit = () => {
+    if (validate) {
+      getResult();
+    }else{
+      getCode();
       setValidate(true);
       startTimer();
+    }
   };
   return (
     <Container maxWidth={"lg"} sx={{height: "100%", p: 0}}>
@@ -63,11 +84,11 @@ const Login = () => {
               {validate ? "کد تایید را وارد کنید" : "ورود / ثبت نام"}
             </Typography>
             {validate ? null : (
-              <Typography variant={"button"} component={"h1"}>
+              <Typography variant={"button"} component={"p"}>
                 سلام!
               </Typography>
             )}
-            <Typography variant={"button"} component={"h1"}>
+            <Typography variant={"button"} component={"p"}>
               {validate
                 ? `کد تایید برای شماره ی ${phoneNumber} پیامک شد`
                 : ` شماره موبایل خود را وارد کنید`}
@@ -77,7 +98,6 @@ const Login = () => {
                 <Box sx={{display: "flex", justifyContent: "space-between"}}>
                   <OtpInput
                       containerStyle={{
-                        rounded : '2',
                       display: "flex",
                       width: "100%",
                       justifyContent: "space-between",
