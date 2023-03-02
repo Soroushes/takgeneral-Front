@@ -59,7 +59,7 @@ const Login = () => {
                     <Box sx={{width: "50%", m: "auto", mb: 6}}>
                         <img
                             style={{width: "100%"}}
-                            src="../logo.jpg"
+                            src="../logo.png"
                             alt="TakgeneralLogo"
                         />
                     </Box>
