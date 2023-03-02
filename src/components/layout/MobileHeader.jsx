@@ -18,7 +18,7 @@ const MobileHeader = () => {
                             alignItems: "center",
                             width: "100%",
                         }}>
-                        <HamburgerMenu/>
+                        <img src={HamburgerMenu} alt=""/>
                         <Box sx={{m: "auto", width: {xs: "45%", sm: "50%"}}}>
                             <img
                                 style={{width: "100%"}}
@@ -27,7 +27,7 @@ const MobileHeader = () => {
                             />
                         </Box>
                         <Link href={'/login'}>
-                            <LoginIcon/>
+                            <img src={LoginIcon} alt=""/>
                         </Link>
                     </Box>
                 </Toolbar>
