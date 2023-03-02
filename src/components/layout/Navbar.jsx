@@ -1,4 +1,3 @@
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
 import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";

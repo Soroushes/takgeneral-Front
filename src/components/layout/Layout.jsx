@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
                     {children}
                 </Box>
             </Box>
-            <Box sx={{display : "flex" , flexDirection : "column-reverse" , justifyContent : 'center' , height : 80}}>
+            <Box sx={{display : {xs : "flex" , md : "none"} , flexDirection : "column-reverse" , justifyContent : 'center' , height : 80 }}>
                 <Navbar/>
             </Box>
         </Box>

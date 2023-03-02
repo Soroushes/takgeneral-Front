@@ -1,80 +1,61 @@
 import {
-    Box,
-    Button,
-    Container,
-    Grid,
-    Typography,
-    Input,
-    TextField, useTheme,
+    Box, Button, Container, Grid, Typography, Input, TextField, useTheme, InputAdornment,
 } from "@mui/material";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import {useState} from "react";
-import {phoneValidator} from "../helpers/phoneValidator";
 import {useCounter} from "@/hooks/useCounter";
 import OtpInput from "react18-input-otp";
-import axios from "axios";
 import {useAxios} from "@/hooks/useAxios";
+import {useForm, Controller} from "react-hook-form";
 
 const boxStyles = {
-    width: 450,
-    px: 3,
-    background: "white",
-    borderRadius: 3,
-    position: "relative",
+    width: 450, px: 3, background: "white", borderRadius: 3, position: "relative",
 };
 const Login = () => {
-    const [phoneNumber, setPhoneNumber] = useState("");
     const [validate, setValidate] = useState(false);
     const {count, startTimer, isFinished} = useCounter(5);
-    const [error, setError] = useState(false);
-    const [otp, setOtp] = useState("");
     const {palette} = useTheme();
-    const {callApi:phoneApi, loading:phoneLoading} = useAxios();
-    const {callApi:otpApi, loading:otpLoading} = useAxios();
-    const getCode = () => {
+    const {control, handleSubmit, getValues, formState: {errors}} = useForm({
+        defaultValues: {
+            phoneNumber: "",
+            otp: ""
+        }
+    });
+    console.log(errors);
+    const {callApi: phoneApi, loading: phoneLoading} = useAxios();
+    const {callApi: otpApi, loading: otpLoading} = useAxios();
+    const postPhoneNumber = () => {
         phoneApi({
             url: "user-register-or-login-send-otp",
             method: "POST",
-            data : {phone_number : phoneNumber} ,
+            data: {phone_number: '98'+getValues('phoneNumber')},
             successFunc: (code) => {
-                console.log(code)
                 setValidate(true);
             }
         })
     };
-    const getResult = async () => {
+    const postOtpCode = async () => {
         otpApi({
-            url :'user-verify-otp' ,
-            method : 'POST' ,
-            data : {phone_number : phoneNumber , code : otp} ,
-            successFunc : (res) =>{
+            url: 'user-verify-otp',
+            method: 'POST',
+            data: {phone_number: '98'+getValues('phoneNumber'), code: getValues('otp')},
+            successFunc: (res) => {
                 console.log(res)
             }
 
         })
     }
-    const onSubmit = () => {
-        if (validate) {
-            getResult();
-        } else {
-            getCode();
-            startTimer();
+    const submitForm = () => {
+        if(!validate){
+            postPhoneNumber() ;
+        }else {
+            postOtpCode() ;
         }
-    };
-    const renumber = ()=>{
-        setValidate(false)
-    }
-    const recode = ()=>{
-        getCode();
+
     }
     return (
         <Container maxWidth={"lg"} sx={{height: "100%", p: 0}}>
-            <Grid
-                sx={{height: "100%"}}
-                container
-                justifyContent={"center"}
-                alignItems={"center"}>
-                <Box sx={boxStyles}>
+            <Grid sx={{height: "100%"}} container justifyContent={"center"} alignItems={"center"}>
+                <Box component={'form'} sx={boxStyles} onSubmit={handleSubmit(submitForm)}>
                     <Box sx={{width: "50%", m: "auto", mb: 6}}>
                         <img
                             style={{width: "100%"}}
@@ -86,101 +67,109 @@ const Login = () => {
                         <Typography sx={{mb: 1}} component={"h1"} variant={'h6'}>
                             {validate ? "کد تایید را وارد کنید" : "ورود / ثبت نام"}
                         </Typography>
-                        {validate ? null : (
-                            <Typography variant={"button"} component={"p"}>
-                                سلام!
-                            </Typography>
-                        )}
+                        {validate ? null : (<Typography variant={"button"} component={"p"}>
+                            سلام!
+                        </Typography>)}
                         <Typography variant={"button"} component={"p"}>
-                            {validate
-                                ? `کد تایید برای شماره ی ${phoneNumber} پیامک شد`
-                                : ` شماره موبایل خود را وارد کنید`}
+                            {validate ? `کد تایید برای شماره ی ${'9336273696'} پیامک شد` : ` شماره موبایل خود را وارد کنید`}
                         </Typography>
-                        {validate ? (
-                            <>
-                                <Box sx={{display: "flex", justifyContent: "space-between"}}>
-                                    <OtpInput
-                                        containerStyle={{
-                                            display: "flex",
-                                            width: "100%",
-                                            justifyContent: "space-between",
-                                            direction: "ltr",
-                                        }}
-                                        inputStyle={{
-                                            height: 50,
-                                            backgroundColor: palette.gray.lighter,
-                                            width: 50,
-                                            borderRadius: "10px",
-                                            border: `1px solid ${palette.gray.dark}`,
-                                        }}
-                                        onChange={setOtp}
-                                        numInputs={5}
-                                        value={otp}
-                                        focusStyle={{border: `1px solid ${palette.primary.main}`}}
-                                        shouldAutoFocus
-                                        isInputNum={true}
-                                    />
-                                </Box>
-                                <Box
-                                    sx={{
-                                        display: "flex",
-                                        justifyContent: "space-between",
-                                        my: 2,
-                                    }}>
-                                    {isFinished ? (
-                                        <Typography
-                                            onClick={recode}
-                                            sx={{
-                                                fontSize: 12,
-                                                color: "green",
-                                                cursor: "pointer",
-                                            }}>
-                                            ارسال مجدد کد
-                                        </Typography>
-                                    ) : (
-                                        <Typography sx={{fontSize: 14}}>
-                                            مانده تا ارسال مجدد{count}
-                                        </Typography>
+                        {validate ? (<>
+                            <Box sx={{display: "flex", justifyContent: "space-between"}}>
+                                <Controller
+                                    name="otp"
+                                    rules={{
+                                        required : "لطفا کد ارسال شده را وارد کنید" ,
+                                        minLength : {value : 5 , message : "لطفا کد ارسال شده را وارد کنید"},
+                                        maxLength: {value : 5 , message : "لطفا کد ارسال شده را وارد کنید"}
+                                    }}
+                                    control={control}
+                                    render={({field, fieldState}) => (
+                                        <OtpInput
+                                            hasErrored={!!fieldState.error}
+                                            value={field.value}
+                                            onChange={field.onChange}
+                                            containerStyle={{
+                                                display: "flex",
+                                                width: "100%",
+                                                justifyContent: "space-between",
+                                                direction: "ltr",
+                                            }}
+                                            inputStyle={{
+                                                height: 50,
+                                                backgroundColor: palette.gray.lighter,
+                                                width: 50,
+                                                borderRadius: "10px",
+                                                border :'none'
+                                            }}
+                                            numInputs={5}
+                                            focusStyle={{border: `1px solid ${palette.primary.main}`}}
+                                            shouldAutoFocus
+                                            isInputNum={true}
+                                        />
                                     )}
-                                </Box>
-                                <Typography
-                                        onClick={renumber}
-                                    sx={{fontSize: 12, color: "red", cursor: "pointer"}}>
-                                    اصلاح شماره موبایل
-                                </Typography>
-                            </>
-                        ) : (
-                            <TextField
-                                error={error}
-                                value={phoneNumber}
-                                onChange={(e) => setPhoneNumber(e.target.value)}
-                                hiddenLabel
-                                sx={{mb: 1, mt: 1}}
-                                id="filled-hidden-label-normal"
-                                variant="filled"
-                                fullWidth
+                                />
+                            </Box>
+                            <Box
+                                sx={{
+                                    display: "flex", justifyContent: "space-between", my: 2,
+                                }}>
+                                {isFinished ? (<Typography
+                                    sx={{
+                                        fontSize: 12, color: "green", cursor: "pointer",
+                                    }}>
+                                    ارسال مجدد کد
+                                </Typography>) : (<Typography sx={{fontSize: 14}}>
+                                    مانده تا ارسال مجدد{count}
+                                </Typography>)}
+                            </Box>
+                            <Typography
+                                sx={{fontSize: 12, color: "red", cursor: "pointer"}}>
+                                اصلاح شماره موبایل
+                            </Typography>
+                        </>) : (
+                            <Controller
+                                name="phoneNumber"
+                                control={control}
+                                rules={{
+                                    required : "شماره تلفن را وارد کنید" ,
+                                    pattern: {
+                                        value :  /^9[0-3,9]\d{8}$/ ,
+                                        message : "لطفا شماره تلفن را به درستی وارد کنید"
+                                    }
+                                }}
+                                render={({field, fieldState}) => (
+                                    <TextField
+                                        dir={'ltr'}
+                                        onChange={(e)=>{
+                                            let phoneNumber = e.target.value.replace(/^[0-8].*/,'') ;
+                                            console.log(phoneNumber)
+                                            phoneNumber = phoneNumber.replace(/\D+/ , '' ) ;
+                                            field.onChange(phoneNumber)
+                                        }}
+                                        type={'tel'}
+                                        placeholder={'9111111111'}
+                                        InputProps={{
+                                            startAdornment: <InputAdornment sx={{ml : 1}} position="start">
+                                                <Typography sx={{fontSize : 17}}>+98</Typography>
+                                            </InputAdornment>,
+                                        }}
+                                        helperText={fieldState.error?.message}
+                                        value={field.value}
+                                        error={!!fieldState.error}
+                                        fullWidth
+                                        hiddenLabel
+                                        sx={{my: 1}}
+                                        variant={'filled'}
+                                    />
+                                )}
                             />
                         )}
                     </Box>
-                    {error && (
-                        <Typography
-                            component={"p"}
-                            variant={"body2"}
-                            style={{color: "red"}}>
-                            لطفا شماره تلفن را به درستی وارد کنید
-                        </Typography>
-                    )}
-
                     <Box>
                         <Button
-                            onClick={onSubmit}
+                            type={'submit'}
                             sx={{
-                                background: "primary",
-                                mt: 3,
-                                mb: 6,
-                                width: "100%",
-                                fontSize: 18,
-                                borderRadius: 2,
+                                mt: 3, mb: 6, width: "100%", fontSize: 18, borderRadius: 2,
                             }}
                             variant={"contained"}>
                             تایید
@@ -188,7 +177,6 @@ const Login = () => {
                     </Box>
                 </Box>
             </Grid>
-        </Container>
-    );
+        </Container>);
 };
 export default Login;
