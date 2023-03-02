@@ -3,28 +3,30 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
 import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 import {Box, Typography, useTheme} from '@mui/material';
-import ContactIcon from  '../icons/contactIcon.svg' ;
+import ContactIcon from '../icons/contactIcon.svg';
+import HomeIcon from '../icons/homeIcon.svg';
+import SearchIcon from "../icons/searchIcon.svg";
+import BasketIcon from "../icons/basketIcon.svg";
 const Navbar = () => {
     const {palette} = useTheme();
     const navItems = [
-        {
-            name: 'خانه',
-            icon: <ContactIcon />
-        },
-        {
-
-            name: 'جستجو',
-            icon: <SearchOutlinedIcon fontSize={"large"}/>
-        },
-        {
-            name: 'سبد خرید',
-            icon: <LocalGroceryStoreOutlinedIcon fontSize={"large"}/>
-        },
-        {
-            name: 'تماس با ما',
-            icon: <PhoneInTalkOutlinedIcon fontSize={"large"}/>
-        }
-    ]
+      {
+        name: "خانه",
+        icon: <HomeIcon />,
+      },
+      {
+        name: "جستجو",
+        icon: <SearchIcon fontSize={"large"} />,
+      },
+      {
+        name: "سبد خرید",
+        icon: <BasketIcon fontSize={"large"} />,
+      },
+      {
+        name: "تماس با ما",
+        icon: <ContactIcon fontSize={"large"} />,
+      },
+    ];
     return (
         <Box
             sx={{
