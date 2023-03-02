@@ -1,7 +1,7 @@
 import axios from "axios";
 import {useState} from "react";
 
-const BASE_URL = 'http://takback.soroushes.tk/';
+const BASE_URL = 'https://takback.soroushes.tk/';
 export const useAxios = () => {
     const [loading, setLoading] = useState(false);
     const callApi = async ({method = "GET", url, data = {}, token, successFunc}) => {
