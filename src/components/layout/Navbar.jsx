@@ -1,7 +1,4 @@
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
-import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
-import {Box, Typography, useTheme} from '@mui/material';
+import {Box, Typography} from '@mui/material';
 import ContactIcon from '../icons/contactIcon.svg';
 import HomeIcon from '../icons/homeIcon.svg';
 import SearchIcon from "../icons/searchIcon.svg";

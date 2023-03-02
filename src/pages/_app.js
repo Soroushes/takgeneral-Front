@@ -5,7 +5,7 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import {CacheProvider} from '@emotion/react';
 import createCache from '@emotion/cache';
 import {prefixer} from 'stylis';
-import Layout from "@/components/layout/Layout";
+import Layout from "../components/layout/Layout";
 
 // Create rtl cache
 const cacheRtl = createCache({
