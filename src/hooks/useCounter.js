@@ -9,15 +9,18 @@ export const useCounter = (number) => {
         }, 1000);
     }
     useEffect(() => {
-        if (count === 0) {
+        if (count <= 0) {
             clearInterval(timerInterval);
             setIsFinished(true);
         }
     }, [count]) ;
-
+    const resetTimer = ()=>{
+        setCount(number) ;
+        clearInterval(timerInterval) ;
+    }
     let min = Math.floor(count / 60);
     min = min < 10 ? `0${min}` : min;
     let sec = count % 60;
     sec = sec < 10 ? ` 0${sec} ` : sec;
-    return {count: `${sec} : ${min}`, startTimer, setCount, isFinished}
+    return {count: `${sec} : ${min}`, startTimer, setCount, isFinished , resetTimer}
 }
