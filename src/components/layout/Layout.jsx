@@ -1,8 +1,7 @@
-import {Box, useTheme} from "@mui/material";
+import {Box} from "@mui/material";
 import Navbar from './Navbar';
 import MobileHeader from "./MobileHeader";
 const Layout = ({ children }) => {
-    const {palette} = useTheme();
     return(
         <Box sx={{height : "100%" , width : "100%" , display : "flex" , flexDirection : "column"}}>
             <Box sx={{flex : 1 , overflowY : "scroll" , direction : 'rtl'}}>

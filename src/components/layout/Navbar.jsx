@@ -7,7 +7,6 @@ import HomeIcon from '../icons/homeIcon.svg';
 import SearchIcon from "../icons/searchIcon.svg";
 import BasketIcon from "../icons/basketIcon.svg";
 const Navbar = () => {
-    const {palette} = useTheme();
     const navItems = [
       {
         name: "خانه",

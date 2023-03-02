@@ -3,9 +3,9 @@ import {
 } from "@mui/material";
 import LoadingButton from '@mui/lab/LoadingButton';
 import {useEffect, useRef, useState} from "react";
-import {useCounter} from "@/hooks/useCounter";
+import {useCounter} from "../hooks/useCounter";
 import OtpInput from "react18-input-otp";
-import {useAxios} from "@/hooks/useAxios";
+import {useAxios} from "../hooks/useAxios";
 import {useForm, Controller} from "react-hook-form";
 import {useRouter} from "next/router";
 

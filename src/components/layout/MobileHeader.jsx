@@ -1,6 +1,6 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import {Box, useTheme} from '@mui/system';
+import {Box} from '@mui/system';
 import LoginIcon from "../icons/LoginIcon.svg";
 import HamburgerMenu from "../icons/hamburgerMenu.svg";
 import Link from "next/link";
