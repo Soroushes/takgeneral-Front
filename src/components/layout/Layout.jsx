@@ -21,11 +21,13 @@ const Layout = ({children}) => {
     return (
         <Box sx={{height: "100%", width: "100%", flexDirection: "column", display: "flex"}}>
             <Box sx={{direction: 'rtl' , height : "100%"}}>
-                <Box sx={{direction: "ltr", height: "100%", py: "80px"}}>
-                    <Box sx={{display: showLayout ? {xs: "block", md: 'none'} : "none"}}>
+                <Box sx={{direction: "ltr", height: "100%" , pt : "80px"}}>
+                    <Box sx={{display: showLayout ? {xs: "block", md: 'none'} : "none" }}>
                         <MobileHeader/>
                     </Box>
-                    {children}
+                    <Box sx={{pb : "80px"}}>
+                        {children}
+                    </Box>
                 </Box>
             </Box>
             <Box sx={{
@@ -35,7 +37,7 @@ const Layout = ({children}) => {
                 left: 0,
                 right: 0,
                 height: 80,
-                display: showLayout ? {sx: "block", md: "none"} : "none"
+                display: showLayout ? {xs: "block", md: "none"} : "none" ,
             }}>
                 <Navbar/>
             </Box>
