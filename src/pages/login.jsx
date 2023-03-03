@@ -8,6 +8,9 @@ import OtpInput from "react18-input-otp";
 import {useAxios} from "../hooks/useAxios";
 import {useForm, Controller} from "react-hook-form";
 import {useRouter} from "next/router";
+import {useDispatch, useSelector} from "react-redux";
+import {SET_USER_STATUS} from "../redux/slices/userStatusSlice";
+import Link from "next/link";
 
 const boxStyles = {
     width: 450, px: 3, background: "white", borderRadius: 3, position: "relative",
@@ -15,8 +18,9 @@ const boxStyles = {
 const Login = () => {
     const [validate, setValidate] = useState(false);
     const {count, startTimer, isFinished, resetTimer} = useCounter(55);
-    const [tokenCheck , setTokenCheck] = useState(false) ;
     const {palette} = useTheme();
+    const router = useRouter() ;
+    const dispatch = useDispatch();
     const {control, handleSubmit, getValues} = useForm({
         defaultValues: {
             phoneNumber: "",
@@ -25,7 +29,6 @@ const Login = () => {
     });
     const {callApi: phoneApi, loading: phoneLoading} = useAxios();
     const {callApi: otpApi, loading: otpLoading} = useAxios();
-    const router = useRouter() ;
     const postPhoneNumber = () => {
         phoneApi({
             url: "user-register-or-login-send-otp",
@@ -45,7 +48,8 @@ const Login = () => {
             method: 'POST',
             data: {phone_number: '98' + getValues('phoneNumber'), code: getValues('otp')},
             successFunc: (res) => {
-                localStorage.setItem('token' , res.token.access) ;
+                dispatch(SET_USER_STATUS(res.token.access)) ;
+                router.push('/profile')
             }
         })
     }
@@ -55,29 +59,25 @@ const Login = () => {
         } else {
             postOtpCode();
         }
-
     }
     useEffect(()=>{
         const token = localStorage.getItem('token') ;
         if (token){
-           router.push('/') ;
-        }else {
-            setTokenCheck(true);
+            router.push('/') ;
         }
     },[])
-    if (!tokenCheck){
-        return null ;
-    }
     return (
-        <Container maxWidth={"lg"} sx={{height: "100%", p: 0}}>
+        <Container maxWidth={"lg"} sx={{height: "100%", p: 0}} disableGutters>
             <Grid sx={{height: "100%"}} container justifyContent={"center"} alignItems={"center"}>
                 <Box component={'form'} sx={boxStyles} onSubmit={handleSubmit(submitForm)}>
                     <Box sx={{width: "50%", m: "auto", mb: 6}}>
-                        <img
-                            style={{width: "100%"}}
-                            src="../logo.png"
-                            alt="TakgeneralLogo"
-                        />
+                        <Link href={'/'}>
+                            <img
+                                style={{width: "100%"}}
+                                src="../logo.png"
+                                alt="Takgeneral Logo"
+                            />
+                        </Link>
                     </Box>
                     <Box sx={{display: 'flex', flexDirection: 'column ', gap: 1}}>
                         <Typography sx={{mb: 1}} component={"h1"} variant={'h6'}>
@@ -164,7 +164,7 @@ const Login = () => {
                                             field.onChange(phoneNumber)
                                         }}
                                         type={'tel'}
-                                        placeholder={'9111111111'}
+                                        placeholder={'9xxxxxxxxx'}
                                         InputProps={{
                                             startAdornment: (
                                                 <InputAdornment sx={{ml: 1}} position="start">

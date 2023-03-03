@@ -7,6 +7,8 @@ import createCache from '@emotion/cache';
 import {prefixer} from 'stylis';
 import Layout from "../components/layout/Layout";
 import {useEffect} from "react";
+import {Provider, useDispatch} from "react-redux";
+import {store} from "../redux/store";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -18,9 +20,11 @@ export default function App({Component, pageProps}) {
     return (
         <CacheProvider value={cacheRtl}>
             <ThemeProvider theme={theme}>
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
+                <Provider store={store}>
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
+                </Provider>
             </ThemeProvider>
         </CacheProvider>
     )

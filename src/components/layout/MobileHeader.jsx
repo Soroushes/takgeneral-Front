@@ -4,12 +4,16 @@ import {Box} from '@mui/system';
 import LoginIcon from "../icons/LoginIcon.svg";
 import HamburgerMenu from "../icons/hamburgerMenu.svg";
 import Link from "next/link";
+import {useSelector} from "react-redux";
+import UserIcon from "../icons/user";
+import {Typography} from "@mui/material";
 
 const MobileHeader = () => {
+    const {token} = useSelector(state => state.userStatus)
     return (
         <Box>
-            <AppBar sx={{backgroundColor: "gray.lighter"}}>
-                <Toolbar position="static" sx={{height: "100%"}}>
+            <AppBar sx={{backgroundColor: "#fff", height: "80px"}}>
+                <Toolbar sx={{height: "100%"}}>
                     <Box
                         sx={{
                             display: "flex",
@@ -18,17 +22,22 @@ const MobileHeader = () => {
                             alignItems: "center",
                             width: "100%",
                         }}>
-                        <img src={HamburgerMenu} alt=""/>
-                        <Box sx={{m: "auto", width: {xs: "45%", sm: "50%"}}}>
+                        <HamburgerMenu/>
+                        <Box sx={{m: "auto", height: "100%", py: 1}}>
                             <img
-                                style={{width: "100%"}}
+                                style={{height: "100%"}}
                                 src="../logo.png"
                                 alt="TakgeneralLogo"
                             />
                         </Box>
-                        <Link href={'/login'}>
-                            <img src={LoginIcon} alt=""/>
-                        </Link>
+                        {
+                            token ? <Link href={'/profile'}> <Typography><UserIcon/></Typography></Link> :
+                                <Link href={'/login'}>
+                                    <Typography>
+                                        <LoginIcon/>
+                                    </Typography>
+                                </Link>
+                        }
                     </Box>
                 </Toolbar>
             </AppBar>

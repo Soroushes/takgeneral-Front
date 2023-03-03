@@ -1,25 +1,30 @@
 import {Box, Typography} from '@mui/material';
-import ContactIcon from '../icons/contactIcon.svg';
-import homeIcon from '../icons/homeIcon.svg';
-import SearchIcon from "../icons/searchIcon.svg";
-import BasketIcon from "../icons/basketIcon.svg";
+import ContactIcon from '../icons/contactIcon';
+import HomeIcon from '../icons/homeIcon.svg';
+import BasketIcon from "../icons/basketIcon";
+import SearchOutlinedIcon from "../icons/searchOutlined";
+import Link from "next/link";
 const Navbar = () => {
     const navItems = [
       {
         name: "خانه",
-        icon: homeIcon
+        icon: <HomeIcon/> ,
+          link : '/'
       },
       {
         name: "جستجو",
-        icon: SearchIcon
+        icon: <SearchOutlinedIcon/> ,
+          link : "/"
       },
       {
         name: "سبد خرید",
-        icon: BasketIcon
+        icon: <BasketIcon/> ,
+          link : "/"
       },
       {
         name: "تماس با ما",
-        icon: ContactIcon
+        icon: <ContactIcon/> ,
+          link : "/"
       },
     ];
     return (
@@ -38,9 +43,7 @@ const Navbar = () => {
                 navItems.map((navItem, index) => {
                     return (
                         <Box key={index} sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                            <Box>
-                                <img src={navItem.icon} alt=""/>
-                            </Box>
+                            <Link href={navItem.link}><Typography>{navItem.icon}</Typography></Link>
                             <Typography color={'text.muted'} variant={"caption"}>
                                 {navItem.name}
                             </Typography>

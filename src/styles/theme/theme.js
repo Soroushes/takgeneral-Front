@@ -13,7 +13,7 @@ const theme = createTheme({
         gray: {
             main: "#C0C0C0",
             dark: "#A9A9A9",
-            light: "#D3D3D3",
+            light: "#ccc",
             lighter: "#eee",
             darker: "#808080"
         },
@@ -26,6 +26,22 @@ const theme = createTheme({
         fontFamily: "takgeneral " ,
         allVariants: {
             color: "#505050"
+        }
+    } ,
+    components : {
+        MuiInputLabel : {
+            styleOverrides : {
+                root : {
+                    color : "#909090"
+                }
+            }
+        } ,
+        MuiOutlinedInput : {
+          styleOverrides : {
+              root : `.Mui-disabled{
+               background-color : #eee
+              }`
+          }
         }
     }
 });
