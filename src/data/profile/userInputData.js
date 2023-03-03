@@ -1,6 +1,6 @@
 export const userInputData = [
     {
-        name: "firstName",
+        name: "first_name",
         rules: {
             required: "وارد کردن نام اجباری میباشد",
             pattern: {
@@ -13,7 +13,7 @@ export const userInputData = [
         }
     },
     {
-        name: "lastName",
+        name: "last_name",
         rules: {
             required: "وارد کردن نام خانوادگی اجباری میباشد",
             pattern: {
@@ -26,7 +26,7 @@ export const userInputData = [
         }
     },
     {
-        name: "melliCode",
+        name: "national_code",
         rules: {
             required: "وارد کردن کد ملی اجباری است" ,
             pattern: {
@@ -39,7 +39,7 @@ export const userInputData = [
         }
     },
     {
-        name: "phoneNumber",
+        name: "phone_number",
         inputProps: {
             label: "شماره تماس (اجباری)",
             disabled : true

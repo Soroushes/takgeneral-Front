@@ -4,13 +4,42 @@ import {userInputData} from "../../data/profile/userInputData" ;
 import {Controller, useForm} from "react-hook-form";
 import LoadingButton from "@mui/lab/LoadingButton";
 import {Box} from "@mui/system";
+import {useEffect} from "react";
+import {useAxios} from "../../hooks/useAxios";
 
 const ProfilePage = () => {
-    const {control, handleSubmit, getValues} = useForm();
-
+    const {control, handleSubmit, getValues , setValue} = useForm();
+    const {callApi : getInfo,loading: getLoading} = useAxios() ;
+    const {callApi : putInfo,loading: putLoading} = useAxios() ;
     const submitForm = ()=>{
-        console.log('salam')
+        const data = getValues() ;
+        putInfo({
+            url : "/user-info" ,
+            method : "PUT" ,
+            token : true ,
+            data ,
+            successFunc : (res)=>{
+                console.log(res);
+            }
+        })
     }
+    const getUserInfo = ()=>{
+        getInfo({
+            url : "/user-info" ,
+            method : "GET" ,
+            token : true ,
+            successFunc : (res)=>{
+                for (let key in res){
+                    if(res[key]){
+                        setValue(key , res[key]) ;
+                    }
+                }
+            }
+        })
+    }
+    useEffect(()=>{
+        getUserInfo() ;
+    },[])
     return (
         <PanelLayout>
             <Typography component={'h1'} variant={"h6"} sx={{mb: 2}}>مشخصات فردی</Typography>
