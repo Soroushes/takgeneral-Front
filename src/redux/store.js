@@ -1,8 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
-import userStatusSlice from "./slices/userStatusSlice";
-
+import snakeBarSlice from "./slices/snakeBarSlice";
 export const store = configureStore({
     reducer : {
-       userStatus : userStatusSlice
+        alert : snakeBarSlice
     }
 })

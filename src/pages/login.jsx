@@ -8,8 +8,6 @@ import OtpInput from "react18-input-otp";
 import {useAxios} from "../hooks/useAxios";
 import {useForm, Controller} from "react-hook-form";
 import {useRouter} from "next/router";
-import {useDispatch, useSelector} from "react-redux";
-import {SET_USER_STATUS} from "../redux/slices/userStatusSlice";
 import Link from "next/link";
 
 const boxStyles = {
@@ -20,7 +18,6 @@ const Login = () => {
     const {count, startTimer, isFinished, resetTimer} = useCounter(55);
     const {palette} = useTheme();
     const router = useRouter() ;
-    const dispatch = useDispatch();
     const {control, handleSubmit, getValues} = useForm({
         defaultValues: {
             phoneNumber: "",
@@ -48,8 +45,8 @@ const Login = () => {
             method: 'POST',
             data: {phone_number: '98' + getValues('phoneNumber'), code: getValues('otp')},
             successFunc: (res) => {
-                dispatch(SET_USER_STATUS(res.token.access)) ;
-                router.push('/profile')
+                localStorage.setItem('token' , res.token.access) ;
+                router.push('/profile') ;
             }
         })
     }

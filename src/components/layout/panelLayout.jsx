@@ -6,7 +6,6 @@ import {useRouter} from "next/router";
 import UserIcon from "../icons/user";
 import Link from "next/link";
 import ExitIcon from "../icons/exit";
-import {LOGOUT} from "../../redux/slices/userStatusSlice";
 
 const PanelLayout = ({children})=>{
     const router = useRouter() ;
@@ -18,7 +17,7 @@ const PanelLayout = ({children})=>{
         }
     },[])
     const exitFromAcc = ()=>{
-        dispatch(LOGOUT()) ;
+        localStorage.removeItem('token') ;
         router.push('/');
     }
    return(
