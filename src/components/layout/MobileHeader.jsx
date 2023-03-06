@@ -61,12 +61,10 @@ const MobileHeader = ({token}) => {
                                 </Box>
                                 {headerItem.map((item, id) => {
                                     return (
-                                        <Box>
-                                            <Box sx={{borderBottom: "1px solid #ccc", pb: 2}}>
+                                            <Box sx={{borderBottom: "1px solid #ccc", pb: 2}} key={id}>
                                                 <PompIcon/>
                                                 <Typography>{item.name}</Typography>
                                             </Box>
-                                        </Box>
                                     );
                                 })}
                             </Box>

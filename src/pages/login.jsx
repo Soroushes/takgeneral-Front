@@ -18,7 +18,8 @@ const Login = () => {
     const {count, startTimer, isFinished, resetTimer} = useCounter(55);
     const {palette} = useTheme();
     const router = useRouter() ;
-    const {control, handleSubmit, getValues} = useForm({
+    const dispatch = useDispatch();
+    const {control, handleSubmit, getValues , setValue} = useForm({
         defaultValues: {
             phoneNumber: "",
             otp: ""
@@ -34,6 +35,7 @@ const Login = () => {
             successFunc: (result) => {
                 alert(result.code);
                 setValidate(true);
+                setValue("otp", "") ;
                 resetTimer();
                 startTimer();
             }
@@ -47,6 +49,10 @@ const Login = () => {
             successFunc: (res) => {
                 localStorage.setItem('token' , res.token.access) ;
                 router.push('/profile') ;
+            }
+            , errFunc: (err) => {
+                console.log(err);
+                if(err.response.status === 403) alert('کد را به درستی وارد کنید')
             }
         })
     }
@@ -96,11 +102,18 @@ const Login = () => {
                                         maxLength: {value: 5, message: "لطفا کد ارسال شده را وارد کنید"}
                                     }}
                                     control={control}
-                                    render={({field, fieldState}) => (
+                                    render={({ field, fieldState }) =>
+                                        (
                                         <OtpInput
                                             hasErrored={!!fieldState.error}
                                             value={field.value}
-                                            onChange={field.onChange}
+                                            numInputs={5}
+                                            onChange={(e)=>{
+                                              field.onChange(e);
+                                              if (e.length === 5) {
+                                                  submitForm();
+                                              }
+                                            }}
                                             containerStyle={{
                                                 display: "flex",
                                                 width: "100%",
@@ -137,7 +150,7 @@ const Login = () => {
                                 </Typography>)}
                             </Box>
                             <Typography
-                                onClick={() => setValidate(false)}
+                                onClick={() => {setValidate(false)}}
                                 sx={{fontSize: 12, color: "red", cursor: "pointer"}}>
                                 اصلاح شماره موبایل
                             </Typography>
