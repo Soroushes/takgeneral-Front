@@ -6,11 +6,14 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import {Box} from "@mui/system";
 import {useEffect} from "react";
 import {useAxios} from "../../hooks/useAxios";
+import {useDispatch} from "react-redux";
+import {SET_ALERT} from "../../redux/slices/snakeBarSlice";
 
 const ProfilePage = () => {
     const {control, handleSubmit, getValues , setValue} = useForm();
     const {callApi : getInfo,loading: getLoading} = useAxios() ;
     const {callApi : putInfo,loading: putLoading} = useAxios() ;
+    const dispatch = useDispatch() ;
     const submitForm = ()=>{
         const data = getValues() ;
         putInfo({
@@ -18,8 +21,8 @@ const ProfilePage = () => {
             method : "PUT" ,
             token : true ,
             data ,
-            successFunc : (res)=>{
-                console.log(res);
+            successFunc : ()=>{
+                dispatch(SET_ALERT({title : "اطلاعات با موفقیت ثبت شد" , show : true , severity : "success"}))
             }
         })
     }
@@ -69,7 +72,7 @@ const ProfilePage = () => {
                 }
                 <Box sx={{width : "100%" , mb : 2}}>
                     <Grid xs={12} md={5.7} item>
-                        <LoadingButton type={'submit'} variant={'contained'} sx={{p : 1.5}} fullWidth >ثبت مشخصات</LoadingButton>
+                        <LoadingButton loading={putLoading} type={'submit'} variant={'contained'} sx={{p : 1.5}} fullWidth >ثبت مشخصات</LoadingButton>
                     </Grid>
                 </Box>
             </Grid>

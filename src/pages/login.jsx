@@ -9,6 +9,8 @@ import {useAxios} from "../hooks/useAxios";
 import {useForm, Controller} from "react-hook-form";
 import {useRouter} from "next/router";
 import Link from "next/link";
+import {SET_ALERT} from "../redux/slices/snakeBarSlice";
+import {useDispatch} from "react-redux";
 
 const boxStyles = {
     width: 450, px: 3, background: "white", borderRadius: 3, position: "relative",
@@ -18,7 +20,7 @@ const Login = () => {
     const {count, startTimer, isFinished, resetTimer} = useCounter(55);
     const {palette} = useTheme();
     const router = useRouter() ;
-    const dispatch = useDispatch();
+    const dispatch = useDispatch() ;
     const {control, handleSubmit, getValues , setValue} = useForm({
         defaultValues: {
             phoneNumber: "",
@@ -51,8 +53,9 @@ const Login = () => {
                 router.push('/profile') ;
             }
             , errFunc: (err) => {
-                console.log(err);
-                if(err.response.status === 403) alert('کد را به درستی وارد کنید')
+                if(err.response.status === 403){
+                    dispatch(SET_ALERT({show : true , title :"کد وارد شده صحیح نمیباشد" , severity : "error"}))
+                }
             }
         })
     }
@@ -108,9 +111,9 @@ const Login = () => {
                                             hasErrored={!!fieldState.error}
                                             value={field.value}
                                             numInputs={5}
-                                            onChange={(e)=>{
-                                              field.onChange(e);
-                                              if (e.length === 5) {
+                                            onChange={(value)=>{
+                                              field.onChange(value);
+                                              if (value.length === 5) {
                                                   submitForm();
                                               }
                                             }}

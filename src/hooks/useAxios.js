@@ -19,7 +19,6 @@ export const useAxios = () => {
             successFunc?.(result);
         } catch (err) {
             errFunc?.(err);
-            console.log(err)
         }
         setLoading(false)
     }

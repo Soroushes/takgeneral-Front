@@ -2,15 +2,18 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
     title : "" ,
     severity : "" ,
-    hideDuration : "3000" ,
+    hideDuration : "2000" ,
     show : false ,
 }
 const snakeBarSlice = createSlice({
     initialState,
     name: "SnakeBar",
     reducers: {
-        SET_ALERT: () => {
-
+        SET_ALERT: (state, action) => {
+            return {
+                ...state ,
+                ...action.payload
+            }
         }
     }
 })
