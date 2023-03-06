@@ -11,6 +11,7 @@ import {Typography} from "@mui/material";
 import Drawer from "@mui/material/Drawer";
 import {useState} from "react";
 import PompIcon from "../icons/pomp";
+import { headerItem } from "../../data/profile/userInputData";
 const MobileHeader = () => {
   const {token} = useSelector((state) => state.userStatus);
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
@@ -23,28 +24,7 @@ const MobileHeader = () => {
     }
     setDrawerIsOpen(prev=>!prev);
   };
-  const drawerItems = [
-    {
-      name: "پمپ و تجهیزات جانبی",
-      
-      link: "/",
-    },
-    {
-      name: "ابزار دقیق",
-      
-      link: "/",
-    },
-    {
-      name: "شیر برقی کاز",
-      
-      link: "/",
-    },
-    {
-      name: "فلومتر",
-      
-      link: "/",
-    },
-  ];
+  
   return (
     <Box>
       <AppBar sx={{backgroundColor: "#fff", height: "80px"}}>
@@ -81,20 +61,16 @@ const MobileHeader = () => {
                       alt="Takgeneral Logo"
                     />
                   </Box>
-                  {
-                    drawerItems.map((item , id)=>{
-                      return (
-                        <Box>
-                          <Box sx={{borderBottom: "1px solid #ccc", pb: 2}}>
-                            <PompIcon/>
-                            <Typography>{item.name}</Typography>
-                          </Box>
-                          
-                         
+                  {headerItem.map((item, id) => {
+                    return (
+                      <Box>
+                        <Box sx={{borderBottom: "1px solid #ccc", pb: 2}}>
+                          <PompIcon />
+                          <Typography>{item.name}</Typography>
                         </Box>
-                      );
-                    })
-                  }
+                      </Box>
+                    );
+                  })}
                   {/* <Box sx={{borderBottom: "1px solid #ccc", pb: 2 }}>
                     <Typography></Typography>
                   </Box>

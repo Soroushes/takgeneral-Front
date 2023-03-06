@@ -58,3 +58,25 @@ export const userInputData = [
         }
     }
 ]
+export const headerItem = [
+    {
+        name: "پمپ و تجهیزات جانبی",
+
+        link: "/",
+    },
+    {
+        name: "ابزار دقیق",
+
+        link: "/",
+    },
+    {
+        name: "شیر برقی کاز",
+
+        link: "/",
+    },
+    {
+        name: "فلومتر",
+
+        link: "/",
+    },
+];
