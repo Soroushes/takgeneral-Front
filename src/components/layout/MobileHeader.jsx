@@ -63,7 +63,7 @@ const MobileHeader = () => {
                   </Box>
                   {headerItem.map((item, id) => {
                     return (
-                      <Box>
+                      <Box key={item.name}>
                         <Box sx={{borderBottom: "1px solid #ccc", pb: 2}}>
                           <PompIcon />
                           <Typography>{item.name}</Typography>
@@ -71,18 +71,6 @@ const MobileHeader = () => {
                       </Box>
                     );
                   })}
-                  {/* <Box sx={{borderBottom: "1px solid #ccc", pb: 2 }}>
-                    <Typography></Typography>
-                  </Box>
-                  <Box sx={{borderBottom: "1px solid #ccc", pb: 2}}>
-                    <Typography></Typography>
-                  </Box>
-                  <Box sx={{borderBottom: "1px solid #ccc", pb: 2}}>
-                    <Typography></Typography>
-                  </Box>
-                  <Box sx={{borderBottom: "1px solid #ccc", pb: 2}}>
-                    <Typography></Typography>
-                  </Box> */}
                 </Box>
               </Drawer>
             </>

@@ -11,7 +11,6 @@ import {useRouter} from "next/router";
 import {useDispatch, useSelector} from "react-redux";
 import {SET_USER_STATUS} from "../redux/slices/userStatusSlice";
 import Link from "next/link";
-
 const boxStyles = {
     width: 450, px: 3, background: "white", borderRadius: 3, position: "relative",
 };
@@ -21,7 +20,7 @@ const Login = () => {
     const {palette} = useTheme();
     const router = useRouter() ;
     const dispatch = useDispatch();
-    const {control, handleSubmit, getValues} = useForm({
+    const {control, handleSubmit, getValues , setValue} = useForm({
         defaultValues: {
             phoneNumber: "",
             otp: ""
@@ -48,8 +47,13 @@ const Login = () => {
             method: 'POST',
             data: {phone_number: '98' + getValues('phoneNumber'), code: getValues('otp')},
             successFunc: (res) => {
+                console.log(res)
                 dispatch(SET_USER_STATUS(res.token.access)) ;
                 router.push('/profile')
+            }
+            , errFunc: (err) => {
+                console.log(err);
+                if(err.response.status === 403) alert('کد را به درستی وارد کنید')
             }
         })
     }
@@ -99,11 +103,19 @@ const Login = () => {
                                         maxLength: {value: 5, message: "لطفا کد ارسال شده را وارد کنید"}
                                     }}
                                     control={control}
-                                    render={({field, fieldState}) => (
+                                    render={({ field, fieldState }) =>
+                                        (
                                         <OtpInput
                                             hasErrored={!!fieldState.error}
                                             value={field.value}
-                                            onChange={field.onChange}
+                                            numInputs={5}
+                                            onChange={(e)=>{
+                                              console.log(e.length);
+                                              field.onChange(e);
+                                              if (e.length === 5) {
+                                                  submitForm();
+                                              }
+                                            }}
                                             containerStyle={{
                                                 display: "flex",
                                                 width: "100%",
@@ -117,7 +129,6 @@ const Login = () => {
                                                 borderRadius: "10px",
                                                 border: 'none'
                                             }}
-                                            numInputs={5}
                                             focusStyle={{border: `1px solid ${palette.primary.main}`}}
                                             shouldAutoFocus
                                             isInputNum={true}
@@ -140,7 +151,8 @@ const Login = () => {
                                 </Typography>)}
                             </Box>
                             <Typography
-                                onClick={() => setValidate(false)}
+                                onClick={() => {setValidate(false)
+                                setValue("otp", " ");}}
                                 sx={{fontSize: 12, color: "red", cursor: "pointer"}}>
                                 اصلاح شماره موبایل
                             </Typography>
@@ -162,6 +174,7 @@ const Login = () => {
                                             let phoneNumber = e.target.value.replace(/^[0-8].*/, '');
                                             phoneNumber = phoneNumber.replace(/\D+/, '');
                                             field.onChange(phoneNumber)
+                                            
                                         }}
                                         type={'tel'}
                                         placeholder={'9xxxxxxxxx'}
