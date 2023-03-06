@@ -110,7 +110,6 @@ const Login = () => {
                                         <OtpInput
                                             hasErrored={!!fieldState.error}
                                             value={field.value}
-                                            numInputs={5}
                                             onChange={(value)=>{
                                               field.onChange(value);
                                               if (value.length === 5) {
