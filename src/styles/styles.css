@@ -4,12 +4,6 @@
     src: url('./font/IRANSans.woff2') format('woff2'),
     url('./font/IRANSans.woff') format('woff');
 }
-html , body , #__next{
-    height: 100%;
-}
-body{
-    overflow-y: scroll;
-}
 a {
     text-decoration: none;
     color: inherit;

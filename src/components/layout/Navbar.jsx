@@ -31,7 +31,6 @@ const Navbar = () => {
         <Box
             sx={{
                 display: "flex",
-                flexDirection: "row-reverse",
                 justifyContent: "space-between",
                 px : 3 ,
                 alignItems: "center",
