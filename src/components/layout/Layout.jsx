@@ -17,15 +17,11 @@ const Layout = ({children}) => {
     }, [pathname])
     return (
         <>
-            <Box sx={{direction: 'rtl', height: "100%"}}>
-                <Box sx={{direction: "ltr", height: "100%", pt: "80px"}}>
-                    <Box sx={{display: showLayout ? {xs: "block", md: 'none'} : "none"}}>
-                        <MobileHeader token={token}/>
-                    </Box>
-                    <Box sx={{pb: "80px" , height : "100%"}}>
-                        {children}
-                    </Box>
-                </Box>
+            <Box sx={{display: showLayout ? {xs: "block", md: 'none'} : "none"}}>
+                <MobileHeader token={token}/>
+            </Box>
+            <Box sx={{py: "80px"}}>
+                {children}
             </Box>
             <Box sx={{
                 position: "fixed",

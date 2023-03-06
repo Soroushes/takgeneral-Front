@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
     title : "" ,
     severity : "" ,
-    hideDuration : "2000" ,
+    hideDuration : 2000 ,
     show : false ,
 }
 const snakeBarSlice = createSlice({
