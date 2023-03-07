@@ -10,7 +10,7 @@ import Link from "next/link";
 import {useRouter} from "next/router";
 
 const DesktopHeader = ({token}) => {
-    const router = useRouter() ;
+    const router = useRouter();
     return (
         <AppBar sx={{backgroundColor: "#fff", height: "130px"}}>
             <Toolbar sx={{height: "100%"}}>
@@ -43,7 +43,7 @@ const DesktopHeader = ({token}) => {
                                     fullWidth={true}
                                     placeholder={'جستجو در تک جنرال'}
                                     InputProps={{
-                                        sx : {backgroundColor : "btnGray.main"} ,
+                                        sx: {backgroundColor: "btnGray.main", height: "100%"},
                                         startAdornment: (
                                             <InputAdornment position="start">
                                                 <SearchOutlined/>
@@ -53,7 +53,8 @@ const DesktopHeader = ({token}) => {
                                 />
                             </Box>
                             <Box sx={{display: "flex", gap: 2}}>
-                                <Button onClick={()=>router.push('/login')} sx={{py: 1, px: 3, gap: 1}} variant={'contained'} color={'btnGray'}>
+                                <Button onClick={() => router.push('/login')} sx={{py: 1, px: 3, gap: 1}}
+                                        variant={'contained'} color={'btnGray'}>
                                     <UserIcon/>
                                     ورود و عضویت
                                 </Button>
