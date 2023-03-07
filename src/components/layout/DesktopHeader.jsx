@@ -39,16 +39,16 @@ const DesktopHeader = ({token}) => {
                             <Box sx={{width: "40%"}}>
                                 <TextField
                                     size={'medium'}
-                                    sx={{backgroundColor: "btnGray.main"}}
                                     variant={'outlined'}
                                     fullWidth={true}
                                     placeholder={'جستجو در تک جنرال'}
                                     InputProps={{
+                                        sx : {backgroundColor : "btnGray.main"} ,
                                         startAdornment: (
                                             <InputAdornment position="start">
                                                 <SearchOutlined/>
                                             </InputAdornment>
-                                        )
+                                        ),
                                     }}
                                 />
                             </Box>

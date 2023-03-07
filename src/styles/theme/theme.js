@@ -42,11 +42,14 @@ const theme = createTheme({
         } ,
         MuiOutlinedInput : {
           styleOverrides : {
-              root : `.Mui-disabled{
+              root : `
+              border-radius : 15px ;
+              overflow : hidden ;
+              .Mui-disabled{
                background-color : #eee
               }`
           }
-        }
+        } ,
     }
 });
 export default theme;

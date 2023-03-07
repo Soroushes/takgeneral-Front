@@ -21,7 +21,7 @@ const PanelLayout = ({children})=>{
         router.push('/');
     }
    return(
-       <Container disableGutters maxWidth={'lg'} sx={{mt : 2}}>
+       <Container disableGutters maxWidth={'lg'} sx={{mt : 5}}>
            <Grid container justifyContent={'space-between'} >
                <Grid sx={{position : "relative"}} xs={2} item>
                    <Box sx={{position : "absolute" , cursor : "pointer" , display : "flex" , flexDirection : "column" , top : 0 , left : 0 , right : 0 , backgroundColor : 'gray.lighter', borderRadius : 4 , p : 2}}>
