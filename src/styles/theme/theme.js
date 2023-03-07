@@ -17,6 +17,10 @@ const theme = createTheme({
             lighter: "#eee",
             darker: "#808080"
         },
+        btnGray : {
+            main : "#EFF1F5" ,
+            contrastText : "#505050"
+        },
         text: {
             main: "#505050",
             muted: "#707070"

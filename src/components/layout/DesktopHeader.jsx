@@ -2,117 +2,90 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import {Box} from "@mui/system";
 import {headerItem} from "../../data/profile/userInputData";
-import {Typography, useTheme} from "@mui/material";
-import Stack from "@mui/material/Stack";
-import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
-import SearchOutlined from "../icons/searchOutlined";
+import {Button, Container, InputAdornment, TextField, Typography} from "@mui/material";
 import UserIcon from "../icons/user";
 import ShopIcon from '../icons/shopIcon.svg';
+import SearchOutlined from "../../components/icons/searchOutlined";
+import Link from "next/link";
+import {useRouter} from "next/router";
+
 const DesktopHeader = ({token}) => {
-  const {palette} = useTheme();
-  return (
-    <AppBar sx={{backgroundColor: "#fff", height: "150px", pt: 2}}>
-      <Toolbar sx={{height: "100%"}}>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
-            height: "100%",
-            justifyContent: "space-between",
-          }}>
-          <Box
-            sx={{
-              height: "40%",
-              display: "flex",
-              justifyContent: "space-between",
-            }}>
-            <Box sx={{height: "100%"}}>
-              <img
-                style={{height: "100%"}}
-                src="../logo.png"
-                alt="Takgeneral Logo"
-              />
-            </Box>
-            <Box>
-              <Stack spacing={2} sx={{width: 300}}>
-                <Autocomplete
-                  sx={{backgroundColor: "#EFF1F5", border: "1px solid #D0DCEA" , borderRadius: 1}}
-                  freeSolo
-                  id="free-solo-2-demo"
-                  disableClearable
-                  //options={top100Films.map((option) => option.title)}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      label={
-                        <Box sx={{display: "flex", gap: 1}}>
-                          <SearchOutlined />
-                          <Typography
+    const router = useRouter() ;
+    return (
+        <AppBar sx={{backgroundColor: "#fff", height: "130px"}}>
+            <Toolbar sx={{height: "100%"}}>
+                <Container maxWidth={'xl'} sx={{height: "100%"}}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            width: "100%",
+                            height: "100%",
+                            justifyContent: "space-evenly",
+                        }}>
+                        <Box
                             sx={{
-                              color: palette.text.muted,
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center"
                             }}>
-                            جستجو در تکجنرال
-                          </Typography>
+                            <Box sx={{width: '12%'}}>
+                                <img
+                                    style={{width: "100%"}}
+                                    src="../logo.png"
+                                    alt="Takgeneral Logo"
+                                />
+                            </Box>
+                            <Box sx={{width: "40%"}}>
+                                <TextField
+                                    size={'medium'}
+                                    sx={{backgroundColor: "btnGray.main"}}
+                                    variant={'outlined'}
+                                    fullWidth={true}
+                                    placeholder={'جستجو در تک جنرال'}
+                                    InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                <SearchOutlined/>
+                                            </InputAdornment>
+                                        )
+                                    }}
+                                />
+                            </Box>
+                            <Box sx={{display: "flex", gap: 2}}>
+                                <Button onClick={()=>router.push('/login')} sx={{py: 1, px: 3, gap: 1}} variant={'contained'} color={'btnGray'}>
+                                    <UserIcon/>
+                                    ورود و عضویت
+                                </Button>
+                                <Button sx={{py: 1}} variant={'contained'} color={'btnGray'}>
+                                    <ShopIcon/>
+                                </Button>
+                            </Box>
                         </Box>
-                      }
-                      InputProps={{
-                        ...params.InputProps,
-                        type: "search",
-                      }}
-                    />
-                  )}
-                />
-              </Stack>
-            </Box>
-            <Box sx={{display: "flex", gap: 2, alignItems: "center"}}>
-              <Box
-                sx={{
-                  border: "1px solid #ccc",
-                  display: "flex",
-                  alignItems: "center",
-                  backgroundColor: "#EFF1F5",
-                  border: "1px solid #D0DCEA",
-                    borderRadius: 1,
-                  p: 1
-                }}>
-                <Typography>
-                  <UserIcon />
-                </Typography>
-                <Typography>ورود / عضویت</Typography>
-              </Box>
-              <Typography
-                sx={{backgroundColor: "#EFF1F5", border: "1px solid #D0DCEA" ,borderRadius: 1 , p:1.3 ,px : 1.5,  display : 'flex' , alignItems : 'center'}}>
-                <ShopIcon />
-              </Typography>
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              height: "50%",
-              alignItems: "center",
-              gap: 3,
-            }}>
-            {headerItem.map((item) => {
-              return (
-                <Box
-                  sx={{
-                    display: "flex",
-                    height: "50%",
-                    gap: 1,
-                    alignItems: "center ",
-                  }}>
-                  <Box>{item.icon}</Box>
-                  <Typography>{item.name}</Typography>
-                </Box>
-              );
-            })}
-          </Box>
-        </Box>
-      </Toolbar>
-    </AppBar>
-  );
+                        <Box
+                            sx={{
+                                display: "flex",
+                                gap: 6,
+                            }}>
+                            {headerItem.map((item) => {
+                                return (
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            gap: 1,
+                                            alignItems: "center ",
+                                        }}>
+                                        <Box>{item.icon}</Box>
+                                        <Typography>{item.name}</Typography>
+                                    </Box>
+                                );
+                            })}
+                        </Box>
+                    </Box>
+                </Container>
+            </Toolbar>
+        </AppBar>
+
+    );
 };
 export default DesktopHeader;
