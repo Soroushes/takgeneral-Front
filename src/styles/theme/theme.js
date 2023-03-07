@@ -17,9 +17,9 @@ const theme = createTheme({
             lighter: "#eee",
             darker: "#808080"
         },
-        btnGray : {
-            main : "#EFF1F5" ,
-            contrastText : "#505050"
+        btnGray: {
+            main: "#EFF1F5",
+            contrastText: "#505050"
         },
         text: {
             main: "#505050",
@@ -27,29 +27,30 @@ const theme = createTheme({
         }
     },
     typography: {
-        fontFamily: "takgeneral " ,
+        fontFamily: "takgeneral ",
         allVariants: {
             color: "#505050"
         }
-    } ,
-    components : {
-        MuiInputLabel : {
-            styleOverrides : {
-                root : {
-                    color : "#909090"
+    },
+    components: {
+        MuiInputLabel: {
+            styleOverrides: {
+                root: {
+                    color: "#909090"
                 }
             }
-        } ,
-        MuiOutlinedInput : {
-          styleOverrides : {
-              root : `
-              border-radius : 15px ;
-              overflow : hidden ;
-              .Mui-disabled{
-               background-color : #eee
-              }`
-          }
-        } ,
+        },
+        MuiOutlinedInput: {
+            styleOverrides: {
+                root: {
+                    borderRadius : "15px" ,
+                    "&.Mui-disabled" : {
+                        backgroundColor : "#eee"
+                    }
+                }
+
+            }
+        }
     }
 });
 export default theme;
