@@ -21,13 +21,12 @@ const ProfilePage = () => {
             method : "PUT" ,
             token : true ,
             data ,
-            successFunc : (res)=>{
+            successFunc : ()=>{
                 dispatch(SET_ALERT({ title: "اطلاعات با موفقیت ثبت شد", show: true, severity: "success" }))
-                console.log(res)
             },
             errFunc: (err) => {
-                if (err.response.status === 400) {
-                    dispatch(SET_ALERT({ title: "حساب دیگری با این ایمیل وجود دارد", show: true, severity: "success" }))
+                if (err.response.status === 400 && err.response.data) {
+                    dispatch(SET_ALERT({ title: "حساب دیگری با این ایمیل وجود دارد", show: true, severity: "warning" }))
                 }
             }
         })
