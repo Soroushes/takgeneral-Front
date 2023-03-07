@@ -1,3 +1,7 @@
+import GasTapIcon from '../../components/icons/gasTapIcon.svg';
+import ExactToolIcon from '../../components/icons/exactToolIcon.svg';
+import FlowMeterIcon from '../../components/icons/flowMeterIcon.svg';
+import PompIcon from '../../components/icons/pompIcon.svg';
 export const userInputData = [
     {
         name: "first_name",
@@ -62,21 +66,21 @@ export const headerItem = [
     {
         name: "پمپ و تجهیزات جانبی",
 
-        link: "/",
+        icon: <GasTapIcon />,
     },
     {
         name: "ابزار دقیق",
 
-        link: "/",
+        icon: <ExactToolIcon />,
     },
     {
         name: "شیر برقی کاز",
 
-        link: "/",
+        icon: <GasTapIcon />,
     },
     {
         name: "فلومتر",
 
-        link: "/",
+        icon: <FlowMeterIcon />,
     },
 ];

@@ -3,13 +3,11 @@ import Toolbar from "@mui/material/Toolbar";
 import {Box} from "@mui/system";
 import LoginIcon from "../icons/LoginIcon.svg";
 import HamburgerMenu from "../icons/hamburgerMenu.svg";
-
 import Link from "next/link";
 import UserIcon from "../icons/user";
 import {Typography} from "@mui/material";
 import Drawer from "@mui/material/Drawer";
 import {useState} from "react";
-import PompIcon from "../icons/pomp";
 import {headerItem} from "../../data/profile/userInputData";
 
 const MobileHeader = ({token}) => {
@@ -46,7 +44,7 @@ const MobileHeader = ({token}) => {
                                 sx={{
                                     display: "flex",
                                     justifyContent: "center",
-                                    alignItems: "end",
+                                    alignItems: "start",
                                     flexDirection: "column",
                                     gap: 2,
                                     width: "300px",
@@ -61,10 +59,18 @@ const MobileHeader = ({token}) => {
                                 </Box>
                                 {headerItem.map((item, id) => {
                                     return (
-                                        <Box sx={{borderBottom: "1px solid #ccc", pb: 2}} key={id}>
-                                            <PompIcon/>
-                                            <Typography>{item.name}</Typography>
-                                        </Box>
+                                      <Box
+                                        sx={{
+                                            borderBottom: "1px solid #ccc",
+                                            pb: 2,
+                                            display : 'flex' ,
+                                            gap : 1 , 
+                                            alignItems : 'center'
+                                        }}
+                                        key={id}>
+                                        <Typography>{item.icon}</Typography>
+                                        <Typography>{item.name}</Typography>
+                                      </Box>
                                     );
                                 })}
                             </Box>
