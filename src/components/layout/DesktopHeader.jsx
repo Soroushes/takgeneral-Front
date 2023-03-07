@@ -83,7 +83,7 @@ const DesktopHeader = ({token}) => {
                 <Typography>ورود / عضویت</Typography>
               </Box>
               <Typography
-                sx={{backgroundColor: "#EFF1F5", border: "1px solid #D0DCEA" ,borderRadius: 1 , p:1.2 ,px : 1.5,  display : 'flex' , alignItems : 'center'}}>
+                sx={{backgroundColor: "#EFF1F5", border: "1px solid #D0DCEA" ,borderRadius: 1 , p:1.3 ,px : 1.5,  display : 'flex' , alignItems : 'center'}}>
                 <ShopIcon />
               </Typography>
             </Box>
