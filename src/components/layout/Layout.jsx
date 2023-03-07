@@ -24,7 +24,7 @@ const Layout = ({children}) => {
         <Box sx={{display: showLayout ? {xs: "none", md: "block"} : "none"}}>
           <DesktopHeader token={token} />
         </Box>
-        <Box sx={{py: "80px"}}>{children}</Box>
+        <Box sx={{py:{xs : "80px" , md : "130px"}}}>{children}</Box>
         <Box
           sx={{
             position: "fixed",
