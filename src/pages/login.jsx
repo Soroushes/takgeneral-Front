@@ -73,7 +73,7 @@ const Login = () => {
         }
     },[])
     return (
-        <Container maxWidth={"lg"} sx={{height: "100%", p: 0}} disableGutters>
+        <Container maxWidth={"lg"} sx={{height: "75vh", p: 0}} disableGutters>
             <Grid sx={{height: "100%"}} container justifyContent={"center"} alignItems={"center"}>
                 <Box component={'form'} sx={boxStyles} onSubmit={handleSubmit(submitForm)}>
                     <Box sx={{width: "50%", m: "auto", mb: 6}}>
