@@ -17,28 +17,28 @@ const Layout = ({children}) => {
         setToken(localStorage.getItem('token'));
     }, [pathname])
     return (
-      <>
-        <Box sx={{display: showLayout ? {xs: "block", md: "none"} : "none"}}>
-          <MobileHeader token={token} />
-        </Box>
-        <Box sx={{display: showLayout ? {xs: "none", md: "block"} : "none"}}>
-          <DesktopHeader token={token} />
-        </Box>
-        <Box sx={{py:{xs : "80px" , md : "130px"}}}>{children}</Box>
-        <Box
-          sx={{
-            position: "fixed",
-            zIndex: 1200,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: 80,
-            display: showLayout ? {xs: "block", md: "none"} : "none",
-          }}>
-          <Navbar />
-        </Box>
-        <AlertSnakeBar />
-      </>
+        <>
+            <Box sx={{display: showLayout ? {xs: "block", md: "none"} : "none"}}>
+                <MobileHeader token={token}/>
+            </Box>
+            <Box sx={{display: showLayout ? {xs: "none", md: "block"} : "none"}}>
+                <DesktopHeader token={token}/>
+            </Box>
+            <Box sx={{pt: {xs: "80px", md: "130px"} , pb : {xs : "80px" , md : 0}}}>{children}</Box>
+            <Box
+                sx={{
+                    position: "fixed",
+                    zIndex: 1200,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: "80px",
+                    display: showLayout ? {xs: "block", md: "none"} : "none",
+                }}>
+                <Navbar/>
+            </Box>
+            <AlertSnakeBar/>
+        </>
     );
 }
 export default Layout;

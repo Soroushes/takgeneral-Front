@@ -21,12 +21,11 @@ export const useAxios = () => {
             successFunc?.(result);
         } catch (err) {
             errFunc?.(err);
-            console.log(err)
             if (err?.response?.status === 429) {
-                dispatch(SET_ALERT({ show: true, title: "لطفا تا لحظاتی دیگر صبر کنید", severity: "error" }))
+                dispatch(SET_ALERT({ show: true, title: "لطفا لحظاتی دیگر امتحان کنید", severity: "error" }))
             }
             if (err?.request?.status === 0) {
-                dispatch(SET_ALERT({ show: true, title: "لطفا به اینترنت متصل شوید", severity: "error" }))                
+                dispatch(SET_ALERT({ show: true, title: "وضعیت اینترنت خود را برسی کنید", severity: "error" }))
             }
         }
         setLoading(false)

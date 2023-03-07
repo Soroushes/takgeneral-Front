@@ -93,7 +93,7 @@ const Login = () => {
                             سلام!
                         </Typography>)}
                         <Typography variant={"button"} component={"p"}>
-                            {validate ? `کد تایید برای شماره ی ${'9336273696'} پیامک شد` : ` شماره موبایل خود را وارد کنید`}
+                            {validate ? `کد تایید برای شماره ی ${getValues('phoneNumber')} پیامک شد` : ` شماره موبایل خود را وارد کنید`}
                         </Typography>
                         {validate ? (<>
                             <Box sx={{display: "flex", justifyContent: "space-between"}}>
