@@ -13,7 +13,7 @@ export const headerItem = [
         icon: <ExactToolIcon/>,
     },
     {
-        name: "شیر برقی کاز",
+        name: "شیر برقی گاز",
 
         icon: <ShirbarghiIcon/>,
     },
