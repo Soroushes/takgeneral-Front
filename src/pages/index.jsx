@@ -1,7 +1,9 @@
 import {Typography} from "@mui/material";
-
+import Slider from "../components/home/Slider";
 const Home = ()=> {
-  return (<Typography>home page :)</Typography>) ;
+  return (
+    <Slider/>
+  ) ;
 }
 export default Home ;
 
