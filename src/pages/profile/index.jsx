@@ -28,6 +28,7 @@ const ProfilePage = () => {
                 if (err.response.status === 400 && err.response.data) {
                     dispatch(SET_ALERT({ title: "حساب دیگری با این ایمیل وجود دارد", show: true, severity: "warning" }))
                 }
+                
             }
         })
     }
