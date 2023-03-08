@@ -1,6 +1,6 @@
 import {Box, Typography} from '@mui/material';
 import ContactIcon from '../icons/contactIcon';
-import HomeIcon from '../icons/homeIcon.svg';
+import HomeIcon from '../icons/homeIcon';
 import BasketIcon from "../icons/basketIcon";
 import SearchOutlinedIcon from "../icons/searchOutlined";
 import Link from "next/link";

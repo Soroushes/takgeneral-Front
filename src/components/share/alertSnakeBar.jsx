@@ -10,15 +10,23 @@ const AlertSnakeBar = () => {
         if (reason === 'clickaway') {
             return;
         }
-        dispatch(SET_ALERT({show : false})) ;
+        dispatch(SET_ALERT({show: false}));
     };
     return (
-        <Snackbar anchorOrigin={{vertical: "bottom", horizontal: "center"}} sx={{bottom: {xs: 100, md: '85%'}}}
-                  open={show} autoHideDuration={hideDuration} onClose={handleClose}>
-            <Alert onClose={handleClose} severity={severity}>
-                {title}
-            </Alert>
-        </Snackbar>
+        <>
+            <Snackbar anchorOrigin={{vertical: "bottom", horizontal: "right"}} sx={{display: {xs: 'none', md: "flex"}}}
+                      open={show} autoHideDuration={hideDuration} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={severity}>
+                    {title}
+                </Alert>
+            </Snackbar>
+            <Snackbar anchorOrigin={{vertical: "bottom", horizontal: "center"}} sx={{display: {xs: 'flex', md: "none"}}}
+                      open={show} autoHideDuration={hideDuration} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={severity}>
+                    {title}
+                </Alert>
+            </Snackbar>
+        </>
     )
 }
 export default AlertSnakeBar;
