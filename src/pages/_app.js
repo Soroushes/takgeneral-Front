@@ -6,8 +6,7 @@ import {CacheProvider} from '@emotion/react';
 import createCache from '@emotion/cache';
 import {prefixer} from 'stylis';
 import Layout from "../components/layout/Layout";
-import {useEffect} from "react";
-import {Provider, useDispatch} from "react-redux";
+import {Provider} from "react-redux";
 import {store} from "../redux/store";
 
 // Create rtl cache
