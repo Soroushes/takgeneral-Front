@@ -23,19 +23,19 @@ const Slider = () => {
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}>
             <SwiperSlide>
-                <img style={{width: "100%"}} src="../test.png"/>
+                <img style={{width: "100%"}} src="../sliderTest.png"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img style={{width: "100%"}} src="../test.png"/>
+                <img style={{width: "100%"}} src="../sliderTest.png"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img style={{width: "100%"}} src="../test.png"/>
+                <img style={{width: "100%"}} src="../sliderTest.png"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img style={{width: "100%"}} src="../test.png"/>
+                <img style={{width: "100%"}} src="../sliderTest.png"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img style={{width: "100%"}} src="../test.png"/>
+                <img style={{width: "100%"}} src="../sliderTest.png"/>
             </SwiperSlide>
         </Swiper>
     );

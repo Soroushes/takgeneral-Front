@@ -5,11 +5,9 @@ import LoginIcon from "../icons/LoginIcon";
 import HamburgerMenu from "../icons/hamburgerMenu.svg";
 import Link from "next/link";
 import UserIcon from "../icons/user";
-import {Typography} from "@mui/material";
-import Drawer from "@mui/material/Drawer";
+import {Drawer, Typography} from "@mui/material";
 import {useState} from "react";
 import {headerItem} from "../../data/header";
-
 const MobileHeader = ({token}) => {
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
     const toggleDrawer = (event) => {
@@ -23,9 +21,10 @@ const MobileHeader = ({token}) => {
     };
 
     return (
-        <AppBar sx={{backgroundColor: "#fff", height: "80px"}}>
+        <AppBar sx={{backgroundColor: "#fff", height: "65px"}}>
             <Toolbar sx={{height: "100%"}}>
                 <Box
+
                     sx={{
                         display: "flex",
                         height: "100%",
@@ -37,7 +36,9 @@ const MobileHeader = ({token}) => {
                     <Drawer
                         anchor={"left"}
                         open={drawerIsOpen}
-                        onClose={() => setDrawerIsOpen(false)}>
+                        onClose={()=>setDrawerIsOpen(false)}
+                        transitionDuration={500}
+                    >
                         <Box
                             sx={{
                                 display: "flex",

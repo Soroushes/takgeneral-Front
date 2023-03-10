@@ -1,4 +1,3 @@
-import {Typography} from "@mui/material";
 import Slider from "../components/home/Slider";
 const Home = ()=> {
   return (

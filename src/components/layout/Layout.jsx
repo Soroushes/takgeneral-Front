@@ -24,7 +24,7 @@ const Layout = ({children}) => {
             <Box sx={{display: showLayout ? {xs: "none", md: "block"} : "none"}}>
                 <DesktopHeader token={token}/>
             </Box>
-            <Box sx={{pt: {xs: "80px", md: "130px"} , pb : {xs : "80px" , md : 0}}}>{children}</Box>
+            <Box sx={{pt: {xs: "65px", md: "130px"} , pb : {xs : "65px" , md : 0}}}>{children}</Box>
             <Box
                 sx={{
                     position: "fixed",
@@ -32,7 +32,7 @@ const Layout = ({children}) => {
                     bottom: 0,
                     left: 0,
                     right: 0,
-                    height: "80px",
+                    height: "65px",
                     display: showLayout ? {xs: "block", md: "none"} : "none",
                 }}>
                 <Navbar/>
