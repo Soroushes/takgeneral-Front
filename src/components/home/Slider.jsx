@@ -8,11 +8,11 @@ import "swiper/css/pagination";
 
 import "swiper/css";
 
-const Slider = () => {
+const Slider = ({slides}) => {
     return (
         <Swiper
             modules={[Navigation, Pagination]}
-            spaceBetween={50}
+            spaceBetween={0}
             slidesPerView={1}
             navigation
             pagination={{
@@ -22,7 +22,16 @@ const Slider = () => {
             }}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}>
-            <SwiperSlide>
+            {
+                slides.map((slide)=>{
+                    return(
+                        <SwiperSlide key={slide.id}>
+                            <img style={{ width: "100%" }} src={slide.pc_image } />
+                        </SwiperSlide>
+                    )
+                })
+            }
+            {/* <SwiperSlide>
                 <img style={{width: "100%"}} src="../sliderTest.png"/>
             </SwiperSlide>
             <SwiperSlide>
@@ -36,7 +45,7 @@ const Slider = () => {
             </SwiperSlide>
             <SwiperSlide>
                 <img style={{width: "100%"}} src="../sliderTest.png"/>
-            </SwiperSlide>
+            </SwiperSlide> */}
         </Swiper>
     );
 };
