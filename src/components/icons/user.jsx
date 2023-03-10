@@ -5,7 +5,7 @@ const UserIcon = ({active})=>{
     return (
         <svg
             viewBox="0 0 1024 1024"
-            fill= {active ? palette.primary.main : "currentColor"}
+            fill= {active ? 'white'  : "currentColor"}
             height="25"
             width="25"
         >

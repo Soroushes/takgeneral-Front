@@ -12,7 +12,7 @@ const LocationIcon =  ({active})=> {
             <g
                 fill='none'
                 fillRule="evenodd"
-                stroke={active ? palette.primary.main : "currentColor"}
+                stroke={active ? "white" : "currentColor"}
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 transform="translate(4 2)"

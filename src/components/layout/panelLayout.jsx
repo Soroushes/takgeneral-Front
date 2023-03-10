@@ -25,7 +25,6 @@ const PanelLayout = ({children}) => {
                         flexDirection: {xs: "row", md: "column"},
                         backgroundColor: 'gray.lighter',
                         borderRadius: 4,
-                        px: 2,
                         p: {md: 2}
                     }}>
                         {
@@ -37,12 +36,15 @@ const PanelLayout = ({children}) => {
                                             display: "flex",
                                             flexDirection: {xs: "column", md: "row"},
                                             py: 2,
+                                            px : 2 ,
                                             gap: 1,
+                                            borderRadius : 3 ,
                                             alignItems: "center",
-                                            justifyContent: {xs: "center", md: 'start'}
+                                            justifyContent: {xs: "center", md: 'start'} ,
+                                            backgroundColor : active ? "primary.light" : ""
                                         }}>
-                                            {active && item.activeIcon ? item.activeIcon : item.icon}
-                                            <Typography color={active ? 'primary' : 'text'}>{item.title}</Typography>
+                                            {active ? item.activeIcon : item.icon}
+                                            <Typography variant={'subtitle2'} sx={{color : active ? "white" : "text.main" , textAlign : "center"}}>{item.title}</Typography>
                                         </Box>
                                     </Link>
                                 )

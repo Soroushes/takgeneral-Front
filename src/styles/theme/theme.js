@@ -23,7 +23,9 @@ const theme = createTheme({
         },
         text: {
             main: "#505050",
-            muted: "#707070"
+            muted: "#707070", 
+            white: '#fff', 
+            lightBlue : '#CDE1FF'
         }
     },
     typography: {

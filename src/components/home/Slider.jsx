@@ -1,18 +1,16 @@
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation, Pagination} from "swiper";
-import {
-    Container
-} from "@mui/material";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import "swiper/css";
+import {Box} from "@mui/system";
 
-const Slider = () => {
+const Slider = ({slides}) => {
     return (
         <Swiper
             modules={[Navigation, Pagination]}
-            spaceBetween={50}
+            spaceBetween={0}
             slidesPerView={1}
             navigation
             pagination={{
@@ -20,23 +18,17 @@ const Slider = () => {
                 dynamicBullets: true,
 
             }}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}>
-            <SwiperSlide>
-                <img style={{width: "100%"}} src="../sliderTest.png"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img style={{width: "100%"}} src="../sliderTest.png"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img style={{width: "100%"}} src="../sliderTest.png"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img style={{width: "100%"}} src="../sliderTest.png"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img style={{width: "100%"}} src="../sliderTest.png"/>
-            </SwiperSlide>
+        >
+            {
+                slides?.map((slide)=>{
+                    return(
+                        <SwiperSlide key={slide.id}>
+                            <Box sx={{display : {xs : "none" , md : "block"}}}><img style={{width : "100%" , display : "block"}} src={slide.pc_image} /></Box>
+                            <Box sx={{display : {md : "none"}}}><img style={{width : "100%" , display : "block"}} src={slide.mobile_image} /></Box>
+                        </SwiperSlide>
+                    )
+                })
+            }
         </Swiper>
     );
 };

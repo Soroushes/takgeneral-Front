@@ -18,7 +18,7 @@ export const panelItems = [
         link : "/profile/address" ,
     },
     {
-        title : 'خروج' ,
+        title : 'خروج ' ,
         icon : <ExitIcon/> ,
         link : "/" ,
         onClick : removeToken
