@@ -26,7 +26,10 @@ const ProfilePage = () => {
             },
             errFunc: (err) => {
                 if (err.response.status === 400 && err.response.data) {
-                    dispatch(SET_ALERT({ title: "حساب دیگری با این ایمیل وجود دارد", show: true, severity: "warning" }))
+                    const national_code = !!err.response.data.national_code ;
+                    const email = !!err.response.data.email ;
+                    const title = national_code && email ? "کد ملی و ایمیل" : national_code ? 'کد ملی' : "ایمیل"
+                    dispatch(SET_ALERT({ title: `حساب دیگری با این ${title} وجود دارد`, show: true, severity: "warning" }))
                 }
                 
             }

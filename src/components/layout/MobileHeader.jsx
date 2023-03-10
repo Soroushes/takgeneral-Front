@@ -8,7 +8,7 @@ import UserIcon from "../icons/user";
 import {Drawer, Typography} from "@mui/material";
 import {useState} from "react";
 import {headerItem} from "../../data/header";
-const MobileHeader = ({token}) => {
+const MobileHeader = ({token , size}) => {
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
     const toggleDrawer = (event) => {
         if (
@@ -21,10 +21,9 @@ const MobileHeader = ({token}) => {
     };
 
     return (
-        <AppBar sx={{backgroundColor: "#fff", height: "65px"}}>
+        <AppBar sx={{backgroundColor: "#fff", height: `${size}px`}}>
             <Toolbar sx={{height: "100%"}}>
                 <Box
-
                     sx={{
                         display: "flex",
                         height: "100%",

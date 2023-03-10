@@ -9,10 +9,10 @@ import {useRouter} from "next/router";
 import {headerItem} from "../../data/header";
 import Link from "next/link";
 
-const DesktopHeader = ({token}) => {
+const DesktopHeader = ({token , size}) => {
     const router = useRouter();
     return (
-        <AppBar sx={{backgroundColor: "#fff", height: "130px"}}>
+        <AppBar sx={{backgroundColor: "#fff", height: `${size}px`}}>
             <Toolbar sx={{height: "100%"}}>
                 <Container maxWidth={'xl'} sx={{height: "100%"}}>
                     <Box

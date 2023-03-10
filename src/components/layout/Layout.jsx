@@ -8,6 +8,9 @@ import AlertSnakeBar from "../share/alertSnakeBar";
 
 const hideLayoutPaths = ['/login'];
 const Layout = ({children}) => {
+    const navbarHeight = 65 ;
+    const mobileHeaderHeight = 65 ;
+    const pcHeaderHeight = 130 ;
     const {pathname} = useRouter();
     const [showLayout, setShowLayout] = useState(true);
     const [token, setToken] = useState('');
@@ -19,12 +22,12 @@ const Layout = ({children}) => {
     return (
         <>
             <Box sx={{display: showLayout ? {xs: "block", md: "none"} : "none"}}>
-                <MobileHeader token={token}/>
+                <MobileHeader size={mobileHeaderHeight} token={token}/>
             </Box>
             <Box sx={{display: showLayout ? {xs: "none", md: "block"} : "none"}}>
-                <DesktopHeader token={token}/>
+                <DesktopHeader size={pcHeaderHeight} token={token}/>
             </Box>
-            <Box sx={{pt: {xs: "65px", md: "130px"} , pb : {xs : "65px" , md : 0}}}>{children}</Box>
+            <Box sx={{pt: {xs: `${mobileHeaderHeight}px`, md: `${pcHeaderHeight}px`} , pb : {xs : `${navbarHeight}px` , md : 0}}}>{children}</Box>
             <Box
                 sx={{
                     position: "fixed",
@@ -32,7 +35,7 @@ const Layout = ({children}) => {
                     bottom: 0,
                     left: 0,
                     right: 0,
-                    height: "65px",
+                    height: `${navbarHeight}px`,
                     display: showLayout ? {xs: "block", md: "none"} : "none",
                 }}>
                 <Navbar/>
