@@ -10,7 +10,7 @@ import Paper from "@mui/material/Paper";
 import {Box} from "@mui/system";
 const ProductSortSection = ({productSortData}) => {
   return (
-    <Container sx={{mt: 6}}>
+    <Container maxWidth={'xl'} sx={{mt: 15}}>
       <Grid rowGap={4} container>
         {productSortData.map((sortItem) => {
           return (
@@ -19,13 +19,15 @@ const ProductSortSection = ({productSortData}) => {
                 elevation={2}
                 sx={{
                   borderRadius: 2,
-                  p: 2,
+                  height : '70%' ,
+                  padding : "0 40px 40px 40px"
                 }}>
                 <Box
                   sx={{
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
+                    transform : "translate(0 , -30%)"
                   }}>
                   <img style={{maxWidth: "100%"}} src={sortItem.imgSrc}></img>
                   <Typography componenet={"h1"} color={"primary"}>
