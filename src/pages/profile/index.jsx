@@ -17,7 +17,7 @@ const ProfilePage = () => {
     const submitForm = ()=>{
         const data = getValues() ;
         putInfo({
-            url : "/user-info" ,
+            url : "user-info" ,
             method : "PUT" ,
             token : true ,
             data ,
@@ -37,7 +37,7 @@ const ProfilePage = () => {
     }
     const getUserInfo = ()=>{
         getInfo({
-            url : "/user-info" ,
+            url : "user-info" ,
             method : "GET" ,
             token : true ,
             successFunc : (res)=>{
