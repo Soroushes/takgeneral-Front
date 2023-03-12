@@ -8,7 +8,6 @@ import {prefixer} from 'stylis';
 import Layout from "../components/layout/Layout";
 import {Provider} from "react-redux";
 import {store} from "../redux/store";
-
 // Create rtl cache
 const cacheRtl = createCache({
     key: 'muirtl',
@@ -16,6 +15,7 @@ const cacheRtl = createCache({
 });
 
 export default function App({Component, pageProps}) {
+    
     return (
         <CacheProvider value={cacheRtl}>
             <ThemeProvider theme={theme}>
