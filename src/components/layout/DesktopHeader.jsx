@@ -8,8 +8,8 @@ import ShopIcon from '../icons/ShopIcon.svg';
 import {useRouter} from "next/router";
 import {headerItem} from "../../data/header";
 import Link from "next/link";
-
-const DesktopHeader = ({token , size}) => {
+import { useSelector } from "react-redux";
+const DesktopHeader = ({status , size}) => {
     const router = useRouter();
     return (
         <AppBar sx={{backgroundColor: "#fff", height: `${size}px`}}>
@@ -56,15 +56,15 @@ const DesktopHeader = ({token , size}) => {
                             </Box>
                             <Box sx={{display: "flex", gap: 2 }}>
                                 {
-                                    token ?
-                                        <Button onClick={()=>router.push('/profile')} sx={{py: 1, px: 3, gap: 1}} variant={'contained'} color={'btnGray'}>
-                                            <UserIcon/>
-                                            <Typography>9336273696</Typography>
-                                        </Button>
-                                        :
+                                    status.phone_number == '' && status.full_name == '' ?
                                         <Button onClick={() => router.push('/login')} sx={{py: 1, px: 3, gap: 1}} variant={'contained'} color={'btnGray'}>
                                             <UserIcon/>
                                             ورود و عضویت
+                                        </Button>
+                                        :
+                                        <Button onClick={()=>router.push('/profile')} sx={{py: 1, px: 3, gap: 1}} variant={'contained'} color={'btnGray'}>
+                                            <UserIcon/>
+                                            <Typography>{status.full_name == '' ? status.phone_number : status.full_name}</Typography>
                                         </Button>
                                 }
                                 <Button sx={{py: 1}} variant={'contained'} color={'btnGray'}>

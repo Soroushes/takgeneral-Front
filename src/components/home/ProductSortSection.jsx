@@ -21,7 +21,7 @@ const ProductSortSection = ({productSortData}) => {
                                 sx={{
                                     borderRadius: 2,
                                     height: "100%",
-                                    transition: "transform .5s",
+                                    transition: "all .5s",
                                     display: "flex",
                                     flexDirection: "column",
                                     justifyContent : "end" ,
