@@ -20,12 +20,12 @@ const PanelLayout = ({children}) => {
                     <Box sx={{
                         cursor: "pointer",
                         mb: 2,
-                        gap: {xs: 3, md: 0},
                         display: "flex",
                         flexDirection: {xs: "row", md: "column"},
                         backgroundColor: 'gray.lighter',
                         borderRadius: 4,
-                        p: {md: 2}
+                        p: {md: 2} ,
+                        overflowX :{xs : 'scroll' , md : 'none'}
                     }}>
                         {
                             panelItems.map((item) => {
@@ -34,6 +34,7 @@ const PanelLayout = ({children}) => {
                                     <Link key={item.link} href={item.link} onClick={item.onClick?.bind(this)}>
                                         <Box sx={{
                                             display: "flex",
+                                            height : "100%" ,
                                             flexDirection: {xs: "column", md: "row"},
                                             py: 2,
                                             px : 2 ,
@@ -44,7 +45,7 @@ const PanelLayout = ({children}) => {
                                             backgroundColor : active ? "primary.light" : ""
                                         }}>
                                             {active ? item.activeIcon : item.icon}
-                                            <Typography variant={'subtitle2'} sx={{color : active ? "white" : "text.main" , textAlign : "center"}}>{item.title}</Typography>
+                                            <Typography variant={'subtitle2'} sx={{color : active ? "white" : "text.main" , textAlign : "center" , whiteSpace : "nowrap"}}>{item.title}</Typography>
                                         </Box>
                                     </Link>
                                 )
