@@ -47,7 +47,7 @@ const Login = () => {
         otpApi({
             url: 'user-verify-otp',
             method: 'POST',
-            data: {phone_number: '98' + getValues('phoneNumber'), code: getValues('otp')},
+            data: {phone_number: +('98' + getValues('phoneNumber')), code: +getValues('otp')},
             successFunc: (res) => {
                 localStorage.setItem('token' , res.token.access) ;
                 router.push('/profile') ;

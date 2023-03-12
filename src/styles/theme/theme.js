@@ -23,6 +23,7 @@ const theme = createTheme({
         },
         text: {
             main: "#505050",
+            blue : "#032A8E" ,
             muted: "#707070", 
             white: '#fff', 
             lightBlue : '#CDE1FF'
