@@ -11,7 +11,7 @@ import {useRouter} from "next/router";
 import Link from "next/link";
 import {SET_ALERT} from "../redux/slices/snakeBarSlice";
 import {useDispatch} from "react-redux";
-
+import { fetchInfo } from 'src/redux/slices/userInfoSlice';
 const boxStyles = {
     width: 450, px: 3, background: "white", borderRadius: 3, position: "relative",
 };
@@ -47,7 +47,7 @@ const Login = () => {
         otpApi({
             url: 'user-verify-otp',
             method: 'POST',
-            data: {phone_number: +('98' + getValues('phoneNumber')), code: +getValues('otp')},
+            data: {phone_number: '98' + getValues('phoneNumber'), code: getValues('otp')},
             successFunc: (res) => {
                 localStorage.setItem('token' , res.token.access) ;
                 router.push('/profile') ;
@@ -64,6 +64,7 @@ const Login = () => {
             postPhoneNumber();
         } else {
             postOtpCode();
+            dispatch(fetchInfo())
         }
     }
     useEffect(()=>{

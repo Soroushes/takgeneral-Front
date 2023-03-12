@@ -4,7 +4,37 @@ import {useEffect} from "react";
 import {useRouter} from "next/router";
 import Link from "next/link";
 import {panelItems} from "../../data/profile/panelitems";
+import ExitIcon from "../../components/icons/exit";
+import UserIcon from "../../components/icons/user";
+import LocationIcon from "../../components/icons/locationIcon";
+import { useDispatch , useSelector} from "react-redux";
+import { fetchInfo } from "src/redux/slices/userInfoSlice";
 const PanelLayout = ({children}) => {
+    const dispatch = useDispatch();
+    const removeToken = ()=>{
+        localStorage.removeItem('token') ;
+        dispatch(fetchInfo());
+    }
+    const panelItems = [
+        {
+            title : 'مشخصات فردی' ,
+            icon : <UserIcon/> ,
+            activeIcon : <UserIcon active/> ,
+            link : "/profile" ,
+        },
+        {
+            title : 'آدرس ها' ,
+            icon : <LocationIcon/> ,
+            activeIcon: <LocationIcon active/> ,
+            link : "/profile/address" ,
+        },
+        {
+            title : 'خروج ' ,
+            icon : <ExitIcon/> ,
+            link : "/" ,
+            onClick : removeToken
+        },
+    ]
     const router = useRouter();
     useEffect(() => {
         const token = localStorage.getItem('token');
