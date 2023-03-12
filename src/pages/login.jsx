@@ -47,13 +47,13 @@ const Login = () => {
         otpApi({
             url: 'user-verify-otp',
             method: 'POST',
-            data: {phone_number: +('98' + getValues('phoneNumber')), code: +getValues('otp')},
+            data: {phone_number: '98' + getValues('phoneNumber'), code: getValues('otp')},
             successFunc: (res) => {
                 localStorage.setItem('token' , res.token.access) ;
                 router.push('/profile') ;
             }
             , errFunc: (err) => {
-                if(err.response.status === 403){
+                if(err?.response?.status === 403){
                     dispatch(SET_ALERT({show : true , title :"کد وارد شده صحیح نمیباشد" , severity : "error"}))
                 }
             }

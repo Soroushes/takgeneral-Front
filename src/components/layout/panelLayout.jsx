@@ -1,4 +1,4 @@
-import {Container, Grid, Typography, useTheme} from "@mui/material";
+import {Container, Grid, Typography} from "@mui/material";
 import {Box} from "@mui/system";
 import {useEffect} from "react";
 import {useRouter} from "next/router";
@@ -12,7 +12,6 @@ const PanelLayout = ({children}) => {
             router.push('/login');
         }
     }, [])
-
     return (
         <Container maxWidth={'lg'} sx={{mt: 5}}>
             <Grid container justifyContent={'space-between'}>
@@ -24,8 +23,7 @@ const PanelLayout = ({children}) => {
                         flexDirection: {xs: "row", md: "column"},
                         backgroundColor: 'gray.lighter',
                         borderRadius: 4,
-                        p: {md: 2} ,
-                        overflowX :{xs : 'scroll' , md : 'none'}
+                        overflowX :{xs : 'scroll' , md : 'auto'}
                     }}>
                         {
                             panelItems.map((item) => {

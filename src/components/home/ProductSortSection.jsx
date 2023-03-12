@@ -11,8 +11,8 @@ import {Box} from "@mui/system";
 
 const ProductSortSection = ({productSortData}) => {
     return (
-        <Container maxWidth={'xl'} sx={{my: {xs : 6 , md : 10 , lg : 17}}} disableGutters>
-            <Grid rowGap={4} container>
+        <Container maxWidth={'xl'} sx={{my: {xs : 3 , md : 10 , lg : 17}}} disableGutters>
+            <Grid rowGap={3} container>
                 {productSortData?.map((sortItem) => {
                     return (
                         <Grid item key={sortItem.id} md={3} xs={6} sx={{px: 1}}>
