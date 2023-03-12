@@ -6,7 +6,7 @@ import Link from "next/link";
 import ExitIcon from "../../components/icons/exit";
 import UserIcon from "../../components/icons/user";
 import LocationIcon from "../../components/icons/locationIcon";
-import { useDispatch , useSelector} from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchInfo } from "src/redux/slices/userInfoSlice";
 const PanelLayout = ({children}) => {
     const dispatch = useDispatch();
