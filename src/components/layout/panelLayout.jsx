@@ -3,7 +3,6 @@ import {Box} from "@mui/system";
 import {useEffect} from "react";
 import {useRouter} from "next/router";
 import Link from "next/link";
-import {panelItems} from "../../data/profile/panelitems";
 import ExitIcon from "../../components/icons/exit";
 import UserIcon from "../../components/icons/user";
 import LocationIcon from "../../components/icons/locationIcon";

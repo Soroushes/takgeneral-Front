@@ -8,7 +8,7 @@ import UserIcon from "../icons/user";
 import {Drawer, Typography} from "@mui/material";
 import {useState} from "react";
 import {headerItem} from "../../data/header";
-const MobileHeader = ({token , size}) => {
+const MobileHeader = ({status , size}) => {
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
     const toggleDrawer = (event) => {
         if (
@@ -82,7 +82,7 @@ const MobileHeader = ({token , size}) => {
                            />
                        </Link>
                     </Box>
-                    {token ? (
+                    {status.phone_number ? (
                         <Link href={"/profile"}>
                             <Typography>
                                 <UserIcon/>
