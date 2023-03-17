@@ -1,7 +1,6 @@
 import Slider from "../components/home/Slider";
 import ProductSortSection from "src/components/home/ProductSortSection";
 import axios  from 'axios';
-import { useSelector } from "react-redux";
 import FullSizeProductSlider from "../components/home/fullSizeProductSlider";
 const Home = (props) => {
   return (
