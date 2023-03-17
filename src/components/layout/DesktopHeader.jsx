@@ -8,7 +8,6 @@ import ShopIcon from '../icons/ShopIcon.svg';
 import {useRouter} from "next/router";
 import {headerItem} from "../../data/header";
 import Link from "next/link";
-import { useSelector } from "react-redux";
 const DesktopHeader = ({status , size}) => {
     const router = useRouter();
     return (
