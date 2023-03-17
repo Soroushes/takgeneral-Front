@@ -8,7 +8,6 @@ import ShopIcon from '../icons/ShopIcon.svg';
 import {useRouter} from "next/router";
 import {headerItem} from "../../data/header";
 import Link from "next/link";
-import { useSelector } from "react-redux";
 const DesktopHeader = ({status , size}) => {
     const router = useRouter();
     return (
@@ -56,15 +55,15 @@ const DesktopHeader = ({status , size}) => {
                             </Box>
                             <Box sx={{display: "flex", gap: 2 }}>
                                 {
-                                    status.phone_number == '' && status.full_name == '' ?
+                                    status.phone_number ?
+                                        <Button onClick={()=>router.push('/profile')} sx={{py: 1, px: 3, gap: 1}} variant={'contained'} color={'btnGray'}>
+                                            <UserIcon/>
+                                            <Typography>{status.full_name ?? status.phone_number}</Typography>
+                                        </Button>
+                                        :
                                         <Button onClick={() => router.push('/login')} sx={{py: 1, px: 3, gap: 1}} variant={'contained'} color={'btnGray'}>
                                             <UserIcon/>
                                             ورود و عضویت
-                                        </Button>
-                                        :
-                                        <Button onClick={()=>router.push('/profile')} sx={{py: 1, px: 3, gap: 1}} variant={'contained'} color={'btnGray'}>
-                                            <UserIcon/>
-                                            <Typography>{status.full_name == '' ? status.phone_number : status.full_name}</Typography>
                                         </Button>
                                 }
                                 <Button sx={{py: 1}} variant={'contained'} color={'btnGray'}>

@@ -23,8 +23,8 @@ const Slider = ({slides}) => {
                 slides?.map((slide)=>{
                     return(
                         <SwiperSlide key={slide.id}>
-                            <Box sx={{display : {xs : "none" , md : "block"}}}><img style={{width : "100%" , display : "block"}} src={slide.pc_image} /></Box>
-                            <Box sx={{display : {md : "none"}}}><img style={{width : "100%" , display : "block"}} src={slide.mobile_image} /></Box>
+                            <Box sx={{display : {xs : "none" , md : "block" } , minHeight : {md : 250 , lg : 400} , backgroundColor : "gray.lighter"}}><img style={{width : "100%" , display : "block"}} src={slide.pc_image} /></Box>
+                            <Box sx={{display : {md : "none"} , backgroundColor : "gray.lighter" , minHeight : 250}}><img style={{width : "100%" , display : "block"}} src={slide.mobile_image} /></Box>
                         </SwiperSlide>
                     )
                 })

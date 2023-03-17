@@ -42,7 +42,7 @@ const ProductSortSection = ({productSortData}) => {
                                         transform: "scale(1) !important",
                                     },
                                 }}>
-                                <Box sx={{width: "100%", mt: {xs : 0 , md : "-90px" }, height : {xs : 'auto' , md: "150px" , lg : "200px"} , display : "flex" , flexDirection : "column" , justifyContent : "end" }}>
+                                <Box sx={{width: "100%", mt: {xs : 0 , md : "-90px" }, minHeight : {xs : '100px' , md: "150px" , lg : "200px"} , display : "flex" , flexDirection : "column" , justifyContent : "end" }}>
                                     <img
                                         style={{width: "100%", transition: "transform .5s" , transform : "scale(0.9)"}}
                                         src={sortItem.product_image}/>
