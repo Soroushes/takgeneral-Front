@@ -1,13 +1,11 @@
 import {
-    Button,
     Container,
-    InputAdornment,
-    TextField,
     Typography,
     Grid,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import {Box} from "@mui/system";
+import Image from "next/image";
 
 const ProductSortSection = ({productSortData}) => {
     return (
@@ -27,7 +25,7 @@ const ProductSortSection = ({productSortData}) => {
                                     justifyContent : "end" ,
                                     alignItems: "center",
                                     pb : 2 ,
-                                    px : {sm : 8 , md : 4},
+                                    px : 2 ,
                                     gap : 1,
                                     "&:hover": {
                                         backgroundColor: "primary.main",
@@ -42,9 +40,12 @@ const ProductSortSection = ({productSortData}) => {
                                         transform: "scale(1) !important",
                                     },
                                 }}>
-                                <Box sx={{width: "100%", mt: {xs : 0 , md : "-90px" }, minHeight : {xs : '100px' , md: "150px" , lg : "200px"} , display : "flex" , flexDirection : "column" , justifyContent : "end" }}>
-                                    <img
-                                        style={{width: "100%", transition: "transform .5s" , transform : "scale(0.9)"}}
+                                <Box sx={{width: "100%", mt: {xs : 0 , md : "-90px" }, display : "flex" , flexDirection : "column" , alignItems : "center" }}>
+                                    <Image
+                                        alt={sortItem.description}
+                                        width={180}
+                                        height={180}
+                                        style={{transition: "transform .5s" , transform : "scale(0.9)"}}
                                         src={sortItem.product_image}/>
                                 </Box>
                                 <Box>

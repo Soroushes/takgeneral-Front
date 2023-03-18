@@ -1,6 +1,7 @@
 import {Stack, Typography} from "@mui/material";
 import {Box} from "@mui/system";
 import PN from "persian-number";
+import Image from "next/image";
 
 const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price}) => {
     return (
@@ -16,7 +17,9 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 position : "relative"
             }}>
             <Typography sx={{position : 'absolute' , left : "10px" , top : "10px" , color : "#fff" , backgroundColor : "secondary.main" , borderRadius : 2 , p : .5}}>{discountPercent}%</Typography>
-            <img style={{aspectRatio: "1/1"}} src={image} alt={title}/>
+            <Box sx={{position : 'relative' , aspectRatio : "1/1" , width : "100%"}}>
+                <Image fill src={image} alt={title}/>
+            </Box>
             <Typography component={'h3'} variant={'body2'} sx={{fontWeight: "bold", textAlign: "center"}}>{title}</Typography>
             {
                 afterDiscountPrice ?

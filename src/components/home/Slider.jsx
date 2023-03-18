@@ -5,13 +5,13 @@ import "swiper/css/pagination";
 
 import "swiper/css";
 import {Box} from "@mui/system";
+import Image from "next/image";
 
 const Slider = ({slides}) => {
     return (
         <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={0}
-            slidesPerView={1}
             navigation
             pagination={{
                 clickable: true,
@@ -23,8 +23,8 @@ const Slider = ({slides}) => {
                 slides?.map((slide)=>{
                     return(
                         <SwiperSlide key={slide.id}>
-                            <Box sx={{display : {xs : "none" , md : "block" } , minHeight : {md : 250 , lg : 400} , backgroundColor : "gray.lighter"}}><img style={{width : "100%" , display : "block"}} src={slide.pc_image} /></Box>
-                            <Box sx={{display : {md : "none"} , backgroundColor : "gray.lighter" , minHeight : 250}}><img style={{width : "100%" , display : "block"}} src={slide.mobile_image} /></Box>
+                            <Box sx={{display : {xs : "none"  , position : "relative", md : "block" }, width :"100%" , height : '500px', backgroundColor : "gray.lighter"}}><Image alt={''} fill src={slide.pc_image} /></Box>
+                            <Box sx={{display : {md : "none"}  , position : "relative", width : "100%" , backgroundColor : "gray.lighter" , height : "400px"}}><Image alt={''} fill src={slide.mobile_image} /></Box>
                         </SwiperSlide>
                     )
                 })

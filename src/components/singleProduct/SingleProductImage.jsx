@@ -7,57 +7,81 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
+import Image from "next/image";
 
 const singleProductImage =()=>{
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return(
-        <Paper elevation={8} sx={{p : 2 , borderRadius : 2}}>
-               <Swiper
-              style={{
-                "--swiper-navigation-color": "#fff",
-                "--swiper-pagination-color": "#fff",
-              }}
-              loop={true}
-              spaceBetween={10}
-              thumbs={{ swiper: thumbsSwiper }}
-              modules={[FreeMode, Thumbs]}
-              className="mySwiper2"
-            >
-              <SwiperSlide>
-                <Box><img style={{ width: '100%'  , borderRadius :4}} src="https://swiperjs.com/demos/images/nature-1.jpg" /></Box>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box><img style={{ width: '100%' , borderRadius :4}} src="https://swiperjs.com/demos/images/nature-2.jpg" /></Box>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box><img style={{ width: '100%' , borderRadius :4}} src="https://swiperjs.com/demos/images/nature-3.jpg" /></Box>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box><img style={{ width: '100%' , borderRadius :4}} src="https://swiperjs.com/demos/images/nature-4.jpg" /></Box>
-              </SwiperSlide>
-            </Swiper>
-            <Swiper
-            //sx={{display : 'flex' , justifyContent : 'center'}}
-              onSwiper={setThumbsSwiper}
-              spaceBetween={1}
-              slidesPerView={4}
-              watchSlidesProgress={true}
-              modules={[Navigation, Thumbs]}
-              className="mySwiper"
-            >
-              <SwiperSlide>
-                <Box><img style={{ width: '100%' , borderRadius :4}} src="https://swiperjs.com/demos/images/nature-1.jpg" /></Box>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box><img style={{ width: '100%' , borderRadius :4}} src="https://swiperjs.com/demos/images/nature-2.jpg" /></Box>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box><img style={{ width: '100%' , borderRadius :4}} src="https://swiperjs.com/demos/images/nature-3.jpg" /></Box>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box><img style={{ width: '100%' , borderRadius :4}} src="https://swiperjs.com/demos/images/nature-4.jpg" /></Box>
-              </SwiperSlide>
-            </Swiper>
+        <Paper elevation={8} sx={{padding : '15px 15px 7px 15px' , borderRadius : 2}}>
+            <Box sx={{mb: 1}}>
+                <Swiper
+                    spaceBetween={10}
+                    thumbs={{ swiper: thumbsSwiper }}
+                    modules={[FreeMode, Thumbs]}
+                >
+                    <SwiperSlide>
+                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </Box>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </Box>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </Box>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </Box>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </Box>
+                    </SwiperSlide>
+                </Swiper>
+            </Box>
+            <Box>
+                <Swiper
+                    onSwiper={setThumbsSwiper}
+                    spaceBetween={1}
+                    slidesPerView={4}
+                    watchSlidesProgress={true}
+                    modules={[Navigation, Thumbs]}
+                    className="mySwiper"
+                >
+                    <SwiperSlide>
+                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </Box>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </Box>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </Box>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </Box>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                        </Box>
+                    </SwiperSlide>
+                </Swiper>
+            </Box>
         </Paper>
     )
 }
