@@ -37,9 +37,10 @@ const singleProductImage =()=>{
               </SwiperSlide>
             </Swiper>
             <Swiper
+            //sx={{display : 'flex' , justifyContent : 'center'}}
               onSwiper={setThumbsSwiper}
               spaceBetween={1}
-              slidesPerView={3}
+              slidesPerView={4}
               watchSlidesProgress={true}
               modules={[Navigation, Thumbs]}
               className="mySwiper"
