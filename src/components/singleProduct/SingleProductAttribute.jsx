@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 const singleProductAttribute = ()=>{
     return (
         <Box>
@@ -12,7 +13,10 @@ const singleProductAttribute = ()=>{
                 <Typography sx={{listStyleType : "disc" , listStylePosition : "inside"}} variant="caption"  component={'li'} > ویژگی هاي اصلي محصول</Typography>
                 <Typography sx={{listStyleType : "disc" , listStylePosition : "inside"}} variant="caption"  component={'li'} > ویژگی هاي اصلي محصول</Typography>
             </Box>
-            <Typography variant={'body2'} sx={{mt : 2 , color : 'primary.main'}}>{'مشاهده همه ويژگی ها '}</Typography>
+            <Box sx={{display : 'flex' , mt : 2 }}>
+            <KeyboardDoubleArrowRightIcon sx={{mt :'-2px' ,color : 'primary.main'}}/>
+            <Typography variant={'body2'} sx={{ color : 'primary.main' , textAlign :'center'}}>{'مشاهده همه ويژگی ها '}</Typography>
+            </Box>
         </Box>
     )
 }

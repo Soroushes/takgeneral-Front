@@ -1,9 +1,10 @@
+import axios from "axios";
 import { Box } from "@mui/system";
 import { Grid, Container } from "@mui/material";
 import SingleProductImage from '../../components/singleProduct/SingleProductImage'
 import SingleProductAttribute from '../../components/singleProduct/SingleProductAttribute';
-import axios from "axios";
 import SingleProductSellCard from "../../components/singleProduct/SingleProductSellCard";
+import SingleProductDetails from "src/components/singleProduct/SingleProductDetails";
 const singleProduct = (props) => {
   return (
     <Box sx={{backgroundColor : '#F9F9F9' , pt : 3}}>
@@ -17,6 +18,9 @@ const singleProduct = (props) => {
           </Grid>
           <Grid item md={3} xs={12}>
             <SingleProductSellCard/>
+          </Grid>
+          <Grid item md={12} xs={12} >
+            <SingleProductDetails/>
           </Grid>
         </Grid>
       </Container>
