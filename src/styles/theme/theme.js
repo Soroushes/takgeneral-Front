@@ -38,7 +38,8 @@ const theme = createTheme({
         MuiInputLabel: {
             styleOverrides: {
                 root: {
-                    color: "#909090"
+                    color: "#909090",
+                    
                 }
             }
         },
@@ -48,10 +49,14 @@ const theme = createTheme({
                     borderRadius : "15px" ,
                     "&.Mui-disabled" : {
                         backgroundColor : "#eee"
+                    },
+                    '.MuiOutlinedInput-notchedOutline' :{
+                        border : 'none'
                     }
                 }
 
             }
+            
         }
     }
 });
