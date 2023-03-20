@@ -8,9 +8,10 @@ import {Fragment, useEffect, useState} from "react";
 import LoadingButton from "@mui/lab/LoadingButton";
 import BasketIcon from "../icons/basketIcon";
 import PN from "persian-number";
-const SingleProductSellCard = ({available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty})=>{
+const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty})=>{
     const [productDetailItems , setProductDetailItems] = useState([]) ;
     const getProductDetailItems = ()=>{
+        
         setProductDetailItems( [
             {
                 title : "موجود در انبار" ,

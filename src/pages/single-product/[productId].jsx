@@ -6,9 +6,10 @@ import SingleProductAttribute from '../../components/singleProduct/SingleProduct
 import SingleProductSellCard from "../../components/singleProduct/SingleProductSellCard";
 import SingleProductDetails from "src/components/singleProduct/SingleProductDetails";
 import {useRouter} from "next/router";
-
+import {useRef} from 'react';
 const singleProduct = (props) => {
     const router = useRouter();
+    const ref = useRef(null);
     return (
         router.isFallback ? null :
             <Box sx={{backgroundColor: '#F9F9F9', pt: 3}}>
@@ -18,7 +19,7 @@ const singleProduct = (props) => {
                             <SingleProductImage mainImage={props.main_image} otherImage={props.other_images}/>
                         </Grid>
                         <Grid item sx={{px: {md: 3}}} md={4} lg={6} xs={12}>
-                            <SingleProductAttribute name={props.name} attributes={props.attributes}/>
+                            <SingleProductAttribute name={props.name} attributes={props.attributes} goToDetails={ref}/>
                         </Grid>
                         <Grid item md={4} lg={3} xs={12}>
                             <SingleProductSellCard
@@ -33,9 +34,9 @@ const singleProduct = (props) => {
                         </Grid>
                     </Grid>
                 </Container>
-                <Container disableGutters maxWidth={'xl'} sx={{px : {lg : 4}}}>
+                <Container ref={ref} disableGutters maxWidth={'xl'}  sx={{px : {lg : 4}}}>
                     <Grid sx={{mt : 4}} item md={12} xs={12}>
-                        <SingleProductDetails/>
+                        <SingleProductDetails details={props.attributes} />
                     </Grid>
                 </Container>
             </Box>
