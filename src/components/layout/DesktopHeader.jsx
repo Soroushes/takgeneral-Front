@@ -10,6 +10,7 @@ import {headerItem} from "../../data/header";
 import Link from "next/link";
 const DesktopHeader = ({status , size}) => {
     const router = useRouter();
+    console.log(!!status.full_name);
     return (
         <AppBar sx={{backgroundColor: "#fff", height: `${size}px`}}>
             <Toolbar sx={{height: "100%"}}>

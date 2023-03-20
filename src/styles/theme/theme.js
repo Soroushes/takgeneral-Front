@@ -1,5 +1,4 @@
 import {createTheme} from "@mui/material";
-
 const theme = createTheme({
     direction: "rtl",
     palette: {
@@ -54,6 +53,15 @@ const theme = createTheme({
 
             }
             
+        },MuiTabs:{
+            styleOverrides :{
+                root : {
+                    '.Mui-selected' :{
+                        backgroundColor : '#2A74C9' ,
+                        color : 'white !important'
+                    }
+                }
+            }
         }
     }
 });
