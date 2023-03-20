@@ -49,14 +49,12 @@ const theme = createTheme({
                     borderRadius : "15px" ,
                     "&.Mui-disabled" : {
                         backgroundColor : "#eee"
-                    },
-                    
+                    }
                 }
 
             }
             
-        },
-        MuiTabs:{
+        },MuiTabs:{
             styleOverrides :{
                 root : {
                     '.Mui-selected' :{
