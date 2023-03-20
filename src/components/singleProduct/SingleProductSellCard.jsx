@@ -4,7 +4,7 @@ import SevenDaysBack  from '../icons/sevenDaysBack.svg';
 import NotFakeWarranty from '../icons/notFakeWarranty.svg';
 import FreeSent from '../icons/freeSent.svg';
 import {Divider, Stack, Typography} from "@mui/material";
-import {useEffect, useState} from "react";
+import {Fragment, useEffect, useState} from "react";
 import LoadingButton from "@mui/lab/LoadingButton";
 import BasketIcon from "../icons/basketIcon";
 import PN from "persian-number";
@@ -38,10 +38,10 @@ const SingleProductSellCard = ()=>{
             {
                 productDetailItems.map((cardData , index)=>{
                    return(
-                       <>
-                           <Typography key={index} sx={{display : "flex" , alignItems : "center" , gap : 2 , py : 2}}>{cardData.icon} {cardData.title} </Typography>
+                       <Fragment key={index}>
+                           <Typography sx={{display : "flex" , alignItems : "center" , gap : 2 , py : 2}}>{cardData.icon} {cardData.title} </Typography>
                            <Divider />
-                       </>
+                       </Fragment>
                    )
                 })
             }

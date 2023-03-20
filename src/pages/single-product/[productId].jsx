@@ -8,15 +8,15 @@ import SingleProductDetails from "src/components/singleProduct/SingleProductDeta
 const singleProduct = (props) => {
   return (
     <Box sx={{backgroundColor : '#F9F9F9' , pt : 3}}>
-      <Container sx={{px : {xs : 4 , sm : 15 , md : 4}}} maxWidth={"xl"}>
+      <Container sx={{px : {xs : 4 , sm : 15 , md : 1 , lg : 4}}} maxWidth={"xl"}>
         <Grid container rowGap={5}>
-          <Grid item md={3} xs={12}>
+          <Grid item md={4} lg={3} xs={12}>
             <SingleProductImage/>
           </Grid>
-          <Grid item sx={{px :{ md : 8}}} md={6} xs={12}>
+          <Grid item sx={{px :{ md : 3}}} md={4} lg={6} xs={12}>
             <SingleProductAttribute/>
           </Grid>
-          <Grid item md={3} xs={12}>
+          <Grid item md={4} lg={3} xs={12}>
             <SingleProductSellCard/>
           </Grid>
           <Grid item md={12} xs={12} >
