@@ -7,7 +7,6 @@ import { useState } from "react";
 import { Typography } from "@mui/material";
 
 const SingleProductDetails = ({ details }) => {
-  console.log(details);
   const [value, setValue] = useState("1");
   const handleChange = (event, newValue) => {
     setValue(newValue);

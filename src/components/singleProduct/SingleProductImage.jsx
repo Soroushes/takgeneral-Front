@@ -46,7 +46,7 @@ const singleProductImage =({mainImage , otherImage})=>{
                     modules={[Navigation, Thumbs]}
                     className="mySwiper"
                 >
-                    <SwiperSlide>
+                    <SwiperSlide style={{borderRadius : "8px"}}>
                         <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
                             <Image fill alt={'test'} src={mainImage} />
                         </Box>
@@ -54,7 +54,7 @@ const singleProductImage =({mainImage , otherImage})=>{
                     {
                         otherImage?.map((item)=>{
                             return(
-                                <SwiperSlide key={item.id}>
+                                <SwiperSlide style={{borderRadius : "8px" , padding : '5px'}} key={item.id}>
                                     <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
                                         <Image fill alt={'test'} src={item.image} />
                                     </Box>
