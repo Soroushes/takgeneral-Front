@@ -50,13 +50,21 @@ const theme = createTheme({
                     "&.Mui-disabled" : {
                         backgroundColor : "#eee"
                     },
-                    '.MuiOutlinedInput-notchedOutline' :{
-                        border : 'none'
-                    }
+                    
                 }
 
             }
             
+        },
+        MuiTabs:{
+            styleOverrides :{
+                root : {
+                    '.Mui-selected' :{
+                        backgroundColor : '#2A74C9' , 
+                        color : 'white'
+                    }
+                }
+            }
         }
     }
 });
