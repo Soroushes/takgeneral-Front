@@ -95,14 +95,12 @@ const FullSizeProductSlider = () => {
                             },
                             {
                                 title: 'asdd َُیشس یشسسی asdasd',
-                                afterDiscountPrice: 9000000,
                                 price: 10000000,
                                 image: 'https://takback.soroushes.tk/media/Group_2073.png',
                                 discountPercent: 10
                             },
                             {
                                 title: 'asdd َُیشس یشسسی asdasd',
-                                afterDiscountPrice: 9000000,
                                 price: 10000000,
                                 image: 'https://takback.soroushes.tk/media/Group_2073.png',
                                 discountPercent: 10
