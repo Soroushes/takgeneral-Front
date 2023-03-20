@@ -42,7 +42,7 @@ const PanelLayout = ({children}) => {
         }
     }, [])
     return (
-        <Container maxWidth={'lg'} sx={{mt: 5}}>
+        <Container maxWidth={'lg'} sx={{mt: {xs : 1 , md : 5}}}>
             <Grid container justifyContent={'space-between'}>
                 <Grid xs={12} md={3} lg={2.5} item>
                     <Box sx={{

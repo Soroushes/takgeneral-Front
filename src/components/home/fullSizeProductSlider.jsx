@@ -6,22 +6,21 @@ import 'swiper/css' ;
 import {useEffect, useState} from "react";
 import {FreeMode} from "swiper";
 const FullSizeProductSlider = () => {
-    const [startPosition , setStartPosition] = useState(null) ;
-    const [canScroll , setCanScroll] = useState(true) ;
-    useEffect(()=>{
-        if (window.innerWidth > 500) return
-        if (canScroll)document.body.style.overflow = 'auto' ;
-        else document.body.style.overflow = 'hidden'
-    },[canScroll]) ;
-    const touchMoving = (e)=>{
-        Math.abs((e.touches.currentX - startPosition)) > 5 ? setCanScroll(false) : null
-    }
+    // const [startPosition , setStartPosition] = useState(null) ;
+    // const [canScroll , setCanScroll] = useState(true) ;
+    // useEffect(()=>{
+    //     if (window.innerWidth > 500) return
+    //     if (canScroll)document.body.style.overflow = 'auto' ;
+    //     else document.body.style.overflow = 'hidden'
+    // },[canScroll]) ;
+    // const touchMoving = (e)=>{
+    //     Math.abs((e.touches.currentX - startPosition)) > 5 ? setCanScroll(false) : null
+    // }
     return (
         <Box sx={{backgroundColor: "primary.main", mb: 5, py: {xs: 2, md: 8}}}>
             <Container disableGutters={true} sx={{display: "flex"}} maxWidth={'xl'}>
                 <Swiper
-                    touchStartPreventDefault={true}
-                    touchStartForcePreventDefault={true}
+
                     freeMode={{
                         enabled : true ,
                         momentum : true ,
@@ -31,7 +30,6 @@ const FullSizeProductSlider = () => {
                     className="mySwiper"
                     slidesPerView={1.7}
                     touchAngle={30}
-                    resistance={false}
                     // onMomentumBounce={}
                    /* onTouchMove={touchMoving}
                     onTouchEnd={()=>{
