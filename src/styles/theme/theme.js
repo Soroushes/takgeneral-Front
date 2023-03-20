@@ -50,9 +50,6 @@ const theme = createTheme({
                     "&.Mui-disabled" : {
                         backgroundColor : "#eee"
                     },
-                    '.MuiOutlinedInput-notchedOutline' :{
-                        border : 'none'
-                    }
                 }
 
             }

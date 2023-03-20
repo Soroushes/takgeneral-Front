@@ -8,25 +8,34 @@ import {Fragment, useEffect, useState} from "react";
 import LoadingButton from "@mui/lab/LoadingButton";
 import BasketIcon from "../icons/basketIcon";
 import PN from "persian-number";
-const SingleProductSellCard = ()=>{
+const SingleProductSellCard = ({available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty})=>{
     const [productDetailItems , setProductDetailItems] = useState([]) ;
     const getProductDetailItems = ()=>{
         setProductDetailItems( [
             {
                 title : "موجود در انبار" ,
+                show : available ,
                 icon : <WareHouseExist/> ,
             },
             {
                 title : "ارسال رایگان" ,
                 icon : <FreeSent/> ,
+                show : freeSent
             },
             {
                 title : "ضمانت اصالت کالا" ,
                 icon : <NotFakeWarranty/> ,
+                show : true
             },
             {
                 title : "7 روز ضمانت برگشت کالا" ,
                 icon : <SevenDaysBack/> ,
+                show : sevenDaysBack
+            },
+            {
+                title : warranty ,
+                icon : <SevenDaysBack/> ,
+                show : warranty
             },
         ])
     }
@@ -38,10 +47,11 @@ const SingleProductSellCard = ()=>{
             {
                 productDetailItems.map((cardData , index)=>{
                    return(
+                       cardData.show ?
                        <Fragment key={index}>
                            <Typography sx={{display : "flex" , alignItems : "center" , gap : 2 , py : 2}}>{cardData.icon} {cardData.title} </Typography>
                            <Divider />
-                       </Fragment>
+                       </Fragment> : null
                    )
                 })
             }
@@ -49,20 +59,20 @@ const SingleProductSellCard = ()=>{
                 <Typography sx={{fontWeight : "bold"}} variant={'body1'}>قیمت کالا</Typography>
                 <Stack gap={1}>
                     {
-                        'aad' ?
+                        discount ?
                             <>
                                 <Typography component={'span'} variant={'h6'} sx={{fontWeight : "bold"}} color={'secondary'}>
-                                    {PN.convertEnToPe(PN.sliceNumber(15220000))}
+                                    {PN.convertEnToPe(PN.sliceNumber(finalPrice))}
                                     <Typography component={'span'} color={'secondary'} variant={'body2'}>تومان </Typography>
                                 </Typography>
                                 <Typography component={'span'} sx={{textDecoration : "line-through"}} variant={'subtitle1'}>
-                                    {PN.convertEnToPe(PN.sliceNumber(15220000))}
+                                    {PN.convertEnToPe(PN.sliceNumber(price))}
                                     <Typography component={'span'} variant={'body2'}>تومان </Typography>
                                 </Typography>
                             </>
                             :
                             <Typography component={'span'} sx={{fontWeight : "bold"}} variant={'h6'} >
-                                {PN.convertEnToPe(PN.sliceNumber(15220000))}
+                                {PN.convertEnToPe(PN.sliceNumber(finalPrice))}
                                 <Typography component={'span'} variant={'body2'}>تومان </Typography>
                             </Typography>
                     }

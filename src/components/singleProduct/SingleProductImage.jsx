@@ -9,7 +9,7 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import Image from "next/image";
 
-const singleProductImage =()=>{
+const singleProductImage =({mainImage , otherImage})=>{
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return(
         <Paper elevation={8} sx={{padding : '15px 15px 7px 15px' , borderRadius : 2}}>
@@ -21,29 +21,20 @@ const singleProductImage =()=>{
                 >
                     <SwiperSlide>
                         <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                            <Image fill alt={'test'} src={mainImage} />
                         </Box>
                     </SwiperSlide>
-                    <SwiperSlide>
-                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                        </Box>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                        </Box>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                        </Box>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                        </Box>
-                    </SwiperSlide>
+                    {
+                        otherImage?.map((item)=>{
+                            return(
+                                <SwiperSlide key={item.id}>
+                                    <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                                        <Image fill alt={'test'} src={item.image} />
+                                    </Box>
+                                </SwiperSlide>
+                            )
+                        },[])
+                    }
                 </Swiper>
             </Box>
             <Box>
@@ -57,29 +48,20 @@ const singleProductImage =()=>{
                 >
                     <SwiperSlide>
                         <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                            <Image fill alt={'test'} src={mainImage} />
                         </Box>
                     </SwiperSlide>
-                    <SwiperSlide>
-                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                        </Box>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                        </Box>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                        </Box>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                            <Image fill alt={'test'} src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                        </Box>
-                    </SwiperSlide>
+                    {
+                        otherImage?.map((item)=>{
+                            return(
+                                <SwiperSlide key={item.id}>
+                                    <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                                        <Image fill alt={'test'} src={item.image} />
+                                    </Box>
+                                </SwiperSlide>
+                            )
+                        },[])
+                    }
                 </Swiper>
             </Box>
         </Paper>
