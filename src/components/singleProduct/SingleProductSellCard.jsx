@@ -66,9 +66,10 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                                     {PN.convertEnToPe(PN.sliceNumber(finalPrice))}
                                     <Typography component={'span'} color={'secondary'} variant={'body2'}>تومان </Typography>
                                 </Typography>
-                                <Typography component={'span'} sx={{textDecoration : "line-through"}} variant={'subtitle1'}>
-                                    {PN.convertEnToPe(PN.sliceNumber(price))}
-                                    <Typography component={'span'} variant={'body2'}>تومان </Typography>
+                                <Typography component={'span'} sx={{ display:'flex', gap:1}} variant={'subtitle1'}>
+                                    <Typography sx={{textDecoration : "line-through"}}>{PN.convertEnToPe(PN.sliceNumber(price))}</Typography>
+                                    <Typography sx={{textDecoration : "line-through"}} component={'span'} variant={'body2'}>تومان </Typography>
+                                    <Box sx={{backgroundColor : 'secondary.main' , color : 'white',fontSize:'12px' , p:.25 ,px:.5 , textAlign:'center', borderRadius :1}}>{PN.convertEnToPe(PN.sliceNumber(discount))}{'%'}</Box>
                                 </Typography>
                             </>
                             :

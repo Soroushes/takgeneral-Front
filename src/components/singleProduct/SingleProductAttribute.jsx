@@ -1,11 +1,11 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-const singleProductAttribute = ({goToDetails, attributes , name})=>{
+const singleProductAttribute = ({attrRef, attributes , name})=>{
     const handleClick = () => {
         //goToDetails.current?.scrollIntoView({behavior: 'smooth' , block : 'nearest' , inline : 'start' });
         window.scrollTo({
-            top :goToDetails.current?.offsetTop-150 , 
+            top :attrRef.current?.offsetTop-150 , 
             behavior : 'smooth'
         })
       };
@@ -24,7 +24,7 @@ const singleProductAttribute = ({goToDetails, attributes , name})=>{
                 }
             </Box>
             <Box sx={{display : 'flex' , mt : 2 }}>
-            <KeyboardDoubleArrowRightIcon sx={{mt :'-2px' ,color : 'primary.main'}}/>
+            <KeyboardDoubleArrowRightIcon sx={{mt :'-3px' ,color : 'primary.main'}}/>
             <Typography variant={'body2'} onClick={handleClick} sx={{ cursor : 'pointer', color : 'primary.main' , textAlign :'center'}}>{'مشاهده همه ويژگی ها '}</Typography>
             </Box>
         </Box>

@@ -16,10 +16,10 @@ const singleProduct = (props) => {
                 <Container sx={{px: {xs: 4, sm: 15, md: 1, lg: 4}}} maxWidth={"xl"}>
                     <Grid container rowGap={5}>
                         <Grid item md={4} lg={3} xs={12}>
-                            <SingleProductImage mainImage={props.main_image} otherImage={props.other_images}/>
+                            <SingleProductImage loading={router.isFallback} mainImage={props.main_image} otherImage={props.other_images}/>
                         </Grid>
                         <Grid item sx={{px: {md: 3}}} md={4} lg={6} xs={12}>
-                            <SingleProductAttribute name={props.name} attributes={props.attributes} goToDetails={ref}/>
+                            <SingleProductAttribute name={props.name} attributes={props.attributes} attrRef={ref}/>
                         </Grid>
                         <Grid item md={4} lg={3} xs={12}>
                             <SingleProductSellCard
