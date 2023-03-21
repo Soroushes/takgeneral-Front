@@ -7,13 +7,14 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
     return (
         <Stack
             alignItems={'center'}
-            justifyContent={'space-evenly'}
+            justifyContent={'space-between'}
             sx={{
                 backgroundColor: "white",
-                px: {xs: 2, md: 5},
-                py: {xs: 2, md: 4},
+                width : "100%" ,
+                px : 2 ,
+                py : 2 ,
                 borderRadius: 2,
-                height: {xs: '350px', md: "400px"},
+                aspectRatio : "1/1.5" ,
                 position: "relative"
             }}>
             <Typography sx={{
@@ -25,20 +26,30 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 borderRadius: 2,
                 p: .5
             }}>{discountPercent}%</Typography>
-            <Box sx={{position: 'relative', aspectRatio: "1/1", width: "100%"}}>
+            <Box sx={{position: 'relative', aspectRatio: "1/1", width: "70%"}}>
                 <Image fill src={image} alt={title}/>
             </Box>
-            <Typography component={'h3'} variant={'body2'}
-                        sx={{fontWeight: "bold", textAlign: "center"}}>{title}</Typography>
+            <Typography
+                component={'h3'}
+                variant={'body2'}
+                sx={{textAlign: "center"}}
+            >
+                {title}
+            </Typography>
             {
                 afterDiscountPrice ?
                     <Box sx={{display: "flex", flexDirection: 'column', alignItems: "center"}}>
                         <Box sx={{display: "flex", gap: 1, alignItems: "center"}}>
-                            <Typography fontWeight={'bold'} component={'span'} color={'secondary'}
-                                        variant={'h6'}>{PN.convertEnToPe(PN.sliceNumber(afterDiscountPrice))}</Typography>
-                            <Typography component={'span'} color={'secondary'} variant={'subtitle2'}>تومان</Typography>
+                            <Typography
+                                fontWeight={'bold'}
+                                component={'span'}
+                                color={'secondary'}
+                                variant={'body1'}>
+                                {PN.convertEnToPe(PN.sliceNumber(afterDiscountPrice))}
+                            </Typography>
+                            <Typography component={'span'} color={'secondary'} variant={'caption'}>تومان</Typography>
                         </Box>
-                        <Typography sx={{textDecoration: "line-through" , display : "flex" , alignItems : "center"}} component={'span'} variant={'subtitle1'}>
+                        <Typography sx={{textDecoration: "line-through" , display : "flex" , alignItems : "center"}} component={'span'} variant={'subtitle2'}>
                             {PN.convertEnToPe(PN.sliceNumber(price))}
                             <Typography component={'span'} variant={'caption'}>
                                 تومان

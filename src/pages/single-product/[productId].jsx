@@ -13,15 +13,15 @@ const singleProduct = (props) => {
     return (
         router.isFallback ? null :
             <Box sx={{backgroundColor: '#F9F9F9', pt: 3}}>
-                <Container sx={{px: {xs: 4, sm: 15, md: 1, lg: 4}}} maxWidth={"xl"}>
+                <Container sx={{px : {md : 20 , lg : 8}}} maxWidth={'xl'}>
                     <Grid container rowGap={5}>
-                        <Grid item md={4} lg={3} xs={12}>
+                        <Grid item sm={6} md={5} lg={3.3} xs={12}>
                             <SingleProductImage loading={router.isFallback} mainImage={props.main_image} otherImage={props.other_images}/>
                         </Grid>
-                        <Grid item sx={{px: {md: 3}}} md={4} lg={6} xs={12}>
+                        <Grid item sx={{px : 3}} sm={6} md={7} lg={5.2} xs={12}>
                             <SingleProductAttribute name={props.name} attributes={props.attributes} attrRef={ref}/>
                         </Grid>
-                        <Grid item md={4} lg={3} xs={12}>
+                        <Grid item sm={12} lg={3.5} xs={12}>
                             <SingleProductSellCard
                                 available={props.product_available}
                                 price={props.price}
@@ -34,7 +34,7 @@ const singleProduct = (props) => {
                         </Grid>
                     </Grid>
                 </Container>
-                <Container ref={ref} disableGutters maxWidth={'xl'}  sx={{px : {lg : 4}}}>
+                <Container ref={ref} disableGutters sx={{px : {md : 20 , lg : 8}}} maxWidth={'xl'}>
                     <Grid sx={{mt : 4}} item md={12} xs={12}>
                         <SingleProductDetails details={props.attributes} />
                     </Grid>

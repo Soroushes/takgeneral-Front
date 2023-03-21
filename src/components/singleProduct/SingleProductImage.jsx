@@ -18,12 +18,11 @@ const singleProductImage = ({ mainImage, otherImage, loading }) => {
     >
       <Box sx={{ mb: 1 }}>
         <Swiper
-          
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Thumbs]}
         >
             {
-                !loading ? (
+                loading ? (
                     <Skeleton
                       height={278}
                       width={278}
@@ -58,9 +57,8 @@ const singleProductImage = ({ mainImage, otherImage, loading }) => {
                     );
                   }, [])}
                   </>
-                  
             }
-        
+
         </Swiper>
       </Box>
       <Box>
@@ -72,7 +70,7 @@ const singleProductImage = ({ mainImage, otherImage, loading }) => {
           modules={[Navigation, Thumbs]}
           className="mySwiper"
         >
-          <SwiperSlide style={{ borderRadius: "8px" }}>
+          <SwiperSlide style={{ borderRadius: "8px " ,  padding: "5px"}}>
             <Box
               sx={{
                 width: "100%",

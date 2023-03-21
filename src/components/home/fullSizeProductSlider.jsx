@@ -17,7 +17,7 @@ const FullSizeProductSlider = () => {
     //     Math.abs((e.touches.currentX - startPosition)) > 5 ? setCanScroll(false) : null
     // }
     return (
-        <Box sx={{backgroundColor: "primary.main", mb: 5, py: {xs: 2, md: 8}}}>
+        <Box sx={{backgroundColor: "primary.main", mb: 5, py : 2}}>
             <Container disableGutters={true} sx={{display: "flex"}} maxWidth={'xl'}>
                 <Swiper
 
@@ -27,8 +27,9 @@ const FullSizeProductSlider = () => {
                     }}
                     modules={[FreeMode]}
                     direction={'horizontal'}
+                    spaceBetween={20}
                     className="mySwiper"
-                    slidesPerView={1.7}
+                    slidesPerView={2}
                     touchAngle={30}
                     // onMomentumBounce={}
                    /* onTouchMove={touchMoving}
@@ -41,19 +42,19 @@ const FullSizeProductSlider = () => {
                     }}*/
                     breakpoints={{
                         400: {
-                            slidesPerView: 2
+                            slidesPerView: 3
                         },
                         640: {
-                            slidesPerView: 2.5
-                        },
-                        768: {
                             slidesPerView: 3.5
                         },
+                        768: {
+                            slidesPerView: 4.5
+                        },
                         1000: {
-                            slidesPerView: 4
+                            slidesPerView: 5
                         },
                         1200: {
-                            slidesPerView: 5
+                            slidesPerView: 6
                         }
                     }}
                 >
@@ -161,8 +162,7 @@ const FullSizeProductSlider = () => {
 
                         ].map((product, index) => {
                             return (
-                                <SwiperSlide style={{height: "100%", paddingLeft: '20px', width: '150px !important'}}
-                                             key={index}>
+                                <SwiperSlide key={index}>
                                     <ProductPreviewCard title={product.title}
                                                         afterDiscountPrice={product.afterDiscountPrice}
                                                         price={product.price} image={product.image}
