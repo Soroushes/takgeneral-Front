@@ -26,7 +26,7 @@ const singleProduct = (props) => {
                         </Grid>
                         <Grid item sx={{px : 3}} sm={6} md={7} lg={5.2} xs={12}>
                             {
-                                loading ? <SingleProductLoadingAttribute/> :<SingleProductAttribute showAllDetails={onShowAllDetails}  name={props.name} attributes={props.attributes} attrRef={ref}/>
+                                loading ? <SingleProductLoadingAttribute/> :<SingleProductAttribute setShowAllDetails={setIsShowAllDetails}  name={props.name} attributes={props.attributes} attrRef={ref}/>
                             }
                         </Grid>
                         <Grid item sm={12} lg={3.5} xs={12}>
