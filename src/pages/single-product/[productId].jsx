@@ -13,9 +13,6 @@ const singleProduct = (props) => {
     const ref = useRef(null);
     const loading = router.isFallback;
     const [isShowAllDetails, setIsShowAllDetails] = useState(false)
-    const onShowAllDetails = ()=>{
-        setIsShowAllDetails(!isShowAllDetails)
-    }
     return (
             <Box sx={{backgroundColor: '#F9F9F9', pt: 3}}>
                 <Container sx={{px : {md : 20 , lg : 8}}} maxWidth={'xl'}>
@@ -29,7 +26,7 @@ const singleProduct = (props) => {
                         <Grid item sx={{px : 3}} sm={6} md={7} lg={5.2} xs={12}>
                             {
                                 loading ? null :
-                                    <SingleProductAttribute showAllDetails={onShowAllDetails}  name={props.name} attributes={props.attributes} attrRef={ref}/>
+                                    <SingleProductAttribute setShowAllDetails={setIsShowAllDetails}  name={props.name} attributes={props.attributes} attrRef={ref}/>
                             }
                         </Grid>
                         <Grid item sm={12} lg={3.5} xs={12}>
@@ -52,7 +49,7 @@ const singleProduct = (props) => {
                     <Grid sx={{mt : 4}} item md={12} xs={12}>
                         {
                             loading ? null :
-                                <SingleProductDetails isShowAllDetails={isShowAllDetails} showAllDetails={onShowAllDetails}  details={props.attributes} />
+                                <SingleProductDetails setShowAllDetails={setIsShowAllDetails} IsShowAllDetails={isShowAllDetails}  details={props.attributes} />
                         }
                     </Grid>
                 </Container>

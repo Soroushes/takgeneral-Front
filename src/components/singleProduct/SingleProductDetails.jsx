@@ -8,7 +8,7 @@ import {Typography} from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
 
-const SingleProductDetails = ({details ,showAllDetails ,isShowAllDetails}) => {
+const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) => {
     const [value, setValue] = useState("1");
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
@@ -69,7 +69,7 @@ const SingleProductDetails = ({details ,showAllDetails ,isShowAllDetails}) => {
                 >
                     {details.map((detail, index) => {
                         return (
-                            !isShowAllDetails && index > 7 ? null
+                            !IsShowAllDetails && index > 7 ? null
                                 :
                                 <Box
                                     key={detail.id}
@@ -118,9 +118,9 @@ const SingleProductDetails = ({details ,showAllDetails ,isShowAllDetails}) => {
                                 </Box>
                         );
                     })}
-                    <Box onClick={showAllDetails} sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center"}}>
+                    <Box onClick={setShowAllDetails.bind(this , prev=>!prev)} sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center"}}>
                         {
-                            isShowAllDetails ? <CloseIcon color={'primary'}/> : <KeyboardArrowDownIcon color={'primary'}/>
+                            IsShowAllDetails ? <CloseIcon color={'primary'}/> : <KeyboardArrowDownIcon color={'primary'}/>
                         }
                         <Typography
                             variant={"body2"}
@@ -131,7 +131,7 @@ const SingleProductDetails = ({details ,showAllDetails ,isShowAllDetails}) => {
                             }}
                         >
                             {
-                                isShowAllDetails ? 'نشان دادن کمتر' : "مشاهده کامل مشخصات"
+                                IsShowAllDetails ? 'نشان دادن کمتر' : "مشاهده کامل مشخصات"
                             }
                         </Typography>
                     </Box>

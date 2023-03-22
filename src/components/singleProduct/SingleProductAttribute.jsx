@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-const singleProductAttribute = ({attrRef, attributes , name ,showAllDetails})=>{
+const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails })=>{
     const scrollToDetails = () => {
-        showAllDetails();
+        setShowAllDetails(true) ;
         //goToDetails.current?.scrollIntoView({behavior: 'smooth' , block : 'nearest' , inline : 'start' });
         window.scrollTo({
             top :attrRef.current?.offsetTop-150 , 
