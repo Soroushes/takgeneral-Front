@@ -25,9 +25,10 @@ const FullSizeProductSlider = () => {
                         enabled : true ,
                         momentum : true ,
                     }}
+                    autoHeight={true}
                     modules={[FreeMode]}
                     direction={'horizontal'}
-                    spaceBetween={20}
+                    spaceBetween={7}
                     className="mySwiper"
                     slidesPerView={2}
                     touchAngle={30}
@@ -41,21 +42,36 @@ const FullSizeProductSlider = () => {
                         setStartPosition(e.touches.startX)
                     }}*/
                     breakpoints={{
-                        400: {
-                            slidesPerView: 3
+                        450 : {
+                            slidesPerView : 2.5
                         },
-                        640: {
+                        500 : {
+                            slidesPerView : 3
+                        } ,
+                        600: {
                             slidesPerView: 3.5
                         },
-                        768: {
+                        700 : {
+                            slidesPerView: 4
+                        } ,
+                        800: {
                             slidesPerView: 4.5
                         },
+                        900 : {
+                          slidesPerView : 5
+                        },
                         1000: {
-                            slidesPerView: 5
+                            slidesPerView: 5.5
+                        },
+                        1100 : {
+                          slidesPerView : 6
                         },
                         1200: {
-                            slidesPerView: 6
-                        }
+                            slidesPerView: 6.5
+                        },
+                        1300 : {
+                            slidesPerView: 7
+                        },
                     }}
                 >
                     <SwiperSlide style={{

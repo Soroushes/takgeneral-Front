@@ -12,9 +12,9 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 backgroundColor: "white",
                 width : "100%" ,
                 px : 2 ,
-                py : 2 ,
+                py : 1 ,
                 borderRadius: 2,
-                aspectRatio : "1/1.5" ,
+                aspectRatio : "1/1.4" ,
                 position: "relative"
             }}>
             <Typography sx={{
