@@ -5,21 +5,30 @@ import SingleProductImage from '../../components/singleProduct/SingleProductImag
 import SingleProductAttribute from '../../components/singleProduct/SingleProductAttribute';
 import SingleProductSellCard from "../../components/singleProduct/SingleProductSellCard";
 import SingleProductDetails from "src/components/singleProduct/SingleProductDetails";
+import SingleProductLoadingImage from "src/components/singleProduct/SingleProductLoadingImage";
 import {useRouter} from "next/router";
-import {useRef} from 'react';
+import {useRef , useState} from 'react';
 const singleProduct = (props) => {
     const router = useRouter();
     const ref = useRef(null);
+    const loading = router.isFallback;
+    const [isShowAllDetails, setIsShowAllDetails] = useState(false)
+    const onShowAllDetails = ()=>{
+        setIsShowAllDetails(!isShowAllDetails)
+    }
     return (
-        router.isFallback ? null :
+        loading ? null :
             <Box sx={{backgroundColor: '#F9F9F9', pt: 3}}>
                 <Container sx={{px : {md : 20 , lg : 8}}} maxWidth={'xl'}>
                     <Grid container rowGap={5}>
                         <Grid item sm={6} md={5} lg={3.3} xs={12}>
-                            <SingleProductImage loading={router.isFallback} mainImage={props.main_image} otherImage={props.other_images}/>
+                            {
+                                !loading ? <SingleProductLoadingImage/> : <SingleProductImage mainImage={props.main_image} otherImage={props.other_images}/>
+
+                            }
                         </Grid>
                         <Grid item sx={{px : 3}} sm={6} md={7} lg={5.2} xs={12}>
-                            <SingleProductAttribute name={props.name} attributes={props.attributes} attrRef={ref}/>
+                            <SingleProductAttribute showAllDetails={onShowAllDetails}  name={props.name} attributes={props.attributes} attrRef={ref}/>
                         </Grid>
                         <Grid item sm={12} lg={3.5} xs={12}>
                             <SingleProductSellCard
@@ -36,7 +45,7 @@ const singleProduct = (props) => {
                 </Container>
                 <Container ref={ref} disableGutters sx={{px : {md : 20 , lg : 8}}} maxWidth={'xl'}>
                     <Grid sx={{mt : 4}} item md={12} xs={12}>
-                        <SingleProductDetails details={props.attributes} />
+                        <SingleProductDetails isShowAllDetails={isShowAllDetails} showAllDetails={onShowAllDetails}  details={props.attributes} />
                     </Grid>
                 </Container>
             </Box>

@@ -8,8 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import Image from "next/image";
-import Skeleton from "@mui/material/Skeleton";
-const singleProductImage = ({ mainImage, otherImage, loading }) => {
+const singleProductImage = ({ mainImage, otherImage}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
     <Paper
@@ -17,48 +16,33 @@ const singleProductImage = ({ mainImage, otherImage, loading }) => {
       sx={{ padding: "15px 15px 7px 15px", borderRadius: 2 }}
     >
       <Box sx={{ mb: 1 }}>
-        <Swiper
-          thumbs={{ swiper: thumbsSwiper }}
-          modules={[FreeMode, Thumbs]}
-        >
-            {
-                loading ? (
-                    <Skeleton
-                      height={278}
-                      width={278}
-                      sx={{ m: 0, borderRadius: 1 }}
-                    />
-                  ) :
-                  <>
-                  <SwiperSlide>
-                    <Box
-                      sx={{
-                        width: "100%",
-                        aspectRatio: "1/1",
-                        position: "relative",
-                      }}
-                    >
-                      <Image fill alt={"test"} src={mainImage} />
-                    </Box>
-                  </SwiperSlide>
-                 { otherImage?.map((item) => {
-                    return (
-                      <SwiperSlide key={item.id}>
-                        <Box
-                          sx={{
-                            width: "100%",
-                            aspectRatio: "1/1",
-                            position: "relative",
-                          }}
-                        >
-                          <Image fill alt={"test"} src={item.image} />
-                        </Box>
-                      </SwiperSlide>
-                    );
-                  }, [])}
-                  </>
-            }
-
+        <Swiper thumbs={{ swiper: thumbsSwiper }} modules={[FreeMode, Thumbs]}>
+          <SwiperSlide>
+            <Box
+              sx={{
+                width: "100%",
+                aspectRatio: "1/1",
+                position: "relative",
+              }}
+            >
+              <Image fill alt={"test"} src={mainImage} />
+            </Box>
+          </SwiperSlide>
+          {otherImage?.map((item) => {
+            return (
+              <SwiperSlide key={item.id}>
+                <Box
+                  sx={{
+                    width: "100%",
+                    aspectRatio: "1/1",
+                    position: "relative",
+                  }}
+                >
+                  <Image fill alt={"test"} src={item.image} />
+                </Box>
+              </SwiperSlide>
+            );
+          }, [])}
         </Swiper>
       </Box>
       <Box>
@@ -70,7 +54,7 @@ const singleProductImage = ({ mainImage, otherImage, loading }) => {
           modules={[Navigation, Thumbs]}
           className="mySwiper"
         >
-          <SwiperSlide style={{ borderRadius: "8px " ,  padding: "5px"}}>
+          <SwiperSlide style={{ borderRadius: "8px ", padding: "5px" }}>
             <Box
               sx={{
                 width: "100%",
