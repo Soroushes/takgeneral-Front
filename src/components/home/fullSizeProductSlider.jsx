@@ -25,7 +25,6 @@ const FullSizeProductSlider = () => {
                         enabled : true ,
                         momentum : true ,
                     }}
-                    autoHeight={true}
                     modules={[FreeMode]}
                     direction={'horizontal'}
                     spaceBetween={7}

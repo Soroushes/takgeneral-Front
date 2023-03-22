@@ -31,8 +31,8 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
             </Box>
             <Typography
                 component={'h3'}
-                variant={'body2'}
-                sx={{textAlign: "center"}}
+                fontWeight={"bold"}
+                sx={{textAlign: "center" , maxHeight : "30%" , textOverflow : "hidden" , fontSize : '12px'}}
             >
                 {title}
             </Typography>
@@ -58,7 +58,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                     </Box> :
                     <Box sx={{display: "flex", gap: 1, alignItems: "center"}}>
                         <Typography component={'span'} color={'primary.dark'} fontWeight={'bold'}
-                                    variant={'h6'}>{PN.convertEnToPe(PN.sliceNumber(price))}</Typography>
+                                    variant={'body1'}>{PN.convertEnToPe(PN.sliceNumber(price))}</Typography>
                         <Typography component={'span'} color={'primary.dark'} variant={'subtitle2'}>تومان</Typography>
                     </Box>
             }
