@@ -62,6 +62,12 @@ const theme = createTheme({
                     }
                 }
             }
+        },MuiSkeleton:{
+            styleOverrides:{
+                root:{
+                    transform :'scale(1)'
+                }
+            }
         }
     }
 });

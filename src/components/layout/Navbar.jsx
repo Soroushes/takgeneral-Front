@@ -4,29 +4,33 @@ import HomeIcon from '../icons/homeIcon';
 import BasketIcon from "../icons/basketIcon";
 import SearchOutlinedIcon from "../icons/searchOutlined";
 import Link from "next/link";
+import {useEffect, useState} from "react";
 const Navbar = () => {
-    const navItems = [
-      {
-        name: "خانه",
-        icon: <HomeIcon/> ,
-          link : '/'
-      },
-      {
-        name: "جستجو",
-        icon: <SearchOutlinedIcon/> ,
-          link : "/"
-      },
-      {
-        name: "سبد خرید",
-        icon: <BasketIcon/> ,
-          link : "/"
-      },
-      {
-        name: "تماس با ما",
-        icon: <ContactIcon/> ,
-          link : "/"
-      },
-    ];
+    const [navbarItems , setNavbarItems] = useState([]) ;
+    useEffect(()=>{
+        setNavbarItems([
+            {
+                name: "خانه",
+                icon: <HomeIcon/> ,
+                link : '/'
+            },
+            {
+                name: "جستجو",
+                icon: <SearchOutlinedIcon/> ,
+                link : "/"
+            },
+            {
+                name: "سبد خرید",
+                icon: <BasketIcon/> ,
+                link : "/"
+            },
+            {
+                name: "تماس با ما",
+                icon: <ContactIcon/> ,
+                link : "/"
+            },
+        ])
+    },[])
     return (
         <Box
             sx={{
@@ -39,7 +43,7 @@ const Navbar = () => {
                 backgroundColor : "gray.lighter"
             }}>
             {
-                navItems.map((navItem, index) => {
+                navbarItems.map((navItem, index) => {
                     return (
                         <Box key={index} sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                             <Link href={navItem.link}><Typography>{navItem.icon}</Typography></Link>
