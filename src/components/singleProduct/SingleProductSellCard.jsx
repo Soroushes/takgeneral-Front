@@ -50,7 +50,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                    return(
                        cardData.show ?
                        <Fragment key={index}>
-                           <Typography sx={{display : "flex" , alignItems : "center" , gap : 2 , py : 2}}>{cardData.icon} {cardData.title} </Typography>
+                           <Typography variant={'body2'} sx={{display : "flex" , alignItems : "center" , gap : 2 , py : 2}}>{cardData.icon} {cardData.title} </Typography>
                            <Divider />
                        </Fragment> : null
                    )

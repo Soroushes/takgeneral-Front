@@ -7,8 +7,8 @@ const BasketIcon = ({props})=>{
             strokeLinejoin="round"
             strokeWidth={2}
             viewBox="0 0 24 24"
-            height="28"
-            width="28"
+            height="23"
+            width="23"
             {...props}
         >
             <path d="M10 21 A1 1 0 0 1 9 22 A1 1 0 0 1 8 21 A1 1 0 0 1 10 21 z" />

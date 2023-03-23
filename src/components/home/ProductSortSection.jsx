@@ -10,7 +10,7 @@ import Image from "next/image";
 const ProductSortSection = ({productSortData}) => {
     return (
         //todo
-        <Container maxWidth={'xl'} sx={{mt: {xs : 3 , md : 10 , lg : 17} , mb : 5}} disableGutters>
+        <Container maxWidth={'lg'} sx={{mt: {xs : 3 , md : 11} , mb : 5}} disableGutters>
             <Grid rowGap={3} container>
                 {productSortData?.map((sortItem) => {
                     return (
@@ -41,21 +41,20 @@ const ProductSortSection = ({productSortData}) => {
                                         transform: "scale(1) !important",
                                     },
                                 }}>
-                                <Box sx={{width: "100%", mt: {xs : 0 , md : "-90px" }, display : "flex" , flexDirection : "column" , alignItems : "center" }}>
+                                <Box sx={{width: "80%", aspectRatio : "1/1" , position : "relative" , mt: {xs : 0 , md : "-90px" }, display : "flex" , justifyContent : "center"}}>
                                     <Image
                                         alt={sortItem.description}
-                                        width={180}
-                                        height={180}
+                                        fill
                                         style={{transition: "transform .5s" , transform : "scale(0.9)"}}
                                         src={sortItem.product_image}/>
                                 </Box>
                                 <Box>
                                     <Typography
                                         component={"p"}
-                                        sx={{color: "text.muted", textAlign: "center" , fontSize : {xs : 12 , lg : 16}}}>
+                                        sx={{color: "text.muted", textAlign: "center" , fontSize : {xs : 10 , lg : 13}}}>
                                         {sortItem.description}
                                     </Typography>
-                                    <Typography sx={{textAlign: "center" , color : "text.blue" , fontWeight : "bold" , fontSize : {xs : 15 , lg : 20}}} component={"h2"} variant={"h6"}>
+                                    <Typography sx={{textAlign: "center" , color : "text.blue" , fontWeight : "bold" , fontSize : {xs : 12 , lg : 16}}} component={"h2"} variant={"h6"}>
                                         {sortItem.name}
                                     </Typography>
                                 </Box>

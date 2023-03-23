@@ -5,8 +5,8 @@ const SearchOutlinedIcon = (props)=> {
         <svg
             viewBox="0 0 512 512"
             fill="currentColor"
-            height="30"
-            width="30"
+            height="23"
+            width="23"
             {...props}
         >
             <path

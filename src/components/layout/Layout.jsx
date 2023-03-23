@@ -9,7 +9,7 @@ import { fetchInfo } from 'src/redux/slices/userInfoSlice';
 import { useDispatch , useSelector} from 'react-redux';
 const hideLayoutPaths = ['/login'];
 const Layout = ({children}) => {
-    const navbarHeight = 65 ;
+    const navbarHeight = 55 ;
     const mobileHeaderHeight = 65 ;
     const pcHeaderHeight = 130 ;
     const {pathname} = useRouter();
