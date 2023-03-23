@@ -44,6 +44,9 @@ const theme = createTheme({
         },
         MuiOutlinedInput: {
             styleOverrides: {
+                input : {
+                  padding : "12px"
+                },
                 root: {
                     borderRadius : "15px" ,
                     "&.Mui-disabled" : {
@@ -53,7 +56,8 @@ const theme = createTheme({
 
             }
             
-        },MuiTabs:{
+        },
+        MuiTabs:{
             styleOverrides :{
                 root : {
                     '.Mui-selected' :{

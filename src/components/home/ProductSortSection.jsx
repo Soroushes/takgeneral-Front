@@ -54,7 +54,7 @@ const ProductSortSection = ({productSortData}) => {
                                         sx={{color: "text.muted", textAlign: "center" , fontSize : {xs : 10 , lg : 13}}}>
                                         {sortItem.description}
                                     </Typography>
-                                    <Typography sx={{textAlign: "center" , color : "text.blue" , fontWeight : "bold" , fontSize : {xs : 12 , lg : 16}}} component={"h2"} variant={"h6"}>
+                                    <Typography sx={{textAlign: "center" , color : "text.blue" , fontWeight : "bold" , fontSize : {xs : 12 , lg : 14}}} component={"h2"} variant={"h6"}>
                                         {sortItem.name}
                                     </Typography>
                                 </Box>

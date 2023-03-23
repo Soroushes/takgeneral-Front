@@ -7,10 +7,10 @@ const Category=()=>{
         <>
             <Grid container sx={{width:'100%'}}>
                 <Box sx={{ width:'100%', aspectRatio:'4.8/1' , position:'relative' , p:0}}>
-                    <Image fill  src={categoryBanner}/>
+                    <Image fil alt={''} l  src={categoryBanner}/>
                 </Box>
             </Grid>
-            <Container sx={{px : {md : 20 , lg : 8}}} maxWidth={'lg'}>
+            <Container maxWidth={'lg'}>
                 <Grid container >
                     <Grid item></Grid>
                 </Grid>

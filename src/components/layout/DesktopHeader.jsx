@@ -8,19 +8,20 @@ import ShopIcon from '../icons/ShopIcon.svg';
 import {useRouter} from "next/router";
 import {headerItem} from "../../data/header";
 import Link from "next/link";
-const DesktopHeader = ({status , size}) => {
+const DesktopHeader = ({status , desktopHeaderRef}) => {
     const router = useRouter();
         return (
-        <AppBar sx={{backgroundColor: "#fff", height: `${size}px`}}>
-            <Toolbar sx={{height: "100%"}}>
-                <Container maxWidth={'xl'} sx={{height: "100%"}}>
+        <AppBar ref={desktopHeaderRef} sx={{backgroundColor: "#fff"}}>
+            <Toolbar>
+                <Container maxWidth={'xl'}>
                     <Box
                         sx={{
                             display: "flex",
                             flexDirection: "column",
+                            gap : 1 ,
                             width: "100%",
                             height: "100%",
-                            justifyContent: "space-evenly",
+                            pb : 1
                         }}>
                         <Box
                             sx={{
@@ -39,12 +40,11 @@ const DesktopHeader = ({status , size}) => {
                             </Box>
                             <Box sx={{width: "40%"}}>
                                 <TextField
-                                    size={'medium'}
                                     variant={'outlined'}
                                     fullWidth={true}
                                     placeholder={'جستجو در تک جنرال'}
                                     InputProps={{
-                                        sx: {backgroundColor: "btnGray.main", height: "100%"},
+                                        sx: {backgroundColor: "btnGray.main" , height : "100%"},
                                         startAdornment: (
                                             <InputAdornment position="start">
                                                 <SearchOutlined/>
@@ -56,12 +56,12 @@ const DesktopHeader = ({status , size}) => {
                             <Box sx={{display: "flex", gap: 2 }}>
                                 {
                                     status.phone_number ?
-                                        <Button onClick={()=>router.push('/profile')} sx={{py: 1, px: 3, gap: 1}} variant={'contained'} color={'btnGray'}>
+                                        <Button onClick={()=>router.push('/profile')} sx={{px: 3, gap: 1}} variant={'contained'} color={'btnGray'}>
                                             <UserIcon/>
                                             <Typography>{status.full_name ?? status.phone_number}</Typography>
                                         </Button>
                                         :
-                                        <Button onClick={() => router.push('/login')} sx={{py: 1, px: 3, gap: 1}} variant={'contained'} color={'btnGray'}>
+                                        <Button onClick={() => router.push('/login')} sx={{px: 3, gap: 1}} variant={'contained'} color={'btnGray'}>
                                             <UserIcon/>
                                             ورود و عضویت
                                         </Button>
@@ -87,7 +87,7 @@ const DesktopHeader = ({status , size}) => {
                                                 alignItems: "center ",
                                             }}>
                                             {item.icon}
-                                            <Typography component={'li'}>{item.name}</Typography>
+                                            <Typography variant={'body2'} component={'li'}>{item.name}</Typography>
                                         </Box>
                                     </Link>
                                 );
