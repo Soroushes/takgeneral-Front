@@ -40,11 +40,12 @@ const DesktopHeader = ({status , desktopHeaderRef}) => {
                             </Box>
                             <Box sx={{width: "40%"}}>
                                 <TextField
+                                    size={'small'}
                                     variant={'outlined'}
                                     fullWidth={true}
                                     placeholder={'جستجو در تک جنرال'}
                                     InputProps={{
-                                        sx: {backgroundColor: "btnGray.main" , height : "100%"},
+                                        sx: {backgroundColor: "btnGray.main" , height : "100%" , py : .5},
                                         startAdornment: (
                                             <InputAdornment position="start">
                                                 <SearchOutlined/>

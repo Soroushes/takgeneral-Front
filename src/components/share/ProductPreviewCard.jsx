@@ -12,12 +12,15 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 backgroundColor: "white",
                 width : "100%" ,
                 px : 2 ,
-                py : 1 ,
+                pt : 1 ,
+                pb : 1.5,
                 borderRadius: 2,
                 aspectRatio : "1/1.4" ,
                 position: "relative"
             }}>
-            <Typography sx={{
+            <Typography
+                variant={'caption'}
+                sx={{
                 position: 'absolute',
                 left: "10px",
                 top: "10px",
@@ -26,40 +29,40 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 borderRadius: 2,
                 p: .5
             }}>{discountPercent}%</Typography>
-            <Box sx={{position: 'relative', aspectRatio: "1/1", width: "70%"}}>
+            <Box sx={{position: 'relative', aspectRatio: "1/1", width: "80%"}}>
                 <Image fill src={image} alt={title}/>
             </Box>
             <Typography
                 component={'h3'}
                 fontWeight={"bold"}
-                sx={{textAlign: "center" , maxHeight : "30%" , textOverflow : "hidden" , fontSize : '12px'}}
+                sx={{textAlign: "center" , height : "30%" , overflow : "hidden" , fontSize : '12px' , display : "flex" , alignItems : "center"}}
             >
                 {title}
             </Typography>
             {
                 afterDiscountPrice ?
                     <Box sx={{display: "flex", flexDirection: 'column', alignItems: "center"}}>
-                        <Box sx={{display: "flex", gap: 1, alignItems: "center"}}>
+                        <Box sx={{display: "flex", gap: .5, alignItems: "center"}}>
                             <Typography
                                 fontWeight={'bold'}
                                 component={'span'}
                                 color={'secondary'}
-                                variant={'body1'}>
+                                sx={{fontSize : {xs : '13px' , md : "15px"}}}
+                            >
                                 {PN.convertEnToPe(PN.sliceNumber(afterDiscountPrice))}
                             </Typography>
-                            <Typography component={'span'} color={'secondary'} variant={'caption'}>تومان</Typography>
+                            <Typography component={'span'} color={'secondary'} sx={{fontSize : {xs : '11px' , md : "13px"}}}>تومان</Typography>
                         </Box>
-                        <Typography sx={{textDecoration: "line-through" , display : "flex" , alignItems : "center"}} component={'span'} variant={'subtitle2'}>
+                        <Typography sx={{textDecoration: "line-through" , display : "flex" , alignItems : "center" , fontSize : {xs : '10px' , md : "11px"}}} component={'span'}>
                             {PN.convertEnToPe(PN.sliceNumber(price))}
-                            <Typography component={'span'} variant={'caption'}>
+                            <Typography component={'span'} sx={{fontSize : {xs : '10px' , md : "11px"}}}>
                                 تومان
                             </Typography>
                         </Typography>
                     </Box> :
-                    <Box sx={{display: "flex", gap: 1, alignItems: "center"}}>
-                        <Typography component={'span'} color={'primary.dark'} fontWeight={'bold'}
-                                    variant={'body1'}>{PN.convertEnToPe(PN.sliceNumber(price))}</Typography>
-                        <Typography component={'span'} color={'primary.dark'} variant={'subtitle2'}>تومان</Typography>
+                    <Box sx={{display: "flex", gap: .5, alignItems: "center" , mb : 1.5}}>
+                        <Typography component={'span'} color={'primary.dark'} fontWeight={'bold'} sx={{fontSize: {xs : '13px' , md : "15px"}}}>{PN.convertEnToPe(PN.sliceNumber(price))}</Typography>
+                        <Typography component={'span'} color={'primary.dark'} sx={{fontSize: {xs : '11px' , md : "13px"}}}>تومان</Typography>
                     </Box>
             }
         </Stack>

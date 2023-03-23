@@ -10,7 +10,7 @@ import Image from "next/image";
 const ProductSortSection = ({productSortData}) => {
     return (
         //todo
-        <Container maxWidth={'lg'} sx={{mt: {xs : 3 , md : 11} , mb : 5}} disableGutters>
+        <Container maxWidth={'lg'} sx={{mt: {xs : 3 , md : 11} , mb : 5}}>
             <Grid rowGap={3} container>
                 {productSortData?.map((sortItem) => {
                     return (

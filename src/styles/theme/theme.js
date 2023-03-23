@@ -44,9 +44,6 @@ const theme = createTheme({
         },
         MuiOutlinedInput: {
             styleOverrides: {
-                input : {
-                  padding : "12px"
-                },
                 root: {
                     borderRadius : "15px" ,
                     "&.Mui-disabled" : {
