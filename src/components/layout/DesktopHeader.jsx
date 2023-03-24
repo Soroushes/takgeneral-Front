@@ -8,6 +8,8 @@ import ShopIcon from '../icons/ShopIcon.svg';
 import {useRouter} from "next/router";
 import {headerItem} from "../../data/header";
 import Link from "next/link";
+import logo from '../../../public/logo.png';
+import Image from "next/image";
 const DesktopHeader = ({status , desktopHeaderRef}) => {
     const router = useRouter();
         return (
@@ -29,11 +31,12 @@ const DesktopHeader = ({status , desktopHeaderRef}) => {
                                 justifyContent: "space-between",
                                 alignItems: "center"
                             }}>
-                            <Box sx={{width: '11%'}}>
+                            <Box sx={{width: '11%',position:'relative',aspectRatio: '4/1.5'}}>
                                <Link href={'/'}>
-                                   <img
-                                       style={{width: "100%"}}
-                                       src="../logo.png"
+                                   <Image
+                                       fill
+                                       
+                                       src={logo}
                                        alt="Takgeneral Logo"
                                    />
                                </Link>

@@ -8,6 +8,9 @@ import UserIcon from "../icons/user";
 import {Drawer, Typography} from "@mui/material";
 import {useState} from "react";
 import {headerItem} from "../../data/header";
+import Image from "next/image";
+import logo from '../../../public/logo.png'
+
 const MobileHeader = ({status , size}) => {
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
     const toggleDrawer = (event) => {
@@ -47,10 +50,10 @@ const MobileHeader = ({status , size}) => {
                                 width: "300px",
                                 px: 3,
                             }}>
-                            <Box sx={{width: "60%", mx: "auto"}}>
-                                <img
-                                    style={{width: "100%"}}
-                                    src="../logo.png"
+                            <Box sx={{width: "60% ", mx: "auto", aspectRatio:'4/1.5',position:'relative'}}>
+                                <Image
+                                    fill
+                                    src={logo}
                                     alt="Takgeneral Logo"
                                 />
                             </Box>
@@ -73,11 +76,11 @@ const MobileHeader = ({status , size}) => {
                             })}
                         </Box>
                     </Drawer>
-                    <Box sx={{m: "auto", height: "100%", py: 1}}>
+                    <Box sx={{m: "auto", width: "40%" ,aspectRatio:'4/1.5', position:'relative', py: 1}}>
                        <Link href={'/'}>
-                           <img
-                               style={{height: "100%"}}
-                               src="../logo.png"
+                           <Image
+                           fill
+                               src={logo}
                                alt="TakgeneralLogo"
                            />
                        </Link>
