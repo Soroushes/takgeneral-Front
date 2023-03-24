@@ -47,7 +47,7 @@ const MobileHeader = ({status , size}) => {
                                 width: "300px",
                                 px: 3,
                             }}>
-                            <Box sx={{width: "60%", mx: "auto"}}>
+                            <Box sx={{width: "50%", mx: "auto"}}>
                                 <img
                                     style={{width: "100%"}}
                                     src="../logo.png"
@@ -67,13 +67,13 @@ const MobileHeader = ({status , size}) => {
                                         }}
                                         key={id}>
                                         {item.icon}
-                                        <Typography component={'li'}>{item.name}</Typography>
+                                        <Typography variant={'caption'} component={'li'}>{item.name}</Typography>
                                     </Box>
                                 );
                             })}
                         </Box>
                     </Drawer>
-                    <Box sx={{m: "auto", height: "100%", py: 1}}>
+                    <Box sx={{m: "auto", height: "80%", py: 1}}>
                        <Link href={'/'}>
                            <img
                                style={{height: "100%"}}

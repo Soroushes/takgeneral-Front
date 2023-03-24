@@ -15,7 +15,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 pt : 1 ,
                 pb : 1.5,
                 borderRadius: 2,
-                aspectRatio : "1/1.4" ,
+                aspectRatio : "1/1.3" ,
                 position: "relative"
             }}>
             <Typography
@@ -29,7 +29,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 borderRadius: 2,
                 p: .5
             }}>{discountPercent}%</Typography>
-            <Box sx={{position: 'relative', aspectRatio: "1/1", width: "80%"}}>
+            <Box sx={{position: 'relative', aspectRatio: "1/1", width: "70%"}}>
                 <Image fill src={image} alt={title}/>
             </Box>
             <Typography
