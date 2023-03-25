@@ -35,7 +35,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
             <Typography
                 component={'h3'}
                 fontWeight={"bold"}
-                sx={{textAlign: "center" , height : "30%" , overflow : "hidden" , fontSize : '12px' , display : "flex" , alignItems : "center"}}
+                sx={{textAlign: "center" , height : "30%" , overflow : "hidden" , fontSize : {xs : "9px" , sm : "11px"} , display : "flex" , alignItems : "center"}}
             >
                 {title}
             </Typography>

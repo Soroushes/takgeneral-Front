@@ -8,6 +8,8 @@ import UserIcon from "../icons/user";
 import {Drawer, Typography} from "@mui/material";
 import {useState} from "react";
 import {headerItem} from "../../data/header";
+import logo from '../../../public/logo.png'
+import Image from "next/image";
 const MobileHeader = ({status , size}) => {
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
     const toggleDrawer = (event) => {
@@ -27,7 +29,7 @@ const MobileHeader = ({status , size}) => {
                     sx={{
                         display: "flex",
                         height: "100%",
-                        justifyContent: "center",
+                        justifyContent: "space-between",
                         alignItems: "center",
                         width: "100%",
                     }}>
@@ -41,25 +43,23 @@ const MobileHeader = ({status , size}) => {
                         <Box
                             sx={{
                                 display: "flex",
-                                justifyContent: "center",
-                                alignItems: "start",
+                                alignItems: "center",
                                 flexDirection: "column",
                                 width: "300px",
                                 px: 3,
+                                py : 1
                             }}>
-                            <Box sx={{width: "50%", mx: "auto"}}>
-                                <img
-                                    style={{width: "100%"}}
-                                    src="../logo.png"
+                                <Image
+                                    width={125} height={35}
+                                    src={logo}
                                     alt="Takgeneral Logo"
                                 />
-                            </Box>
                             {headerItem.map((item, id) => {
                                 return (
                                     <Box
                                         sx={{
                                             borderBottom: "1px solid #ccc",
-                                            py: 3,
+                                            py: 2.5,
                                             display: 'flex',
                                             width: "100%",
                                             gap: 1,
@@ -73,15 +73,13 @@ const MobileHeader = ({status , size}) => {
                             })}
                         </Box>
                     </Drawer>
-                    <Box sx={{m: "auto", height: "80%", py: 1}}>
                        <Link href={'/'}>
-                           <img
-                               style={{height: "100%"}}
-                               src="../logo.png"
-                               alt="TakgeneralLogo"
-                           />
+                               <Image
+                                   width={125} height={35}
+                                   src={logo}
+                                   alt="TakgeneralLogo"
+                               />
                        </Link>
-                    </Box>
                     {status.phone_number ? (
                         <Link href={"/profile"}>
                             <Typography>

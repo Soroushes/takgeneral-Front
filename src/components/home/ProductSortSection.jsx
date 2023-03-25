@@ -14,7 +14,7 @@ const ProductSortSection = ({productSortData}) => {
             <Grid rowGap={3} container>
                 {productSortData?.map((sortItem) => {
                     return (
-                        <Grid item key={sortItem.id} md={3} xs={6} sx={{px: 1}}>
+                        <Grid item key={sortItem.id} sm={3} xs={6} sx={{px: 1}}>
                             <Paper
                                 elevation={3}
                                 sx={{

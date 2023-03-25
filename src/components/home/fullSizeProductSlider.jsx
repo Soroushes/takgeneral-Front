@@ -41,35 +41,38 @@ const FullSizeProductSlider = () => {
                         setStartPosition(e.touches.startX)
                     }}*/
                     breakpoints={{
-                        450 : {
+                        350 : {
                             slidesPerView : 2.5
+                        } ,
+                        450 : {
+                            slidesPerView : 3
                         },
                         500 : {
-                            slidesPerView : 3
+                            slidesPerView : 3.5
                         } ,
                         600: {
-                            slidesPerView: 3.5
+                            slidesPerView: 4
                         },
                         700 : {
-                            slidesPerView: 4
+                            slidesPerView: 4.5
                         } ,
                         800: {
-                            slidesPerView: 4.5
+                            slidesPerView: 5
                         },
                         900 : {
-                          slidesPerView : 5
+                          slidesPerView : 5.5
                         },
                         1000: {
-                            slidesPerView: 5.5
+                            slidesPerView: 6
                         },
                         1100 : {
-                          slidesPerView : 6
+                          slidesPerView : 6.5
                         },
                         1200: {
-                            slidesPerView: 6.5
+                            slidesPerView: 7
                         },
                         1300 : {
-                            slidesPerView: 7
+                            slidesPerView: 7.5
                         },
                     }}
                 >

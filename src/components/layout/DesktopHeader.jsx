@@ -23,8 +23,7 @@ const DesktopHeader = ({status , desktopHeaderRef}) => {
                             gap : 1 ,
                             width: "100%",
                             height: "100%",
-                            pb : 1 ,
-                            pt : .5
+                            py : 1 ,
                         }}>
                         <Box
                             sx={{
