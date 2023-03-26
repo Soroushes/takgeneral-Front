@@ -25,13 +25,15 @@ const CheckBoxFilter = ({subFilter}) => {
     };
 
     return (
-        <Paper elevation={3} sx={{p: 3, borderRadius: 2}}>
-            <FormLabel sx={{borderBottom: '1px solid #ccc', pb: 1}} component="legend">{subFilter.title}</FormLabel>
+        <Paper elevation={1} sx={{p: 3, borderRadius: 2}}>
+            <FormLabel sx={{borderBottom: '1px solid #ccc', pb: 1 , fontSize : 14 , mb : 1}}  component="legend">{subFilter.title}</FormLabel>
             <FormGroup>
                 {
                     subFilter.values.map((value) => {
                         return (
-                            <Box sx={{
+                            <Box
+                                key={value.name}
+                                sx={{
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: ' space-between',
@@ -39,8 +41,8 @@ const CheckBoxFilter = ({subFilter}) => {
                                 fontWeight: 'bold'
                             }}>
                                 <FormControlLabel
-                                    control={<Checkbox checked={checkBox[value.name]} onChange={handleCheck}
-                                                       name={value.name}/>} label={value.name}/>
+                                    control={<Checkbox size={'small'} checked={checkBox[value.name]} onChange={handleCheck} name={value.name}/>} label={value.name}
+                                />
                                 <Typography>{value.number}</Typography>
                             </Box>
                         )

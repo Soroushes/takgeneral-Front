@@ -4,6 +4,9 @@
     src: url('./font/IRANSans.woff2') format('woff2'),
     url('./font/IRANSans.woff') format('woff');
 }
+body,html{
+    scroll-behavior: smooth;
+}
 a {
     text-decoration: none;
     color: inherit;

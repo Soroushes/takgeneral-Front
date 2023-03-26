@@ -23,7 +23,8 @@ export const getStaticProps = async () => {
     console.log('err')
   }
   return {
-    props: homeData
+    props: homeData ,
+    revalidate : 60
   }
 }
 

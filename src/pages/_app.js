@@ -16,14 +16,12 @@ const cacheRtl = createCache({
 });
 
 export default function App({Component, pageProps}) {
-
     return (
-
         <CacheProvider value={cacheRtl}>
-
             <ThemeProvider theme={theme}>
                 <Provider store={store}>
-                    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossOrigin=""/>
+                    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+                          integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossOrigin=""/>
                     <Head>
                         <meta name="viewport"
                               content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>

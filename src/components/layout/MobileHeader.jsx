@@ -56,20 +56,22 @@ const MobileHeader = ({status , size}) => {
                                 />
                             {headerItem.map((item, id) => {
                                 return (
-                                    <Box
-                                        sx={{
-                                            borderBottom: "1px solid #ccc",
-                                            py: 2.5,
-                                            display: 'flex',
-                                            width: "100%",
-                                            gap: 1,
-                                            alignItems: 'center'
-                                        }}
-                                        key={id}>
-                                        {item.icon}
-                                        <Typography variant={'caption'} component={'li'}>{item.name}</Typography>
-                                    </Box>
-                                );
+                                    <Link style={{display : 'block' , width : "100%"}} key={id} href={item.link}>
+                                        <Box
+                                            sx={{
+                                                borderBottom: "1px solid #ccc",
+                                                py: 2.5,
+                                                display: 'flex',
+                                                width: "100%",
+                                                gap: 1,
+                                                alignItems: 'center'
+                                            }}
+                                            >
+                                            {item.icon}
+                                            <Typography variant={'caption'} component={'li'}>{item.name}</Typography>
+                                        </Box>
+                                    </Link>
+                                )
                             })}
                         </Box>
                     </Drawer>

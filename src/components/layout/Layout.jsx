@@ -10,7 +10,7 @@ import { useDispatch , useSelector} from 'react-redux';
 const hideLayoutPaths = ['/login'];
 const Layout = ({children}) => {
     const navbarHeight = 55 ;
-    const mobileHeaderHeight = 65 ;
+    const mobileHeaderHeight = 55 ;
     const [desktopHeaderHeight , setDesktopHeaderHeight] = useState(0) ;
     const {pathname} = useRouter();
     const [showLayout, setShowLayout] = useState(true);
