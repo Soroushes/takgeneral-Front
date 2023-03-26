@@ -66,16 +66,16 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                                     {PN.convertEnToPe(PN.sliceNumber(finalPrice))}
                                     <Typography component={'span'} color={'secondary'} variant={'body2'}>تومان </Typography>
                                 </Typography>
-                                <Typography component={'span'} sx={{ display:'flex'}} variant={'subtitle1'}>
+                                <Typography component={'span'} sx={{ display:'flex' , alignItems : "center"}} variant={'subtitle1'}>
                                     <Typography sx={{textDecoration : "line-through"}}>{PN.convertEnToPe(PN.sliceNumber(price))}</Typography>
-                                    <Typography sx={{textDecoration : "line-through"}} component={'span'} variant={'body2'}>تومان </Typography>
+                                    <Typography sx={{textDecoration : "line-through"}} component={'span'} variant={'caption'}>تومان </Typography>
                                     <Box sx={{backgroundColor : 'secondary.main' , color : 'white',fontSize:'12px' , ml : 1 , p:.25 ,px:.5 , textAlign:'center', borderRadius :1}}>{PN.convertEnToPe(discount)} % </Box>
                                 </Typography>
                             </>
                             :
                             <Typography component={'span'} sx={{fontWeight : "bold"}} variant={'h6'} >
                                 {PN.convertEnToPe(PN.sliceNumber(finalPrice))}
-                                <Typography component={'span'} variant={'body2'}>تومان </Typography>
+                                <Typography component={'span'} variant={'subtitle2'}>تومان </Typography>
                             </Typography>
                     }
                 </Stack>
