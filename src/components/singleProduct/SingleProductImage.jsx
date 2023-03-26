@@ -46,7 +46,7 @@ const singleProductImage =({mainImage , otherImage})=>{
                     modules={[Navigation, Thumbs]}
                     className="mySwiper"
                 >
-                    <SwiperSlide style={{borderRadius : "8px"}}>
+                    <SwiperSlide style={{borderRadius : "8px"  , padding : '5px'}}>
                         <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
                             <Image fill alt={'test'} src={mainImage} />
                         </Box>
