@@ -90,7 +90,7 @@ const MobileHeader = ({status , size}) => {
                         </Link>
                     ) : (
                         <Link href={"/login"}>
-                            <Typography sx={{display : "flex" , flexDirection : "column" , alignItems : "center"}}>
+                            <Typography variant={'caption'} sx={{display : "flex" , flexDirection : "column" , alignItems : "center"}}>
                                 <LoginIcon/>
                                 ورود
                             </Typography>

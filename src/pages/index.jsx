@@ -7,7 +7,8 @@ const Home = (props) => {
     <>
       <Slider slides={props.sliders}/>
       <ProductSortSection productSortData={props.products} />
-      <FullSizeProductSlider/>
+      <FullSizeProductSlider backgroundColor={'primary.main'}/>
+      <FullSizeProductSlider backgroundColor={'primary.light'}/>
     </>
   );
 }

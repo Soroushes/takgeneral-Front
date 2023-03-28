@@ -4,6 +4,7 @@ const theme = createTheme({
     palette: {
         primary: {
             main: '#2A74C9',
+            lighter : '#E3EDF8'
         },
         secondary: {
             main: '#E94040'
@@ -67,6 +68,16 @@ const theme = createTheme({
             styleOverrides:{
                 root:{
                     transform :'scale(1)'
+                }
+            }
+        },
+        MuiPaginationItem : {
+            styleOverrides : {
+                root : {
+                    backgroundColor : "#eee" ,
+                    "&:hover" : {
+                        backgroundColor : "#ccc"
+                    }
                 }
             }
         }

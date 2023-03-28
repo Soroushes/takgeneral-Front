@@ -1,54 +1,81 @@
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
 import Paper from "@mui/material/Paper";
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Typography} from '@mui/material';
+import {useRouter} from "next/router";
 
 const CheckBoxFilter = ({subFilter}) => {
-    let names = []
-    subFilter.values.map((value) => {
-        names.push(value.name);
+    let filtersId = []
+    subFilter.map((value) => {
+        filtersId.push(value.brand__id);
     })
-    let checkBoxBull = {}
-    names.map((name) => {
-        checkBoxBull[name] = false
+    let initialCheckBox = {}
+    filtersId.forEach((id) => {
+        initialCheckBox[String(id)] = false ;
     })
-    const [checkBox, setCheckBox] = useState(checkBoxBull);
-    const handleCheck = (event) => {
-        setCheckBox({
-            ...checkBox,
-            [event.target.name]: (event.target.checked),
-        });
-    };
-
-    return (
-        <Paper elevation={1} sx={{p: 3, borderRadius: 2}}>
-            <FormLabel sx={{borderBottom: '1px solid #ccc', pb: 1 , fontSize : 14 , mb : 1}}  component="legend">{subFilter.title}</FormLabel>
-            <FormGroup>
+    const {push, isReady, query} = useRouter();
+    const [checkBox, setCheckBox] = useState(initialCheckBox);
+    useEffect(() => {
+        // update our checkbox ui with query route
+        if (isReady && query.brand) {
+            let brandsArray = query.brand;
+            const newInitialCheckBox = {};
+            if (typeof query.brand !== 'object') {
+                brandsArray = Array(brandsArray);
+            }
+            brandsArray.forEach(brandId => {
+                newInitialCheckBox[brandId] = true ;
+            })
+            setCheckBox(prevState => (
                 {
-                    subFilter.values.map((value) => {
+                    ...prevState,
+                    ...newInitialCheckBox
+                }
+            ))
+        }
+    }, [isReady]);
+    const handleCheck = (event) => {
+        const newCheckBoxState = {...checkBox, [event.target.name]: (event.target.checked)}
+        setCheckBox(newCheckBoxState) ;
+        const checkedFields = Object.keys(newCheckBoxState).filter(key => newCheckBoxState[key] === true);
+        if (checkedFields.length) {
+            push({
+                pathname: `/products/${query.category}/${query.categoryType}`,
+                query: {
+                    brand: checkedFields ,
+                    page : 1
+                }
+            })
+        } else {
+            push(`/products/${query.category}/${query.categoryType}`);
+        }
+    };
+    return (
+        <Paper elevation={1} sx={{p: 2, borderRadius: 2}}>
+            <FormLabel sx={{borderBottom: '1px solid #ccc', pb: 1, fontSize: 14, mb: 1}} component="legend">برندهای
+                پمپ
+            </FormLabel>
+                {
+                    subFilter.map((value) => {
                         return (
                             <Box
-                                key={value.name}
+                                key={value.brand__id}
                                 sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: ' space-between',
-                                px: 1,
-                                fontWeight: 'bold'
-                            }}>
-                                <FormControlLabel
-                                    control={<Checkbox size={'small'} checked={checkBox[value.name]} onChange={handleCheck} name={value.name}/>} label={value.name}
-                                />
-                                <Typography>{value.number}</Typography>
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: ' space-between',
+                                    mb: 1,
+                                    fontWeight: 'bold'
+                                }}>
+                                <Checkbox inputProps={{ 'aria-label': 'controlled' }} size={'small'} checked={checkBox[value.brand__id]} onChange={handleCheck} name={String(value.brand__id)}/>
+                                <Typography variant={'caption'}>{value.brand__name}</Typography>
+                                <Typography variant={'caption'}>({value.product_count})</Typography>
                             </Box>
                         )
                     })
                 }
-            </FormGroup>
         </Paper>
     )
 }

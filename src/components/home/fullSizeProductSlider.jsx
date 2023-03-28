@@ -3,9 +3,8 @@ import {Box} from "@mui/system";
 import {Container, Typography} from "@mui/material";
 import ProductPreviewCard from "../share/ProductPreviewCard";
 import 'swiper/css' ;
-import {useEffect, useState} from "react";
 import {FreeMode} from "swiper";
-const FullSizeProductSlider = () => {
+const FullSizeProductSlider = ({backgroundColor}) => {
     // const [startPosition , setStartPosition] = useState(null) ;
     // const [canScroll , setCanScroll] = useState(true) ;
     // useEffect(()=>{
@@ -17,7 +16,7 @@ const FullSizeProductSlider = () => {
     //     Math.abs((e.touches.currentX - startPosition)) > 5 ? setCanScroll(false) : null
     // }
     return (
-        <Box sx={{backgroundColor: "primary.main", mb: 5, py : 2}}>
+        <Box sx={{backgroundColor: backgroundColor, mb: 5, py : 2}}>
             <Container disableGutters={true} sx={{display: "flex"}} maxWidth={'xl'}>
                 <Swiper
 
@@ -29,7 +28,7 @@ const FullSizeProductSlider = () => {
                     direction={'horizontal'}
                     spaceBetween={7}
                     className="mySwiper"
-                    slidesPerView={2}
+                    slidesPerView={1.5}
                     touchAngle={30}
                     // onMomentumBounce={}
                    /* onTouchMove={touchMoving}
@@ -42,37 +41,37 @@ const FullSizeProductSlider = () => {
                     }}*/
                     breakpoints={{
                         350 : {
-                            slidesPerView : 2.5
+                            slidesPerView : 2
                         } ,
                         450 : {
-                            slidesPerView : 3
+                            slidesPerView : 2.5
                         },
                         500 : {
-                            slidesPerView : 3.5
+                            slidesPerView : 3
                         } ,
                         600: {
-                            slidesPerView: 4
+                            slidesPerView: 3.5
                         },
                         700 : {
-                            slidesPerView: 4.5
+                            slidesPerView: 4
                         } ,
                         800: {
-                            slidesPerView: 5
+                            slidesPerView: 4.5
                         },
                         900 : {
-                          slidesPerView : 5.5
+                          slidesPerView : 5
                         },
                         1000: {
-                            slidesPerView: 6
+                            slidesPerView: 5.5
                         },
                         1100 : {
-                          slidesPerView : 6.5
+                          slidesPerView : 6
                         },
                         1200: {
-                            slidesPerView: 7
+                            slidesPerView: 6.5
                         },
                         1300 : {
-                            slidesPerView: 7.5
+                            slidesPerView: 7
                         },
                     }}
                 >

@@ -50,6 +50,24 @@ export const categoriesData = {
                 title : 'پمپ آب کشاورزی' ,
                 link : '/products/pomp/kehsavarzi-pomp',
                 children : []
+            },
+            {
+                icon : pomp ,
+                title : 'پمپ آب کشاورزی' ,
+                link : '/products/pomp/kehsavarzi-pomp',
+                children : []
+            },
+            {
+                icon : pomp ,
+                title : 'پمپ آب کشاورزی' ,
+                link : '/products/pomp/kehsavarzi-pomp',
+                children : []
+            },
+            {
+                icon : pomp ,
+                title : 'پمپ آب کشاورزی' ,
+                link : '/products/pomp/kehsavarzi-pomp',
+                children : []
             }
         ]
     }

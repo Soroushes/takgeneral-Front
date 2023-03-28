@@ -11,54 +11,65 @@ const itemStylesGenerate = (active = false) => (
     {
         display: "flex",
         p: 1,
-        borderRadius: 2,
+        borderRadius: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: active ? "primary.dark" : "primary.light",
-
+        backgroundColor: active ? "primary.main" : "primary.lighter",
     }
 )
-const CategoryListGenerator = ({category}) => {
-    const {asPath} = useRouter();
+const CategoryListGenerator = ({category ,setLoading}) => {
+    const {asPath, query} = useRouter();
     const pageCategory = categoriesData[category];
     const [childrenItem, setChildrenItem] = useState([]);
+    const [noFilterRoute, setNoFilterRoute] = useState(asPath);
     useEffect(() => {
+        // try to find active children
         let foundedChild = undefined;
         pageCategory.items.forEach((item) => {
-            if (foundedChild) return ;
-            foundedChild = item.link === asPath ? item.children : item.children.find(childItem => childItem.link === asPath) ? item.children : undefined;
+            if (foundedChild) return;
+            // agar khode children va YA daste bandie madarash active bashad , children ha bayad neshan dade shavad
+            foundedChild = item.link === noFilterRoute ? item.children : item.children.find(childItem => childItem.link === noFilterRoute) ? item.children : undefined;
         });
         if (foundedChild) {
             setChildrenItem(foundedChild);
+        }else {
+            setChildrenItem([]);
         }
+    }, [noFilterRoute])
+    useEffect(() => {
+        setNoFilterRoute(`/products/${query.category}/${query.categoryType}`)
     }, [asPath])
     return (
         <>
             <Typography component={'h1'} textAlign={'center'}>{pageCategory.title}</Typography>
-            <Paper sx={{
+            <Paper
+                sx={{
                 display: "flex",
-                gap: 1,
-                p: 2,
+                padding : '10px 10px 0 10px',
                 borderRadius: 2,
-                overflowX: "auto",
                 mt: 2.5,
-                flexDirection: "column"
+                flexDirection: "column",
+                overflowX: childrenItem.length ? null : "auto"
             }}>
-                <Box sx={{display: "flex", gap: 1, mt: 2.5}}>
+                <Box sx={{display: "flex", gap: 1 ,pb :1, overflowX: childrenItem.length ? "auto" : null}}>
                     {
                         pageCategory?.items.map((item, index) => {
-                            const isChildrenFound = item.children.find(childItem => childItem.link === asPath);
-                            const activate = item.link === asPath || isChildrenFound;
+                            const isChildrenFound = item.children.find(childItem => childItem.link === noFilterRoute);
+                            const activate = item.link === noFilterRoute || isChildrenFound;
                             return (
-                                <Link key={index} href={item.link}>
+                                <Link key={index} href={item.link} scroll={false} onClick={()=>setLoading(true)}>
                                     <Box sx={itemStylesGenerate(activate)}>
-                                        <Image width={30} height={30} src={item.icon} alt={item.title}/>
+                                        {
+                                            item.icon ?
+                                                <Image width={30} height={30} src={item.icon} alt={item.title}/>
+                                                : null
+                                        }
                                         <Typography
                                             overflow={'hidden'}
                                             textOverflow={'ellipsis'}
                                             whiteSpace={'nowrap'}
                                             textAlign={'center'}
-                                            color={'white'}
+                                            color={activate ? "white" : "text.main"}
                                             variant={'caption'}
                                             sx={{width: {xs: 100, md: 130}}}
                                         >
@@ -70,31 +81,42 @@ const CategoryListGenerator = ({category}) => {
                         })
                     }
                 </Box>
-                <Box sx={{display: "flex", gap: 1, mt: 2.5}}>
-                    {
-                        childrenItem?.map((item, index) => {
-                            const activate = item.link === asPath;
-                            return (
-                                <Link key={index} href={item.link}>
-                                    <Box sx={itemStylesGenerate(activate)}>
-                                        <Image width={30} height={30} src={item.icon} alt={item.title}/>
-                                        <Typography
-                                            overflow={'hidden'}
-                                            textOverflow={'ellipsis'}
-                                            whiteSpace={'nowrap'}
-                                            textAlign={'center'}
-                                            color={'white'}
-                                            variant={'caption'}
-                                            sx={{width: {xs: 100, md: 130}}}
-                                        >
-                                            {item.title}
-                                        </Typography>
-                                    </Box>
-                                </Link>
-                            )
-                        })
-                    }
-                </Box>
+                {
+                    childrenItem.length ?
+                        (
+                            <Box
+                                sx={{display: "flex", gap: 1, pb: 1, overflowX: childrenItem.length ? "auto" : null}}>
+                                {
+                                    childrenItem.map((item, index) => {
+                                        const activate = item.link === noFilterRoute;
+                                        return (
+                                            <Link key={index} href={item.link} scroll={false} onClick={()=>setLoading(true)}>
+                                                <Box sx={itemStylesGenerate(activate)}>
+                                                    {
+                                                        item.icon ?
+                                                            <Image width={30} height={30} src={item.icon}
+                                                                   alt={item.title}/>
+                                                            : null
+                                                    }
+                                                    <Typography
+                                                        overflow={'hidden'}
+                                                        textOverflow={'ellipsis'}
+                                                        whiteSpace={'nowrap'}
+                                                        textAlign={'center'}
+                                                        color={activate ? "white" : "text.main"}
+                                                        variant={'caption'}
+                                                        sx={{width: {xs: 100, md: 130}}}
+                                                    >
+                                                        {item.title}
+                                                    </Typography>
+                                                </Box>
+                                            </Link>
+                                        )
+                                    })
+                                }
+                            </Box>
+                        ) : null
+                }
             </Paper>
         </>
     )

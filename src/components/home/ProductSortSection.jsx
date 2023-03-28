@@ -10,7 +10,8 @@ import Image from "next/image";
 const ProductSortSection = ({productSortData}) => {
     return (
         //todo
-        <Container maxWidth={'lg'} sx={{mt: {xs : 3 , md : 11} , mb : 5}}>
+        <Container maxWidth={'lg'} sx={{my: 3}}>
+            <Typography sx={{mb : 3}} textAlign={'center'} component={'h2'} variant={'subtitle1'}>دسته بندی محصولات</Typography>
             <Grid rowGap={3} container>
                 {productSortData?.map((sortItem) => {
                     return (
@@ -41,7 +42,7 @@ const ProductSortSection = ({productSortData}) => {
                                         transform: "scale(1) !important",
                                     },
                                 }}>
-                                <Box sx={{width: "80%", aspectRatio : "1/1" , position : "relative" , mt: {xs : 0 , md : "-90px" }, display : "flex" , justifyContent : "center"}}>
+                                <Box sx={{width: "70%", aspectRatio : "1/1" , position : "relative" , display : "flex" , justifyContent : "center"}}>
                                     <Image
                                         alt={sortItem.description}
                                         fill
@@ -51,10 +52,10 @@ const ProductSortSection = ({productSortData}) => {
                                 <Box>
                                     <Typography
                                         component={"p"}
-                                        sx={{color: "text.muted", textAlign: "center" , fontSize : {xs : 10 , lg : 13}}}>
+                                        sx={{color: "text.muted", textAlign: "center" , fontSize : {xs : 9 , lg : 13}}}>
                                         {sortItem.description}
                                     </Typography>
-                                    <Typography sx={{textAlign: "center" , color : "text.blue" , fontWeight : "bold" , fontSize : {xs : 12 , lg : 14}}} component={"h2"} variant={"h6"}>
+                                    <Typography sx={{textAlign: "center" , color : "text.blue" , fontWeight : "bold" , fontSize : {xs : 10 , lg : 14}}} component={"h2"} variant={"h6"}>
                                         {sortItem.name}
                                     </Typography>
                                 </Box>
