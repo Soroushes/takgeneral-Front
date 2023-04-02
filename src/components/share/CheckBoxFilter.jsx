@@ -35,7 +35,7 @@ const CheckBoxFilter = ({subFilter}) => {
                 }
             ))
         }
-    }, [isReady]);
+    }, []);
     const handleCheck = (event) => {
         const newCheckBoxState = {...checkBox, [event.target.name]: (event.target.checked)}
         setCheckBox(newCheckBoxState) ;
@@ -44,18 +44,19 @@ const CheckBoxFilter = ({subFilter}) => {
             push({
                 pathname: `/products/${query.category}/${query.categoryType}`,
                 query: {
+                    ...query ,
                     brand: checkedFields ,
                     page : 1
                 }
-            })
+            },undefined , {scroll : false})
         } else {
-            push(`/products/${query.category}/${query.categoryType}`);
+            push(`/products/${query.category}/${query.categoryType}` , undefined , {scroll : false});
         }
     };
     return (
         <Paper elevation={1} sx={{p: 2, borderRadius: 2}}>
-            <FormLabel sx={{borderBottom: '1px solid #ccc', pb: 1, fontSize: 14, mb: 1}} component="legend">برندهای
-                پمپ
+            <FormLabel sx={{borderBottom: '1px solid #ccc', pb: 1, fontSize: 14, mb: 1}} component="legend">
+                برندهای پمپ
             </FormLabel>
                 {
                     subFilter.map((value) => {

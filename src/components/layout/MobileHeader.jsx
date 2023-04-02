@@ -24,7 +24,7 @@ const MobileHeader = ({status , size}) => {
 
     return (
         <AppBar sx={{backgroundColor: "#fff", height: `${size}px`}}>
-            <Toolbar sx={{height: "100%"}}>
+            <Toolbar sx={{height : '100%'}}>
                 <Box
                     sx={{
                         display: "flex",

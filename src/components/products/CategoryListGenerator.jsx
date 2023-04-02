@@ -17,7 +17,7 @@ const itemStylesGenerate = (active = false) => (
         backgroundColor: active ? "primary.main" : "primary.lighter",
     }
 )
-const CategoryListGenerator = ({category ,setLoading}) => {
+const CategoryListGenerator = ({category}) => {
     const {asPath, query} = useRouter();
     const pageCategory = categoriesData[category];
     const [childrenItem, setChildrenItem] = useState([]);
@@ -54,11 +54,11 @@ const CategoryListGenerator = ({category ,setLoading}) => {
                 <Box sx={{display: "flex", gap: 1 ,pb :1, overflowX: childrenItem.length ? "auto" : null}}>
                     {
                         pageCategory?.items.map((item, index) => {
-                            const isChildrenFound = item.children.find(childItem => childItem.link === noFilterRoute);
-                            const activate = item.link === noFilterRoute || isChildrenFound;
+                            const isChildrenActive = item.children.find(childItem => childItem.link === noFilterRoute);
+                            const activate = item.link === noFilterRoute;
                             return (
-                                <Link key={index} href={item.link} scroll={false} onClick={()=>setLoading(true)}>
-                                    <Box sx={itemStylesGenerate(activate)}>
+                                <Link key={index} href={item.link} scroll={false}>
+                                    <Box sx={itemStylesGenerate(activate || isChildrenActive)}>
                                         {
                                             item.icon ?
                                                 <Image width={30} height={30} src={item.icon} alt={item.title}/>
@@ -69,7 +69,7 @@ const CategoryListGenerator = ({category ,setLoading}) => {
                                             textOverflow={'ellipsis'}
                                             whiteSpace={'nowrap'}
                                             textAlign={'center'}
-                                            color={activate ? "white" : "text.main"}
+                                            color={activate || isChildrenActive ? "white" : "text.main"}
                                             variant={'caption'}
                                             sx={{width: {xs: 100, md: 130}}}
                                         >
@@ -90,7 +90,7 @@ const CategoryListGenerator = ({category ,setLoading}) => {
                                     childrenItem.map((item, index) => {
                                         const activate = item.link === noFilterRoute;
                                         return (
-                                            <Link key={index} href={item.link} scroll={false} onClick={()=>setLoading(true)}>
+                                            <Link key={index} href={item.link} scroll={false}>
                                                 <Box sx={itemStylesGenerate(activate)}>
                                                     {
                                                         item.icon ?
