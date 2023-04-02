@@ -8,10 +8,12 @@ import {Fragment, useEffect, useState} from "react";
 import LoadingButton from "@mui/lab/LoadingButton";
 import BasketIcon from "../icons/basketIcon";
 import PN from "persian-number";
-const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty})=>{
+import { useCart } from "../../hooks/useCart";
+const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty , id})=>{
     const [productDetailItems , setProductDetailItems] = useState([]) ;
+    const {setCart , countItem} = useCart(id);
+    console.log(countItem);
     const getProductDetailItems = ()=>{
-        
         setProductDetailItems( [
             {
                 title : "موجود در انبار" ,
@@ -44,7 +46,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
         getProductDetailItems() ;
     },[])
     return (
-        <Box sx={{px : 3 , pb : 3 , backgroundColor : "#EDEFF3" , borderRadius : 2}}>
+        <Box sx={{px : 3 , pb : 3 , backgroundColor : "#EDEFF3" , borderRadius : 2 }}>
             {
                 productDetailItems.map((cardData , index)=>{
                    return(
@@ -56,9 +58,9 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                    )
                 })
             }
-            <Box sx={{display : "flex" , justifyContent : "space-between" , mt : 3 , px : 2}}>
+            <Box sx={{display : "flex" , justifyContent : "end" , gap :4 , alignItems:'center' , mt : 3 , px : 2}}>
                 <Typography sx={{fontWeight : "bold"}} variant={'body1'}>قیمت کالا</Typography>
-                <Stack gap={1}>
+                <Stack >
                     {
                         discount ?
                             <>
@@ -80,7 +82,16 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                     }
                 </Stack>
             </Box>
-            <LoadingButton fullWidth sx={{p : 1.5 , borderRadius : 3 , mt : 2 , display : "flex" , gap : 1 , justifyContent : 'center' , alignItems : "center"}} variant={'contained'} color={'secondary'}><BasketIcon/>  افزودن به سبد خرید </LoadingButton>
+            <Box sx={{display : 'flex'}}>
+
+            </Box>
+            {
+                countItem === 0 ? 
+                <LoadingButton onClick={setCart.bind(this , true)} fullWidth sx={{p : 1.5 , borderRadius : 3 , mt : 2 , display : "flex" , gap : 1 , justifyContent : 'center' , alignItems : "center"}} variant={'contained'} color={'secondary'}><BasketIcon/>  افزودن به سبد خرید </LoadingButton>
+                :
+                <Box onClick={setCart.bind(this , false)}  sx={{backgroundColor : 'red' , height:'50px' , width :'50%' ,mt :2 }}></Box>
+            }
+
         </Box>
     )
 }
