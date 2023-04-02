@@ -40,6 +40,7 @@ const singleProduct = (props) => {
                                         warranty={props.warranty}
                                         sevenDaysBack={props.seven_days_back}
                                         freeSent={props.free_send}
+                                        id={props.id}
                                     />
                             }
                         </Grid>
