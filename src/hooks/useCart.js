@@ -5,7 +5,7 @@ export const useCart = (id) => {
   const [localUpdate , setLocalUpdate] = useState([])
   const updateLocalCart=(newCart)=>{
     const cart = newCart || [];
-    const filteredCart = cart.filter((cartItem)=>cartItem.count > 0);
+    const filteredCart = cart.filter((cartItem)=>cartItem?.count > 0);
     localStorage.setItem('cart' , JSON.stringify(filteredCart)) ; 
     setLocalUpdate(filteredCart)
   }
@@ -16,16 +16,16 @@ export const useCart = (id) => {
   useEffect(()=>{
     findCountOfItem();
   },[localUpdate])
-  const setCart = (add , itemId = id) => {
+  const setCart = (add ) => {
     let isNew = true;
     const newCart = localUpdate.map((cartItem) => {
-      if (cartItem.id === itemId) {
+      if (cartItem.id === id) {
         isNew = false;
         const newCartItem = { ...cartItem, count: add? cartItem.count + 1 : cartItem.count - 1 };
         return newCartItem;
-      } else cartItem;
+      } else return cartItem;
     });
-    if (isNew) {
+    if (isNew && add) {
       newCart.push({ count: 1, id });
     }
     updateLocalCart(newCart);

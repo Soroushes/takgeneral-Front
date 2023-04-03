@@ -9,10 +9,10 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import BasketIcon from "../icons/basketIcon";
 import PN from "persian-number";
 import { useCart } from "../../hooks/useCart";
+import CartEdditionButton from "../share/CartEdditionButton";
 const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty , id})=>{
     const [productDetailItems , setProductDetailItems] = useState([]) ;
     const {setCart , countItem} = useCart(id);
-    console.log(countItem);
     const getProductDetailItems = ()=>{
         setProductDetailItems( [
             {
@@ -46,7 +46,8 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
         getProductDetailItems() ;
     },[])
     return (
-        <Box sx={{px : 3 , pb : 3 , backgroundColor : "#EDEFF3" , borderRadius : 2 }}>
+        <Box sx={{px : 3 , pb : 3 , backgroundColor : "#EDEFF3" , borderRadius : 2  , display:'flex' , flexDirection :'column'  ,gap:2}}>
+            <Box>
             {
                 productDetailItems.map((cardData , index)=>{
                    return(
@@ -58,6 +59,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                    )
                 })
             }
+            </Box>
             <Box sx={{display : "flex" , justifyContent : "end" , gap :4 , alignItems:'center' , mt : 3 , px : 2}}>
                 <Typography sx={{fontWeight : "bold"}} variant={'body1'}>قیمت کالا</Typography>
                 <Stack >
@@ -69,7 +71,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                                     <Typography component={'span'} color={'secondary'} variant={'body2'}>تومان </Typography>
                                 </Typography>
                                 <Typography component={'span'} sx={{ display:'flex' , alignItems : "center"}} variant={'subtitle1'}>
-                                    <Typography sx={{textDecoration : "line-through"}}>{PN.convertEnToPe(PN.sliceNumber(price))}</Typography>
+                                    <Typography sx={{textDecoration : "line-through" }}>{PN.convertEnToPe(PN.sliceNumber(price))}</Typography>
                                     <Typography sx={{textDecoration : "line-through"}} component={'span'} variant={'caption'}>تومان </Typography>
                                     <Box sx={{backgroundColor : 'secondary.main' , color : 'white',fontSize:'12px' , ml : 1 , p:.25 ,px:.5 , textAlign:'center', borderRadius :1}}>{PN.convertEnToPe(discount)} % </Box>
                                 </Typography>
@@ -82,15 +84,14 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                     }
                 </Stack>
             </Box>
-            <Box sx={{display : 'flex'}}>
-
-            </Box>
+            <Box sx={{display : 'flex' , flexDirection :'column' , alignItems :'end'  , width:'100%'}}>
             {
                 countItem === 0 ? 
-                <LoadingButton onClick={setCart.bind(this , true)} fullWidth sx={{p : 1.5 , borderRadius : 3 , mt : 2 , display : "flex" , gap : 1 , justifyContent : 'center' , alignItems : "center"}} variant={'contained'} color={'secondary'}><BasketIcon/>  افزودن به سبد خرید </LoadingButton>
+                <LoadingButton onClick={setCart.bind(this , true ,id)} fullWidth sx={{p : 1.5 , borderRadius : 3 , mt : 2 , display : "flex" , gap : 1 , justifyContent : 'center' , alignItems : "center"}} variant={'contained'} color={'secondary'}><BasketIcon/>  افزودن به سبد خرید </LoadingButton>
                 :
-                <Box onClick={setCart.bind(this , false)}  sx={{backgroundColor : 'red' , height:'50px' , width :'50%' ,mt :2 }}></Box>
+                <CartEdditionButton  id={id}  />
             }
+            </Box>
 
         </Box>
     )
