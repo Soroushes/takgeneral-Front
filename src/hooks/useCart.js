@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 export const useCart = (id) => {
   const [countItem, setCountItem] = useState(0);
@@ -16,13 +16,12 @@ export const useCart = (id) => {
   useEffect(()=>{
     findCountOfItem();
   },[localUpdate])
-  const setCart = (add ) => {
+  const setCart = (add) => {
     let isNew = true;
     const newCart = localUpdate.map((cartItem) => {
       if (cartItem.id === id) {
         isNew = false;
-        const newCartItem = { ...cartItem, count: add? cartItem.count + 1 : cartItem.count - 1 };
-        return newCartItem;
+        return {...cartItem, count: add ? cartItem.count + 1 : cartItem.count - 1};
       } else return cartItem;
     });
     if (isNew && add) {
@@ -33,7 +32,7 @@ export const useCart = (id) => {
   
   const findCountOfItem = () => {
     const selectedCartItem = localUpdate.find((cartItem) => (cartItem.id = id));
-        setCountItem(selectedCartItem?.count || 0);
+        setCountItem(+selectedCartItem?.count || 0);
   };
   return { setCart, countItem };
 };

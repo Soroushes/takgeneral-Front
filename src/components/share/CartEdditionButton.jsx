@@ -1,18 +1,52 @@
-import { Typography } from "@mui/material";
+import {Typography} from "@mui/material";
 import {Box} from "@mui/system";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { useCart } from "src/hooks/useCart";
 import DeleteIcon from '@mui/icons-material/Delete';
-const CartEdditionButton = ({ id})=>{
+import BasketIcon from "../icons/basketIcon";
+import LoadingButton from "@mui/lab/LoadingButton";
+import {useCart} from "../../hooks/useCart";
+
+const CartEditionButton = ({id}) => {
     const {setCart , countItem} = useCart(id);
-    return(
-        <Box sx={{backgroundColor:'white', display:'flex' , alignItems :'center' ,px:{lg : 1.5 , md :4}  , justifyContent:'space-between',height:'50px' , width :'60%'  , borderRadius:2}}>
-            <Typography onClick={setCart.bind(this , true)} sx={{cursor:'pointer' , display:'flex' , alignItems:'center'}}><AddIcon color="primary"/></Typography>
-            <Typography sx={{ display:'flex' , alignItems:'center'}}>{countItem}</Typography>
-            <Typography onClick={setCart.bind(this , false )} sx={{cursor:'pointer', display:'flex' , alignItems:'center'}}>{countItem <= 1 ? <DeleteIcon color="secondary"/> : <RemoveIcon/>}</Typography>
-        </Box>
+    return (
+        countItem < 1 ?
+            (
+                <LoadingButton onClick={setCart.bind(this, true)} fullWidth sx={{
+                    p: 1.5,
+                    height : '50px' ,
+                    borderRadius: 3,
+                    display: "flex",
+                    gap: 1,
+                    justifyContent: 'center',
+                    alignItems: "center"
+                }} variant={'contained'} color={'secondary'}>
+                    <BasketIcon/>
+                    افزودن به سبد خرید
+                </LoadingButton>
+            ) :
+            <Box sx={{
+                backgroundColor: 'white',
+                display: 'flex',
+                alignItems: 'center',
+                px : 1 ,
+                justifyContent: 'space-between',
+                height: '50px',
+                width: '150px',
+                borderRadius: 2
+            }}>
+                <Typography onClick={setCart.bind(this, true)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
+                    <AddIcon color="primary"/>
+                </Typography>
+                <Typography sx={{display: 'flex', alignItems: 'center'}}>{countItem}</Typography>
+                <Typography onClick={setCart.bind(this, false)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
+                    {
+                        countItem <= 1 ?
+                        <DeleteIcon color="secondary"/> : <RemoveIcon/>
+                    }
+                </Typography>
+            </Box>
     )
 
 }
-export default CartEdditionButton;
+export default CartEditionButton;

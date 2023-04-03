@@ -9,10 +9,9 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import BasketIcon from "../icons/basketIcon";
 import PN from "persian-number";
 import { useCart } from "../../hooks/useCart";
-import CartEdditionButton from "../share/CartEdditionButton";
+import CartEditionButton from "../share/CartEdditionButton";
 const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty , id})=>{
     const [productDetailItems , setProductDetailItems] = useState([]) ;
-    const {setCart , countItem} = useCart(id);
     const getProductDetailItems = ()=>{
         setProductDetailItems( [
             {
@@ -52,7 +51,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                 productDetailItems.map((cardData , index)=>{
                    return(
                        cardData.show ?
-                       <Fragment key={index}>
+                       <Fragment key={cardData.title}>
                            <Typography variant={'body2'} sx={{display : "flex" , alignItems : "center" , gap : 2 , py : 2}}>{cardData.icon} {cardData.title} </Typography>
                            <Divider />
                        </Fragment> : null
@@ -85,12 +84,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                 </Stack>
             </Box>
             <Box sx={{display : 'flex' , flexDirection :'column' , alignItems :'end'  , width:'100%'}}>
-            {
-                countItem === 0 ? 
-                <LoadingButton onClick={setCart.bind(this , true ,id)} fullWidth sx={{p : 1.5 , borderRadius : 3 , mt : 2 , display : "flex" , gap : 1 , justifyContent : 'center' , alignItems : "center"}} variant={'contained'} color={'secondary'}><BasketIcon/>  افزودن به سبد خرید </LoadingButton>
-                :
-                <CartEdditionButton  id={id}  />
-            }
+                <CartEditionButton id={id}/>
             </Box>
 
         </Box>
