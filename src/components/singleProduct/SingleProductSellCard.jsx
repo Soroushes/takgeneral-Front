@@ -5,11 +5,9 @@ import NotFakeWarranty from '../icons/notFakeWarranty.svg';
 import FreeSent from '../icons/freeSent.svg';
 import {Divider, Stack, Typography} from "@mui/material";
 import {Fragment, useEffect, useState} from "react";
-import LoadingButton from "@mui/lab/LoadingButton";
-import BasketIcon from "../icons/basketIcon";
 import PN from "persian-number";
-import { useCart } from "../../hooks/useCart";
 import CartEditionButton from "../share/CartEdditionButton";
+
 const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty , id})=>{
     const [productDetailItems , setProductDetailItems] = useState([]) ;
     const getProductDetailItems = ()=>{
@@ -48,7 +46,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
         <Box sx={{px : 3 , pb : 3 , backgroundColor : "#EDEFF3" , borderRadius : 2  , display:'flex' , flexDirection :'column'  ,gap:2}}>
             <Box>
             {
-                productDetailItems.map((cardData , index)=>{
+                productDetailItems.map((cardData )=>{
                    return(
                        cardData.show ?
                        <Fragment key={cardData.title}>
@@ -86,7 +84,6 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
             <Box sx={{display : 'flex' , flexDirection :'column' , alignItems :'end'  , width:'100%'}}>
                 <CartEditionButton id={id}/>
             </Box>
-
         </Box>
     )
 }

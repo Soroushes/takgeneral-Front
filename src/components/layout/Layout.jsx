@@ -7,6 +7,7 @@ import {useRouter} from "next/router";
 import AlertSnakeBar from "../share/alertSnakeBar";
 import { fetchInfo } from 'src/redux/slices/userInfoSlice';
 import { useDispatch , useSelector} from 'react-redux';
+import {fetchCart} from "../../redux/slices/cart";
 const hideLayoutPaths = ['/login'];
 const Layout = ({children}) => {
     const navbarHeight = 55 ;
@@ -21,8 +22,11 @@ const Layout = ({children}) => {
         setDesktopHeaderHeight(desktopHeaderRef.current.clientHeight);
         const show = hideLayoutPaths.find((path) => path === pathname);
         setShowLayout(!!!show);
-        dispatcher(fetchInfo());
     }, [pathname])
+    useEffect(()=>{
+        dispatcher(fetchInfo());
+        dispatcher(fetchCart()) ;
+    },[])
     return (
         <>
             <Box sx={{display: showLayout ? {xs: "block", md: "none"} : "none"}}>

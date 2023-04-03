@@ -171,7 +171,7 @@ export const getServerSideProps = async ({params, query}) => {
             params: {
                 'brand[]': query.brand,
                 page: query.page ?? 1,
-                page_size: 8 ,
+                page_size: 20,
                 ordering : query.ordering
             }
         })
