@@ -82,7 +82,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                 </Stack>
             </Box>
             <Box sx={{display : 'flex' , flexDirection :'column' , alignItems :'end'  , width:'100%'}}>
-                <CartEditionButton id={id}/>
+                <CartEditionButton fromCart={false} id={id}/>
             </Box>
         </Box>
     )

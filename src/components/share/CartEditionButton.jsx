@@ -7,7 +7,7 @@ import BasketIcon from "../icons/basketIcon";
 import LoadingButton from "@mui/lab/LoadingButton";
 import {useCart} from "../../hooks/useCart";
 
-const CartEditionButton = ({id}) => {
+const CartEditionButton = ({id , fromCart}) => {
     const {setCart , countItem} = useCart(id);
     return (
         countItem < 1 ?
@@ -26,7 +26,7 @@ const CartEditionButton = ({id}) => {
                 </LoadingButton>
             ) :
             <Box sx={{
-                backgroundColor: 'white',
+                backgroundColor: '#F9F9F9',
                 display: 'flex',
                 alignItems: 'center',
                 px : 1 ,
