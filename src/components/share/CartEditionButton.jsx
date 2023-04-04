@@ -1,4 +1,4 @@
-import {Typography} from "@mui/material";
+import {CircularProgress, Typography} from "@mui/material";
 import {Box} from "@mui/system";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -7,8 +7,8 @@ import BasketIcon from "../icons/basketIcon";
 import LoadingButton from "@mui/lab/LoadingButton";
 import {useCart} from "../../hooks/useCart";
 
-const CartEditionButton = ({id , fromCart}) => {
-    const {setCart , countItem} = useCart(id);
+const CartEditionButton = ({id}) => {
+    const {setCart , countItem , loading} = useCart(id);
     return (
         countItem < 1 ?
             (
@@ -26,7 +26,7 @@ const CartEditionButton = ({id , fromCart}) => {
                 </LoadingButton>
             ) :
             <Box sx={{
-                backgroundColor: '#F9F9F9',
+                backgroundColor: '#f4f4f4',
                 display: 'flex',
                 alignItems: 'center',
                 px : 1 ,
@@ -38,7 +38,7 @@ const CartEditionButton = ({id , fromCart}) => {
                 <Typography onClick={setCart.bind(this, true)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                     <AddIcon color="primary"/>
                 </Typography>
-                <Typography sx={{display: 'flex', alignItems: 'center'}}>{countItem}</Typography>
+                <Typography sx={{display: 'flex', alignItems: 'center'}}>{loading ? <CircularProgress color={'secondary'}/> :  countItem}</Typography>
                 <Typography onClick={setCart.bind(this, false)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                     {
                         countItem <= 1 ?

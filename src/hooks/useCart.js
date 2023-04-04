@@ -1,16 +1,19 @@
 import {useEffect, useState} from "react";
+import {useAxios} from "./useAxios";
+import {useDispatch} from "react-redux";
+import {SET_CART_DATA} from "../redux/slices/cart";
 
 export const useCart = (id) => {
   const [countItem, setCountItem] = useState(0);
-  const [localUpdate , setLocalUpdate] = useState([])
+  const [localUpdate , setLocalUpdate] = useState([]) ;
+  const {callApi , loading} = useAxios() ;
+  const dispatch = useDispatch() ;
   const updateLocalCart=(newCart)=>{
-    const cart = newCart || [];
-    const filteredCart = cart.filter((cartItem)=>cartItem?.count > 0);
-    localStorage.setItem('cart' , JSON.stringify(filteredCart)) ; 
-    setLocalUpdate(filteredCart)
+    localStorage.setItem('cart' , JSON.stringify(newCart)) ;
+    setLocalUpdate(newCart);
   }
   useEffect(() => {
-    updateLocalCart(JSON.parse(localStorage.getItem('cart')));
+    updateLocalCart(JSON.parse(localStorage.getItem('cart')) || []);
   }, []);
 
   useEffect(()=>{
@@ -18,7 +21,7 @@ export const useCart = (id) => {
   },[localUpdate])
   const setCart = (add) => {
     let isNew = true;
-    const newCart = localUpdate.map((cartItem) => {
+    let newCart = localUpdate.map((cartItem) => {
       if (cartItem.id === id) {
         isNew = false;
         return {...cartItem, count: add ? cartItem.count + 1 : cartItem.count - 1};
@@ -27,12 +30,23 @@ export const useCart = (id) => {
     if (isNew && add) {
       newCart.push({ count: 1, id });
     }
-    updateLocalCart(newCart);
+    newCart = newCart.filter((cartItem)=>cartItem?.count > 0) ;
+    sendCartRequest(newCart) ;
   };
-  
+  const sendCartRequest = (cartData)=>{
+    callApi({
+      url : "cart-detail" ,
+      method : "POST" ,
+      data : {cartsData : cartData},
+      successFunc : (result)=>{
+        dispatch(SET_CART_DATA(result));
+        updateLocalCart(cartData);
+      }
+    })
+  }
   const findCountOfItem = () => {
-    const selectedCartItem = localUpdate.find((cartItem) => (cartItem.id = id));
+    const selectedCartItem = localUpdate?.find((cartItem) => (cartItem.id === id));
         setCountItem(+selectedCartItem?.count || 0);
   };
-  return { setCart, countItem };
+  return { setCart, countItem , loading };
 };

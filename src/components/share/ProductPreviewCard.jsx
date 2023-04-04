@@ -32,7 +32,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                                 backgroundColor: "secondary.main",
                                 borderRadius: 2,
                                 p: .5
-                            }}>{discountPercent}%
+                            }}>{Math.trunc(discountPercent)}%
                         </Typography> : null
                 }
 
@@ -56,19 +56,19 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                                     color={'secondary'}
                                     sx={{fontSize : {xs : '13px' , md : "15px"}}}
                                 >
-                                    {PN.convertEnToPe(PN.sliceNumber(afterDiscountPrice))}
+                                    {PN.convertEnToPe(PN.sliceNumber(Math.trunc(Math.trunc(afterDiscountPrice))))}
                                 </Typography>
                                 <Typography component={'span'} color={'secondary'} sx={{fontSize : {xs : '11px' , md : "13px"}}}>تومان</Typography>
                             </Box>
                             <Typography sx={{textDecoration: "line-through" , display : "flex" , alignItems : "center" , fontSize : {xs : '10px' , md : "11px"}}} component={'span'}>
-                                {PN.convertEnToPe(PN.sliceNumber(price))}
+                                {PN.convertEnToPe(PN.sliceNumber(Math.trunc(price)))}
                                 <Typography component={'span'} sx={{fontSize : {xs : '10px' , md : "11px"}}}>
                                     تومان
                                 </Typography>
                             </Typography>
                         </Box> :
                         <Box sx={{display: "flex", gap: .5, alignItems: "center" , mb : 1.5}}>
-                            <Typography component={'span'} color={'primary.dark'} fontWeight={'bold'} sx={{fontSize: {xs : '13px' , md : "15px"}}}>{PN.convertEnToPe(PN.sliceNumber(price))}</Typography>
+                            <Typography component={'span'} color={'primary.dark'} fontWeight={'bold'} sx={{fontSize: {xs : '13px' , md : "15px"}}}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(price)))}</Typography>
                             <Typography component={'span'} color={'primary.dark'} sx={{fontSize: {xs : '11px' , md : "13px"}}}>تومان</Typography>
                         </Box>
                 }

@@ -25,7 +25,7 @@ const Layout = ({children}) => {
     }, [pathname])
     useEffect(()=>{
         dispatcher(fetchInfo());
-        dispatcher(fetchCart()) ;
+        dispatcher(fetchCart());
     },[])
     return (
         <>

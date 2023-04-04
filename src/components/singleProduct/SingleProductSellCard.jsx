@@ -1,47 +1,12 @@
 import {Box} from "@mui/system";
-import WareHouseExist from '../icons/warehouseExistIcon.svg';
-import SevenDaysBack  from '../icons/sevenDaysBack.svg';
-import NotFakeWarranty from '../icons/notFakeWarranty.svg';
-import FreeSent from '../icons/freeSent.svg';
 import {Divider, Stack, Typography} from "@mui/material";
-import {Fragment, useEffect, useState} from "react";
+import {Fragment} from "react";
 import PN from "persian-number";
 import CartEditionButton from "../share/CartEditionButton";
+import {useProductDetailItems} from "../../hooks/useProductDetailItems";
 
 const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty , id})=>{
-    const [productDetailItems , setProductDetailItems] = useState([]) ;
-    const getProductDetailItems = ()=>{
-        setProductDetailItems( [
-            {
-                title : "موجود در انبار" ,
-                show : available ,
-                icon : <WareHouseExist/> ,
-            },
-            {
-                title : "ارسال رایگان" ,
-                icon : <FreeSent/> ,
-                show : freeSent
-            },
-            {
-                title : "ضمانت اصالت کالا" ,
-                icon : <NotFakeWarranty/> ,
-                show : true
-            },
-            {
-                title : "7 روز ضمانت برگشت کالا" ,
-                icon : <SevenDaysBack/> ,
-                show : sevenDaysBack
-            },
-            {
-                title : warranty ,
-                icon : <SevenDaysBack/> ,
-                show : warranty
-            },
-        ])
-    }
-    useEffect(()=>{
-        getProductDetailItems() ;
-    },[])
+    const productDetailItems = useProductDetailItems({freeSent  , wareHouseExist : available , notFakeWarranty : true , sevenDaysBack , warranty}) ;
     return (
         <Box sx={{px : 3 , pb : 3 , backgroundColor : "#EDEFF3" , borderRadius : 2  , display:'flex' , flexDirection :'column'  ,gap:2}}>
             <Box>

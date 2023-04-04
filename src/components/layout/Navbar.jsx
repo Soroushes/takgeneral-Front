@@ -5,6 +5,7 @@ import BasketIcon from "../icons/basketIcon";
 import SearchOutlinedIcon from "../icons/searchOutlined";
 import Link from "next/link";
 import {useEffect, useState} from "react";
+import {urls} from "../../data/urls";
 const Navbar = () => {
     const [navbarItems , setNavbarItems] = useState([]) ;
     useEffect(()=>{
@@ -12,7 +13,7 @@ const Navbar = () => {
             {
                 name: "خانه",
                 icon: <HomeIcon/> ,
-                link : '/'
+                link : urls.home
             },
             {
                 name: "جستجو",
@@ -22,7 +23,7 @@ const Navbar = () => {
             {
                 name: "سبد خرید",
                 icon: <BasketIcon/> ,
-                link : "/"
+                link : urls.cart
             },
             {
                 name: "تماس با ما",

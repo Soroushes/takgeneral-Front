@@ -1,7 +1,7 @@
-import { Typography } from "@mui/material";
+import {Box} from "@mui/system";
 const OrderCartItems = ()=>{
     return(
-        <Typography>hellooooo</Typography>
+        <Box sx={{height : 400 , backgroundColor : "red"}}></Box>
     )
 }
 export default OrderCartItems;

@@ -21,7 +21,9 @@ const singleProductImage =({mainImage , otherImage})=>{
                 >
                     <SwiperSlide>
                         <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                            <Image fill alt={'test'} src={mainImage} />
+                            {
+                                mainImage ? <Image fill alt={'test'} src={mainImage} /> : null
+                            }
                         </Box>
                     </SwiperSlide>
                     {
@@ -48,7 +50,9 @@ const singleProductImage =({mainImage , otherImage})=>{
                 >
                     <SwiperSlide style={{borderRadius : "8px"  , padding : '5px'}}>
                         <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                            <Image fill alt={'test'} src={mainImage} />
+                            {
+                                mainImage ? <Image fill alt={'test'} src={mainImage} /> : null
+                            }
                         </Box>
                     </SwiperSlide>
                     {

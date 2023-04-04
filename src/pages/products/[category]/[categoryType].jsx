@@ -36,6 +36,9 @@ const Category = ({product, brands, current_page, page_count}) => {
     useEffect(()=>{
         setNoQueryPath(`/products/${query.category}/${query.categoryType}`)
     },[asPath])
+    useEffect(()=>{
+        setSortValue('newest')
+    },[noQueryPath])
     const handlePaginationChange = (e , value)=>{
         push({
             pathname : noQueryPath ,

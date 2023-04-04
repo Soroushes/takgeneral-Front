@@ -10,6 +10,7 @@ import {headerItem} from "../../data/header";
 import Link from "next/link";
 import logo from '../../../public/logo.png' ;
 import Image from "next/image";
+import {urls} from "../../data/urls";
 const DesktopHeader = ({status , desktopHeaderRef}) => {
     const router = useRouter();
         return (
@@ -62,7 +63,7 @@ const DesktopHeader = ({status , desktopHeaderRef}) => {
                                             <Typography variant={'caption'}>ورود و عضویت</Typography>
                                         </Button>
                                 }
-                                <Button size={'small'} sx={{p : 0}} variant={'contained'} color={'btnGray'}>
+                                <Button onClick={()=>router.push(urls.cart)} size={'small'} sx={{p : 0}} variant={'contained'} color={'btnGray'}>
                                     <ShopIcon/>
                                 </Button>
                             </Box>
