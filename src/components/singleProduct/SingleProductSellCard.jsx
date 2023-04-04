@@ -6,7 +6,7 @@ import FreeSent from '../icons/freeSent.svg';
 import {Divider, Stack, Typography} from "@mui/material";
 import {Fragment, useEffect, useState} from "react";
 import PN from "persian-number";
-import CartEditionButton from "../share/CartEdditionButton";
+import CartEditionButton from "../share/CartEditionButton";
 
 const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty , id})=>{
     const [productDetailItems , setProductDetailItems] = useState([]) ;
@@ -82,7 +82,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                 </Stack>
             </Box>
             <Box sx={{display : 'flex' , flexDirection :'column' , alignItems :'end'  , width:'100%'}}>
-                <CartEditionButton id={id}/>
+                <CartEditionButton fromCart={false} id={id}/>
             </Box>
         </Box>
     )
