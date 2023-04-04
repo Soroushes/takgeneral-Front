@@ -54,7 +54,7 @@ const CheckBoxFilter = ({subFilter}) => {
         }
     };
     return (
-        <Paper elevation={1} sx={{p: 2, borderRadius: 2}}>
+        <Paper elevation={3} sx={{p: 2, borderRadius: 2}}>
             <FormLabel sx={{borderBottom: '1px solid #ccc', pb: 1, fontSize: 14, mb: 1}} component="legend">
                 برندهای پمپ
             </FormLabel>
