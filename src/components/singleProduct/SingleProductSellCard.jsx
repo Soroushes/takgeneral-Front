@@ -4,7 +4,7 @@ import {Fragment} from "react";
 import PN from "persian-number";
 import CartEditionButton from "../share/CartEditionButton";
 import {useProductDetailItems} from "../../hooks/useProductDetailItems";
-
+import PriceDiscount from "../share/PriceDiscount";
 const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty , id})=>{
     const productDetailItems = useProductDetailItems({freeSent  , wareHouseExist : available , notFakeWarranty : true , sevenDaysBack , warranty}) ;
     return (
@@ -24,27 +24,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
             </Box>
             <Box sx={{display : "flex" , justifyContent : "end" , gap :4 , alignItems:'center' , mt : 3 , px : 2}}>
                 <Typography sx={{fontWeight : "bold"}} variant={'body1'}>قیمت کالا</Typography>
-                <Stack >
-                    {
-                        discount ?
-                            <>
-                                <Typography component={'span'} variant={'h6'} sx={{fontWeight : "bold"}} color={'secondary'}>
-                                    {PN.convertEnToPe(PN.sliceNumber(finalPrice))}
-                                    <Typography component={'span'} color={'secondary'} variant={'body2'}>تومان </Typography>
-                                </Typography>
-                                <Typography component={'span'} sx={{ display:'flex' , alignItems : "center"}} variant={'subtitle1'}>
-                                    <Typography sx={{textDecoration : "line-through" }}>{PN.convertEnToPe(PN.sliceNumber(price))}</Typography>
-                                    <Typography sx={{textDecoration : "line-through"}} component={'span'} variant={'caption'}>تومان </Typography>
-                                    <Box sx={{backgroundColor : 'secondary.main' , color : 'white',fontSize:'12px' , ml : 1 , p:.25 ,px:.5 , textAlign:'center', borderRadius :1}}>{PN.convertEnToPe(discount)} % </Box>
-                                </Typography>
-                            </>
-                            :
-                            <Typography component={'span'} sx={{fontWeight : "bold"}} variant={'h6'} >
-                                {PN.convertEnToPe(PN.sliceNumber(finalPrice))}
-                                <Typography component={'span'} variant={'subtitle2'}>تومان </Typography>
-                            </Typography>
-                    }
-                </Stack>
+                 <PriceDiscount price={price} finalPrice={finalPrice} discount={discount} fontSize={'caption'} isDiscountNear={true}/>
             </Box>
             <Box sx={{display : 'flex' , flexDirection :'column' , alignItems :'end'  , width:'100%'}}>
                 <CartEditionButton fromCart={false} id={id}/>

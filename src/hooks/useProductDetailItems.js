@@ -16,7 +16,7 @@ export const useProductDetailItems = ({freeSent , warranty , sevenDaysBack , war
                 },
                 {
                     title : "ارسال رایگان" ,
-                    icon : <FreeSent/> ,
+                    icon : <FreeSent/> , 
                     show : freeSent
                 },
                 {

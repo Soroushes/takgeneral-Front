@@ -38,11 +38,11 @@ const CartEditionButton = ({id}) => {
                 <Typography onClick={setCart.bind(this, true)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                     <AddIcon color="primary"/>
                 </Typography>
-                <Typography sx={{display: 'flex', alignItems: 'center'}}>{loading ? <CircularProgress color={'secondary'}/> :  countItem}</Typography>
+                <Typography sx={{display: 'flex', alignItems: 'center'}}>{loading ? <CircularProgress color={'primary'}/> :  countItem}</Typography>
                 <Typography onClick={setCart.bind(this, false)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                     {
                         countItem <= 1 ?
-                        <DeleteIcon color="secondary"/> : <RemoveIcon/>
+                        <DeleteIcon color="secondary"/> : <RemoveIcon color="primary"/>
                     }
                 </Typography>
             </Box>
