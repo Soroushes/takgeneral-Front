@@ -12,9 +12,8 @@ import {useRouter} from "next/router";
 import {useRef, useState} from 'react';
 
 const singleProduct = (props) => {
-    console.log(props , 'props in component');
     const router = useRouter();
-    const ref = useRef(null);
+    const attributesTableRef = useRef(null);
     const loading = router.isFallback;
     const [isShowAllDetails, setIsShowAllDetails] = useState(false)
     return (
@@ -30,8 +29,7 @@ const singleProduct = (props) => {
                     <Grid item sx={{px: 3}} sm={6} md={7} lg={5.2} xs={12}>
                         {
                             loading ? <SingleProductLoadingAttribute/> :
-                                <SingleProductAttribute setShowAllDetails={setIsShowAllDetails} name={props.name}
-                                                        attributes={props.attributes} attrRef={ref}/>
+                                <SingleProductAttribute setShowAllDetails={setIsShowAllDetails} name={props.name} attributes={props.attributes} attrRef={attributesTableRef}/>
                         }
                     </Grid>
                     <Grid item sm={12} lg={3.5} xs={12}>
@@ -52,12 +50,11 @@ const singleProduct = (props) => {
                     </Grid>
                 </Grid>
             </Container>
-            <Container ref={ref} disableGutters sx={{px: {md: 20, lg: 8}}} maxWidth={'xl'}>
+            <Container ref={attributesTableRef} disableGutters sx={{px: {md: 20, lg: 8}}} maxWidth={'xl'}>
                 <Grid sx={{mt: 4}} item md={12} xs={12}>
                     {
                         loading ? null :
-                            <SingleProductDetails setShowAllDetails={setIsShowAllDetails}
-                                                  IsShowAllDetails={isShowAllDetails} details={props.attributes}/>
+                            <SingleProductDetails setShowAllDetails={setIsShowAllDetails} IsShowAllDetails={isShowAllDetails} details={props.attributes}/>
                     }
                 </Grid>
             </Container>

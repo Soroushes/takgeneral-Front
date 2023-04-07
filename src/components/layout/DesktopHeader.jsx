@@ -1,7 +1,7 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import {Box} from "@mui/system";
-import {Button, Container, InputAdornment, TextField, Typography} from "@mui/material";
+import {Badge, Button, Container, InputAdornment, TextField, Typography} from "@mui/material";
 import UserIcon from "../icons/user";
 import SearchOutlined from "../../components/icons/searchOutlined";
 import ShopIcon from '../icons/ShopIcon.svg';
@@ -11,9 +11,12 @@ import Link from "next/link";
 import logo from '../../../public/logo.png' ;
 import Image from "next/image";
 import {urls} from "../../data/urls";
-const DesktopHeader = ({status , desktopHeaderRef}) => {
+import {useSelector} from "react-redux";
+
+const DesktopHeader = ({status, desktopHeaderRef}) => {
     const router = useRouter();
-        return (
+    const {total_count} = useSelector(state => state.cart)
+    return (
         <AppBar ref={desktopHeaderRef} sx={{backgroundColor: "#fff"}}>
             <Toolbar>
                 <Container maxWidth={'xl'}>
@@ -21,10 +24,10 @@ const DesktopHeader = ({status , desktopHeaderRef}) => {
                         sx={{
                             display: "flex",
                             flexDirection: "column",
-                            gap : 1 ,
+                            gap: 1,
                             width: "100%",
                             height: "100%",
-                            py : 1 ,
+                            py: 1,
                         }}>
                         <Box
                             sx={{
@@ -41,7 +44,7 @@ const DesktopHeader = ({status , desktopHeaderRef}) => {
                                     fullWidth={true}
                                     placeholder={'جستجو در تک جنرال'}
                                     InputProps={{
-                                        sx: {backgroundColor: "btnGray.main" , height : "100%" , fontSize : 14},
+                                        sx: {backgroundColor: "btnGray.main", height: "100%", fontSize: 14},
                                         startAdornment: (
                                             <InputAdornment position="start">
                                                 <SearchOutlined/>
@@ -50,21 +53,28 @@ const DesktopHeader = ({status , desktopHeaderRef}) => {
                                     }}
                                 />
                             </Box>
-                            <Box sx={{display: "flex", gap: 2 }}>
+                            <Box sx={{display: "flex", gap: 2}}>
                                 {
                                     status.phone_number ?
-                                        <Button onClick={()=>router.push('/profile')} sx={{px: 3, gap: 1 , py : .8}} variant={'contained'} color={'btnGray'}>
+                                        <Button onClick={() => router.push('/profile')} sx={{px: 3, gap: 1, py: .8}}
+                                                variant={'contained'} color={'btnGray'}>
                                             <UserIcon/>
-                                            <Typography variant={'caption'}>{status.full_name ?? status.phone_number}</Typography>
+                                            <Typography
+                                                variant={'caption'}>{status.full_name ?? status.phone_number}</Typography>
                                         </Button>
                                         :
-                                        <Button onClick={() => router.push('/login')} sx={{px: 3, gap: 1 , py : .8}} size={'small'} variant={'contained'} color={'btnGray'}>
+                                        <Button onClick={() => router.push('/login')} sx={{px: 3, gap: 1, py: .8}}
+                                                size={'small'} variant={'contained'} color={'btnGray'}>
                                             <UserIcon/>
                                             <Typography variant={'caption'}>ورود و عضویت</Typography>
                                         </Button>
                                 }
-                                <Button onClick={()=>router.push(urls.cart)} size={'small'} sx={{p : 0}} variant={'contained'} color={'btnGray'}>
-                                    <ShopIcon/>
+                                <Button onClick={() => router.push(urls.cart)} size={'small'} sx={{p: 0}}
+                                        variant={'contained'} color={'btnGray'}>
+                                    <Badge anchorOrigin={{vertical: 'top', horizontal: 'left',}}
+                                           badgeContent={total_count} color="secondary">
+                                        <ShopIcon/>
+                                    </Badge>
                                 </Button>
                             </Box>
                         </Box>

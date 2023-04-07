@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const cart = ()=>{
     const selectedProducts = useSelector(state => state.cart)
     return(
-        <Box sx={{backgroundColor : "#fafafa" , pt : 2}}>
+        <Box sx={{backgroundColor : "#fafafa" , pt : 2 , minHeight : "100%"}}>
         <Container>
             <Grid container rowGap={1}>
                 <Grid item md={12} sx={{display:{lg :'flex' , md :'none' , xs :'none'} , justifyContent:'space-between'}}>
@@ -14,6 +14,7 @@ const cart = ()=>{
                 </Grid>
                 <Grid item md={8} lg={8.5} xs={12}>
                     <Grid container sx={{mb:1}}>
+                        // todo change width
                         <Grid xs={12} item sx={{display :{lg :'flex' , xs:'none'} , backgroundColor :'#fff' , py :2 , borderRadius :3 }}>
                             <Typography sx={{width :'50%' , textAlign:'center', fontSize:'13px' , fontWeight :'bold'}}>محصولات</Typography>
                             <Typography sx={{width :'20%', textAlign:'center', fontSize:'13px', fontWeight :'bold'}}>تعداد</Typography>

@@ -1,10 +1,9 @@
-import {Box} from "@mui/system";
-import { Typography , Grid, Divider } from "@mui/material";
+import { Typography , Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import PN from "persian-number";
 const OrderCartItems = ()=>{
+    // todo create an array map them here delete this component and map on the cart.jsx component
     const selectedProducts = useSelector(state => state.cart)
-    console.log(selectedProducts)
         return(
         <Grid sx={{backgroundColor:'#fff'  , p:2 , borderRadius :3  ,mb:2 , gap:6}} container>
             <Grid item xs={12} sx={{display :'flex' , justifyContent :'space-between', alignItems :'center'}}>

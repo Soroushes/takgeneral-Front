@@ -1,6 +1,5 @@
 import {Stack, Typography} from "@mui/material";
 import {Box} from "@mui/system";
-import PN from "persian-number";
 import Image from "next/image";
 import Link from "next/link";
 import PriceDiscount from "./PriceDiscount";
@@ -36,7 +35,6 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                             }}>{Math.trunc(discountPercent)}%
                         </Typography> : null
                 }
-
                 <Box sx={{position: 'relative', aspectRatio: "1/1", width: "70%"}}>
                     <Image fill src={image} alt={title}/>
                 </Box>
@@ -47,7 +45,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 >
                     {title}
                 </Typography>
-                <PriceDiscount price={price} finalPrice={afterDiscountPrice} discount={discountPercent} fontSize={'caption'} isDiscountNear={false}/>
+                <PriceDiscount price={price} finalPrice={afterDiscountPrice} fontSize={'caption'}/>
             </Stack>
         </Link>
     )

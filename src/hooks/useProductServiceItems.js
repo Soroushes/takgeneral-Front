@@ -4,7 +4,7 @@ import FreeSent from "../components/icons/freeSent.svg";
 import NotFakeWarranty from "../components/icons/notFakeWarranty.svg";
 import SevenDaysBack from "../components/icons/sevenDaysBack.svg";
 
-export const useProductDetailItems = ({freeSent , warranty , sevenDaysBack , wareHouseExist , notFakeWarranty})=>{
+export const useProductServiceItems = ({freeSent , warranty , sevenDaysBack , wareHouseExist , notFakeWarranty , size})=>{
     const [items , setItems] = useState([]) ;
     useEffect(()=>{
         setItems(
@@ -16,7 +16,7 @@ export const useProductDetailItems = ({freeSent , warranty , sevenDaysBack , war
                 },
                 {
                     title : "ارسال رایگان" ,
-                    icon : <FreeSent/> , 
+                    icon : <FreeSent/> ,
                     show : freeSent
                 },
                 {

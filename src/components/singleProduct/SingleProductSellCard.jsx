@@ -1,12 +1,11 @@
 import {Box} from "@mui/system";
-import {Divider, Stack, Typography} from "@mui/material";
+import {Divider, Typography} from "@mui/material";
 import {Fragment} from "react";
-import PN from "persian-number";
 import CartEditionButton from "../share/CartEditionButton";
-import {useProductDetailItems} from "../../hooks/useProductDetailItems";
+import {useProductServiceItems} from "../../hooks/useProductServiceItems";
 import PriceDiscount from "../share/PriceDiscount";
 const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty , id})=>{
-    const productDetailItems = useProductDetailItems({freeSent  , wareHouseExist : available , notFakeWarranty : true , sevenDaysBack , warranty}) ;
+    const productDetailItems = useProductServiceItems({freeSent  , wareHouseExist : available , notFakeWarranty : true , sevenDaysBack , warranty}) ;
     return (
         <Box sx={{px : 3 , pb : 3 , backgroundColor : "#EDEFF3" , borderRadius : 2  , display:'flex' , flexDirection :'column'  ,gap:2}}>
             <Box>
