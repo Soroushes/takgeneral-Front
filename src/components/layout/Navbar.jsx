@@ -51,7 +51,7 @@ const Navbar = () => {
                     return (
                         <Box key={index} sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                             <Link href={navItem.link}><Typography>{navItem.icon}</Typography></Link>
-                            <Typography color={'text.muted'} variant={"caption"}>
+                            <Typography color={'text.muted'} variant={"subtitle1"}>
                                 {navItem.name}
                             </Typography>
                         </Box>

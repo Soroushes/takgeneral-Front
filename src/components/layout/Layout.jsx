@@ -18,6 +18,7 @@ const Layout = ({children}) => {
     const dispatcher = useDispatch();
     const {full_name , phone_number } = useSelector(state => state.userInfo);
     const desktopHeaderRef = useRef(null)
+    
     useEffect(() => {
         setDesktopHeaderHeight(desktopHeaderRef.current.clientHeight);
         const show = hideLayoutPaths.find((path) => path === pathname);

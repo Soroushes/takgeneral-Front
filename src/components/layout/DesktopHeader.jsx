@@ -60,13 +60,13 @@ const DesktopHeader = ({status, desktopHeaderRef}) => {
                                                 variant={'contained'} color={'btnGray'}>
                                             <UserIcon/>
                                             <Typography
-                                                variant={'caption'}>{status.full_name ?? status.phone_number}</Typography>
+                                                variant={'body2'}>{status.full_name ?? status.phone_number}</Typography>
                                         </Button>
                                         :
                                         <Button onClick={() => router.push('/login')} sx={{px: 3, gap: 1, py: .8}}
                                                 size={'small'} variant={'contained'} color={'btnGray'}>
                                             <UserIcon/>
-                                            <Typography variant={'caption'}>ورود و عضویت</Typography>
+                                            <Typography variant={'subtitle2'}>ورود و عضویت</Typography>
                                         </Button>
                                 }
                                 <Button onClick={() => router.push(urls.cart)} size={'small'} sx={{p: 0}}
@@ -94,7 +94,7 @@ const DesktopHeader = ({status, desktopHeaderRef}) => {
                                                 alignItems: "center ",
                                             }}>
                                             {item.icon}
-                                            <Typography variant={'caption'} component={'li'}>{item.name}</Typography>
+                                            <Typography sx={{color :'text.main'}} variant={'subtitle1'} component={'li'}>{item.name}</Typography>
                                         </Box>
                                     </Link>
                                 );

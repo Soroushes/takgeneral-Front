@@ -12,6 +12,7 @@ import {useRouter} from "next/router";
 import {useRef, useState} from 'react';
 
 const singleProduct = (props) => {
+    //console.log(props)
     const router = useRouter();
     const attributesTableRef = useRef(null);
     const loading = router.isFallback;

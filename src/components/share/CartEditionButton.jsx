@@ -6,6 +6,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import BasketIcon from "../icons/basketIcon";
 import LoadingButton from "@mui/lab/LoadingButton";
 import {useCart} from "../../hooks/useCart";
+import PN from "persian-number";
 
 const CartEditionButton = ({id}) => {
     const {setCart , countItem , loading} = useCart(id);
@@ -38,7 +39,7 @@ const CartEditionButton = ({id}) => {
                 <Typography onClick={setCart.bind(this, true)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                     <AddIcon color="primary"/>
                 </Typography>
-                <Typography sx={{display: 'flex', alignItems: 'center'}}>{loading ? <CircularProgress color={'primary'}/> :  countItem}</Typography>
+                <Typography variant="subtitle2" sx={{display: 'flex', alignItems: 'center'}}>{loading ? <CircularProgress color={'primary'}/> :  PN.convertEnToPe(countItem)}</Typography>
                 <Typography onClick={setCart.bind(this, false)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                     {
                         countItem <= 1 ?

@@ -93,7 +93,7 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                                         }}
                                     >
                                         <Typography
-                                            sx={{fontSize: {xs: "12px", md: "14px"}}}
+                                            variant="body1"
                                         >
                                             {detail.title}
                                         </Typography>
@@ -110,7 +110,7 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                                         }}
                                     >
                                         <Typography
-                                            sx={{fontSize: {xs: "12px", md: "14px"}}}
+                                            variant="body1"
                                         >
                                             {detail.value}
                                         </Typography>

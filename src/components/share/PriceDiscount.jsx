@@ -18,6 +18,7 @@ const PriceDiscount = ({discountPercent, fontSize, price, finalPrice}) => {
                         </Typography>
                         <Typography component={'span'} sx={{display: 'flex', alignItems: "center"}} variant={'subtitle1'}>
                             <Typography
+                                variant={fontSize}
                                 sx={{textDecoration: "line-through"}}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(price)))}</Typography>
                             <Typography sx={{textDecoration: "line-through"}} component={'span'} variant={fontSize}>تومان </Typography>
                             {

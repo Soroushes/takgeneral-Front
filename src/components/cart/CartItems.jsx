@@ -20,10 +20,10 @@ const CartItems = ({product}) => {
             sx={{borderRadius: 3, p: 2, mb: 4, backgroundColor: "#fff"}}
         >
             <Grid item lg={6} xs={12}>
-                <Box sx={{display: "flex", gap: 2, alignItems: 'center'}}>
+                <Box sx={{display: "flex", gap: 6, alignItems: 'center'}}>
                     <Image width={100} height={100} alt={'test'} src={'https://takback.soroushes.tk/media/Group_2073.png'}/>
                     <Box>
-                        <Typography sx={{fontSize: "20px", mb: 1}}>
+                        <Typography variant="h3" sx={{ mb: 1}}>
                             {product.name}
                         </Typography>
                         <Box>
@@ -33,7 +33,7 @@ const CartItems = ({product}) => {
                                         <Box key={productDetailItem.title}
                                              sx={{display: "flex", alignItems: "center", gap: 1}}>
                                             <Typography variant={'caption'}>{productDetailItem.icon}</Typography>
-                                            <Typography variant={'caption'}>{productDetailItem.title}</Typography>
+                                            <Typography variant={'subtitle2'}>{productDetailItem.title}</Typography>
                                         </Box>
                                     );
                                 }

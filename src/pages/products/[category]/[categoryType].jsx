@@ -101,7 +101,7 @@ const Category = ({product, brands, current_page, page_count}) => {
                             >
                                 {
                                     sortValueItems.map((sortItem)=>(
-                                        <MenuItem key={sortItem.value} sx={{fontSize : 12}} value={sortItem.value}>{sortItem.name}</MenuItem>
+                                        <MenuItem key={sortItem.value} variant={'subtitle1'} value={sortItem.value}>{sortItem.name}</MenuItem>
                                     ))
                                 }
                             </TextField>
@@ -150,7 +150,7 @@ const Category = ({product, brands, current_page, page_count}) => {
                                 setOpenSortModal(false) ;
                             }}
                             key={sortItem.value}
-                            sx={{fontSize : 12}}
+                            variant={'subtitle2'}
                             value={sortItem.value}
                             color={sortItem.value === sortValue ? 'primary' : "text"}
                         >

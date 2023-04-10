@@ -69,9 +69,9 @@ const Login = () => {
     }
     useEffect(()=>{
         const token = localStorage.getItem('token') ;
-        if (token){
-            router.push('/') ;
-        }
+        // if (token){
+        //     router.push('/') ;
+        // }
     },[])
     return (
         <Container maxWidth={"lg"} sx={{height: "75vh", p: 0}} disableGutters>
@@ -90,10 +90,10 @@ const Login = () => {
                         <Typography sx={{mb: 1}} component={"h1"} variant={'h6'}>
                             {validate ? "کد تایید را وارد کنید" : "ورود / ثبت نام"}
                         </Typography>
-                        {validate ? null : (<Typography variant={"button"} component={"p"}>
+                        {validate ? null : (<Typography variant={"body2"} component={"p"}>
                             سلام!
                         </Typography>)}
-                        <Typography variant={"button"} component={"p"}>
+                        <Typography variant={"body2"} component={"p"}>
                             {validate ? `کد تایید برای شماره ی ${getValues('phoneNumber')} پیامک شد` : ` شماره موبایل خود را وارد کنید`}
                         </Typography>
                         {validate ? (<>
@@ -144,17 +144,19 @@ const Login = () => {
                                 }}>
                                 {isFinished ? (<Typography
                                     onClick={postPhoneNumber}
+                                    variant="subtitle1"
                                     sx={{
-                                        fontSize: 12, color: "green", cursor: "pointer",
+                                         color: "green", cursor: "pointer",
                                     }}>
                                     ارسال مجدد کد
-                                </Typography>) : (<Typography sx={{fontSize: 14}}>
+                                </Typography>) : (<Typography variant="body1">
                                     مانده تا ارسال مجدد {count}
                                 </Typography>)}
                             </Box>
                             <Typography
                                 onClick={() => {setValidate(false)}}
-                                sx={{fontSize: 12, color: "red", cursor: "pointer"}}>
+                                variant="subtitle1"
+                                sx={{color: "red", cursor: "pointer"}}>
                                 اصلاح شماره موبایل
                             </Typography>
                         </>) : (
@@ -181,7 +183,7 @@ const Login = () => {
                                         InputProps={{
                                             startAdornment: (
                                                 <InputAdornment sx={{ml: 1}} position="start">
-                                                    <Typography sx={{fontSize: 17}}>+98</Typography>
+                                                    <Typography variant="h3" >+98</Typography>
                                                 </InputAdornment>
                                             )
                                         }}
@@ -202,7 +204,7 @@ const Login = () => {
                             loading={otpLoading || phoneLoading}
                             type={'submit'}
                             sx={{
-                                mt: 3, mb: 6, width: "100%", fontSize: 18, borderRadius: 2,
+                                mt: 3, mb: 6, width: "100%", fontSize: 17, borderRadius: 2,
                             }}
                             variant={"contained"}>
                             تایید

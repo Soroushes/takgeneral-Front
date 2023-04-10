@@ -14,11 +14,11 @@ const cart = ()=>{
                 </Grid>
                 <Grid item md={8} lg={8.5} xs={12}>
                     <Grid container sx={{mb:1}}>
-                        // todo change width
+                        {/* // todo change width */}
                         <Grid xs={12} item sx={{display :{lg :'flex' , xs:'none'} , backgroundColor :'#fff' , py :2 , borderRadius :3 }}>
-                            <Typography sx={{width :'50%' , textAlign:'center', fontSize:'13px' , fontWeight :'bold'}}>محصولات</Typography>
-                            <Typography sx={{width :'20%', textAlign:'center', fontSize:'13px', fontWeight :'bold'}}>تعداد</Typography>
-                            <Typography sx={{width :'30%', textAlign:'center', fontSize:'13px', fontWeight :'bold'}}>قیمت کل</Typography>
+                            <Typography variant="body2" sx={{width :'50%' , textAlign:'center',  fontWeight :'bold'}}>محصولات</Typography>
+                            <Typography variant="body2" sx={{width :'20%', textAlign:'center' , fontWeight :'bold'}}>تعداد</Typography>
+                            <Typography variant="body2" sx={{width :'30%', textAlign:'center', fontWeight :'bold'}}>قیمت کل</Typography>
                         </Grid>
                     </Grid>
                     {

@@ -3,6 +3,7 @@ import {Box} from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 import PriceDiscount from "./PriceDiscount";
+import PN from "persian-number";
 
 const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price , id}) => {
     return (
@@ -32,7 +33,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                                 backgroundColor: "secondary.main",
                                 borderRadius: 2,
                                 p: .5
-                            }}>{Math.trunc(discountPercent)}%
+                            }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%
                         </Typography> : null
                 }
                 <Box sx={{position: 'relative', aspectRatio: "1/1", width: "70%"}}>
@@ -41,11 +42,12 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 <Typography
                     component={'h3'}
                     fontWeight={"bold"}
-                    sx={{textAlign: "center" , height : "30%" , overflow : "hidden" , fontSize : {xs : "9px" , sm : "11px"} , display : "flex" , alignItems : "center"}}
+                    variant="subtitle2"
+                    sx={{textAlign: "center" , height : "30%" , overflow : "hidden" ,  display : "flex" , alignItems : "center"}}
                 >
                     {title}
                 </Typography>
-                <PriceDiscount price={price} finalPrice={afterDiscountPrice} fontSize={'caption'}/>
+                <PriceDiscount price={price} finalPrice={afterDiscountPrice} fontSize={'subtitle2'}/>
             </Stack>
         </Link>
     )

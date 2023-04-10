@@ -12,14 +12,14 @@ const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails 
       };
     return (
         <Box>
-            <Typography variant="h6" sx={{fontWeight : 'bold' , mb : 3}} component={'h1'}>{name}</Typography>
-            <Typography variant="body1" sx={{fontWeight : 'bold' ,  mb : 2}} component={'h1'}>ویژگی های اصلی محصول</Typography>
+            <Typography variant="h4" sx={{fontWeight : 'bold' , mb : 3}} component={'h1'}>{name}</Typography>
+            <Typography variant="subtitle1" sx={{fontWeight : 'bold' ,  mb : 2}} component={'h1'}>ویژگی های اصلی محصول</Typography>
             <Box component={'ul'} sx={{display : 'flex'  , flexDirection : 'column', gap : .75}}>
                 {
                     attributes.map((attr , index)=>{
                         if (index  > 6) return null
                         return(
-                            <Typography  key={attr.id} sx={{listStyleType : "disc" , listStylePosition : "inside"}} variant="caption"  component={'li'} > {attr.title} : {attr.value}</Typography>
+                            <Typography  key={attr.id} sx={{listStyleType : "disc" , listStylePosition : "inside"}} variant="body1"  component={'li'} > {attr.title} : {attr.value}</Typography>
                         )
                     })
                 }
