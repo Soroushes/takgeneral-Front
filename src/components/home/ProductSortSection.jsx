@@ -9,9 +9,8 @@ import Image from "next/image";
 
 const ProductSortSection = ({productSortData}) => {
     return (
-        //todo
         <Container maxWidth={'lg'} sx={{my: 3}}>
-            <Typography sx={{mb : 3}} textAlign={'center'} component={'h2'} variant={'subtitle1'}>دسته بندی محصولات</Typography>
+            <Typography sx={{mb : 3}} textAlign={'center'} component={'h2'} variant={'body2'}>دسته بندی محصولات</Typography>
             <Grid rowGap={3} container>
                 {productSortData?.map((sortItem) => {
                     return (

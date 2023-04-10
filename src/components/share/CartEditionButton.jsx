@@ -13,7 +13,7 @@ const CartEditionButton = ({id}) => {
     return (
         countItem < 1 ?
             (
-                <LoadingButton onClick={setCart.bind(this, true)} fullWidth sx={{
+                <LoadingButton loading={loading} onClick={setCart.bind(this, true)} fullWidth sx={{
                     p: 1.5,
                     height : '50px' ,
                     borderRadius: 3,
@@ -33,13 +33,13 @@ const CartEditionButton = ({id}) => {
                 px : 1 ,
                 justifyContent: 'space-between',
                 height: '50px',
-                width: '150px',
+                width: '130px',
                 borderRadius: 2
             }}>
                 <Typography onClick={setCart.bind(this, true)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                     <AddIcon color="primary"/>
                 </Typography>
-                <Typography variant="subtitle2" sx={{display: 'flex', alignItems: 'center'}}>{loading ? <CircularProgress color={'primary'}/> :  PN.convertEnToPe(countItem)}</Typography>
+                <Typography variant="body1" sx={{display: 'flex', alignItems: 'center'}}>{loading ? <CircularProgress color={'primary'}/> :  PN.convertEnToPe(countItem)}</Typography>
                 <Typography onClick={setCart.bind(this, false)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                     {
                         countItem <= 1 ?

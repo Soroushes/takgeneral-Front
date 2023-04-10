@@ -72,7 +72,7 @@ const PanelLayout = ({children}) => {
                                             backgroundColor : active ? "primary.light" : ""
                                         }}>
                                             {active ? item.activeIcon : item.icon}
-                                            <Typography variant={'subtitle2'} sx={{color : active ? "white" : "text.main" , textAlign : "center" , whiteSpace : "nowrap"}}>{item.title}</Typography>
+                                            <Typography variant={'subtitle1'} sx={{color : active ? "white" : "text.main" , textAlign : "center" , whiteSpace : "nowrap"}}>{item.title}</Typography>
                                         </Box>
                                     </Link>
                                 )

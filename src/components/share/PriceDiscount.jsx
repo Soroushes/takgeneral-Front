@@ -18,9 +18,9 @@ const PriceDiscount = ({discountPercent, fontSize, price, finalPrice}) => {
                         </Typography>
                         <Typography component={'span'} sx={{display: 'flex', alignItems: "center"}} variant={'subtitle1'}>
                             <Typography
-                                variant={fontSize}
+                                variant={'caption'}
                                 sx={{textDecoration: "line-through"}}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(price)))}</Typography>
-                            <Typography sx={{textDecoration: "line-through"}} component={'span'} variant={fontSize}>تومان </Typography>
+                            <Typography sx={{textDecoration: "line-through"}} component={'span'} variant={'caption'}>تومان </Typography>
                             {
                                 discountPercent ?
                                     <Box sx={{
@@ -39,9 +39,9 @@ const PriceDiscount = ({discountPercent, fontSize, price, finalPrice}) => {
                         </Typography>
                     </Box>
                     :
-                    <Typography component={'span'} sx={{fontWeight: "bold"}} variant={fontSize}>
+                    <Typography component={'span'} fontWeight={'bold'} color={'primary.main'} variant={fontSize}>
                         {PN.convertEnToPe(PN.sliceNumber(Math.trunc(finalPrice)))}
-                        <Typography component={'span'} variant={fontSize}>تومان </Typography>
+                        <Typography component={'span'} color={'primary.main'} variant={fontSize}>تومان </Typography>
                     </Typography>
             }
         </Stack>

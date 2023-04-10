@@ -30,7 +30,6 @@ const userInfoSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchCart.fulfilled, (state, action) => {
-            console.log(action.payload) ;
             return action.payload
         })
     }

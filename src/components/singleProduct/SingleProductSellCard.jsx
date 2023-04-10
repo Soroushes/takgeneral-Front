@@ -14,7 +14,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                    return(
                        cardData.show ?
                        <Fragment key={cardData.title}>
-                           <Typography variant={'body2'} sx={{display : "flex" , alignItems : "center" , gap : 2 , py : 2}}>{cardData.icon} {cardData.title} </Typography>
+                           <Typography variant={'body1'} sx={{display : "flex" , alignItems : "center" , gap : 2 , py : 2}}>{cardData.icon} {cardData.title} </Typography>
                            <Divider />
                        </Fragment> : null
                    )
@@ -23,7 +23,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
             </Box>
             <Box sx={{display : "flex" , justifyContent : "end" , gap :4 , alignItems:'center' , mt : 3 , px : 2}}>
                 <Typography sx={{fontWeight : "bold"}} variant={'body1'}>قیمت کالا</Typography>
-                 <PriceDiscount price={price} finalPrice={finalPrice} discount={discount} fontSize={'caption'} isDiscountNear={true}/>
+                 <PriceDiscount price={price} finalPrice={finalPrice} discount={discount} fontSize={'h5'} isDiscountNear={true}/>
             </Box>
             <Box sx={{display : 'flex' , flexDirection :'column' , alignItems :'end'  , width:'100%'}}>
                 <CartEditionButton fromCart={false} id={id}/>

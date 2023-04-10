@@ -9,9 +9,7 @@ const CartItems = ({product}) => {
         freeSent: product.free_send,
         wareHouseExist: true,
         notFakeWarranty: true,
-        sevenDaysBack: product.seven_days_back,
-        warranty: product.warranty,
-        size : 20
+        smallSize : true
     });
     return (
         <Grid
@@ -23,7 +21,7 @@ const CartItems = ({product}) => {
                 <Box sx={{display: "flex", gap: 6, alignItems: 'center'}}>
                     <Image width={100} height={100} alt={'test'} src={'https://takback.soroushes.tk/media/Group_2073.png'}/>
                     <Box>
-                        <Typography variant="h3" sx={{ mb: 1}}>
+                        <Typography variant="h5" sx={{ mb: 1}}>
                             {product.name}
                         </Typography>
                         <Box>
@@ -53,7 +51,7 @@ const CartItems = ({product}) => {
                 }}
             >
                 <CartEditionButton fromCart={true} id={product.id}/>
-                <PriceDiscount price={product.price} finalPrice={product.final_price} discountPercent={product.discount} fontSize={'caption'} isDiscountNear={true}/>
+                <PriceDiscount price={product.sum_price} finalPrice={product.sum_final_price} discountPercent={product.discount} fontSize={'body2'} isDiscountNear={true}/>
             </Grid>
         </Grid>
     );

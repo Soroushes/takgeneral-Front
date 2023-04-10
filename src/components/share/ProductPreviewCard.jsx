@@ -47,7 +47,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 >
                     {title}
                 </Typography>
-                <PriceDiscount price={price} finalPrice={afterDiscountPrice} fontSize={'subtitle2'}/>
+                <PriceDiscount price={price} finalPrice={afterDiscountPrice} fontSize={'subtitle1'}/>
             </Stack>
         </Link>
     )

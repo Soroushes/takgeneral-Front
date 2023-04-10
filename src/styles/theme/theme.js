@@ -84,67 +84,96 @@ const theme = createTheme({
     }
 });
 theme.typography.h1 = {
-    fontSize : '20px' , 
+    fontSize : '20px' ,
+    fontWeight : "normal",
+    color : "#555",
     fontFamily: "takgeneral "
 }
 theme.typography.h2 = {
-    fontSize : '19px' , 
+    fontSize : '19px' ,
+    fontWeight : "normal",
+    color : "#555",
     fontFamily: "takgeneral "
 }
 theme.typography.h3 = {
-    fontSize : '18px' , 
+    fontSize : '18px' ,
+    fontWeight : "normal",
+    color : "#555",
     fontFamily: "takgeneral "
 }
 theme.typography.h3 = {
-    fontSize : '17px' , 
+    fontSize : '17px' ,
+    fontWeight : "normal",
+    color : "#555",
     fontFamily: "takgeneral "
 }
 theme.typography.h4 = {
-    fontSize : '16px' , 
+    fontSize : '16px' ,
+    fontWeight : "normal",
+    color : "#555",
     fontFamily: "takgeneral "
 }
 theme.typography.h5 = {
-    fontSize : '15px' , 
+    fontSize : '15px' ,
+    fontWeight : "normal",
+    color : "#555",
     fontFamily: "takgeneral "
 }
 theme.typography.h6 = {
-    fontSize : '14px' , 
+    fontSize : '14px' ,
+    fontWeight : "normal",
+    color : "#555",
     fontFamily: "takgeneral "
 }
 theme.typography.body1 = {
-    fontSize : '14px' , 
+    fontSize : '14px' ,
+    fontWeight : "normal",
+    color : "#555",
     fontFamily: "takgeneral "  , 
     [theme.breakpoints.down('md')] :{
         fontSize : '12px'
     }
 }
 theme.typography.body2 = {
-    fontSize : '13px' , 
+    fontSize : '13px' ,
+    fontWeight : "normal",
+    color : "#555",
     fontFamily: "takgeneral " ,
     [theme.breakpoints.down('md')] :{
         fontSize : '11px'
     }
 }
 theme.typography.subtitle1 = {
-    fontSize : '12px' , 
+    fontSize : '12px' ,
+    fontWeight : "normal",
+    color : "#555",
     fontFamily: "takgeneral " ,
     [theme.breakpoints.down('md')] :{
         fontSize : '10px'
     }
 }
 theme.typography.subtitle2 = {
-    fontSize : '11px' , 
+    fontSize : '11px' ,
+    fontWeight : "normal",
+    color : "#555",
     fontFamily: "takgeneral ",
     [theme.breakpoints.down('md')] :{
         fontSize : '9px'
     }
 }
 theme.typography.caption = {
-    fontSize : '10px' , 
-    fontFamily: "takgeneral "
+    fontSize : '10px' ,
+    fontWeight : "normal",
+    color : "#555",
+    fontFamily: "takgeneral " ,
+    [theme.breakpoints.down('md')] :{
+        fontSize : '8px'
+    }
 }
 theme.typography.overline = {
-    fontSize : '9px' , 
+    fontSize : '9px' ,
+    fontWeight : "normal",
+    color : "#555",
     fontFamily: "takgeneral "
 }
 export default theme;

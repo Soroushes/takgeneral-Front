@@ -105,7 +105,7 @@ const CategoryListGenerator = ({category}) => {
                                                         whiteSpace={'nowrap'}
                                                         textAlign={'center'}
                                                         color={activate ? "white" : "text.main"}
-                                                        variant={'caption'}
+                                                        variant={'body2'}
                                                         sx={{width: {xs: 100, md: 130}}}
                                                     >
                                                         {item.title}

@@ -31,7 +31,6 @@ const ProfilePage = () => {
                     const title = national_code && email ? "کد ملی و ایمیل" : national_code ? 'کد ملی' : "ایمیل"
                     dispatch(SET_ALERT({ title: `حساب دیگری با این ${title} وجود دارد`, show: true, severity: "warning" }))
                 }
-                
             }
         })
     }
@@ -54,7 +53,7 @@ const ProfilePage = () => {
     },[])
     return (
         <PanelLayout>
-            <Typography component={'h1'} variant={"h6"} sx={{mb: 4}}>مشخصات فردی</Typography>
+            <Typography component={'h1'} variant={"h3"} sx={{mb: 4}}>مشخصات فردی</Typography>
             <Grid onSubmit={handleSubmit(submitForm)}  justifyContent={"space-between"} component={'form'} rowGap={5} container>
                 {
                     userInputData.map((input ) => (
@@ -81,7 +80,7 @@ const ProfilePage = () => {
                 }
                 <Box sx={{width : "100%" , mb : 2}}>
                     <Grid xs={12} md={5.7} item>
-                        <LoadingButton loading={putLoading} type={'submit'} variant={'contained'} sx={{p : 1.5 , borderRadius : "15px"}} fullWidth >ثبت مشخصات</LoadingButton>
+                        <LoadingButton loading={putLoading} type={'submit'} variant={'contained'} sx={{p : 1.5 , borderRadius : "8px"}} fullWidth >ثبت مشخصات</LoadingButton>
                     </Grid>
                 </Box>
             </Grid>
