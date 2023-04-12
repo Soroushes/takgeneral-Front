@@ -7,11 +7,12 @@ const theme = createTheme({
             lighter : '#E3EDF8'
         },
         secondary: {
-            main: '#E94040'
+            // main: '#E94040'
+            main:'#FF0000'
         },
         gray: {
-            main: "#C0C0C0",
-            dark: "#A9A9A9",
+            main: "#A9A9A9",
+            dark: "#c0c0c0",
             light: "#ccc",
             lighter: "#eee",
             darker: "#808080"

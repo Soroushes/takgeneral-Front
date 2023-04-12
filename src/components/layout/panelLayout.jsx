@@ -8,6 +8,7 @@ import UserIcon from "../../components/icons/user";
 import LocationIcon from "../../components/icons/locationIcon";
 import { useDispatch } from "react-redux";
 import { fetchInfo } from "src/redux/slices/userInfoSlice";
+import { urls } from "src/data/urls";
 const PanelLayout = ({children}) => {
     const dispatch = useDispatch();
     const removeToken = ()=>{
@@ -19,18 +20,18 @@ const PanelLayout = ({children}) => {
             title : 'مشخصات فردی' ,
             icon : <UserIcon/> ,
             activeIcon : <UserIcon active/> ,
-            link : "/profile" ,
+            link : urls.profile ,
         },
         {
             title : 'آدرس ها' ,
             icon : <LocationIcon/> ,
             activeIcon: <LocationIcon active/> ,
-            link : "/profile/address" ,
+            link : urls.ProfileAddress ,
         },
         {
             title : 'خروج ' ,
             icon : <ExitIcon/> ,
-            link : "/" ,
+            link : urls.home ,
             onClick : removeToken
         },
     ]
@@ -38,7 +39,7 @@ const PanelLayout = ({children}) => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token) {
-            router.push('/login');
+            router.push(urls.login);
         }
     }, [])
     return (

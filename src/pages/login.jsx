@@ -12,6 +12,7 @@ import Link from "next/link";
 import {SET_ALERT} from "../redux/slices/snakeBarSlice";
 import {useDispatch} from "react-redux";
 import { fetchInfo } from 'src/redux/slices/userInfoSlice';
+import { urls } from "src/data/urls";
 const boxStyles = {
     width: 450, px: 3, background: "white", borderRadius: 3, position: "relative",
 };
@@ -50,7 +51,7 @@ const Login = () => {
             data: {phone_number: '98' + getValues('phoneNumber'), code: getValues('otp')},
             successFunc: (res) => {
                 localStorage.setItem('token' , res.token.access) ;
-                router.push('/profile') ;
+                router.push(urls.profile) ;
             }
             , errFunc: (err) => {
                 if(err?.response?.status === 403){
@@ -78,7 +79,7 @@ const Login = () => {
             <Grid sx={{height: "100%"}} container justifyContent={"center"} alignItems={"center"}>
                 <Box component={'form'} sx={boxStyles} onSubmit={handleSubmit(submitForm)}>
                     <Box sx={{width: "50%", m: "auto", mb: 6}}>
-                        <Link href={'/'}>
+                        <Link href={urls.home}>
                             <img
                                 style={{width: "100%"}}
                                 src="../logo.png"

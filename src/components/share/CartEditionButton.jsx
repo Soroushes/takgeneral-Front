@@ -1,4 +1,4 @@
-import {CircularProgress, Typography} from "@mui/material";
+import {CircularProgress, Typography , Button} from "@mui/material";
 import {Box} from "@mui/system";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -33,19 +33,18 @@ const CartEditionButton = ({id}) => {
                 px : 1 ,
                 justifyContent: 'space-between',
                 height: '50px',
-                width: '130px',
                 borderRadius: 2
             }}>
-                <Typography onClick={setCart.bind(this, true)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
-                    <AddIcon color="primary"/>
-                </Typography>
-                <Typography variant="body1" sx={{display: 'flex', alignItems: 'center'}}>{loading ? <CircularProgress color={'primary'}/> :  PN.convertEnToPe(countItem)}</Typography>
-                <Typography onClick={setCart.bind(this, false)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
+                <Button disabled={loading ? true : false} onClick={setCart.bind(this, true)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
+                    <AddIcon color={loading ? 'gray' : 'primary'}/>
+                </Button>
+                <Typography variant="body1" sx={{display: 'flex', alignItems: 'center' , px:1}}>{loading ? <CircularProgress color={'primary'}/> :  PN.convertEnToPe(countItem)}</Typography>
+                <Button disabled={loading ? true : false} onClick={setCart.bind(this, false)} sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}>
                     {
                         countItem <= 1 ?
-                        <DeleteIcon color="secondary"/> : <RemoveIcon color="primary"/>
+                        <DeleteIcon color={loading ? 'gray' : 'primary'}/> : <RemoveIcon color="primary"/>
                     }
-                </Typography>
+                </Button>
             </Box>
     )
 

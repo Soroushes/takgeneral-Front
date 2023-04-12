@@ -183,7 +183,9 @@ const FullSizeProductSlider = ({backgroundColor}) => {
                                     <ProductPreviewCard title={product.title}
                                                         afterDiscountPrice={product.afterDiscountPrice}
                                                         price={product.price} image={product.image}
-                                                        discountPercent={product.discountPercent}/>
+                                                        discountPercent={product.discountPercent}
+                                                        id={2}
+                                                        />
                                 </SwiperSlide>
                             )
                         })

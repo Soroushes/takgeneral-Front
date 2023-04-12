@@ -10,6 +10,7 @@ import {useState} from "react";
 import {headerItem} from "../../data/header";
 import logo from '../../../public/logo.png'
 import Image from "next/image";
+import { urls } from "src/data/urls";
 const MobileHeader = ({status , size}) => {
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
     const toggleDrawer = (event) => {
@@ -75,7 +76,7 @@ const MobileHeader = ({status , size}) => {
                             })}
                         </Box>
                     </Drawer>
-                       <Link href={'/'}>
+                       <Link href={urls.home}>
                                <Image
                                    width={125} height={35}
                                    src={logo}
@@ -83,13 +84,13 @@ const MobileHeader = ({status , size}) => {
                                />
                        </Link>
                     {status.phone_number ? (
-                        <Link href={"/profile"}>
+                        <Link href={urls.profile}>
                             <Typography>
                                 <UserIcon/>
                             </Typography>
                         </Link>
                     ) : (
-                        <Link href={"/login"}>
+                        <Link href={urls.login}>
                             <Typography variant={'body2'} sx={{display : "flex" , flexDirection : "column" , alignItems : "center"}}>
                                 <LoginIcon/>
                                 ورود

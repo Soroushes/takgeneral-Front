@@ -4,10 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import PriceDiscount from "./PriceDiscount";
 import PN from "persian-number";
-
+import { urls } from "src/data/urls";
 const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price , id}) => {
     return (
-        <Link href={`/single-product/${id}`}>
+        <Link href={urls.singleProduct + id}>
             <Stack
                 alignItems={'center'}
                 justifyContent={'space-between'}

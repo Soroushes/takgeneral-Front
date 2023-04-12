@@ -118,7 +118,9 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                                 </Box>
                         );
                     })}
-                    <Box onClick={setShowAllDetails.bind(this , prev=>!prev)} sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center"}}>
+                    {
+                        details.length !== 0 ? 
+                        <Box onClick={setShowAllDetails.bind(this , prev=>!prev)} sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center"}}>
                         {
                             IsShowAllDetails ? <CloseIcon color={'primary'}/> : <KeyboardArrowDownIcon color={'primary'}/>
                         }
@@ -135,6 +137,9 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                             }
                         </Typography>
                     </Box>
+                    :
+                    null
+                    }
                 </TabPanel>
                 <TabPanel value="2">Item Two</TabPanel>
             </Box>

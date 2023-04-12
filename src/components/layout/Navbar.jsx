@@ -21,7 +21,7 @@ const Navbar = () => {
             {
                 name: "جستجو",
                 icon: <SearchOutlinedIcon/>,
-                link: "/"
+                link: urls.home
             },
             {
                 name: "سبد خرید",
@@ -31,7 +31,7 @@ const Navbar = () => {
             {
                 name: "تماس با ما",
                 icon: <ContactIcon/>,
-                link: "/"
+                link: urls.home
             },
         ])
     }, [total_count])

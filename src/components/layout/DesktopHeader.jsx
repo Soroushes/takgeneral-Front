@@ -34,7 +34,7 @@ const DesktopHeader = ({status, desktopHeaderRef}) => {
                                 display: "flex",
                                 justifyContent: "space-between"
                             }}>
-                            <Link href={'/'}>
+                            <Link href={urls.home}>
                                 <Image width={125} height={35} alt={'تک جنرال لوگو'} src={logo}/>
                             </Link>
                             <Box sx={{width: "40%"}}>
@@ -56,14 +56,14 @@ const DesktopHeader = ({status, desktopHeaderRef}) => {
                             <Box sx={{display: "flex", gap: 2}}>
                                 {
                                     status.phone_number ?
-                                        <Button onClick={() => router.push('/profile')} sx={{px: 3, gap: 1, py: .8}}
+                                        <Button onClick={() => router.push(urls.profile)} sx={{px: 3, gap: 1, py: .8}}
                                                 variant={'contained'} color={'btnGray'}>
                                             <UserIcon/>
                                             <Typography
                                                 variant={'body2'}>{status.full_name ?? status.phone_number}</Typography>
                                         </Button>
                                         :
-                                        <Button onClick={() => router.push('/login')} sx={{px: 3, gap: 1, py: .8}}
+                                        <Button onClick={() => router.push(urls.login)} sx={{px: 3, gap: 1, py: .8}}
                                                 size={'small'} variant={'contained'} color={'btnGray'}>
                                             <UserIcon/>
                                             <Typography variant={'subtitle2'}>ورود و عضویت</Typography>
