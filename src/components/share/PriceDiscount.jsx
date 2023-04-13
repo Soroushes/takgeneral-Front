@@ -14,25 +14,26 @@ const PriceDiscount = ({discountPercent, fontSize, price, finalPrice}) => {
                     }}>
                         <Typography component={'span'} variant={fontSize} sx={{fontWeight: "bold"}} color={'secondary'}>
                             {PN.convertEnToPe(PN.sliceNumber(Math.trunc(finalPrice)))}
-                            <Typography component={'span'} color={'secondary'} variant={fontSize}>تومان </Typography>
+                            <Typography component={'span'} color={'secondary'} variant={fontSize}> تومان </Typography>
                         </Typography>
-                        <Typography component={'span'} sx={{display: 'flex', alignItems: "center"}} variant={'subtitle1'}>
-                            <Typography
+                        <Typography component={'span'} sx={{display: 'flex', alignItems: "center" }} variant={'subtitle1'}>
+                           <Box sx={{display :' flex' , gap:.5}}>
+                           <Typography
                                 variant={'caption'}
                                 sx={{textDecoration: "line-through"}}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(price)))}</Typography>
                             <Typography sx={{textDecoration: "line-through"}} component={'span'} variant={'caption'}>تومان </Typography>
+                           </Box>
                             {
                                 discountPercent ?
-                                    <Box sx={{
+                                    <Box variant={'caption'} sx={{
                                         backgroundColor: 'secondary.main',
                                         color: 'white',
-                                        fontSize: '10px',
                                         ml: 1,
                                         p: .25,
                                         px: .5,
                                         textAlign: 'center',
                                         borderRadius: 1
-                                    }}>{PN.convertEnToPe(Math.trunc(discountPercent))} % </Box>
+                                    }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%</Box>
                                     :
                                     null
                             }

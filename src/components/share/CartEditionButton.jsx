@@ -10,6 +10,7 @@ import PN from "persian-number";
 
 const CartEditionButton = ({id}) => {
     const {setCart , countItem , loading} = useCart(id);
+    console.log(countItem)
     return (
         countItem < 1 ?
             (

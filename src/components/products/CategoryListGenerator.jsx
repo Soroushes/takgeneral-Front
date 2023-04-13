@@ -22,6 +22,10 @@ const CategoryListGenerator = ({category}) => {
     const pageCategory = categoriesData[category];
     const [childrenItem, setChildrenItem] = useState([]);
     const [noFilterRoute, setNoFilterRoute] = useState(asPath);
+    const [categoryIsOpen ,  setCategoryIsOpen] = useState(false)
+    const categoryToggle = ()=>{
+        setCategoryIsOpen(prev => !prev)
+    }
     useEffect(() => {
         // try to find active children
         let foundedChild = undefined;
@@ -36,6 +40,7 @@ const CategoryListGenerator = ({category}) => {
             setChildrenItem([]);
         }
     }, [noFilterRoute])
+    console.log(pageCategory);
     useEffect(() => {
         setNoFilterRoute(`/products/${query.category}/${query.categoryType}`)
     }, [asPath])
@@ -58,8 +63,8 @@ const CategoryListGenerator = ({category}) => {
                             const isChildrenActive = item.children.find(childItem => childItem.link === noFilterRoute);
                             const activate = item.link === noFilterRoute;
                             return (
-                                <Link key={index} href={item.link} scroll={false}>
-                                    <Box sx={itemStylesGenerate(activate || isChildrenActive)}>
+                                <Link key={index} href={categoryIsOpen ? pageCategory.link :  item.link} scroll={false}>
+                                    <Box sx={itemStylesGenerate(activate || isChildrenActive)} onClick={categoryToggle}>
                                         {
                                             item.icon ?
                                                 <Image width={30} height={30} src={item.icon} alt={item.title}/>
