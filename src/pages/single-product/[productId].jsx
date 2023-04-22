@@ -5,6 +5,7 @@ import SingleProductImage from '../../components/singleProduct/SingleProductImag
 import SingleProductAttribute from '../../components/singleProduct/SingleProductAttribute';
 import SingleProductSellCard from "../../components/singleProduct/SingleProductSellCard";
 import SingleProductDetails from "src/components/singleProduct/SingleProductDetails";
+import SingleProductOpinion from "src/components/singleProduct/SingleProductOpinion";
 import MainLoading from "src/components/singleProduct/MainLoading";
 import {useRouter} from "next/router";
 import {useRef, useState} from 'react';
@@ -42,6 +43,11 @@ const singleProduct = (props) => {
                     </Grid>
                 </Container>
             }
+            <Container sx={{px: {md: 20, lg: 8}}} maxWidth={'xl'}>
+                <Grid sx={{mt: 4}} item md={12} xs={12}>
+                    <SingleProductOpinion/>
+                </Grid>
+            </Container>
             <Container ref={attributesTableRef} disableGutters sx={{px: {md: 20, lg: 8}}} maxWidth={'xl'}>
                 <Grid sx={{mt: 4}} item md={12} xs={12}>
                     {
