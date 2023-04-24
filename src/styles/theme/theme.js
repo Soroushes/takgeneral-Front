@@ -1,4 +1,4 @@
-import {createTheme} from "@mui/material";
+import {createTheme} from "@mui/material";303030
 const theme = createTheme({
     direction: "rtl",
     palette: {
@@ -8,8 +8,7 @@ const theme = createTheme({
             dark :'#0650A5'
         },
         secondary: {
-            // main: '#E94040'
-            main:'#FF0000'
+            main: '#E94040'
         },
         gray: {
             main: "#A9A9A9",
@@ -88,49 +87,49 @@ const theme = createTheme({
 theme.typography.h1 = {
     fontSize : '20px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral "
 }
 theme.typography.h2 = {
     fontSize : '19px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral "
 }
 theme.typography.h3 = {
     fontSize : '18px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral "
 }
 theme.typography.h3 = {
     fontSize : '17px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral "
 }
 theme.typography.h4 = {
     fontSize : '16px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral "
 }
 theme.typography.h5 = {
     fontSize : '15px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral "
 }
 theme.typography.h6 = {
     fontSize : '14px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral "
 }
 theme.typography.body1 = {
     fontSize : '14px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral "  , 
     [theme.breakpoints.down('md')] :{
         fontSize : '12px'
@@ -139,7 +138,7 @@ theme.typography.body1 = {
 theme.typography.body2 = {
     fontSize : '13px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral " ,
     [theme.breakpoints.down('md')] :{
         fontSize : '11px'
@@ -148,7 +147,7 @@ theme.typography.body2 = {
 theme.typography.subtitle1 = {
     fontSize : '12px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral " ,
     [theme.breakpoints.down('md')] :{
         fontSize : '10px'
@@ -157,7 +156,7 @@ theme.typography.subtitle1 = {
 theme.typography.subtitle2 = {
     fontSize : '11px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral ",
     [theme.breakpoints.down('md')] :{
         fontSize : '9px'
@@ -166,7 +165,7 @@ theme.typography.subtitle2 = {
 theme.typography.caption = {
     fontSize : '10px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral " ,
     [theme.breakpoints.down('md')] :{
         fontSize : '8px'
@@ -175,7 +174,7 @@ theme.typography.caption = {
 theme.typography.overline = {
     fontSize : '9px' ,
     fontWeight : "normal",
-    color : "#555",
+    color : "#303030",
     fontFamily: "takgeneral "
 }
 export default theme;

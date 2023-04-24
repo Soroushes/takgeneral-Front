@@ -2,7 +2,7 @@ import {Box} from "@mui/system";
 import {Grid, Container} from "@mui/material";
 import Skeleton from "@mui/material/Skeleton";
 
-const MainLoading =()=>{
+const SingleProductLoading =()=>{
     return(
         <Box sx={{backgroundColor: '#F9F9F9', py: 3  , height:'100%'}}>
             <Container sx={{px: {md: 20, lg: 8}}} maxWidth={'xl'}>
@@ -39,4 +39,4 @@ const MainLoading =()=>{
         </Box>
     )
 }
-export default MainLoading;
+export default SingleProductLoading;

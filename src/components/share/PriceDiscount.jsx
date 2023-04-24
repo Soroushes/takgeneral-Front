@@ -6,7 +6,7 @@ const PriceDiscount = ({discountPercent, fontSize, price, finalPrice}) => {
     return (
         <Stack>
             {
-                finalPrice!==price ?
+                finalPrice !== price ?
                     <Box sx={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -16,13 +16,15 @@ const PriceDiscount = ({discountPercent, fontSize, price, finalPrice}) => {
                             {PN.convertEnToPe(PN.sliceNumber(Math.trunc(finalPrice)))}
                             <Typography component={'span'} color={'secondary'} variant={fontSize}> تومان </Typography>
                         </Typography>
-                        <Typography component={'span'} sx={{display: 'flex', alignItems: "center" }} variant={'subtitle1'}>
-                           <Box sx={{display :' flex' , gap:.5}}>
-                           <Typography
-                                variant={'caption'}
-                                sx={{textDecoration: "line-through"}}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(price)))}</Typography>
-                            <Typography sx={{textDecoration: "line-through"}} component={'span'} variant={'caption'}>تومان </Typography>
-                           </Box>
+                        <Typography component={'span'} sx={{display: 'flex', alignItems: "center"}}
+                                    variant={'subtitle1'}>
+                            <Box sx={{display: ' flex', gap: .5}}>
+                                <Typography
+                                    variant={'caption'}
+                                    sx={{textDecoration: "line-through"}}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(price)))}</Typography>
+                                <Typography sx={{textDecoration: "line-through"}} component={'span'}
+                                            variant={'caption'}>تومان </Typography>
+                            </Box>
                             {
                                 discountPercent ?
                                     <Box variant={'caption'} sx={{
