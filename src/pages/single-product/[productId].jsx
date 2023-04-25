@@ -9,11 +9,11 @@ import SingleProductOpinion from "src/components/singleProduct/SingleProductOpin
 import SingleProductLoading from "src/components/singleProduct/SingleProductLoading";
 import {useRouter} from "next/router";
 import {useRef, useState} from 'react';
-
 const singleProduct = (props) => {
     //console.log(props)
     const router = useRouter();
     const attributesTableRef = useRef(null);
+    const opinionTableRef = useRef(null)
     const loading = router.isFallback;
     const [isShowAllDetails, setIsShowAllDetails] = useState(false)
     return (
@@ -26,7 +26,7 @@ const singleProduct = (props) => {
                         </Grid>
                         <Grid item sx={{px: 3}} sm={6} md={7} lg={5.2} xs={12}>
                             <SingleProductAttribute setShowAllDetails={setIsShowAllDetails} name={props.name}
-                                                    attributes={props.attributes} attrRef={attributesTableRef}/>
+                                                    attributes={props.attributes} attrRef={attributesTableRef} opinionRef={opinionTableRef}/>
                         </Grid>
                         <Grid item sm={12} lg={3.5} xs={12}>
                             <SingleProductSellCard
@@ -45,7 +45,7 @@ const singleProduct = (props) => {
                         <SingleProductDetails setShowAllDetails={setIsShowAllDetails}
                                               IsShowAllDetails={isShowAllDetails} details={props.attributes}/>
                     </Grid>
-                    <Grid sx={{mt: 4}} item md={12} xs={12}>
+                    <Grid ref={opinionTableRef} sx={{mt: 4}} item md={12} xs={12}>
                         <SingleProductOpinion/>
                     </Grid>
                 </Container>

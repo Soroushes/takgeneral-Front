@@ -132,7 +132,7 @@ const Category = ({product, brands, current_page, page_count}) => {
                                 ))
                             }
                         </Grid>
-                        <Box sx={{display : "flex" , justifyContent : "center" , mt : 2}}>
+                        <Box sx={{display : "flex" , justifyContent : "center" , mt : 4}}>
                             <Pagination onChange={handlePaginationChange} page={current_page} count={page_count} color={'primary'} size={'large'} />
                         </Box>
                     </Box>

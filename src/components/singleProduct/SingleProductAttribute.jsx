@@ -2,7 +2,7 @@ import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Suggestion from '../icons/suggestion.svg'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails })=>{
+const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails ,opinionRef})=>{
     console.log(typeof(attributes.length))
     const scrollToDetails = () => {
         setShowAllDetails(true) ;
@@ -12,6 +12,12 @@ const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails 
             behavior : 'smooth'
         })
       };
+    const scrollToOpinion=()=>{
+        window.scrollTo({
+            top :opinionRef.current?.offsetTop-150 , 
+            behavior : 'smooth'
+        })
+    };
     return (
         <Box>
             <Typography variant="h4" sx={{fontWeight : 'bold' , mb : 3}} component={'h1'}>{name}</Typography>
@@ -41,7 +47,7 @@ const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails 
                 :
                 null
             }
-            <Button variant="contained" color={'primary'} sx={{p:0 , borderRadius:2}} >
+            <Button variant="contained" onClick={scrollToOpinion} color={'primary'} sx={{p:0 , borderRadius:2}} >
                 <Box sx={{width:'100%' , display :'flex' , gap:1 , alignItems :'center'}}>
                     <Box sx={{width:'100%' , p:1 , width:'auto' , display :'flex' , alignItems :'center', backgroundColor :'primary.dark' , borderRadius: '8px 0 0 8px' }}>
                         <Suggestion/>
