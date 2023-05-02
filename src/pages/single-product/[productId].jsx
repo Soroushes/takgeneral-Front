@@ -5,8 +5,9 @@ import SingleProductImage from '../../components/singleProduct/SingleProductImag
 import SingleProductAttribute from '../../components/singleProduct/SingleProductAttribute';
 import SingleProductSellCard from "../../components/singleProduct/SingleProductSellCard";
 import SingleProductDetails from "src/components/singleProduct/SingleProductDetails";
-import SingleProductOpinion from "src/components/singleProduct/SingleProductOpinion";
+import SingleProductComment from "src/components/singleProduct/SingleProductComment";
 import SingleProductLoading from "src/components/singleProduct/SingleProductLoading";
+import SingleProductSendComment from "src/components/singleProduct/SingleProductSendComment";
 import {useRouter} from "next/router";
 import {useRef, useState} from 'react';
 const singleProduct = (props) => {
@@ -45,8 +46,11 @@ const singleProduct = (props) => {
                         <SingleProductDetails setShowAllDetails={setIsShowAllDetails}
                                               IsShowAllDetails={isShowAllDetails} details={props.attributes}/>
                     </Grid>
+                    {/* <Grid sx={{mt: 4}} item md={12} xs={12}>
+                        <SingleProductSendComment/>
+                    </Grid> */}
                     <Grid ref={opinionTableRef} sx={{mt: 4}} item md={12} xs={12}>
-                        <SingleProductOpinion/>
+                        <SingleProductComment/>
                     </Grid>
                 </Container>
             </Box>
