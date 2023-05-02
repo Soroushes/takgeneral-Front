@@ -49,7 +49,7 @@ const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails 
             }
             <Button variant="contained" onClick={scrollToOpinion} color={'primary'} sx={{p:0 , borderRadius:2}} >
                 <Box sx={{width:'100%' , display :'flex' , gap:1 , alignItems :'center'}}>
-                    <Box sx={{width:'100%' , p:1 , width:'auto' , display :'flex' , alignItems :'center', backgroundColor :'primary.dark' , borderRadius: '8px 0 0 8px' }}>
+                    <Box sx={{p:1 , display :'flex' , alignItems :'center', backgroundColor :'primary.dark' , borderRadius: '8px 0 0 8px' }}>
                         <Suggestion/>
                     </Box>
                     <Typography sx={{pr :1 , py:1 }} color={'white'}>نظرات و سوالات کاربران</Typography>
