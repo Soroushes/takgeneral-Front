@@ -8,7 +8,7 @@ const SingleProductQuestion =({eachQuestion})=>{
     const [number , setNumber] = useState('')
     const show =(num)=>{
         setAnswerShow( prev=>!prev);
-        setNumber(num)
+        setNumber(num);
     }
     return(
         
