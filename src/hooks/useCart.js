@@ -25,6 +25,16 @@ export const useCart = (id) => {
         newCart = newCart.filter((cartItem) => cartItem?.count > 0);
         sendCartRequest(newCart);
     };
+    const deleteProduct = ()=>{
+        const cartUpdate = getLocalStorageCartData();
+        let newCart = cartUpdate?.map((cartItem)=>{
+            if(cartItem.id === id){
+                return{...cartItem , count : 0}
+            }else return cartItem
+        })
+        newCart = newCart.filter((cartItem) => cartItem?.count > 0);
+        sendCartRequest(newCart);
+    }
     const sendCartRequest = (cartData) => {
         callApi({
             url: "cart-detail",
@@ -43,5 +53,5 @@ export const useCart = (id) => {
         const selectedCartItem = cartUpdate?.find((cartItem) => (cartItem.id === id));
         setCountItem(+selectedCartItem?.count || 0);
     };
-    return {setCart, countItem, loading};
+    return {setCart, countItem, loading , deleteProduct};
 };

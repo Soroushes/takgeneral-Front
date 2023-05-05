@@ -3,7 +3,8 @@ import CartEditionButton from "../share/CartEditionButton";
 import Image from "next/image";
 import PriceDiscount from "../share/PriceDiscount";
 import {useProductServiceItems} from "../../hooks/useProductServiceItems";
-
+import { useCart } from "src/hooks/useCart";
+import ClearIcon from '@mui/icons-material/Clear';
 const CartItems = ({product}) => {
     const productServiceItems = useProductServiceItems({
         freeSent: product.free_send,
@@ -11,6 +12,7 @@ const CartItems = ({product}) => {
         notFakeWarranty: true,
         smallSize : true
     });
+    const {deleteProduct} = useCart(product.id);
     return (
         <Grid
             container
@@ -52,6 +54,7 @@ const CartItems = ({product}) => {
             >
                 <CartEditionButton fromCart={true} id={product.id}/>
                 <PriceDiscount price={product.sum_price} finalPrice={product.sum_final_price} discountPercent={product.discount} fontSize={'body2'} isDiscountNear={true}/>
+                <ClearIcon onClick={deleteProduct} color="secondary"/>
             </Grid>
         </Grid>
     );
