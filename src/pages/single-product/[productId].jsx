@@ -1,11 +1,11 @@
 import axios from "axios";
 import {Box} from "@mui/system";
-import {Grid, Container} from "@mui/material";
+import {Grid, Container, Divider} from "@mui/material";
 import SingleProductImage from '../../components/singleProduct/SingleProductImage'
 import SingleProductAttribute from '../../components/singleProduct/SingleProductAttribute';
 import SingleProductSellCard from "../../components/singleProduct/SingleProductSellCard";
 import SingleProductDetails from "src/components/singleProduct/SingleProductDetails";
-import SingleProductOpinion from "src/components/singleProduct/SingleProductOpinion";
+import SingleProductComment from "src/components/singleProduct/SingleProductComment";
 import SingleProductLoading from "src/components/singleProduct/SingleProductLoading";
 import {useRouter} from "next/router";
 import {useRef, useState} from 'react';
@@ -25,9 +25,10 @@ const singleProduct = (props) => {
                             <SingleProductImage mainImage={props.main_image} otherImage={props.other_images}/>
                         </Grid>
                         <Grid item sx={{px: 3}} sm={6} md={7} lg={5.2} xs={12}>
-                            <SingleProductAttribute setShowAllDetails={setIsShowAllDetails} name={props.name}
-                                                    attributes={props.attributes} attrRef={attributesTableRef}
-                                                    opinionRef={opinionTableRef}/>
+                            <SingleProductAttribute
+                                setShowAllDetails={setIsShowAllDetails} name={props.name}
+                                attributes={props.attributes} attrRef={attributesTableRef}
+                                opinionRef={opinionTableRef}/>
                         </Grid>
                         <Grid item sm={12} lg={3.5} xs={12}>
                             <SingleProductSellCard
@@ -43,11 +44,17 @@ const singleProduct = (props) => {
                         </Grid>
                     </Grid>
                     <Grid ref={attributesTableRef} sx={{mt: 4}} item md={12} xs={12}>
-                        <SingleProductDetails setShowAllDetails={setIsShowAllDetails}
-                                              IsShowAllDetails={isShowAllDetails} details={props.attributes}/>
+                        <SingleProductDetails
+                            setShowAllDetails={setIsShowAllDetails}
+                            IsShowAllDetails={isShowAllDetails}
+                            details={props.attributes}/>
                     </Grid>
+                    {/*<Grid sx={{mt: 4}} item md={12} xs={12}>*/}
+                    {/*    <SingleProductSendComment/>*/}
+                    {/*</Grid>*/}
                     <Grid ref={opinionTableRef} sx={{mt: 4}} item md={12} xs={12}>
-                        <SingleProductOpinion/>
+                        <Divider sx={{my: 3, display: {md: 'none'}}}/>
+                        <SingleProductComment/>
                     </Grid>
                 </Container>
             </Box>

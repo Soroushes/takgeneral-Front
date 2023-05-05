@@ -12,7 +12,6 @@ import logo from '../../../public/logo.png' ;
 import Image from "next/image";
 import {urls} from "../../data/urls";
 import {useSelector} from "react-redux";
-
 const DesktopHeader = ({status, desktopHeaderRef}) => {
     const router = useRouter();
     const {total_count} = useSelector(state => state.cart)

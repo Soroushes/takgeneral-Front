@@ -3,7 +3,6 @@ import { Box } from "@mui/system";
 import Suggestion from '../icons/suggestion.svg'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails ,opinionRef})=>{
-    console.log(typeof(attributes.length))
     const scrollToDetails = () => {
         setShowAllDetails(true) ;
         //goToDetails.current?.scrollIntoView({behavior: 'smooth' , block : 'nearest' , inline : 'start' });
