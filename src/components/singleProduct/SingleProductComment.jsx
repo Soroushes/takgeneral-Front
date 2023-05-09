@@ -7,7 +7,7 @@ import {useState} from "react";
 import Rating from '@mui/material/Rating';
 import SingleProductQuestion from "./SingleProductQuestion";
 import SingleProductEachComment from "./SingleProductEachComment";
-
+import SingleProductAddComment from "./SingleProductAddComment";
 const SingleProductComment = () => {
     const [value, setValue] = useState("1");
     const comments = [

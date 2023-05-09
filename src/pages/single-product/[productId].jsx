@@ -7,6 +7,8 @@ import SingleProductSellCard from "../../components/singleProduct/SingleProductS
 import SingleProductDetails from "src/components/singleProduct/SingleProductDetails";
 import SingleProductComment from "src/components/singleProduct/SingleProductComment";
 import SingleProductLoading from "src/components/singleProduct/SingleProductLoading";
+import SingleProductAddComment from "src/components/singleProduct/SingleProductAddComment";
+import SingleProductAddQuestion from "src/components/singleProduct/SingleProductAddQuestion";
 import {useRouter} from "next/router";
 import {useRef, useState} from 'react';
 
@@ -44,14 +46,13 @@ const singleProduct = (props) => {
                         </Grid>
                     </Grid>
                     <Grid ref={attributesTableRef} sx={{mt: 4}} item md={12} xs={12}>
-                        <SingleProductDetails
-                            setShowAllDetails={setIsShowAllDetails}
-                            IsShowAllDetails={isShowAllDetails}
-                            details={props.attributes}/>
+                        <SingleProductDetails setShowAllDetails={setIsShowAllDetails}
+                                              IsShowAllDetails={isShowAllDetails} details={props.attributes}/>
                     </Grid>
-                    {/*<Grid sx={{mt: 4}} item md={12} xs={12}>*/}
-                    {/*    <SingleProductSendComment/>*/}
-                    {/*</Grid>*/}
+                    <Grid sx={{mt: 4}} item md={12} xs={12}>
+                        <SingleProductAddComment/>
+                        <SingleProductAddQuestion/>
+                    </Grid>
                     <Grid ref={opinionTableRef} sx={{mt: 4}} item md={12} xs={12}>
                         <Divider sx={{my: 3, display: {md: 'none'}}}/>
                         <SingleProductComment/>

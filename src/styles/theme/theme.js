@@ -56,6 +56,13 @@ const theme = createTheme({
             }
             
         },
+        MuiRatingIcon:{
+            styleOverrides :{
+                root:{
+                    direction:'ltr'
+                }
+            }
+        },
         MuiTabs:{
             styleOverrides :{
                 root : {
