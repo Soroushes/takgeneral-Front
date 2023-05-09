@@ -23,7 +23,7 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                     width: "100%",
                 }}
             >
-                <TabList indicatorColor="gray" onChange={handleTabChange}>
+                <TabList textColor="secondary" indicatorColor="gray" onChange={handleTabChange}>
                     <Tab
                         sx={{
                             border: {xs: "none", lg: "1px solid #bbb"},

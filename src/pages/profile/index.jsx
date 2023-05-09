@@ -74,7 +74,6 @@ const ProfilePage = () => {
                                     />
                                 }
                             />
-
                         </Grid>
                     ))
                 }

@@ -1,4 +1,4 @@
-import {createTheme} from "@mui/material";303030
+import {createTheme} from "@mui/material";
 const theme = createTheme({
     direction: "rtl",
     palette: {

@@ -7,7 +7,6 @@ import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantity
 
 const cart = ()=>{
     const selectedProducts = useSelector(state => state.cart)
-    console.log(selectedProducts.products?.length)
     return(
         <Box sx={{backgroundColor : "#fafafa" , pt : 2 , minHeight : "80vh" , display :'flex' , alignItems :'center'}}>
             {

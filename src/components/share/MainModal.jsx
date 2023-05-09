@@ -3,9 +3,10 @@ import AppBar from "@mui/material/AppBar";
 import {Box} from "@mui/system";
 import Toolbar from "@mui/material/Toolbar";
 import CloseIcon from '@mui/icons-material/Close';
-const MainModal = ({open , setOpen , title , children}) => {
+const MainModal = ({open , setOpen , title , children , }) => {
     return (
         <Drawer
+            sx={{display : {md : 'none'}}}
             transitionDuration={{enter: 500, exit: 500}}
             anchor="bottom"
             open={open}
@@ -14,15 +15,14 @@ const MainModal = ({open , setOpen , title , children}) => {
             <AppBar
                 sx={{
                     position: "relative",
-                    background: '#f2f2f2',
-                    borderRadius: "20px 20px 0 0",
+                    backgroundColor: 'gray.lighter',
                     boxShadow: "none",
                     height: "65px",
                 }}
             >
                 <Toolbar
                     sx={{
-                        width: "93%",
+                        width: "90%",
                         padding: "0 !important" ,
                         display : "flex" ,
                         justifyContent : "space-between" ,
@@ -31,19 +31,16 @@ const MainModal = ({open , setOpen , title , children}) => {
                 >
                     <Typography
                         variant="body1"
-                        color="#000"
-                        sx={{
-                            marginLeft: "10px",
-                        }}
+                        fontWeight={'bold'}
                     >
                         {title}
                     </Typography>
-                    <IconButton onClick={()=>setOpen(false)}>
+                    <IconButton sx={{p : 0}} onClick={()=>setOpen(false)}>
                         <CloseIcon/>
                     </IconButton>
                 </Toolbar>
             </AppBar>
-            <Box sx={{overflow: "auto"}}>{children}</Box>
+            <Box sx={{overflow: "auto" , width : "90%" , mx : 'auto' , my : 1}}>{children}</Box>
         </Drawer>
     )
 }
