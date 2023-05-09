@@ -10,7 +10,6 @@ import SingleProductEachComment from "./SingleProductEachComment";
 import SingleProductAddComment from "./SingleProductAddComment";
 const SingleProductComment = () => {
     const [value, setValue] = useState("1");
-    const [rating , setRating] = useState(2.5);
     const comments = [
         {
             name :'هستی'  , 
@@ -64,7 +63,7 @@ const SingleProductComment = () => {
                 <TabList indicatorColor="gray" onChange={handleTabChange}>
                     <Tab
                         sx={{
-                            border: {xs: "none", lg: "1px solid #bbb"},
+                            border: {xs: "none", lg: "1px solid #d3d3d3"},
                             borderBottom: {xs: "none", lg: "none"},
                             borderRadius: {xs: "8px ", lg: "8px 8px 0 0"},
                             mr: 2,
@@ -74,7 +73,7 @@ const SingleProductComment = () => {
                     />
                     <Tab
                         sx={{
-                            border: {xs: "none", lg: "1px solid #bbb"},
+                            border: {xs: "none", lg: "1px solid #d3d3d3"},
                             borderBottom: {xs: "none", lg: "none"},
                             borderRadius: {xs: "8px", lg: "8px 8px 0 0"},
                         }}
@@ -88,10 +87,8 @@ const SingleProductComment = () => {
                     transition: "all .3s",
                     justifyContent: "center",
                     width: "100%",
-                    border: {xs: "none", lg: "1px solid #bbb"},
+                    border: {xs: "none", lg: "1px solid #d3d3d3"},
                     borderRadius: 1.5,
-                    pt: 4,
-                        px: 5,
                 }}
             >
                 <TabPanel
@@ -102,42 +99,46 @@ const SingleProductComment = () => {
                         flexDirection: "column",
                         alignItems: "start",
                         gap: 2,
-                        p:0
+                        p : 0
                     }}
                 >
-                    <Grid container sx={{display:'flex' , justifyContent:'space-around' , backgroundColor :'gray.lighter' , width:'100%' , p:2 , alignItems:'center'  , borderRadius:2 , rowGap :3}}>
-                        <Grid item lg={5} xs={12}  sx={{display:'flex' , flexDirection:'column' , gap:2 , alignItems:'center'}}>
-                            <Typography variant="subtitle1" sx={{fontWeight:'bold'}}>امتیاز و دیدگاه کاربران</Typography>
-                            <Box sx={{display:'flex' , gap:2}}>
+                    <Grid container sx={{display:'flex' , justifyContent:'center' , backgroundColor :'gray.lighter' ,p:4, alignItems:'center'  , borderRadius:2 , gap :5}}>
+                        <Grid item md={5} xs={12}>
+                            <Box sx={{px : 1 , display : "flex" , gap : 3 , alignItems : "center" , justifyContent : {xs : 'center' , md : 'start'}}}>
+                                <Typography variant="body2">میانگین امتیازات کاربران</Typography>
                                 <Rating name="read-only" value={2.5} readOnly/>
-                                <Typography variant="subtitle1">میانگین امتیازات کاربران</Typography>
                             </Box>
                         </Grid>
-                        <Grid item lg={7} xs={12} sx={{display:'flex' , gap:1 , flexDirection:'column'}}>
-                            <Box sx={{display:'flex' , gap:5 , justifyContent:'space-between' }}>
+                        <Grid item md={4} xs={12} sx={{display:'flex' , gap:1 , flexDirection:'column'}}>
+                            <Box sx={{display:'flex'  , justifyContent:'space-between' , px : 1 }}>
                                 <Typography variant="subtitle1" sx={{ color:'text.muted'}}>کیفیت و کارایی</Typography>
-                                <Rating name="read-only" value={2.5} readOnly/>
+                                <Rating size={'small'} name="read-only" value={2.5} readOnly/>
                             </Box>
-                            <Divider/>
-                            <Box sx={{display:'flex' , gap:5, justifyContent:'space-between'}}>
+                            <Divider sx={{my:.5}}/>
+                            <Box sx={{display:'flex' , justifyContent:'space-between' , px : 1}}>
                                 <Typography variant="subtitle1" sx={{ color:'text.muted'}}>ارزش خرید</Typography>
-                                <Rating name="read-only" value={2.5} readOnly/>
+                                <Rating size={'small'} name="read-only" value={2.5} readOnly/>
                             </Box>
-                            <Divider/>
-                            <Box sx={{display:'flex' , gap:5, justifyContent:'space-between'}}>
+                            <Divider sx={{my:.5}}/>
+                            <Box sx={{display:'flex' , justifyContent:'space-between' , px : 1}}>
                                 <Typography variant="subtitle1" sx={{ color:'text.muted'}}>قیمت</Typography>
-                                <Rating name="read-only" value={2.5} readOnly/>
+                                <Rating size={'small'} name="read-only" value={2.5} readOnly/>
                             </Box>
                         </Grid>
                     </Grid>
-                    {
-                        comments.map((comment)=>{
-                            return(
-                                <SingleProductEachComment comment={comment} />
-                            )
-                        })
-                    }
-                    
+                    <Box sx={{p : 2 , width : '100%'}}>
+                        {
+                            comments.map((comment)=>{
+                                return(
+                                    <>
+                                        <SingleProductEachComment comment={comment} />
+                                        <Divider sx={{my : 3}}/>
+                                    </>
+
+                                )
+                            })
+                        }
+                    </Box>
                 </TabPanel>
                 <TabPanel value="2" sx={{width:'100%'}}>
                     {

@@ -9,7 +9,7 @@ const cart = ()=>{
     const selectedProducts = useSelector(state => state.cart)
     console.log(selectedProducts.products?.length)
     return(
-        <Box sx={{backgroundColor : "#fafafa" , pt : 2 , minHeight : "100vh" , display :'flex' , alignItems :'center'}}>
+        <Box sx={{backgroundColor : "#fafafa" , pt : 2 , minHeight : "80vh" , display :'flex' , alignItems :'center'}}>
             {
                 selectedProducts.products?.length ===0 ? 
                 <Box sx={{width :'100%' , display :'flex' , justifyContent :'center' , gap:2}}>
@@ -38,7 +38,7 @@ const cart = ()=>{
                         }
                     </Grid>
                     <Grid sx={{pl : {md : 3} }} item md={4} lg={3.5} xs={12}>
-                        <Grid sx={{backgroundColor:'#fff'  , p:2 , borderRadius :3  ,mb:2 , gap:3 , p:3}} container>
+                        <Grid sx={{backgroundColor:'#fff' , borderRadius :3  ,mb:2 , gap:3 , p:3}} container>
                             <Grid item xs={12} sx={{display :'flex' , justifyContent :'space-between', alignItems :'center'}}>
                                 <Typography variant="subtitle1" sx={{color :'text.muted' , fontWeight :'bold'}}>قیمت کالاها</Typography>
                                 <Typography variant="subtitle1" sx={{color :'text.muted' , fontWeight :'bold'}}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(selectedProducts.total_price)))} تومان</Typography>

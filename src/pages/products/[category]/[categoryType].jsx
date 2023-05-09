@@ -82,14 +82,14 @@ const Category = ({product, brands, current_page, page_count}) => {
                     <CategoryListGenerator category={'pomp'}/>
                 </Box>
                 <Grid container>
-                    <Grid item xs={3} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
+                    <Grid item xs={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
                         <Box sx={{width: "100%"}}>
                             {
                                 brands.length && <CheckBoxFilter key={noQueryPath} subFilter={brands}/>
                             }
                         </Box>
                     </Grid>
-                    <Box sx={{width: {xs: '100%', md: '75%'}}}>
+                    <Box sx={{width: {xs: '100%', md: '70%'}}}>
                         <Box sx={{mb : 2 , display : {xs : "none" , md : "block"}}}>
                             <TextField
                                 sx={{width : "150px"}}
