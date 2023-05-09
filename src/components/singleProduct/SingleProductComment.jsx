@@ -7,7 +7,7 @@ import {useState} from "react";
 import Rating from '@mui/material/Rating';
 import SingleProductQuestion from "./SingleProductQuestion";
 import SingleProductEachComment from "./SingleProductEachComment";
-
+import SingleProductAddComment from "./SingleProductAddComment";
 const SingleProductComment = () => {
     const [value, setValue] = useState("1");
     const [rating , setRating] = useState(2.5);
@@ -137,6 +137,7 @@ const SingleProductComment = () => {
                             )
                         })
                     }
+                    
                 </TabPanel>
                 <TabPanel value="2" sx={{width:'100%'}}>
                     {
