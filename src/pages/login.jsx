@@ -1,5 +1,5 @@
 import {
-    Box, Container, Grid, Typography, Input, TextField, useTheme, InputAdornment,
+    Box, Container, Grid, Typography, TextField, useTheme, InputAdornment,
 } from "@mui/material";
 import LoadingButton from '@mui/lab/LoadingButton';
 import {useEffect, useState} from "react";
@@ -52,6 +52,7 @@ const Login = () => {
             successFunc: (res) => {
                 localStorage.setItem('token' , res.token.access) ;
                 router.push(urls.profile) ;
+                dispatch(fetchInfo());
             }
             , errFunc: (err) => {
                 if(err?.response?.status === 403){
@@ -65,14 +66,13 @@ const Login = () => {
             postPhoneNumber();
         } else {
             postOtpCode();
-            dispatch(fetchInfo())
         }
     }
     useEffect(()=>{
         const token = localStorage.getItem('token') ;
-        // if (token){
-        //     router.push('/') ;
-        // }
+        if (token){
+            router.push('/') ;
+        }
     },[])
     return (
         <Container maxWidth={"lg"} sx={{height: "75vh", p: 0}} disableGutters>

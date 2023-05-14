@@ -1,12 +1,16 @@
 import {MapContainer, Marker, TileLayer} from "react-leaflet";
 import {Box} from "@mui/system";
-import {Typography} from "@mui/material";
+import {Divider, Typography} from "@mui/material";
+import MainModal from "./MainModal";
+import Map from "./Map";
+import {useState} from "react";
 
 const MapShowDetails = () => {
-    const position = [51.505, -0.09]
+    const position = [51.505, -0.09];
+    const [openMapModal , setOpenMapModal] = useState(false) ;
     return (
         <>
-            <Box sx={{aspectRatio: '1/1'}}>
+            <Box onClick={()=>setOpenMapModal(true)} sx={{aspectRatio: '1/1'}}>
                 <MapContainer
                     dragging={false}
                     zoomControl={false}
@@ -24,22 +28,47 @@ const MapShowDetails = () => {
                     <Marker position={position}></Marker>
                 </MapContainer>
             </Box>
-            <Box sx={{p: 1}} gap={3} alignItems={'center'} display={'flex'} justifyContent={'space-between'}>
-                <Typography whiteSpace={'nowrap'} variant={'subtitle1'}>آدرس : </Typography>
-                <Typography textAlign={'justify'} overflow={'hidden'} textOverflow={'ellipsis'} color={'text.muted'} variant={'subtitle1'}> sdf asf asf asfنید شنتید ش  سشیت شدتی asd asd asd asd ad asd asd  ن</Typography>
+            <Box sx={{p: 2}} gap={3} alignItems={'center'} display={'flex'} justifyContent={'space-between'}>
+                <Typography whiteSpace={'nowrap'} variant={'body2'}>آدرس : </Typography>
+                <Typography textAlign={'justify'} overflow={'hidden'} textOverflow={'ellipsis'} color={'text.muted'}
+                            variant={'subtitle1'}> sdf asf asf asfنید شنتید ش سشیت شدتی asd asd asd asd ad asd asd
+                </Typography>
             </Box>
-            <Box sx={{p: 1}} gap={3} alignItems={'center'} display={'flex'} justifyContent={'space-between'}>
+            <Divider/>
+            <Box sx={{p: 2}} gap={3} alignItems={'center'} display={'flex'} justifyContent={'space-between'}>
                 <Typography whiteSpace={'nowrap'} width={'max-content'} variant={'body2'}>نام آدرس</Typography>
-                <Typography textAlign={'justify'} overflow={'hidden'} textOverflow={'ellipsis'} color={'text.muted'} variant={'subtitle1'}>اطلاعی ندارم</Typography>
+                <Typography textAlign={'justify'} overflow={'hidden'} textOverflow={'ellipsis'} color={'text.muted'}
+                            variant={'subtitle1'}>اطلاعی ندارم</Typography>
             </Box>
-            <Box sx={{p: 1}} gap={3} alignItems={'center'} display={'flex'} justifyContent={'space-between'}>
+            <Divider />
+            <Box sx={{p: 2}} gap={3} alignItems={'center'} display={'flex'} justifyContent={'space-between'}>
                 <Typography whiteSpace={'nowrap'} width={'max-content'} variant={'body2'}>آدرس : </Typography>
-                <Typography textAlign={'justify'} overflow={'hidden'} textOverflow={'ellipsis'} color={'text.muted'} variant={'subtitle1'}> sdf asf asf asfنید شنتید ش  سشیت شدتی asd asd asd asd ad asd asd  ن</Typography>
+                <Typography textAlign={'justify'} overflow={'hidden'} textOverflow={'ellipsis'} color={'text.muted'}
+                            variant={'subtitle1'}> sdf asf asf asfنید شنتید ش سشیت شدتی asd asd asd asd ad asd asd
+                    ن</Typography>
             </Box>
-            <Box sx={{p: 1}} gap={3} alignItems={'center'} display={'flex'} justifyContent={'space-between'}>
+            <Divider/>
+            <Box sx={{p: 2}} gap={3} alignItems={'center'} display={'flex'} justifyContent={'space-between'}>
                 <Typography whiteSpace={'nowrap'} width={'max-content'} variant={'body2'}>آدرس : </Typography>
-                <Typography textAlign={'justify'} overflow={'hidden'} textOverflow={'ellipsis'} color={'text.muted'} variant={'subtitle1'}> sdf asf asf asfنید شنتید ش  سشیت شدتی asd asd asd asd ad asd asd  ن</Typography>
+                <Typography textAlign={'justify'} overflow={'hidden'} textOverflow={'ellipsis'} color={'text.muted'}
+                            variant={'subtitle1'}> sdf asf asf asfنید شنتیدasd asd asd ad asd asdن</Typography>
+                <Divider/>
             </Box>
+            <MainModal setOpen={setOpenMapModal} title={'انتخاب آدرس بر روی نقشه'} open={openMapModal} mobileFullHeight={true} desktopFullScreen={true}>
+                <MapContainer
+                    style={{
+                        width: "100%",
+                        zIndex: "10",
+                        height: "100%",
+                        position: "relative",
+                    }}
+                    zoomControl={false}
+                    center={position}
+                    zoom={18}
+                >
+                    <Map/>
+                </MapContainer>
+            </MainModal>
         </>
     )
 }

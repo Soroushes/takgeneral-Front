@@ -26,7 +26,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                  <PriceDiscount price={price} finalPrice={finalPrice} discount={discount} fontSize={'h5'} isDiscountNear={true}/>
             </Box>
             <Box sx={{display : 'flex' , flexDirection :'column' , alignItems :'end'  , width:'100%'}}>
-                <CartEditionButton fromCart={false} id={id}/>
+                <CartEditionButton boxSx={{backgroundColor : '#f9f9f9'}} id={id}/>
             </Box>
         </Box>
     )

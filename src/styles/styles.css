@@ -6,6 +6,9 @@
 }
 body,html{
     scroll-behavior: smooth;
+    top: 0;
+    right: 0;
+    left: 0;
 }
 a {
     text-decoration: none;

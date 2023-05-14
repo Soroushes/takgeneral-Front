@@ -1,99 +1,110 @@
-import { Grid, Typography , Box  , Divider , TextField, Button } from "@mui/material";
+import {Grid, Typography, Box, Divider, TextField} from "@mui/material";
 import Rating from '@mui/material/Rating';
 import {Controller, useForm} from "react-hook-form";
-import { userCommentInput } from "src/data/comment&question";
+import {userCommentInput} from "src/data/comment&question";
 import Checkbox from '@mui/material/Checkbox';
-const SingleProductAddComment = ()=>{
-    const {control : controlComment} = useForm();
-    const {control : controlRating} = useForm();
-    const {control : controlSuggest} = useForm();
-    return(
-        <>
-            <Typography></Typography>
-            <Divider orientation="vertical" flexItem/>
-            <Typography sx={{pb:2 , fontWeight:'bold'}}>نظر شما درباره این کالا</Typography>
+import {useAxios} from "../../hooks/useAxios";
+import {useRouter} from "next/router";
+import LoadingButton from "@mui/lab/LoadingButton";
+const SingleProductAddComment = ({rate}) => {
+    const {control, handleSubmit, reset} = useForm({
+        defaultValues : {
+            kefiyat_rate : rate.avg_keyfiyat_rate ?? 3 ,
+            arzesh_rate : rate.avg_arzesh_rate ?? 3
+        }
+    });
+    const {loading, callApi} = useAxios();
+    const router = useRouter();
+    const onFormSubmit = (data) => {
+        callApi({
+            method: 'post',
+            url: 'create-comment',
+            token: true,
+            data: {
+                ...data,
+                product: router.query.productId
+            },
+            successFunc: () => {
+                reset();
+            }
+        })
+    }
+    return (
+        <Box component={'form'} onSubmit={handleSubmit(onFormSubmit)}>
+            <Typography fontWeight={'bold'} sx={{mb: 4}}>نظر شما درباره این کالا</Typography>
             <Grid container justifyContent={'space-between'} rowGap={3}>
-                <Grid item lg={4} md={4} xs={12}>
-                    <Box sx={{display:'flex' , gap:1 , flexDirection:'column'}}>
-                            <Box sx={{display:'flex' , gap:5 , justifyContent:'space-between' }}>
-                                <Typography variant="subtitle1" sx={{ color:'text.muted'}}>کیفیت و کارایی</Typography>
-                                <Controller
-                                name="Rating"
-                                control={controlRating}
-                                render={({field , fieldState})=>
-                                <Rating sx={{direction:'rtl'}} name="simple-controlled" value={field.value} onChange={field.onChange}/>
+                <Grid item md={4} xs={12}>
+                    <Box display={'flex'} flexDirection={'column'} gap={2}>
+                        <Box display={'flex'} gap={5} justifyContent={'space-between'}>
+                            <Typography variant="body2" color={'text.muted'}>کیفیت و کارایی</Typography>
+                            <Controller
+                                name="kefiyat_rate"
+                                control={control}
+                                defaultValue={0}
+                                render={({field}) =>
+                                    <Rating value={+field.value} onChange={field.onChange}/>
                                 }
-                                />
-                            </Box>
-                            <Divider/>
-                            <Box sx={{display:'flex' , gap:5, justifyContent:'space-between'}}>
-                                <Typography variant="subtitle1" sx={{ color:'text.muted'}}>ارزش خرید</Typography>
-                                <Controller
-                                name="Rating"
-                                control={controlRating}
-                                render={({field , fieldState})=>
-                                <Rating name="simple-controlled" value={field.value} onChange={field.onChange}/>
+                            />
+                        </Box>
+                        <Divider/>
+                        <Box display={'flex'} gap={5} justifyContent={'space-between'}>
+                            <Typography variant="body2" color={'text.muted'}>ارزش خرید</Typography>
+                            <Controller
+                                name="arzesh_rate"
+                                defaultValue={0}
+                                control={control}
+                                render={({field}) =>
+                                    <Rating value={+field.value} onChange={field.onChange}/>
                                 }
-                                />                            
-                            </Box>
-                            <Divider/>
-                            <Box sx={{display:'flex' , gap:5, justifyContent:'space-between'}}>
-                                <Typography variant="subtitle1" sx={{ color:'text.muted'}}>قیمت</Typography>
-                                <Controller
-                                name="Rating"
-                                control={controlRating}
-                                render={({field , fieldState})=>
-                                <Rating name="simple-controlled" value={field.value} onChange={field.onChange}/>
-                                }
-                                />                            
-                            </Box>
+                            />
+                        </Box>
+                        <Divider/>
                     </Box>
                 </Grid>
-                <Grid item lg={7} md={7} xs={12}>
+                <Grid item md={7} xs={12}>
                     {
-                        userCommentInput.comment.map((comment)=>{
-                            return(
-                                <Grid key={comment.name} pb={2} width={'100%'} item>
+                        userCommentInput.comment.map((comment) => {
+                            return (
+                                <Box key={comment.name} mb={2}>
                                     <Controller
                                         defaultValue={''}
                                         name={comment.name}
-                                        control={controlComment}
+                                        control={control}
                                         rules={comment.rules}
                                         render={({field, fieldState}) =>
-                                        <TextField 
-                                        label={comment.label}
-                                        value={field?.value}
-                                        onChange={field?.onChange}
-                                        helperText={fieldState.error?.message ?? ''}
-                                        variant={'outlined'} fullWidth={true}
-                                        />
+                                            <TextField
+                                                error={!!fieldState.error}
+                                                label={comment.label}
+                                                value={field?.value}
+                                                onChange={field?.onChange}
+                                                helperText={fieldState.error?.message ?? ''}
+                                                variant={'outlined'}
+                                                fullWidth={true}
+                                                {...comment.props}
+                                            />
                                         }
                                     />
-                                </Grid>
+                                </Box>
                             )
                         })
                     }
-                    <Grid item sx={{pt:1}}>
-                        <Box sx={{display :'flex' , justifyContent:'space-between' , alignItems:'center'}}>
-                            <Grid >
-                                <Box sx={{display:'flex' , alignItems:'center'}}>
-                                    <Controller
-                                    name="suggest"
-                                    control={controlSuggest}
-                                    defaultValue={false}
-                                    render={({field , fieldState})=>
-                                    <Checkbox size="small" color="secondary" checked={field.value} onChange={field.onChange}/>
-                                    }   
-                                    />
-                                    <Typography color={'text.muted'}>پیشنهاد میکنم</Typography>
-                                </Box>
-                            </Grid>
-                            <Grid><Button variant="contained" color={'secondary'}>ارسال نظر</Button></Grid>
+                    <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
+                        <Box display={'flex'} alignItems={'center'}>
+                            <Controller
+                                name="suggest_me"
+                                control={control}
+                                defaultValue={false}
+                                render={({field}) =>
+                                    <Checkbox color="secondary" checked={field.value} onChange={field.onChange}/>
+                                }
+                            />
+                            <Typography color={'text.muted'}>پیشنهاد میکنم</Typography>
                         </Box>
-                    </Grid>
+                        <LoadingButton loading={loading} type={'submit'} variant="contained" color={'secondary'}>ارسال نظر</LoadingButton>
+                    </Box>
                 </Grid>
             </Grid>
-        </>
+        </Box>
     )
 }
 export default SingleProductAddComment;

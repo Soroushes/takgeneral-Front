@@ -1,6 +1,6 @@
 import {Box} from "@mui/system";
 import Image from "next/image";
-import {Grid, Container, Pagination, MenuItem, TextField, Button} from "@mui/material";
+import {Grid, Container, Pagination, MenuItem, TextField, Button, Typography, Divider} from "@mui/material";
 import ProductPreviewCard from "../../../components/share/ProductPreviewCard";
 import CheckBoxFilter from "src/components/share/CheckBoxFilter";
 import testBanner from '../../../../public/testBanner.png'
@@ -145,24 +145,28 @@ const Category = ({product, brands, current_page, page_count}) => {
                 </Grid>
             </Container>
             <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلتر'}>
-                <CheckBoxFilter key={asPath} subFilter={brands}/>
+                <Box sx={{px : 2}}>
+                    <CheckBoxFilter key={asPath} subFilter={brands}/>
+                </Box>
             </MainModal>
             <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>
                 {
                     sortValueItems.map((sortItem) => (
-                        <MenuItem
-                            onClick={() => {
-                                handleSortOnchange(sortItem.value);
-                                setOpenSortModal(false);
-                            }}
-                            sx={{p : 0}}
-                            key={sortItem.value}
-                            variant={'subtitle2'}
-                            value={sortItem.value}
-                            color={sortItem.value === sortValue ? 'primary' : "text"}
-                        >
-                            {sortItem.name}
-                        </MenuItem>
+                        <>
+                            <Typography
+                                onClick={() => {
+                                    handleSortOnchange(sortItem.value);
+                                    setOpenSortModal(false);
+                                }}
+                                sx={{py : 1.5 , px : 3}}
+                                key={sortItem.value}
+                                value={sortItem.value}
+                                color={sortItem.value === sortValue ? 'primary' : "text"}
+                            >
+                                {sortItem.name}
+                            </Typography>
+                            <Divider />
+                        </>
                     ))
                 }
             </MainModal>

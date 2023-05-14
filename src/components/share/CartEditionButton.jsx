@@ -8,7 +8,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import {useCart} from "../../hooks/useCart";
 import PN from "persian-number";
 
-const CartEditionButton = ({id}) => {
+const CartEditionButton = ({id , boxSx}) => {
     const {setCart, countItem, loading} = useCart(id);
     return (
         countItem < 1 ?
@@ -34,17 +34,19 @@ const CartEditionButton = ({id}) => {
                 borderRadius: 2,
                 height: "50px",
                 width: "170px",
+                ...boxSx
             }}>
-                <Button sx={{height : '100%'}} disabled={loading} onClick={setCart.bind(this, true)}>
-                    <AddIcon/>
+                <Button size={'small'} sx={{height : '100%'}} disabled={loading} onClick={setCart.bind(this, true)}>
+                    <AddIcon fontSize={'small'}/>
                 </Button>
                 <Typography variant="body1">
                     {loading ?
-                    <CircularProgress color={'primary'}/> : PN.convertEnToPe(countItem)}</Typography>
+                    <CircularProgress size={'25px'} color={'primary'}/> : PN.convertEnToPe(countItem)}
+                </Typography>
                 <Button sx={{height : '100%'}} color={countItem <= 1 ? 'secondary' : "primary"} disabled={loading} onClick={setCart.bind(this, false)}>
                     {
                         countItem <= 1 ?
-                            <DeleteIcon/> : <RemoveIcon/>
+                            <DeleteIcon fontSize={'small'}/> : <RemoveIcon fontSize={'small'}/>
                     }
                 </Button>
             </Box>

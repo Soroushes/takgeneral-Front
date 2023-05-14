@@ -1,34 +1,31 @@
 export const userCommentInput = {
     comment:[
         {
-            name:'borrowed_name'  , 
+            name:'user_alias_name'  ,
             rules: {
                 required: "وارد کردن نام اجباری میباشد"
             },
-            label: "نام "
+            label: "نام مستعار"
         },
         {
-            name:'comment'  , 
+            name:'title'  ,
+            rules: {
+                required: "وارد کردن عنوان نظر اجباری میباشد"
+            },
+            label: "عنوان نظر "
+        },
+
+        {
+            name:'content'  ,
             rules: {
                 required: "وارد کردن نظر اجباری میباشد"
             },
-            label: "نظر خود را بنویسید"
+            label: "نظر خود را بنویسید" ,
+            props : {
+                multiline : true ,
+                rows : 3
+            }
+
         }
-    ] , 
-    question:{
-        name:{
-            name:'borrowed_name'  , 
-            rules: {
-                required: "وارد کردن نام اجباری میباشد"
-            },
-            label: "نام "
-        },
-        question:{
-            name:'question'  , 
-            rules: {
-                required: "وارد کردن پرسش اجباری میباشد"
-            },
-            label: 'پرسش خود را درباره این کالا ثبت کنید'
-        }
-    }
+    ]
 };

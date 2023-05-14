@@ -2,10 +2,13 @@ import axios from "axios";
 import {useState} from "react";
 import { useDispatch } from "react-redux";
 import { SET_ALERT } from "../redux/slices/snakeBarSlice";
+import {useRouter} from "next/router";
+import {urls} from "../data/urls";
 const BASE_URL = 'https://takback.soroushes.tk/';
 export const useAxios = () => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
+    const router = useRouter() ;
     const callApi = async ({method = "GET", url, data = {}, token, successFunc, errFunc}) => {
         try {
             const accessToken = localStorage.getItem('token');
@@ -21,6 +24,10 @@ export const useAxios = () => {
             successFunc?.(result);
         } catch (err) {
             errFunc?.(err);
+            if (err?.response?.status===401){
+                localStorage.removeItem('token')
+                router.push(urls.login) ;
+            }
             if (err?.response?.status === 429) {
                 dispatch(SET_ALERT({ show: true, title: "لطفا لحظاتی دیگر امتحان کنید", severity: "error" }))
             }

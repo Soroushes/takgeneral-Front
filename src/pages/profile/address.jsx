@@ -22,12 +22,19 @@ const Address = () => {
         <PanelLayout>
             <Grid rowGap={4} container>
                 <Grid xs={12} sm={6} lg={4} item>
-                    <Box sx={{aspectRatio: '1/1', borderRadius: 4}}>
+                    <Box sx={{borderRadius: 4 , px : 2}}>
                         <MapShowDetails/>
                     </Box>
                 </Grid>
                 <Grid xs={12} sm={6} lg={4} item>
-                    <MapShowDetails/>
+                    <Box sx={{borderRadius: 4, px: 2}}>
+                        <MapShowDetails/>
+                    </Box>
+                </Grid>
+                <Grid xs={12} sm={6} lg={4} item>
+                    <Box sx={{borderRadius: 4, px: 2}}>
+                        <MapShowDetails/>
+                    </Box>
                 </Grid>
             </Grid>
         </PanelLayout>

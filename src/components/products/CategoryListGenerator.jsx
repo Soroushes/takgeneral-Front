@@ -40,7 +40,6 @@ const CategoryListGenerator = ({category}) => {
             setChildrenItem([]);
         }
     }, [noFilterRoute])
-    console.log(pageCategory);
     useEffect(() => {
         setNoFilterRoute(`/products/${query.category}/${query.categoryType}`)
     }, [asPath])

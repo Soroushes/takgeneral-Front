@@ -26,7 +26,7 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                 <TabList textColor="secondary" indicatorColor="gray" onChange={handleTabChange}>
                     <Tab
                         sx={{
-                            border: {xs: "none", lg: "1px solid #bbb"},
+                            border: {xs: "none", lg: "1px solid #d3d3d3"},
                             borderBottom: {xs: "none", lg: "none"},
                             borderRadius: {xs: "8px 8px 8px 8px", lg: "8px 8px 0 0"},
                             mr: 2,
@@ -36,7 +36,7 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                     />
                     <Tab
                         sx={{
-                            border: {xs: "none", lg: "1px solid #bbb"},
+                            border: {xs: "none", lg: "1px solid #d3d3d3"},
                             borderBottom: {xs: "none", lg: "none"},
                             borderRadius: {xs: "8px 8px 8px 8px", lg: "8px 8px 0 0"},
                         }}
@@ -51,7 +51,7 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                     transition: "all .3s",
                     justifyContent: "center",
                     width: "100%",
-                    border: {xs: "none", lg: "1px solid #bbb"},
+                    border: {xs: "none", lg: "1px solid #d3d3d3"},
                     borderRadius: 1.5,
                 }}
             >
@@ -67,7 +67,7 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                         px: 2,
                     }}
                 >
-                    {details.map((detail, index) => {
+                    {details?.map((detail, index) => {
                         return (
                             !IsShowAllDetails && index > 7 ? null
                                 :
@@ -84,7 +84,7 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                                     <Box
                                         sx={{
                                             width: {xs: "40%", md: "25%"},
-                                            borderBottom: "1px solid #ddd",
+                                            borderBottom: "1px solid #d3d3d3",
                                             pb: 1.5,
                                             pl: {md: 2},
                                             height: "100%",
@@ -101,7 +101,7 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                                     <Box
                                         sx={{
                                             width: {xs: "60%", md: "75%"},
-                                            borderBottom: "1px solid #ddd",
+                                            borderBottom: "1px solid #d3d3d3",
                                             pb: 1.5,
                                             pl: 2,
                                             height: "100%",
@@ -119,7 +119,7 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                         );
                     })}
                     {
-                        details.length !== 0 ? 
+                        details?.length ?
                         <Box onClick={setShowAllDetails.bind(this , prev=>!prev)} sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center"}}>
                         {
                             IsShowAllDetails ? <CloseIcon color={'primary'}/> : <KeyboardArrowDownIcon color={'primary'}/>
