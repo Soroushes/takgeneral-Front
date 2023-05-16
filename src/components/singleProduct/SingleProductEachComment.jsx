@@ -9,12 +9,10 @@ const SingleProductEachComment = ({comment}) => {
     return (
         <Grid container sx={{display: 'flex', justifyContent: 'space-between', rowGap: 3, width: '100%', px: {md: 3}}}>
             <Grid item md={10} xs={12}>
-                <Typography sx={{mb: 1}} fontWeight={'bold'} variant="body1"
-                            color={'text.muted'}>{comment.title}</Typography>
                 <Typography variant="subtitle1" color={'text.muted'}
                             sx={{display: "flex", alignItems: "center", gap: .5, mb: 1}}>
                     <PersonIcon fontSize={'small'} color={'gray'}/>
-                    {comment.user_alias_name}
+                    {comment?.user_alias_name}
                 </Typography>
                 {
                     comment.suggest_me ?

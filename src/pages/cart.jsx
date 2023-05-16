@@ -87,7 +87,7 @@ const cart = () => {
                                     }}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(selectedProducts.total_final_price)))} تومان</Typography>
                                 </Grid>
                                 <Grid item xs={12} sx={{display: 'flex', justifyContent: 'center'}}>
-                                    <Button variant={'contained'} color={'secondary'}
+                                    <Button variant={'contained'}
                                             sx={{textAlign: 'center', width: '100%', borderRadius: 2}}>ثبت
                                         سفارش</Button>
                                 </Grid>

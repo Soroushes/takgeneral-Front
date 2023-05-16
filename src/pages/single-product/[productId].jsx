@@ -7,11 +7,13 @@ import SingleProductSellCard from "../../components/singleProduct/SingleProductS
 import SingleProductDetails from "src/components/singleProduct/SingleProductDetails";
 import SingleProductComment from "src/components/singleProduct/SingleProductComment";
 import SingleProductLoading from "src/components/singleProduct/SingleProductLoading";
-import SingleProductAddComment from "src/components/singleProduct/SingleProductAddComment";
+import SingleProductAddComment from "../../components/singleProduct/SingleProductAddComment";
+import SingleProductAddQuestion from "../../components/singleProduct/SingleProductAddQuestion";
 import {useRouter} from "next/router";
 import {useRef, useState} from 'react';
 
 const singleProduct = (props) => {
+    console.log(props)
     const router = useRouter();
     const attributesTableRef = useRef(null);
     const opinionTableRef = useRef(null)
@@ -50,7 +52,7 @@ const singleProduct = (props) => {
                     </Grid>
                     <Grid sx={{mt: 4}} item md={12} xs={12}>
                         <SingleProductAddComment rate={props.avg_rate}/>
-                        {/*<SingleProductAddQuestion/>*/}
+                        <SingleProductAddQuestion/>
                     </Grid>
                     <Grid ref={opinionTableRef} sx={{mt: 4}} item md={12} xs={12}>
                         <Divider sx={{my: 3, display: {md: 'none'}}}/>

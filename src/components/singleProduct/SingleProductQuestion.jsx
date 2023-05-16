@@ -1,4 +1,4 @@
-import {Box, Button, Typography} from "@mui/material";
+import {Box, Button, Divider, Typography} from "@mui/material";
 import {Grid} from "@mui/material";
 import {Fragment, useState} from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -24,13 +24,16 @@ const SingleProductQuestion = ({eachQuestion}) => {
                 mt: 2,
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 2
+                gap: 1
             }}>
                 {
                     eachQuestion.answers.map((answer, index) => {
                         if (index < 1 || answerIsShow) {
                             return (
-                                <Typography key={answer} variant="subtitle1" color={'text.muted'} sx={{px: 1}}>{answer}</Typography>
+                                <>
+                                    <Typography key={answer} variant="subtitle1" color={'text.muted'} sx={{px: 1, pb: 2}}>{answer}</Typography>
+                                    <Divider/>
+                                </>
                             )
                         }
                     })
@@ -59,7 +62,6 @@ const SingleProductQuestion = ({eachQuestion}) => {
                         :
                         null
                 }
-                <Typography variant="subtitle1" sx={{px: 1}}>لوزم ایپسون</Typography>
                 <Button size="small" sx={{justifyContent: 'start', width: '110px !important', borderRadius: 2}} color="gray">
                     ثبت پاسخ جدید
                 </Button>

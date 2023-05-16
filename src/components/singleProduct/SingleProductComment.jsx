@@ -7,12 +7,35 @@ import {Fragment, useState} from "react";
 import Rating from '@mui/material/Rating';
 import SingleProductQuestion from "./SingleProductQuestion";
 import SingleProductEachComment from "./SingleProductEachComment";
-import SingleProductAddComment from "./SingleProductAddComment";
 const SingleProductComment = ({comments , rate}) => {
     const [value, setValue] = useState("1");
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
     };
+    const questions =[
+        {
+            question:'این چیهههههه؟',
+            answers:[
+                'نهههههههههههههههه' ,
+                'ازههههههههه' ,
+                'درستعععع'
+            ]
+        } , {
+            question:'این چیهههههه؟',
+            answers:[
+                'نهههههههههههههههه' ,
+                'ازههههههههه' ,
+                'درستعععع'
+            ]
+        } ,{
+            question:'این چیهههههه؟',
+            answers:[
+                'نهههههههههههههههه' ,
+                'ازههههههههه' ,
+                'درستعععع'
+            ]
+        }
+    ]
     return (
         <TabContext value={value}>
             <Box
@@ -88,7 +111,8 @@ const SingleProductComment = ({comments , rate}) => {
                     </Grid>
                     <Box sx={{p : 2 , width : '100%'}}>
                         {
-                            comments.reverse().map((comment)=>{
+                            comments.reverse().map((comment , index)=>{
+                                // if (index > 1 || commentIsShow)
                                 return(
                                     <Fragment key={Math.random()*2574}>
                                         <SingleProductEachComment comment={comment} />
@@ -100,13 +124,13 @@ const SingleProductComment = ({comments , rate}) => {
                     </Box>
                 </TabPanel>
                 <TabPanel value="2" sx={{width:'100%'}}>
-                    {/*{*/}
-                    {/*    questions.map((eachQuestion)=>{*/}
-                    {/*        return(*/}
-                    {/*            <SingleProductQuestion key={eachQuestion.answers} eachQuestion={eachQuestion}/>*/}
-                    {/*        )*/}
-                    {/*    })*/}
-                    {/*}*/}
+                    {
+                        questions.map((eachQuestion)=>{
+                            return(
+                                <SingleProductQuestion key={eachQuestion.answers} eachQuestion={eachQuestion}/>
+                            )
+                        })
+                    }
                 </TabPanel>
             </Box>
         </TabContext>

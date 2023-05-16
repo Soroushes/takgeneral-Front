@@ -10,7 +10,7 @@ const SingleProductAddQuestion = () => {
                 <Typography variant={'body2'} mb={1}>درباره این کالا سوالی دارید ؟</Typography>
                 <Typography variant={'body2'} mb={1}>سوال خود را ثبت کنید</Typography>
             </Grid>
-            <Grid item md={8} xs={12}>
+            <Grid item md={7} xs={12}>
                 <Box>
                     <Controller
                         defaultValue={''}

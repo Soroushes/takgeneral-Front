@@ -7,6 +7,7 @@ const Map = () => {
     const map = useMap();
     useEffect(() => {
         map.locate().on("locationfound", (e) => {
+            console.log(e.latlng);
             map.flyTo(e.latlng, 16);
         })
     }, [])
