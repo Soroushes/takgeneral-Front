@@ -9,7 +9,7 @@ const cart = () => {
     const selectedProducts = useSelector(state => state.cart)
     return (
         selectedProducts.products?.length === 0 ?
-            <Box sx={{backgroundColor: "#fafafa", pt: 2, minHeight: "80vh", display: 'flex' , alignItems : 'center'}}>
+            <Box sx={{backgroundColor: "#fafafa", pt: 2, minHeight: "80vh", display: 'flex', alignItems: 'center'}}>
                 <Box sx={{width: '100%', display: 'flex', justifyContent: 'center', gap: 2}}>
                     <Typography> سبد خرید شما خالی است</Typography>
                     <ProductionQuantityLimitsIcon sx={{color: 'text.main'}}/>
@@ -70,10 +70,9 @@ const cart = () => {
                                     alignItems: 'center',
                                     mb: 5
                                 }}>
-                                    <Typography variant="subtitle1" sx={{color: 'text.muted', fontWeight: 'bold'}}>تخفیف
-                                        کالاها</Typography>
+                                    <Typography variant="subtitle1" sx={{color: 'text.muted', fontWeight: 'bold'}}>تخفیف کالاها</Typography>
                                     <Typography variant="subtitle1" sx={{
-                                        color: 'secondary.main',
+                                        color: 'primary.main',
                                         fontWeight: 'bold'
                                     }}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(selectedProducts.total_discount_price)))} تومان</Typography>
                                 </Grid>

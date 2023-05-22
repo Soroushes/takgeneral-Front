@@ -21,7 +21,7 @@ const CartEditionButton = ({id , boxSx}) => {
                     gap: 1,
                     justifyContent: 'center',
                     alignItems: "center"
-                }} variant={'contained'} color={'secondary'}>
+                }} variant={'contained'}>
                     <BasketIcon/>
                     افزودن به سبد خرید
                 </LoadingButton>
@@ -43,7 +43,7 @@ const CartEditionButton = ({id , boxSx}) => {
                     {loading ?
                     <CircularProgress size={'25px'} color={'primary'}/> : PN.convertEnToPe(countItem)}
                 </Typography>
-                <Button sx={{height : '100%'}} color={countItem <= 1 ? 'secondary' : "primary"} disabled={loading} onClick={setCart.bind(this, false)}>
+                <Button sx={{height : '100%'}} color={countItem <= 1 ? 'error' : "primary"} disabled={loading} onClick={setCart.bind(this, false)}>
                     {
                         countItem <= 1 ?
                             <DeleteIcon fontSize={'small'}/> : <RemoveIcon fontSize={'small'}/>

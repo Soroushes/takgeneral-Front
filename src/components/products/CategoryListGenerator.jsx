@@ -14,7 +14,7 @@ const itemStylesGenerate = (active = false) => (
         borderRadius: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: active ? "primary.main" : "primary.lighter",
+        backgroundColor: active ? "primary.main" : "gray.lighter",
     }
 )
 const CategoryListGenerator = ({category}) => {

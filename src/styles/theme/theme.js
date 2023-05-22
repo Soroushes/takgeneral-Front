@@ -1,15 +1,22 @@
 import {createTheme} from "@mui/material";
-
+const primary = "#3b319b" ;
+const primaryDark = '#29226c' ;
+const primaryLight = '#4e41d5' ;
+const secondary = '#ffe27b' ;
 const theme = createTheme({
     direction: "rtl",
     palette: {
         primary: {
-            main: '#2A74C9',
-            lighter: '#E3EDF8',
-            dark: '#0650A5'
+            main: primary,
+            dark : primaryDark ,
+            contrastText : '#fff' ,
+            light : primaryLight
         },
         secondary: {
-            main: '#E94040'
+            main: secondary,
+            contrastText : "#333" ,
+            light : secondary ,
+            dark : secondary
         },
         gray: {
             main: "#A9A9A9",
@@ -68,8 +75,8 @@ const theme = createTheme({
             styleOverrides: {
                 root: {
                     '.Mui-selected': {
-                        backgroundColor: '#2A74C9',
-                        color: 'white !important'
+                        backgroundColor: secondary,
+                        color: '#303030 !important'
                     }
                 }
             }

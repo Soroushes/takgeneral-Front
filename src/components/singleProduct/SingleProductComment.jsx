@@ -7,6 +7,8 @@ import {Fragment, useState} from "react";
 import Rating from '@mui/material/Rating';
 import SingleProductQuestion from "./SingleProductQuestion";
 import SingleProductEachComment from "./SingleProductEachComment";
+import SingleProductAddComment from "./SingleProductAddComment";
+import SingleProductAddQuestion from "./SingleProductAddQuestion";
 const SingleProductComment = ({comments , rate}) => {
     const [value, setValue] = useState("1");
     const handleTabChange = (event, newValue) => {
@@ -121,6 +123,7 @@ const SingleProductComment = ({comments , rate}) => {
                                 )
                             })
                         }
+                        <SingleProductAddComment rate={rate}/>
                     </Box>
                 </TabPanel>
                 <TabPanel value="2" sx={{width:'100%'}}>
@@ -131,6 +134,7 @@ const SingleProductComment = ({comments , rate}) => {
                             )
                         })
                     }
+                    <SingleProductAddQuestion/>
                 </TabPanel>
             </Box>
         </TabContext>

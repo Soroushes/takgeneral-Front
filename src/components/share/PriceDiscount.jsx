@@ -12,9 +12,9 @@ const PriceDiscount = ({discountPercent, fontSize, price, finalPrice}) => {
                         flexDirection: 'column',
                         alignItems: `${discountPercent ? 'start' : 'center'} `
                     }}>
-                        <Typography component={'span'} variant={fontSize} sx={{fontWeight: "bold"}} color={'secondary'}>
+                        <Typography component={'span'} variant={fontSize} sx={{fontWeight: "bold"}} color={'primary.light'}>
                             {PN.convertEnToPe(PN.sliceNumber(Math.trunc(finalPrice)))}
-                            <Typography component={'span'} color={'secondary'} variant={fontSize}> تومان </Typography>
+                            <Typography component={'span'} color={'primary.light'} variant={fontSize}> تومان </Typography>
                         </Typography>
                         <Typography component={'span'} sx={{display: 'flex', alignItems: "center"}}
                                     variant={'subtitle1'}>
@@ -27,15 +27,15 @@ const PriceDiscount = ({discountPercent, fontSize, price, finalPrice}) => {
                             </Box>
                             {
                                 discountPercent ?
-                                    <Box variant={'caption'} sx={{
+                                    <Typography variant={'caption'} sx={{
                                         backgroundColor: 'secondary.main',
-                                        color: 'white',
+                                        color: 'text.muted',
                                         ml: 1,
                                         p: .25,
                                         px: .5,
                                         textAlign: 'center',
                                         borderRadius: 1
-                                    }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%</Box>
+                                    }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%</Typography>
                                     :
                                     null
                             }
