@@ -2,25 +2,36 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import {Box, Divider, Typography , Grid} from "@mui/material";
+import {Box, Divider, Typography , Grid, Button} from "@mui/material";
 import {Fragment, useState} from "react";
 import Rating from '@mui/material/Rating';
-import SingleProductQuestion from "./SingleProductQuestion";
-import SingleProductEachComment from "./SingleProductEachComment";
-import SingleProductAddComment from "./SingleProductAddComment";
-import SingleProductAddQuestion from "./SingleProductAddQuestion";
-const SingleProductComment = ({comments , rate}) => {
+import Question from "./Question";
+import Comment from "./Comment";
+import AddComment from "./AddComment";
+import AddQuestion from "./AddQuestion";
+import NoQuestion from '../icons/noQuestion.svg';
+import NoComment from '../icons/noComment.svg';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import CloseIcon from '@mui/icons-material/Close';
+const CommentQuestion = ({comments , rate}) => {
+    console.log(comments)
     const [value, setValue] = useState("1");
+    const [questionIsShow , setQuestionIsShow] = useState(false);
+    const [commentIsShow , setCommentIsShow] = useState(false);
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
+    };
+    const showComment =()=>{
+        setCommentIsShow(prev=>!prev);
+    };
+    const showQuestion =()=>{
+        setQuestionIsShow(prev => !prev)
     };
     const questions =[
         {
             question:'این چیهههههه؟',
             answers:[
-                'نهههههههههههههههه' ,
-                'ازههههههههه' ,
-                'درستعععع'
+                
             ]
         } , {
             question:'این چیهههههه؟',
@@ -30,6 +41,27 @@ const SingleProductComment = ({comments , rate}) => {
                 'درستعععع'
             ]
         } ,{
+            question:'این چیهههههه؟',
+            answers:[
+                'نهههههههههههههههه' ,
+                'ازههههههههه' ,
+                'درستعععع'
+            ]
+        },{
+            question:'این چیهههههه؟',
+            answers:[
+                'نهههههههههههههههه' ,
+                'ازههههههههه' ,
+                'درستعععع'
+            ]
+        },{
+            question:'این چیهههههه؟',
+            answers:[
+                'نهههههههههههههههه' ,
+                'ازههههههههه' ,
+                'درستعععع'
+            ]
+        },{
             question:'این چیهههههه؟',
             answers:[
                 'نهههههههههههههههه' ,
@@ -46,6 +78,7 @@ const SingleProductComment = ({comments , rate}) => {
                     display: "flex",
                     width: "100%",
                     px : 2 ,
+                    mb:{xs:2, md:2 , lg:0}
                 }}
             >
                 <TabList indicatorColor="gray" onChange={handleTabChange}>
@@ -79,6 +112,7 @@ const SingleProductComment = ({comments , rate}) => {
                     width: "100%",
                     border: {xs: "none", lg: "1px solid #d3d3d3"},
                     borderRadius: 1.5,
+                    
                 }}
             >
                 <TabPanel
@@ -111,34 +145,79 @@ const SingleProductComment = ({comments , rate}) => {
                             </Box>
                         </Grid>
                     </Grid>
-                    <Box sx={{p : 2 , width : '100%'}}>
+                    <Box sx={{p : 2 , width : '100%' , display:'flex', flexDirection:'column' , alignItems:'center'}}>
                         {
+                            comments.length === 0 ? 
+                            <Box x={{ display:'flex', margin:'auto'}}><NoComment/></Box> : 
                             comments.reverse().map((comment , index)=>{
-                                // if (index > 1 || commentIsShow)
-                                return(
-                                    <Fragment key={Math.random()*2574}>
-                                        <SingleProductEachComment comment={comment} />
-                                        <Divider sx={{my : 3}}/>
-                                    </Fragment>
-                                )
+                                if (index > 2 || commentIsShow){
+                                    return(
+                                        <Fragment key={Math.random()*2574}>
+                                            <Comment comment={comment} />
+                                            <Divider sx={{my : 3}}/>
+                                        </Fragment>
+                                    )
+                                }
                             })
                         }
-                        <SingleProductAddComment rate={rate}/>
+                        {
+                        comments.length >= 2 ?
+                        <Button onClick={showComment}
+                            variant="outlined"
+                            color={'primary'}
+                             sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center" , width:"100%"}}>
+                            {
+                                commentIsShow ? <CloseIcon color={'primary'}/> :
+                                    <KeyboardArrowDownIcon color={'primary'}/>
+                            }
+                            
+                                {
+                                    commentIsShow ? 'نشان دادن کمتر' : "مشاهده کامل نظرات ها"
+                                }
+                            
+                        </Button>
+                        :
+                        null
+                    }
+                        <AddComment rate={rate}/>
                     </Box>
                 </TabPanel>
-                <TabPanel value="2" sx={{width:'100%'}}>
+                <TabPanel value="2" sx={{width:'100%' , py:0 , display:'flex' , flexDirection:'column' , alignItems:'center'}}>
                     {
-                        questions.map((eachQuestion)=>{
-                            return(
-                                <SingleProductQuestion key={eachQuestion.answers} eachQuestion={eachQuestion}/>
-                            )
+                        questions.length === 0 ? 
+                        <NoQuestion/> :
+                        questions.map((eachQuestion , index)=>{
+                            if(index < 3 || questionIsShow){
+                                return(
+                                    <Question key={Math.random()*2574} eachQuestion={eachQuestion}/>
+                                )
+                            }
                         })
                     }
-                    <SingleProductAddQuestion/>
+                    {
+                        questions.length >= 2 ?
+                        <Button onClick={showQuestion}
+                            variant="outlined"
+                            color={'primary'}
+                             sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center" , width:"100%"}}>
+                            {
+                                questionIsShow ? <CloseIcon color={'primary'}/> :
+                                    <KeyboardArrowDownIcon color={'primary'}/>
+                            }
+                            
+                                {
+                                    questionIsShow ? 'نشان دادن کمتر' : "مشاهده کامل پرسش ها"
+                                }
+                            
+                        </Button>
+                        :
+                        null
+                    }
+                    <AddQuestion/>
                 </TabPanel>
             </Box>
         </TabContext>
 
     )
 }
-export default SingleProductComment;
+export default CommentQuestion;

@@ -1,10 +1,10 @@
 import {Typography, Grid, TextField, Button} from "@mui/material";
 import {Controller, useForm} from "react-hook-form";
 import {Box} from "@mui/system";
-const SingleProductAddQuestion = () => {
+const AddQuestion = () => {
     const {control} = useForm();
     return (
-        <Grid container justifyContent={'space-between'} rowGap={2}>
+        <Grid container justifyContent={'space-between'} sx={{px:2 , mt:2 }} rowGap={2}>
             <Grid item md={4} xs={12}>
                 <Typography fontWeight={'bold'} mb={2}>پرسش شما درباره این کالا</Typography>
                 <Typography variant={'body2'} mb={1}>درباره این کالا سوالی دارید ؟</Typography>
@@ -39,4 +39,4 @@ const SingleProductAddQuestion = () => {
         </Grid>
     )
 };
-export default SingleProductAddQuestion;
+export default AddQuestion;

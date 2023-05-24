@@ -5,7 +5,7 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import PersonIcon from '@mui/icons-material/Person';
 import PN from "persian-number";
 
-const SingleProductEachComment = ({comment}) => {
+const Comment = ({comment}) => {
     return (
         <Grid container sx={{display: 'flex', justifyContent: 'space-between', rowGap: 3, width: '100%', px: {md: 3}}}>
             <Grid item md={10} xs={12}>
@@ -41,4 +41,4 @@ const SingleProductEachComment = ({comment}) => {
         </Grid>
     )
 }
-export default SingleProductEachComment;
+export default Comment;

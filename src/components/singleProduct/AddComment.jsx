@@ -6,7 +6,7 @@ import Checkbox from '@mui/material/Checkbox';
 import {useAxios} from "../../hooks/useAxios";
 import {useRouter} from "next/router";
 import LoadingButton from "@mui/lab/LoadingButton";
-const SingleProductAddComment = ({rate}) => {
+const AddComment = ({rate}) => {
     const {control, handleSubmit, reset} = useForm({
         defaultValues : {
             kefiyat_rate : rate.avg_keyfiyat_rate ?? 3 ,
@@ -30,7 +30,7 @@ const SingleProductAddComment = ({rate}) => {
         })
     }
     return (
-        <Box sx={{mb : 4}} component={'form'} onSubmit={handleSubmit(onFormSubmit)}>
+        <Box sx={{mb : 4 , width:'100%'}} component={'form'} onSubmit={handleSubmit(onFormSubmit)}>
             <Typography fontWeight={'bold'} sx={{mb: 4}}>نظر شما درباره این کالا</Typography>
             <Grid container justifyContent={'space-between'} rowGap={3}>
                 <Grid item md={4} xs={12}>
@@ -107,4 +107,4 @@ const SingleProductAddComment = ({rate}) => {
         </Box>
     )
 }
-export default SingleProductAddComment;
+export default AddComment;
