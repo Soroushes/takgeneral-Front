@@ -13,8 +13,7 @@ import NoQuestion from '../icons/noQuestion.svg';
 import NoComment from '../icons/noComment.svg';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
-const CommentQuestion = ({comments , rate}) => {
-    console.log(comments)
+const CommentQuestion = ({comments , rate , productId}) => {
     const [value, setValue] = useState("1");
     const [questionIsShow , setQuestionIsShow] = useState(false);
     const [commentIsShow , setCommentIsShow] = useState(false);
@@ -126,31 +125,36 @@ const CommentQuestion = ({comments , rate}) => {
                         p : 0
                     }}
                 >
-                    <Grid container sx={{display:'flex' , justifyContent:'center' , backgroundColor :'gray.lighter' ,p:4, alignItems:'center'  , borderRadius:2 , gap :5}}>
-                        <Grid item md={5} xs={12}>
-                            <Box sx={{px : 1 , display : "flex" , gap : 3 , alignItems : "center" , justifyContent : {xs : 'center' , md : 'start'}}}>
-                                <Typography variant="body2">میانگین امتیازات کاربران</Typography>
-                                <Rating name="read-only" value={2.5} readOnly/>
-                            </Box>
+                    {
+                        comments.length !== 0 ? 
+                        <Grid container sx={{display:'flex' , justifyContent:'center' , backgroundColor :'gray.lighter' ,p:4, alignItems:'center'  , borderRadius:2 , gap :5}}>
+                            <Grid item md={5} xs={12}>
+                                <Box sx={{px : 1 , display : "flex" , gap : 3 , alignItems : "center" , justifyContent : {xs : 'center' , md : 'start'}}}>
+                                    <Typography variant="body2">میانگین امتیازات کاربران</Typography>
+                                    <Rating name="read-only" value={2.5} readOnly/>
+                                </Box>
+                            </Grid>
+                            <Grid item md={4} xs={12} sx={{display:'flex' , gap:1 , flexDirection:'column'}}>
+                                <Box sx={{display:'flex'  , justifyContent:'space-between' , px : 1 }}>
+                                    <Typography variant="subtitle1" sx={{ color:'text.muted'}}>کیفیت و کارایی</Typography>
+                                    <Rating size={'small'} name="read-only" value={rate.avg_keyfiyat_rate} readOnly/>
+                                </Box>
+                                <Divider sx={{my:.5}}/>
+                                <Box sx={{display:'flex' , justifyContent:'space-between' , px : 1}}>
+                                    <Typography variant="subtitle1" sx={{ color:'text.muted'}}>ارزش خرید</Typography>
+                                    <Rating size={'small'} name="read-only" value={rate.avg_arzesh_rate} readOnly/>
+                                </Box>
+                            </Grid>
                         </Grid>
-                        <Grid item md={4} xs={12} sx={{display:'flex' , gap:1 , flexDirection:'column'}}>
-                            <Box sx={{display:'flex'  , justifyContent:'space-between' , px : 1 }}>
-                                <Typography variant="subtitle1" sx={{ color:'text.muted'}}>کیفیت و کارایی</Typography>
-                                <Rating size={'small'} name="read-only" value={rate.avg_keyfiyat_rate} readOnly/>
-                            </Box>
-                            <Divider sx={{my:.5}}/>
-                            <Box sx={{display:'flex' , justifyContent:'space-between' , px : 1}}>
-                                <Typography variant="subtitle1" sx={{ color:'text.muted'}}>ارزش خرید</Typography>
-                                <Rating size={'small'} name="read-only" value={rate.avg_arzesh_rate} readOnly/>
-                            </Box>
-                        </Grid>
-                    </Grid>
+                        :null
+                    }
+                    
                     <Box sx={{p : 2 , width : '100%' , display:'flex', flexDirection:'column' , alignItems:'center'}}>
                         {
                             comments.length === 0 ? 
                             <Box x={{ display:'flex', margin:'auto'}}><NoComment/></Box> : 
                             comments.reverse().map((comment , index)=>{
-                                if (index > 2 || commentIsShow){
+                                if (index < 2 || commentIsShow){
                                     return(
                                         <Fragment key={Math.random()*2574}>
                                             <Comment comment={comment} />
@@ -179,7 +183,7 @@ const CommentQuestion = ({comments , rate}) => {
                         :
                         null
                     }
-                        <AddComment rate={rate}/>
+                        <AddComment productId={productId} rate={rate}/>
                     </Box>
                 </TabPanel>
                 <TabPanel value="2" sx={{width:'100%' , py:0 , display:'flex' , flexDirection:'column' , alignItems:'center'}}>
@@ -189,7 +193,7 @@ const CommentQuestion = ({comments , rate}) => {
                         questions.map((eachQuestion , index)=>{
                             if(index < 3 || questionIsShow){
                                 return(
-                                    <Question key={Math.random()*2574} eachQuestion={eachQuestion}/>
+                                    <Question productId={productId} key={Math.random()*2574} eachQuestion={eachQuestion}/>
                                 )
                             }
                         })
@@ -213,7 +217,7 @@ const CommentQuestion = ({comments , rate}) => {
                         :
                         null
                     }
-                    <AddQuestion/>
+                    <AddQuestion productId={productId}/>
                 </TabPanel>
             </Box>
         </TabContext>

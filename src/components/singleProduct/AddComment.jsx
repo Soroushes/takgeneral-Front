@@ -16,6 +16,7 @@ const AddComment = ({rate}) => {
     const {loading, callApi} = useAxios();
     const router = useRouter();
     const onFormSubmit = (data) => {
+        console.log(data)
         callApi({
             method: 'post',
             url: 'create-comment',

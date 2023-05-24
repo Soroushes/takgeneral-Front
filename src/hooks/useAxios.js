@@ -24,10 +24,10 @@ export const useAxios = () => {
             successFunc?.(result);
         } catch (err) {
             errFunc?.(err);
-            if (err?.response?.status===401){
-                localStorage.removeItem('token')
-                router.push(urls.login) ;
-            }
+            // if (err?.response?.status===401){
+            //     localStorage.removeItem('token')
+            //     router.push(urls.login) ;
+            // }
             if (err?.response?.status === 429) {
                 dispatch(SET_ALERT({ show: true, title: "لطفا لحظاتی دیگر امتحان کنید", severity: "error" }))
             }

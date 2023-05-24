@@ -4,8 +4,26 @@ import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import PersonIcon from '@mui/icons-material/Person';
 import PN from "persian-number";
-
+import { Controller , useForm } from "react-hook-form";
+import { useAxios } from "src/hooks/useAxios";
 const Comment = ({comment}) => {
+    const {control , setValue ,handleSubmit , getValues, reset} = useForm()
+    const {callApi , loading}= useAxios();
+    const handlelikeDislike = (like)=>{
+        callApi({
+            url:'like-disslike-comment', 
+            method:'post', 
+            token:true,
+            data:{
+                comment:comment.content, 
+                like_vote : like,
+                dislike_vote: !like
+            },successFunc:(res)=>{
+                console.log(res)
+            }
+        })
+    
+    }
     return (
         <Grid container sx={{display: 'flex', justifyContent: 'space-between', rowGap: 3, width: '100%', px: {md: 3}}}>
             <Grid item md={10} xs={12}>
@@ -29,12 +47,33 @@ const Comment = ({comment}) => {
                 justifyContent: "center"
             }}>
                 <Box color={'gray.main'} sx={{display: 'flex', alignItems: 'center', gap: 1}}>
-                    <Typography variant="subtitle1"
-                                color={'gray.main'}>{PN.convertEnToPe(2)}</Typography>
-                    <ThumbUpOffAltIcon sx={{cursor: 'pointer'}} fontSize={'10px'}/>
-                    <Typography variant="subtitle1"
-                                color={'gray.main'}>{PN.convertEnToPe(4)}</Typography>
-                    <ThumbDownOffAltIcon sx={{cursor: 'pointer'}} fontSize={'10px'}/>
+                    <Controller 
+                    control={control}
+                    name="like" 
+                    defaultValue={comment.likes_count}
+                    render={({field})=>
+                        <Box onClick={handlelikeDislike.bind(this , true)}>
+                            <Typography variant="subtitle1"color={'gray.main'}>
+                                {PN.convertEnToPe(field.value)}
+                            </Typography>
+                            <ThumbUpOffAltIcon sx={{cursor: 'pointer'}} fontSize={'10px'}/>
+                        </Box>
+                    }
+                    />
+                    <Controller 
+                    control={control}
+                    name="dislike" 
+                    defaultValue={comment.diss_likes_count}
+                    render={({field})=>
+                        <Box onClick={handlelikeDislike.bind(this , false)}>
+                            <Typography  variant="subtitle1"color={'gray.main'}>
+                                {PN.convertEnToPe(field.value)}
+                            </Typography>
+                            <ThumbDownOffAltIcon sx={{cursor: 'pointer'}} fontSize={'10px'}/>
+                        </Box>
+                    }
+                    />
+                    
                 </Box>
                 <Typography variant={'subtitle2'} color={'text.muted'}>20 آذر 1400</Typography>
             </Grid>

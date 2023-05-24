@@ -3,15 +3,49 @@ import {Fragment, useState} from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
 import { Controller , useForm } from "react-hook-form";
-const Question = ({eachQuestion}) => {
+import axios from "axios";
+import { useAxios } from "src/hooks/useAxios";
+const Question = ({eachQuestion , productId}) => {
     const [answerIsShow, setAnswerShow] = useState(false);
     const [answerInputIsShow , setAnswerInputIsShow] = useState(false);
-    const {control ,handleSubmit} = useForm();
+    const {loading, callApi} = useAxios();
+    const {control ,handleSubmit , getValues, reset} = useForm();
     const show = () => {
         setAnswerShow(prev => !prev);
     };
-    const onFormSubmit = ()=>{
+    const onFormSubmit = async ()=>{
         setAnswerInputIsShow(prev=>!prev);
+        if(answerInputIsShow){
+            callApi({
+                url:'question-reply', 
+                method:'post', 
+                token:true,
+                data:{  
+                    question: eachQuestion.question , 
+                    content : getValues('newAnswer'), 
+                    product: productId
+                },
+                successFunc:(res)=>{
+                    console.log(res);
+                    reset();
+                }
+            })
+            // try{
+            //     const data = await axios({
+            //         url :'https://takback.soroushes.tk/question-reply/',
+            //         method:'post',
+            //         token:true,
+            //         data :{
+            //             question: eachQuestion?.question,
+            //             content : getValues('newAnswer')
+            //         }
+            //     })
+            //     console.log(data)
+            // }catch(err){
+            //     console.log(err)
+            // }
+        }
+        
     };
     return (
         <Box component={'form'} onSubmit={handleSubmit(onFormSubmit)} key={eachQuestion.question} sx={{width :'100%' }}>
@@ -77,7 +111,7 @@ const Question = ({eachQuestion}) => {
                     eachQuestion.answers.map((answer, index) => {
                         if (index < 1 || answerIsShow) {
                             return (
-                                <Fragment>
+                                <Fragment key={index}>
                                     <Typography key={answer} variant="subtitle1" color={'text.muted'} sx={{px: 1, pb: 2}}>{answer}</Typography>
                                     <Divider/>
                                 </Fragment>
