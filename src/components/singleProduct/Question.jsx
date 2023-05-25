@@ -3,9 +3,15 @@ import {Fragment, useState} from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
 import { Controller , useForm } from "react-hook-form";
-import axios from "axios";
 import { useAxios } from "src/hooks/useAxios";
-const Question = ({eachQuestion , productId}) => {
+import PersonIcon from '@mui/icons-material/Person';
+const Question = ({eachQuestion}) => {
+    const date = Intl.DateTimeFormat('fa', {
+        useGrouping: false,
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    }).format(eachQuestion.created_at.timestamp * 1000);
     const [answerIsShow, setAnswerShow] = useState(false);
     const [answerInputIsShow , setAnswerInputIsShow] = useState(false);
     const {loading, callApi} = useAxios();
@@ -13,47 +19,52 @@ const Question = ({eachQuestion , productId}) => {
     const show = () => {
         setAnswerShow(prev => !prev);
     };
-    const onFormSubmit = async ()=>{
+    const openAnswerInput =()=>{
         setAnswerInputIsShow(prev=>!prev);
-        if(answerInputIsShow){
-            callApi({
-                url:'question-reply', 
-                method:'post', 
-                token:true,
-                data:{  
-                    question: eachQuestion.question , 
-                    content : getValues('newAnswer'), 
-                    product: productId
-                },
-                successFunc:(res)=>{
-                    console.log(res);
-                    reset();
-                }
-            })
-            // try{
-            //     const data = await axios({
-            //         url :'https://takback.soroushes.tk/question-reply/',
-            //         method:'post',
-            //         token:true,
-            //         data :{
-            //             question: eachQuestion?.question,
-            //             content : getValues('newAnswer')
-            //         }
-            //     })
-            //     console.log(data)
-            // }catch(err){
-            //     console.log(err)
-            // }
-        }
+    };
+    const onFormSubmit = async ()=>{
+        callApi({
+            url:'question-reply', 
+            method:'post', 
+            token:true,
+            data:{  
+                question: eachQuestion.id , 
+                content : getValues('newAnswer')
+                        
+            },
+            successFunc:(res)=>{
+                reset();
+                setAnswerInputIsShow(prev=>!prev);
+            }
+        })
+        // try{
+        //     const data = await axios({
+        //         url :'https://takback.soroushes.tk/question-reply/',
+        //         method:'post',
+        //         token:true,
+        //         data :{
+        //             question: eachQuestion?.question,
+        //             content : getValues('newAnswer')
+        //         }
+        //     })
+        //     console.log(data)
+        // }catch(err){
+        //     console.log(err)
+        // }
+        
         
     };
     return (
-        <Box component={'form'} onSubmit={handleSubmit(onFormSubmit)} key={eachQuestion.question} sx={{width :'100%' }}>
-            <Grid container sx={{display: 'flex', justifyContent: 'space-between', px: 2, mt: 2 , width :'100%'}}>
-                <Typography>{eachQuestion.question} </Typography>
+        <Box component={'form'} onSubmit={handleSubmit(onFormSubmit)} key={eachQuestion.id} sx={{width :'100%' }}>
+            <PersonIcon sx={{mx:2}} fontSize={'small'} color={'gray'}/>
+            <Grid container sx={{display: 'flex', justifyContent: 'space-between', px: 2 , width :'100%'}}>
+                <Box display={"flex"} width={'100%'} justifyContent={'space-between'}>
+                    <Typography>{eachQuestion.content} </Typography>
+                    <Typography fontSize={'11px'}>{date}</Typography>
+                </Box>
             </Grid>
             {
-                eachQuestion.answers.length === 0 ? 
+                !eachQuestion.replys.length  ? 
                 <Box sx={{width:'100%' , mt:1}}>
                     {
                         answerInputIsShow ? 
@@ -67,10 +78,11 @@ const Question = ({eachQuestion , productId}) => {
                                 fullWidth={true} 
                                 label={'پاسخ خود را مطرح کنید'} 
                                 value={field.value} 
-                                sx={{mt:2 , backgroundColor:'#fff' , borderRadius:2}} 
+                                sx={{mt:2 , borderRadius:2}} 
                                 helperText={fieldState.error?.message ?? ''}
                                 error={!!fieldState.error?.message}
-                                onChange={field.onChange}/>
+                                onChange={field.onChange}
+                                autoFocus/>
                             }
                         />:
                         null
@@ -78,14 +90,14 @@ const Question = ({eachQuestion , productId}) => {
                     <Grid container  >
                         {
                             answerInputIsShow ? 
-                            <Grid item xs={12} md={1.5} justifyContent={'end'}>
-                            <Button variant="contained" size="small" type="submit" sx={{width:'100%', borderRadius: 1.5, p: 1, px: 2 , mt:1}} color="secondary">
+                            <Grid item xs={12} md={1} justifyContent={'end'}>
+                            <Button variant="contained" size="small" type="submit" sx={{width:'100%', borderRadius: 1.5 , fontSize:'12px', p: 1 , mt:1}} color="secondary">
                             ارسال پاسخ
                             </Button>
                             </Grid>
                             :
-                            <Grid item  xs={12} md={1.5}>
-                                <Button size="small" disabled={answerInputIsShow ? true : false } type="submit" sx={{ width:'100%' , borderRadius: 1.5, p: 1, px: 2 , mt:1}} color="gray">
+                            <Grid item  xs={12} md={1}>
+                                <Button size="small"   onClick={openAnswerInput} sx={{ width:'100%' , fontSize:'12px' , borderRadius: 1.5 , p:1 , mt:1 }} color="gray">
                                     ثبت پاسخ    
                                 </Button>
                             </Grid> 
@@ -96,7 +108,7 @@ const Question = ({eachQuestion , productId}) => {
             :null
             }
            {
-            eachQuestion.answers.length !== 0 ?
+            eachQuestion.replys.length !== 0 ?
             <Box sx={{
                 backgroundColor: 'gray.lighter',
                 p: 2,
@@ -108,11 +120,20 @@ const Question = ({eachQuestion , productId}) => {
                 width:'100%'
             }}>
                 {
-                    eachQuestion.answers.map((answer, index) => {
+                    eachQuestion.replys.map((answer, index) => {
+                        const answerDate = Intl.DateTimeFormat('fa', {
+                            useGrouping: false,
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric"
+                        }).format(answer.created_at.timestamp * 1000);
                         if (index < 1 || answerIsShow) {
                             return (
                                 <Fragment key={index}>
-                                    <Typography key={answer} variant="subtitle1" color={'text.muted'} sx={{px: 1, pb: 2}}>{answer}</Typography>
+                                    <Box display={"flex"} width={'100%'} justifyContent={'space-between'}>
+                                        <Typography key={answer} variant="subtitle1" color={'text.muted'} sx={{px: 1, pb: 2}}>{answer}</Typography>
+                                        <Typography fontSize={'11px'}>{answerDate}</Typography>
+                                    </Box>
                                     <Divider/>
                                 </Fragment>
                             )
@@ -120,11 +141,11 @@ const Question = ({eachQuestion , productId}) => {
                     })
                 }
                 {
-                    eachQuestion.answers.length >= 2 ?
+                    eachQuestion.replys.length >= 2 ?
                         <Box onClick={show}
                              sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center"}}>
                             {
-                                answerIsShow ? <CloseIcon color={'primary'}/> :
+                                answerIsShow ? <CloseIcon sx={{px:.5}} color={'primary'}/> :
                                     <KeyboardArrowDownIcon color={'primary'}/>
                             }
                             <Typography
@@ -152,13 +173,15 @@ const Question = ({eachQuestion , productId}) => {
                             rules={{required:'متن پاسخ خود را وارد کنید'}}
                             render={({field  , fieldState})=>
                                 <TextField 
-                                sx={{mt:2 , backgroundColor:'#fff' , borderRadius:2}} 
+                                sx={{mt:2 , borderRadius:2}} 
                                 fullWidth={true} 
                                 label={'پاسخ خود را مطرح کنید'} 
                                 value={field.value} 
                                 helperText={fieldState.error?.message ?? ''}
                                 error={!!fieldState.error?.message}
-                                onChange={field.onChange}/>
+                                onChange={field.onChange}
+                                autoFocus
+                                />
                             }
                         />:
                         null
@@ -166,14 +189,14 @@ const Question = ({eachQuestion , productId}) => {
                 <Grid container  >
                         {
                             answerInputIsShow ? 
-                            <Grid item xs={12} md={1.5} justifyContent={'end'}>
-                            <Button variant="contained" size="small" type="submit" sx={{width:'100%', borderRadius: 1.5, p: 1, px: 2 , mt:1}} color="secondary">
+                            <Grid item xs={12} md={1} justifyContent={'end'}>
+                            <Button variant="contained" size="small" type="submit" sx={{width:'100%' , fontSize:'12px', borderRadius: 1.5, p: 1 , mt:1}} color="secondary">
                             ارسال پاسخ
                             </Button>
                             </Grid>
                             :
-                            <Grid item  xs={12} md={1.5}>
-                                <Button size="small" disabled={answerInputIsShow ? true : false } type="submit" sx={{ width:'100%' , borderRadius: 1.5, p: 1, px: 2 , mt:1}} color="gray">
+                            <Grid item  xs={12} md={1}>
+                                <Button size="small" disabled={answerInputIsShow ? true : false } onClick={openAnswerInput} sx={{  fontSize:'12px' , width:'100%' , borderRadius: 1.5 , mt:1}} color="gray">
                                     ثبت پاسخ    
                                 </Button>
                             </Grid> 

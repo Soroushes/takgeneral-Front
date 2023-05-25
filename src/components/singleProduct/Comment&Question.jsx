@@ -13,8 +13,7 @@ import NoQuestion from '../icons/noQuestion.svg';
 import NoComment from '../icons/noComment.svg';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
-
-const CommentQuestion = ({comments, rate, productId}) => {
+const CommentQuestion = ({comments, rate, productId , questions}) => {
     const [value, setValue] = useState("1");
     const [questionIsShow, setQuestionIsShow] = useState(false);
     const [commentIsShow, setCommentIsShow] = useState(false);
@@ -27,47 +26,7 @@ const CommentQuestion = ({comments, rate, productId}) => {
     const showQuestion = () => {
         setQuestionIsShow(prev => !prev)
     };
-    const questions = [
-        {
-            question: 'این چیهههههه؟',
-            answers: []
-        }, {
-            question: 'این چیهههههه؟',
-            answers: [
-                'نهههههههههههههههه',
-                'ازههههههههه',
-                'درستعععع'
-            ]
-        }, {
-            question: 'این چیهههههه؟',
-            answers: [
-                'نهههههههههههههههه',
-                'ازههههههههه',
-                'درستعععع'
-            ]
-        }, {
-            question: 'این چیهههههه؟',
-            answers: [
-                'نهههههههههههههههه',
-                'ازههههههههه',
-                'درستعععع'
-            ]
-        }, {
-            question: 'این چیهههههه؟',
-            answers: [
-                'نهههههههههههههههه',
-                'ازههههههههه',
-                'درستعععع'
-            ]
-        }, {
-            question: 'این چیهههههه؟',
-            answers: [
-                'نهههههههههههههههه',
-                'ازههههههههه',
-                'درستعععع'
-            ]
-        }
-    ]
+    
     return (
         <TabContext value={value}>
             <Box
@@ -164,7 +123,7 @@ const CommentQuestion = ({comments, rate, productId}) => {
                             </Grid>
                             : null
                     }
-                    <Box sx={{p: 2, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box sx={{p: 2, width: '100%', display: 'flex', flexDirection: 'column'}}>
                         {
                             !comments.length ?
                                 <Box sx={{
@@ -182,37 +141,41 @@ const CommentQuestion = ({comments, rate, productId}) => {
                                         return (
                                             <Fragment key={Math.random() * 2574}>
                                                 <Comment comment={comment}/>
-                                                <Divider sx={{my: 3}}/>
+                                                <Divider sx={{my: 2}}/>
                                             </Fragment>
                                         )
                                     }
                                 })
                         }
-                        {
-                            comments.length >= 2 ?
-                                <Button onClick={showComment}
-                                        variant="outlined"
-                                        color={'primary'}
-                                        sx={{
-                                            display: "flex",
-                                            mt: 2,
-                                            cursor: 'pointer',
-                                            alignItems: "center",
-                                            width: "100%"
-                                        }}>
-                                    {
-                                        commentIsShow ? <CloseIcon color={'primary'}/> :
-                                            <KeyboardArrowDownIcon color={'primary'}/>
-                                    }
+                        <Grid container width={'100%'}>
+                            <Grid item md={3} lg={2} xs={12} >
+                                {
+                                    comments.length >= 2 ?
+                                        <Button onClick={showComment}
+                                                variant="outlined"
+                                                color={'primary'}
+                                                sx={{
+                                                    display: "flex",
+                                                    my: 1,
+                                                    cursor: 'pointer',
+                                                    alignItems: "center" , 
+                                                    width:'100%'
+                                                }}>
+                                            {
+                                                commentIsShow ? <CloseIcon sx={{px:.5}} color={'primary'}/> :
+                                                    <KeyboardArrowDownIcon color={'primary'}/>
+                                            }
 
-                                    {
-                                        commentIsShow ? 'نشان دادن کمتر' : "مشاهده کامل نظرات ها"
-                                    }
+                                            {
+                                                commentIsShow ? 'نشان دادن کمتر' : "مشاهده کامل نظرات ها"
+                                            }
 
-                                </Button>
-                                :
-                                null
-                        }
+                                        </Button>
+                                        :
+                                        null
+                                }
+                            </Grid>
+                        </Grid>
                         <AddComment productId={productId} rate={rate}/>
                     </Box>
                 </TabPanel>
@@ -220,40 +183,43 @@ const CommentQuestion = ({comments, rate, productId}) => {
                     {
                         !questions.length ? <NoQuestion/> :
                             questions.map((eachQuestion, index) => {
-                                if (index < 3 || questionIsShow) {
+                                if (index < 2 || questionIsShow) {
                                     return (
-                                        <>
-                                            <Question productId={productId} key={Math.random() * 2574} eachQuestion={eachQuestion}/>
+                                        <Fragment key={Math.random() * 2574}>
+                                            <Question productId={productId} eachQuestion={eachQuestion}/>
                                             <Divider sx={{width : '100%' , my : 3}}/>
-                                        </>
+                                        </Fragment>
                                     )
                                 }
                             })
                     }
-                    {
-                        questions.length >= 2 ? (
-                            <Button onClick={showQuestion}
-                                    variant="outlined"
-                                    color={'primary'}
-                                    sx={{
-                                        display: "flex",
-                                        mt: 2,
-                                        cursor: 'pointer',
-                                        alignItems: "center",
-                                        width: "100%"
-                                    }}>
-                                {
-                                    questionIsShow ? <CloseIcon color={'primary'}/> :
-                                        <KeyboardArrowDownIcon color={'primary'}/>
-                                }
+                    <Grid container width={'100%'}>
+                        <Grid item md={3} lg={2} xs={12} >
+                        {
+                            questions.length >= 2 ? (
+                                <Button onClick={showQuestion}
+                                        variant="outlined"
+                                        color={'primary'}
+                                        sx={{
+                                            display: "flex",
+                                            mt: 1,
+                                            cursor: 'pointer',
+                                            alignItems: "center", 
+                                            width:'100%'
+                                        }}>
+                                    {
+                                        questionIsShow ? <CloseIcon sx={{px:.5}} color={'primary'}/> :
+                                            <KeyboardArrowDownIcon color={'primary'}/>
+                                    }
+                                    {
+                                        questionIsShow ? 'نشان دادن کمتر  ' : "مشاهده کامل پرسش ها"
+                                    }
 
-                                {
-                                    questionIsShow ? 'نشان دادن کمتر' : "مشاهده کامل پرسش ها"
-                                }
-
-                            </Button>
-                        ) : null
-                    }
+                                </Button>
+                            ) : null
+                        }
+                        </Grid>
+                    </Grid>
                     <AddQuestion productId={productId}/>
                 </TabPanel>
             </Box>

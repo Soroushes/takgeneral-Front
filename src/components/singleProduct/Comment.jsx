@@ -4,25 +4,56 @@ import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import PersonIcon from '@mui/icons-material/Person';
 import PN from "persian-number";
-import { Controller , useForm } from "react-hook-form";
 import { useAxios } from "src/hooks/useAxios";
+import { useState } from "react";
+import moment from 'jalali-moment'    
 const Comment = ({comment}) => {
-    const {control , setValue ,handleSubmit , getValues, reset} = useForm()
+    const date = Intl.DateTimeFormat('fa', {
+        useGrouping: false,
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      }).format(comment.created_at.timestamp * 1000);
+      
+    const [numLike , setNumLike] = useState(comment.likes_count);
+    const [numDislike , setNumDislike] = useState(comment.diss_likes_count);
+    const [liked , setLiked] = useState(false);
+    const [disliked , setDisliked] = useState(false);
     const {callApi , loading}= useAxios();
     const handlelikeDislike = (like)=>{
-        callApi({
-            url:'like-disslike-comment', 
-            method:'post', 
-            token:true,
-            data:{
-                comment:comment.content, 
-                like_vote : like,
-                dislike_vote: !like
-            },successFunc:(res)=>{
-                console.log(res)
-            }
-        })
-    
+            callApi({
+                url:'like-disslike-comment', 
+                method:'post', 
+                token:true,
+                data:{
+                    comment: comment.id, 
+                    like_vote : like,
+                    dislike_vote: !like
+                },successFunc:(res)=>{
+                    console.log(res);
+                    if(like && !liked){
+                        setLiked(prev=>!prev);
+                        if(!liked && !disliked){
+                            setNumLike(++comment.likes_count);
+                        }else if(disliked){
+                            setDisliked(prev=>!prev);
+                            setNumDislike(--comment.diss_likes_count);
+                            setNumLike(++comment.likes_count);
+                        }
+                    }else if(!like && !disliked){
+                        setDisliked(prev=>!prev);
+                        if(!liked && !disliked){
+                            setNumDislike(++comment.diss_likes_count);
+                        }else if(liked){
+                            setLiked(prev=>!prev);
+                            setNumLike(--comment.likes_count);
+                            setNumDislike(++comment.diss_likes_count);
+                        }
+                    }
+                }
+            })
+        
+        
     }
     return (
         <Grid container sx={{display: 'flex', justifyContent: 'space-between', rowGap: 3, width: '100%', px: {md: 3}}}>
@@ -35,7 +66,7 @@ const Comment = ({comment}) => {
                 {
                     comment.suggest_me ?
                         <Typography variant="subtitle1" sx={{color: 'primary.main', mb: 1}}>پیشنهاد می کنم</Typography> :
-                        <Typography variant="subtitle1" color={'secondary.main'} sx={{mb: 1}}>پیشنهاد نمیکنم</Typography>
+                        <Typography variant="subtitle1" color={'secondary.dark'} sx={{mb: 1 }}>پیشنهاد نمیکنم</Typography>
                 }
                 <Typography lineHeight={2.5} variant="subtitle1" color={'text.muted'}>{comment.content}</Typography>
             </Grid>
@@ -46,36 +77,21 @@ const Comment = ({comment}) => {
                 gap: 2,
                 justifyContent: "center"
             }}>
-                <Box color={'gray.main'} sx={{display: 'flex', alignItems: 'center', gap: 1}}>
-                    <Controller 
-                    control={control}
-                    name="like" 
-                    defaultValue={comment.likes_count}
-                    render={({field})=>
-                        <Box onClick={handlelikeDislike.bind(this , true)}>
-                            <Typography variant="subtitle1"color={'gray.main'}>
-                                {PN.convertEnToPe(field.value)}
-                            </Typography>
-                            <ThumbUpOffAltIcon sx={{cursor: 'pointer'}} fontSize={'10px'}/>
-                        </Box>
-                    }
-                    />
-                    <Controller 
-                    control={control}
-                    name="dislike" 
-                    defaultValue={comment.diss_likes_count}
-                    render={({field})=>
-                        <Box onClick={handlelikeDislike.bind(this , false)}>
-                            <Typography  variant="subtitle1"color={'gray.main'}>
-                                {PN.convertEnToPe(field.value)}
-                            </Typography>
-                            <ThumbDownOffAltIcon sx={{cursor: 'pointer'}} fontSize={'10px'}/>
-                        </Box>
-                    }
-                    />
-                    
+                <Box color={'gray.main'} display={'flex'} alignItems={'center'} gap={1}>
+                    <Box onClick={handlelikeDislike.bind(this , true)} display={'flex'} gap={1} alignItems={'center'}>
+                        <Typography variant="subtitle1"color={liked ? 'primary' : 'gray'}>
+                            {PN.convertEnToPe(numLike)}
+                        </Typography>
+                        <ThumbUpOffAltIcon color={liked ? 'primary' : 'gray'} sx={{cursor: 'pointer'}} fontSize={'10px'}/>
+                    </Box>
+                    <Box display={'flex'} onClick={handlelikeDislike.bind(this , false)} gap={1} alignItems={'center'}>
+                        <Typography  variant="subtitle1"color={disliked ? 'primary' : 'gray'}>
+                            {PN.convertEnToPe(numDislike)}
+                        </Typography>
+                        <ThumbDownOffAltIcon color={disliked ? 'primary' : 'gray'} sx={{cursor: 'pointer'}} fontSize={'10px'}/>
+                    </Box>
                 </Box>
-                <Typography variant={'subtitle2'} color={'text.muted'}>20 آذر 1400</Typography>
+                <Typography variant={'subtitle2'} color={'text.muted'}>{date}</Typography>
             </Grid>
         </Grid>
     )
