@@ -49,7 +49,7 @@ const CartItems = ({product}) => {
                     justifyContent: "space-between",
                 }}
             >
-                <CartEditionButton boxSx={{width : '150px'}} id={product.id}/>
+                <CartEditionButton boxSx={{width : '150px'}} id={product.product_id}/>
                 <PriceDiscount price={product.sum_price} finalPrice={product.sum_final_price} discountPercent={product.discount} fontSize={'body2'} isDiscountNear={true}/>
             </Grid>
         </Grid>

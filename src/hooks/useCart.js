@@ -1,18 +1,18 @@
 import {useEffect, useState} from "react";
-import {useAxios} from "./useAxios";
-import {useDispatch} from "react-redux";
-import {SET_CART_DATA} from "../redux/slices/cart";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchCart} from "../redux/slices/cart";
 
 export const useCart = (id) => {
     const [countItem, setCountItem] = useState(0);
-    const {callApi, loading} = useAxios();
     const dispatch = useDispatch();
+    const allProducts = useSelector(state => state.cart.products)
     useEffect(() => {
         findCountOfItem();
-    },[])
+    }, [allProducts])
     const setCart = (add) => {
         let isNew = true;
         const cartUpdate = getLocalStorageCartData();
+        console.log(cartUpdate);
         let newCart = cartUpdate?.map((cartItem) => {
             if (cartItem.id === id) {
                 isNew = false;
@@ -22,36 +22,24 @@ export const useCart = (id) => {
         if (isNew && add) {
             newCart.push({count: 1, id});
         }
-        newCart = newCart.filter((cartItem) => cartItem?.count > 0);
-        sendCartRequest(newCart);
+        // newCart = newCart.filter((cartItem) => cartItem?.count > 0);
+        console.log(newCart)
+        dispatch(fetchCart(newCart))
     };
-    const deleteProduct = ()=>{
+    const deleteProduct = () => {
         const cartUpdate = getLocalStorageCartData();
-        let newCart = cartUpdate?.map((cartItem)=>{
-            if(cartItem.id === id){
-                return{...cartItem , count : 0}
-            }else return cartItem
+        let newCart = cartUpdate?.map((cartItem) => {
+            if (cartItem.id === id) {
+                return {...cartItem, count: 0}
+            } else return cartItem
         })
-        newCart = newCart.filter((cartItem) => cartItem?.count > 0);
-        sendCartRequest(newCart);
+        // newCart = newCart.filter((cartItem) => cartItem?.count > 0);
+        dispatch(newCart);
     }
-    const sendCartRequest = (cartData) => {
-        callApi({
-            url: "cart-detail",
-            method: "POST",
-            data: {cartsData: cartData},
-            successFunc: (result) => {
-                dispatch(SET_CART_DATA(result));
-                localStorage.setItem('cart', JSON.stringify(cartData));
-                findCountOfItem();
-            }
-        })
-    }
-    const getLocalStorageCartData = () => JSON.parse(localStorage.getItem('cart')) || [];
+    const getLocalStorageCartData = () =>localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
     const findCountOfItem = () => {
-        const cartUpdate = getLocalStorageCartData();
-        const selectedCartItem = cartUpdate?.find((cartItem) => (cartItem.id === id));
-        setCountItem(+selectedCartItem?.count || 0);
+        const selectedCartItem = allProducts?.find((cartItem) => (cartItem.product_id === id));
+        setCountItem(+selectedCartItem?.quantity || 0);
     };
-    return {setCart, countItem, loading , deleteProduct};
+    return {setCart, countItem, deleteProduct};
 };

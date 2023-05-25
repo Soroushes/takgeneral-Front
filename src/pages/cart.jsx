@@ -7,7 +7,7 @@ import EmptyCart from '../components/icons/emptyCart.svg'
 const cart = () => {
     const selectedProducts = useSelector(state => state.cart)
     return (
-        selectedProducts.products?.length === 0 ?
+        !selectedProducts.products?.length ?
             <Box sx={{backgroundColor: "#fafafa", pt: 2, minHeight: "80vh", display: 'flex', alignItems: 'center'}}>
                 <Box sx={{width: '100%' , display:'flex' , justifyContent:'center'}}>
                     <EmptyCart sx={{color: 'text.main'}}/>

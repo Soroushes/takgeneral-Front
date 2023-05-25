@@ -45,8 +45,7 @@ const singleProduct = (props) => {
                         </Grid>
                     </Grid>
                     <Grid ref={attributesTableRef} sx={{mt: 4}} item md={12} xs={12}>
-                        <SingleProductDetails setShowAllDetails={setIsShowAllDetails}
-                                              IsShowAllDetails={isShowAllDetails} details={props.product.attributes}/>
+                        <SingleProductDetails setShowAllDetails={setIsShowAllDetails} IsShowAllDetails={isShowAllDetails} details={props.product.attributes}/>
                     </Grid>
                     <Grid ref={opinionTableRef} sx={{mt: 4}} item md={12} xs={12}>
                         <Divider sx={{my: 3, display: {md: 'none'}}}/>
