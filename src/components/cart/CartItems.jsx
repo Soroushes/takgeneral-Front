@@ -3,6 +3,7 @@ import CartEditionButton from "../share/CartEditionButton";
 import Image from "next/image";
 import PriceDiscount from "../share/PriceDiscount";
 import {useProductServiceItems} from "../../hooks/useProductServiceItems";
+import Link from "next/link";
 const CartItems = ({product}) => {
     const productServiceItems = useProductServiceItems({
         freeSent: product.free_send,
@@ -18,7 +19,9 @@ const CartItems = ({product}) => {
         >
             <Grid item lg={6} xs={12}>
                 <Box sx={{display: "flex", gap: 6, alignItems: 'center'}}>
-                    <Image width={100} height={100} alt={'test'} src={'https://takback.soroushes.tk/media/Group_2073.png'}/>
+                    <Link href={'/single-product/'+ product.product_id}>
+                        <Image width={100} height={100} alt={'test'} src={'https://takback.soroushes.tk/media/Group_2073.png'}/>
+                    </Link>
                     <Box>
                         <Typography variant="h5" sx={{ mb: 1}}>
                             {product.name}

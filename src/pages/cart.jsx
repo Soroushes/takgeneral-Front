@@ -46,7 +46,7 @@ const cart = () => {
                             {
                                 selectedProducts?.products?.map((product) => {
                                     return (
-                                        <CartItems key={product.id} product={product}/>
+                                        <CartItems key={product.product_id} product={product}/>
                                     )
                                 })
                             }

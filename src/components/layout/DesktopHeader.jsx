@@ -71,7 +71,7 @@ const DesktopHeader = ({status, desktopHeaderRef}) => {
                                 <Button onClick={() => router.push(urls.cart)} size={'small'} sx={{p: 0}}
                                         variant={'contained'} color={'btnGray'}>
                                     <Badge anchorOrigin={{vertical: 'top', horizontal: 'left',}}
-                                           badgeContent={total_count} color="secondary">
+                                           badgeContent={total_count} color="primary">
                                         <ShopIcon/>
                                     </Badge>
                                 </Button>
