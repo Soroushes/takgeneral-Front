@@ -1,7 +1,6 @@
 import {Typography, Grid, TextField, Button} from "@mui/material";
 import {Controller, useForm} from "react-hook-form";
 import {Box} from "@mui/system";
-import axios from "axios";
 import { useAxios } from "src/hooks/useAxios";
 const AddQuestion = ({productId}) => {
     console.log(productId)

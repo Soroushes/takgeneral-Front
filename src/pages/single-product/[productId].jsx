@@ -11,7 +11,7 @@ import {useRouter} from "next/router";
 import {useRef, useState} from 'react';
 
 const singleProduct = (props) => {
-    console.log(props);
+    console.log(props)
     const router = useRouter();
     const attributesTableRef = useRef(null);
     const opinionTableRef = useRef(null)
@@ -49,7 +49,7 @@ const singleProduct = (props) => {
                     </Grid>
                     <Grid ref={opinionTableRef} sx={{mt: 4}} item md={12} xs={12}>
                         <Divider sx={{my: 3, display: {md: 'none'}}}/>
-                        <CommentQuestion rate={props.avg_rate} comments={props.comments} productId={props.product.id}/>
+                        <CommentQuestion rate={props.avg_rate} comments={props.comments} productId={props.product.id} questions={props.questions}/>
                     </Grid>
                 </Container>
             </Box>
