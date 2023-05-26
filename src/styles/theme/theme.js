@@ -1,6 +1,6 @@
 import {createTheme} from "@mui/material";
-const primary = "#3b319b" ;
-const primaryDark = '#29226c' ;
+const primary = "#1b09f9";
+const primaryDark = '#1206c0' ;
 const primaryLight = '#4e41d5' ;
 const secondary = '#ffe27b' ;
 const textBlack = '#303030'

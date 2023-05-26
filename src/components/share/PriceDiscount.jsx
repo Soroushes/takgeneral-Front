@@ -12,9 +12,9 @@ const PriceDiscount = ({discountPercent, fontSize, price, finalPrice}) => {
                         flexDirection: 'column',
                         alignItems: `${discountPercent ? 'start' : 'center'} `
                     }}>
-                        <Typography component={'span'} variant={fontSize} sx={{fontWeight: "bold"}} color={'primary.light'}>
+                        <Typography component={'span'} variant={fontSize} sx={{fontWeight: "bold"}} color={'primary'}>
                             {PN.convertEnToPe(PN.sliceNumber(Math.trunc(finalPrice)))}
-                            <Typography component={'span'} color={'primary.light'} variant={fontSize}> تومان </Typography>
+                            <Typography component={'span'} color={'primary'} variant={fontSize}> تومان </Typography>
                         </Typography>
                         <Typography component={'span'} sx={{display: 'flex', alignItems: "center"}}
                                     variant={'subtitle1'}>
