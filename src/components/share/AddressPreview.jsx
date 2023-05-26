@@ -3,7 +3,6 @@ import {Box} from "@mui/system";
 import {Divider, Typography} from "@mui/material";
 
 const AddressPreview = ({address}) => {
-    console.log(address)
     return (
         <>
             <Box sx={{aspectRatio: '1/1'}}>

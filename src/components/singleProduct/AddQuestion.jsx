@@ -3,7 +3,6 @@ import {Controller, useForm} from "react-hook-form";
 import {Box} from "@mui/system";
 import { useAxios } from "src/hooks/useAxios";
 const AddQuestion = ({productId}) => {
-    console.log(productId)
     const {control, getValues, handleSubmit , reset} = useForm();
     const {callApi , loading} =  useAxios();
     const submitForm = async ()=>{
@@ -16,23 +15,8 @@ const AddQuestion = ({productId}) => {
                 product: productId
             },successFunc:(res)=>{
                 reset();
-                console.log(res)
             }
         })
-        // try{
-        //     const data = await axios({
-        //         url:'https://takback.soroushes.tk/create-question/' , 
-        //         method:'POST', 
-        //         token:true ,
-        //         data:{ 
-        //             content : getValues('question') , 
-        //             product: productId
-        //         }
-        //     })
-        //     console.log(data)
-        // }catch(err){
-        //     console.log(err)
-        // }
     }
     return (
         <Grid onSubmit={handleSubmit(submitForm)} component={'form'} container justifyContent={'space-between'} sx={{px:2 , mt:2 }} rowGap={2}>
@@ -64,7 +48,7 @@ const AddQuestion = ({productId}) => {
                     />
                 </Box>
                 <Box display={'flex'} sx={{mt: 3}}>
-                    <Button type='submit' variant="contained" sx={{px: 4}} color="secondary">ارسال پرسش</Button>
+                    <Button type='submit' variant="contained" sx={{px: 4}}>ارسال پرسش</Button>
                 </Box>
             </Grid>
         </Grid>

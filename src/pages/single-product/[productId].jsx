@@ -11,7 +11,6 @@ import {useRouter} from "next/router";
 import {useRef, useState} from 'react';
 
 const singleProduct = (props) => {
-    console.log(props)
     const router = useRouter();
     const attributesTableRef = useRef(null);
     const opinionTableRef = useRef(null)
@@ -67,7 +66,6 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({params}) => {
-    console.log(params.productId)
     let productData = null;
     try {
         const {data} = await axios({

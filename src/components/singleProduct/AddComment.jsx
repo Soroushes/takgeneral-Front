@@ -16,7 +16,6 @@ const AddComment = ({rate}) => {
     const {loading, callApi} = useAxios();
     const router = useRouter();
     const onFormSubmit = (data) => {
-        console.log(data)
         callApi({
             method: 'post',
             url: 'create-comment',
@@ -101,7 +100,7 @@ const AddComment = ({rate}) => {
                             />
                             <Typography color={'text.muted'}>پیشنهاد میکنم</Typography>
                         </Box>
-                        <LoadingButton loading={loading} type={'submit'} variant="contained" color={'secondary'}>ارسال نظر</LoadingButton>
+                        <LoadingButton loading={loading} type={'submit'} variant="contained">ارسال نظر</LoadingButton>
                     </Box>
                 </Grid>
             </Grid>

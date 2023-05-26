@@ -6,7 +6,6 @@ import PersonIcon from '@mui/icons-material/Person';
 import PN from "persian-number";
 import { useAxios } from "src/hooks/useAxios";
 import { useState } from "react";
-import moment from 'jalali-moment'    
 const Comment = ({comment}) => {
     const date = Intl.DateTimeFormat('fa', {
         useGrouping: false,
@@ -30,7 +29,6 @@ const Comment = ({comment}) => {
                     like_vote : like,
                     dislike_vote: !like
                 },successFunc:(res)=>{
-                    console.log(res);
                     if(like && !liked){
                         setLiked(prev=>!prev);
                         if(!liked && !disliked){
@@ -58,34 +56,34 @@ const Comment = ({comment}) => {
     return (
         <Grid container sx={{display: 'flex', justifyContent: 'space-between', rowGap: 3, width: '100%', px: {md: 3}}}>
             <Grid item md={10} xs={12}>
-                <Typography variant="subtitle1" color={'text.muted'}
-                            sx={{display: "flex", alignItems: "center", gap: .5, mb: 1}}>
+                <Typography sx={{mx : 1}} variant={'h6'}>{comment?.title}</Typography>
+                <Box sx={{display: "flex", alignItems: "center", gap: .5, my: 1}}>
                     <PersonIcon fontSize={'small'} color={'gray'}/>
-                    {comment?.user_alias_name}
-                </Typography>
+                    <Typography color={'text.muted'}  variant="subtitle1" >{comment?.user_alias_name}</Typography>
+                </Box>
                 {
                     comment.suggest_me ?
-                        <Typography variant="subtitle1" sx={{color: 'primary.main', mb: 1}}>پیشنهاد می کنم</Typography> :
-                        <Typography variant="subtitle1" color={'secondary.dark'} sx={{mb: 1 }}>پیشنهاد نمیکنم</Typography>
+                        <Typography variant="subtitle2" sx={{color: 'primary.main', mb: 1}}>پیشنهاد می کنم</Typography> :
+                        <Typography variant="subtitle2" color={'error'} sx={{mb: 1 }}>پیشنهاد نمیکنم</Typography>
                 }
                 <Typography lineHeight={2.5} variant="subtitle1" color={'text.muted'}>{comment.content}</Typography>
             </Grid>
-            <Grid item md={2} xs={2} sx={{
+            <Grid item md={2} xs={12} sx={{
                 display: 'flex',
-                flexDirection: 'column',
                 alignItems: {xs: 'start', md: 'end'},
+                flexDirection : {md : "column"} ,
                 gap: 2,
-                justifyContent: "center"
+                justifyContent: {xs : "space-between",  md : 'center'}
             }}>
                 <Box color={'gray.main'} display={'flex'} alignItems={'center'} gap={1}>
                     <Box onClick={handlelikeDislike.bind(this , true)} display={'flex'} gap={1} alignItems={'center'}>
-                        <Typography variant="subtitle1"color={liked ? 'primary' : 'gray'}>
+                        <Typography variant="subtitle1" color={liked ? 'primary' : 'gray'}>
                             {PN.convertEnToPe(numLike)}
                         </Typography>
                         <ThumbUpOffAltIcon color={liked ? 'primary' : 'gray'} sx={{cursor: 'pointer'}} fontSize={'10px'}/>
                     </Box>
                     <Box display={'flex'} onClick={handlelikeDislike.bind(this , false)} gap={1} alignItems={'center'}>
-                        <Typography  variant="subtitle1"color={disliked ? 'primary' : 'gray'}>
+                        <Typography  variant="subtitle1" color={disliked ? 'primary' : 'gray'}>
                             {PN.convertEnToPe(numDislike)}
                         </Typography>
                         <ThumbDownOffAltIcon color={disliked ? 'primary' : 'gray'} sx={{cursor: 'pointer'}} fontSize={'10px'}/>

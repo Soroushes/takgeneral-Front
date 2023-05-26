@@ -7,8 +7,9 @@ import {Button, Divider, Grid, TextField, Typography} from "@mui/material";
 import {Box} from "@mui/system";
 import MapControl from "./MapControl";
 import {addressFormData} from "../../data/profile/addressFormData";
+import LoadingButton from "@mui/lab/LoadingButton";
 
-const AddAddressModalWrapper = ({open , setOpen}) => {
+const AddAddressModalWrapper = ({open , setOpen , getAddress}) => {
     const position = [35.701817, 51.428526];
     const [openSearchModal, setOpenSearchModal] = useState(false);
     const [openAddressModal, setOpenAddressModal] = useState(false);
@@ -21,6 +22,7 @@ const AddAddressModalWrapper = ({open , setOpen}) => {
             data: value,
             token: true,
             successFunc: () => {
+                getAddress?.()
                 setOpenAddressModal(false);
                 setOpen(false);
                 setOpenSearchModal(false);
@@ -42,11 +44,12 @@ const AddAddressModalWrapper = ({open , setOpen}) => {
                     zoom={18}
                 >
                     <MapControl/>
+                    <MapSearchModal open={openSearchModal} setOpen={setOpenSearchModal}/>
                     <MapSearchPart
                         setOpenAddressModal={setOpenAddressModal}
                         setOpenSearchModal={setOpenSearchModal}
-                        setValue={setValue}/>
-                    <MapSearchModal open={openSearchModal} setOpen={setOpenSearchModal}/>
+                        setValue={setValue}
+                    />
                 </MapContainer>
             </MainModal>
             <MainModal title={'ثبت مشخصات آدرس'} setOpen={setOpenAddressModal} open={openAddressModal}
@@ -78,10 +81,10 @@ const AddAddressModalWrapper = ({open , setOpen}) => {
                                 />
                             ))
                         }
-                        <Grid xs={12}>
-                            <Button type={'submit'} fullWidth size={'large'} variant={'contained'}>
+                        <Grid item xs={12}>
+                            <LoadingButton loading={loading} type={'submit'} fullWidth size={'large'} variant={'contained'}>
                                 تایید
-                            </Button>
+                            </LoadingButton>
                         </Grid>
                     </Grid>
                 </Box>
@@ -105,8 +108,8 @@ export const MapSearchModal = ({open, setOpen}) => {
                 method: 'post',
                 url: "location",
                 data: {
-                    lat: 32,
-                    lng: 32,
+                    lat: map.getCenter().lat,
+                    lng: map.getCenter().lng,
                     term: e.target.value
                 },
                 successFunc: (res) => {
@@ -117,8 +120,7 @@ export const MapSearchModal = ({open, setOpen}) => {
     }
     const selectAddress = (location) => {
         setOpen(false);
-        console.log(location)
-        map.flyTo({lat: location.y, lng: location.x}, map.getZoom())
+        map.flyTo({lat: location.y, lng: location.x}, 16)
     }
     return (
         <MainModal title={'جستجو'} open={open} desktopFullScreen={false} setOpen={setOpen} mobileFullHeight={true}>
@@ -152,7 +154,7 @@ export const MapSearchPart = ({setOpenSearchModal, setValue, setOpenAddressModal
     const map = useMap();
     return (
         <Box sx={{backgroundColor: '#fff', zIndex: 999}} position={'absolute'} bottom={0} right={0} left={0}
-             p={4}>
+             p={2}>
             <TextField onClick={() => setOpenSearchModal(true)} placeholder={'جستجو کنید'} inputProps={{readOnly: true}}
                        fullWidth/>
             <Button
@@ -162,7 +164,7 @@ export const MapSearchPart = ({setOpenSearchModal, setValue, setOpenAddressModal
                     setValue('lng', map.getCenter().lng)
                 }}
                 size={'large'}
-                sx={{mt: 3}}
+                sx={{mt: 2}}
                 variant={'contained'}
                 fullWidth
             >

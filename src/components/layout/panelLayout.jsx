@@ -73,7 +73,7 @@ const PanelLayout = ({children}) => {
                                                 borderRadius : 3 ,
                                                 alignItems: "center",
                                                 justifyContent: {xs: "center", md: 'start'} ,
-                                                backgroundColor : active ? "primary.light" : ""
+                                                backgroundColor : active ? "primary.main" : ""
                                             }}>
                                                 {active ? item.activeIcon : item.icon}
                                                 <Typography variant={'subtitle1'} sx={{color : active ? "white" : "text.main" , textAlign : "center" , whiteSpace : "nowrap"}}>{item.title}</Typography>

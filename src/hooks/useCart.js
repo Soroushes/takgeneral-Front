@@ -12,7 +12,6 @@ export const useCart = (id) => {
     const setCart = (add) => {
         let isNew = true;
         const cartUpdate = getLocalStorageCartData();
-        console.log(cartUpdate);
         let newCart = cartUpdate?.map((cartItem) => {
             if (cartItem.id === id) {
                 isNew = false;
@@ -23,7 +22,6 @@ export const useCart = (id) => {
             newCart.push({count: 1, id});
         }
         // newCart = newCart.filter((cartItem) => cartItem?.count > 0);
-        console.log(newCart)
         dispatch(fetchCart(newCart))
     };
     const deleteProduct = () => {

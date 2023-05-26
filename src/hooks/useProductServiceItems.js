@@ -4,6 +4,7 @@ import WareHouseExistSmall from "../components/icons/warehouseExistSmall.svg";
 import FreeSent from "../components/icons/freeSent.svg";
 import FreeSentSmall from "../components/icons/freeSentSmall.svg";
 import NotFakeWarranty from "../components/icons/notFakeWarranty.svg";
+import Warranty from "../components/icons/warranty.svg";
 import NotFakeWarrantySmall from "../components/icons/notFakeWarrantySmall.svg";
 import SevenDaysBack from "../components/icons/sevenDaysBack.svg";
 
@@ -34,7 +35,7 @@ export const useProductServiceItems = ({freeSent , warranty , sevenDaysBack , wa
                 },
                 {
                     title : warranty ,
-                    icon : <SevenDaysBack/> ,
+                    icon : <Warranty/> ,
                     show : warranty
                 },
             ]

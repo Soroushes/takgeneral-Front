@@ -3,7 +3,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import {Box, Divider, Typography, Grid, Button} from "@mui/material";
-import {Fragment, useState} from "react";
+import {useState} from "react";
 import Rating from '@mui/material/Rating';
 import Question from "./Question";
 import Comment from "./Comment";
@@ -13,7 +13,8 @@ import NoQuestion from '../icons/noQuestion.svg';
 import NoComment from '../icons/noComment.svg';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
-const CommentQuestion = ({comments, rate, productId , questions}) => {
+
+const CommentQuestion = ({comments, rate, productId, questions}) => {
     const [value, setValue] = useState("1");
     const [questionIsShow, setQuestionIsShow] = useState(false);
     const [commentIsShow, setCommentIsShow] = useState(false);
@@ -26,7 +27,7 @@ const CommentQuestion = ({comments, rate, productId , questions}) => {
     const showQuestion = () => {
         setQuestionIsShow(prev => !prev)
     };
-    
+
     return (
         <TabContext value={value}>
             <Box
@@ -80,7 +81,7 @@ const CommentQuestion = ({comments, rate, productId , questions}) => {
                         flexDirection: "column",
                         alignItems: "start",
                         gap: 2,
-                        p: 0
+                        p: 0,
                     }}
                 >
                     {
@@ -91,7 +92,7 @@ const CommentQuestion = ({comments, rate, productId , questions}) => {
                                 backgroundColor: 'gray.lighter',
                                 p: 4,
                                 alignItems: 'center',
-                                borderRadius: 2,
+                                borderRadius: {xs : 2 , md : 0},
                                 gap: 5
                             }}>
                                 <Grid item md={5} xs={12}>
@@ -136,90 +137,87 @@ const CommentQuestion = ({comments, rate, productId , questions}) => {
                                     <Typography>نظری برای این محصول ثبت نشده است</Typography>
                                     <Divider sx={{width: '100%', my: 4}}/>
                                 </Box> :
-                                comments.reverse().map((comment, index) => {
-                                    if (index < 2 || commentIsShow) {
-                                        return (
-                                            <Fragment key={Math.random() * 2574}>
-                                                <Comment comment={comment}/>
-                                                <Divider sx={{my: 2}}/>
-                                            </Fragment>
-                                        )
-                                    }
+                                comments.map((comment, index) => {
+                                    const show = index < 2 || commentIsShow
+                                    return (
+                                        <Box sx={{display: show ? 'block' : 'none'}} key={comment.id}>
+                                            <Comment comment={comment}/>
+                                            <Divider sx={{my: 2}}/>
+                                        </Box>
+                                    )
                                 })
                         }
-                        <Grid container width={'100%'}>
-                            <Grid item md={3} lg={2} xs={12} >
-                                {
-                                    comments.length >= 2 ?
-                                        <Button onClick={showComment}
-                                                variant="outlined"
-                                                color={'primary'}
-                                                sx={{
-                                                    display: "flex",
-                                                    my: 1,
-                                                    cursor: 'pointer',
-                                                    alignItems: "center" , 
-                                                    width:'100%'
-                                                }}>
-                                            {
-                                                commentIsShow ? <CloseIcon sx={{px:.5}} color={'primary'}/> :
-                                                    <KeyboardArrowDownIcon color={'primary'}/>
-                                            }
-
-                                            {
-                                                commentIsShow ? 'نشان دادن کمتر' : "مشاهده کامل نظرات ها"
-                                            }
-
-                                        </Button>
-                                        :
-                                        null
-                                }
-                            </Grid>
-                        </Grid>
-                        <AddComment productId={productId} rate={rate}/>
-                    </Box>
-                </TabPanel>
-                <TabPanel value="2" sx={{width: '100%', p: {xs : 0 ,md : 2}, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    {
-                        !questions.length ? <NoQuestion/> :
-                            questions.map((eachQuestion, index) => {
-                                if (index < 2 || questionIsShow) {
-                                    return (
-                                        <Fragment key={Math.random() * 2574}>
-                                            <Question productId={productId} eachQuestion={eachQuestion}/>
-                                            <Divider sx={{width : '100%' , my : 3}}/>
-                                        </Fragment>
-                                    )
-                                }
-                            })
-                    }
-                    <Grid container width={'100%'}>
-                        <Grid item md={3} lg={2} xs={12} >
                         {
-                            questions.length >= 2 ? (
-                                <Button onClick={showQuestion}
-                                        variant="outlined"
-                                        color={'primary'}
-                                        sx={{
-                                            display: "flex",
-                                            mt: 1,
-                                            cursor: 'pointer',
-                                            alignItems: "center", 
-                                            width:'100%'
-                                        }}>
+                            comments.length >= 2 ?
+                                <Button
+                                    onClick={showComment}
+                                    variant="outlined"
+                                    color={'primary'}
+                                    sx={{width: {xs: '100%', md: '20%'}, my: 2}}
+                                >
                                     {
-                                        questionIsShow ? <CloseIcon sx={{px:.5}} color={'primary'}/> :
+                                        commentIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :
                                             <KeyboardArrowDownIcon color={'primary'}/>
                                     }
                                     {
-                                        questionIsShow ? 'نشان دادن کمتر  ' : "مشاهده کامل پرسش ها"
+                                        commentIsShow ? 'نشان دادن کمتر' : "مشاهده کامل نظرات ها"
                                     }
 
                                 </Button>
-                            ) : null
+                                :
+                                null
                         }
-                        </Grid>
-                    </Grid>
+                        <AddComment productId={productId} rate={rate}/>
+                    </Box>
+                </TabPanel>
+                <TabPanel value="2" sx={{
+                    width: '100%',
+                    p: {xs: 0, md: 2},
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}>
+                    {
+                        !questions.length ? (
+                            <Box sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                width: '100%',
+                                flexDirection: 'column'
+                            }}>
+                                <NoQuestion/>
+                                <Typography>پرسشی برای این محصول ثبت نشده است</Typography>
+                                <Divider sx={{width: '100%', my: 4}}/>
+                            </Box>
+                            ) :
+                            questions.map((eachQuestion, index) => {
+                                const show = index < 2 || questionIsShow;
+                                return (
+                                    <Box sx={{display: show ? 'block' : 'none', width: '100%'}} key={eachQuestion.id}>
+                                        <Question productId={productId} eachQuestion={eachQuestion}/>
+                                        <Divider sx={{width: '100%', my: 3}}/>
+                                    </Box>
+                                )
+                            })
+                    }
+                    {
+                        questions.length >= 2 ? (
+                            <Button
+                                onClick={showQuestion}
+                                variant="outlined"
+                                color={'primary'}
+                                sx={{width: {xs: '100%', md: "20%"}, my: 2}}
+                            >
+                                {
+                                    questionIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :
+                                        <KeyboardArrowDownIcon color={'primary'}/>
+                                }
+                                {
+                                    questionIsShow ? 'نشان دادن کمتر  ' : "مشاهده کامل پرسش ها"
+                                }
+
+                            </Button>
+                        ) : null
+                    }
                     <AddQuestion productId={productId}/>
                 </TabPanel>
             </Box>

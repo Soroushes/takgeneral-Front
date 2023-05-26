@@ -25,7 +25,7 @@ const Navbar = () => {
             },
             {
                 name: "سبد خرید",
-                icon: <Badge anchorOrigin={{vertical: 'top', horizontal: 'left',}} badgeContent={total_count} color="secondary"><BasketIcon/></Badge>,
+                icon: <Badge anchorOrigin={{vertical: 'top', horizontal: 'left',}} badgeContent={total_count}><BasketIcon/></Badge>,
                 link: urls.cart
             },
             {
