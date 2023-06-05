@@ -2,7 +2,7 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import {Box, Divider, Typography, Grid, Button} from "@mui/material";
+import {Box, Button, Divider, Grid, Typography} from "@mui/material";
 import {useState} from "react";
 import Rating from '@mui/material/Rating';
 import Question from "./Question";
@@ -86,89 +86,92 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                 >
                     {
                         comments.length ?
-                            <Grid container sx={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                backgroundColor: 'gray.lighter',
-                                p: 4,
-                                alignItems: 'center',
-                                borderRadius: {xs : 2 , md : 0},
-                                gap: 5
-                            }}>
-                                <Grid item md={5} xs={12}>
-                                    <Box sx={{
-                                        px: 1,
-                                        display: "flex",
-                                        gap: 3,
-                                        alignItems: "center",
-                                        justifyContent: {xs: 'center', md: 'start'}
-                                    }}>
-                                        <Typography variant="body2">میانگین امتیازات کاربران</Typography>
-                                        <Rating name="read-only" value={2.5} readOnly/>
-                                    </Box>
-                                </Grid>
-                                <Grid item md={4} xs={12} sx={{display: 'flex', gap: 1, flexDirection: 'column'}}>
-                                    <Box sx={{display: 'flex', justifyContent: 'space-between', px: 1}}>
-                                        <Typography variant="subtitle1" sx={{color: 'text.muted'}}>کیفیت و
-                                            کارایی</Typography>
-                                        <Rating size={'small'} name="read-only" value={rate.avg_keyfiyat_rate}
-                                                readOnly/>
-                                    </Box>
-                                    <Divider sx={{my: .5}}/>
-                                    <Box sx={{display: 'flex', justifyContent: 'space-between', px: 1}}>
-                                        <Typography variant="subtitle1" sx={{color: 'text.muted'}}>ارزش
-                                            خرید</Typography>
-                                        <Rating size={'small'} name="read-only" value={rate.avg_arzesh_rate} readOnly/>
-                                    </Box>
-                                </Grid>
-                            </Grid>
-                            : null
-                    }
-                    <Box sx={{p: 2, width: '100%', display: 'flex', flexDirection: 'column'}}>
-                        {
-                            !comments.length ?
-                                <Box sx={{
+                            <>
+                                <Grid container sx={{
                                     display: 'flex',
+                                    justifyContent: 'center',
+                                    backgroundColor: 'gray.lighter',
+                                    p: 4,
                                     alignItems: 'center',
-                                    width: '100%',
-                                    flexDirection: 'column'
+                                    borderRadius: {xs: 2, md: 0},
+                                    gap: 5
                                 }}>
-                                    <NoComment/>
-                                    <Typography>نظری برای این محصول ثبت نشده است</Typography>
-                                    <Divider sx={{width: '100%', my: 4}}/>
-                                </Box> :
-                                comments.map((comment, index) => {
-                                    const show = index < 2 || commentIsShow
-                                    return (
-                                        <Box sx={{display: show ? 'block' : 'none'}} key={comment.id}>
-                                            <Comment comment={comment}/>
-                                            <Divider sx={{my: 2}}/>
+                                    <Grid item md={5} xs={12}>
+                                        <Box sx={{
+                                            px: 1,
+                                            display: "flex",
+                                            gap: 3,
+                                            alignItems: "center",
+                                            justifyContent: {xs: 'center', md: 'start'}
+                                        }}>
+                                            <Typography variant="body2">میانگین امتیازات کاربران</Typography>
+                                            <Rating name="read-only" value={2.5} readOnly/>
                                         </Box>
-                                    )
-                                })
-                        }
-                        {
-                            comments.length >= 2 ?
-                                <Button
-                                    onClick={showComment}
-                                    variant="outlined"
-                                    color={'primary'}
-                                    sx={{width: {xs: '100%', md: '20%'}, my: 2}}
-                                >
+                                    </Grid>
+                                    <Grid item md={4} xs={12} sx={{display: 'flex', gap: 1, flexDirection: 'column'}}>
+                                        <Box sx={{display: 'flex', justifyContent: 'space-between', px: 1}}>
+                                            <Typography variant="subtitle1" sx={{color: 'text.muted'}}>کیفیت و
+                                                کارایی</Typography>
+                                            <Rating size={'small'} name="read-only" value={rate.avg_keyfiyat_rate}
+                                                    readOnly/>
+                                        </Box>
+                                        <Divider sx={{my: .5}}/>
+                                        <Box sx={{display: 'flex', justifyContent: 'space-between', px: 1}}>
+                                            <Typography variant="subtitle1" sx={{color: 'text.muted'}}>ارزش
+                                                خرید</Typography>
+                                            <Rating size={'small'} name="read-only" value={rate.avg_arzesh_rate}
+                                                    readOnly/>
+                                        </Box>
+                                    </Grid>
+                                </Grid>
+                                <Box sx={{p: 2, width: '100%', display: 'flex', flexDirection: 'column'}}>
                                     {
-                                        commentIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :
-                                            <KeyboardArrowDownIcon color={'primary'}/>
+                                        comments.map((comment, index) => {
+                                            const show = index < 2 || commentIsShow
+                                            return (
+                                                <Box sx={{display: show ? 'block' : 'none'}} key={comment.id}>
+                                                    <Comment comment={comment}/>
+                                                    <Divider sx={{my: 2}}/>
+                                                </Box>
+                                            )
+                                        })
                                     }
                                     {
-                                        commentIsShow ? 'نشان دادن کمتر' : "مشاهده کامل نظرات ها"
-                                    }
+                                        comments.length >= 2 ?
+                                            <Button
+                                                onClick={showComment}
+                                                variant="outlined"
+                                                color={'primary'}
+                                                sx={{width: {xs: '100%', md: '20%'}, my: 2}}
+                                            >
+                                                {
+                                                    commentIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :
+                                                        <KeyboardArrowDownIcon color={'primary'}/>
+                                                }
+                                                {
+                                                    commentIsShow ? 'نشان دادن کمتر' : "مشاهده کامل نظرات ها"
+                                                }
 
-                                </Button>
-                                :
-                                null
-                        }
-                        <AddComment productId={productId} rate={rate}/>
-                    </Box>
+                                            </Button>
+                                            :
+                                            null
+                                    }
+                                    <AddComment productId={productId} rate={rate}/>
+                                </Box>
+                            </>
+                            :
+                            <Box sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                width: '100%',
+                                flexDirection: 'column'
+                            }}>
+                                <NoComment/>
+                                <Typography>نظری برای این محصول ثبت نشده است</Typography>
+                                <Divider sx={{width: '100%', my: 4}}/>
+                            </Box>
+                    }
+
                 </TabPanel>
                 <TabPanel value="2" sx={{
                     width: '100%',
@@ -178,16 +181,18 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                 }}>
                     {
                         !questions.length ? (
-                            <Box sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                width: '100%',
-                                flexDirection: 'column'
-                            }}>
-                                <NoQuestion/>
-                                <Typography>پرسشی برای این محصول ثبت نشده است</Typography>
-                                <Divider sx={{width: '100%', my: 4}}/>
-                            </Box>
+                            <>
+                                <Box sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    width: '100%',
+                                    flexDirection: 'column'
+                                }}>
+                                    <NoQuestion/>
+                                    <Typography>پرسشی برای این محصول ثبت نشده است</Typography>
+                                    <Divider sx={{width: '100%', my: 4}}/>
+                                </Box>
+                            </>
                             ) :
                             questions.map((eachQuestion, index) => {
                                 const show = index < 2 || questionIsShow;
@@ -205,7 +210,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                 onClick={showQuestion}
                                 variant="outlined"
                                 color={'primary'}
-                                sx={{width: {xs: '100%', md: "20%"}, my: 2}}
+                                sx={{width: {xs: '100%', md: "25%", lg:'20%'}, my: 2}}
                             >
                                 {
                                     questionIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :

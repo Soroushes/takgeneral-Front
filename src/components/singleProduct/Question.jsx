@@ -2,10 +2,10 @@ import {Box, Button, Divider, Typography, TextField, Grid} from "@mui/material";
 import {useState} from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
-import {Controller, useForm} from "react-hook-form";
+import { useForm} from "react-hook-form";
 import {useAxios} from "src/hooks/useAxios";
 import QuestionIcon from '../icons/questionMark.svg' ;
-
+import AnswerButton from "./AnswerButton";
 const Question = ({eachQuestion}) => {
     const date = Intl.DateTimeFormat('fa', {
         useGrouping: false,
@@ -40,62 +40,12 @@ const Question = ({eachQuestion}) => {
         })
     };
     return (
-        <Box component={'form'} onSubmit={handleSubmit(onFormSubmit)} key={eachQuestion.id} sx={{width: '100%'}}>
-            <Box>
-                <Box sx={{display : 'flex' , flexDirection : {xs : "column" , md : 'row'} , alignItems : 'center' , gap : 2}}>
+        <Box component={'form'} onSubmit={handleSubmit(onFormSubmit)} key={eachQuestion.id} sx={{width: '100%' }}>
+                <Box sx={{display : 'flex' , flexDirection : {xs : "column" , md : 'row'} , alignItems : 'center' , gap : 2 }}>
                     <QuestionIcon/>
                     <Typography>{eachQuestion.content} </Typography>
                 </Box>
-                <Typography component={'p'} textAlign={'end'} variant={'caption'}>{date}</Typography>
-            </Box>
-            {
-                !eachQuestion.replys.length ?
-                    <Box sx={{width: '100%', mt: 1}}>
-                        {
-                            answerInputIsShow ?
-                                <Controller
-                                    name="newAnswer"
-                                    defaultValue={''}
-                                    control={control}
-                                    rules={{required: 'متن پاسخ خود را وارد کنید'}}
-                                    render={({field, fieldState}) =>
-                                        <TextField
-                                            fullWidth={true}
-                                            label={'پاسخ خود را مطرح کنید'}
-                                            value={field.value}
-                                            sx={{mt: 2, borderRadius: 2}}
-                                            helperText={fieldState.error?.message ?? ''}
-                                            error={!!fieldState.error?.message}
-                                            onChange={field.onChange}
-                                            autoFocus/>
-                                    }
-                                /> :
-                                null
-                        }
-                        <Grid container>
-                            {
-                                answerInputIsShow ?
-                                    <Grid item xs={12} md={1} justifyContent={'end'}>
-                                        <Button variant="contained" size="small" type="submit"
-                                                sx={{width: '100%', borderRadius: 1.5, fontSize: '12px', p: 1, mt: 1}}
-                                        >
-                                            ارسال پاسخ
-                                        </Button>
-                                    </Grid>
-                                    :
-                                    <Grid item xs={12} md={1}>
-                                        <Button variant={'contained'} onClick={openAnswerInput}
-                                                sx={{width: '100%', fontSize: '12px', borderRadius: 1.5, p: 1, mt: 1}}
-                                                color="gray">
-                                            ثبت پاسخ
-                                        </Button>
-                                    </Grid>
-                            }
-
-                        </Grid>
-                    </Box>
-                    : null
-            }
+                <Typography sx={{px:2}} component={'p'} textAlign={'end'} variant={'caption'}>{date}</Typography>
             {
                 eachQuestion.replys.length ?
                     <Box sx={{
@@ -154,51 +104,13 @@ const Question = ({eachQuestion}) => {
                                 :
                                 null
                         }
-                        {
-                            answerInputIsShow ?
-                                <Controller
-                                    name="newAnswer"
-                                    defaultValue={''}
-                                    control={control}
-                                    rules={{required: 'متن پاسخ خود را وارد کنید'}}
-                                    render={({field, fieldState}) =>
-                                        <TextField
-                                            sx={{mt: 2, borderRadius: 2}}
-                                            fullWidth={true}
-                                            label={'پاسخ خود را مطرح کنید'}
-                                            value={field.value}
-                                            helperText={fieldState.error?.message ?? ''}
-                                            error={!!fieldState.error?.message}
-                                            onChange={field.onChange}
-                                            autoFocus
-                                        />
-                                    }
-                                /> :
-                                null
-                        }
-                        <Grid container>
-                            {
-                                answerInputIsShow ?
-                                    <Grid item xs={12} md={1} justifyContent={'end'}>
-                                        <Button variant="contained" size="small" type="submit"
-                                                sx={{width: '100%', fontSize: '12px', borderRadius: 1.5, p: 1, mt: 1}}
-                                        >
-                                            ارسال پاسخ
-                                        </Button>
-                                    </Grid>
-                                    :
-                                    <Grid item xs={12} md={1}>
-                                        <Button variant={'contained'} disabled={answerInputIsShow}
-                                                onClick={openAnswerInput}
-                                                sx={{fontSize: '12px', width: '100%', borderRadius: 1.5, mt: 1}}
-                                                color="gray">
-                                            ثبت پاسخ
-                                        </Button>
-                                    </Grid>
-                            }
-                        </Grid>
+                        <AnswerButton setAnswerInputIsShow={setAnswerInputIsShow} answerInputIsShow={answerInputIsShow} control={control}/>
                     </Box>
-                    : null
+                    :
+                    <Box sx={{width: '100%', mt: 1}}>
+                        <AnswerButton setAnswerInputIsShow={setAnswerInputIsShow} answerInputIsShow={answerInputIsShow} control={control}/>
+                    </Box>
+
             }
 
         </Box>
