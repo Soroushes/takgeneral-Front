@@ -142,7 +142,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                                 onClick={showComment}
                                                 variant="outlined"
                                                 color={'primary'}
-                                                sx={{width: {xs: '100%', md: '20%'}, my: 2}}
+                                                sx={{width: {xs: '100%', md: "25%", lg:'20%'}, my: 2}}
                                             >
                                                 {
                                                     commentIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :

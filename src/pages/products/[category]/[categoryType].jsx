@@ -6,6 +6,7 @@ import CheckBoxFilter from "src/components/share/CheckBoxFilter";
 import testBanner from '../../../../public/testBanner.png'
 import CategoryListGenerator from "../../../components/products/CategoryListGenerator";
 import axios from "axios";
+import {BASE_URL} from "../../../hooks/useAxios";
 import {useRouter} from "next/router";
 import MainModal from "../../../components/share/MainModal";
 import {useEffect, useRef, useState} from "react";
@@ -132,7 +133,7 @@ const Category = ({product, brands, current_page, page_count}) => {
                                             price={productItem.price} title={productItem.name}
                                             discountPercent={+productItem.discount}
                                             afterDiscountPrice={productItem.final_price}
-                                            image={'https://takback.soroushes.tk/media/Group_2073.png'}/>
+                                            image={`${BASE_URL}media/Group_2073.png`}/>
                                     </Grid>
                                 ))
                             }
@@ -180,7 +181,7 @@ export const getServerSideProps = async ({params, query}) => {
     let productsCategoryData = {};
     try {
         const {data} = await axios({
-            url: `http://takback.soroushes.tk/${categoryType}/`,
+            url: BASE_URL+categoryType +'/',
             method: 'GET',
             params: {
                 'brand[]': query.brand,

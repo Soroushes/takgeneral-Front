@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { SET_ALERT } from "../redux/slices/snakeBarSlice";
 import {useRouter} from "next/router";
 import {urls} from "../data/urls";
-const BASE_URL = 'http://takback.soroushes.tk/';
+export const BASE_URL = 'http://takback.soroushes.tk/';
 export const useAxios = () => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);

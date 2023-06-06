@@ -9,6 +9,7 @@ import CommentQuestion from "src/components/singleProduct/Comment&Question";
 import SingleProductLoading from "src/components/singleProduct/SingleProductLoading";
 import {useRouter} from "next/router";
 import {useRef, useState} from 'react';
+import {BASE_URL} from "../../hooks/useAxios";
 
 const singleProduct = (props) => {
     const router = useRouter();
@@ -69,7 +70,7 @@ export const getStaticProps = async ({params}) => {
     let productData = null;
     try {
         const {data} = await axios({
-            url: `http://takback.soroushes.tk/product-detail/${params.productId}/`,
+                url: `${BASE_URL}product-detail/${params.productId}/`,
             method: 'GET',
         })
         productData = data;

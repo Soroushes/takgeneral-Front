@@ -4,6 +4,8 @@ import {Container, Typography} from "@mui/material";
 import ProductPreviewCard from "../share/ProductPreviewCard";
 import 'swiper/css' ;
 import {FreeMode} from "swiper";
+import {BASE_URL} from "../../hooks/useAxios";
+
 const FullSizeProductSlider = ({backgroundColor}) => {
     // const [startPosition , setStartPosition] = useState(null) ;
     // const [canScroll , setCanScroll] = useState(true) ;
@@ -93,88 +95,88 @@ const FullSizeProductSlider = ({backgroundColor}) => {
                                 title: 'فلومتر مایع و گاز سایز 25 میلی متر مدل خطی LZB-VA تمام استیل',
                                 afterDiscountPrice: 9000000,
                                 price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png'
+                                image: `${BASE_URL}media/Group_2073.png`
                             },
                             {
                                 title: 'asdd َُیشس یشسسی asdasd',
                                 afterDiscountPrice: 9000000,
                                 price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png',
-                                discountPercent: 10
-                            },
-                            {
-                                title: 'asdd َُیشس یشسسی asdasd',
-                                afterDiscountPrice: 9000000,
-                                price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png',
-                                discountPercent: 10
-                            },
-                            {
-                                title: 'asdd َُیشس یشسسی asdasd',
-                                price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png',
-                                discountPercent: 10
-                            },
-                            {
-                                title: 'asdd َُیشس یشسسی asdasd',
-                                price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png',
+                                image: `${BASE_URL}media/Group_2073.png`,
                                 discountPercent: 10
                             },
                             {
                                 title: 'asdd َُیشس یشسسی asdasd',
                                 afterDiscountPrice: 9000000,
                                 price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png',
+                                image: `${BASE_URL}media/Group_2073.png`,
+                                discountPercent: 10
+                            },
+                            {
+                                title: 'asdd َُیشس یشسسی asdasd',
+                                price: 10000000,
+                                image: `${BASE_URL}media/Group_2073.png`,
+                                discountPercent: 10
+                            },
+                            {
+                                title: 'asdd َُیشس یشسسی asdasd',
+                                price: 10000000,
+                                image: `${BASE_URL}media/Group_2073.png`,
                                 discountPercent: 10
                             },
                             {
                                 title: 'asdd َُیشس یشسسی asdasd',
                                 afterDiscountPrice: 9000000,
                                 price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png',
+                                image: `${BASE_URL}media/Group_2073.png`,
                                 discountPercent: 10
                             },
                             {
                                 title: 'asdd َُیشس یشسسی asdasd',
                                 afterDiscountPrice: 9000000,
                                 price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png',
+                                image: `${BASE_URL}media/Group_2073.png`,
                                 discountPercent: 10
                             },
                             {
                                 title: 'asdd َُیشس یشسسی asdasd',
                                 afterDiscountPrice: 9000000,
                                 price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png',
+                                image: `${BASE_URL}media/Group_2073.png`,
                                 discountPercent: 10
                             },
                             {
                                 title: 'asdd َُیشس یشسسی asdasd',
                                 afterDiscountPrice: 9000000,
                                 price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png',
+                                image: `${BASE_URL}media/Group_2073.png`,
                                 discountPercent: 10
                             },
                             {
                                 title: 'asdd َُیشس یشسسی asdasd',
                                 afterDiscountPrice: 9000000,
                                 price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png',
+                                image: `${BASE_URL}media/Group_2073.png`,
                                 discountPercent: 10
                             },
                             {
                                 title: 'asdd َُیشس یشسسی asdasd',
                                 afterDiscountPrice: 9000000,
                                 price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png',
+                                image: `${BASE_URL}media/Group_2073.png`,
                                 discountPercent: 10
                             },
                             {
                                 title: 'asdd َُیشس یشسسی asdasd',
                                 afterDiscountPrice: 9000000,
                                 price: 10000000,
-                                image: 'https://takback.soroushes.tk/media/Group_2073.png'
+                                image: `${BASE_URL}media/Group_2073.png`,
+                                discountPercent: 10
+                            },
+                            {
+                                title: 'asdd َُیشس یشسسی asdasd',
+                                afterDiscountPrice: 9000000,
+                                price: 10000000,
+                                image: `${BASE_URL}media/Group_2073.png`,
                             }
 
                         ].map((product, index) => {
