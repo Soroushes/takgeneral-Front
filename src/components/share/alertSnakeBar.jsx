@@ -1,16 +1,15 @@
 import {Alert} from "@mui/lab";
 import {Snackbar} from "@mui/material";
-import {useDispatch, useSelector} from "react-redux";
-import {SET_ALERT} from "../../redux/slices/snakeBarSlice";
+import {useSelector} from "react-redux";
 
 const AlertSnakeBar = () => {
     const {title, show, hideDuration, severity} = useSelector(state => state.alert);
-    const dispatch = useDispatch();
+    const {forceHideAlert} = useAlert();
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
             return;
         }
-        dispatch(SET_ALERT({show: false}));
+        forceHideAlert() ;
     };
     return (
         <>
@@ -20,7 +19,7 @@ const AlertSnakeBar = () => {
                     {title}
                 </Alert>
             </Snackbar>
-            <Snackbar anchorOrigin={{vertical: "bottom", horizontal: "center"}} sx={{display: {xs: 'flex', md: "none"}}}
+            <Snackbar anchorOrigin={{vertical: "top", horizontal: "center"}} sx={{display: {xs: 'flex', md: "none"}}}
                       open={show} autoHideDuration={hideDuration} onClose={handleClose}>
                 <Alert onClose={handleClose} severity={severity}>
                     {title}

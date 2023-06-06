@@ -9,14 +9,15 @@ import {useAxios} from "../hooks/useAxios";
 import {useForm, Controller} from "react-hook-form";
 import {useRouter} from "next/router";
 import Link from "next/link";
-import {SET_ALERT} from "../redux/slices/snakeBarSlice";
 import {useDispatch} from "react-redux";
 import { fetchInfo } from 'src/redux/slices/userInfoSlice';
 import { urls } from "src/data/urls";
+import useAlert from "../hooks/useAlert";
 const boxStyles = {
     width: 450, px: 3, background: "white", borderRadius: 3, position: "relative",
 };
 const Login = () => {
+    const {errorAlert} = useAlert() ;
     const [validate, setValidate] = useState(false);
     const {count, startTimer, isFinished, resetTimer} = useCounter(55);
     const {palette} = useTheme();
@@ -56,7 +57,7 @@ const Login = () => {
             }
             , errFunc: (err) => {
                 if(err?.response?.status === 403){
-                    dispatch(SET_ALERT({show : true , title :"کد وارد شده صحیح نمیباشد" , severity : "error"}))
+                   errorAlert("کد وارد شده صحیح نمیباشد")
                 }
             }
         })
