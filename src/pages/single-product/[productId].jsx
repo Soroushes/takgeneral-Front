@@ -69,7 +69,7 @@ export const getStaticProps = async ({params}) => {
     let productData = null;
     try {
         const {data} = await axios({
-            url: `https://takback.soroushes.tk/product-detail/${params.productId}/`,
+            url: `http://takback.soroushes.tk/product-detail/${params.productId}/`,
             method: 'GET',
         })
         productData = data;

@@ -180,7 +180,7 @@ export const getServerSideProps = async ({params, query}) => {
     let productsCategoryData = {};
     try {
         const {data} = await axios({
-            url: `https://takback.soroushes.tk/${categoryType}/`,
+            url: `http://takback.soroushes.tk/${categoryType}/`,
             method: 'GET',
             params: {
                 'brand[]': query.brand,

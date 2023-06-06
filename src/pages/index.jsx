@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
   let homeData = {} ;
   try {
     const {data} = await axios({
-    url: 'https://takback.soroushes.tk/home/',
+    url: 'http://takback.soroushes.tk/home/',
     method : 'GET'
   })
   homeData = data ;
