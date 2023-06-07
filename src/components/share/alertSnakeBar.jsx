@@ -1,6 +1,7 @@
 import {Alert} from "@mui/lab";
 import {Snackbar} from "@mui/material";
 import {useSelector} from "react-redux";
+import useAlert from "../../hooks/useAlert";
 
 const AlertSnakeBar = () => {
     const {title, show, hideDuration, severity} = useSelector(state => state.alert);

@@ -1,6 +1,8 @@
 import {SET_ALERT} from "../redux/slices/snakeBarSlice";
+import {useDispatch} from "react-redux";
 
 const useAlert = () => {
+    const dispatch = useDispatch();
     const successAlert = (massage) => {
         dispatch(SET_ALERT({show: true, title: {massage}, severity: "success"}))
     }

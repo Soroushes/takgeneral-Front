@@ -3,7 +3,7 @@ import {useState} from "react";
 import {useRouter} from "next/router";
 import {urls} from "../data/urls";
 import useAlert from "./useAlert";
-const BASE_URL = 'https://takback.soroushes.tk/';
+export const BASE_URL = 'http://takback.soroushes.tk/';
 export const useAxios = () => {
     const [loading, setLoading] = useState(false);
     const {errorAlert} = useAlert() ;
