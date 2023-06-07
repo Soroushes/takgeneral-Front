@@ -1,13 +1,12 @@
 import axios from "axios";
 import {useState} from "react";
-import { useDispatch } from "react-redux";
-import { SET_ALERT } from "../redux/slices/snakeBarSlice";
 import {useRouter} from "next/router";
 import {urls} from "../data/urls";
-export const BASE_URL = 'http://takback.soroushes.tk/';
+import useAlert from "./useAlert";
+const BASE_URL = 'https://takback.soroushes.tk/';
 export const useAxios = () => {
-    const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
+    const {errorAlert} = useAlert() ;
     const router = useRouter() ;
     const callApi = async ({method = "GET", url, data = {}, token, successFunc, errFunc}) => {
         try {
@@ -29,10 +28,10 @@ export const useAxios = () => {
                 router.push(urls.login) ;
             }
             if (err?.response?.status === 429) {
-                dispatch(SET_ALERT({ show: true, title: "لطفا لحظاتی دیگر امتحان کنید", severity: "error" }))
+                errorAlert("لطفا لحظاتی دیگر امتحان کنید")
             }
             if (err?.request?.status === 0) {
-                dispatch(SET_ALERT({ show: true, title: "وضعیت اینترنت خود را برسی کنید", severity: "error" }))
+                errorAlert("وضعیت اینترنت خود را برسی کنید")
             }
         }
         setLoading(false)
