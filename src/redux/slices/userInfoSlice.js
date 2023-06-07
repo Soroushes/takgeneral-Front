@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
+import {BASE_URL} from "../../hooks/useAxios";
 
 const initialState = {
     full_name: '',
@@ -17,7 +18,7 @@ export const fetchInfo = createAsyncThunk(
         }
         try {
             const {data} = await axios({
-                url: 'https://takback.soroushes.tk/user-status/',
+                url: `${BASE_URL}user-status/`,
                 method: 'GET',
                 headers: {
                     Authorization: token ? 'Bearer ' + token : null

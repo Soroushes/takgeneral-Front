@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
+import {BASE_URL} from "../../hooks/useAxios";
 
 const initialState = {};
 
@@ -14,7 +15,7 @@ export const fetchCart = createAsyncThunk(
         // if (!cartItems) return {products: []};
         try {
             const {data} = await axios({
-                url: 'https://takback.soroushes.tk/cart-detail/',
+                url: `${BASE_URL}cart-detail/`,
                 method: 'POST',
                 data: {cartsData: cartItems},
                 headers: {

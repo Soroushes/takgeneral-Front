@@ -13,15 +13,10 @@ const Question = ({eachQuestion}) => {
     }).format(eachQuestion.created_at.timestamp * 1000);
     const [answerIsShow, setAnswerShow] = useState(false);
     const [answerInputIsShow, setAnswerInputIsShow] = useState(false);
-    const [questionIsShow, setQuestionIsShow] = useState(false);
     const {callApi} = useAxios();
     const {control, handleSubmit, getValues, reset} = useForm();
-
     const show = () => {
         setAnswerShow(prev => !prev);
-    };
-    const openAnswerInput = () => {
-        setAnswerInputIsShow(prev => !prev);
     };
     const onFormSubmit = async () => {
         callApi({
@@ -93,7 +88,12 @@ const Question = ({eachQuestion}) => {
                 ) :
 
                 <Box sx={{width: '100%', mt: 1}}>
-                    <AnswerButton setAnswerInputIsShow={setAnswerInputIsShow} date={date} answerInputIsShow={answerInputIsShow} control={control}/>
+                    <AnswerButton
+                        setAnswerInputIsShow={setAnswerInputIsShow}
+                        date={date}
+                        answerInputIsShow={answerInputIsShow}
+                        control={control}
+                    />
                 </Box>
 
             }
