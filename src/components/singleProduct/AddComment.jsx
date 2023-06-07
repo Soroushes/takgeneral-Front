@@ -30,7 +30,7 @@ const AddComment = ({rate}) => {
         })
     }
     return (
-        <Box sx={{mb : 4 , width:'100%'}} component={'form'} onSubmit={handleSubmit(onFormSubmit)}>
+        <Box sx={{mb : 4 , width:'100%' , px : 2}} component={'form'} onSubmit={handleSubmit(onFormSubmit)}>
             <Typography fontWeight={'bold'} sx={{mb: 4}}>نظر شما درباره این کالا</Typography>
             <Grid container justifyContent={'space-between'} rowGap={3}>
                 <Grid item md={4} xs={12}>

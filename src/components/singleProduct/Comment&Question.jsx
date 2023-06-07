@@ -156,7 +156,6 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                             :
                                             null
                                     }
-                                    <AddComment productId={productId} rate={rate}/>
                                 </Box>
                             </>
                             :
@@ -171,7 +170,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                 <Divider sx={{width: '100%', my: 4}}/>
                             </Box>
                     }
-
+                    <AddComment productId={productId} rate={rate}/>
                 </TabPanel>
                 <TabPanel value="2" sx={{
                     width: '100%',
