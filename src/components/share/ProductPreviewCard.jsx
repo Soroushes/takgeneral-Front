@@ -6,7 +6,6 @@ import PriceDiscount from "./PriceDiscount";
 import PN from "persian-number";
 import { urls } from "src/data/urls";
 const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price , id}) => {
-    console.log(image)
     return (
         <Link href={urls.singleProduct + id}>
             <Stack

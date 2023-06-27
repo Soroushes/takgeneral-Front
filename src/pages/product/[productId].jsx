@@ -19,7 +19,7 @@ const singleProduct = (props) => {
     const [isShowAllDetails, setIsShowAllDetails] = useState(false)
     return (
         loading ? <SingleProductLoading/> : (
-            <Box sx={{backgroundColor: '#F9F9F9', pt: 3, height: '100%'}}>
+            <Box sx={{pt: 3, height: '100%'}}>
                 <Container maxWidth={'xl'}>
                     <Grid container rowGap={5}>
                         <Grid item sm={6} md={5} lg={3.3} xs={12}>
@@ -70,7 +70,7 @@ export const getStaticProps = async ({params}) => {
     let productData = null;
     try {
         const {data} = await axios({
-                url: `${BASE_URL}product-detail/${params.productId}/`,
+            url: `${BASE_URL}product-detail/${params.productId}/`,
             method: 'GET',
         })
         productData = data;

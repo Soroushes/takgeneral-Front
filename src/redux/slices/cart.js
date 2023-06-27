@@ -12,7 +12,6 @@ export const fetchCart = createAsyncThunk(
         if (!cartData) {
             cartItems = JSON.parse(localStorage.getItem('cart')) || [];
         }
-        // if (!cartItems) return {products: []};
         try {
             const {data} = await axios({
                 url: `${BASE_URL}cart-detail/`,
@@ -35,11 +34,6 @@ export const fetchCart = createAsyncThunk(
 const userInfoSlice = createSlice({
     initialState,
     name: 'userInfo',
-    reducers: {
-        SET_CART_DATA: (state, action) => {
-            return action.payload
-        }
-    },
     extraReducers: (builder) => {
         builder.addCase(fetchCart.fulfilled, (state, action) => {
             return action.payload
@@ -47,4 +41,3 @@ const userInfoSlice = createSlice({
     }
 })
 export default userInfoSlice.reducer;
-export const {SET_CART_DATA} = userInfoSlice.actions;

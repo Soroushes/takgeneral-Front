@@ -4,7 +4,7 @@ import Skeleton from "@mui/material/Skeleton";
 
 const SingleProductLoading =()=>{
     return(
-        <Box sx={{backgroundColor: '#F9F9F9', py: 3  , height:'100%'}}>
+        <Box sx={{py: 3  , height:'100%'}}>
             <Container sx={{px: {md: 20, lg: 8}}} maxWidth={'xl'}>
                 <Grid container rowGap={5}>
                     <Grid item sm={6} md={5} lg={3.3} xs={12}>

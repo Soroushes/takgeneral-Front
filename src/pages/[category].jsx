@@ -1,14 +1,14 @@
 import {Box} from "@mui/system";
 import Image from "next/image";
 import {Grid, Container, Pagination, MenuItem, TextField, Button, Typography, Divider} from "@mui/material";
-import ProductPreviewCard from "../../../components/share/ProductPreviewCard";
+import ProductPreviewCard from "../components/share/ProductPreviewCard";
 import CheckBoxFilter from "src/components/share/CheckBoxFilter";
-import testBanner from '../../../../public/testBanner.png'
-import CategoryListGenerator from "../../../components/products/CategoryListGenerator";
+import testBanner from '../../public/testBanner.png'
+import CategoryListGenerator from "../components/products/CategoryListGenerator";
 import axios from "axios";
-import {BASE_URL} from "../../../hooks/useAxios";
+import {BASE_URL} from "../hooks/useAxios";
 import {useRouter} from "next/router";
-import MainModal from "../../../components/share/MainModal";
+import MainModal from "../components/share/MainModal";
 import {useEffect, useRef, useState} from "react";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -37,7 +37,7 @@ const Category = ({product, brands, current_page, page_count}) => {
     const [noQueryPath, setNoQueryPath] = useState(asPath);
     const productBoxRef = useRef(null);
     useEffect(() => {
-        setNoQueryPath(`/products/${query.category}/${query.categoryType}`)
+        setNoQueryPath(`/${query.category}/`)
     }, [asPath])
     useEffect(() => {
         setSortValue('newest')
@@ -57,6 +57,7 @@ const Category = ({product, brands, current_page, page_count}) => {
         })
     }
     const handleSortOnchange = (value) => {
+        console.log(query);
         setSortValue(value);
         push({
             pathname: noQueryPath,
@@ -177,11 +178,12 @@ const Category = ({product, brands, current_page, page_count}) => {
 export default Category;
 
 export const getServerSideProps = async ({params, query}) => {
-    const {categoryType} = params;
+    const {category} = params;
+    console.log(query)
     let productsCategoryData = {};
     try {
         const {data} = await axios({
-            url: BASE_URL+categoryType +'/',
+            url: BASE_URL+category +'/',
             method: 'GET',
             params: {
                 'brand[]': query.brand,

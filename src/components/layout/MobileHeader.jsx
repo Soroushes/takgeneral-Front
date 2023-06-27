@@ -1,10 +1,10 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import {Box} from "@mui/system";
-import LoginIcon from "../icons/LoginIcon";
-import HamburgerMenu from "../icons/hamburgerMenu.svg";
+import LoginIcon from "../../assets/icons/LoginIcon";
+import HamburgerMenu from "../../assets/icons/hamburgerMenu.svg";
 import Link from "next/link";
-import UserIcon from "../icons/user";
+import UserIcon from "../../assets/icons/user";
 import {Drawer, Typography} from "@mui/material";
 import {useState} from "react";
 import {headerItem} from "../../data/header";

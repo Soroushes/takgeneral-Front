@@ -9,8 +9,8 @@ import Question from "./Question";
 import Comment from "./Comment";
 import AddComment from "./AddComment";
 import AddQuestion from "./AddQuestion";
-import NoQuestion from '../icons/noQuestion.svg';
-import NoComment from '../icons/noComment.svg';
+import NoQuestion from '../../assets/icons/noQuestion.svg';
+import NoComment from '../../assets/icons/noComment.svg';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
 

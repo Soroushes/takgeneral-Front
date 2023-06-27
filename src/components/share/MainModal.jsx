@@ -11,7 +11,7 @@ import {Box} from "@mui/system";
 import Toolbar from "@mui/material/Toolbar";
 import CloseIcon from '@mui/icons-material/Close';
 import {useEffect, useState} from "react";
-import theme from "../../styles/theme/theme";
+import theme from "../../assets/theme/theme";
 
 const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFullScreen}) => {
     const [innerWidth, setInnerWidth] = useState(null);

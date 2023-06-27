@@ -1,7 +1,7 @@
-import ExactToolIcon from '../components/icons/exactToolIcon.svg'
-import WaterPompIcon from '../components/icons/waterPompICon.svg'
-import ShirbarghiIcon from '../components/icons/shirbarghiIcon.svg'
-import FlowMeterIcon from '../components/icons/flowMeterIcon.svg'
+import ExactToolIcon from '../assets/icons/exactToolIcon.svg'
+import WaterPompIcon from '../assets/icons/waterPompICon.svg'
+import ShirbarghiIcon from '../assets/icons/shirbarghiIcon.svg'
+import FlowMeterIcon from '../assets/icons/flowMeterIcon.svg'
 import {allCategories} from "./category/categoriesData";
 export const headerItem = [
     {

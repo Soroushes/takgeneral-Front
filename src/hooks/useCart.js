@@ -31,7 +31,6 @@ export const useCart = (id) => {
                 return {...cartItem, count: 0}
             } else return cartItem
         })
-        // newCart = newCart.filter((cartItem) => cartItem?.count > 0);
         dispatch(newCart);
     }
     const getLocalStorageCartData = () =>localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];

@@ -1,8 +1,8 @@
 import {Badge, Box, Typography} from '@mui/material';
-import ContactIcon from '../icons/contactIcon';
-import HomeIcon from '../icons/homeIcon';
-import BasketIcon from "../icons/basketIcon";
-import SearchOutlinedIcon from "../icons/searchOutlined";
+import ContactIcon from '../../assets/icons/contactIcon';
+import HomeIcon from '../../assets/icons/homeIcon';
+import BasketIcon from "../../assets/icons/basketIcon";
+import SearchOutlinedIcon from "../../assets/icons/searchOutlined";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import {urls} from "../../data/urls";

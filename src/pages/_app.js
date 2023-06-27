@@ -1,5 +1,5 @@
-import '../styles/styles.css' ;
-import theme from "../styles/theme/theme";
+import '../assets/styles/styles.css' ;
+import theme from "../assets/theme/theme";
 import {ThemeProvider} from "@mui/material";
 import rtlPlugin from 'stylis-plugin-rtl';
 import {CacheProvider} from '@emotion/react';
@@ -9,6 +9,7 @@ import Layout from "../components/layout/Layout";
 import {Provider} from "react-redux";
 import {store} from "../redux/store";
 import Head from "next/head";
+import {useEffect, useState} from "react";
 // Create rtl cache
 const cacheRtl = createCache({
     key: 'muirtl',
@@ -19,7 +20,12 @@ const cssCache = createCache({
     prepend: true
 })
 export default function App({Component, pageProps}) {
+    const [pageLoaded , setPageLoaded] = useState(false)
+    useEffect(()=>{
+        setPageLoaded(true) ;
+    },[])
     return (
+        pageLoaded &&
         <CacheProvider value={cssCache}>
             <CacheProvider value={cacheRtl}>
                 <ThemeProvider theme={theme}>

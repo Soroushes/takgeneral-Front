@@ -4,7 +4,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
 import {useForm} from "react-hook-form";
 import {useAxios} from "src/hooks/useAxios";
-import QuestionIcon from '../icons/questionMark.svg';
+import QuestionIcon from '../../assets/icons/questionMark.svg';
 import AnswerButton from "./AnswerButton";
 
 const Question = ({eachQuestion}) => {

@@ -1,5 +1,5 @@
 import Slider from "../components/home/Slider";
-import ProductSortSection from "src/components/home/ProductSortSection";
+import ProductSortSection from "src/components/share/ProductSortSection";
 import axios  from 'axios';
 import FullSizeProductSlider from "../components/home/fullSizeProductSlider";
 import {BASE_URL} from "../hooks/useAxios";

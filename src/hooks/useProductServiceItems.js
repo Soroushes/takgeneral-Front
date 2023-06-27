@@ -1,12 +1,12 @@
 import {useEffect, useState} from "react";
-import WareHouseExist from "../components/icons/warehouseExistIcon.svg";
-import WareHouseExistSmall from "../components/icons/warehouseExistSmall.svg";
-import FreeSent from "../components/icons/freeSent.svg";
-import FreeSentSmall from "../components/icons/freeSentSmall.svg";
-import NotFakeWarranty from "../components/icons/notFakeWarranty.svg";
-import Warranty from "../components/icons/warranty.svg";
-import NotFakeWarrantySmall from "../components/icons/notFakeWarrantySmall.svg";
-import SevenDaysBack from "../components/icons/sevenDaysBack.svg";
+import WareHouseExist from "../assets/icons/warehouseExistIcon.svg";
+import WareHouseExistSmall from "../assets/icons/warehouseExistSmall.svg";
+import FreeSent from "../assets/icons/freeSent.svg";
+import FreeSentSmall from "../assets/icons/freeSentSmall.svg";
+import NotFakeWarranty from "../assets/icons/notFakeWarranty.svg";
+import Warranty from "../assets/icons/warranty.svg";
+import NotFakeWarrantySmall from "../assets/icons/notFakeWarrantySmall.svg";
+import SevenDaysBack from "../assets/icons/sevenDaysBack.svg";
 
 export const useProductServiceItems = ({freeSent , warranty , sevenDaysBack , wareHouseExist , notFakeWarranty , smallSize})=>{
     const [items , setItems] = useState([]) ;

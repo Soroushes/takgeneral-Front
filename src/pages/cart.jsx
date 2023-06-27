@@ -3,12 +3,12 @@ import {Grid, Container, Typography, Button} from "@mui/material";
 import CartItems from "src/components/cart/CartItems";
 import {useSelector} from "react-redux";
 import PN from "persian-number";
-import EmptyCart from '../components/icons/emptyCart.svg'
+import EmptyCart from '../assets/icons/emptyCart.svg'
 const cart = () => {
     const selectedProducts = useSelector(state => state.cart)
     return (
         !selectedProducts.products?.length ?
-            <Box sx={{backgroundColor: "#fafafa", pt: 2, minHeight: "80vh", display: 'flex', alignItems: 'center'}}>
+            <Box sx={{pt: 2, minHeight: "80vh", display: 'flex', alignItems: 'center'}}>
                 <Box sx={{width: '100%' , display:'flex' , justifyContent:'center'}}>
                     <EmptyCart sx={{color: 'text.main'}}/>
                 </Box>

@@ -3,7 +3,7 @@ import {Box} from "@mui/system";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteIcon from '@mui/icons-material/Delete';
-import BasketIcon from "../icons/basketIcon";
+import BasketIcon from "../../assets/icons/basketIcon";
 import LoadingButton from "@mui/lab/LoadingButton";
 import {useCart} from "../../hooks/useCart";
 import PN from "persian-number";

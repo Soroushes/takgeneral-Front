@@ -1,6 +1,6 @@
 import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import Suggestion from '../icons/suggestion.svg'
+import Suggestion from '../../assets/icons/suggestion.svg'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails ,opinionRef})=>{
     const scrollToDetails = () => {

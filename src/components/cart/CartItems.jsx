@@ -19,7 +19,7 @@ const CartItems = ({product}) => {
         >
             <Grid item lg={6} xs={12}>
                 <Box sx={{display: "flex", gap: 6, alignItems: 'center'}}>
-                    <Link href={'/single-product/'+ product.product_id}>
+                    <Link href={'/product/'+ product.product_id}>
                         <Image width={100} height={100} alt={'test'} src={'https://takback.soroushes.tk/media/Group_2073.png'}/>
                     </Link>
                     <Box>

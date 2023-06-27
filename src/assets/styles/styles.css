@@ -1,11 +1,12 @@
 @font-face {
     font-family: takgeneral;
-    src: url('./font/IRANSans.eot');
-    src: url('./font/IRANSans.woff2') format('woff2'),
-    url('./font/IRANSans.woff') format('woff');
+    src: url('../font/IRANSans.eot');
+    src: url('../font/IRANSans.woff2') format('woff2'),
+    url('../font/IRANSans.woff') format('woff');
 }
 body,html{
     scroll-behavior: smooth;
+    background-color: #FCFCFD ;
     top: 0;
     right: 0;
     left: 0;

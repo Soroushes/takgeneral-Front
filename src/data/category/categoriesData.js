@@ -1,16 +1,16 @@
-import pomp from '../../images/pomp.png' ;
+import pomp from '../../assets/images/pomp.png' ;
 import {urls} from "../urls";
 
 export const allCategories = {
     pomp : {
         title : "پمپ و تجهیزات جانبی" ,
         urls : {
-            mainPage : `${urls.categories}/pomp/pomps`,
-            homePomp : `${urls.categories}/pomp/home-pomps` ,
-            jetiPomp : `${urls.categories}/pomp/jeti-home-pomps` ,
-            mohitiPomp : `${urls.categories}/pomp/mohiti-home-pomps` ,
-            boshghabiPomp : `${urls.categories}/pomp/boshghabi-home-pomps` ,
-            doparvanePomp : `${urls.categories}/pomp/doparvane-home-pomps`
+            mainPage : `${urls.categories}/pomps`,
+            homePomp : `${urls.categories}/home-pomps` ,
+            jetiPomp : `${urls.categories}/jeti-home-pomps` ,
+            mohitiPomp : `${urls.categories}/mohiti-home-pomps` ,
+            boshghabiPomp : `${urls.categories}/boshghabi-home-pomps` ,
+            doparvanePomp : `${urls.categories}/doparvane-home-pomps`
         }
     }
 }
