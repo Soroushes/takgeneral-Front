@@ -3,7 +3,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
 import {useEffect, useState} from 'react';
 import {Typography} from '@mui/material';
-import {useRouter} from "next/router";
+import {useRouter} from "next/navigation";
 
 const CheckBoxFilter = ({subFilter}) => {
     let filtersId = []

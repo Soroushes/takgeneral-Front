@@ -2,6 +2,9 @@ module.exports = {
     images: {
         domains: ['takback.soroushes.tk' , 'swiperjs.com'],
     },
+    experimental : {
+        appDir : true
+    } ,
     webpack(config) {
         // Grab the existing rule that handles SVG imports
         const fileLoaderRule = config.module.rules.find((rule) =>

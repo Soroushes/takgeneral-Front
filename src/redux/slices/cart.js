@@ -1,7 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
-import {BASE_URL} from "../../hooks/useAxios";
-
+import {BASE_URL} from "../../data/urls";
 const initialState = {};
 
 export const fetchCart = createAsyncThunk(

@@ -1,19 +1,18 @@
+'use client'
 import {Box} from "@mui/system";
 import Image from "next/image";
 import {Grid, Container, Pagination, MenuItem, TextField, Button, Typography, Divider} from "@mui/material";
-import ProductPreviewCard from "../components/share/ProductPreviewCard";
+import ProductPreviewCard from "../../components/share/ProductPreviewCard";
 import CheckBoxFilter from "src/components/share/CheckBoxFilter";
-import testBanner from '../../public/testBanner.png'
-import CategoryListGenerator from "../components/products/CategoryListGenerator";
-import axios from "axios";
-import {BASE_URL} from "../hooks/useAxios";
-import {useRouter} from "next/router";
-import MainModal from "../components/share/MainModal";
+import testBanner from '../../../public/testBanner.png'
+import CategoryListGenerator from "../../components/products/CategoryListGenerator";
+import {usePathname, useRouter } from "next/navigation";
+import MainModal from "../../components/share/MainModal";
 import {useEffect, useRef, useState} from "react";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Paper from "@mui/material/Paper";
-
+import {BASE_URL} from "../../data/urls";
 const sortValueItems = [
     {
         name: "جدیدترین",
@@ -29,16 +28,13 @@ const sortValueItems = [
     }
 ]
 
-const Category = ({product, brands, current_page, page_count}) => {
-    const {query, push, asPath} = useRouter();
+const CategoryPage = ({product, brands, current_page, page_count}) => {
+    const {push} = useRouter();
+    const noQueryPath = usePathname() ;
     const [openFilterModal, setOpenFilterModal] = useState(false);
     const [openSortModal, setOpenSortModal] = useState(false);
     const [sortValue, setSortValue] = useState('newest');
-    const [noQueryPath, setNoQueryPath] = useState(asPath);
     const productBoxRef = useRef(null);
-    useEffect(() => {
-        setNoQueryPath(`/${query.category}/`)
-    }, [asPath])
     useEffect(() => {
         setSortValue('newest')
     }, [noQueryPath])
@@ -46,23 +42,18 @@ const Category = ({product, brands, current_page, page_count}) => {
         push({
                 pathname: noQueryPath,
                 query: {
-                    ...query,
                     page: value,
                 }
             },
             undefined,
             {scroll: false}
-        ).then(() => {
-            productBoxRef.current.scrollIntoView({behavior: "smooth"})
-        })
+        )
     }
     const handleSortOnchange = (value) => {
-        console.log(query);
         setSortValue(value);
         push({
             pathname: noQueryPath,
             query: {
-                ...query,
                 ordering: value
             }
         }, undefined, {scroll: false})
@@ -148,7 +139,7 @@ const Category = ({product, brands, current_page, page_count}) => {
             </Container>
             <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلتر'}>
                 <Box sx={{px : 2}}>
-                    <CheckBoxFilter key={asPath} subFilter={brands}/>
+                    <CheckBoxFilter key={noQueryPath} subFilter={brands}/>
                 </Box>
             </MainModal>
             <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>
@@ -175,33 +166,33 @@ const Category = ({product, brands, current_page, page_count}) => {
         </Box>
     )
 }
-export default Category;
+export default CategoryPage;
 
-export const getServerSideProps = async ({params, query}) => {
-    const {category} = params;
-    console.log(query)
-    let productsCategoryData = {};
-    try {
-        const {data} = await axios({
-            url: BASE_URL+category +'/',
-            method: 'GET',
-            params: {
-                'brand[]': query.brand,
-                page: query.page ?? 1,
-                page_size: 20,
-                ordering: query.ordering
-            }
-        })
-        productsCategoryData = data;
-    } catch (err) {
-        productsCategoryData = null
-    }
-    if (!productsCategoryData) {
-        return {
-            notFound: true
-        }
-    }
-    return {
-        props: productsCategoryData,
-    }
-}
+// export const getServerSideProps = async ({params, query}) => {
+//     const {category} = params;
+//     console.log(query)
+//     let productsCategoryData = {};
+//     try {
+//         const {data} = await axios({
+//             url: BASE_URL+category +'/',
+//             method: 'GET',
+//             params: {
+//                 'brand[]': query.brand,
+//                 page: query.page ?? 1,
+//                 page_size: 20,
+//                 ordering: query.ordering
+//             }
+//         })
+//         productsCategoryData = data;
+//     } catch (err) {
+//         productsCategoryData = null
+//     }
+//     if (!productsCategoryData) {
+//         return {
+//             notFound: true
+//         }
+//     }
+//     return {
+//         props: productsCategoryData,
+//     }
+// }

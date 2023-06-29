@@ -9,16 +9,15 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
     return (
         <Link href={urls.singleProduct + id}>
             <Stack
-                alignItems={'center'}
                 justifyContent={'space-between'}
                 sx={{
-                    backgroundColor: "white",
+                    backgroundColor: "#fff",
                     width : "100%" ,
                     px : 2 ,
                     pt : 1 ,
                     pb : 1.5,
                     borderRadius: 2,
-                    aspectRatio : "1/1.3" ,
+                    height : '300px',
                     position: "relative"
                 }}>
                 {
@@ -40,18 +39,19 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                             }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%
                         </Typography> : null
                 }
-                <Box sx={{position: 'relative', aspectRatio: "1/1", width: "70%"}}>
+                <Box sx={{position: 'relative', aspectRatio: "1/1", width: "80%" , mx : 'auto'}}>
                     <Image fill src={image} alt={title}/>
                 </Box>
-                <Typography
-                    component={'h3'}
-                    fontWeight={"bold"}
-                    variant="subtitle2"
-                    sx={{textAlign: "center" , height : "30%" , overflow : "hidden" ,  display : "flex" , alignItems : "center"}}
-                >
-                    {title}
-                </Typography>
-                <PriceDiscount price={price} finalPrice={afterDiscountPrice} fontSize={'subtitle1'}/>
+                <Box  sx={{height : '78px' , overflow : "hidden" , display : 'flex' , alignItems : 'center'}}>
+                    <Typography
+                        component={'h3'}
+                        variant="body1"
+                        textAlign={'justify'}
+                    >
+                        {title}
+                    </Typography>
+                </Box>
+                <PriceDiscount discountPrice={price} finalPrice={afterDiscountPrice}/>
             </Stack>
         </Link>
     )

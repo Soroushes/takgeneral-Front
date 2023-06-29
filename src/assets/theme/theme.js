@@ -1,9 +1,9 @@
 import {createTheme} from "@mui/material";
 const primary = "#1b09f9";
 const primaryDark = '#1206c0' ;
-const primaryLight = '#4e41d5' ;
-const secondary = '#ffe27b' ;
-const textBlack = '#303030'
+const secondary = '#ff8301' ;
+const textBlack = '#303030' ;
+const lineHeight = ['20px','23px','28px']
 const theme = createTheme({
     direction: "rtl",
     palette: {
@@ -11,13 +11,10 @@ const theme = createTheme({
             main: primary,
             dark : primaryDark ,
             contrastText : '#fff' ,
-            light : primaryLight
         },
         secondary: {
             main: secondary,
-            contrastText : "#333" ,
-            light : secondary ,
-            dark : secondary
+            contrastText : '#fff' ,
         },
         gray: {
             main: "#A9A9A9",
@@ -104,47 +101,56 @@ theme.typography.h1 = {
     fontSize: '20px',
     fontWeight: "normal",
     color: textBlack,
-    fontFamily: "takgeneral "
+    fontFamily: "takgeneral ",
+    lineHeight : lineHeight[2] ,
 }
 theme.typography.h2 = {
     fontSize: '19px',
     fontWeight: "normal",
     color: textBlack,
-    fontFamily: "takgeneral "
+    fontFamily: "takgeneral ",
+    lineHeight : lineHeight[2] ,
 }
 theme.typography.h3 = {
     fontSize: '18px',
     fontWeight: "normal",
     color: textBlack,
-    fontFamily: "takgeneral "
+    fontFamily: "takgeneral ",
+    lineHeight : lineHeight[2] ,
 }
 theme.typography.h3 = {
     fontSize: '17px',
     fontWeight: "normal",
     color: textBlack,
-    fontFamily: "takgeneral "
+    fontFamily: "takgeneral ",
+    lineHeight : lineHeight[2] ,
 }
 theme.typography.h4 = {
     fontSize: '16px',
     fontWeight: "normal",
     color: textBlack,
-    fontFamily: "takgeneral "
+    fontFamily: "takgeneral ",
+    lineHeight : lineHeight[2] ,
 }
 theme.typography.h5 = {
     fontSize: '15px',
     fontWeight: "normal",
     color: textBlack,
-    fontFamily: "takgeneral "
+    lineHeight : lineHeight[2] ,
+    fontFamily: "takgeneral ",
+
 }
 theme.typography.h6 = {
     fontSize: '14px',
     fontWeight: "normal",
     color: textBlack,
+    lineHeight : lineHeight[1] ,
     fontFamily: "takgeneral "
 }
 theme.typography.body1 = {
     fontSize: '14px',
     fontWeight: "normal",
+    lineHeight : lineHeight[1] ,
     color: textBlack,
     fontFamily: "takgeneral ",
     [theme.breakpoints.down('md')]: {
@@ -154,6 +160,7 @@ theme.typography.body1 = {
 theme.typography.body2 = {
     fontSize: '13px',
     fontWeight: "normal",
+    lineHeight : lineHeight[1] ,
     color: textBlack,
     fontFamily: "takgeneral ",
     [theme.breakpoints.down('md')]: {
@@ -163,6 +170,7 @@ theme.typography.body2 = {
 theme.typography.subtitle1 = {
     fontSize: '12px',
     fontWeight: "normal",
+    lineHeight : lineHeight[0] ,
     color: textBlack,
     fontFamily: "takgeneral ",
     [theme.breakpoints.down('md')]: {
@@ -172,6 +180,7 @@ theme.typography.subtitle1 = {
 theme.typography.subtitle2 = {
     fontSize: '11px',
     fontWeight: "normal",
+    lineHeight : lineHeight[0] ,
     color: textBlack,
     fontFamily: "takgeneral ",
     [theme.breakpoints.down('md')]: {
@@ -182,6 +191,7 @@ theme.typography.caption = {
     fontSize: '10px',
     fontWeight: "normal",
     color: textBlack,
+    lineHeight : lineHeight[0] ,
     fontFamily: "takgeneral ",
     [theme.breakpoints.down('md')]: {
         fontSize: '8px'
@@ -190,6 +200,7 @@ theme.typography.caption = {
 theme.typography.overline = {
     fontSize: '9px',
     fontWeight: "normal",
+    lineHeight : lineHeight[0] ,
     color: textBlack,
     fontFamily: "takgeneral "
 }

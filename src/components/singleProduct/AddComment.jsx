@@ -4,7 +4,7 @@ import {Controller, useForm} from "react-hook-form";
 import {userCommentInput} from "src/data/comment&question";
 import Checkbox from '@mui/material/Checkbox';
 import {useAxios} from "../../hooks/useAxios";
-import {useRouter} from "next/router";
+import {useRouter} from "next/navigation";
 import LoadingButton from "@mui/lab/LoadingButton";
 const AddComment = ({rate}) => {
     const {control, handleSubmit, reset} = useForm({

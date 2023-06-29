@@ -5,13 +5,13 @@ import {Badge, Button, Container, InputAdornment, TextField, Typography} from "@
 import UserIcon from "../../assets/icons/user";
 import SearchOutlined from "../../assets/icons/searchOutlined";
 import ShopIcon from '../../assets/icons/ShopIcon.svg';
-import {useRouter} from "next/router";
 import {headerItem} from "../../data/header";
 import Link from "next/link";
 import logo from '../../../public/logo.png' ;
 import Image from "next/image";
 import {urls} from "../../data/urls";
 import {useSelector} from "react-redux";
+import {useRouter} from "next/navigation";
 const DesktopHeader = ({status, desktopHeaderRef}) => {
     const router = useRouter();
     const {total_count} = useSelector(state => state.cart)

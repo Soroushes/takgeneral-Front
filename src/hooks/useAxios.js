@@ -1,9 +1,9 @@
+'use client'
 import axios from "axios";
 import {useState} from "react";
-import {useRouter} from "next/router";
-import {urls} from "../data/urls";
+import {useRouter} from "next/navigation";
+import {BASE_URL, urls} from "../data/urls";
 import useAlert from "./useAlert";
-export const BASE_URL = 'http://takback.soroushes.tk/';
 export const useAxios = () => {
     const [loading, setLoading] = useState(false);
     const {errorAlert} = useAlert() ;

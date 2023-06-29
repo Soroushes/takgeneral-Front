@@ -31,7 +31,7 @@ const singleProductImage =({mainImage , otherImage})=>{
                             return(
                                 <SwiperSlide key={item.id}>
                                     <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                                        <Image fill alt={'test'} src={item.image} />
+                                        <Image fill alt={'test'} src={''} />
                                     </Box>
                                 </SwiperSlide>
                             )

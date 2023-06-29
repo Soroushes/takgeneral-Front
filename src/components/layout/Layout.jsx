@@ -1,9 +1,10 @@
+'use client'
 import {Box} from "@mui/material";
 import Navbar from './Navbar';
 import MobileHeader from "./MobileHeader";
 import DesktopHeader from './DesktopHeader'
 import {useEffect, useRef, useState} from "react";
-import {useRouter} from "next/router";
+import { usePathname } from 'next/navigation'
 import AlertSnakeBar from "../share/alertSnakeBar";
 import { fetchInfo } from 'src/redux/slices/userInfoSlice';
 import { useDispatch , useSelector} from 'react-redux';
@@ -13,7 +14,7 @@ const Layout = ({children}) => {
     const navbarHeight = 55 ;
     const mobileHeaderHeight = 55 ;
     const [desktopHeaderHeight , setDesktopHeaderHeight] = useState(0) ;
-    const {pathname} = useRouter();
+    const pathname = usePathname();
     const [showLayout, setShowLayout] = useState(true);
     const dispatcher = useDispatch();
     const {full_name , phone_number } = useSelector(state => state.userInfo);

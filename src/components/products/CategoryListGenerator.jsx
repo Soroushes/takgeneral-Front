@@ -4,7 +4,7 @@ import Paper from "@mui/material/Paper";
 import {Typography} from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import {useRouter} from "next/router";
+import {usePathname} from "next/navigation";
 import {useEffect, useState} from "react";
 
 const itemStylesGenerate = (active = false) => (
@@ -18,10 +18,9 @@ const itemStylesGenerate = (active = false) => (
     }
 )
 const CategoryListGenerator = ({category}) => {
-    const {asPath, query} = useRouter();
     const pageCategory = categoriesData[category];
     const [childrenItem, setChildrenItem] = useState([]);
-    const [noFilterRoute, setNoFilterRoute] = useState(asPath);
+    const noFilterRoute = usePathname()
     const [categoryIsOpen ,  setCategoryIsOpen] = useState(false)
     const categoryToggle = ()=>{
         setCategoryIsOpen(prev => !prev)
@@ -40,9 +39,6 @@ const CategoryListGenerator = ({category}) => {
             setChildrenItem([]);
         }
     }, [noFilterRoute])
-    useEffect(() => {
-        setNoFilterRoute(`/products/${query.category}/${query.categoryType}`)
-    }, [asPath])
     return (
         <>
             <Typography component={'h1'} textAlign={'center'}>{pageCategory.title}</Typography>

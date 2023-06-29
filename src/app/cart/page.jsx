@@ -1,10 +1,12 @@
+'use client'
 import {Box} from "@mui/system";
 import {Grid, Container, Typography, Button} from "@mui/material";
-import CartItems from "src/components/cart/CartItems";
 import {useSelector} from "react-redux";
 import PN from "persian-number";
-import EmptyCart from '../assets/icons/emptyCart.svg'
-const cart = () => {
+import CartItems from "../../components/cart/CartItems";
+import EmptyCart from '../../assets/icons/emptyCart.svg' ;
+
+export default function Page(){
     const selectedProducts = useSelector(state => state.cart)
     return (
         !selectedProducts.products?.length ?
@@ -95,4 +97,3 @@ const cart = () => {
             </Box>
     )
 }
-export default cart;

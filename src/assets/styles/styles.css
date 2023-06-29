@@ -1,8 +1,6 @@
 @font-face {
     font-family: takgeneral;
-    src: url('../font/IRANSans.eot');
-    src: url('../font/IRANSans.woff2') format('woff2'),
-    url('../font/IRANSans.woff') format('woff');
+    src: url('../font/IRANYekan.woff') format('woff2') ;
 }
 body,html{
     scroll-behavior: smooth;
