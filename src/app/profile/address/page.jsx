@@ -1,13 +1,13 @@
-import PanelLayout from "../../components/layout/panelLayout";
+'use client' ;
+import {useAxios} from "../../../hooks/useAxios";
 import {useEffect, useState} from "react";
-import {useAxios} from "../../hooks/useAxios";
 import {Grid, Typography} from "@mui/material";
 import {Box} from "@mui/system";
-import dynamic from "next/dynamic"
-import AddIcon from '@mui/icons-material/Add';
-const AddressPreview = dynamic(() => import("../../components/share/AddressPreview"), {ssr: false})
-const AddAddressModalWrapper = dynamic(() => import("../../components/share/AddAddressModalWrapper"), {ssr: false})
-const Address = () => {
+import AddIcon from "@mui/icons-material/Add";
+import AddAddressModalWrapper from "../../../components/share/AddAddressModalWrapper";
+import AddressPreview from "../../../components/share/AddressPreview";
+
+export default function page(){
     const {callApi} = useAxios();
     const [addresses, setAddresses] = useState([]);
     const [openAddAddressModals, setOpenAddAddressModals] = useState(false);
@@ -22,10 +22,10 @@ const Address = () => {
         })
     }
     useEffect(() => {
-       getAddress() ;
+        getAddress() ;
     }, []);
     return (
-        <PanelLayout>
+        <>
             <Grid rowGap={4} container>
                 {
                     addresses.map((address) => {
@@ -51,7 +51,7 @@ const Address = () => {
                         gap : 2,
                         cursor : 'pointer'
                     }}
-                    onClick={()=>{setOpenAddAddressModals(true)}}
+                         onClick={()=>{setOpenAddAddressModals(true)}}
                     >
                         <AddIcon fontSize={'large'}/>
                         <Typography variant={'h5'}>افزودن آدرس جدید</Typography>
@@ -59,7 +59,6 @@ const Address = () => {
                 </Grid>
             </Grid>
             <AddAddressModalWrapper getAddress={getAddress} open={openAddAddressModals} setOpen={setOpenAddAddressModals}/>
-        </PanelLayout>
+        </>
     )
 }
-export default Address;

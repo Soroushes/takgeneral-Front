@@ -1,22 +1,24 @@
+'use client' ;
+import {useDispatch} from "react-redux";
+import {useEffect, useState} from "react";
+import {usePathname, useRouter} from "next/navigation";
+import {LOGOUT} from "../../redux/slices/userInfoSlice";
+import UserIcon from "../../assets/icons/user";
+import {urls} from "../../data/urls";
+import LocationIcon from "../../assets/icons/locationIcon";
+import ExitIcon from "../../assets/icons/exit";
 import {Button, Container, Grid, Typography} from "@mui/material";
 import {Box} from "@mui/system";
-import {useEffect, useState} from "react";
-import {useRouter} from "next/router";
+import MainModal from "../../components/share/MainModal";
 import Link from "next/link";
-import ExitIcon from "../../assets/icons/exit";
-import UserIcon from "../../assets/icons/user";
-import LocationIcon from "../../assets/icons/locationIcon";
-import { useDispatch } from "react-redux";
-import { fetchInfo } from "src/redux/slices/userInfoSlice";
-import { urls } from "src/data/urls";
-import MainModal from "../share/MainModal";
-const PanelLayout = ({children}) => {
+
+export default function Layout ({children}) {
     const dispatch = useDispatch();
     const [openExitModal , setOpenExitModal] = useState(false);
     const router = useRouter() ;
+    const pathName = usePathname()
     const removeToken = ()=>{
-        localStorage.removeItem('token') ;
-        dispatch(fetchInfo());
+        dispatch(LOGOUT()) ;
         router.push('/');
     }
     const panelItems = [
@@ -31,11 +33,6 @@ const PanelLayout = ({children}) => {
             icon : <LocationIcon/> ,
             activeIcon: <LocationIcon active/> ,
             link : urls.ProfileAddress ,
-        },
-        {
-            title : 'خروج ' ,
-            icon : <ExitIcon/> ,
-            onClick : ()=>setOpenExitModal(true)
         },
     ]
     useEffect(() => {
@@ -60,7 +57,7 @@ const PanelLayout = ({children}) => {
                         }}>
                             {
                                 panelItems.map((item) => {
-                                    const active = router.pathname===item.link ;
+                                    const active = pathName===item.link ;
                                     return (
                                         <Link key={item.title} href={item.link ?? ''} onClick={item.onClick?.bind(this)}>
                                             <Box sx={{
@@ -82,6 +79,24 @@ const PanelLayout = ({children}) => {
                                     )
                                 })
                             }
+                            <Box
+                                onClick={()=>{
+                                    setOpenExitModal(true) ;
+                                }}
+                                sx={{
+                                display: "flex",
+                                height : "100%" ,
+                                flexDirection: {xs: "column", md: "row"},
+                                py: 2,
+                                px : 2 ,
+                                gap: 1,
+                                borderRadius : 3 ,
+                                alignItems: "center",
+                                justifyContent: {xs: "center", md: 'start'} ,
+                            }}>
+                                <ExitIcon/>
+                                <Typography variant={'subtitle1'} sx={{color : "text.main" , textAlign : "center" , whiteSpace : "nowrap"}}>خروج</Typography>
+                            </Box>
                         </Box>
                     </Grid>
                     <Grid sx={{backgroundColor: "white", height: 'fit-content', borderRadius: 4}} xs={12} md={9} item>
@@ -101,4 +116,3 @@ const PanelLayout = ({children}) => {
         </>
     )
 }
-export default PanelLayout;

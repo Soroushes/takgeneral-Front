@@ -55,21 +55,17 @@ const DesktopHeader = ({status, desktopHeaderRef}) => {
                             <Box sx={{display: "flex", gap: 2}}>
                                 {
                                     status.phone_number ?
-                                        <Button onClick={() => router.push(urls.profile)} sx={{px: 3, gap: 1, py: .8}}
-                                                variant={'contained'} color={'btnGray'}>
+                                        <Button onClick={() => router.push(urls.profile)} sx={{px: 3, gap: 1, py: .8 , borderRadius : 3}} variant={'outlined'}>
                                             <UserIcon/>
-                                            <Typography
-                                                variant={'body2'}>{status.full_name ?? status.phone_number}</Typography>
+                                            حساب کاربری
                                         </Button>
                                         :
-                                        <Button onClick={() => router.push(urls.login)} sx={{px: 3, gap: 1, py: .8}}
-                                                size={'small'} variant={'contained'} color={'btnGray'}>
+                                        <Button onClick={() => router.push(urls.login)} sx={{px: 3, gap: 1, py: .8 , borderRadius : 3}} variant={'contained'}>
                                             <UserIcon/>
-                                            <Typography variant={'subtitle2'}>ورود و عضویت</Typography>
+                                            ورود/عضویت
                                         </Button>
                                 }
-                                <Button onClick={() => router.push(urls.cart)} size={'small'} sx={{p: 0}}
-                                        variant={'contained'} color={'btnGray'}>
+                                <Button onClick={() => router.push(urls.cart)} size={'small'} sx={{p: 0}} variant={'outlined'}>
                                     <Badge anchorOrigin={{vertical: 'top', horizontal: 'left',}}
                                            badgeContent={total_count} color="primary">
                                         <ShopIcon/>

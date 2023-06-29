@@ -4,7 +4,9 @@ import {BASE_URL} from "../../data/urls";
 
 const initialState = {
     full_name: '',
-    phone_number: ''
+    phone_number: '',
+    isLoggedIn : false ,
+    token : null
 }
 export const fetchInfo = createAsyncThunk(
     'user/info',
@@ -13,7 +15,9 @@ export const fetchInfo = createAsyncThunk(
         if (!token) {
             return {
                 full_name: '',
-                phone_number: ''
+                phone_number: '',
+                isLoggedIn : false ,
+                token : null
             }
         }
         try {
@@ -24,7 +28,7 @@ export const fetchInfo = createAsyncThunk(
                     Authorization: token ? 'Bearer ' + token : null
                 }
             })
-            return data
+            return {...data , isLoggedIn : true , token}
         } catch (err) {
             console.log(err)
         }
@@ -33,6 +37,17 @@ export const fetchInfo = createAsyncThunk(
 const userInfoSlice = createSlice({
     initialState,
     name: 'userInfo',
+    reducers : {
+        LOGOUT : ()=>{
+            localStorage.removeItem('token') ;
+            return {
+                full_name: '',
+                phone_number: '',
+                isLoggedIn : false ,
+                token : null
+            }
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchInfo.fulfilled, (state, action) => {
             if (action.payload) {
@@ -44,3 +59,4 @@ const userInfoSlice = createSlice({
     }
 })
 export default userInfoSlice.reducer;
+export const {LOGOUT} = userInfoSlice.actions ;

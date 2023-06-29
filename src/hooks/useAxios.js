@@ -1,13 +1,14 @@
 'use client'
 import axios from "axios";
 import {useState} from "react";
-import {useRouter} from "next/navigation";
-import {BASE_URL, urls} from "../data/urls";
+import {BASE_URL} from "../data/urls";
 import useAlert from "./useAlert";
+import {useDispatch} from "react-redux";
+import {LOGOUT} from "../redux/slices/userInfoSlice";
 export const useAxios = () => {
     const [loading, setLoading] = useState(false);
     const {errorAlert} = useAlert() ;
-    const router = useRouter() ;
+    const dispatch = useDispatch() ;
     const callApi = async ({method = "GET", url, data = {}, token, successFunc, errFunc}) => {
         try {
             const accessToken = localStorage.getItem('token');
@@ -24,8 +25,8 @@ export const useAxios = () => {
         } catch (err) {
             errFunc?.(err);
             if (err?.response?.status===401){
-                localStorage.removeItem('token')
-                router.push(urls.login) ;
+                dispatch(LOGOUT())
+                // router.push(urls.login) ;
             }
             if (err?.response?.status === 429) {
                 errorAlert("لطفا لحظاتی دیگر امتحان کنید")

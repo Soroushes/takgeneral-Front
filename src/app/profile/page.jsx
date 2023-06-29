@@ -1,14 +1,14 @@
-import PanelLayout from "../../components/layout/panelLayout";
+'use client';
 import {Grid, TextField, Typography} from "@mui/material";
-import {userInputData} from "../../data/profile/userInputData" ;
+import {userInputData} from "../../data/profile/userInputData";
 import {Controller, useForm} from "react-hook-form";
-import LoadingButton from "@mui/lab/LoadingButton";
 import {Box} from "@mui/system";
-import {useEffect} from "react";
+import LoadingButton from "@mui/lab/LoadingButton";
 import {useAxios} from "../../hooks/useAxios";
 import useAlert from "../../hooks/useAlert";
+import {useEffect} from "react";
 
-const ProfilePage = () => {
+export default function Page() {
     const {control, handleSubmit, getValues, setValue} = useForm();
     const {callApi: getInfo, loading: getLoading} = useAxios();
     const {callApi: putInfo, loading: putLoading} = useAxios();
@@ -51,7 +51,7 @@ const ProfilePage = () => {
         getUserInfo();
     }, [])
     return (
-        <PanelLayout>
+        <>
             <Typography component={'h1'} variant={"h3"} sx={{mb: 4}}>مشخصات فردی</Typography>
             <Grid onSubmit={handleSubmit(submitForm)} justifyContent={"space-between"} component={'form'} rowGap={5}
                   container>
@@ -84,7 +84,6 @@ const ProfilePage = () => {
                     </Grid>
                 </Box>
             </Grid>
-        </PanelLayout>
+        </>
     )
 }
-export default ProfilePage;

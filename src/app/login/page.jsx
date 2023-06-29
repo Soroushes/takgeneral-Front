@@ -1,22 +1,21 @@
-import {
-    Box, Container, Grid, Typography, TextField, useTheme, InputAdornment,
-} from "@mui/material";
-import LoadingButton from '@mui/lab/LoadingButton';
+'use client'
+import useAlert from "../../hooks/useAlert";
 import {useEffect, useState} from "react";
-import {useCounter} from "../hooks/useCounter";
-import OtpInput from "react18-input-otp";
-import {useAxios} from "../hooks/useAxios";
-import {useForm, Controller} from "react-hook-form";
-import {useRouter} from "next/router";
-import Link from "next/link";
+import {useCounter} from "../../hooks/useCounter";
+import {Box, Container, Grid, InputAdornment, TextField, Typography, useTheme} from "@mui/material";
+import {useRouter} from "next/navigation";
 import {useDispatch} from "react-redux";
-import { fetchInfo } from 'src/redux/slices/userInfoSlice';
-import { urls } from "src/data/urls";
-import useAlert from "../hooks/useAlert";
+import {Controller, useForm} from "react-hook-form";
+import {useAxios} from "../../hooks/useAxios";
+import {urls} from "../../data/urls";
+import {fetchInfo} from "../../redux/slices/userInfoSlice";
+import Link from "next/link";
+import OtpInput from "react18-input-otp";
+import LoadingButton from "@mui/lab/LoadingButton";
 const boxStyles = {
     width: 450, px: 3, background: "white", borderRadius: 3, position: "relative",
 };
-const Login = () => {
+export default function Page(){
     const {errorAlert} = useAlert() ;
     const [validate, setValidate] = useState(false);
     const {count, startTimer, isFinished, resetTimer} = useCounter(55);
@@ -57,7 +56,7 @@ const Login = () => {
             }
             , errFunc: (err) => {
                 if(err?.response?.status === 403){
-                   errorAlert("کد وارد شده صحیح نمیباشد")
+                    errorAlert("کد وارد شده صحیح نمیباشد")
                 }
             }
         })
@@ -110,34 +109,34 @@ const Login = () => {
                                     control={control}
                                     render={({ field, fieldState }) =>
                                         (
-                                        <OtpInput
-                                            hasErrored={!!fieldState.error}
-                                            value={field.value}
-                                            onChange={(value)=>{
-                                              field.onChange(value);
-                                              if (value.length === 5) {
-                                                  submitForm();
-                                              }
-                                            }}
-                                            containerStyle={{
-                                                display: "flex",
-                                                width: "100%",
-                                                justifyContent: "space-between",
-                                                direction: "ltr",
-                                            }}
-                                            inputStyle={{
-                                                height: 50,
-                                                backgroundColor: palette.gray.lighter,
-                                                width: 50,
-                                                borderRadius: "10px",
-                                                border: 'none'
-                                            }}
-                                            numInputs={5}
-                                            focusStyle={{border: `1px solid ${palette.primary.main}`}}
-                                            shouldAutoFocus
-                                            isInputNum={true}
-                                        />
-                                    )}
+                                            <OtpInput
+                                                hasErrored={!!fieldState.error}
+                                                value={field.value}
+                                                onChange={(value)=>{
+                                                    field.onChange(value);
+                                                    if (value.length === 5) {
+                                                        submitForm();
+                                                    }
+                                                }}
+                                                containerStyle={{
+                                                    display: "flex",
+                                                    width: "100%",
+                                                    justifyContent: "space-between",
+                                                    direction: "ltr",
+                                                }}
+                                                inputStyle={{
+                                                    height: 50,
+                                                    backgroundColor: palette.gray.lighter,
+                                                    width: 50,
+                                                    borderRadius: "10px",
+                                                    border: 'none'
+                                                }}
+                                                numInputs={5}
+                                                focusStyle={{border: `1px solid ${palette.primary.main}`}}
+                                                shouldAutoFocus
+                                                isInputNum={true}
+                                            />
+                                        )}
                                 />
                             </Box>
                             <Box
@@ -148,7 +147,7 @@ const Login = () => {
                                     onClick={postPhoneNumber}
                                     variant="subtitle1"
                                     sx={{
-                                         color: "green", cursor: "pointer",
+                                        color: "green", cursor: "pointer",
                                     }}>
                                     ارسال مجدد کد
                                 </Typography>) : (<Typography variant="body1">
@@ -214,6 +213,6 @@ const Login = () => {
                     </Box>
                 </Box>
             </Grid>
-        </Container>);
-};
-export default Login;
+        </Container>
+    );
+}
