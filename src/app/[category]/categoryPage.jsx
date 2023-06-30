@@ -167,32 +167,3 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
     )
 }
 export default CategoryPage;
-
-// export const getServerSideProps = async ({params, query}) => {
-//     const {category} = params;
-//     console.log(query)
-//     let productsCategoryData = {};
-//     try {
-//         const {data} = await axios({
-//             url: BASE_URL+category +'/',
-//             method: 'GET',
-//             params: {
-//                 'brand[]': query.brand,
-//                 page: query.page ?? 1,
-//                 page_size: 20,
-//                 ordering: query.ordering
-//             }
-//         })
-//         productsCategoryData = data;
-//     } catch (err) {
-//         productsCategoryData = null
-//     }
-//     if (!productsCategoryData) {
-//         return {
-//             notFound: true
-//         }
-//     }
-//     return {
-//         props: productsCategoryData,
-//     }
-// }
