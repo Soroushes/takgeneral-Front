@@ -12,6 +12,5 @@ async function getData(params) {
 }
 export default async function Page ({params}){
     const data = await getData(params) ;
-    console.log(data);
     return <CategoryPage brands={data.brands} product={data.product} current_page={data.current_page} page_count={data.page_count}/>
 }

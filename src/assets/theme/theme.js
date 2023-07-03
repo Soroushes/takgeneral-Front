@@ -102,42 +102,60 @@ theme.typography.h1 = {
     fontWeight: "normal",
     color: textBlack,
     fontFamily: "takgeneral ",
-    lineHeight : lineHeight[2] ,
+    lineHeight : lineHeight[1] ,
+    [theme.breakpoints.down('md')]: {
+        fontSize: '18px'
+    }
 }
 theme.typography.h2 = {
     fontSize: '19px',
     fontWeight: "normal",
     color: textBlack,
     fontFamily: "takgeneral ",
-    lineHeight : lineHeight[2] ,
+    lineHeight : lineHeight[1] ,
+    [theme.breakpoints.down('md')]: {
+        fontSize: '17px'
+    }
 }
 theme.typography.h3 = {
     fontSize: '18px',
     fontWeight: "normal",
     color: textBlack,
     fontFamily: "takgeneral ",
-    lineHeight : lineHeight[2] ,
+    lineHeight : lineHeight[1] ,
+    [theme.breakpoints.down('md')]: {
+        fontSize: '16px'
+    }
 }
 theme.typography.h3 = {
     fontSize: '17px',
     fontWeight: "normal",
     color: textBlack,
     fontFamily: "takgeneral ",
-    lineHeight : lineHeight[2] ,
+    lineHeight : lineHeight[1] ,
+    [theme.breakpoints.down('md')]: {
+        fontSize: '15px'
+    }
 }
 theme.typography.h4 = {
     fontSize: '16px',
     fontWeight: "normal",
     color: textBlack,
     fontFamily: "takgeneral ",
-    lineHeight : lineHeight[2] ,
+    lineHeight : lineHeight[1] ,
+    [theme.breakpoints.down('md')]: {
+        fontSize: '14px'
+    }
 }
 theme.typography.h5 = {
     fontSize: '15px',
     fontWeight: "normal",
     color: textBlack,
-    lineHeight : lineHeight[2] ,
+    lineHeight : lineHeight[1] ,
     fontFamily: "takgeneral ",
+    [theme.breakpoints.down('md')]: {
+        fontSize: '13px'
+    }
 
 }
 theme.typography.h6 = {
@@ -145,7 +163,10 @@ theme.typography.h6 = {
     fontWeight: "normal",
     color: textBlack,
     lineHeight : lineHeight[1] ,
-    fontFamily: "takgeneral "
+    fontFamily: "takgeneral ",
+    [theme.breakpoints.down('md')]: {
+        fontSize: '12px'
+    }
 }
 theme.typography.body1 = {
     fontSize: '14px',

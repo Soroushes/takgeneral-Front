@@ -8,9 +8,9 @@ const ProductSortSection =({sortItems})=>{
                 محصولات</Typography>
             <Grid rowGap={3} container>
                 {
-                    sortItems.map((sortItem) => {
+                    sortItems.map((sortItem , index) => {
                         return (
-                            <Grid item key={sortItem.title} sm={3} xs={6} sx={{px: 1 , width:'100'}}>
+                            <Grid item key={index} sm={4} lg={3} xs={6} sx={{px: 1}}>
                                 <SortSection image={sortItem.product_image}
                                             title={sortItem.name} description={sortItem.description}/>
                             </Grid>

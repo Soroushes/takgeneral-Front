@@ -13,29 +13,31 @@ async function getData() {
 
 export default async function Page() {
     const sortItems = [{
-        name: 'pomp0',
+        name: 'پمپ و تجهیزات',
         id: 1,
         description: 'good pomp',
         product_image: `${BASE_URL}media/Group_2073.png`
     }, {
-        name: 'pomp1',
+        name: 'کولر گازی',
         id: 2,
         description: 'good pomp',
         product_image: `${BASE_URL}media/Group_2073.png`
     }, {
-        name: 'pomp2',
+        name: 'نمیدانم اطلاعی ندارم',
         id: 3,
         description: 'good pomp',
         product_image: `${BASE_URL}media/Group_2073.png`
-    }, {name: 'pomp3', id: 4, description: 'good pomp', product_image: `${BASE_URL}media/Group_2073.png`}]
+    }, {name: 'خانگی', id: 4, description: 'good pomp', product_image: `${BASE_URL}media/Group_2073.png`}]
     const data = getData();
     // data.products bayad map bokhore dar productsortsection
     return (
         <>
             <Slider slides={data.sliders}/>
             <ProductSortSection sortItems={sortItems}/>
+            {/*<FullSizeProductSlider backgroundColor={'primary.main'}/>*/}
             <FullSizeProductSlider backgroundColor={'primary.main'}/>
-            <FullSizeProductSlider backgroundColor={'primary.light'}/>
+            <FullSizeProductSlider backgroundColor={'primary.main'}/>
+            <FullSizeProductSlider backgroundColor={'primary.main'}/>
         </>
     );
 }

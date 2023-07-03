@@ -1,56 +1,74 @@
 'use client'
-import { Typography,} from "@mui/material";
+import {Typography,} from "@mui/material";
 import Paper from "@mui/material/Paper";
 import {Box} from "@mui/system";
 import Image from "next/image";
-const SortSection = ({image , description , title}) => {
+import Link from "next/link";
+
+const SortSection = ({image, description, title}) => {
     return (
+        <Link href={'/'}>
             <Paper
-                elevation={2}
+                elevation={4}
                 sx={{
                     borderRadius: 2,
-                    height: "100%",
                     transition: "all .5s",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "end",
                     alignItems: "center",
-                    pb: 2,
+                    pb: 1,
                     px: 1,
                     "&:hover img": {
                         transform: "scale(1) !important",
-                        marginTop:'-3px'
+                        marginTop: '-15px'
                     },
                 }}>
                 <Box sx={{
-                    width: "70%",
+                    width: {md: "55%", xs: '70%'},
                     aspectRatio: "1/1",
                     position: "relative",
                     display: "flex",
                     justifyContent: "center",
-                    marginTop:'-50px'
+                    marginTop: '-25px'
                 }}>
                     <Image
                         alt={description}
                         fill
-                        style={{transition: "transform .5s", transform: "scale(0.9)"}}
+                        style={{transition: "all .5s", transform: "scale(0.9)"}}
                         src={image}/>
                 </Box>
                 <Box>
                     <Typography
-                        sx={{textAlign: "center", color: "text.blue", fontWeight: "bold", fontSize: {xs: 10, lg: 14}}}
-                        component={"h2"} variant={"h6"}>
+                        textAlign={'center'}
+                        component={"h2"}
+                        variant={"h4"}
+                        sx={{mb: 1}}
+                        overflow={'hidden'}
+                        textOverflow={'ellipsis'}
+                        whiteSpace={'nowrap'}
+                    >
                         {title}
                     </Typography>
-                    <Typography
-                        component={"p"}
-                        sx={{color: "text.muted", textAlign: "center", fontSize: {xs: 9, lg: 13}}}>
-                        {description}
-                    </Typography>
+                    {
+                        description &&
+                        <Typography
+                            variant={'subtitle1'}
+                            component={"p"}
+                            color={'text.muted'}
+                            textAlign={'center'}
+                            overflow={'hidden'}
+                            textOverflow={'ellipsis'}
+                            whiteSpace={'nowrap'}
+                        >
+                            {description}
+                        </Typography>
+                    }
+
                 </Box>
             </Paper>
-
-)
+        </Link>
+    )
 
 };
 export default SortSection;

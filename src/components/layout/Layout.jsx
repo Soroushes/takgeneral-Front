@@ -9,6 +9,7 @@ import AlertSnakeBar from "../share/alertSnakeBar";
 import { fetchInfo } from 'src/redux/slices/userInfoSlice';
 import { useDispatch , useSelector} from 'react-redux';
 import {fetchCart} from "../../redux/slices/cart";
+import {SET_DEVICE_INFO} from "../../redux/slices/deviceInfo";
 const hideLayoutPaths = ['/login'];
 const Layout = ({children}) => {
     const navbarHeight = 55 ;
@@ -19,16 +20,16 @@ const Layout = ({children}) => {
     const dispatcher = useDispatch();
     const {full_name , phone_number } = useSelector(state => state.userInfo);
     const desktopHeaderRef = useRef(null)
-    
     useEffect(() => {
+        dispatcher(SET_DEVICE_INFO()) ;
         setDesktopHeaderHeight(desktopHeaderRef.current.clientHeight);
-        const show = hideLayoutPaths.find((path) => path === pathname);
-        setShowLayout(!!!show);
-    }, [pathname])
-    useEffect(()=>{
         dispatcher(fetchInfo());
         dispatcher(fetchCart());
-    },[])
+    }, [])
+    useEffect(()=>{
+        const show = hideLayoutPaths.find((path) => path === pathname);
+        setShowLayout(!!!show);
+    },[pathname])
     return (
         <>
             <Box sx={{display: showLayout ? {xs: "block", md: "none"} : "none"}}>
