@@ -1,6 +1,5 @@
 'use client'
 import {Typography,} from "@mui/material";
-import Paper from "@mui/material/Paper";
 import {Box} from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,8 +7,7 @@ import Link from "next/link";
 const SortSection = ({image, description, title}) => {
     return (
         <Link href={'/'}>
-            <Paper
-                elevation={4}
+            <Box
                 sx={{
                     borderRadius: 2,
                     transition: "all .5s",
@@ -19,6 +17,7 @@ const SortSection = ({image, description, title}) => {
                     alignItems: "center",
                     pb: 1,
                     px: 1,
+                    boxShadow : '0 20px 50px rgba(0,0,0,9%)' ,
                     "&:hover img": {
                         transform: "scale(1) !important",
                         marginTop: '-15px'
@@ -66,7 +65,7 @@ const SortSection = ({image, description, title}) => {
                     }
 
                 </Box>
-            </Paper>
+            </Box>
         </Link>
     )
 

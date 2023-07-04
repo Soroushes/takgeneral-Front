@@ -1,13 +1,14 @@
 import {Box, Typography} from "@mui/material";
 import Image from "next/image";
-import Paper from "@mui/material/Paper";
 
 const BrandName = ({name , image})=>{
     return(
-        <Paper elevation={1} sx={{display:'flex' , flexDirection:'column' , alignItems:'center' , gap:2 , my:2  , py:1 , borderRadius:3}}>
-            <Box><Image src={image} alt={name} /></Box>
-            <Typography>{name}</Typography>
-        </Paper>
+        <Box sx={{borderRadius:3 , p : 1 , backgroundColor : '#fff' , boxShadow : '0 8px 50px rgba(0,0,0,5%)'}}>
+            <Box sx={{aspectRatio : '2/1' ,mx : 'auto' , width : '80%' ,mb : 2 , textAlign : 'center'}} position={'relative'}>
+                <Image fill src={image} alt={name} />
+            </Box>
+            <Typography textAlign={'center'}>{name}</Typography>
+        </Box>
     )
 }
 export default BrandName;

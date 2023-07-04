@@ -33,11 +33,12 @@ export default async function Page() {
     return (
         <>
             <Slider slides={data.sliders}/>
-            <ProductSortSection sortItems={sortItems}/>
-            {/*<FullSizeProductSlider backgroundColor={'primary.main'}/>*/}
-            <FullSizeProductSlider backgroundColor={'primary.main'}/>
-            <FullSizeProductSlider backgroundColor={'primary.main'}/>
-            <FullSizeProductSlider backgroundColor={'primary.main'}/>
+            <div style={{backgroundColor : '#fff' , position : 'relative' , zIndex : 2}}>
+                <ProductSortSection sortItems={sortItems}/>
+                <FullSizeProductSlider backgroundColor={'primary.main'}/>
+                <FullSizeProductSlider backgroundColor={'primary.main'}/>
+                <FullSizeProductSlider backgroundColor={'primary.main'}/>
+            </div>
         </>
     );
 }
