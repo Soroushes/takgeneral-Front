@@ -1,11 +1,9 @@
 'use client'
-import {Swiper, SwiperSlide} from "swiper/react";
+import {SwiperSlide} from "swiper/react";
 import {Box} from "@mui/system";
 import {Container} from "@mui/material";
 import ProductPreviewCard from "../share/ProductPreviewCard";
-import {FreeMode} from "swiper";
 import {BASE_URL} from "../../data/urls";
-import {useSelector} from "react-redux";
 import SwiperCustomWrapper from "../share/SwiperCustomWrapper";
 const dummyData =           [
     {
@@ -104,7 +102,7 @@ const FullSizeProductSlider = ({backgroundColor}) => {
                 <SwiperCustomWrapper spaceBetween={'10px'}>
                     {dummyData.map((data)=>{
                         return(
-                            <SwiperSlide key={Math.random()*1000} style={{width : 185}}>
+                            <SwiperSlide key={Math.random()*1000} style={{width : 190}}>
                                 <ProductPreviewCard title={data.title} discountPercent={data.discountPercent} price={data.price} afterDiscountPrice={data.afterDiscountPrice} id={2} image={data.image} />
                             </SwiperSlide>
                         )

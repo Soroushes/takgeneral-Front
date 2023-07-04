@@ -6,11 +6,12 @@ import "swiper/css/pagination";
 import categoryBanner from '../../assets/images/categoryBanner.png'
 import "swiper/css";
 import {Box} from "@mui/system";
+import {useSelector} from "react-redux";
 const Slider = () => {
-    console.log(categoryBanner)
+    const {desktopHeaderHeight , mobileHeaderHeight , isMobile} = useSelector(state => state.deviceInfo);
     return (
         <Box height={300}>
-            <Box right={0} left={0} position={'fixed'} top={0} zIndex={1}>
+            <Box sx={{top : isMobile ? mobileHeaderHeight : desktopHeaderHeight}} right={0} left={0} position={'fixed'} zIndex={1}>
                 <Swiper
                     modules={[Navigation, Pagination]}
                     spaceBetween={0}
@@ -28,16 +29,6 @@ const Slider = () => {
 
                         }}/>
                     </SwiperSlide>
-                    {/*{*/}
-                    {/*    slides?.map((slide)=>{*/}
-                    {/*        return(*/}
-                    {/*            <SwiperSlide key={slide.id}>*/}
-                    {/*                <Box sx={{display : {xs : "none"  , position : "relative", md : "block" }, width :"100%" , aspectRatio : "24/5" , backgroundColor : "gray.lighter"}}><Image alt={''} fill src={slide.pc_image} /></Box>*/}
-                    {/*                <Box sx={{display : {md : "none"}  , position : "relative", width : "100%" , backgroundColor : "gray.lighter" , aspectRatio : "1.3/1"}}><Image alt={''} fill src={slide.mobile_image} /></Box>*/}
-                    {/*            </SwiperSlide>*/}
-                    {/*        )*/}
-                    {/*    })*/}
-                    {/*}*/}
                 </Swiper>
             </Box>
         </Box>
