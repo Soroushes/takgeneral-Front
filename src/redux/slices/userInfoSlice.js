@@ -30,9 +30,16 @@ export const fetchInfo = createAsyncThunk(
             })
             return {...data , isLoggedIn : true , token}
         } catch (err) {
-            console.log(err)
+            if (err?.response?.status===401){
+            localStorage.removeItem('token') ;
+            return {
+                full_name: '',
+                phone_number: '',
+                isLoggedIn : false ,
+                token : null
+            }
         }
-    }
+    }}
 )
 const userInfoSlice = createSlice({
     initialState,

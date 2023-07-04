@@ -32,10 +32,10 @@ const Layout = ({children}) => {
     },[pathname])
     return (
         <>
-            <Box sx={{display: showLayout ? {xs: "block", md: "none"} : "none"}}>
+            <Box sx={{display: showLayout ? {xs: "block", md: "none"} : "none" , position : 'relative' , zIndex : 10}}>
                 <MobileHeader size={mobileHeaderHeight} status={{full_name , phone_number}}/>
             </Box>
-            <Box sx={{display: showLayout ? {xs: "none", md: "block"} : "none"}}>
+            <Box sx={{display: showLayout ? {xs: "none", md: "block"} : "none" , position : 'relative' ,  zIndex : 10}}>
                 <DesktopHeader desktopHeaderRef={desktopHeaderRef} status={{full_name , phone_number}}/>
             </Box>
             <Box sx={{pt: {xs: `${mobileHeaderHeight}px`, md: `${desktopHeaderHeight}px`} , pb : {xs : `${navbarHeight}px` , md : 0}}}>{children}</Box>
