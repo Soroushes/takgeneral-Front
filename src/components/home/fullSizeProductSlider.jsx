@@ -1,11 +1,9 @@
 'use client'
-import {Swiper, SwiperSlide} from "swiper/react";
+import { SwiperSlide} from "swiper/react";
 import {Box} from "@mui/system";
 import {Container} from "@mui/material";
 import ProductPreviewCard from "../share/ProductPreviewCard";
-import {FreeMode} from "swiper";
 import {BASE_URL} from "../../data/urls";
-import {useSelector} from "react-redux";
 import SwiperCustomWrapper from "../share/SwiperCustomWrapper";
 const dummyData =           [
     {
@@ -101,7 +99,7 @@ const FullSizeProductSlider = ({backgroundColor}) => {
     return (
         <Box sx={{backgroundColor: backgroundColor, mb: 5, py : 2}}>
             <Container disableGutters={true}>
-                <SwiperCustomWrapper spaceBetween={'10px'}>
+                <SwiperCustomWrapper direction={'horizontal'} spaceBetween={'10px'}>
                     {dummyData.map((data)=>{
                         return(
                             <SwiperSlide key={Math.random()*1000} style={{width : 185}}>
