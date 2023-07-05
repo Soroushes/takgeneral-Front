@@ -25,9 +25,9 @@ const Layout = ({children}) => {
         dispatcher(fetchInfo());
         dispatcher(fetchCart());
     }, [])
-    onresize = ()=>{
-        dispatcher(SET_DEVICE_INFO()) ;
-    }
+    // onresize = ()=>{
+    //     dispatcher(SET_DEVICE_INFO()) ;
+    // }
     useEffect(() => {
         const show = hideLayoutPaths.find((path) => path === pathname);
         setShowLayout(!!!show);

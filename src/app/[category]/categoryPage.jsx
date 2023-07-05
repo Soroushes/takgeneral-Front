@@ -30,15 +30,12 @@ const sortValueItems =  [
     }
 ];
 const testSections = [
-    {image :pompSectionImage , name : 'pompe abe jeti'},
-    {image :pompSectionImage , name : 'pompe abe mohiti'},
-    {image :pompSectionImage , name : 'pompe abe do prvane'},
-    {image :pompSectionImage , name : 'pompe abe boshghabi'},
-    {image :pompSectionImage , name : 'pompe abe jeti'},
-    {image :pompSectionImage , name : 'pompe abe jeti'},
-    {image :pompSectionImage , name : 'pompe abe jeti'},
-    {image :pompSectionImage , name : 'pompe abe jeti'},
-    {image :pompSectionImage , name : 'pompe abe jeti'},
+    {image :pompSectionImage , name : 'کشاورزی پمپ آب'},
+    {image :pompSectionImage , name : 'پمپ آب جتی جتی'},    {image :pompSectionImage , name : 'کشاورزی پمپ آب'},
+    {image :pompSectionImage , name : 'پمپ آب جتی جتی'},    {image :pompSectionImage , name : 'کشاورزی پمپ آب'},
+    {image :pompSectionImage , name : 'پمپ آب جتی جتی'},    {image :pompSectionImage , name : 'کشاورزی پمپ آب'},
+    {image :pompSectionImage , name : 'پمپ آب جتی جتی'},
+    {image :pompSectionImage , name : 'کشاورزی پمپ آب'},
     {image :pompSectionImage , name : 'پمپ آب جتی جتی'},
 ]
 const CategoryPage = ({product, brands, current_page, page_count}) => {

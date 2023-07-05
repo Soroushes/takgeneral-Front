@@ -30,9 +30,9 @@ export default function Page() {
     ]
     return (
             <Container disableGutters={true}>
-                <Box sx={{position: "relative", width: '100%', aspectRatio : isMobile ? '1.5/1' : '4.5/1'  , mt : 1 , mb : 3}}>
+                <Box sx={{position: "relative",  width: '100%', aspectRatio : isMobile ? '1.5/1' : '4.5/1'  , mt : 1 , mb : 3}}>
                     <Image src={categoryBanner} style={{borderRadius: '8px'}} fill alt={'banner'}/>
-                </  Box>
+                </Box>
                 <Typography sx={{px : 1}} fontWeight={'bold'} variant={'h2'} component={'h1'}>پمپ و تجهیزات جانبی</Typography>
                 <Grid container sx={{my : 5}} rowGap={6}    >
                     <Grid sx={{px : 1}} item xs={6} md={3}>
