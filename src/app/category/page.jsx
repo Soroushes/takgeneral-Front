@@ -4,7 +4,7 @@ import categoryBanner from '../../assets/images/categoryBanner.png';
 import Image from "next/image";
 import OuterImageSection from "../../components/share/OuterImageSection";
 import sortImage from '../../assets/images/testSort.png'
-import SectionSlider from "../../components/share/SectionSlider";
+import BrandSlider from "../../components/share/BrandSlider";
 import brandImage from '../../assets/images/pentax (1).png';
 import categoryImages from '../../assets/images/1.png';
 import 'swiper/swiper.css';
@@ -30,7 +30,7 @@ export default function Page() {
     ]
     return (
             <Container disableGutters={true}>
-                <Box sx={{position: "relative", width: '100%', aspectRatio : isMobile ? '2.5/1' : '3.5/1'  , mt : 1 , mb : 3}}>
+                <Box sx={{position: "relative", width: '100%', aspectRatio : isMobile ? '1.5/1' : '4.5/1'  , mt : 1 , mb : 3}}>
                     <Image src={categoryBanner} style={{borderRadius: '8px'}} fill alt={'banner'}/>
                 </  Box>
                 <Typography sx={{px : 1}} fontWeight={'bold'} variant={'h2'} component={'h1'}>پمپ و تجهیزات جانبی</Typography>
@@ -55,7 +55,7 @@ export default function Page() {
                     </Grid>
                 </Grid>
                 <Typography sx={{px : 1}} fontWeight={'bold'} variant={'h2'} component={'h2'}>انواع برند ها</Typography>
-                    <SectionSlider innerImage={true} sections={brands}/>
+                    <BrandSlider brands={brands}/>
                 <Grid sx={{my : 4}} container rowGap={2}>
                     <Grid sx={{px : 1}} item xs={12} md={6} >
                         <Box sx={{aspectRatio : '2.5/1'}} position={'relative'}>

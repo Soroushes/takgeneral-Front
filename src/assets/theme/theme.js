@@ -43,8 +43,8 @@ const theme = createTheme({
     },
     shadows :[
         'none' ,
+        '0 8px 50px rgba(0,0,0,5%)',
         '0 20px 50px rgba(0,0,0,9%)',
-        '0 8px 50px rgba(0,0,0,5%)'
     ],
     components: {
         MuiInputLabel: {
