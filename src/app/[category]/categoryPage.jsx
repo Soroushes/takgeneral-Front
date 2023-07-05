@@ -77,12 +77,12 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
         <Box sx={{minHeight: "100vh", backgroundColor: "#fff"}}>
             {
                 isMobile ?
-                    <Box sx={{width: '100%', aspectRatio: '3/1', position: 'relative', p: 0}}>
+                    <Box sx={{width: '100%', aspectRatio: '1.5/1', position: 'relative', p: 0}}>
                         <Image fill alt={''} src={Banner}/>
                     </Box>:
                     <Box sx={{
                         width: '100%',
-                        aspectRatio: '4/1',
+                        aspectRatio: '4.5/1',
                         position: 'relative',
                         p: 0
                     }}>
