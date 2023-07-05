@@ -1,15 +1,13 @@
 'use client'
 import {Typography,} from "@mui/material";
-import Paper from "@mui/material/Paper";
 import {Box} from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 
-const SortSection = ({image, description, title}) => {
+const OuterImageSection = ({image, description, title , shadow=1 ,descriptionVariant='subtitle1' , titleVariant='h4'}) => {
     return (
         <Link href={'/'}>
-            <Paper
-                elevation={4}
+            <Box
                 sx={{
                     borderRadius: 2,
                     transition: "all .5s",
@@ -19,6 +17,7 @@ const SortSection = ({image, description, title}) => {
                     alignItems: "center",
                     pb: 1,
                     px: 1,
+                    boxShadow : shadow ,
                     "&:hover img": {
                         transform: "scale(1) !important",
                         marginTop: '-15px'
@@ -38,12 +37,11 @@ const SortSection = ({image, description, title}) => {
                         style={{transition: "all .5s", transform: "scale(0.9)"}}
                         src={image}/>
                 </Box>
-                <Box>
                     <Typography
                         textAlign={'center'}
                         component={"h2"}
-                        variant={"h4"}
-                        sx={{mb: 1}}
+                        variant={titleVariant}
+                        sx={{mt: 2 , mb : 1 , width : '100%'}}
                         overflow={'hidden'}
                         textOverflow={'ellipsis'}
                         whiteSpace={'nowrap'}
@@ -53,22 +51,21 @@ const SortSection = ({image, description, title}) => {
                     {
                         description &&
                         <Typography
-                            variant={'subtitle1'}
+                            variant={descriptionVariant}
                             component={"p"}
                             color={'text.muted'}
                             textAlign={'center'}
                             overflow={'hidden'}
                             textOverflow={'ellipsis'}
                             whiteSpace={'nowrap'}
+                            sx={{width : '100%'}}
                         >
                             {description}
                         </Typography>
                     }
-
-                </Box>
-            </Paper>
+            </Box>
         </Link>
     )
 
 };
-export default SortSection;
+export default OuterImageSection;
