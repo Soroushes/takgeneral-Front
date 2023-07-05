@@ -3,7 +3,6 @@ import {Typography,} from "@mui/material";
 import {Box} from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
-import theme from "../../assets/theme/theme";
 
 const OuterImageSection = ({image, description, title}) => {
     return (
@@ -18,14 +17,14 @@ const OuterImageSection = ({image, description, title}) => {
                     alignItems: "center",
                     pb: 1,
                     px: 1,
-                    boxShadow : theme.shadows[1] ,
+                    boxShadow : 2 ,
                     "&:hover img": {
                         transform: "scale(1) !important",
                         marginTop: '-15px'
                     },
                 }}>
                 <Box sx={{
-                    width: {md: "55%", xs: '70%'},
+                    width: '55%',
                     aspectRatio: "1/1",
                     position: "relative",
                     display: "flex",
@@ -38,12 +37,11 @@ const OuterImageSection = ({image, description, title}) => {
                         style={{transition: "all .5s", transform: "scale(0.9)"}}
                         src={image}/>
                 </Box>
-                <Box>
                     <Typography
                         textAlign={'center'}
                         component={"h2"}
                         variant={"h4"}
-                        sx={{mb: 1}}
+                        sx={{mt: 2 , mb : 1 , width : '100%'}}
                         overflow={'hidden'}
                         textOverflow={'ellipsis'}
                         whiteSpace={'nowrap'}
@@ -60,12 +58,11 @@ const OuterImageSection = ({image, description, title}) => {
                             overflow={'hidden'}
                             textOverflow={'ellipsis'}
                             whiteSpace={'nowrap'}
+                            sx={{width : '100%'}}
                         >
                             {description}
                         </Typography>
                     }
-
-                </Box>
             </Box>
         </Link>
     )

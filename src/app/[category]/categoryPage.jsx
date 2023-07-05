@@ -14,7 +14,6 @@ import Banner from '../../assets/images/categoryBanner1.jpg'
 import SectionSlider from "../../components/share/SectionSlider";
 import pompSectionImage from '../../assets/images/pomp 1.png';
 import 'swiper/swiper.css';
-import theme from "../../assets/theme/theme";
 import {useSelector} from "react-redux";
 const sortValueItems =  [
     {
@@ -37,6 +36,10 @@ const testSections = [
     {image :pompSectionImage , name : 'pompe abe boshghabi'},
     {image :pompSectionImage , name : 'pompe abe jeti'},
     {image :pompSectionImage , name : 'pompe abe jeti'},
+    {image :pompSectionImage , name : 'pompe abe jeti'},
+    {image :pompSectionImage , name : 'pompe abe jeti'},
+    {image :pompSectionImage , name : 'pompe abe jeti'},
+    {image :pompSectionImage , name : 'پمپ آب جتی جتی'},
 ]
 const CategoryPage = ({product, brands, current_page, page_count}) => {
     const {push} = useRouter();
@@ -87,9 +90,9 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                     </Box>
 
             }
-            <Container ref={productBoxRef} maxWidth={'lg'}>
+            <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
                 <SectionSlider innerImage={false} sections={testSections}/>
-                <Grid container>
+                <Grid sx={{px : 1.5}} container>
                     <Grid item xs={12} >
                         {
                             isMobile ?
@@ -107,9 +110,9 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                                         <KeyboardArrowDownIcon/>
                                     </Button>
                                 </Box>:
-                                <Box display={'flex'}>
-                                    <Box sx={{width:'30%'}}></Box>
-                                    <Box sx={{mb: 2}}>
+                                <Grid container>
+                                    <Grid md={3.5} ></Grid>
+                                    <Grid md={8.5} sx={{mb: 2}}>
                                         <TextField
                                             sx={{width: "150px"}}
                                             size={'small'}
@@ -125,14 +128,14 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                                                 ))
                                             }
                                         </TextField>
-                                    </Box>
-                                </Box>
+                                    </Grid>
+                                </Grid>
                         }
                     </Grid>
                     {
                         !isMobile &&
                         <Grid item md={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
-                            <Box sx={{p: 2, borderRadius: 2 , backgroundColor:'#fff' , boxShadow: theme.shadows[1] , width:'100%'}}>
+                            <Box sx={{p: 2, borderRadius: 2 , backgroundColor:'#fff' , boxShadow: 2 , width:'100%'}}>
                                 <CheckBoxFilter key={noQueryPath} subFilter={brands}/>
                             </Box>
                         </Grid>

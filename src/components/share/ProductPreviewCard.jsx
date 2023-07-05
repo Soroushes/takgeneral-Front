@@ -5,7 +5,6 @@ import Link from "next/link";
 import PriceDiscount from "./PriceDiscount";
 import PN from "persian-number";
 import { urls } from "src/data/urls";
-import theme from "../../assets/theme/theme";
 const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price , id , shadow}) => {
     return (
         <Link href={urls.singleProduct + id}>
@@ -20,7 +19,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                     borderRadius: 2,
                     height : '300px',
                     position: "relative",
-                    boxShadow: shadow && theme.shadows[1]
+                    boxShadow: shadow ? 2 : 0
                 }}>
                 {
                     discountPercent ?

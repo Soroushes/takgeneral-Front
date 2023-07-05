@@ -8,7 +8,6 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import Image from "next/image";
-import singleImage from '../../assets/images/Rectangle 1.png'
 const singleProductImage =({mainImage , otherImage})=>{
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return(
@@ -16,13 +15,13 @@ const singleProductImage =({mainImage , otherImage})=>{
             <Box sx={{mb: 1}}>
                 <Swiper
                     spaceBetween={10}
-                    thumbs={{ swiper: thumbsSwiper }}
+                    thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                     modules={[FreeMode, Thumbs]}
                 >
                     <SwiperSlide>
                         <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
                             {
-                                mainImage ? <Image fill alt={'test'} src={singleImage} /> : null
+                                mainImage ? <Image fill alt={'test'} src={mainImage.src} /> : null
                             }
                         </Box>
                     </SwiperSlide>
@@ -31,11 +30,11 @@ const singleProductImage =({mainImage , otherImage})=>{
                             return(
                                 <SwiperSlide key={index}>
                                     <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                                        <Image fill alt={'test'} src={singleImage} />
+                                        <Image fill alt={'test'} src={mainImage.src} />
                                     </Box>
                                 </SwiperSlide>
                             )
-                        },[])
+                        })
                     }
 
                 </Swiper>
@@ -47,12 +46,11 @@ const singleProductImage =({mainImage , otherImage})=>{
                     slidesPerView={4}
                     watchSlidesProgress={true}
                     modules={[Navigation, Thumbs]}
-                    className="mySwiper"
                 >
                     <SwiperSlide style={{borderRadius : "8px"  , padding : '5px'}}>
                         <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
                             {
-                                mainImage ? <Image fill alt={'test'} src={singleImage} /> : null
+                                mainImage ? <Image fill alt={'test'} src={mainImage.src} /> : null
                             }
                         </Box>
                     </SwiperSlide>
@@ -61,11 +59,11 @@ const singleProductImage =({mainImage , otherImage})=>{
                             return(
                                 <SwiperSlide style={{borderRadius : "8px" , padding : '5px'}} key={index}>
                                     <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                                        <Image fill alt={'test'} src={singleImage} />
+                                        <Image fill alt={'test'} src={mainImage.src} />
                                     </Box>
                                 </SwiperSlide>
                             )
-                        },[])
+                        })
                     }
                 </Swiper>
             </Box>

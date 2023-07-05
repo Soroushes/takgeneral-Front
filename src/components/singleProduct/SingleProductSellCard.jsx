@@ -1,14 +1,12 @@
 import {Box} from "@mui/system";
 import {Button, Typography} from "@mui/material";
 import CartEditionButton from "../share/CartEditionButton";
-import {useProductServiceItems} from "../../hooks/useProductServiceItems";
 import PriceDiscount from "../share/PriceDiscount";
 import freeDelivery from '../../assets/images/routing.png';
 import Image from "next/image";
 import Suggestion from "../../assets/icons/suggestion.svg";
 
 const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty , id, opinionRef})=>{
-    const productDetailItems = useProductServiceItems({freeSent  , wareHouseExist : available , notFakeWarranty : true , sevenDaysBack , warranty}) ;
     const scrollToOpinion=()=>{
         window.scrollTo({
             top :opinionRef.current?.offsetTop-150 ,
@@ -45,19 +43,6 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                 <Typography variant={'body2'}>ارسال رایگان</Typography>
             </Box>
             <Box sx={{px : 2 , pb : 3 , backgroundColor : "#fff" , borderRadius : 2  , display:'flex' , flexDirection :'column'  ,gap:2}}>
-                {/*<Box>*/}
-                {/*{*/}
-                {/*    productDetailItems.map((cardData )=>{*/}
-                {/*       return(*/}
-                {/*           cardData.show ?*/}
-                {/*           <Fragment key={cardData.title}>*/}
-                {/*               <Typography variant={'body1'} sx={{display : "flex" , alignItems : "center" , gap : 2 , py : 2}}>{cardData.icon} {cardData.title} </Typography>*/}
-                {/*               <Divider />*/}
-                {/*           </Fragment> : null*/}
-                {/*       )*/}
-                {/*    })*/}
-                {/*}*/}
-                {/*</Box>*/}
                 <Typography sx={{fontWeight : "bold", borderBottom:'1px solid #eee' , py:1}} variant={'body1'}>قیمت محصول</Typography>
                 <Box sx={{ mt : 3 , px : 2 , display:'flex' , justifyContent:'end'}}>
                     <PriceDiscount price={price} finalPrice={finalPrice} discount={discount} fontSize={'h5'} isDiscountNear={true}/>

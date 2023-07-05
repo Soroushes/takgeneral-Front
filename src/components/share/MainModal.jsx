@@ -10,13 +10,12 @@ import AppBar from "@mui/material/AppBar";
 import {Box} from "@mui/system";
 import Toolbar from "@mui/material/Toolbar";
 import CloseIcon from '@mui/icons-material/Close';
-import {useEffect, useState} from "react";
-import theme from "../../assets/theme/theme";
+import {useEffect} from "react";
+import {useSelector} from "react-redux";
 
 const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFullScreen}) => {
-    const [innerWidth, setInnerWidth] = useState(null);
+    const {isMobile} = useSelector(state => state.deviceInfo)
     useEffect(() => {
-        setInnerWidth(window.innerWidth);
         if (open) {
             document.body.style.position = "fixed";
         } else {
@@ -27,7 +26,7 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
         innerWidth ?
             <>
                 {
-                    window.innerWidth >= theme.breakpoints.values.md ? (
+                    !isMobile ? (
                         <Dialog
                             PaperProps={{sx: {width: '100%', aspectRatio: desktopFullScreen ? '1/1' : ''}}}
                             sx={{display: {xs: 'none ', md: 'block'}}}

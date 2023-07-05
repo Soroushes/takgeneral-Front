@@ -29,11 +29,11 @@ export default function Page() {
 
     ]
     return (
-            <Container>
+            <Container disableGutters={true}>
                 <Box sx={{position: "relative", width: '100%', aspectRatio : isMobile ? '2.5/1' : '3.5/1'  , mt : 1 , mb : 3}}>
                     <Image src={categoryBanner} style={{borderRadius: '8px'}} fill alt={'banner'}/>
                 </  Box>
-                <Typography fontWeight={'bold'} variant={'h2'} component={'h1'}>پمپ و تجهیزات جانبی</Typography>
+                <Typography sx={{px : 1}} fontWeight={'bold'} variant={'h2'} component={'h1'}>پمپ و تجهیزات جانبی</Typography>
                 <Grid container sx={{my : 5}} rowGap={6}    >
                     <Grid sx={{px : 1}} item xs={6} md={3}>
                         <OuterImageSection image={sortImage} description={'hi'} title={'pomp1'}/>
@@ -54,8 +54,8 @@ export default function Page() {
                         <OuterImageSection image={sortImage} description={'hi'} title={'pomp1'}/>
                     </Grid>
                 </Grid>
-                <Typography fontWeight={'bold'} variant={'h2'} component={'h2'}>انواع برند ها</Typography>
-                <SectionSlider innerImage={true} sections={brands}/>
+                <Typography sx={{px : 1}} fontWeight={'bold'} variant={'h2'} component={'h2'}>انواع برند ها</Typography>
+                    <SectionSlider innerImage={true} sections={brands}/>
                 <Grid sx={{my : 4}} container rowGap={2}>
                     <Grid sx={{px : 1}} item xs={12} md={6} >
                         <Box sx={{aspectRatio : '2.5/1'}} position={'relative'}>

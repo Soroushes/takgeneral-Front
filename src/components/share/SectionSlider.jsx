@@ -21,7 +21,7 @@ const SectionSlider = ({sections , innerImage}) => {
                     {
                         sections.map((section) => {
                             return (
-                                <SwiperSlide key={Math.random() * 1000} style={{width: 175 , padding : '50px 0'}}>
+                                <SwiperSlide key={Math.random() * 1000} style={{width: 160 , padding : '50px 0'}}>
                                     {
                                         innerImage ?
                                             <InnerImageSection name={section.name} image={section.image}/>:
