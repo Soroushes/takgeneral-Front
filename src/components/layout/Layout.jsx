@@ -14,14 +14,13 @@ import {SET_DESKTOP_HEIGHT, SET_DEVICE_INFO} from "../../redux/slices/deviceInfo
 const hideLayoutPaths = ['/login'];
 const Layout = ({children}) => {
     const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight, isMobile} = useSelector(state => state.deviceInfo);
-    console.log(desktopHeaderHeight, mobileHeaderHeight)
     const pathname = usePathname();
     const [showLayout, setShowLayout] = useState(true);
     const dispatcher = useDispatch();
     const {full_name, phone_number} = useSelector(state => state.userInfo);
     const desktopHeaderRef = useRef(null)
     useEffect(() => {
-        dispatcher(SET_DEVICE_INFO());
+        dispatcher(SET_DEVICE_INFO({firstTime : true}));
         dispatcher(SET_DESKTOP_HEIGHT(desktopHeaderRef.current.clientHeight));
         dispatcher(fetchInfo());
         dispatcher(fetchCart());
@@ -35,7 +34,6 @@ const Layout = ({children}) => {
     }, [pathname])
     return (
         <>
-
             <Box sx={{position: 'relative', zIndex: 10}}>
                 {
                     isMobile ? <MobileHeader size={mobileHeaderHeight} status={{full_name, phone_number}}/> :

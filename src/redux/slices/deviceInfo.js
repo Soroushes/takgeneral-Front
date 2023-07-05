@@ -15,8 +15,8 @@ const deviceInfo = createSlice({
         SET_DEVICE_INFO: (state) => {
             return {
                 ...state ,
-              innerWidth: window.innerWidth ,
-              isMobile : Theme.breakpoints.values.md > window.innerWidth
+              innerWidth: window.outerWidth ,
+              isMobile : Theme.breakpoints.values.md > window.outerWidth
             }
         },
         SET_DESKTOP_HEIGHT : (state ,action)=>{

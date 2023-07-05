@@ -1,8 +1,9 @@
 import Slider from "../components/home/Slider";
 import FullSizeProductSlider from "../components/home/fullSizeProductSlider";
 import {BASE_URL} from "../data/urls";
-import 'swiper/swiper.css'
-import ProductSortSection from "../components/home/ProductSortSection";
+import 'swiper/swiper.css' ;
+import anPic from '../assets/images/an.png'
+import HomePageCategorySection from "../components/home/HomePageCategorySection";
 async function getData() {
     const res = await fetch(`${BASE_URL}home/`, {next: {revalidate: 60}})
     if (!res.ok) {
@@ -10,31 +11,32 @@ async function getData() {
     }
     return res.json()
 }
-
 export default async function Page() {
-    const sortItems = [{
-        name: 'پمپ و تجهیزات',
-        id: 1,
-        description: 'good pomp',
-        product_image: `${BASE_URL}media/Group_2073.png`
-    }, {
-        name: 'کولر گازی',
-        id: 2,
-        description: 'good pomp',
-        product_image: `${BASE_URL}media/Group_2073.png`
-    }, {
-        name: 'نمیدانم اطلاعی ندارم',
-        id: 3,
-        description: 'good pomp',
-        product_image: `${BASE_URL}media/Group_2073.png`
-    }, {name: 'خانگی', id: 4, description: 'good pomp', product_image: `${BASE_URL}media/Group_2073.png`}]
+    const fakeSortData = [
+        {
+            title : 'ابزار دقیق' ,
+            image : anPic
+        },
+        {
+            title : 'ابزار دقیق' ,
+            image : anPic
+        },{
+            title : 'ابزار دقیق' ,
+            image : anPic
+        },
+        {
+            title : 'ابزار دقیق' ,
+            image : anPic
+        },
+
+    ]
     const data = getData();
     // data.products bayad map bokhore dar productsortsection
     return (
         <>
             <Slider slides={data.sliders}/>
-            <div style={{backgroundColor : '#fff' , position : 'relative' , zIndex : 2}}>
-                <ProductSortSection sortItems={sortItems}/>
+            <div style={{backgroundColor : '#fff' , position : 'relative' , zIndex : 2 , borderRadius : '20px' , padding : '20px 0 '}}>
+                <HomePageCategorySection categories={fakeSortData}/>
                 <FullSizeProductSlider backgroundColor={'primary.main'}/>
                 <FullSizeProductSlider backgroundColor={'primary.main'}/>
                 <FullSizeProductSlider backgroundColor={'primary.main'}/>

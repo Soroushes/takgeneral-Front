@@ -18,7 +18,10 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                     pb : 1.5,
                     borderRadius: 2,
                     height : '300px',
-                    position: "relative"
+                    position: "relative" ,
+                    '&:hover img' : {
+                        transform : 'scale(1) !important'
+                    }
                 }}>
                 {
                     discountPercent ?
@@ -39,8 +42,8 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                             }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%
                         </Typography> : null
                 }
-                <Box sx={{position: 'relative', aspectRatio: "1/1", width: "80%" , mx : 'auto'}}>
-                    <Image fill src={image} alt={title}/>
+                <Box sx={{position: 'relative', aspectRatio: "1/1", width: "85%" , mx : 'auto'}}>
+                    <Image style={{transform : 'scale(0.9)' ,transition : 'all .3s'}} fill src={image} alt={title}/>
                 </Box>
                 <Box  sx={{height : '78px' , overflow : "hidden" , display : 'flex' , alignItems : 'center'}}>
                     <Typography
