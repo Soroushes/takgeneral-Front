@@ -16,7 +16,7 @@ const singleProductImage =({mainImage , otherImage})=>{
             <Box sx={{mb: 1}}>
                 <Swiper
                     spaceBetween={10}
-                    thumbs={{ swiper: thumbsSwiper }}
+                    thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                     modules={[FreeMode, Thumbs]}
                 >
                     <SwiperSlide>
