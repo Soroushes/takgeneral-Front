@@ -8,6 +8,7 @@ import { urls } from "src/data/urls";
 const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price , id , shadow}) => {
     return (
         <Link href={urls.singleProduct + id}>
+            <Box></Box>
             <Stack
                 justifyContent={'space-between'}
                 sx={{
