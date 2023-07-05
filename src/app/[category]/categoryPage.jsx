@@ -4,7 +4,6 @@ import Image from "next/image";
 import {Grid, Container, Pagination, MenuItem, TextField, Button, Typography, Divider} from "@mui/material";
 import ProductPreviewCard from "../../components/share/ProductPreviewCard";
 import CheckBoxFilter from "src/components/share/CheckBoxFilter";
-import testBanner from '../../../public/testBanner.png'
 import {usePathname, useRouter } from "next/navigation";
 import MainModal from "../../components/share/MainModal";
 import {useEffect, useRef, useState} from "react";
@@ -17,7 +16,7 @@ import pompSectionImage from '../../assets/images/pomp 1.png';
 import 'swiper/swiper.css';
 import theme from "../../assets/theme/theme";
 import {useSelector} from "react-redux";
-const sortValueItems = [
+const sortValueItems =  [
     {
         name: "جدیدترین",
         value: "newest"
@@ -76,7 +75,7 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
             {
                 isMobile ?
                     <Box sx={{width: '100%', aspectRatio: '3/1', position: 'relative', p: 0}}>
-                        <Image fill alt={''} src={testBanner}/>
+                        <Image fill alt={''} src={Banner}/>
                     </Box>:
                     <Box sx={{
                         width: '100%',
@@ -91,47 +90,59 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
             <Container ref={productBoxRef} maxWidth={'lg'}>
                 <SectionSlider innerImage={false} sections={testSections}/>
                 <Grid container>
-                    <Grid item xs={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
+                    <Grid item xs={12} >
+                        {
+                            isMobile ?
+                                <Box sx={{mb: 2, gap: 1}}>
+                                    <Button size={'small'} onClick={() => setOpenFilterModal(true)} color={'btnGray'}
+                                            variant={'contained'}>
+                                        <FilterAltIcon/>
+                                        فیلتر
+                                    </Button>
+                                    <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnGray'}
+                                            variant={'contained'}>
+                                        {
+                                            sortValueItems.find((item) => item.value === sortValue).name
+                                        }
+                                        <KeyboardArrowDownIcon/>
+                                    </Button>
+                                </Box>:
+                                <Box display={'flex'}>
+                                    <Box sx={{width:'30%'}}></Box>
+                                    <Box sx={{mb: 2}}>
+                                        <TextField
+                                            sx={{width: "150px"}}
+                                            size={'small'}
+                                            select
+                                            value={sortValue}
+                                            label="براساس"
+                                            onChange={(e) => handleSortOnchange(e.target.value)}
+                                        >
+                                            {
+                                                sortValueItems.map((sortItem) => (
+                                                    <MenuItem key={sortItem.value} variant={'subtitle1'}
+                                                              value={sortItem.value}>{sortItem.name}</MenuItem>
+                                                ))
+                                            }
+                                        </TextField>
+                                    </Box>
+                                </Box>
+                        }
+                    </Grid>
+                    {
+                        !isMobile &&
+                        <Grid item md={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
                             <Box sx={{p: 2, borderRadius: 2 , backgroundColor:'#fff' , boxShadow: theme.shadows[1] , width:'100%'}}>
                                 <CheckBoxFilter key={noQueryPath} subFilter={brands}/>
                             </Box>
-                    </Grid>
-                    <Box sx={{width: {xs: '100%', md: '70%'}}}>
-                        <Box sx={{mb: 2, display: {xs: "none", md: "block"}}}>
-                            <TextField
-                                sx={{width: "150px"}}
-                                size={'small'}
-                                select
-                                value={sortValue}
-                                label="براساس"
-                                onChange={(e) => handleSortOnchange(e.target.value)}
-                            >
-                                {
-                                    sortValueItems.map((sortItem) => (
-                                        <MenuItem key={sortItem.value} variant={'subtitle1'}
-                                                  value={sortItem.value}>{sortItem.name}</MenuItem>
-                                    ))
-                                }
-                            </TextField>
-                        </Box>
-                        <Box sx={{mb: 2, gap: 1, display: {xs: "flex", md: "none"}}}>
-                            <Button size={'small'} onClick={() => setOpenFilterModal(true)} color={'btnGray'}
-                                    variant={'contained'}>
-                                <FilterAltIcon/>
-                                فیلتر
-                            </Button>
-                            <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnGray'}
-                                    variant={'contained'}>
-                                {
-                                    sortValueItems.find((item) => item.value === sortValue).name
-                                }
-                                <KeyboardArrowDownIcon/>
-                            </Button>
-                        </Box>
-                        <Grid container sx={{borderRadius: 2, p: .2}}>
+                        </Grid>
+
+                    }
+                    <Grid item xs={12} md={8.5} >
+                        <Grid container sx={{borderRadius: 2}}>
                             {
                                 product.map((productItem) => (
-                                    <Grid key={productItem.id} item sx={{p: .8}} xs={6} sm={4} lg={3}>
+                                    <Grid key={productItem.id} item sx={{ pb:1.6 , pl:.8 , pr:.8}} xs={6} sm={4} lg={3}>
                                         <ProductPreviewCard
                                             shadow={true}
                                             id={productItem.id}
@@ -143,11 +154,11 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                                 ))
                             }
                         </Grid>
-                        <Box sx={{display: "flex", justifyContent: "center", mt: 4}}>
+                        <Box sx={{display: "flex", justifyContent: "end", mt: 4}}>
                             <Pagination shape={'rounded'} onChange={handlePaginationChange} page={current_page} count={page_count}
                                         color={'secondary'} />
                         </Box>
-                    </Box>
+                    </Grid>
                 </Grid>
             </Container>
             <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلتر'}>

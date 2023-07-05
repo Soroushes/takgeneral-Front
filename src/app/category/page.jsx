@@ -2,7 +2,7 @@
 import {Box, Container, Grid, Typography} from "@mui/material";
 import categoryBanner from '../../assets/images/categoryBanner.png';
 import Image from "next/image";
-import SortSection from "../../components/share/SortSection";
+import OuterImageSection from "../../components/share/OuterImageSection";
 import sortImage from '../../assets/images/testSort.png'
 import SectionSlider from "../../components/share/SectionSlider";
 import brandImage from '../../assets/images/pentax (1).png';
@@ -36,22 +36,22 @@ export default function Page() {
                 <Typography fontWeight={'bold'} variant={'h2'} component={'h1'}>پمپ و تجهیزات جانبی</Typography>
                 <Grid container sx={{my : 5}} rowGap={6}    >
                     <Grid sx={{px : 1}} item xs={6} md={3}>
-                        <SortSection image={sortImage} description={'hi'} title={'pomp1'}/>
+                        <OuterImageSection image={sortImage} description={'hi'} title={'pomp1'}/>
                     </Grid>
                     <Grid sx={{px : 1}} item xs={6} md={3}>
-                        <SortSection image={sortImage} description={'hi'} title={'pomp1'}/>
+                        <OuterImageSection image={sortImage} description={'hi'} title={'pomp1'}/>
                     </Grid>
                     <Grid sx={{px : 1}} item xs={6} md={3}>
-                        <SortSection image={sortImage} description={'hi'} title={'pomp1'}/>
+                        <OuterImageSection image={sortImage} description={'hi'} title={'pomp1'}/>
                     </Grid>
                     <Grid sx={{px : 1}} item xs={6} md={3}>
-                        <SortSection image={sortImage} description={'hi'} title={'pomp1'}/>
+                        <OuterImageSection image={sortImage} description={'hi'} title={'pomp1'}/>
                     </Grid>
                     <Grid sx={{px : 1}} item xs={6} md={3}>
-                        <SortSection image={sortImage} description={'hi'} title={'pomp1'}/>
+                        <OuterImageSection image={sortImage} description={'hi'} title={'pomp1'}/>
                     </Grid>
                     <Grid sx={{px : 1}} item xs={6} md={3}>
-                        <SortSection image={sortImage} description={'hi'} title={'pomp1'}/>
+                        <OuterImageSection image={sortImage} description={'hi'} title={'pomp1'}/>
                     </Grid>
                 </Grid>
                 <Typography fontWeight={'bold'} variant={'h2'} component={'h2'}>انواع برند ها</Typography>

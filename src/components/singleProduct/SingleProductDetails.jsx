@@ -72,7 +72,7 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                             !IsShowAllDetails && index > 7 ? null
                                 :
                                 <Box
-                                    key={detail.id}
+                                    key={index}
                                     sx={{
                                         display: "flex",
                                         justifyContent: "space-between",

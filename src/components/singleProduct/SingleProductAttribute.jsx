@@ -1,8 +1,7 @@
-import { Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import Suggestion from '../../assets/icons/suggestion.svg'
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails ,opinionRef})=>{
+const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails })=>{
     const scrollToDetails = () => {
         setShowAllDetails(true) ;
         //goToDetails.current?.scrollIntoView({behavior: 'smooth' , block : 'nearest' , inline : 'start' });
@@ -11,12 +10,6 @@ const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails 
             behavior : 'smooth'
         })
       };
-    const scrollToOpinion=()=>{
-        window.scrollTo({
-            top :opinionRef.current?.offsetTop-150 , 
-            behavior : 'smooth'
-        })
-    };
     return (
         <Box>
             <Typography variant="h4" sx={{fontWeight : 'bold' , mb : 3}} component={'h1'}>{name}</Typography>
@@ -32,7 +25,7 @@ const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails 
                     attributes?.map((attr , index)=>{
                         if (index  > 6) return null
                         return(
-                            <Typography  key={attr.id} sx={{listStyleType : "disc" , listStylePosition : "inside"}} variant="body1"  component={'li'} > {attr.title} : {attr.value}</Typography>
+                            <Typography  key={index} sx={{listStyleType : "disc" , listStylePosition : "inside"}} variant="body1"  component={'li'} > {attr.title} : {attr.value}</Typography>
                         )
                     })
                 }
@@ -46,14 +39,6 @@ const singleProductAttribute = ({attrRef, attributes , name , setShowAllDetails 
                 :
                 null
             }
-            <Button variant="contained" onClick={scrollToOpinion} color={'primary'} sx={{p:0 , borderRadius:2}} >
-                <Box sx={{width:'100%' , display :'flex' , gap:1 , alignItems :'center'}}>
-                    <Box sx={{p:1 , display :'flex' , alignItems :'center', backgroundColor :'primary.dark' , borderRadius: '8px 0 0 8px' }}>
-                        <Suggestion/>
-                    </Box>
-                    <Typography sx={{pr :1 , py:1 }} color={'white'}>نظرات و سوالات کاربران</Typography>
-                </Box>
-            </Button>
         </Box>
     )
 }

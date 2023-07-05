@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import theme from "../../assets/theme/theme";
 
-const SortSection = ({image, description, title}) => {
+const OuterImageSection = ({image, description, title}) => {
     return (
         <Link href={'/'}>
             <Box
@@ -71,4 +71,4 @@ const SortSection = ({image, description, title}) => {
     )
 
 };
-export default SortSection;
+export default OuterImageSection;

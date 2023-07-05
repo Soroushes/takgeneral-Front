@@ -43,7 +43,6 @@ const CategoryListGenerator = ({category}) => {
         <>
             <Typography component={'h1'} textAlign={'center'}>{pageCategory.title}</Typography>
             <Paper
-                elevation={4}
                 sx={{
                 display: "flex",
                 padding : '10px 10px 0 10px',

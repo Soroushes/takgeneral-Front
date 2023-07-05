@@ -1,5 +1,5 @@
 'use client'
-import SortSection from "../share/SortSection";
+import OuterImageSection from "../share/OuterImageSection";
 import {Container, Grid, Typography} from "@mui/material";
 const ProductSortSection =({sortItems})=>{
     return(
@@ -11,8 +11,8 @@ const ProductSortSection =({sortItems})=>{
                     sortItems.map((sortItem , index) => {
                         return (
                             <Grid item key={index} sm={4} lg={3} xs={6} sx={{px: 1}}>
-                                <SortSection image={sortItem.product_image}
-                                            title={sortItem.name} description={sortItem.description}/>
+                                <OuterImageSection image={sortItem.product_image}
+                                                   title={sortItem.name} description={sortItem.description}/>
                             </Grid>
                         )
                     })

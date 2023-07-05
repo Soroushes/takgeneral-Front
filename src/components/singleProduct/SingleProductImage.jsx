@@ -8,11 +8,11 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import Image from "next/image";
-
+import singleImage from '../../assets/images/Rectangle 1.png'
 const singleProductImage =({mainImage , otherImage})=>{
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return(
-        <Paper elevation={8} sx={{padding : '15px 15px 7px 15px' , borderRadius : 2}}>
+        <Paper sx={{padding : '15px 15px 7px 15px' , borderRadius : 2}}>
             <Box sx={{mb: 1}}>
                 <Swiper
                     spaceBetween={10}
@@ -22,21 +22,22 @@ const singleProductImage =({mainImage , otherImage})=>{
                     <SwiperSlide>
                         <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
                             {
-                                mainImage ? <Image fill alt={'test'} src={mainImage} /> : null
+                                mainImage ? <Image fill alt={'test'} src={singleImage} /> : null
                             }
                         </Box>
                     </SwiperSlide>
                     {
-                        otherImage?.map((item)=>{
+                        otherImage?.map((item , index)=>{
                             return(
-                                <SwiperSlide key={item.id}>
+                                <SwiperSlide key={index}>
                                     <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                                        <Image fill alt={'test'} src={''} />
+                                        <Image fill alt={'test'} src={singleImage} />
                                     </Box>
                                 </SwiperSlide>
                             )
                         },[])
                     }
+
                 </Swiper>
             </Box>
             <Box>
@@ -51,16 +52,16 @@ const singleProductImage =({mainImage , otherImage})=>{
                     <SwiperSlide style={{borderRadius : "8px"  , padding : '5px'}}>
                         <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
                             {
-                                mainImage ? <Image fill alt={'test'} src={mainImage} /> : null
+                                mainImage ? <Image fill alt={'test'} src={singleImage} /> : null
                             }
                         </Box>
                     </SwiperSlide>
                     {
-                        otherImage?.map((item)=>{
+                        otherImage?.map((item , index)=>{
                             return(
-                                <SwiperSlide style={{borderRadius : "8px" , padding : '5px'}} key={item.id}>
+                                <SwiperSlide style={{borderRadius : "8px" , padding : '5px'}} key={index}>
                                     <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                                        <Image fill alt={'test'} src={item.image} />
+                                        <Image fill alt={'test'} src={singleImage} />
                                     </Box>
                                 </SwiperSlide>
                             )
