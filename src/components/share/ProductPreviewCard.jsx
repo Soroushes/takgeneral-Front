@@ -19,7 +19,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                     borderRadius: 2,
                     height : '300px',
                     position: "relative",
-                    boxShadow: shadow ? 2 : 0
+                    boxShadow: shadow ? shadow : 0
                 }}>
                 {
                     discountPercent ?

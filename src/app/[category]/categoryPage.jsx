@@ -11,8 +11,8 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {BASE_URL} from "../../data/urls";
 import Banner from '../../assets/images/categoryBanner1.jpg'
-import SectionSlider from "../../components/share/SectionSlider";
 import pompSectionImage from '../../assets/images/pomp 1.png';
+import CategorySlider from "../../components/share/CategorySlider";
 import 'swiper/swiper.css';
 import {useSelector} from "react-redux";
 const sortValueItems =  [
@@ -91,7 +91,7 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
 
             }
             <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
-                <SectionSlider innerImage={false} sections={testSections}/>
+                <CategorySlider category={testSections}/>
                 <Grid sx={{px : 1.5}} container>
                     <Grid item xs={12} >
                         {
@@ -135,7 +135,7 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                     {
                         !isMobile &&
                         <Grid item md={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
-                            <Box sx={{p: 2, borderRadius: 2 , backgroundColor:'#fff' , boxShadow: 2 , width:'100%'}}>
+                            <Box sx={{p: 2, borderRadius: 2 , backgroundColor:'#fff' , boxShadow: 1 , width:'100%'}}>
                                 <CheckBoxFilter key={noQueryPath} subFilter={brands}/>
                             </Box>
                         </Grid>
@@ -147,7 +147,7 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                                 product.map((productItem) => (
                                     <Grid key={productItem.id} item sx={{ pb:1.6 , pl:.8 , pr:.8}} xs={6} sm={4} lg={3}>
                                         <ProductPreviewCard
-                                            shadow={true}
+                                            shadow={2}
                                             id={productItem.id}
                                             price={productItem.price} title={productItem.name}
                                             discountPercent={+productItem.discount}

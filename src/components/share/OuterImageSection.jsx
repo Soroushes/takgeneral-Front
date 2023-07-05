@@ -4,7 +4,7 @@ import {Box} from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 
-const OuterImageSection = ({image, description, title}) => {
+const OuterImageSection = ({image, description, title , shadow=1 ,descriptionVariant='subtitle1' , titleVariant='h4'}) => {
     return (
         <Link href={'/'}>
             <Box
@@ -17,7 +17,7 @@ const OuterImageSection = ({image, description, title}) => {
                     alignItems: "center",
                     pb: 1,
                     px: 1,
-                    boxShadow : 2 ,
+                    boxShadow : shadow ,
                     "&:hover img": {
                         transform: "scale(1) !important",
                         marginTop: '-15px'
@@ -40,7 +40,7 @@ const OuterImageSection = ({image, description, title}) => {
                     <Typography
                         textAlign={'center'}
                         component={"h2"}
-                        variant={"h4"}
+                        variant={titleVariant}
                         sx={{mt: 2 , mb : 1 , width : '100%'}}
                         overflow={'hidden'}
                         textOverflow={'ellipsis'}
@@ -51,7 +51,7 @@ const OuterImageSection = ({image, description, title}) => {
                     {
                         description &&
                         <Typography
-                            variant={'subtitle1'}
+                            variant={descriptionVariant}
                             component={"p"}
                             color={'text.muted'}
                             textAlign={'center'}
