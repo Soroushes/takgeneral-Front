@@ -55,7 +55,7 @@ const CheckBoxFilter = ({subFilter}) => {
     //
     return (
         <>
-            <FormLabel sx={{borderBottom: '1px solid #ccc', pb: 1, fontSize: 14, mb: 1}} component="legend">
+            <FormLabel sx={{ pb: 1, fontSize: 14, mb: 1}} component="legend">
                 برندهای پمپ
             </FormLabel>
             {

@@ -3,6 +3,7 @@ import {Typography,} from "@mui/material";
 import {Box} from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
+import theme from "../../assets/theme/theme";
 
 const SortSection = ({image, description, title}) => {
     return (
@@ -17,7 +18,7 @@ const SortSection = ({image, description, title}) => {
                     alignItems: "center",
                     pb: 1,
                     px: 1,
-                    boxShadow : '0 20px 50px rgba(0,0,0,9%)' ,
+                    boxShadow : theme.shadows[1] ,
                     "&:hover img": {
                         transform: "scale(1) !important",
                         marginTop: '-15px'

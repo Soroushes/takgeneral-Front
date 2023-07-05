@@ -41,6 +41,11 @@ const theme = createTheme({
             color: "#505050"
         }
     },
+    shadows :[
+        'none' ,
+        '0 20px 50px rgba(0,0,0,9%)',
+        '0 8px 50px rgba(0,0,0,5%)'
+    ],
     components: {
         MuiInputLabel: {
             styleOverrides: {

@@ -5,14 +5,18 @@ import {Grid, Container, Pagination, MenuItem, TextField, Button, Typography, Di
 import ProductPreviewCard from "../../components/share/ProductPreviewCard";
 import CheckBoxFilter from "src/components/share/CheckBoxFilter";
 import testBanner from '../../../public/testBanner.png'
-import CategoryListGenerator from "../../components/products/CategoryListGenerator";
 import {usePathname, useRouter } from "next/navigation";
 import MainModal from "../../components/share/MainModal";
 import {useEffect, useRef, useState} from "react";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Paper from "@mui/material/Paper";
 import {BASE_URL} from "../../data/urls";
+import Banner from '../../assets/images/categoryBanner1.jpg'
+import SectionSlider from "../../components/share/SectionSlider";
+import pompSectionImage from '../../assets/images/pomp 1.png';
+import 'swiper/swiper.css';
+import theme from "../../assets/theme/theme";
+import {useSelector} from "react-redux";
 const sortValueItems = [
     {
         name: "جدیدترین",
@@ -26,8 +30,15 @@ const sortValueItems = [
         name: "ارزان ترین",
         value: "price"
     }
+];
+const testSections = [
+    {image :pompSectionImage , name : 'pompe abe jeti'},
+    {image :pompSectionImage , name : 'pompe abe mohiti'},
+    {image :pompSectionImage , name : 'pompe abe do prvane'},
+    {image :pompSectionImage , name : 'pompe abe boshghabi'},
+    {image :pompSectionImage , name : 'pompe abe jeti'},
+    {image :pompSectionImage , name : 'pompe abe jeti'},
 ]
-
 const CategoryPage = ({product, brands, current_page, page_count}) => {
     const {push} = useRouter();
     const noQueryPath = usePathname() ;
@@ -35,6 +46,7 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
     const [openSortModal, setOpenSortModal] = useState(false);
     const [sortValue, setSortValue] = useState('newest');
     const productBoxRef = useRef(null);
+    const {isMobile} = useSelector(state => state.deviceInfo)
     useEffect(() => {
         setSortValue('newest')
     }, [noQueryPath])
@@ -58,31 +70,31 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
             }
         }, undefined, {scroll: false})
     }
+
     return (
         <Box sx={{minHeight: "100vh", backgroundColor: "#fff"}}>
-            <Box sx={{
-                width: '100%',
-                aspectRatio: '8/1',
-                position: 'relative',
-                p: 0,
-                display: {xs: "none", md: "block"}
-            }}>
-                <Image fill alt={''} src={testBanner}/>
-            </Box>
-            <Box sx={{width: '100%', aspectRatio: '3/1', position: 'relative', p: 0, display: {md: "none"}}}>
-                <Image fill alt={''} src={testBanner}/>
-            </Box>
+            {
+                isMobile ?
+                    <Box sx={{width: '100%', aspectRatio: '3/1', position: 'relative', p: 0}}>
+                        <Image fill alt={''} src={testBanner}/>
+                    </Box>:
+                    <Box sx={{
+                        width: '100%',
+                        aspectRatio: '4/1',
+                        position: 'relative',
+                        p: 0
+                    }}>
+                        <Image fill alt={''} src={Banner}/>
+                    </Box>
+
+            }
             <Container ref={productBoxRef} maxWidth={'lg'}>
-                <Box sx={{my: 2}}>
-                    <CategoryListGenerator category={'pomp'}/>
-                </Box>
+                <SectionSlider innerImage={false} sections={testSections}/>
                 <Grid container>
                     <Grid item xs={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
-                        <Box sx={{width: "100%"}}>
-                            <Paper elevation={3} sx={{p: 2, borderRadius: 2}}>
+                            <Box sx={{p: 2, borderRadius: 2 , backgroundColor:'#fff' , boxShadow: theme.shadows[1] , width:'100%'}}>
                                 <CheckBoxFilter key={noQueryPath} subFilter={brands}/>
-                            </Paper>
-                        </Box>
+                            </Box>
                     </Grid>
                     <Box sx={{width: {xs: '100%', md: '70%'}}}>
                         <Box sx={{mb: 2, display: {xs: "none", md: "block"}}}>
@@ -116,11 +128,12 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                                 <KeyboardArrowDownIcon/>
                             </Button>
                         </Box>
-                        <Grid container sx={{borderRadius: 2, boxShadow: 3, backgroundColor: "#f6f6f6", p: .2}}>
+                        <Grid container sx={{borderRadius: 2, p: .2}}>
                             {
                                 product.map((productItem) => (
-                                    <Grid key={productItem.id} item sx={{p: .2}} xs={6} sm={4} lg={3}>
+                                    <Grid key={productItem.id} item sx={{p: .8}} xs={6} sm={4} lg={3}>
                                         <ProductPreviewCard
+                                            shadow={true}
                                             id={productItem.id}
                                             price={productItem.price} title={productItem.name}
                                             discountPercent={+productItem.discount}
@@ -131,8 +144,8 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                             }
                         </Grid>
                         <Box sx={{display: "flex", justifyContent: "center", mt: 4}}>
-                            <Pagination onChange={handlePaginationChange} page={current_page} count={page_count}
-                                        color={'primary'} size={'large'}/>
+                            <Pagination shape={'rounded'} onChange={handlePaginationChange} page={current_page} count={page_count}
+                                        color={'secondary'} />
                         </Box>
                     </Box>
                 </Grid>

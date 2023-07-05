@@ -12,7 +12,8 @@ async function getData() {
 }
 
 export default async function Page() {
-    const sortItems = [{
+    const sortItems = [
+        {
         name: 'پمپ و تجهیزات',
         id: 1,
         description: 'good pomp',

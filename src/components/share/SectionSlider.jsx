@@ -6,8 +6,9 @@ import {Box} from "@mui/material";
 import {FreeMode, Navigation} from "swiper";
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import SortSection from "./SortSection";
 
-const BrandSlider = ({brands}) => {
+const SectionSlider = ({sections , innerImage}) => {
     return (
         <Box>
             <Container disableGutters={true}>
@@ -18,10 +19,14 @@ const BrandSlider = ({brands}) => {
                     }}
                      spaceBetween={'15px'}>
                     {
-                        brands.map((brand) => {
+                        sections.map((section) => {
                             return (
                                 <SwiperSlide key={Math.random() * 1000} style={{width: 175 , padding : '50px 0'}}>
-                                    <BrandName name={brand.name} image={brand.image}/>
+                                    {
+                                        innerImage ?
+                                            <BrandName name={section.name} image={section.image}/>:
+                                            <SortSection image={section.image} title={section.name}/>
+                                    }
                                 </SwiperSlide>
                             )
                         })
@@ -32,4 +37,4 @@ const BrandSlider = ({brands}) => {
 
     )
 }
-export default BrandSlider;
+export default SectionSlider;
