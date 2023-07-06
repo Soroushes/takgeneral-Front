@@ -9,16 +9,16 @@ const PriceDiscount = ({discountFont = 'subtitle1', discountPrice, finalPrice , 
                 display: 'flex',
                 flexDirection: 'column',
             }}>
-                {discountPrice &&
+                {discountPrice!==finalPrice &&
                     <Box sx={{display: ' flex', gap: .5}}>
                         <Typography variant={discountFont} sx={{textDecoration: "line-through"}}>
                             {PN.convertEnToPe(PN.sliceNumber(Math.trunc(discountPrice)))} تومان
                         </Typography>
                     </Box>
                 }
-                <Typography component={'span'} variant={fontSize} fontWeight={'bold'} color={'primary'}>
+                <Typography component={'span'} variant={fontSize} color={'primary'}>
                     {PN.convertEnToPe(PN.sliceNumber(Math.trunc(finalPrice)))}
-                    <Typography fontWeight={'bold'} component={'span'} color={'primary'} variant={fontSize}> تومان </Typography>
+                    <Typography component={'span'} color={'primary'} variant={fontSize}> تومان </Typography>
                 </Typography>
             </Box>
         </Stack>

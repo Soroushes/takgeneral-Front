@@ -1,9 +1,12 @@
 import Slider from "../components/home/Slider";
-import FullSizeProductSlider from "../components/home/fullSizeProductSlider";
+import DiscountProductSlider from "../components/home/DiscountProductSlider";
 import {BASE_URL} from "../data/urls";
 import 'swiper/swiper.css' ;
 import anPic from '../assets/images/an.png'
 import HomePageCategorySection from "../components/home/HomePageCategorySection";
+import Image from "next/image";
+import testBanner from '../assets/images/1.png'
+import ProductBanners from "../components/home/productBanners";
 async function getData() {
     const res = await fetch(`${BASE_URL}home/`, {next: {revalidate: 60}})
     if (!res.ok) {
@@ -35,11 +38,10 @@ export default async function Page() {
     return (
         <>
             <Slider slides={data.sliders}/>
-            <div style={{backgroundColor : '#fff' , position : 'relative' , zIndex : 2 , borderRadius : '20px' , padding : '20px 0 '}}>
+            <div style={{backgroundColor : '#fff' , position : 'relative' , zIndex : 2 , borderRadius : '12px' , padding : '20px 0 '}}>
                 <HomePageCategorySection categories={fakeSortData}/>
-                <FullSizeProductSlider backgroundColor={'primary.main'}/>
-                <FullSizeProductSlider backgroundColor={'primary.main'}/>
-                <FullSizeProductSlider backgroundColor={'primary.main'}/>
+                <DiscountProductSlider/>
+                <ProductBanners banners={[{src : testBanner} , {src: testBanner} , {src : testBanner}]}/>
             </div>
         </>
     );

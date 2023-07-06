@@ -16,6 +16,13 @@ a {
 li {
     list-style: none;
 }
+.hide-scroll-bar::-webkit-scrollbar{
+    display: none;
+}
+.hide-scroll-bar{
+    -ms-overflow-style: none;
+     scrollbar-width: none;
+}
 *{
     margin: 0;
     padding : 0 ;

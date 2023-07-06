@@ -25,16 +25,15 @@ const OuterImageSection = ({image, description, title , shadow=1 ,descriptionVar
                 }}>
                 <Box sx={{
                     width: {md: "55%", xs: '70%'},
-                    aspectRatio: "1/1",
-                    position: "relative",
                     display: "flex",
                     justifyContent: "center",
                     marginTop: '-25px'
                 }}>
                     <Image
                         alt={description}
-                        fill
-                        style={{transition: "all .5s", transform: "scale(0.9)"}}
+                        width={120}
+                        height={120}
+                        style={{transition: "all .5s", transform: "scale(0.9)" , width : '100%' , height : 'auto'}}
                         src={image}/>
                 </Box>
                     <Typography

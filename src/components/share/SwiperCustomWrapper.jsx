@@ -1,4 +1,4 @@
-import {Swiper, SwiperSlide} from "swiper/react";
+import {Swiper} from "swiper/react";
 import {FreeMode} from "swiper";
 import {Box} from "@mui/system";
 import {useSelector} from "react-redux";
@@ -17,7 +17,7 @@ const SwiperCustomWrapper = ({swiperOptions , children , spaceBetween})=>{
                     {children}
                 </Swiper>
             ) : (
-                <Box sx={{display : 'flex' , flexWrap : 'nowrap' , overflowX : 'auto' , scrollBehavior : 'smooth' , gap : spaceBetween}}>
+                <Box className={'hide-scroll-bar'} sx={{display : 'flex' , flexWrap : 'nowrap' , overflowX : 'auto' , scrollBehavior : 'smooth' , gap : spaceBetween , py : 1 , overflowY : 'hidden'}}>
                     {children}
                 </Box>
             )}

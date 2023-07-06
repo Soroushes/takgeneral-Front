@@ -17,7 +17,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                     pt : 1 ,
                     pb : 1.5,
                     borderRadius: 2,
-                    height : '300px',
+                    height : {xs : "270px" , md : '290px'},
                     position: "relative",
                     boxShadow: shadow ? shadow : 0 ,
                     '&:hover img' : {
@@ -38,22 +38,24 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                                 justifyContent : 'center' ,
                                 alignItems : 'center' ,
                                 width : 30 ,
-                                aspectRatio : '1/1' ,
+                                height : 30 ,
                                 borderRadius : '50%'
                             }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%
                         </Typography> : null
                 }
-                <Box sx={{position: 'relative', aspectRatio: "1/1", width: "85%" , mx : 'auto'}}>
-                    <Image style={{transform : 'scale(0.9)' ,transition : 'all .3s'}} fill src={image} alt={title}/>
-                </Box>
-                <Box  sx={{height : '78px' , overflow : "hidden" , display : 'flex' , alignItems : 'center'}}>
-                    <Typography
-                        component={'h3'}
-                        variant="body1"
-                        textAlign={'justify'}
-                    >
-                        {title}
-                    </Typography>
+                <Box>
+                    <Box textAlign={'center'}>
+                        <Image width={140} height={140} style={{transform : 'scale(0.9)' ,transition : 'all .3s' , width : '100%' , height : 'auto'}} src={image} alt={title}/>
+                    </Box>
+                    <Box  sx={{height : {xs : '66px' , md : '78px'} , overflow : "hidden" , display : 'flex' , alignItems : 'center'}}>
+                        <Typography
+                            component={'h3'}
+                            variant="body2"
+                            textAlign={'justify'}
+                        >
+                            {title}
+                        </Typography>
+                    </Box>
                 </Box>
                 <PriceDiscount discountPrice={price} finalPrice={afterDiscountPrice}/>
             </Stack>

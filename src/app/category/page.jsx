@@ -58,13 +58,13 @@ export default function Page() {
                     <BrandSlider brands={brands}/>
                 <Grid sx={{my : 4}} container rowGap={2}>
                     <Grid sx={{px : 1}} item xs={12} md={6} >
-                        <Box sx={{aspectRatio : '2.5/1'}} position={'relative'}>
-                            <Image src={categoryImages} fill alt={'banner'}/>
+                        <Box>
+                            <Image width={600} height={250} style={{width : '100%' , height : 'auto'}} src={categoryImages} alt={'banner'}/>
                         </Box>
                     </Grid>
                     <Grid sx={{px : 1}} item xs={12} md={6} >
-                        <Box sx={{aspectRatio : '2.5/1'}} position={'relative'}>
-                            <Image src={categoryImages} fill alt={'banner'}/>
+                        <Box >
+                            <Image width={600} height={250} style={{width : '100%' , height : 'auto'}} src={categoryImages} alt={'banner'}/>
                         </Box>
                     </Grid>
                 </Grid>

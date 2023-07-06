@@ -20,9 +20,9 @@ const singleProductImage =({mainImage , otherImage})=>{
                     modules={[FreeMode, Thumbs]}
                 >
                     <SwiperSlide>
-                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                        <Box sx={{width : "100%" , textAlign : 'center'}}>
                             {
-                                mainImage ? <Image fill alt={'test'} src={mainImage} /> : null
+                                mainImage ? <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={mainImage} /> : null
                             }
                         </Box>
                     </SwiperSlide>
@@ -30,8 +30,8 @@ const singleProductImage =({mainImage , otherImage})=>{
                         otherImage?.map((item)=>{
                             return(
                                 <SwiperSlide key={item.id}>
-                                    <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                                        <Image fill alt={'test'} src={''} />
+                                    <Box sx={{width : "100%", textAlign : 'center'}}>
+                                        <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={''} />
                                     </Box>
                                 </SwiperSlide>
                             )
@@ -49,9 +49,9 @@ const singleProductImage =({mainImage , otherImage})=>{
                     className="mySwiper"
                 >
                     <SwiperSlide style={{borderRadius : "8px"  , padding : '5px'}}>
-                        <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
+                        <Box sx={{width : "100%" , textAlign : 'center'}}>
                             {
-                                mainImage ? <Image fill alt={'test'} src={mainImage} /> : null
+                                mainImage ? <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={mainImage} /> : null
                             }
                         </Box>
                     </SwiperSlide>
@@ -59,8 +59,8 @@ const singleProductImage =({mainImage , otherImage})=>{
                         otherImage?.map((item)=>{
                             return(
                                 <SwiperSlide style={{borderRadius : "8px" , padding : '5px'}} key={item.id}>
-                                    <Box sx={{width : "100%" , aspectRatio : "1/1" , position : "relative"}}>
-                                        <Image fill alt={'test'} src={item.image} />
+                                    <Box sx={{width : "100%" , textAlign : 'center'}}>
+                                        <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={item.image} />
                                     </Box>
                                 </SwiperSlide>
                             )

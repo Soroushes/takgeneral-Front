@@ -4,7 +4,7 @@ const initialState = {
     innerWidth : null ,
     isMobile : null ,
     navbarHeight : 55 ,
-    mobileHeaderHeight : 55  ,
+    mobileHeaderHeight : 80  ,
     desktopHeaderHeight : 100 ,
 
 }
