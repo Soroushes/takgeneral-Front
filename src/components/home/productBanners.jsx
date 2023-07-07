@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const ProductBanners = ({banners})=>{
     return (
-        <Container>
+        <Container sx={{my : 8}}>
             <Grid rowGap={3} container>
                 {
                     banners.map((banner)=>(

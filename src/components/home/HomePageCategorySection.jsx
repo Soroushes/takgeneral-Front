@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const HomePageCategorySection = ({categories}) => {
     return (
-        <Container sx={{mb: 4 , py : 4}}>
+        <Container sx={{my: 8}}>
             <Grid justifyContent={'center'} rowGap={5} container>
                 <Grid item xs={12}>
                     <Box gap={.5} justifyContent={'center'} display={'flex'}>

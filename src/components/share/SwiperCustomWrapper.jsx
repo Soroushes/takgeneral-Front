@@ -17,7 +17,7 @@ const SwiperCustomWrapper = ({swiperOptions , children , spaceBetween})=>{
                     {children}
                 </Swiper>
             ) : (
-                <Box className={'hide-scroll-bar'} sx={{display : 'flex' , flexWrap : 'nowrap' , overflowX : 'auto' , scrollBehavior : 'smooth' , gap : spaceBetween , py : 1 , overflowY : 'hidden'}}>
+                <Box className={'hide-scroll-bar'} sx={{display : 'flex' , flexWrap : 'nowrap' , overflowX : 'auto' , scrollBehavior : 'smooth' , gap : spaceBetween , overflowY : 'hidden' , alignItems : 'center'}}>
                     {children}
                 </Box>
             )}

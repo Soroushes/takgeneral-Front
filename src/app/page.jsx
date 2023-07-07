@@ -4,9 +4,9 @@ import {BASE_URL} from "../data/urls";
 import 'swiper/swiper.css' ;
 import anPic from '../assets/images/an.png'
 import HomePageCategorySection from "../components/home/HomePageCategorySection";
-import Image from "next/image";
 import testBanner from '../assets/images/1.png'
 import ProductBanners from "../components/home/productBanners";
+import HighRateCategorySlider from "../components/home/highRateCategorySlider";
 async function getData() {
     const res = await fetch(`${BASE_URL}home/`, {next: {revalidate: 60}})
     if (!res.ok) {
@@ -42,6 +42,7 @@ export default async function Page() {
                 <HomePageCategorySection categories={fakeSortData}/>
                 <DiscountProductSlider/>
                 <ProductBanners banners={[{src : testBanner} , {src: testBanner} , {src : testBanner}]}/>
+                <HighRateCategorySlider/>
             </div>
         </>
     );
