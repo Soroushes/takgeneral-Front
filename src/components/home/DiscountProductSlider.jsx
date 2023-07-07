@@ -104,7 +104,7 @@ const DiscountProductSlider = () => {
                 <Box top={'-25%'} left={'0'} position={'absolute'}>
                     <DiscountShapeBig/>
                 </Box>
-                <Box sx={{width : {md : '86%'} , mx : 'auto'}}>
+                <Box sx={{width : {md : '83%'} , mx : 'auto'}}>
                 <Box sx={{mb: 6 , display : 'flex' , justifyContent : 'center' , alignItems : 'center' , gap : 2}}>
                     <DiscountShape/>
                     <Typography sx={{wordSpacing :'3px'}} textAlign={'center'} variant={'h3'} fontWeight={'bold'} color={'white'}>تخفیف ویژه تک جنرال</Typography>
@@ -113,7 +113,7 @@ const DiscountProductSlider = () => {
                 <SwiperCustomWrapper>
                     {dummyData.map((data , index)=>{
                         return(
-                            <SwiperSlide key={Math.random()*1000} style={{width : 190, marginRight : (!index&&isMobile) ? '30px' : '16px'}}>
+                            <SwiperSlide key={Math.random()*1000} style={{width : isMobile ? 175 : 200, marginRight : (!index&&isMobile) ? '30px' : '16px'}}>
                                 <ProductPreviewCard title={data.title} discountPercent={data.discountPercent} price={data.price} afterDiscountPrice={data.afterDiscountPrice} id={2} image={data.image} />
                             </SwiperSlide>
                         )

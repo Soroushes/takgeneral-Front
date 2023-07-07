@@ -14,10 +14,9 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                     backgroundColor: "#fff",
                     width : "100%" ,
                     px : 2 ,
-                    pt : 1 ,
-                    pb : 1.5,
+                    pb : .5,
                     borderRadius: 2,
-                    height : {xs : "270px" , md : '290px'},
+                    aspectRatio : '1/1.5' ,
                     position: "relative",
                     boxShadow: shadow ? shadow : 0 ,
                     '&:hover img' : {
@@ -45,9 +44,9 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 }
                 <Box>
                     <Box textAlign={'center'}>
-                        <Image width={140} height={140} style={{transform : 'scale(0.9)' ,transition : 'all .3s' , width : '100%' , height : 'auto'}} src={image} alt={title}/>
+                        <Image width={140} height={140} style={{transform : 'scale(0.9)' ,transition : 'all .3s' , width : '100%' , aspectRatio : '1/1'}} src={image} alt={title}/>
                     </Box>
-                    <Box  sx={{height : {xs : '66px' , md : '78px'} , overflow : "hidden" , display : 'flex' , alignItems : 'center'}}>
+                    <Box  sx={{height : {xs : '65px' , md : '78px'} , overflow : "hidden" , display : 'flex' , alignItems : 'center'}}>
                         <Typography
                             component={'h3'}
                             variant="body2"
