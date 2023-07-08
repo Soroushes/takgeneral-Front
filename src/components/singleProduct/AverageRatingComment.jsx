@@ -5,8 +5,7 @@ import PN from "persian-number";
 const AverageRatingComment = ({average , openAddComment}) => {
     const addComment =()=>{
         openAddComment((prev)=>!prev);
-    }
-
+    };
     return (
         <Box sx={{backgroundColor: '#fff', py: 2, borderRadius: 3}} gap={1.5} display={'flex'}
              flexDirection={'column'}
@@ -15,9 +14,10 @@ const AverageRatingComment = ({average , openAddComment}) => {
                 average !== 0 ?
                     <>
                         <Typography>میانگین امتیازات کاربران</Typography>
-                        <Typography sx={{display: 'flex', gap: 2}}><Typography color={'primary'}
-                                                                               variant={'h1'}>{PN.convertEnToPe(4.5)}</Typography>از {PN.convertEnToPe(5)}
-                        </Typography>
+                        <Box sx={{display: 'flex', gap:.5   }}>
+                            <Typography color={'primary'} variant={'h1'}>{PN.convertEnToPe(4.5)}</Typography>
+                            <Typography >از {PN.convertEnToPe(5)}</Typography>
+                        </Box>
                     </>:
                     <Typography>تاکنون نظری ثبت نشده است</Typography>
             }

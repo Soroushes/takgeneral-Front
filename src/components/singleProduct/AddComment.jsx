@@ -1,4 +1,4 @@
-import {Box, Grid, TextField, Typography} from "@mui/material";
+import {Box, Button, Grid, TextField, Typography} from "@mui/material";
 import {Controller, useForm} from "react-hook-form";
 import {useAxios} from "../../hooks/useAxios";
 import {useRouter} from "next/navigation";
@@ -6,7 +6,8 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import testImage from '../../assets/images/product-image.png'
 import Image from "next/image";
 import Checkbox from "@mui/material/Checkbox";
-
+import Rating from "@mui/material/Rating";
+import Message from '../../assets/icons/message.svg';
 const AddComment = ({rate}) => {
     const {control, handleSubmit, reset} = useForm({
         defaultValues: {
@@ -31,7 +32,7 @@ const AddComment = ({rate}) => {
         })
     }
     return (
-        <Box sx={{mb: 4, width: '100%', p: 2}} component={'form'} onSubmit={handleSubmit(onFormSubmit)}>
+        <Box sx={{ width: '100%', p: 3}} component={'form'} onSubmit={handleSubmit(onFormSubmit)}>
             <Grid container justifyContent={'space-between'} rowGap={3}>
                 <Grid item md={4} xs={12}>
                     <Box sx={{height: '100%'}} display={'flex'} justifyContent={'space-between'}
@@ -43,45 +44,58 @@ const AddComment = ({rate}) => {
                                    alt={'test'}/>
                         </Box>
                     </Box>
-
                 </Grid>
                 <Grid item md={7} xs={12}>
-                    <Box display={'flex'} alignItems={'center'}>
-                        <Controller
-                            name="suggest_me"
-                            control={control}
-                            defaultValue={false}
-                            render={({field}) =>
-                                <Checkbox color="secondary" checked={field.value} onChange={field.onChange}/>
-                            }
-                        />
-                        <Typography color={'text.muted'}>پیشنهاد میکنم</Typography>
-                    </Box>
-                    <Box mb={2}>
-                        <Controller
-                            defaultValue={''}
-                            name={'comment'}
-                            control={control}
-                            rules={{
-                                required: "وارد کردن نظر اجباری میباشد"
-                            }}
-                            render={({field, fieldState}) =>
-                                <TextField
-                                    error={!!fieldState.error}
-                                    label={'دیدیگاه شما'}
-                                    value={field?.value}
-                                    onChange={field?.onChange}
-                                    helperText={fieldState.error?.message ?? ''}
-                                    variant={'outlined'}
-                                    fullWidth={true}
-                                    multiline={true}
-                                    rows={3}
-                                />
-                            }
-                        />
-                    </Box>
-                    <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
-                        <LoadingButton loading={loading} type={'submit'} variant="contained">ارسال نظر</LoadingButton>
+                    <Box sx={{height:'100%'}} display={'flex'} flexDirection={'column'} justifyContent={'space-between'}>
+                        <Box display={'flex'} justifyContent={'space-between'}>
+                            <Typography>امتیاز شما:</Typography>
+                            <Controller
+                                name="kefiyat_rate"
+                                control={control}
+                                defaultValue={0}
+                                render={({field}) =>
+                                    <Rating value={+field.value} onChange={field.onChange}/>
+                                }
+                            />
+                        </Box>
+                        <Box display={'flex'} alignItems={'center'}>
+                            <Controller
+                                name="suggest_me"
+                                control={control}
+                                defaultValue={false}
+                                render={({field}) =>
+                                    <Checkbox color="secondary" checked={field.value} onChange={field.onChange}/>
+                                }
+                            />
+                            <Typography color={'text.muted'}>نمایش نام و نام خانوادگی</Typography>
+                        </Box>
+                        <Box mb={2}>
+                            <Controller
+                                defaultValue={''}
+                                name={'comment'}
+                                control={control}
+                                rules={{
+                                    required: "وارد کردن نظر اجباری میباشد"
+                                }}
+                                render={({field, fieldState}) =>
+                                    <TextField
+                                        error={!!fieldState.error}
+                                        label={'دیدیگاه شما'}
+                                        value={field?.value}
+                                        onChange={field?.onChange}
+                                        helperText={fieldState.error?.message ?? ''}
+                                        variant={'outlined'}
+                                        fullWidth={true}
+                                        multiline={true}
+                                        rows={3}
+                                    />
+                                }
+                            />
+                        </Box>
+                        <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
+                            <LoadingButton sx={{borderRadius:2 , width:'45%'}} loading={loading} type={'submit'} variant="contained"><Typography variant={'subtitle1'} sx={{mr:1}} color={'#fff'}> ثبت دیدگاه ها</Typography><Message/></LoadingButton>
+                            <Button sx={{borderRadius:2, width:'45%'}} color={'gray'} variant={'outlined'}><Typography variant={'subtitle1'}>پاک کردن همه</Typography></Button>
+                        </Box>
                     </Box>
                 </Grid>
             </Grid>

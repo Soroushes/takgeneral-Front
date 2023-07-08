@@ -82,14 +82,14 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                     <AverageRatingComment openAddComment={setCommentIsOpen} average={4.5} title={'comment'}/>
                                 </Grid>
                                 <Grid item md={9.5}>
-                                    <Box sx={{p: 2, width: '100%', display: 'flex', flexDirection: 'column'}}>
+                                    <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column'}}>
                                         {
                                             comments.map((comment, index) => {
                                                 const show = index < 2 || commentIsShow
                                                 return (
-                                                    <Box sx={{display: show ? 'block' : 'none'}} key={comment.id}>
-                                                        <Comment comment={comment}/>
-                                                    </Box>
+                                                        <Box sx={{display: show ? 'block' : 'none'}} key={index}>
+                                                            <Comment comment={comment}/>
+                                                        </Box>
                                                 )
                                             })
                                         }
@@ -157,7 +157,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                             questions.map((eachQuestion, index) => {
                                 const show = index < 2 || questionIsShow;
                                 return (
-                                    <Box sx={{display: show ? 'block' : 'none', width: '100%'}} key={eachQuestion.id}>
+                                    <Box sx={{display: show ? 'block' : 'none', width: '100%'}} key={index}>
                                         <Question productId={productId} eachQuestion={eachQuestion}/>
                                         <Divider sx={{width: '100%', my: 3}}/>
                                     </Box>

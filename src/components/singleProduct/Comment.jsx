@@ -31,7 +31,7 @@ const Comment = ({comment}) => {
 
     }
     return (
-        <Box>
+        <Box sx={{px:2 , mb:2}}>
             <Grid container display={'flex'} justifyContent={'space-between'}>
                 <Grid item md={4} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
                     <Box display={'flex'}><Rating size={'small'} sx={{mr:.5}} defaultValue={1} max={1} /><Typography>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(2)))}</Typography></Box>
@@ -62,7 +62,7 @@ const Comment = ({comment}) => {
                     </Box>
                 </Grid>
             </Grid>
-            <Typography sx={{mt:3}} lineHeight={2.5} variant="subtitle1" color={'text.muted'}>{comment.content}</Typography>
+            <Typography sx={{mt:1}} lineHeight={2.5} variant="subtitle1">{comment.content}</Typography>
         </Box>
 
     )

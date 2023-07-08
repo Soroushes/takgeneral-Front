@@ -37,7 +37,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
             <Box sx={{px : 2 , pb : 3 , backgroundColor : "#fff" , borderRadius : 2  , display:'flex' , flexDirection :'column'  ,gap:2}}>
                 <Typography sx={{fontWeight : "bold", borderBottom:'1px solid #eee' , py:1}} variant={'body1'}>قیمت محصول</Typography>
                 <Box sx={{ mt : 3 , px : 2 , display:'flex' , justifyContent:'end'}}>
-                    <PriceDiscount price={price} finalPrice={finalPrice} discount={discount} fontSize={'h5'} isDiscountNear={true}/>
+                    <PriceDiscount discountPrice={price} finalPrice={finalPrice} discount={discount} fontSize={'h5'} isDiscountNear={true}/>
                 </Box>
                 <Box sx={{display : 'flex' , flexDirection :'column' , alignItems :'end'  , width:'100%'}}>
                     <CartEditionButton boxSx={{backgroundColor : '#f9f9f9'}} id={id}/>
