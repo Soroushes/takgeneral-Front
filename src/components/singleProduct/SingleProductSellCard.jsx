@@ -15,7 +15,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
     };
     return (
         <>
-            <Box sx={{mb:2 , backgroundColor:'#fff' ,p:2}} display={'flex'} justifyContent={'space-around'}>
+            <Box sx={{mb:2 , backgroundColor:'#fff' ,p:2 , borderRadius:2}} display={'flex'} justifyContent={'space-around'}>
                 <Box sx={{ display:'flex', alignItems:'center', flexDirection:'column' , justifyContent:'center' }}>
                     <FreeDelivery/>
                     <Typography variant={'subtitle2'}>ضمانت اصالت کالا</Typography>
@@ -43,7 +43,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                     <CartEditionButton boxSx={{backgroundColor : '#f9f9f9'}} id={id}/>
                 </Box>
             </Box>
-            <Box display={'flex'} justifyContent={'end'}>
+            <Box display={'flex'} justifyContent={'end'} sx={{mt:2}}>
                 <Button variant="contained" onClick={scrollToOpinion} color={'secondary'} sx={{aspectRatio:'1/1', borderRadius:'100%'}} >
                     <Suggestion/>
                 </Button>

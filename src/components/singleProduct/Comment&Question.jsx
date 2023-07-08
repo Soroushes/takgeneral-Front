@@ -4,7 +4,6 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import {Box, Button, Divider, Grid, Typography} from "@mui/material";
 import {useState} from "react";
-import Rating from '@mui/material/Rating';
 import Question from "./Question";
 import Comment from "./Comment";
 import AddComment from "./AddComment";
@@ -13,11 +12,13 @@ import NoQuestion from '../../assets/icons/noQuestion.svg';
 import NoComment from '../../assets/icons/noComment.svg';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
-
+import AverageRatingComment from "./AverageRatingComment";
+import MainModal from "../share/MainModal";
 const CommentQuestion = ({comments, rate, productId, questions}) => {
     const [value, setValue] = useState("1");
     const [questionIsShow, setQuestionIsShow] = useState(false);
     const [commentIsShow, setCommentIsShow] = useState(false);
+    const [commentIsOpen , setCommentIsOpen] = useState(false)
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -76,77 +77,46 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                 >
                     {
                         comments.length ?
-                            <>
-                                <Grid container sx={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    backgroundColor: 'gray.lighter',
-                                    p: 4,
-                                    alignItems: 'center',
-                                    gap: 5
-                                }}>
-                                    <Grid item md={5} xs={12}>
-                                        <Box sx={{
-                                            px: 1,
-                                            display: "flex",
-                                            gap: 3,
-                                            alignItems: "center",
-                                            justifyContent: {xs: 'center', md: 'start'}
-                                        }}>
-                                            <Typography variant="body2">میانگین امتیازات کاربران</Typography>
-                                            <Rating name="read-only" value={2.5} readOnly/>
-                                        </Box>
-                                    </Grid>
-                                    <Grid item md={4} xs={12} sx={{display: 'flex', gap: 1, flexDirection: 'column'}}>
-                                        <Box sx={{display: 'flex', justifyContent: 'space-between', px: 1}}>
-                                            <Typography variant="subtitle1" sx={{color: 'text.muted'}}>کیفیت و
-                                                کارایی</Typography>
-                                            <Rating size={'small'} name="read-only" value={rate.avg_keyfiyat_rate}
-                                                    readOnly/>
-                                        </Box>
-                                        <Divider sx={{my: .5}}/>
-                                        <Box sx={{display: 'flex', justifyContent: 'space-between', px: 1}}>
-                                            <Typography variant="subtitle1" sx={{color: 'text.muted'}}>ارزش
-                                                خرید</Typography>
-                                            <Rating size={'small'} name="read-only" value={rate.avg_arzesh_rate}
-                                                    readOnly/>
-                                        </Box>
-                                    </Grid>
+                            <Grid container sx={{py:3 , px:2}} justifyContent={'space-between'}>
+                                <Grid item md={2.3}>
+                                    <AverageRatingComment openAddComment={setCommentIsOpen} average={4.5} title={'comment'}/>
                                 </Grid>
-                                <Box sx={{p: 2, width: '100%', display: 'flex', flexDirection: 'column'}}>
-                                    {
-                                        comments.map((comment, index) => {
-                                            const show = index < 2 || commentIsShow
-                                            return (
-                                                <Box sx={{display: show ? 'block' : 'none'}} key={comment.id}>
-                                                    <Comment comment={comment}/>
-                                                    <Divider sx={{my: 2}}/>
-                                                </Box>
-                                            )
-                                        })
-                                    }
-                                    {
-                                        comments.length >= 2 ?
-                                            <Button
-                                                onClick={showComment}
-                                                variant="outlined"
-                                                color={'primary'}
-                                                sx={{width: {xs: '100%', md: "25%", lg:'20%'}, my: 2}}
-                                            >
-                                                {
-                                                    commentIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :
-                                                        <KeyboardArrowDownIcon color={'primary'}/>
-                                                }
-                                                {
-                                                    commentIsShow ? 'نشان دادن کمتر' : "مشاهده کامل نظرات ها"
-                                                }
+                                <Grid item md={9.5}>
+                                    <Box sx={{p: 2, width: '100%', display: 'flex', flexDirection: 'column'}}>
+                                        {
+                                            comments.map((comment, index) => {
+                                                const show = index < 2 || commentIsShow
+                                                return (
+                                                    <Box sx={{display: show ? 'block' : 'none'}} key={comment.id}>
+                                                        <Comment comment={comment}/>
+                                                    </Box>
+                                                )
+                                            })
+                                        }
+                                        {
+                                            comments.length >= 2 ?
+                                                <Button
+                                                    onClick={showComment}
+                                                    variant="outlined"
+                                                    color={'primary'}
+                                                    sx={{width: {xs: '100%', md: "25%", lg:'20%'}, my: 2}}
+                                                >
+                                                    {
+                                                        commentIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :
+                                                            <KeyboardArrowDownIcon color={'primary'}/>
+                                                    }
+                                                    {
+                                                        commentIsShow ? 'نشان دادن کمتر' : "مشاهده کامل نظرات ها"
+                                                    }
 
-                                            </Button>
-                                            :
-                                            null
-                                    }
-                                </Box>
-                            </>
+                                                </Button>
+                                                :
+                                                null
+                                        }
+                                    </Box>
+                                </Grid>
+
+                            </Grid>
                             :
                             <Box sx={{
                                 display: 'flex',
@@ -159,7 +129,9 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                 <Divider sx={{width: '100%', my: 4}}/>
                             </Box>
                     }
-                    <AddComment productId={productId} rate={rate}/>
+                    <MainModal title={'افزودن دیدگاه'} open={commentIsOpen} setOpen={setCommentIsOpen}>
+                        <AddComment productId={productId} rate={rate}/>
+                    </MainModal>
                 </TabPanel>
                 <TabPanel value="2" sx={{
                     width: '100%',

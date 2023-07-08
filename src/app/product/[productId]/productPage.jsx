@@ -13,7 +13,7 @@ const ProductPage = ({data}) => {
     const opinionTableRef = useRef(null);
     const [isShowAllDetails, setIsShowAllDetails] = useState(false);
     return (
-        <Box sx={{pt: 3, height: '100%'}}>
+        <Box sx={{pt: 3, height: '100%' , backgroundColor:'#eee'}}>
             <Container maxWidth={'lg'}>
                 <Grid container rowGap={5}>
                     <Grid item md={3.5} xs={12}>
