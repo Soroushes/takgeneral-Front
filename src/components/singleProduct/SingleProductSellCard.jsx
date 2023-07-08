@@ -15,7 +15,7 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
     };
     return (
         <>
-            <Box sx={{mb:2 , backgroundColor:'#fff' ,p:2 , borderRadius:2}} display={'flex'} justifyContent={'space-around'}>
+            <Box sx={{mb:2 , backgroundColor:'#fff' ,p:2 , borderRadius:2 , boxShadow : 1}} display={'flex'} justifyContent={'space-around'}>
                 <Box sx={{ display:'flex', alignItems:'center', flexDirection:'column' , justifyContent:'center' }}>
                     <FreeDelivery/>
                     <Typography variant={'subtitle2'}>ضمانت اصالت کالا</Typography>
@@ -28,16 +28,15 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
                     <FreeDelivery/>
                     <Typography variant={'subtitle2'}>موجود در انبار</Typography>
                 </Box>
-
             </Box>
-            <Box sx={{backgroundColor:'#fff',display:'flex', gap:1  , mb:2 , p:2,borderRadius : 2 }}>
+            <Box sx={{backgroundColor:'#fff',display:'flex', gap:1  , mb:2 , p:2,borderRadius : 2 , boxShadow : 1}}>
                 <Warranty/>
                 <Typography variant={'body2'}>گارانتی</Typography>
             </Box>
-            <Box sx={{px : 2 , pb : 3 , backgroundColor : "#fff" , borderRadius : 2  , display:'flex' , flexDirection :'column'  ,gap:2}}>
+            <Box sx={{px : 2 , pb : 3 , backgroundColor : "#fff" , borderRadius : 2  , display:'flex' , flexDirection :'column'  ,gap:2 , boxShadow:  1 }}>
                 <Typography sx={{fontWeight : "bold", borderBottom:'1px solid #eee' , py:1}} variant={'body1'}>قیمت محصول</Typography>
-                <Box sx={{ mt : 3 , px : 2 , display:'flex' , justifyContent:'end'}}>
-                    <PriceDiscount discountPrice={price} finalPrice={finalPrice} discount={discount} fontSize={'h5'} isDiscountNear={true}/>
+                <Box sx={{ mt : 3 , px : 2 , display:'flex' , justifyContent:'end' , direction : 'ltr'}}>
+                    <PriceDiscount finalPriceBold={true} align={'end'} gap={1.5} discountPrice={price} finalPrice={finalPrice} discountedPriceColor={'text.muted'} finalPriceColor={'text.main'} discountedPriceFont={'h5'} fontSize={'h2'}/>
                 </Box>
                 <Box sx={{display : 'flex' , flexDirection :'column' , alignItems :'end'  , width:'100%'}}>
                     <CartEditionButton boxSx={{backgroundColor : '#f9f9f9'}} id={id}/>

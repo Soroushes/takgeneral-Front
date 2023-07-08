@@ -12,7 +12,7 @@ const singleProductImage =({mainImage , otherImage})=>{
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return(
         <Box sx={{padding : '15px 15px 7px 15px' , borderRadius : 2}}>
-            <Box sx={{mb: 1}}>
+            <Box sx={{mb: 1,  boxShadow : 1}}>
                 <Swiper
                     spaceBetween={10}
                     thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
@@ -48,7 +48,7 @@ const singleProductImage =({mainImage , otherImage})=>{
                     className="mySwiper"
                 >
                     <SwiperSlide style={{borderRadius : "8px"  , padding : '5px'}}>
-                        <Box sx={{width : "100%" , textAlign : 'center'}}>
+                        <Box sx={{width : "100%" , textAlign : 'center' , boxShadow : 1}}>
                             {
                                 mainImage ? <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={mainImage} /> : null
                             }
@@ -58,7 +58,7 @@ const singleProductImage =({mainImage , otherImage})=>{
                         otherImage?.map((item)=>{
                             return(
                                 <SwiperSlide style={{borderRadius : "8px" , padding : '5px'}} key={item.id}>
-                                    <Box sx={{width : "100%" , textAlign : 'center'}}>
+                                    <Box sx={{width : "100%" , textAlign : 'center' , boxShadow : 1}}>
                                         <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={item.image} />
                                     </Box>
                                 </SwiperSlide>

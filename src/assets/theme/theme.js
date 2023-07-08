@@ -3,7 +3,7 @@ const primary = "#1b09f9";
 const primaryDark = '#1206c0' ;
 const secondary = '#ff8301' ;
 const textBlack = '#303030' ;
-const lineHeight = ['20px','23px','28px']
+const lineHeight = ['17px','20px','25px']
 const theme = createTheme({
     direction: "rtl",
     palette: {
@@ -28,7 +28,7 @@ const theme = createTheme({
             contrastText: "#505050"
         },
         text: {
-            main: "#505050",
+            main: "#303030",
             blue: "#032A8E",
             muted: "#707070",
             white: '#fff',

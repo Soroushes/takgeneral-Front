@@ -121,14 +121,14 @@ const HighRateCategorySlider = () => {
                             color={'white'}>محبوب ترین های کولر گازی</Typography>
             </Box>
             <SwiperCustomWrapper>
-                <SwiperSlide style={{width: isMobile ? 320 : 550}}>
-                    <Box sx={{position: 'relative', height: isMobile ? 450 : 550}}>
+                <SwiperSlide style={{width: isMobile ? 320 : 370}}>
+                    <Box sx={{position: 'relative', height: {xs : 450 , md : 500}}}>
                         <Image fill src={HighRateBanner}/>
                     </Box>
                 </SwiperSlide>
                     {dummyData.map((data, index) => {
                         return (
-                            <SwiperSlide key={Math.random() * 1000} style={{width: isMobile ? 175 : 200,  marginRight : !index ? '-150px' : '15px'}}>
+                            <SwiperSlide key={Math.random() * 1000} style={{width: isMobile ? 170 : 200,  marginRight : !index ? isMobile ? '-120px' : '-150px' : '15px'}}>
                                 <Box marginTop={5}>
                                     <ProductPreviewCard title={data.title} discountPercent={data.discountPercent}
                                                         price={data.price} afterDiscountPrice={data.afterDiscountPrice}

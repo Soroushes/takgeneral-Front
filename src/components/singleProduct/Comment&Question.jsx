@@ -6,7 +6,7 @@ import {Box, Button, Divider, Grid, Typography} from "@mui/material";
 import {useState} from "react";
 import Question from "./Question";
 import Comment from "./Comment";
-import AddComment from "./AddComment";
+import AddCommentModal from "./modals/AddCommentModal";
 import AddQuestion from "./AddQuestion";
 import NoQuestion from '../../assets/icons/noQuestion.svg';
 import NoComment from '../../assets/icons/noComment.svg';
@@ -77,11 +77,11 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                 >
                     {
                         comments.length ?
-                            <Grid container sx={{py:3 , px:2}} justifyContent={'space-between'}>
-                                <Grid item md={2.3}>
+                            <Grid container sx={{py:3}} justifyContent={'space-between'}>
+                                <Grid item xs={12} md={2.3}>
                                     <AverageRatingComment openAddComment={setCommentIsOpen} average={4.5} title={'comment'}/>
                                 </Grid>
-                                <Grid item md={9.5}>
+                                <Grid item xs={12} md={9.5}>
                                     <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column'}}>
                                         {
                                             comments.map((comment, index) => {
@@ -129,9 +129,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                 <Divider sx={{width: '100%', my: 4}}/>
                             </Box>
                     }
-                    <MainModal title={'افزودن دیدگاه'} open={commentIsOpen} setOpen={setCommentIsOpen}>
-                        <AddComment productId={productId} rate={rate}/>
-                    </MainModal>
+
                 </TabPanel>
                 <TabPanel value="2" sx={{
                     width: '100%',
@@ -186,6 +184,9 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                     <AddQuestion productId={productId}/>
                 </TabPanel>
             </Box>
+            <MainModal title={'افزودن دیدگاه'} open={commentIsOpen} setOpen={setCommentIsOpen} desktopFullScreen={true}>
+                <AddCommentModal productId={productId} rate={rate}/>
+            </MainModal>
         </TabContext>
 
     )

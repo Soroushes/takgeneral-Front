@@ -13,18 +13,18 @@ const ProductPage = ({data}) => {
     const opinionTableRef = useRef(null);
     const [isShowAllDetails, setIsShowAllDetails] = useState(false);
     return (
-        <Box sx={{pt: 3, height: '100%' , backgroundColor:'#eee'}}>
+        <Box sx={{pt: 3, height: '100%'}}>
             <Container maxWidth={'lg'}>
                 <Grid container rowGap={5}>
                     <Grid item md={3.5} xs={12}>
                         <SingleProductImage mainImage={SingleImage} otherImage={null}/>
                     </Grid>
-                    <Grid item sx={{px: {md: 3}}} md={5} xs={12}>
+                    <Grid item sx={{px: {md: 3}}} md={5.5} xs={12}>
                         <SingleProductAttribute
                             setShowAllDetails={setIsShowAllDetails} name={data.product.name}
                             attributes={data.product.attributes} attrRef={attributesTableRef}/>
                     </Grid>
-                    <Grid item md={3.5} xs={12}>
+                    <Grid item md={3} xs={12}>
                         <SingleProductSellCard
                             opinionRef={opinionTableRef}
                             available={data.product.product_available}
