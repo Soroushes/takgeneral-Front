@@ -78,8 +78,8 @@ const theme = createTheme({
             styleOverrides: {
                 root: {
                     '.Mui-selected': {
-                        backgroundColor: secondary,
-                        color: '#303030 !important'
+                        color: '#303030 !important',
+                        borderBottom: `1px solid ${secondary}`
                     }
                 }
             }

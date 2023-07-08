@@ -1,5 +1,5 @@
 'use client'
-import SortSection from "../share/SortSection";
+import SortSection from "../share/OuterImageSection";
 import {Container, Grid, Typography} from "@mui/material";
 const ProductSortSection =({sortItems})=>{
     return(

@@ -35,17 +35,12 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                     borderColor: "divider",
                     display: "flex",
                     width: "100%",
-                    px: 2,
                     mb: {xs: 2, md: 2, lg: 0}
                 }}
             >
                 <TabList indicatorColor="gray" onChange={handleTabChange}>
                     <Tab
                         sx={{
-                            border: {xs: "none", lg: "1px solid #d3d3d3"},
-                            borderBottom: {xs: "none", lg: "none"},
-                            borderRadius: {xs: "8px ", lg: "8px 8px 0 0"},
-                            mr: 2,
                             mb: {xs: 2, md: 0}
                         }}
                         label="نظرات"
@@ -53,9 +48,6 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                     />
                     <Tab
                         sx={{
-                            border: {xs: "none", lg: "1px solid #d3d3d3"},
-                            borderBottom: {xs: "none", lg: "none"},
-                            borderRadius: {xs: "8px", lg: "8px 8px 0 0"},
                             mb: {xs: 2, md: 0}
                         }}
                         label="پرسش و پاسخ"
@@ -68,8 +60,6 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                     transition: "all .3s",
                     justifyContent: "center",
                     width: "100%",
-                    border: {xs: "none", lg: "1px solid #d3d3d3"},
-                    borderRadius: 1.5,
 
                 }}
             >
@@ -93,7 +83,6 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                     backgroundColor: 'gray.lighter',
                                     p: 4,
                                     alignItems: 'center',
-                                    borderRadius: {xs: 2, md: 0},
                                     gap: 5
                                 }}>
                                     <Grid item md={5} xs={12}>

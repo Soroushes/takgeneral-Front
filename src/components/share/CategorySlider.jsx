@@ -2,7 +2,7 @@ import {Box, Container} from "@mui/material";
 import SwiperCustomWrapper from "./SwiperCustomWrapper";
 import {FreeMode, Navigation} from "swiper";
 import {SwiperSlide} from "swiper/react";
-import OuterImageSection from "./SortSection";
+import OuterImageSection from "./OuterImageSection";
 const CategorySlider = ({category})=>{
     return(
         <Box>

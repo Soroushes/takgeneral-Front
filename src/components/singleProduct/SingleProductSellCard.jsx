@@ -2,9 +2,9 @@ import {Box} from "@mui/system";
 import {Button, Typography} from "@mui/material";
 import CartEditionButton from "../share/CartEditionButton";
 import PriceDiscount from "../share/PriceDiscount";
-import freeDelivery from '../../assets/images/routing.png';
-import Image from "next/image";
 import Suggestion from "../../assets/icons/suggestion.svg";
+import FreeDelivery from '../../assets/icons/freeDelivery.svg';
+import Warranty from '../../assets/icons/warranty (2).svg';
 
 const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , discount , finalPrice , warranty , id, opinionRef})=>{
     const scrollToOpinion=()=>{
@@ -17,30 +17,22 @@ const SingleProductSellCard = ({ available , freeSent , sevenDaysBack , price , 
         <>
             <Box sx={{mb:2 , backgroundColor:'#fff' ,p:2}} display={'flex'} justifyContent={'space-around'}>
                 <Box sx={{ display:'flex', alignItems:'center', flexDirection:'column' , justifyContent:'center' }}>
-                    <Box sx={{position:'relative', aspectRatio:'1/1' , width:'30%'}}>
-                        <Image src={freeDelivery} fill alt={''}/>
-                    </Box>
+                    <FreeDelivery/>
+                    <Typography variant={'subtitle2'}>ضمانت اصالت کالا</Typography>
+                </Box>
+                <Box sx={{ display:'flex', alignItems:'center', flexDirection:'column' , justifyContent:'center' }}>
+                    <FreeDelivery/>
                     <Typography variant={'subtitle2'}>ارسال رایگان</Typography>
                 </Box>
                 <Box sx={{ display:'flex', alignItems:'center', flexDirection:'column' , justifyContent:'center' }}>
-                    <Box sx={{position:'relative', aspectRatio:'1/1' , width:'30%'}}>
-                        <Image src={freeDelivery} fill alt={''}/>
-                    </Box>
-                    <Typography variant={'subtitle2'}>ارسال رایگان</Typography>
-                </Box>
-                <Box sx={{ display:'flex', alignItems:'center', flexDirection:'column' , justifyContent:'center' }}>
-                    <Box sx={{position:'relative', aspectRatio:'1/1' , width:'30%'}}>
-                        <Image src={freeDelivery} fill alt={''}/>
-                    </Box>
-                    <Typography variant={'subtitle2'}>ارسال رایگان</Typography>
+                    <FreeDelivery/>
+                    <Typography variant={'subtitle2'}>موجود در انبار</Typography>
                 </Box>
 
             </Box>
             <Box sx={{backgroundColor:'#fff',display:'flex', gap:1  , mb:2 , p:2,borderRadius : 2 }}>
-                <Box sx={{position:'relative', aspectRatio:'1/1' , width:'6%'}}>
-                    <Image src={freeDelivery} fill alt={''}/>
-                </Box>
-                <Typography variant={'body2'}>ارسال رایگان</Typography>
+                <Warranty/>
+                <Typography variant={'body2'}>گارانتی</Typography>
             </Box>
             <Box sx={{px : 2 , pb : 3 , backgroundColor : "#fff" , borderRadius : 2  , display:'flex' , flexDirection :'column'  ,gap:2}}>
                 <Typography sx={{fontWeight : "bold", borderBottom:'1px solid #eee' , py:1}} variant={'body1'}>قیمت محصول</Typography>

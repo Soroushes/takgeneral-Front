@@ -10,7 +10,7 @@ import 'swiper/swiper.css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import {useSelector} from "react-redux";
-import OuterImageSection from "../../components/share/SortSection";
+import OuterImageSection from "../../components/share/OuterImageSection";
 
 export default function Page() {
     const {isMobile} = useSelector(state => state.deviceInfo)

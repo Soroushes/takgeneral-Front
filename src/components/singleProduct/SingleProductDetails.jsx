@@ -8,7 +8,7 @@ import {Typography} from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
 
-const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) => {
+const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) => {
     const [value, setValue] = useState("1");
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
@@ -17,29 +17,17 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
         <TabContext value={value}>
             <Box
                 sx={{
-                    borderColor: "divider",
                     display: "flex",
-                    justifyContent: "center",
                     width: "100%",
+                    borderBottom: 1, borderColor: 'divider'
                 }}
             >
                 <TabList textColor="secondary" indicatorColor="gray" onChange={handleTabChange}>
                     <Tab
-                        sx={{
-                            border: {xs: "none", lg: "1px solid #d3d3d3"},
-                            borderBottom: {xs: "none", lg: "none"},
-                            borderRadius: {xs: "8px 8px 8px 8px", lg: "8px 8px 0 0"},
-                            mr: 2,
-                        }}
                         label="مشخصات"
                         value="1"
                     />
                     <Tab
-                        sx={{
-                            border: {xs: "none", lg: "1px solid #d3d3d3"},
-                            borderBottom: {xs: "none", lg: "none"},
-                            borderRadius: {xs: "8px 8px 8px 8px", lg: "8px 8px 0 0"},
-                        }}
                         label="معرفی محصول"
                         value="2"
                     />
@@ -51,8 +39,6 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                     transition: "all .3s",
                     justifyContent: "center",
                     width: "100%",
-                    border: {xs: "none", lg: "1px solid #d3d3d3"},
-                    borderRadius: 1.5,
                 }}
             >
                 <TabPanel
@@ -120,25 +106,27 @@ const SingleProductDetails = ({details ,setShowAllDetails , IsShowAllDetails}) =
                     })}
                     {
                         details?.length ?
-                        <Box onClick={setShowAllDetails.bind(this , prev=>!prev)} sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center"}}>
-                        {
-                            IsShowAllDetails ? <CloseIcon color={'primary'}/> : <KeyboardArrowDownIcon color={'primary'}/>
-                        }
-                        <Typography
-                            variant={"body2"}
-                            color={'primary'}
-                            sx={{
-                                cursor: "pointer",
-                                textAlign: "center",
-                            }}
-                        >
-                            {
-                                IsShowAllDetails ? 'نشان دادن کمتر' : "مشاهده کامل مشخصات"
-                            }
-                        </Typography>
-                    </Box>
-                    :
-                    null
+                            <Box onClick={setShowAllDetails.bind(this, prev => !prev)}
+                                 sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center"}}>
+                                {
+                                    IsShowAllDetails ? <CloseIcon color={'primary'}/> :
+                                        <KeyboardArrowDownIcon color={'primary'}/>
+                                }
+                                <Typography
+                                    variant={"body2"}
+                                    color={'primary'}
+                                    sx={{
+                                        cursor: "pointer",
+                                        textAlign: "center",
+                                    }}
+                                >
+                                    {
+                                        IsShowAllDetails ? 'نشان دادن کمتر' : "مشاهده کامل مشخصات"
+                                    }
+                                </Typography>
+                            </Box>
+                            :
+                            null
                     }
                 </TabPanel>
                 <TabPanel value="2">Item Two</TabPanel>

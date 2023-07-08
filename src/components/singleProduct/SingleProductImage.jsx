@@ -1,7 +1,6 @@
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Paper from "@mui/material/Paper";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -12,7 +11,7 @@ import Image from "next/image";
 const singleProductImage =({mainImage , otherImage})=>{
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return(
-        <Paper elevation={8} sx={{padding : '15px 15px 7px 15px' , borderRadius : 2}}>
+        <Box sx={{padding : '15px 15px 7px 15px' , borderRadius : 2}}>
             <Box sx={{mb: 1}}>
                 <Swiper
                     spaceBetween={10}
@@ -68,7 +67,7 @@ const singleProductImage =({mainImage , otherImage})=>{
                     }
                 </Swiper>
             </Box>
-        </Paper>
+        </Box>
     )
 }
 export default singleProductImage;
