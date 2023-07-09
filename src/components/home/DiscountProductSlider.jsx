@@ -100,12 +100,12 @@ const DiscountProductSlider = () => {
     const {isMobile} = useSelector(state => state.deviceInfo) ;
 
     return (
-            <Container disableGutters={true} sx={{backgroundImage: 'linear-gradient(to left, #EF4800 , #FF8301)' , my : 8 , pt : 6 , pb:  10 , borderRadius : '4px 4px 25px 25px' , position : 'relative'}}>
+            <Container disableGutters={true} sx={{backgroundImage: 'linear-gradient(to left, #EF4800 , #FF8301)' , my : 8 , pt : 4 , pb:  6 , borderRadius : '4px 4px 25px 25px' , position : 'relative'}}>
                 <Box top={'-25%'} left={'0'} position={'absolute'}>
                     <DiscountShapeBig/>
                 </Box>
                 <Box sx={{width : {md : '90%'} , mx : 'auto'}}>
-                <Box sx={{mb: 6 , display : 'flex' , justifyContent : 'center' , alignItems : 'center' , gap : 2}}>
+                <Box sx={{mb: 4 , display : 'flex' , justifyContent : 'center' , alignItems : 'center' , gap : 2}}>
                     <DiscountShape/>
                     <Typography sx={{wordSpacing :'3px'}} textAlign={'center'} variant={'h3'} fontWeight={'bold'} color={'white'}>تخفیف ویژه تک جنرال</Typography>
                     <DiscountShape/>
@@ -113,7 +113,7 @@ const DiscountProductSlider = () => {
                 <SwiperCustomWrapper>
                     {dummyData.map((data , index)=>{
                         return(
-                            <SwiperSlide key={Math.random()*1000} style={{width : isMobile ? 170 : 200, marginRight : (!index&&isMobile) ? '30px' : '16px'}}>
+                            <SwiperSlide key={Math.random()*1000} style={{width : isMobile ? 170 : 200, marginRight : '16px'}}>
                                 <ProductPreviewCard title={data.title} discountPercent={data.discountPercent} price={data.price} afterDiscountPrice={data.afterDiscountPrice} id={2} image={data.image} />
                             </SwiperSlide>
                         )

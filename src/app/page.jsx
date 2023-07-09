@@ -37,7 +37,7 @@ export default async function Page() {
     return (
         <>
             <Slider slides={data.sliders}/>
-            <div style={{backgroundColor : '#fff' , position : 'relative' , zIndex : 2 , borderRadius : '12px' , padding : '20px 0 '}}>
+            <div style={{backgroundColor : '#fff' , position : 'relative' , zIndex : 2 , borderRadius : '20px' , padding : '20px 0 '}}>
                 <HomePageCategorySection categories={fakeSortData}/>
                 <DiscountProductSlider/>
                 <ProductBanners banners={[{src : testBanner} , {src: testBanner} , {src : testBanner}]}/>

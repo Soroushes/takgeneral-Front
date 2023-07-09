@@ -55,14 +55,14 @@ const DesktopHeader = ({status, desktopHeaderRef}) => {
                             <Box sx={{display: "flex", gap: 2}}>
                                 {
                                     status.phone_number ?
-                                        <Button onClick={() => router.push(urls.profile)} sx={{px: 3, gap: 1, py: .8 , borderRadius : 3}} variant={'outlined'}>
-                                            <UserIcon/>
+                                        <Button onClick={() => router.push(urls.profile)} sx={{px: 2, gap: 1, py: .8 , borderRadius : 2}} variant={'outlined'}>
                                             حساب کاربری
+                                            <UserIcon/>
                                         </Button>
                                         :
-                                        <Button onClick={() => router.push(urls.login)} sx={{px: 3, gap: 1, py: .8 , borderRadius : 3}} variant={'contained'}>
-                                            <UserIcon/>
+                                        <Button onClick={() => router.push(urls.login)} sx={{px: 2, gap: 1, py: .8 , borderRadius : 2}} variant={'contained'}>
                                             ورود/عضویت
+                                            <UserIcon/>
                                         </Button>
                                 }
                                 <Button onClick={() => router.push(urls.cart)} size={'small'} sx={{p: 0}} variant={'outlined'}>
