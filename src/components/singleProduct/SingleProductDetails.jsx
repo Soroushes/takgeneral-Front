@@ -26,7 +26,6 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) =>
                     <Tab
                         sx={{
                             mr:2,
-                            mb: {xs: 2, md: 0}
                         }}
                         label="مشخصات"
                         value="1"

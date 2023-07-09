@@ -9,14 +9,20 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import 'swiper/css/pagination';
-
-const singleProductImage =({mainImage , otherImage})=>{
+import testSlider from '../../assets/images/Rectangle 5.png'
+const singleProductImage =({mainImage})=>{
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    const {isMobile} = useSelector(state => state.deviceInfo)
+    const {isMobile} = useSelector(state => state.deviceInfo);
+    const otherImage =[
+        testSlider ,
+        testSlider
+    ]
     return(
         <Box sx={{padding : '15px 15px 7px 15px' , borderRadius : 2}}>
             <Box sx={{mb: 1,  boxShadow : 1}}>
                 <Swiper
+                    loop={true}
+                    navigation={true}
                     pagination
                     spaceBetween={10}
                     thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
@@ -35,7 +41,7 @@ const singleProductImage =({mainImage , otherImage})=>{
                             return(
                                 <SwiperSlide key={item.id}>
                                     <Box sx={{width : "100%", textAlign : 'center'}}>
-                                        <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={''} />
+                                        <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={testSlider} />
                                     </Box>
                                 </SwiperSlide>
                             )
@@ -66,7 +72,7 @@ const singleProductImage =({mainImage , otherImage})=>{
                                 return(
                                     <SwiperSlide style={{borderRadius : "8px" , padding : '5px'}} key={item.id}>
                                         <Box sx={{width : "100%" , textAlign : 'center' , boxShadow : 1}}>
-                                            <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={item.image} />
+                                            <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={testSlider} />
                                         </Box>
                                     </SwiperSlide>
                                 )

@@ -1,10 +1,15 @@
 import {Box, Button, Rating, Typography} from "@mui/material";
 import Massage from '../../assets/icons/message.svg';
 import PN from "persian-number";
-
-const AverageRatingComment = ({average, openAddComment}) => {
+import {useRouter} from "next/navigation";
+const AverageRatingComment = ({average, openAddComment , isLoggedIn}) => {
+    const Router = useRouter();
     const addComment = () => {
-        openAddComment((prev) => !prev);
+        if(isLoggedIn) {
+            openAddComment((prev) => !prev);
+        }else{
+            Router.push('/login')
+        }
     };
     return (
         <Box sx={{backgroundColor: '#fff', py: 2, borderRadius: 3, boxShadow: 1}} gap={1.5} display={'flex'}
