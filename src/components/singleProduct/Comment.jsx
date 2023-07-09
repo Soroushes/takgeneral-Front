@@ -42,7 +42,7 @@ const Comment = ({comment}) => {
         <Box sx={{px: 2, mb: 3}}>
             <Box sx={{borderBottom: '1px solid #eee', pb: 1}} display={'flex'} justifyContent={'space-between'}>
                 <Box display={'flex'} gap={3} alignItems={'center'} justifyContent={'space-between'}>
-                    <Box display={'flex'}><Rating size={'small'} sx={{mr: .5}} defaultValue={1}
+                    <Box display={'flex'}><Rating size={'smallF'} sx={{mr: .5}} defaultValue={1}
                                                   max={1}/><Typography>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(2)))}</Typography></Box>
                     <Box display={"flex"} alignItems={"center"} gap={.5}>
                         <PersonIcon fontSize={'small'} color={'gray'}/>
@@ -50,7 +50,7 @@ const Comment = ({comment}) => {
                     </Box>
                     <Typography variant={'body2'} color={'text.muted'}>{date}</Typography>
                 </Box>
-                <Box item color={'gray.main'} display={'flex'} justifyContent={'end'} alignItems={'center'} gap={1}>
+                <Box color={'gray.main'} display={'flex'} justifyContent={'end'} alignItems={'center'} gap={1}>
                     <Box onClick={handlelikeDislike.bind(this, true)} display={'flex'} gap={1}
                          alignItems={'center'}>
                         <Typography variant="subtitle1" color={likeDislike === 'like' ? 'success.main' : 'gray'}>

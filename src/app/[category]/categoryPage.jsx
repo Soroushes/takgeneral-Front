@@ -13,7 +13,6 @@ import {BASE_URL} from "../../data/urls";
 import Banner from '../../assets/images/categoryBanner1.jpg'
 import pompSectionImage from '../../assets/images/pomp 1.png';
 import CategorySlider from "../../components/share/CategorySlider";
-import 'swiper/swiper.css';
 import {useSelector} from "react-redux";
 const sortValueItems =  [
     {

@@ -1,7 +1,6 @@
 import Slider from "../components/home/Slider";
 import DiscountProductSlider from "../components/home/DiscountProductSlider";
 import {BASE_URL} from "../data/urls";
-import 'swiper/swiper.css' ;
 import anPic from '../assets/images/an.png'
 import HomePageCategorySection from "../components/home/HomePageCategorySection";
 import testBanner from '../assets/images/1.png'

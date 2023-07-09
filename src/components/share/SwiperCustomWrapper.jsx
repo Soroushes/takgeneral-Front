@@ -2,7 +2,7 @@ import {Swiper} from "swiper/react";
 import {FreeMode} from "swiper";
 import {Box} from "@mui/system";
 import {useSelector} from "react-redux";
-
+import 'swiper/swiper.css' ;
 const SwiperCustomWrapper = ({swiperOptions , children , spaceBetween})=>{
     const {isMobile} = useSelector(state => state.deviceInfo) ;
     return (

@@ -72,13 +72,13 @@ const AddCommentModal = ({rate , productId}) => {
                             <Controller
                                 name={'suggest_me'}
                                 control={control}
+                                defaultValue={full_name}
                                 rules={{
                                     required: "وارد کردن نام اجباری میباشد"
                                 }}
                                 render={({field, fieldState}) =>
                                     <TextField
                                         error={!!fieldState.error}
-                                        defaultValue={full_name}
                                         value={field?.value}
                                         onChange={field?.onChange}
                                         helperText={fieldState.error?.message ?? ''}
@@ -89,7 +89,6 @@ const AddCommentModal = ({rate , productId}) => {
                             />           </Box>
                         <Box mb={2}>
                             <Controller
-                                defaultValue={''}
                                 name={'content'}
                                 control={control}
                                 rules={{

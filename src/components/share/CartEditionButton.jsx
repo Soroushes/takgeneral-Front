@@ -33,7 +33,7 @@ const CartEditionButton = ({id, boxSx}) => {
                     border :'1px solid #f4f4f4',
                     borderRadius: 4,
                     height: "50px",
-                    width: '45%',
+                    width: '110px',
                     ...boxSx
                 }}>
                     <Button sx={{"&:hover": {border :'1px solid '} , borderRight :'1px solid #f4f4f4',height: '100%' , minWidth:'30px' , borderRadius :'16px 0 0 16px'}} color={'success'} disabled={loading} onClick={setCart.bind(this, true)}>
@@ -46,13 +46,9 @@ const CartEditionButton = ({id, boxSx}) => {
                     <Button sx={{"&:hover": {border :'1px solid '}, borderLeft :'1px solid #f4f4f4' , height: '100%', minWidth:'30px' ,borderRadius :'0 16px 16px 0'}} color={'error'} disabled={loading}
                             onClick={setCart.bind(this, false)}>
                         <RemoveIcon fontSize={'small'}/>
-                        {/*{*/}
-                        {/*    countItem <= 1 ?*/}
-                        {/*        <DeleteIcon fontSize={'small'}/> : <RemoveIcon fontSize={'small'}/>*/}
-                        {/*}*/}
                     </Button>
                 </Box>
-                <Typography variant={'subtitle2'} sx={{width:'55%'}}>در سبد خرید شما قرار گرفت</Typography>
+                <Typography variant={'body2'}>در سبد خرید شما قرار گرفت</Typography>
             </Box>
     )
 

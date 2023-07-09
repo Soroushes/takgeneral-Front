@@ -30,7 +30,9 @@ export const fetchInfo = createAsyncThunk(
             })
             return {...data , isLoggedIn : true , token}
         } catch (err) {
+            console.log(err.response)
             if (err?.response?.status===401){
+                console.log('in if')
             localStorage.removeItem('token') ;
             return {
                 full_name: '',

@@ -27,7 +27,8 @@ export default function Page() {
                 if (err.response.status === 400 && err.response.data) {
                     const national_code = !!err.response.data.national_code;
                     const email = !!err.response.data.email;
-                    const title = national_code && email ? "کد ملی و ایمیل" : national_code ? 'کد ملی' : "ایمیل"
+                    const title = national_code && email ? "کد ملی و ایمیل" : national_code ? 'کد ملی' : "ایمیل" ;
+                    console.log(title);
                     warningAlert(`حساب دیگری با این ${title} وجود دارد`)
                 }
             }

@@ -6,9 +6,6 @@ import sortImage from '../../assets/images/testSort.png'
 import BrandSlider from "../../components/share/BrandSlider";
 import brandImage from '../../assets/images/pentax (1).png';
 import categoryImages from '../../assets/images/1.png';
-import 'swiper/swiper.css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import {useSelector} from "react-redux";
 import OuterImageSection from "../../components/share/OuterImageSection";
 

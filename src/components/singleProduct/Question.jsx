@@ -1,11 +1,10 @@
-import {Box, Divider, Grid, Typography} from "@mui/material";
+import {Box, Divider, Typography} from "@mui/material";
 import {useState} from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
 import {useForm} from "react-hook-form";
 import {useAxios} from "src/hooks/useAxios";
 import AnswerButton from "./AnswerButton";
-import QuestionIcon from '../../assets/icons/single-product/message-question.svg'
 
 const Question = ({eachQuestion}) => {
     const date = Intl.DateTimeFormat('fa', {
@@ -31,13 +30,10 @@ const Question = ({eachQuestion}) => {
     };
     return (
         <Box component={'form'} onSubmit={handleSubmit(onFormSubmit)} key={eachQuestion.id} sx={{width: '100%'}}>
-            <Grid container rowGap={1}>
-                <Grid item xs={12} md={.5} justifyContent={'center'} display={'flex'}><QuestionIcon/></Grid>
-                <Grid item xs={12} md={11.5}><Typography>{eachQuestion.content}</Typography></Grid>
-            </Grid>
+            <Typography component={'span'}>{eachQuestion.content}</Typography>
+            <Typography component={'span'} textAlign={'end'} sx={{ml : 'auto' , width : '200px' , direction : 'ltr'}}>{date}</Typography>
             {eachQuestion.replys.length ? (
                     <Box>
-                        <Typography sx={{px: 2}} component={'p'} textAlign={'end'} variant={'caption'}>{date}</Typography>
                         <Box sx={{
                             p: 2,
                             borderRadius: 3,
@@ -54,15 +50,7 @@ const Question = ({eachQuestion}) => {
                                 const show = index < 1 || answerIsShow
                                 return (
                                     <Box sx={{display: show ? 'block' : 'none'}} key={index}>
-                                        <Grid container>
-                                            <Grid item md={11} xs={12}>
-                                                <Typography key={answer} variant="subtitle1" color={'text.muted'}
-                                                            sx={{px: 1, pb: 2}}>{answer.content}</Typography>
-                                            </Grid>
-                                            <Grid item md={1} xs={12} display={'flex'} justifyContent={'end'}>
-                                                <Typography variant={'caption'}>{answerDate}</Typography>
-                                            </Grid>
-                                        </Grid>
+                                            <Typography display={'flex'}>{answer.content} <Typography>{answerDate}</Typography></Typography>
                                         <Divider/>
                                     </Box>
                                 )

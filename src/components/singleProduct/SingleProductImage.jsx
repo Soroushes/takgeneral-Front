@@ -1,51 +1,50 @@
-import { Box } from "@mui/system";
-import { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs , Pagination } from "swiper";
+import {Box} from "@mui/system";
+import {useState} from "react";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {FreeMode, Navigation, Thumbs, Pagination} from "swiper";
 import Image from "next/image";
 import {useSelector} from "react-redux";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
+import testSlider from '../../assets/images/Rectangle 5.png' ;
+import 'swiper/swiper.css' ;
 import "swiper/css/thumbs";
 import 'swiper/css/pagination';
-import testSlider from '../../assets/images/Rectangle 5.png'
-const singleProductImage =({mainImage})=>{
+const singleProductImage = ({mainImage}) => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const {isMobile} = useSelector(state => state.deviceInfo);
-    const otherImage =[
-        testSlider ,
+    const otherImage = [
+        testSlider,
         testSlider
     ]
-    return(
-        <Box sx={{padding : '15px 15px 7px 15px' , borderRadius : 2}}>
-            <Box sx={{mb: 1,  boxShadow : 1}}>
+    return (
+        <Box sx={{padding: '15px 15px 7px 15px', borderRadius: 2}}>
+            <Box sx={{mb: 1, boxShadow: 1}}>
                 <Swiper
-                    loop={true}
                     navigation={true}
-                    pagination
                     spaceBetween={10}
-                    thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-                    modules={[FreeMode, Thumbs , Pagination]}
+                    observer={true}
+                    thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
+                    modules={[FreeMode, Thumbs, Pagination]}
                 >
                     <SwiperSlide>
-                        <Box sx={{width : "100%" , textAlign : 'center'}}>
+                        <Box sx={{width: "100%", textAlign: 'center'}}>
                             {
-                                mainImage ? <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={mainImage} /> : null
+                                mainImage ?
+                                    <Image width={300} height={300} style={{width: '100%', height: 'auto'}} alt={'test'}
+                                           src={mainImage}/> : null
                             }
                         </Box>
                     </SwiperSlide>
                     {
-                        !isMobile &&
-                        otherImage?.map((item)=>{
-                            return(
+                        otherImage?.map((item) => {
+                            return (
                                 <SwiperSlide key={item.id}>
-                                    <Box sx={{width : "100%", textAlign : 'center'}}>
-                                        <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={testSlider} />
+                                    <Box sx={{width: "100%", textAlign: 'center'}}>
+                                        <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
+                                               alt={'test'} src={testSlider}/>
                                     </Box>
                                 </SwiperSlide>
                             )
-                        },[])
+                        })
                     }
                 </Swiper>
             </Box>
@@ -60,23 +59,25 @@ const singleProductImage =({mainImage})=>{
                         modules={[Navigation, Thumbs]}
                         className="mySwiper"
                     >
-                        <SwiperSlide style={{borderRadius : "8px"  , padding : '5px'}}>
-                            <Box sx={{width : "100%" , textAlign : 'center' , boxShadow : 1}}>
+                        <SwiperSlide style={{borderRadius: "8px", padding: '5px'}}>
+                            <Box sx={{width: "100%", textAlign: 'center', boxShadow: 1}}>
                                 {
-                                    mainImage ? <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={mainImage} /> : null
+                                    mainImage ? <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
+                                                       alt={'test'} src={mainImage}/> : null
                                 }
                             </Box>
                         </SwiperSlide>
                         {
-                            otherImage?.map((item)=>{
-                                return(
-                                    <SwiperSlide style={{borderRadius : "8px" , padding : '5px'}} key={item.id}>
-                                        <Box sx={{width : "100%" , textAlign : 'center' , boxShadow : 1}}>
-                                            <Image width={300} height={300} style={{width : '100%' , height : 'auto'}} alt={'test'} src={testSlider} />
+                            otherImage?.map((item) => {
+                                return (
+                                    <SwiperSlide style={{borderRadius: "8px", padding: '5px'}} key={item.id}>
+                                        <Box sx={{width: "100%", textAlign: 'center', boxShadow: 1}}>
+                                            <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
+                                                   alt={'test'} src={testSlider}/>
                                         </Box>
                                     </SwiperSlide>
                                 )
-                            },[])
+                            })
                         }
                     </Swiper>
                 </Box>

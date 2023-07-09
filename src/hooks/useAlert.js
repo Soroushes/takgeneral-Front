@@ -4,13 +4,13 @@ import {useDispatch} from "react-redux";
 const useAlert = () => {
     const dispatch = useDispatch();
     const successAlert = (massage) => {
-        dispatch(SET_ALERT({show: true, title: {massage}, severity: "success"}))
+        dispatch(SET_ALERT({show: true, title: massage, severity: "success"}))
     }
     const errorAlert = (massage) => {
-        dispatch(SET_ALERT({show: true, title: {massage}, severity: "error"}))
+        dispatch(SET_ALERT({show: true, title: massage, severity: "error"}))
     }
     const warningAlert = (massage) => {
-        dispatch(SET_ALERT({show: true, title: {massage}, severity: "warning"}))
+        dispatch(SET_ALERT({show: true, title: massage, severity: "warning"}))
     }
     const forceHideAlert = () => {
         dispatch(SET_ALERT({show: false}));
