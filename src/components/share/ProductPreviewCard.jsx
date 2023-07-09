@@ -3,7 +3,7 @@ import {Box} from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 import PriceDiscount from "./PriceDiscount";
-import testPic from '../../assets/images/product.png'
+import testPic from '../../assets/images/product-image.png'
 import PN from "persian-number";
 import { urls } from "src/data/urls";
 import {useSelector} from "react-redux";

@@ -9,23 +9,24 @@ import Checkbox from "@mui/material/Checkbox";
 import Rating from "@mui/material/Rating";
 import Message from '../../../assets/icons/message.svg';
 
-const AddCommentModal = ({rate}) => {
+const AddCommentModal = ({rate , productId}) => {
     const {control, handleSubmit, reset} = useForm({
         defaultValues: {
-            kefiyat_rate: rate.avg_keyfiyat_rate ?? 3,
-            arzesh_rate: rate.avg_arzesh_rate ?? 3
+            kefiyat_rate: rate.avg_keyfiyat_rate ?? 0,
         }
     });
     const {loading, callApi} = useAxios();
     const router = useRouter();
+    console.log(router)
     const onFormSubmit = (data) => {
+        console.log(data)
         callApi({
             method: 'post',
             url: 'create-comment',
             token: true,
             data: {
                 ...data,
-                product: router.query.productId
+                product: productId ,
             },
             successFunc: () => {
                 reset();
@@ -36,13 +37,13 @@ const AddCommentModal = ({rate}) => {
         <Box sx={{width: '100%', p: 3}} component={'form'} onSubmit={handleSubmit(onFormSubmit)}>
             <Grid container justifyContent={'space-between'} rowGap={3}>
                 <Grid item md={4} xs={12}>
-                    <Box sx={{height: '100%'}} display={'flex'} justifyContent={'space-between'}
+                    <Box sx={{height: '100%'}} display={'flex'} alignItems={'center'} justifyContent={'space-between'}
                          flexDirection={'column'}>
                         <Typography variant={'h6'} fontWeight={'bold'} sx={{textAlign: 'center'}}>ست کنترل پنتاکس اصلی
                             هیدروماتیک
                             H2
                         </Typography>
-                        <Box sx={{width: '100%', textAlign: 'center'}}>
+                        <Box sx={{width: {md:'100%' , xs:'50%'}, textAlign: 'center'}}>
                             <Image height={250} width={250} style={{width: '100%', height: 'auto'}} src={testImage}
                                    alt={'test'}/>
                         </Box>
@@ -73,7 +74,7 @@ const AddCommentModal = ({rate}) => {
                             />
                             <Typography color={'text.muted'}>نمایش نام و نام خانوادگی</Typography>
                         </Box>
-                        <Box mb={2}>
+                        <Box my={2}>
                             <Controller
                                 defaultValue={''}
                                 name={'comment'}

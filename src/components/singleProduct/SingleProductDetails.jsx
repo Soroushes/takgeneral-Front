@@ -19,11 +19,15 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) =>
                 sx={{
                     display: "flex",
                     width: "100%",
-                    borderBottom: 1, borderColor: 'divider'
+                    borderBottom: '1px solid #eee'
                 }}
             >
                 <TabList textColor="secondary" indicatorColor="gray" onChange={handleTabChange}>
                     <Tab
+                        sx={{
+                            mr:2,
+                            mb: {xs: 2, md: 0}
+                        }}
                         label="مشخصات"
                         value="1"
                     />

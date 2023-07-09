@@ -1,5 +1,5 @@
 import {Box} from "@mui/system";
-import {Stack, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 import PN from "persian-number";
 
 const PriceDiscount = ({
@@ -15,11 +15,12 @@ const PriceDiscount = ({
                             discountedPriceBold = false
                        }) => {
     return (
-        <Stack>
             <Box sx={{
+                width:'100%',
                 display: 'flex',
-                flexDirection: 'column',
+                flexDirection: {md:'column' , xs:'row'},
                 alignItems: align,
+                justifyContent :'space-between',
                 gap: gap
             }}>
                 {discountPrice !== finalPrice &&
@@ -35,7 +36,6 @@ const PriceDiscount = ({
                     <Typography fontWeight={finalPriceBold?  'bold' : 'normal'} component={'span'} color={finalPriceColor} variant={fontSize}> تومان </Typography>
                 </Typography>
             </Box>
-        </Stack>
     )
 }
 export default PriceDiscount;

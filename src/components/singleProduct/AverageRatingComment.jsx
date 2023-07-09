@@ -15,7 +15,7 @@ const AverageRatingComment = ({average, openAddComment}) => {
                     <>
                         <Typography>میانگین امتیازات کاربران</Typography>
                         <Box sx={{display: 'flex', gap: .5}}>
-                            <Typography color={'primary'} variant={'h1'}>{PN.convertEnToPe(4.5)}</Typography>
+                            <Typography color={'primary'} fontWeight={'bold'} variant={'h1'}>{PN.convertEnToPe(4.5)}</Typography>
                             <Typography>از {PN.convertEnToPe(5)}</Typography>
                         </Box>
                     </> :
@@ -23,11 +23,11 @@ const AverageRatingComment = ({average, openAddComment}) => {
             }
 
             <Rating sx={{mb: 3}} value={average} readOnly size={'small'}/>
-            <Button onClick={addComment} sx={{px: 5, height : 35, borderRadius: 2 , width : '80%'}} variant={'contained'}>
+            <Button onClick={addComment} sx={{ height : 35, borderRadius: 2 , width : '90%'}} variant={'contained'}>
                 <Typography
                 color={'white'}
-                variant={'subtitle2'}
-                sx={{mr: 1}}>افزودن
+                variant={'body2'}
+                sx={{mr: 1 }}>افزودن
                     دیدگاه
                 </Typography>
                 <Massage/>

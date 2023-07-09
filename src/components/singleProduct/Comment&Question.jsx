@@ -36,15 +36,17 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                     borderColor: "divider",
                     display: "flex",
                     width: "100%",
-                    mb: {xs: 2, md: 2, lg: 0}
+                    mb: {xs: 2, md: 2, lg: 0},
+                    borderBottom:'1px solid #eee'
                 }}
             >
                 <TabList indicatorColor="gray" onChange={handleTabChange}>
                     <Tab
                         sx={{
+                            mr:2,
                             mb: {xs: 2, md: 0}
                         }}
-                        label="نظرات"
+                        label="دیدگاه کاربران"
                         value="1"
                     />
                     <Tab
@@ -77,11 +79,11 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                 >
                     {
                         comments.length ?
-                            <Grid container sx={{py:3}} justifyContent={'space-between'}>
-                                <Grid item xs={12} md={2.3}>
+                            <Grid container sx={{py:3}} rowGap={5} justifyContent={'space-between'}>
+                                <Grid item xs={12} md={2.6}>
                                     <AverageRatingComment openAddComment={setCommentIsOpen} average={4.5} title={'comment'}/>
                                 </Grid>
-                                <Grid item xs={12} md={9.5}>
+                                <Grid item xs={12} md={9}>
                                     <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column'}}>
                                         {
                                             comments.map((comment, index) => {
@@ -99,16 +101,17 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                                     onClick={showComment}
                                                     variant="outlined"
                                                     color={'primary'}
-                                                    sx={{width: {xs: '100%', md: "25%", lg:'20%'}, my: 2}}
+                                                    sx={{width: {xs: '100%', md: "25%", lg:'20%'}, my: 2 , px:.5  , mx:2}}
                                                 >
                                                     {
                                                         commentIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :
                                                             <KeyboardArrowDownIcon color={'primary'}/>
                                                     }
-                                                    {
-                                                        commentIsShow ? 'نشان دادن کمتر' : "مشاهده کامل نظرات ها"
-                                                    }
-
+                                                    <Typography variant={'subtitle1'} color={'primary'}>
+                                                        {
+                                                            commentIsShow ? 'نشان دادن کمتر' : "مشاهده کامل نظرات"
+                                                        }
+                                                    </Typography>
                                                 </Button>
                                                 :
                                                 null
