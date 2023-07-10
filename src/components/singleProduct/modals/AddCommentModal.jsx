@@ -1,4 +1,4 @@
-import {Box, Button, Grid, TextField, Typography} from "@mui/material";
+import {Box, Button, Checkbox, Grid, TextField, Typography} from "@mui/material";
 import {Controller, useForm} from "react-hook-form";
 import {useAxios} from "../../../hooks/useAxios";
 import {useRouter} from "next/navigation";
@@ -8,8 +8,9 @@ import Image from "next/image";
 import Rating from "@mui/material/Rating";
 import Message from '../../../assets/icons/message.svg';
 import {useSelector} from "react-redux";
-
-const AddCommentModal = ({rate , productId}) => {
+import useAlert from "../../../hooks/useAlert";
+const AddCommentModal = ({rate , productId , setClose}) => {
+    const {errorAlert, successAlert} = useAlert();
     const {full_name} = useSelector(state=>state.userInfo)
     const {control, handleSubmit, reset} = useForm({
         defaultValues: {
@@ -35,6 +36,11 @@ const AddCommentModal = ({rate , productId}) => {
             },
             successFunc: () => {
                 reset();
+                setClose((prev)=>!prev);
+                successAlert('دیدگاه شما با موفقیت ثبت شد')
+            },
+            errFunc:()=>{
+                errorAlert('دیدگاه شما ثبت نشد')
             }
         })
     }
@@ -68,9 +74,24 @@ const AddCommentModal = ({rate , productId}) => {
                                 }
                             />
                         </Box>
-                        <Box mb={2} display={'flex'} alignItems={'center'}>
+                        <Box display={'flex'} alignItems={'center'}>
                             <Controller
                                 name={'suggest_me'}
+                                control={control}
+                                defaultValue={false}
+                                render={({field}) =>
+                                    <Checkbox
+                                        value={field?.value}
+                                        onChange={field?.onChange}
+                                        variant={'outlined'}
+                                    />
+                                }
+                            />
+                            <Typography>پیشنهاد می کنم</Typography>
+                        </Box>
+                        <Box mb={2} display={'flex'} alignItems={'center'}>
+                            <Controller
+                                name={'user_alias_name'}
                                 control={control}
                                 defaultValue={full_name}
                                 rules={{

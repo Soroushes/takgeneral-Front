@@ -7,7 +7,6 @@ import PersonIcon from '../../assets/icons/profile-circle.svg';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 const Comment = ({comment}) => {
-    console.log(comment)
     const date = Intl.DateTimeFormat('fa', {
         useGrouping: false, year: "numeric", month: "long", day: "numeric"
     }).format(comment.created_at.timestamp * 1000);

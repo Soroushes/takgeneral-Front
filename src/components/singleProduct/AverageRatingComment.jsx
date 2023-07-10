@@ -2,13 +2,13 @@ import {Box, Button, Rating, Typography} from "@mui/material";
 import Massage from '../../assets/icons/message.svg';
 import PN from "persian-number";
 import {useRouter} from "next/navigation";
-const AverageRatingComment = ({average, openAddComment , isLoggedIn}) => {
+const AverageRatingComment = ({average, openAddComment , isLoggedIn , productId}) => {
     const Router = useRouter();
     const addComment = () => {
         if(isLoggedIn) {
             openAddComment((prev) => !prev);
         }else{
-            Router.push('/login')
+            Router.push(`/login?from=product/${productId}`)
         }
     };
     return (

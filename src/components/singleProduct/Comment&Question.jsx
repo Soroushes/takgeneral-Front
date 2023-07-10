@@ -7,19 +7,21 @@ import {useState} from "react";
 import Question from "./Question";
 import Comment from "./Comment";
 import AddCommentModal from "./modals/AddCommentModal";
-import AddQuestion from "./AddQuestion";
+import AddQuestionModal from "./modals/AddQuestionModal";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
 import AverageRatingComment from "./AverageRatingComment";
 import MainModal from "../share/MainModal";
 import {useSelector} from "react-redux";
 import NoCommentIcon from '../../assets/icons/single-product/Layer_1.svg';
+import AverageRatingQuestion from "./AverageRatingQuestion";
 const CommentQuestion = ({comments, rate, productId, questions}) => {
     const {isLoggedIn} = useSelector(state =>state.userInfo)
     const [value, setValue] = useState("1");
     const [questionIsShow, setQuestionIsShow] = useState(false);
     const [commentIsShow, setCommentIsShow] = useState(false);
-    const [commentIsOpen , setCommentIsOpen] = useState(false)
+    const [commentIsOpen , setCommentIsOpen] = useState(false);
+    const [questionIsOpen , setQuestionIsOpen] = useState(false)
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -29,7 +31,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
     const showQuestion = () => {
         setQuestionIsShow(prev => !prev)
     };
-
+    console.log(questions)
     return (
         <TabContext value={value}>
             <Box
@@ -78,7 +80,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                         comments.length ?
                             <Grid container sx={{py:3}} rowGap={5} justifyContent={'space-between'}>
                                 <Grid item xs={12} md={2.6}>
-                                    <AverageRatingComment isLoggedIn={isLoggedIn}  openAddComment={setCommentIsOpen} average={4.5} title={'comment'}/>
+                                    <AverageRatingComment productId={productId} isLoggedIn={isLoggedIn}  openAddComment={setCommentIsOpen} average={4.5} title={'comment'}/>
                                 </Grid>
                                 <Grid item xs={12} md={9}>
                                     <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column'}}>
@@ -93,7 +95,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                             })
                                         }
                                         {
-                                            comments.length >= 2 ?
+                                            comments.length > 2 ?
                                                 <Button
                                                     onClick={showComment}
                                                     variant="outlined"
@@ -144,7 +146,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                             ) :
                             <Grid container sx={{py:3}} rowGap={5} justifyContent={'space-between'}>
                                 <Grid item xs={12} md={2.6}>
-                                    <AverageRatingComment isLoggedIn={isLoggedIn}  openAddComment={setCommentIsOpen} average={4.5} title={'comment'}/>
+                                    <AverageRatingQuestion productId={productId} isLoggedIn={isLoggedIn}  openAddQuestion={setQuestionIsOpen}/>
                                 </Grid>
                                 <Grid item xs={12} md={9}>
                                     {
@@ -158,20 +160,20 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                         })
                                     }
                                     {
-                                        questions.length >= 2 ?
+                                        questions.length > 2 ?
                                             <Button
-                                                onClick={showComment}
+                                                onClick={showQuestion}
                                                 variant="outlined"
                                                 color={'primary'}
-                                                sx={{width: {xs: '100%', md: "25%", lg:'20%'}, my: 2 , px:.5  , mx: {md:2 , xs:0}}}
+                                                sx={{width: {xs: '100%', md: "25%", lg:'20%'}, my: 2 , px:.5 }}
                                             >
                                                 {
-                                                    commentIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :
+                                                    questionIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :
                                                         <KeyboardArrowDownIcon color={'primary'}/>
                                                 }
                                                 <Typography variant={'subtitle1'} color={'primary'}>
                                                     {
-                                                        commentIsShow ? 'نشان دادن کمتر' : "مشاهده کامل پرسش ها"
+                                                        questionIsShow ? 'نشان دادن کمتر' : "مشاهده کامل پرسش ها"
                                                     }
                                                 </Typography>
                                             </Button>
@@ -181,11 +183,13 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                 </Grid>
                                 </Grid>
                     }
-                    <AddQuestion productId={productId}/>
                 </TabPanel>
             </Box>
             <MainModal title={'افزودن دیدگاه'} open={commentIsOpen} setOpen={setCommentIsOpen} desktopFullScreen={true}>
-                <AddCommentModal productId={productId} rate={rate}/>
+                <AddCommentModal setCloese={setCommentIsOpen} productId={productId} rate={rate}/>
+            </MainModal>
+            <MainModal title={'ثبت پرسش'} open={questionIsOpen} setOpen={setQuestionIsOpen}>
+                <AddQuestionModal setClose={setQuestionIsOpen} productId={productId}/>
             </MainModal>
         </TabContext>
 
