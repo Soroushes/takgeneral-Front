@@ -125,7 +125,7 @@ const AddCommentModal = ({rate , productId , setClose}) => {
                                         variant={'outlined'}
                                         fullWidth={true}
                                         multiline={true}
-                                        rows={3}
+                                        rows={4}
                                     />
                                 }
                             />

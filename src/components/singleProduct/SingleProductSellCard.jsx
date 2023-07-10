@@ -75,7 +75,7 @@ const SingleProductSellCard = ({
                 <Typography sx={{fontWeight: "bold", borderBottom: '1px solid #eee', pt: 3, pb: 1.5, px: 1}}
                             variant={'h5'}>قیمت محصول:</Typography>
                 <Box sx={{my: 2, display: 'flex', justifyContent: 'end' , width:'100%', direction: 'ltr'}}>
-                    <PriceDiscount finalPriceBold={true} align={'end'} gap={1.7} discountPrice={price}
+                    <PriceDiscount finalPriceBold={true} align={'end'} gap={1.7} justify={{md:'column' , xs:'row'}} discountPrice={price}
                                    finalPrice={finalPrice} discountedPriceColor={'text.muted'}
                                    finalPriceColor={'text.main'} discountedPriceFont={'h5'} fontSize={'h2'}/>
                 </Box>

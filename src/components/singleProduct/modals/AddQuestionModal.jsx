@@ -39,7 +39,7 @@ const AddQuestionModal = ({productId, setClose}) => {
                 defaultValue={''}
                 control={control}
                 name={'question'}
-                rules={{required: 'متن سوال خود را وارد کنید'}}
+                rules={{required: 'متن پرسش خود را وارد کنید'}}
                 render={({field, fieldState}) =>
                     <TextField
                         error={!!fieldState.error?.message}
@@ -49,7 +49,7 @@ const AddQuestionModal = ({productId, setClose}) => {
                         label={'پرسش شما'}
                         variant={'outlined'}
                         fullWidth={true}
-                        rows={4}
+                        rows={5}
                         multiline={true}
                     />
                 }

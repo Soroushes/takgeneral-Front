@@ -31,7 +31,6 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
     const showQuestion = () => {
         setQuestionIsShow(prev => !prev)
     };
-    console.log(questions)
     return (
         <TabContext value={value}>
             <Box
@@ -153,7 +152,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                         questions.map((eachQuestion, index) => {
                                             const show = index < 2 || questionIsShow;
                                             return (
-                                                <Box sx={{display: show ? 'block' : 'none', width: '100%'}} key={index}>
+                                                <Box sx={{display: show ? 'block' : 'none', width: '100%' , mb:6}} key={index}>
                                                     <Question productId={productId} eachQuestion={eachQuestion}/>
                                                 </Box>
                                             )
@@ -165,7 +164,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                                 onClick={showQuestion}
                                                 variant="outlined"
                                                 color={'primary'}
-                                                sx={{width: {xs: '100%', md: "25%", lg:'20%'}, my: 2 , px:.5 }}
+                                                sx={{width: {xs: '100%', md: "25%", lg:'20%'}, px:.5 }}
                                             >
                                                 {
                                                     questionIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :

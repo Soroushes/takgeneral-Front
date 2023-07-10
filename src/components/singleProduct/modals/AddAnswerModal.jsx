@@ -44,7 +44,7 @@ const AddAnswerModal = ({setClose , productId}) => {
                         autoFocus
                         multiline={true}
                         fullWidth={true}
-                        rows={3}
+                        rows={5}
                     />}
                 />
                 <Box gap={2} sx={{mt: 3}} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>

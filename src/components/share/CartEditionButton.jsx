@@ -48,7 +48,7 @@ const CartEditionButton = ({id, boxSx}) => {
                         <RemoveIcon fontSize={'small'}/>
                     </Button>
                 </Box>
-                <Typography variant={'body2'}>در سبد خرید شما قرار گرفت</Typography>
+                <Typography sx={{textAlign:'center'}} variant={'body2'}>در سبد خرید شما قرار گرفت</Typography>
             </Box>
     )
 
