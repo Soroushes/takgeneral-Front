@@ -29,7 +29,7 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                 {
                     window.innerWidth >= theme.breakpoints.values.md ? (
                         <Dialog
-                            PaperProps={{sx: {width: '100%'}}}
+                            PaperProps={{sx: {width: '100%' , borderRadius : 4}}}
                             sx={{display: {xs: 'none ', md: 'block'}}}
                             maxWidth={desktopFullScreen ? 'md' : 'sm'}
                             open={open}

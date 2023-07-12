@@ -25,7 +25,7 @@ const AddAnswerModal = ({setClose , productId}) => {
     return (
         <Box sx={{p:3}} component={'form'} onSubmit={handleSubmit(onFormSubmit)}>
                 <Box display={'flex'} gap={1} mb={4}>
-                    <Typography sx={{width:'10%'}} variant={'h5'}>در جواب</Typography>
+                    <Typography sx={{width:'16%'}} variant={'h5'}>در جواب</Typography>
                     <Typography variant={'h4'} fontWeight={'bold'} mb={2}>سلام برای ساختمان ۴طبقه که پمپ آب درزیرزمین باشد جوابگو هست یا خیر؟</Typography>
                 </Box>
                 <Controller

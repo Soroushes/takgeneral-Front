@@ -21,7 +21,6 @@ const AddCommentModal = ({rate , productId , setClose}) => {
     const router = useRouter();
     console.log(router)
     const onFormSubmit = (data) => {
-        console.log(data)
         callApi({
             method: 'post',
             url: 'create-comment',

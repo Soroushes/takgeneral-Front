@@ -71,15 +71,15 @@ const SingleProductSellCard = ({
                 gap: 2,
                 boxShadow: 1
             }}>
-                <Typography sx={{fontWeight: "bold", borderBottom: '1px solid #eee', pt: 3, pb: 1.5, px: 1.5}}
+                <Typography sx={{fontWeight: "bold", borderBottom: '1px solid #eee', py : 2, px: 1.5}}
                             variant={'h5'}>قیمت محصول:</Typography>
                 <Box sx={{my: 2, display: 'flex', justifyContent: 'end' , width:'100%', direction: 'ltr'}}>
                     <PriceDiscount finalPriceBold={true} align={'end'} gap={1.7} justify={{md:'column' , xs:'row'}} discountPrice={price}
                                    finalPrice={finalPrice} discountedPriceColor={'text.muted'}
                                    finalPriceColor={'text.main'} discountedPriceFont={'h5'} fontSize={'h2'}/>
                 </Box>
-                <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'end', width: '100%' , px:1}}>
-                    <CartEditionButton id={id}/>
+                <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'end', width: '100%'}}>
+                    <CartEditionButton boxSx={{width : '110px'}} id={id}/>
                 </Box>
             </Box>
             <Box display={'flex'} justifyContent={'end'} sx={{mt: 2}}>

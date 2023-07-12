@@ -220,7 +220,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                 </TabPanel>
             </Box>
             <MainModal title={'افزودن دیدگاه'} open={commentIsOpen} setOpen={setCommentIsOpen} desktopFullScreen={true}>
-                <AddCommentModal setCloese={setCommentIsOpen} productId={productId} rate={rate}/>
+                <AddCommentModal setClose={setCommentIsOpen} productId={productId} rate={rate}/>
             </MainModal>
             <MainModal title={'ثبت پرسش'} open={questionIsOpen} setOpen={setQuestionIsOpen}>
                 <AddQuestionModal setClose={setQuestionIsOpen} productId={productId}/>
