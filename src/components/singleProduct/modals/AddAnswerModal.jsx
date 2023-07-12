@@ -25,8 +25,8 @@ const AddAnswerModal = ({setClose , productId}) => {
     return (
         <Box sx={{p:3}} component={'form'} onSubmit={handleSubmit(onFormSubmit)}>
                 <Box display={'flex'} gap={1} mb={4}>
-                    <Typography>در جواب</Typography>
-                    <Typography fontWeight={'bold'} mb={2}>سلام برای ساختمان ۴طبقه که پمپ آب درزیرزمین باشد جوابگو هست یا خیر؟</Typography>
+                    <Typography sx={{width:'10%'}} variant={'h5'}>در جواب</Typography>
+                    <Typography variant={'h4'} fontWeight={'bold'} mb={2}>سلام برای ساختمان ۴طبقه که پمپ آب درزیرزمین باشد جوابگو هست یا خیر؟</Typography>
                 </Box>
                 <Controller
                     name="newAnswer"
@@ -47,7 +47,7 @@ const AddAnswerModal = ({setClose , productId}) => {
                         rows={5}
                     />}
                 />
-                <Box gap={2} sx={{mt: 3}} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
+                <Box gap={2} sx={{mt: 4}} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
                     <LoadingButton sx={{borderRadius: 2, width: '50%', height: 40}} loading={loading} type={'submit'}
                                    variant="contained"><Typography variant={'subtitle1'} sx={{mr: 1}} color={'#fff'}> ثبت
                         پاسخ</Typography><Message/></LoadingButton>

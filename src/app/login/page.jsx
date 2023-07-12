@@ -54,7 +54,8 @@ export default function Page(){
             successFunc: (res) => {
                 localStorage.setItem('token' , res.token.access) ;
                 //router.push(urls.profile) ;
-                router.push('/' + from) ;
+                router.push('/' + from);
+
                 dispatch(fetchInfo());
             }
             , errFunc: (err) => {

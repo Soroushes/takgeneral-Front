@@ -63,7 +63,7 @@ const AddCommentModal = ({rate , productId , setClose}) => {
                 <Grid item md={7} xs={12}>
                     <Box sx={{height: '100%'}} display={'flex'} flexDirection={'column'}
                          justifyContent={'space-between'}>
-                        <Box sx={{mb:{xs:1 , md:0}}} display={'flex'} justifyContent={'space-between'}>
+                        <Box sx={{mb:{xs:1 , md:0 , width:'60%'}}} display={'flex'} justifyContent={'space-between'}>
                             <Typography>امتیاز شما:</Typography>
                             <Controller
                                 name="kefiyat_rate"
@@ -74,7 +74,7 @@ const AddCommentModal = ({rate , productId , setClose}) => {
                                 }
                             />
                         </Box>
-                        <Box display={'flex'} alignItems={'center'}>
+                        <Box display={'flex'} sx={{py:2}} alignItems={'center'}>
                             <Controller
                                 name={'suggest_me'}
                                 control={control}
@@ -130,14 +130,14 @@ const AddCommentModal = ({rate , productId , setClose}) => {
                                 }
                             />
                         </Box>
-                        <Box gap={2} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
+                        <Box gap={2} sx={{mt:5}} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
                             <LoadingButton sx={{borderRadius: 2, width: '50%', height: 40}} loading={loading}
-                                           type={'submit'} variant="contained"><Typography variant={'subtitle1'}
+                                           type={'submit'} variant="contained"><Typography variant={'body1'}
                                                                                            sx={{mr: 1}}
                                                                                            color={'#fff'}> ثبت دیدگاه
                                 ها</Typography><Message/></LoadingButton>
                             <Button onClick={reset} sx={{borderRadius: 2, width: '50%', height: 40}} color={'gray'}
-                                    variant={'outlined'}><Typography variant={'subtitle1'}>پاک کردن
+                                    variant={'outlined'}><Typography variant={'body1'}>پاک کردن
                                 همه</Typography></Button>
                         </Box>
                     </Box>

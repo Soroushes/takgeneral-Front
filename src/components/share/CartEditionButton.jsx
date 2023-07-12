@@ -33,22 +33,22 @@ const CartEditionButton = ({id, boxSx}) => {
                     border :'1px solid #f4f4f4',
                     borderRadius: 4,
                     height: "50px",
-                    width: '110px',
+                    width: '100px',
                     ...boxSx
                 }}>
-                    <Button sx={{"&:hover": {border :'1px solid '} , borderRight :'1px solid #f4f4f4',height: '100%' , minWidth:'30px' , borderRadius :'16px 0 0 16px'}} color={'success'} disabled={loading} onClick={setCart.bind(this, true)}>
+                    <Button sx={{"&:hover": {border :'1px solid '} , borderRight :'1px solid #f4f4f4',height: '100%' , minWidth:'25px' , borderRadius :'16px 0 0 16px'}} color={'success'} disabled={loading} onClick={setCart.bind(this, true)}>
                         <AddIcon fontSize={'small'}/>
                     </Button>
                     <Typography sx={{width:'55px' , textAlign:'center'}} variant="body1">
                         {loading ?
                             <CircularProgress size={'25px'} color={'primary'}/> : PN.convertEnToPe(countItem)}
                     </Typography>
-                    <Button sx={{"&:hover": {border :'1px solid '}, borderLeft :'1px solid #f4f4f4' , height: '100%', minWidth:'30px' ,borderRadius :'0 16px 16px 0'}} color={'error'} disabled={loading}
+                    <Button sx={{"&:hover": {border :'1px solid '}, borderLeft :'1px solid #f4f4f4' , height: '100%', minWidth:'25px' ,borderRadius :'0 16px 16px 0'}} color={'error'} disabled={loading}
                             onClick={setCart.bind(this, false)}>
                         <RemoveIcon fontSize={'small'}/>
                     </Button>
                 </Box>
-                <Typography sx={{textAlign:'center'}} variant={'body2'}>در سبد خرید شما قرار گرفت</Typography>
+                <Typography sx={{textAlign:'center'}} variant={'subtitle1'}>در سبد خرید شما قرار گرفت</Typography>
             </Box>
     )
 

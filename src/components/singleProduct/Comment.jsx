@@ -7,7 +7,6 @@ import PersonIcon from '../../assets/icons/profile-circle.svg';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 const Comment = ({comment}) => {
-    console.log(comment)
     const date = Intl.DateTimeFormat('fa', {
         useGrouping: false, year: "numeric", month: "long", day: "numeric"
     }).format(comment.created_at.timestamp * 1000);
@@ -46,9 +45,9 @@ const Comment = ({comment}) => {
                                                   max={1}/><Typography>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(comment.arzesh_rate)))}</Typography></Box>
                     <Box display={"flex"} alignItems={"center"} gap={.5}>
                         <PersonIcon fontSize={'small'} color={'gray'}/>
-                        <Typography color={'text.muted'} variant="body2">{comment?.user_alias_name}</Typography>
+                        <Typography color={'text.muted'} variant="body1">{comment?.user_alias_name}</Typography>
                     </Box>
-                    <Typography variant={'body2'} color={'text.muted'}>{date}</Typography>
+                    <Typography variant={'body1'} color={'text.muted'}>{date}</Typography>
                 </Box>
                 <Box color={'gray.main'} display={'flex'} justifyContent={'end'} alignItems={'center'} gap={1}>
                     <Box onClick={handlelikeDislike.bind(this, true)} display={'flex'} gap={1}
