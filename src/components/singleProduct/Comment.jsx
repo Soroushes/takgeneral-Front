@@ -7,7 +7,6 @@ import PersonIcon from '../../assets/icons/profile-circle.svg';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 const Comment = ({comment}) => {
-    console.log(comment)
     const date = Intl.DateTimeFormat('fa', {
         useGrouping: false, year: "numeric", month: "long", day: "numeric"
     }).format(comment.created_at.timestamp * 1000);
@@ -39,38 +38,35 @@ const Comment = ({comment}) => {
 
     }
     return (
-        <Box sx={{px: 2, mb: 3}}>
-            <Box sx={{borderBottom: '1px solid #eee', pb: 1}} display={'flex'} justifyContent={'space-between'}>
+        <Box sx={{px: 2, mb: 4}}>
+            <Box sx={{borderBottom: '1px solid #eee', pb: 1.5}} display={'flex'} justifyContent={'space-between'}>
                 <Box display={'flex'} gap={3} alignItems={'center'} justifyContent={'space-between'}>
-                    <Box display={'flex'}><Rating size={'smallF'} sx={{mr: .5}} defaultValue={1}
-                                                  max={1}/><Typography>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(2)))}</Typography></Box>
+                    <Box display={'flex'}><Rating readOnly size={'small'} sx={{mr: .5}} defaultValue={1}
+                                                  max={1}/><Typography>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(comment.arzesh_rate)))}</Typography></Box>
                     <Box display={"flex"} alignItems={"center"} gap={.5}>
                         <PersonIcon fontSize={'small'} color={'gray'}/>
-                        <Typography color={'text.muted'} variant="body2">{comment?.user_alias_name}</Typography>
+                        <Typography color={'text.muted'} variant="body1">{comment?.user_alias_name}</Typography>
                     </Box>
-                    <Typography variant={'body2'} color={'text.muted'}>{date}</Typography>
+                    <Typography variant={'body1'} color={'text.muted'}>{date}</Typography>
                 </Box>
                 <Box color={'gray.main'} display={'flex'} justifyContent={'end'} alignItems={'center'} gap={1}>
                     <Box onClick={handlelikeDislike.bind(this, true)} display={'flex'} gap={1}
                          alignItems={'center'}>
-                        <Typography variant="subtitle1" color={likeDislike === 'like' ? 'success.main' : 'gray'}>
+                        <Typography variant="body1" color={likeDislike === 'like' ? 'success.main' : 'gray'}>
                             {PN.convertEnToPe(likeDislike === 'like' ? comment.likes_count + 1 : comment.likes_count)}
                         </Typography>
-                        <ThumbUpOffAltIcon color={likeDislike === 'like' ? 'success' : 'gray'}
-                              sx={{cursor: 'pointer'}}
-                              fontSize={'10px'}/>
+                        <ThumbUpOffAltIcon color={likeDislike === 'like' ? 'success' : 'gray'} sx={{cursor: 'pointer'}}/>
                     </Box>
                     <Box display={'flex'} onClick={handlelikeDislike.bind(this, false)} gap={1}
                          alignItems={'center'}>
-                        <Typography variant="subtitle1" color={likeDislike === 'dislike' ? 'error' : 'gray'}>
+                        <Typography variant="body1" color={likeDislike === 'dislike' ? 'error' : 'gray'}>
                             {PN.convertEnToPe(likeDislike === 'dislike' ? comment.diss_likes_count + 1 : comment.diss_likes_count)}
                         </Typography>
-                        <ThumbDownOffAltIcon color={likeDislike === 'dislike' ? 'error' : 'gray'} sx={{cursor: 'pointer'}}
-                                 fontSize={'10px'}/>
+                        <ThumbDownOffAltIcon color={likeDislike === 'dislike' ? 'error' : 'gray'} sx={{cursor: 'pointer'}}/>
                     </Box>
                 </Box>
             </Box>
-            <Typography sx={{mt: 1}} lineHeight={2.5} variant="subtitle1">{comment.content}</Typography>
+            <Typography sx={{mt: 1}} lineHeight={2.5} variant="body1">{comment.content}</Typography>
         </Box>
 
     )

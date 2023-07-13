@@ -22,7 +22,7 @@ const ProductPage = ({data}) => {
                     <Grid item sx={{px: {md: 3}}} md={5.5} xs={12}>
                         <SingleProductAttribute
                             setShowAllDetails={setIsShowAllDetails} name={data.product.name}
-                            attributes={data.product.attributes} attrRef={attributesTableRef}/>
+                            attributes={data.product.Attributes.values} attrRef={attributesTableRef}/>
                     </Grid>
                     <Grid item md={3} xs={12}>
                         <SingleProductSellCard

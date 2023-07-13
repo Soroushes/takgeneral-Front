@@ -3,7 +3,7 @@ import useAlert from "../../hooks/useAlert";
 import {useEffect, useState} from "react";
 import {useCounter} from "../../hooks/useCounter";
 import {Box, Container, Grid, InputAdornment, TextField, Typography, useTheme} from "@mui/material";
-import {useRouter} from "next/navigation";
+import {useRouter , useSearchParams} from "next/navigation";
 import {useDispatch} from "react-redux";
 import {Controller, useForm} from "react-hook-form";
 import {useAxios} from "../../hooks/useAxios";
@@ -16,6 +16,8 @@ const boxStyles = {
     width: 450, px: 3, background: "white", borderRadius: 3, position: "relative",
 };
 export default function Page(){
+    const searchParams = useSearchParams()
+    const from = searchParams.get('from');
     const {errorAlert} = useAlert() ;
     const [validate, setValidate] = useState(false);
     const {count, startTimer, isFinished, resetTimer} = useCounter(55);
@@ -51,7 +53,9 @@ export default function Page(){
             data: {phone_number: '98' + getValues('phoneNumber'), code: getValues('otp')},
             successFunc: (res) => {
                 localStorage.setItem('token' , res.token.access) ;
-                router.push(urls.profile) ;
+                //router.push(urls.profile) ;
+                router.push('/' + from);
+
                 dispatch(fetchInfo());
             }
             , errFunc: (err) => {
@@ -71,7 +75,7 @@ export default function Page(){
     useEffect(()=>{
         const token = localStorage.getItem('token') ;
         if (token){
-            router.push('/') ;
+            router.push('/' ) ;
         }
     },[])
     return (

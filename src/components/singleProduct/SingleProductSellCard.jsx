@@ -12,7 +12,6 @@ const SingleProductSellCard = ({
                                    freeSent,
                                    sevenDaysBack,
                                    price,
-                                   discount,
                                    finalPrice,
                                    warranty,
                                    id,
@@ -57,7 +56,7 @@ const SingleProductSellCard = ({
             </Box>
             {
                 warranty && !isMobile &&
-                <Box sx={{backgroundColor: '#fff', display: 'flex', gap: 1, mb: 2, p: 2, borderRadius: 2, boxShadow: 1}}>
+                <Box sx={{backgroundColor: '#fff', display: 'flex', gap: 1, mb: 2, p: 2 , borderRadius: 2, boxShadow: 1}}>
                     <Warranty/>
                     <Typography variant={'body2'}>گارانتی</Typography>
                 </Box>
@@ -72,15 +71,15 @@ const SingleProductSellCard = ({
                 gap: 2,
                 boxShadow: 1
             }}>
-                <Typography sx={{fontWeight: "bold", borderBottom: '1px solid #eee', pt: 3, pb: 1.5, px: 1}}
+                <Typography sx={{fontWeight: "bold", borderBottom: '1px solid #eee', py : 2, px: 1.5}}
                             variant={'h5'}>قیمت محصول:</Typography>
                 <Box sx={{my: 2, display: 'flex', justifyContent: 'end' , width:'100%', direction: 'ltr'}}>
-                    <PriceDiscount finalPriceBold={true} align={'end'} gap={1.7} discountPrice={price}
+                    <PriceDiscount finalPriceBold={true} align={'end'} gap={1.7} justify={{md:'column' , xs:'row'}} discountPrice={price}
                                    finalPrice={finalPrice} discountedPriceColor={'text.muted'}
                                    finalPriceColor={'text.main'} discountedPriceFont={'h5'} fontSize={'h2'}/>
                 </Box>
                 <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'end', width: '100%'}}>
-                    <CartEditionButton id={id}/>
+                    <CartEditionButton boxSx={{width : '110px'}} id={id}/>
                 </Box>
             </Box>
             <Box display={'flex'} justifyContent={'end'} sx={{mt: 2}}>
