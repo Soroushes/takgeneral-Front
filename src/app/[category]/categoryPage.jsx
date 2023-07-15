@@ -1,20 +1,21 @@
 'use client'
 import {Box} from "@mui/system";
 import Image from "next/image";
-import {Grid, Container, Pagination, MenuItem, TextField, Button, Typography, Divider} from "@mui/material";
+import {Button, Container, Divider, Grid, MenuItem, Pagination, TextField, Typography} from "@mui/material";
 import ProductPreviewCard from "../../components/share/ProductPreviewCard";
 import CheckBoxFilter from "src/components/share/CheckBoxFilter";
-import {usePathname, useRouter } from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
 import MainModal from "../../components/share/MainModal";
 import {useEffect, useRef, useState} from "react";
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import FilterAltIcon from '../../assets/icons/share/setting-5.svg';
 import {BASE_URL} from "../../data/urls";
 import Banner from '../../assets/images/categoryBanner1.jpg'
 import pompSectionImage from '../../assets/images/pomp 1.png';
 import CategorySlider from "../../components/share/CategorySlider";
 import {useSelector} from "react-redux";
-const sortValueItems =  [
+import SortIcon from "../../assets/icons/share/sort.svg";
+
+const sortValueItems = [
     {
         name: "جدیدترین",
         value: "newest"
@@ -29,17 +30,17 @@ const sortValueItems =  [
     }
 ];
 const testSections = [
-    {image :pompSectionImage , name : 'کشاورزی پمپ آب'},
-    {image :pompSectionImage , name : 'پمپ آب جتی جتی'},    {image :pompSectionImage , name : 'کشاورزی پمپ آب'},
-    {image :pompSectionImage , name : 'پمپ آب جتی جتی'},    {image :pompSectionImage , name : 'کشاورزی پمپ آب'},
-    {image :pompSectionImage , name : 'پمپ آب جتی جتی'},    {image :pompSectionImage , name : 'کشاورزی پمپ آب'},
-    {image :pompSectionImage , name : 'پمپ آب جتی جتی'},
-    {image :pompSectionImage , name : 'کشاورزی پمپ آب'},
-    {image :pompSectionImage , name : 'پمپ آب جتی جتی'},
+    {image: pompSectionImage, name: 'کشاورزی پمپ آب'},
+    {image: pompSectionImage, name: 'پمپ آب جتی جتی'}, {image: pompSectionImage, name: 'کشاورزی پمپ آب'},
+    {image: pompSectionImage, name: 'پمپ آب جتی جتی'}, {image: pompSectionImage, name: 'کشاورزی پمپ آب'},
+    {image: pompSectionImage, name: 'پمپ آب جتی جتی'}, {image: pompSectionImage, name: 'کشاورزی پمپ آب'},
+    {image: pompSectionImage, name: 'پمپ آب جتی جتی'},
+    {image: pompSectionImage, name: 'کشاورزی پمپ آب'},
+    {image: pompSectionImage, name: 'پمپ آب جتی جتی'},
 ]
 const CategoryPage = ({product, brands, current_page, page_count}) => {
     const {push} = useRouter();
-    const noQueryPath = usePathname() ;
+    const noQueryPath = usePathname();
     const [openFilterModal, setOpenFilterModal] = useState(false);
     const [openSortModal, setOpenSortModal] = useState(false);
     const [sortValue, setSortValue] = useState('newest');
@@ -75,7 +76,7 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                 isMobile ?
                     <Box sx={{width: '100%', aspectRatio: '1.5/1', position: 'relative', p: 0}}>
                         <Image fill alt={''} src={Banner}/>
-                    </Box>:
+                    </Box> :
                     <Box sx={{
                         width: '100%',
                         aspectRatio: '4.5/1',
@@ -88,26 +89,28 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
             }
             <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
                 <CategorySlider category={testSections}/>
-                <Grid sx={{px : 1.5}} container>
-                    <Grid item xs={12} >
+                <Grid sx={{px: 1.5}} container>
+                    <Grid item xs={12}>
                         {
                             isMobile ?
-                                <Box sx={{mb: 2, gap: 1}}>
+                                <Box sx={{mb: 2,px:1, gap: 1, display: 'flex', justifyContent: 'space-between'}}>
                                     <Button size={'small'} onClick={() => setOpenFilterModal(true)} color={'btnGray'}
                                             variant={'contained'}>
                                         <FilterAltIcon/>
-                                        فیلتر
+                                        <Typography sx={{ml:1}}> فیلتر</Typography>
                                     </Button>
                                     <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnGray'}
                                             variant={'contained'}>
-                                        {
-                                            sortValueItems.find((item) => item.value === sortValue).name
-                                        }
-                                        <KeyboardArrowDownIcon/>
+                                        <SortIcon/>
+                                        <Typography sx={{ml:1}}>
+                                            {
+                                                sortValueItems.find((item) => item.value === sortValue).name
+                                            }
+                                        </Typography>
                                     </Button>
-                                </Box>:
+                                </Box> :
                                 <Grid container>
-                                    <Grid md={3.5} ></Grid>
+                                    <Grid md={3.5}></Grid>
                                     <Grid md={8.5} sx={{mb: 2}}>
                                         <TextField
                                             sx={{width: "150px"}}
@@ -131,17 +134,17 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                     {
                         !isMobile &&
                         <Grid item md={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
-                            <Box sx={{p: 2, borderRadius: 2 , backgroundColor:'#fff' , boxShadow: 1 , width:'100%'}}>
+                            <Box sx={{p: 2, borderRadius: 2, backgroundColor: '#fff', boxShadow: 1, width: '100%'}}>
                                 <CheckBoxFilter key={noQueryPath} subFilter={brands}/>
                             </Box>
                         </Grid>
 
                     }
-                    <Grid item xs={12} md={8.5} >
+                    <Grid item xs={12} md={8.5}>
                         <Grid container sx={{borderRadius: 2}}>
                             {
                                 product.map((productItem) => (
-                                    <Grid key={productItem.id} item sx={{ pb:1.6 , pl:.8 , pr:.8}} xs={6} sm={4} lg={3}>
+                                    <Grid key={productItem.id} item sx={{pb: 1.6, pl: .8, pr: .8}} xs={6} sm={4} lg={3}>
                                         <ProductPreviewCard
                                             shadow={2}
                                             id={productItem.id}
@@ -153,15 +156,16 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                                 ))
                             }
                         </Grid>
-                        <Box sx={{display: "flex", justifyContent: "end", mt: 4}}>
-                            <Pagination shape={'rounded'} onChange={handlePaginationChange} page={current_page} count={page_count}
-                                        color={'secondary'} />
+                        <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4}}>
+                            <Pagination shape={'rounded'} onChange={handlePaginationChange} page={current_page}
+                                        count={page_count}
+                                        color={'secondary'}/>
                         </Box>
                     </Grid>
                 </Grid>
             </Container>
             <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلتر'}>
-                <Box sx={{px : 2}}>
+                <Box sx={{px: 2}}>
                     <CheckBoxFilter key={noQueryPath} subFilter={brands}/>
                 </Box>
             </MainModal>
@@ -174,14 +178,14 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                                     handleSortOnchange(sortItem.value);
                                     setOpenSortModal(false);
                                 }}
-                                sx={{py : 1.5 , px : 3}}
+                                sx={{py: 1.5, px: 3}}
                                 key={sortItem.value}
                                 value={sortItem.value}
                                 color={sortItem.value === sortValue ? 'primary' : "text"}
                             >
                                 {sortItem.name}
                             </Typography>
-                            <Divider />
+                            <Divider/>
                         </>
                     ))
                 }

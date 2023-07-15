@@ -11,12 +11,11 @@ import AddQuestionModal from "./modals/AddQuestionModal";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from '@mui/icons-material/Close';
 import AverageRatingComment from "./AverageRatingComment";
-import MainModal from "../share/MainModal";
 import {useSelector} from "react-redux";
-import NoCommentIcon from '../../assets/icons/single-product/Layer_1.svg';
+import NoCommentIcon from '../../assets/icons/single-product/no comment.svg';
+import NoQuestion from '../../assets/icons/single-product/no question.svg'
 import AverageRatingQuestion from "./AverageRatingQuestion";
 import {useRouter, useSearchParams} from "next/navigation";
-import AddAnswerModal from "./modals/AddAnswerModal";
 
 const CommentQuestion = ({comments, rate, productId, questions}) => {
     const {isLoggedIn} = useSelector(state => state.userInfo)
@@ -114,7 +113,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                                     const show = index < 2 || commentIsShow
                                                     return (
                                                         <Box sx={{display: show ? 'block' : 'none'}} key={index}>
-                                                            <Comment comment={comment}/>
+                                                            <Comment productId={productId} comment={comment}/>
                                                         </Box>
                                                     )
                                                 })
@@ -165,20 +164,14 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                     display: 'flex',
                     flexDirection: 'column',
                 }}>
-                    {
-                        !questions.length ? (
-                                <Box sx={{
-                                    margin: 'auto',
-                                    mt: {xs: 1, md: 3}
-                                }}>
-                                    <NoCommentIcon/>
-                                </Box>
-                            ) :
-                            <Grid container sx={{py: 3}} rowGap={5} justifyContent={'space-between'}>
-                                <Grid item xs={12} md={2.6}>
-                                    <AverageRatingQuestion productId={productId} isLoggedIn={isLoggedIn}
-                                                           openAddQuestion={setQuestionIsOpen}/>
-                                </Grid>
+
+                    <Grid container sx={{py: 3}} rowGap={5} justifyContent={'space-between'}>
+                        <Grid item xs={12} md={2.6}>
+                            <AverageRatingQuestion productId={productId} isLoggedIn={isLoggedIn}
+                                                   openAddQuestion={setQuestionIsOpen}/>
+                        </Grid>
+                        {
+                            questions.length ?
                                 <Grid item xs={12} md={9}>
                                     {
                                         questions.map((eachQuestion, index) => {
@@ -214,20 +207,20 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                             :
                                             null
                                     }
-                                </Grid>
-                            </Grid>
-                    }
+                                </Grid> :
+                                <Box sx={{
+                                    margin: 'auto',
+                                    mt: {xs: 1, md: 3}
+                                }}>
+                                    <NoQuestion/>
+                                </Box>
+                        }
+                    </Grid>
                 </TabPanel>
             </Box>
-            <MainModal title={'افزودن دیدگاه'} open={commentIsOpen} setOpen={setCommentIsOpen} desktopFullScreen={true}>
-                <AddCommentModal setClose={setCommentIsOpen} productId={productId} rate={rate}/>
-            </MainModal>
-            <MainModal title={'ثبت پرسش'} open={questionIsOpen} setOpen={setQuestionIsOpen}>
-                <AddQuestionModal setClose={setQuestionIsOpen} productId={productId}/>
-            </MainModal>
-            <MainModal open={answerIsOpen} setOpen={setAnswerIsOpen} title={'ثبت پاسخ'}>
-                <AddAnswerModal productId={productId} setClose={setAnswerIsOpen}/>
-            </MainModal>
+            <AddCommentModal open={commentIsOpen} setOpen={setCommentIsOpen} productId={productId} rate={rate}/>
+            <AddQuestionModal question={true} title={'ثبت پرسش'} setOpen={setQuestionIsOpen} open={questionIsOpen} productId={productId}/>
+            <AddQuestionModal question={false} title={'ثبت پاسخ'} productId={productId} open={answerIsOpen} setOpen={setAnswerIsOpen}/>
         </TabContext>
 
     )

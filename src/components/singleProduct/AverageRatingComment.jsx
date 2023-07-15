@@ -4,7 +4,6 @@ import PN from "persian-number";
 import {useRouter} from "next/navigation";
 const AverageRatingComment = ({average, openAddComment , isLoggedIn , productId}) => {
     const Router = useRouter();
-    console.log(average)
     const addComment = () => {
         if(isLoggedIn) {
             openAddComment((prev) => !prev);

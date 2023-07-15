@@ -7,6 +7,7 @@ import {useRouter} from "next/navigation";
 
 const CheckBoxFilter = ({subFilter}) => {
     let filtersId = []
+    console.log(subFilter)
     subFilter.map((value) => {
         filtersId.push(value.brand__id);
     })
