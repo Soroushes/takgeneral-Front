@@ -11,9 +11,9 @@ const PriceDiscount = ({
                            align = 'start',
                            finalPriceColor = 'primary',
                            discountedPriceColor = 'text.main',
-                            finalPriceBold = false ,
-                            discountedPriceBold = false,
-                            justify = 'column'
+                           finalPriceBold = false ,
+                           discountedPriceBold = false,
+                           justify = 'column'
                        }) => {
     return (
             <Box sx={{
@@ -25,12 +25,9 @@ const PriceDiscount = ({
                 gap: gap
             }}>
                 {discountPrice !== finalPrice &&
-                    <Box sx={{display: ' flex', gap: .5}}>
-                        <Typography fontWeight={discountedPriceBold?  'bold' : 'normal'} color={discountedPriceColor} variant={discountedPriceFont}
-                                    sx={{textDecoration: "line-through"}}>
+                        <Typography fontWeight={discountedPriceBold?  'bold' : 'normal'} color={discountedPriceColor} variant={discountedPriceFont} sx={{textDecoration: "line-through"}}>
                             {PN.convertEnToPe(PN.sliceNumber(Math.trunc(discountPrice)))} تومان
                         </Typography>
-                    </Box>
                 }
                 <Typography fontWeight={finalPriceBold?  'bold' : 'normal'} component={'span'} variant={fontSize} color={finalPriceColor}>
                     {PN.convertEnToPe(PN.sliceNumber(Math.trunc(finalPrice)))}

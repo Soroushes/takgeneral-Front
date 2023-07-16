@@ -4,7 +4,7 @@ import {Box} from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 
-const OuterImageSection = ({image, description, title , shadow=1 ,descriptionVariant='subtitle1' , titleVariant='h4'}) => {
+const OuterImageSection = ({image, description , height , title , shadow= 1 ,descriptionVariant='subtitle1' , titleVariant='h4'}) => {
     return (
         <Link href={'/'}>
             <Box
@@ -13,10 +13,11 @@ const OuterImageSection = ({image, description, title , shadow=1 ,descriptionVar
                     transition: "all .5s",
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "end",
+                    justifyContent: "center",
                     alignItems: "center",
-                    pb: 1,
                     px: 1,
+                    height :height,
+                    gap:1,
                     boxShadow : shadow ,
                     "&:hover img": {
                         transform: "scale(1) !important",
@@ -24,10 +25,10 @@ const OuterImageSection = ({image, description, title , shadow=1 ,descriptionVar
                     },
                 }}>
                 <Box sx={{
-                    width: {md: "55%", xs: '70%'},
+                    width: {md: "75%", xs: '70%'},
                     display: "flex",
                     justifyContent: "center",
-                    marginTop: '-25px'
+                    marginTop: '-45px'
                 }}>
                     <Image
                         alt={description}
@@ -40,7 +41,7 @@ const OuterImageSection = ({image, description, title , shadow=1 ,descriptionVar
                         textAlign={'center'}
                         component={"h2"}
                         variant={titleVariant}
-                        sx={{mt: 2 , mb : 1 , width : '100%'}}
+                        sx={{ mb : 1 , width : '100%'}}
                         overflow={'hidden'}
                         textOverflow={'ellipsis'}
                         whiteSpace={'nowrap'}

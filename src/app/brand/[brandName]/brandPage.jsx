@@ -1,12 +1,15 @@
 'use client'
 import {Box} from "@mui/system";
-import {Button, Container, Divider, Grid, MenuItem, Pagination, TextField, Typography} from "@mui/material";
+import {Button, Container, Divider, Grid, MenuItem, TextField, Typography} from "@mui/material";
 import {useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {usePathname} from "next/navigation";
-import MainModal from "../../components/share/MainModal";
-import SortIcon from '../../assets/icons/share/sort.svg';
-import ProductList from "../../components/share/ProductList";
+import MainModal from "../../../components/share/MainModal";
+import SortIcon from '../../../assets/icons/share/sort.svg';
+import ProductList from "../../../components/share/ProductList";
+import Image from "next/image";
+import Banner from "../../../assets/images/categoryBanner1.jpg";
+
 const BrandPage = ()=>{
     const [sortValue, setSortValue] = useState('newest');
     const noQueryPath = usePathname() ;
@@ -186,7 +189,21 @@ const BrandPage = ()=>{
     }
     return(
         <Box sx={{minHeight: "100vh", backgroundColor: "#fff"}}>
-            <Box sx={{backgroundColor : '#0269B2' , width:'100%' , height:'350px' , display:'flex' , alignItems:'center' , justifyContent:'center'}}><Typography variant={'h1'} fontWeight={'bold'} color={"white"}>برند پمپ الکتروژن</Typography></Box>
+            {
+                isMobile ?
+                    <Box sx={{width: '100%', aspectRatio: '1.5/1', position: 'relative', p: 0}}>
+                        <Image fill alt={''} src={Banner}/>
+                    </Box> :
+                    <Box sx={{
+                        width: '100%',
+                        aspectRatio: '4.5/1',
+                        position: 'relative',
+                        p: 0
+                    }}>
+                        <Image fill alt={''} src={Banner}/>
+                    </Box>
+
+            }
             <Container>
                 <Grid sx={{px : 1.5}} container>
                     <Grid item xs={12} sx={{mt:4}}>

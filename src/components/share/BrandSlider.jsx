@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 
 const BrandSlider = ({brands}) => {
     return (
-            <Container disableGutters={true}>
+            <Container disableGutters={true} sx={{px:2}}>
                 <SwiperCustomWrapper
                     swiperOptions={{
                         modules : [Navigation, FreeMode] ,
