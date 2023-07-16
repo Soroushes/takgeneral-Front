@@ -1,17 +1,14 @@
 'use client'
-import {SwiperSlide} from "swiper/react";
+import {Container, Typography} from "@mui/material";
+import {useSelector} from "react-redux";
 import {Box} from "@mui/system";
-import {Typography} from "@mui/material";
+
 import ProductPreviewCard from "../share/ProductPreviewCard";
 import {BASE_URL} from "../../data/urls";
-import SwiperCustomWrapper from "../share/SwiperCustomWrapper";
-import HighRateBanner from '../../assets/images/home/highRateSilderPic.png'
-import {useSelector} from "react-redux";
-import Image from "next/image";
 
 const dummyData = [
     {
-        title: 'فلومتر مایع و گاز سایز 25 میلی متر مدل خطی LZB-VA تمام استیل',
+        title: 'فلومتر مایع و گاز سایز 25 میلی متر مدل',
         afterDiscountPrice: 9000000,
         price: 10000000,
         image: `${BASE_URL}media/Group_2073.png`
@@ -97,50 +94,44 @@ const dummyData = [
     }
 
 ]
-const HighRateCategorySlider = () => {
+const DifferentProductScaleSlider = () => {
     const {isMobile} = useSelector(state => state.deviceInfo);
+    const itemNumbers = isMobile ? 3 : 5 ;
     return (
-        <Box sx={{
+        <Container disableGutters={true} sx={{
+            backgroundImage: 'linear-gradient(to left, #1B09F9 , #27E1BC)',
             my: 8,
-            backgroundColor: ' #97CBEF',
-            position: 'relative',
-            borderRadius: '50px 50px 0 0',
-            overflow: 'hidden'
+            pt: 4,
+            pb: 6,
+            borderRadius: '4px 4px 25px 25px',
+            position: 'relative'
         }}>
-            <Box
-                sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                position: 'absolute',
-                top: {xs: 25, md: 55},
-                left: 0,
-                right: 0,
-                zIndex: 2,
-            }}>
-                <Typography sx={{wordSpacing : '2px'}} textAlign={'center'} variant={'h3'} fontWeight={'bold'}
-                            color={'white'}>محبوب ترین های کولر گازی</Typography>
-            </Box>
-            <SwiperCustomWrapper>
-                <SwiperSlide style={{width: isMobile ? 320 : 370}}>
-                    <Box sx={{position: 'relative', height: {xs : 450 , md : 500}}}>
-                        <Image fill src={HighRateBanner}/>
-                    </Box>
-                </SwiperSlide>
-                    {dummyData.map((data, index) => {
+            <Box sx={{width: {md: '90%'}, mx: 'auto'}}>
+                <Box sx={{mb: 5, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2}}>
+                    <Typography sx={{wordSpacing: '3px'}} textAlign={'center'} variant={'h3'} fontWeight={'bold'} color={'white'}>پیشنهاد ویژه تک جنرال</Typography>
+                </Box>
+                <Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
+                    {dummyData.map((item , index) => {
+                        if (index > itemNumbers-1) return ;
+                        const scaleNumber = Math.abs(-(itemNumbers-1)/2 + index) ;
                         return (
-                            <SwiperSlide key={Math.random() * 1000} style={{width: isMobile ? 170 : 200,  marginRight : !index ? isMobile ? '-120px' : '-150px' : '15px'}}>
-                                <Box marginTop={5}>
-                                    <ProductPreviewCard title={data.title} discountPercent={data.discountPercent}
-                                                        price={data.price} afterDiscountPrice={data.afterDiscountPrice}
-                                                        id={2}
-                                                        image={data.image}/>
-                                </Box>
-                            </SwiperSlide>
+                            <Box sx={{width: {xs : 160 - scaleNumber*30 ,md : 250 - scaleNumber*40}, position : 'relative' , zIndex : 10-scaleNumber , mx:  -.7}}>
+                                <ProductPreviewCard
+                                    sx={{border : '1px solid #fff'}}
+                                    shadow={0}
+                                    image={item.image}
+                                    id={item.title}
+                                    title={item.title}
+                                    price={item.price}
+                                    afterDiscountPrice={item.afterDiscountPrice}
+                                    discountPercent={item.discountPercent}
+                                />
+                            </Box>
                         )
                     })}
-            </SwiperCustomWrapper>
-        </Box>
+                </Box>
+            </Box>
+        </Container>
     )
 }
-export default HighRateCategorySlider;
+export default DifferentProductScaleSlider;

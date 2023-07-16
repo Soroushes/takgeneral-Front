@@ -8,7 +8,7 @@ import SwiperCustomWrapper from "../share/SwiperCustomWrapper";
 import DiscountShape from '../../assets/icons/home/discount-shape.svg' ;
 import DiscountShapeBig from '../../assets/icons/home/discount-shape-big.svg' ;
 import {useSelector} from "react-redux";
-const dummyData =           [
+const dummyData =[
     {
         title: 'فلومتر مایع و گاز سایز 25 میلی متر مدل خطی LZB-VA تمام استیل',
         afterDiscountPrice: 9000000,
@@ -111,7 +111,7 @@ const DiscountProductSlider = () => {
                     <DiscountShape/>
                 </Box>
                 <SwiperCustomWrapper>
-                    {dummyData.map((data , index)=>{
+                    {dummyData.map((data)=>{
                         return(
                             <SwiperSlide key={Math.random()*1000} style={{width : isMobile ? 170 : 200, marginRight : '16px'}}>
                                 <ProductPreviewCard title={data.title} discountPercent={data.discountPercent} price={data.price} afterDiscountPrice={data.afterDiscountPrice} id={2} image={data.image} />
