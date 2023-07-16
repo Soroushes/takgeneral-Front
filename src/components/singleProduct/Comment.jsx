@@ -10,7 +10,7 @@ const Comment = ({comment}) => {
     const date = Intl.DateTimeFormat('fa', {
         useGrouping: false, year: "numeric", month: "long", day: "numeric"
     }).format(comment.created_at.timestamp * 1000);
-    const [likeDislike, setLikeDislike] = useState('')
+    const [likeDislike, setLikeDislike] = useState('');
     const {callApi} = useAxios();
     const handlelikeDislike = (like) => {
         if ((like && likeDislike === 'like') || (!like && likeDislike === 'dislike')) {
@@ -24,18 +24,17 @@ const Comment = ({comment}) => {
                 comment: comment.id,
                 like_vote: like,
                 dislike_vote: !like
-            }, successFunc: () => {
+            }, successFunc: (result) => {
                 if (like) {
                     setLikeDislike('like');
                 } else {
                     setLikeDislike('dislike');
                 }
+                console.log(result)
             } , errFunc:(err)=>{
                 console.log(err);
             }
         })
-
-
     }
     return (
         <Box sx={{px: 2, mb: 4}}>

@@ -1,7 +1,4 @@
 import {Box, Button, Typography} from "@mui/material";
-import {useState} from "react";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import CloseIcon from '@mui/icons-material/Close';
 import QuestionIcon from '../../assets/icons/single-product/message-question.svg';
 import LeftArrow from '../../assets/icons/single-product/arrow-left.svg';
 import AnswerIcon from '../../assets/icons/single-product/message-2.svg';
@@ -10,10 +7,6 @@ const Question = ({eachQuestion, addAnswer}) => {
     const date = Intl.DateTimeFormat('fa', {
         useGrouping: false, year: "numeric", month: "long", day: "numeric"
     }).format(eachQuestion.created_at.timestamp * 1000);
-    const [answerIsShow, setAnswerShow] = useState(false);
-    const show = () => {
-        setAnswerShow(prev => !prev);
-    }
     return (
         <Box key={eachQuestion.id} sx={{width: '100%'}}>
             <Box sx={{borderBottom: '1px solid #f4f4f4', pb: 1}} display={'flex'} justifyContent={'space-between'}>
@@ -33,10 +26,9 @@ const Question = ({eachQuestion, addAnswer}) => {
                             const answerDate = Intl.DateTimeFormat('fa', {
                                 useGrouping: false, year: "numeric", month: "long", day: "numeric"
                             }).format(answer.created_at.timestamp * 1000);
-                            const show = index < 1 || answerIsShow
                             return (
                                 <Box sx={{
-                                    display: show ? 'flex' : 'none',
+                                    display:'flex',
                                     justifyContent: 'space-between',
                                     mb:1
                                 }} key={index}>
@@ -57,22 +49,6 @@ const Question = ({eachQuestion, addAnswer}) => {
                                 </Box>
                             )
                         })}
-                        {eachQuestion.replys.length >= 2 ?
-                            <Button variant={'text'} onClick={show} sx={{
-                                mt: 2, pl: 0
-                            }}>
-                                {answerIsShow ? <CloseIcon sx={{px: .5}} color={'primary'}/> :
-                                    <KeyboardArrowDownIcon color={'primary'}/>}
-                                <Typography
-                                    variant={"body2"}
-                                    color={'primary'}
-                                    sx={{
-                                        cursor: "pointer", textAlign: "center",
-                                    }}
-                                >
-                                    {answerIsShow ? 'نشان دادن کمتر' : "مشاهده کامل پاسخ ها"}
-                                </Typography>
-                            </Button> : null}
                         <Button variant={'text'} onClick={addAnswer} sx={{mt: 2, display: 'flex', alignItems: 'center', gap: 1, cursor: 'pointer'}}>
                             <Typography variant={'subtitle1'} color={'primary'}>ثبت پاسخ جدید</Typography>
                             <LeftArrow/>

@@ -6,9 +6,10 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import {useCart} from "../../hooks/useCart";
 import PN from "persian-number";
 import ShoppingBagIcon from '../../assets/icons/bag-2.svg';
-
-const CartEditionButton = ({id, boxSx}) => {
+import TrashIcon from '../../assets/icons/share/trash.svg';
+const CartEditionButton = ({id, boxSx , hideStatus}) => {
     const {setCart, countItem, loading} = useCart(id);
+    console.log(hideStatus)
     return (
         countItem < 1 ?
             (
@@ -25,7 +26,7 @@ const CartEditionButton = ({id, boxSx}) => {
                     <ShoppingBagIcon/>
                 </LoadingButton>
             ) :
-            <Box sx={{width:'100%'}} display={'flex'} alignItems={'center'} gap={1} justifyContent={'space-between'}>
+            <Box sx={{width:'100%' , mt:1}} display={'flex'} alignItems={'center'} gap={1} justifyContent={hideStatus ? 'start' : 'space-between'}>
                 <Box sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -48,7 +49,11 @@ const CartEditionButton = ({id, boxSx}) => {
                         <RemoveIcon fontSize={'small'}/>
                     </Button>
                 </Box>
-                <Typography sx={{textAlign:'center'}} variant={'subtitle1'}>در سبد خرید شما قرار گرفت</Typography>
+                {
+                    hideStatus ?
+                        <Button size={'small'} sx={{aspectRatio: '1/1' , p:0, borderRadius: '100%'}} ><TrashIcon/></Button>:
+                        <Typography sx={{textAlign:'center'}} variant={'subtitle1'}>در سبد خرید شما قرار گرفت</Typography>
+                }
             </Box>
     )
 

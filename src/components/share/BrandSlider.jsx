@@ -2,15 +2,13 @@ import SwiperCustomWrapper from "./SwiperCustomWrapper";
 import {Container} from "@mui/material";
 import {SwiperSlide} from "swiper/react";
 import InnerImageSection from "./InnerImageSection";
-import {Box} from "@mui/material";
 import {FreeMode, Navigation} from "swiper";
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const BrandSlider = ({brands}) => {
     return (
-        <Box>
-            <Container disableGutters={true}>
+            <Container disableGutters={true} sx={{px:2}}>
                 <SwiperCustomWrapper
                     swiperOptions={{
                         modules : [Navigation, FreeMode] ,
@@ -28,7 +26,6 @@ const BrandSlider = ({brands}) => {
                     }
                 </SwiperCustomWrapper>
             </Container>
-        </Box>
 
     )
 }
