@@ -17,7 +17,7 @@ export default function Page() {
             </Box> :
             <Box sx={{backgroundColor: "#fafafa", pt: 2, minHeight: "80vh", display: 'flex'}}>
                 <Container>
-                    <Grid container rowGap={1}>
+                    <Grid container rowGap={1} sx={{justifyContent:'space-between'}}>
                         <Grid item md={8} lg={8.5} xs={12}>
                             <Typography sx={{borderBottom :'1px solid #eee' , pb:1.5}} variant={'h5'} fontWeight={'bold'}>سبد خرید</Typography>
                             <Box sx={{width:'100%' , mt:1.5}}>
@@ -30,7 +30,7 @@ export default function Page() {
                                 }
                             </Box>
                         </Grid>
-                        <Grid sx={{pl: {md: 3}}} item md={4} lg={3.5} xs={12}>
+                        <Grid sx={{pl: {md: 3}}} item md={4} lg={3.3} xs={12}>
                             <Box sx={{backgroundColor: '#fff', borderRadius: 3, mb: 2, pb: 3}} container>
                                 <Typography sx={{textAlign:'center' , py:2 , borderBottom :'1px solid #eee'}}>جزییات خرید</Typography>
                                 <Box

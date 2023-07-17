@@ -9,7 +9,6 @@ import ShoppingBagIcon from '../../assets/icons/bag-2.svg';
 import TrashIcon from '../../assets/icons/share/trash.svg';
 const CartEditionButton = ({id, boxSx , hideStatus}) => {
     const {setCart, countItem, loading} = useCart(id);
-    console.log(hideStatus)
     return (
         countItem < 1 ?
             (

@@ -33,28 +33,28 @@ export default function Page() {
             <Typography sx={{px: 2}} fontWeight={'bold'} variant={'h2'} component={'h1'}>پمپ و تجهیزات جانبی</Typography>
             <Grid container sx={{my: 7, justifyContent: 'center'}} rowGap={6}>
                 <Grid sx={{px: 2}} item xs={6} md={3}>
-                    <OuterImageSection height={150} shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
+                    <OuterImageSection shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
                 </Grid>
                 <Grid sx={{px: 2}} item xs={6} md={3}>
-                    <OuterImageSection height={150} shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
+                    <OuterImageSection shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
                 </Grid>
                 <Grid sx={{px: 2}} item xs={6} md={3}>
-                    <OuterImageSection height={150} shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
+                    <OuterImageSection shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
                 </Grid>
                 <Grid sx={{px: 2}} item xs={6} md={3}>
-                    <OuterImageSection height={150} shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
+                    <OuterImageSection shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
                 </Grid>
                 <Grid sx={{px: 2}} item xs={6} md={3}>
-                    <OuterImageSection height={150} shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
+                    <OuterImageSection shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
                 </Grid>
                 <Grid sx={{px: 2}} item xs={6} md={3}>
-                    <OuterImageSection height={150} shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
+                    <OuterImageSection shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
                 </Grid>
                 <Grid sx={{px: 2}} item xs={6} md={3}>
-                    <OuterImageSection height={150} shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
+                    <OuterImageSection shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
                 </Grid>
                 <Grid sx={{px: 2}} item xs={6} md={3}>
-                    <OuterImageSection height={150} shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
+                    <OuterImageSection shadow={2} image={sortImage} description={'hi'} title={'pomp1'}/>
                 </Grid>
 
             </Grid>

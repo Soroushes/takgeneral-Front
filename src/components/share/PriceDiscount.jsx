@@ -22,7 +22,7 @@ const PriceDiscount = ({
                 flexDirection: justify,
                 alignItems: align,
                 justifyContent :'space-between',
-                gap: gap
+                gap: gap,
             }}>
                 {discountPrice !== finalPrice &&
                         <Typography fontWeight={discountedPriceBold?  'bold' : 'normal'} color={discountedPriceColor} variant={discountedPriceFont} sx={{textDecoration: "line-through"}}>
