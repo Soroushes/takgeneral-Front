@@ -31,7 +31,7 @@ export const useCart = (id) => {
                 return {...cartItem, count: 0}
             } else return cartItem
         })
-        dispatch(newCart);
+        dispatch(fetchCart(newCart));
     }
     const getLocalStorageCartData = () =>localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
     const findCountOfItem = () => {

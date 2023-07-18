@@ -7,8 +7,10 @@ import {useCart} from "../../hooks/useCart";
 import PN from "persian-number";
 import ShoppingBagIcon from '../../assets/icons/bag-2.svg';
 import TrashIcon from '../../assets/icons/share/trash.svg';
+import IconButton from '@mui/material/IconButton';
+
 const CartEditionButton = ({id, boxSx , hideStatus}) => {
-    const {setCart, countItem, loading} = useCart(id);
+    const {setCart, countItem, loading ,deleteProduct} = useCart(id);
     return (
         countItem < 1 ?
             (
@@ -50,7 +52,7 @@ const CartEditionButton = ({id, boxSx , hideStatus}) => {
                 </Box>
                 {
                     hideStatus ?
-                        <Button size={'small'} sx={{aspectRatio: '1/1' , p:0, borderRadius: '100%'}} ><TrashIcon/></Button>:
+                        <IconButton onClick={deleteProduct} color={'error'} sx={{borderRadius: '100%'}} ><TrashIcon/></IconButton>:
                         <Typography sx={{textAlign:'center'}} variant={'subtitle1'}>در سبد خرید شما قرار گرفت</Typography>
                 }
             </Box>
