@@ -3,8 +3,9 @@ import ProductPreviewCard from "./ProductPreviewCard";
 import {BASE_URL} from "../../data/urls";
 import {Box} from "@mui/system";
 import {usePathname} from "next/navigation";
-const ProductList =({product , count=8 , page =1})=>{
-    const noQueryPath = usePathname() ;
+
+const ProductList = ({product, count = 8, page = 1}) => {
+    const noQueryPath = usePathname();
     const handlePaginationChange = (e, value) => {
         push({
                 pathname: noQueryPath,
@@ -16,12 +17,12 @@ const ProductList =({product , count=8 , page =1})=>{
             {scroll: false}
         )
     }
-    return(
-        <Grid item xs={12} md={8.5} >
+    return (
+        <>
             <Grid container sx={{borderRadius: 2}}>
                 {
                     product.map((productItem) => (
-                        <Grid key={productItem.id} item sx={{ pb:1.6 , pl:.8 , pr:.8}} xs={6} sm={4} lg={3}>
+                        <Grid key={productItem.id} item sx={{pb: 1.6, pl: .8, pr: .8}} xs={6} sm={4} lg={3}>
                             <ProductPreviewCard
                                 shadow={2}
                                 id={productItem.id}
@@ -33,11 +34,11 @@ const ProductList =({product , count=8 , page =1})=>{
                     ))
                 }
             </Grid>
-            <Box sx={{display: "flex", justifyContent: {md:'end' , xs:'center'}, mt: 4}}>
+            <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4}}>
                 <Pagination shape={'rounded'} onChange={handlePaginationChange} page={page} count={count}
-                            color={'secondary'} />
+                            color={'secondary'}/>
             </Box>
-        </Grid>
+        </>
     )
 }
 export default ProductList;

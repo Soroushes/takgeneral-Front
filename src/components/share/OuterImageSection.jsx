@@ -4,7 +4,7 @@ import {Box} from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 
-const OuterImageSection = ({image, description , height , title , shadow= 1 ,descriptionVariant='subtitle1' , titleVariant='h4'}) => {
+const OuterImageSection = ({image, description , title , shadow= 1 ,descriptionVariant='subtitle1' , titleVariant='h4'}) => {
     return (
         <Link href={'/'}>
             <Box
@@ -16,19 +16,19 @@ const OuterImageSection = ({image, description , height , title , shadow= 1 ,des
                     justifyContent: "center",
                     alignItems: "center",
                     px: 1,
-                    height :height,
                     gap:1,
                     boxShadow : shadow ,
                     "&:hover img": {
                         transform: "scale(1) !important",
-                        marginTop: '-15px'
+                        marginTop: '-10px'
                     },
                 }}>
                 <Box sx={{
-                    width: {md: "75%", xs: '70%'},
+                    width: {md: "55%", xs: '70%'},
                     display: "flex",
                     justifyContent: "center",
-                    marginTop: '-45px'
+                    marginTop: '-45px',
+                    aspectRatio:'1/1'
                 }}>
                     <Image
                         alt={description}

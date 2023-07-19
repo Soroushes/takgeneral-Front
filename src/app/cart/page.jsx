@@ -4,23 +4,24 @@ import {Button, Container, Grid, Typography} from "@mui/material";
 import {useSelector} from "react-redux";
 import PN from "persian-number";
 import CartItems from "../../components/cart/CartItems";
-import EmptyCart from '../../assets/icons/emptyCart.svg';
+import EmptyCart from '../../assets/icons/cart/Frame 39376.svg';
 
 export default function Page() {
     const selectedProducts = useSelector(state => state.cart)
     return (
         !selectedProducts.products?.length ?
-            <Box sx={{pt: 2, minHeight: "80vh", display: 'flex', alignItems: 'center'}}>
-                <Box sx={{width: '100%', display: 'flex', justifyContent: 'center'}}>
-                    <EmptyCart sx={{color: 'text.main'}}/>
-                </Box>
+            <Box sx={{width:'100%' , pt:2 , gap:2 , display: 'flex', justifyContent: 'center', alignItems:'center' , flexDirection:'column'}}>
+                    <Box>
+                        <EmptyCart sx={{color: 'text.main'}}/>
+                    </Box>
+                    <Typography fontWeight={'bold'}>سبد خرید شما خالی است !</Typography>
             </Box> :
             <Box sx={{backgroundColor: "#fafafa", pt: 2, minHeight: "80vh", display: 'flex'}}>
                 <Container>
-                    <Grid container rowGap={1}>
+                    <Grid container rowGap={1} sx={{justifyContent:'space-between'}}>
                         <Grid item md={8} lg={8.5} xs={12}>
                             <Typography sx={{borderBottom :'1px solid #eee' , pb:1.5}} variant={'h5'} fontWeight={'bold'}>سبد خرید</Typography>
-                            <Box sx={{width:'100%' , mt:1.5}}>
+                            <Box sx={{width:'100%' , my:1.5}}>
                                 {
                                     selectedProducts?.products?.map((product) => {
                                         return (
@@ -30,7 +31,7 @@ export default function Page() {
                                 }
                             </Box>
                         </Grid>
-                        <Grid sx={{pl: {md: 3}}} item md={4} lg={3.5} xs={12}>
+                        <Grid sx={{pl: {md: 3}}} item md={4} lg={3.3} xs={12}>
                             <Box sx={{backgroundColor: '#fff', borderRadius: 3, mb: 2, pb: 3}} container>
                                 <Typography sx={{textAlign:'center' , py:2 , borderBottom :'1px solid #eee'}}>جزییات خرید</Typography>
                                 <Box

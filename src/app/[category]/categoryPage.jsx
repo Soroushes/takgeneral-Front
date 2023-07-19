@@ -81,16 +81,16 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                     <Grid item xs={12}>
                         {
                             isMobile ?
-                                <Box sx={{mb: 2,px:1, gap: 1, display: 'flex', justifyContent: 'space-between'}}>
+                                <Box sx={{mb: 2, px: 1, gap: 1, display: 'flex', justifyContent: 'space-between'}}>
                                     <Button size={'small'} onClick={() => setOpenFilterModal(true)} color={'btnGray'}
                                             variant={'contained'}>
                                         <FilterAltIcon/>
-                                        <Typography sx={{ml:1}}> فیلتر</Typography>
+                                        <Typography sx={{ml: 1}}> فیلتر</Typography>
                                     </Button>
                                     <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnGray'}
                                             variant={'contained'}>
                                         <SortIcon/>
-                                        <Typography sx={{ml:1}}>
+                                        <Typography sx={{ml: 1}}>
                                             {
                                                 sortValueItems.find((item) => item.value === sortValue).name
                                             }
@@ -128,7 +128,9 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                         </Grid>
 
                     }
-                    <ProductList product={product} page={current_page} count={page_count}/>
+                    <Grid item xs={12} md={8.5}>
+                        <ProductList product={product} page={current_page} count={page_count}/>
+                    </Grid>
                 </Grid>
             </Container>
             <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلتر'}>
