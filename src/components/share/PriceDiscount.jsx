@@ -13,7 +13,8 @@ const PriceDiscount = ({
                            discountedPriceColor = 'text.main',
                            finalPriceBold = false ,
                            discountedPriceBold = false,
-                           justify = 'column'
+                           justify = 'column' ,
+                            justifyContent = 'space-between'
                        }) => {
     return (
             <Box sx={{
@@ -21,7 +22,7 @@ const PriceDiscount = ({
                 display: 'flex',
                 flexDirection: justify,
                 alignItems: align,
-                justifyContent :'space-between',
+                justifyContent :justifyContent,
                 gap: gap,
             }}>
                 {discountPrice !== finalPrice &&

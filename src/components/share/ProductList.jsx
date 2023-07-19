@@ -34,8 +34,8 @@ const ProductList = ({product, count = 8, page = 1}) => {
                     ))
                 }
             </Grid>
-            <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4}}>
-                <Pagination shape={'rounded'} onChange={handlePaginationChange} page={page} count={count}
+            <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4 }}>
+                <Pagination sx={{direction:'ltr'}} shape={'rounded'} onChange={handlePaginationChange} page={page} count={count}
                             color={'secondary'}/>
             </Box>
         </>
