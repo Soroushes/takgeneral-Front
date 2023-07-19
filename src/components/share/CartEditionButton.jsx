@@ -27,7 +27,7 @@ const CartEditionButton = ({id, boxSx , hideStatus}) => {
                     <ShoppingBagIcon/>
                 </LoadingButton>
             ) :
-            <Box sx={{width:'100%' , mt:1}} display={'flex'} alignItems={'center'} gap={1} justifyContent={hideStatus ? 'start' : 'space-between'}>
+            <Box sx={{width:'100%' , mt:{xs:0 , md:1}}} display={'flex'} alignItems={'center'} gap={1} justifyContent={hideStatus ? 'start' : 'space-between'}>
                 <Box sx={{
                     display: 'flex',
                     alignItems: 'center',

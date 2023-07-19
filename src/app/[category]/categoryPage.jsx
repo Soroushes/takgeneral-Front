@@ -99,7 +99,7 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                                 </Box> :
                                 <Grid container>
                                     <Grid md={3.5}></Grid>
-                                    <Grid md={8.5} sx={{mb: 2}}>
+                                    <Grid md={8.5} sx={{mb: 2 , px:1}}>
                                         <TextField
                                             sx={{width: "150px"}}
                                             size={'small'}
