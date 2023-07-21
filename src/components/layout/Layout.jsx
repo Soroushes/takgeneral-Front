@@ -18,16 +18,20 @@ const Layout = ({children}) => {
     const [showLayout, setShowLayout] = useState(true);
     const dispatcher = useDispatch();
     const {full_name, phone_number} = useSelector(state => state.userInfo);
-    const desktopHeaderRef = useRef(null)
+    const desktopHeaderRef = useRef(null) ;
+    const resizeTimeOutRef = useRef(null) ;
     useEffect(() => {
         dispatcher(SET_DEVICE_INFO({firstTime : true}));
         dispatcher(SET_DESKTOP_HEIGHT(desktopHeaderRef.current.clientHeight));
         dispatcher(fetchInfo());
         dispatcher(fetchCart());
     }, [])
-    // onresize = ()=>{
-    //     dispatcher(SET_DEVICE_INFO()) ;
-    // }
+    onresize = ()=>{
+        clearTimeout(resizeTimeOutRef.current) ;
+        resizeTimeOutRef.current = setTimeout(()=>{
+            dispatcher(SET_DEVICE_INFO()) ;
+        },1000)
+    }
     useEffect(() => {
         const show = hideLayoutPaths.find((path) => path === pathname);
         setShowLayout(!!!show);

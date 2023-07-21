@@ -6,7 +6,6 @@ import HomePageCategorySection from "../components/home/HomePageCategorySection"
 import testBanner from '../assets/images/1.png'
 import ProductBanners from "../components/share/productBanners";
 import HighRateCategorySlider from "../components/home/highRateCategorySlider";
-import DifferentProductScaleSlider from "../components/home/DifferentProductScaleBannerSlider";
 async function getData() {
     const res = await fetch(`${BASE_URL}home/`, {next: {revalidate: 60}})
     if (!res.ok) {
@@ -44,7 +43,7 @@ export default async function Page() {
                 <ProductBanners sizing={{xs : 12 , md : 3.8}} banners={[{src : testBanner} , {src: testBanner} , {src : testBanner}]}/>
                 <HighRateCategorySlider/>
                 <ProductBanners sizing={{xs : 12 , md : 5.8}} banners={[{src : testBanner} , {src: testBanner}]}/>
-                <DifferentProductScaleSlider/>
+                {/*<DifferentProductScaleSlider/>*/}
             </div>
         </>
     );

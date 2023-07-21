@@ -12,11 +12,10 @@ const Slider = () => {
     const {desktopHeaderHeight , mobileHeaderHeight , isMobile} = useSelector(state => state.deviceInfo);
     return (
         <Box sx={{height : 400}}>
-            <Box sx={{top : isMobile ? mobileHeaderHeight : desktopHeaderHeight , height : '410px'}} right={0} left={0} position={'fixed'} zIndex={1}>
+            <Box sx={{top : isMobile ? mobileHeaderHeight : desktopHeaderHeight , height : '410px' , width : '100%'}} left={0} right={0} position={'fixed'} zIndex={1}>
                 <Swiper
                     modules={[Navigation, Pagination]}
                     spaceBetween={0}
-                    navigation
                     pagination={{
                         clickable: true,
                         dynamicBullets: true,
