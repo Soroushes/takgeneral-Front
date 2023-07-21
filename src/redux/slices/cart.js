@@ -8,7 +8,6 @@ export const fetchCart = createAsyncThunk(
     async (cartData) => {
         const accessToken = localStorage.getItem('token')
         let cartItems = cartData;
-        console.log(localStorage.getItem('cart'))
         if (!cartData) {
             cartItems = JSON.parse(localStorage.getItem('cart')) || [];
         }

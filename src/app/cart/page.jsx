@@ -5,7 +5,6 @@ import {useSelector} from "react-redux";
 import PN from "persian-number";
 import CartItems from "../../components/cart/CartItems";
 import EmptyCart from '../../assets/icons/cart/Frame 39376.svg';
-import {useState} from "react";
 
 export default function Page() {
     const selectedProducts = useSelector(state => state.cart) ;
