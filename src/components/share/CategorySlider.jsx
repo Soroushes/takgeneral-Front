@@ -3,6 +3,8 @@ import SwiperCustomWrapper from "./SwiperCustomWrapper";
 import {FreeMode, Navigation} from "swiper";
 import {SwiperSlide} from "swiper/react";
 import OuterImageSection from "./OuterImageSection";
+import pompSectionImage from '../../assets/images/pomp 1.png';
+
 const CategorySlider = ({category})=>{
     return(
             <Container disableGutters={true} sx={{mt:3}}>
@@ -13,10 +15,10 @@ const CategorySlider = ({category})=>{
                     }}
                     spaceBetween={'15px'}>
                     {
-                        category.map((item) => {
+                        category?.map((item) => {
                             return (
                                 <SwiperSlide key={Math.random() * 1000} style={{width: 150, padding: '50px 0'}}>
-                                    <OuterImageSection descriptionVariant={'subtitle2'} titleVariant={'h6'}  title={item.name} image={item.image}/>
+                                    <OuterImageSection descriptionVariant={'subtitle2'} titleVariant={'h6'}  title={item.name} image={pompSectionImage}/>
                                 </SwiperSlide>
                             )
                         })

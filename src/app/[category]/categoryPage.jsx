@@ -5,10 +5,9 @@ import {Button, Container, Divider, Grid, MenuItem, TextField, Typography} from 
 import CheckBoxFilter from "src/components/share/CheckBoxFilter";
 import {usePathname, useRouter} from "next/navigation";
 import MainModal from "../../components/share/MainModal";
-import {useEffect, useRef, useState} from "react";
+import {Fragment, useEffect, useRef, useState} from "react";
 import FilterAltIcon from '../../assets/icons/share/setting-5.svg';
 import Banner from '../../assets/images/categoryBanner1.jpg'
-import pompSectionImage from '../../assets/images/pomp 1.png';
 import CategorySlider from "../../components/share/CategorySlider";
 import {useSelector} from "react-redux";
 import SortIcon from "../../assets/icons/share/sort.svg";
@@ -28,16 +27,8 @@ const sortValueItems = [
         value: "price"
     }
 ];
-const testSections = [
-    {image: pompSectionImage, name: 'کشاورزی پمپ آب'},
-    {image: pompSectionImage, name: 'پمپ آب جتی جتی'}, {image: pompSectionImage, name: 'کشاورزی پمپ آب'},
-    {image: pompSectionImage, name: 'پمپ آب جتی جتی'}, {image: pompSectionImage, name: 'کشاورزی پمپ آب'},
-    {image: pompSectionImage, name: 'پمپ آب جتی جتی'}, {image: pompSectionImage, name: 'کشاورزی پمپ آب'},
-    {image: pompSectionImage, name: 'پمپ آب جتی جتی'},
-    {image: pompSectionImage, name: 'کشاورزی پمپ آب'},
-    {image: pompSectionImage, name: 'پمپ آب جتی جتی'},
-]
-const CategoryPage = ({product, brands, current_page, page_count}) => {
+const CategoryPage = ({ brands, current_page, page_count , data  , category ,childCategory}) => {
+    console.log(data)
     const {push} = useRouter();
     const noQueryPath = usePathname();
     const [openFilterModal, setOpenFilterModal] = useState(false);
@@ -50,13 +41,154 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
     }, [noQueryPath])
     const handleSortOnchange = (value) => {
         setSortValue(value);
-        push({
-            pathname: noQueryPath,
-            query: {
-                ordering: value
-            }
-        }, undefined, {scroll: false})
+        push(noQueryPath+'?'+value)
     }
+    const product = [
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        }, {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+        {
+            brand: "پمپ گراندفوس Grundfos",
+            discount: 33,
+            final_price: 5995953,
+            id: 1,
+            main_image: null,
+            name: "Pomp khanegi mohiti 1",
+            price: 8949185,
+        },
+
+    ];
 
     return (
         <Box sx={{minHeight: "100vh", backgroundColor: "#fff"}}>
@@ -76,7 +208,7 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
 
             }
             <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
-                <CategorySlider category={testSections}/>
+                <CategorySlider category={childCategory}/>
                 <Grid sx={{px: 1.5}} container>
                     <Grid item xs={12}>
                         {
@@ -98,8 +230,8 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                                     </Button>
                                 </Box> :
                                 <Grid container>
-                                    <Grid md={3.5}></Grid>
-                                    <Grid md={8.5} sx={{mb: 2 , px:1}}>
+                                    <Grid item md={3.5}></Grid>
+                                    <Grid item md={8.5} sx={{mb: 2 , px:1}}>
                                         <TextField
                                             sx={{width: "150px"}}
                                             size={'small'}
@@ -123,7 +255,7 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                         !isMobile &&
                         <Grid item md={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
                             <Box sx={{p: 2, borderRadius: 2, backgroundColor: '#fff', boxShadow: 1, width: '100%'}}>
-                                <CheckBoxFilter key={noQueryPath} subFilter={brands}/>
+                                <CheckBoxFilter category={category} key={noQueryPath} subFilter={brands}/>
                             </Box>
                         </Grid>
 
@@ -141,7 +273,7 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
             <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>
                 {
                     sortValueItems.map((sortItem) => (
-                        <>
+                        <Fragment key={sortItem.value}>
                             <Typography
                                 onClick={() => {
                                     handleSortOnchange(sortItem.value);
@@ -155,7 +287,7 @@ const CategoryPage = ({product, brands, current_page, page_count}) => {
                                 {sortItem.name}
                             </Typography>
                             <Divider/>
-                        </>
+                        </Fragment>
                     ))
                 }
             </MainModal>

@@ -3,11 +3,10 @@ import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
 import {useEffect, useState} from 'react';
 import {Typography} from '@mui/material';
-import {useRouter} from "next/navigation";
+import { useRouter, useSearchParams , usePathname} from "next/navigation";
 
-const CheckBoxFilter = ({subFilter}) => {
-    let filtersId = []
-    console.log(subFilter)
+const CheckBoxFilter = ({subFilter, category}) => {
+    let filtersId = [];
     subFilter.map((value) => {
         filtersId.push(value.brand__id);
     })
@@ -15,14 +14,26 @@ const CheckBoxFilter = ({subFilter}) => {
     filtersId.forEach((id) => {
         initialCheckBox[String(id)] = false;
     })
-    const {push, isReady, query} = useRouter();
+    const {push, isReady} = useRouter();
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
+    console.log(pathname)
+    const brandParams = searchParams.get('brand');
+    const pageParams = searchParams.get('page');
+    const pageSizeParams = searchParams.get('page_size');
+    const orderingParams = searchParams.getAll('ordering');
+    const paramsArray = [pageParams ,pageSizeParams , orderingParams];
+    // const params = {};
+    // for (const [key, value] of searchParams.entries()) {
+    //     params[key] = value
+    // }
     const [checkBox, setCheckBox] = useState(initialCheckBox);
     useEffect(() => {
         // update our checkbox ui with query route
-        if (isReady && query.brand) {
-            let brandsArray = query.brand;
+        if (isReady && brandParams) {
+            let brandsArray = brandParams;
             const newInitialCheckBox = {};
-            if (typeof query.brand !== 'object') {
+            if (typeof brandParams !== 'object') {
                 brandsArray = Array(brandsArray);
             }
             brandsArray.forEach(brandId => {
@@ -41,16 +52,13 @@ const CheckBoxFilter = ({subFilter}) => {
         setCheckBox(newCheckBoxState);
         const checkedFields = Object.keys(newCheckBoxState).filter(key => newCheckBoxState[key] === true);
         if (checkedFields.length) {
-            push({
-                pathname: `/products/${query.category}/${query.categoryType}`,
-                query: {
-                    ...query,
-                    brand: checkedFields,
-                    page: 1
-                }
-            }, undefined, {scroll: false})
+            const brandString = [];
+            checkedFields.map((item)=>{
+                brandString.push(`brand=${item}`)
+            })
+            push(`${category}?`+ brandString.join('&'))
         } else {
-            push(`/products/${query.category}/${query.categoryType}`, undefined, {scroll: false});
+            push(`/${category}`);
         }
     };
     //

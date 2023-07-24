@@ -22,7 +22,7 @@ const ProductList = ({product, count = 8, page = 1}) => {
             <Grid container sx={{borderRadius: 2}}>
                 {
                     product.map((productItem) => (
-                        <Grid key={productItem.id} item sx={{pb: 1.6, pl: .8, pr: .8}} xs={6} sm={4} lg={3}>
+                        <Grid key={Math.random() * 1000} item sx={{pb: 1.6, pl: .8, pr: .8}} xs={6} sm={4} lg={3}>
                             <ProductPreviewCard
                                 shadow={2}
                                 id={productItem.id}
