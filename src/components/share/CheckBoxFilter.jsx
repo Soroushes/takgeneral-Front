@@ -3,7 +3,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
 import {useEffect, useState} from 'react';
 import {Typography} from '@mui/material';
-import { useRouter, useSearchParams , usePathname} from "next/navigation";
+import { useRouter, useSearchParams} from "next/navigation";
 
 const CheckBoxFilter = ({subFilter, category}) => {
     let filtersId = [];
@@ -14,23 +14,13 @@ const CheckBoxFilter = ({subFilter, category}) => {
     filtersId.forEach((id) => {
         initialCheckBox[String(id)] = false;
     })
-    const {push, isReady} = useRouter();
+    const {push} = useRouter();
     const searchParams = useSearchParams();
-    const pathname = usePathname();
-    console.log(pathname)
-    const brandParams = searchParams.get('brand');
-    const pageParams = searchParams.get('page');
-    const pageSizeParams = searchParams.get('page_size');
-    const orderingParams = searchParams.getAll('ordering');
-    const paramsArray = [pageParams ,pageSizeParams , orderingParams];
-    // const params = {};
-    // for (const [key, value] of searchParams.entries()) {
-    //     params[key] = value
-    // }
+    const brandParams = searchParams.getAll('brand');
     const [checkBox, setCheckBox] = useState(initialCheckBox);
     useEffect(() => {
         // update our checkbox ui with query route
-        if (isReady && brandParams) {
+        if (brandParams) {
             let brandsArray = brandParams;
             const newInitialCheckBox = {};
             if (typeof brandParams !== 'object') {
@@ -48,20 +38,22 @@ const CheckBoxFilter = ({subFilter, category}) => {
         }
     }, []);
     const handleCheck = (event) => {
+        const params = new URLSearchParams(searchParams);
         const newCheckBoxState = {...checkBox, [event.target.name]: (event.target.checked)}
         setCheckBox(newCheckBoxState);
         const checkedFields = Object.keys(newCheckBoxState).filter(key => newCheckBoxState[key] === true);
-        if (checkedFields.length) {
-            const brandString = [];
-            checkedFields.map((item)=>{
-                brandString.push(`brand=${item}`)
+        if(checkedFields.length){
+            params.delete('brand');
+            checkedFields.map((checkedItems)=>{
+                params.append('brand' , checkedItems);
             })
-            push(`${category}?`+ brandString.join('&'))
-        } else {
-            push(`/${category}`);
+            push(`${category}?`+params.toString())
+        }else{
+            params.delete('brand')
+            console.log(params.toString())
+            push(`${category}?`+params.toString())
         }
     };
-    //
     return (
         <>
             <FormLabel sx={{borderBottom: '1px solid #ccc', pb: 1, fontSize: 14, mb: 1}} component="legend">

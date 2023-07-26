@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const OuterImageSection = ({image, description , title , shadow= 1 ,descriptionVariant='subtitle1' , titleVariant='h4'}) => {
     return (
-        <Link href={'/'}>
+        <Link href={'/9'}>
             <Box
                 sx={{
                     borderRadius: 2,

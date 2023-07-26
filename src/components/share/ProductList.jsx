@@ -2,20 +2,19 @@ import {Grid, Pagination} from "@mui/material";
 import ProductPreviewCard from "./ProductPreviewCard";
 import {BASE_URL} from "../../data/urls";
 import {Box} from "@mui/system";
-import {usePathname} from "next/navigation";
+import {usePathname, useRouter, useSearchParams} from "next/navigation";
+import {useState} from "react";
 
 const ProductList = ({product, count = 8, page = 1}) => {
+    const [pageState , setPageState] = useState(page);
     const noQueryPath = usePathname();
+    const searchParams = useSearchParams();
+    const params = new URLSearchParams(searchParams);
+    const {push} = useRouter();
     const handlePaginationChange = (e, value) => {
-        push({
-                pathname: noQueryPath,
-                query: {
-                    page: value,
-                }
-            },
-            undefined,
-            {scroll: false}
-        )
+        params.set('page' , value)
+        push(noQueryPath + '?' + params)
+        setPageState(value);
     }
     return (
         <>
@@ -35,7 +34,7 @@ const ProductList = ({product, count = 8, page = 1}) => {
                 }
             </Grid>
             <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4 }}>
-                <Pagination sx={{direction:'ltr'}} shape={'rounded'} onChange={handlePaginationChange} page={page} count={count}
+                <Pagination sx={{direction:'ltr'}} shape={'rounded'} onChange={handlePaginationChange} page={pageState} count={count}
                             color={'secondary'}/>
             </Box>
         </>

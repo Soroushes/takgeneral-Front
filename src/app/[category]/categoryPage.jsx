@@ -3,7 +3,7 @@ import {Box} from "@mui/system";
 import Image from "next/image";
 import {Button, Container, Divider, Grid, MenuItem, TextField, Typography} from "@mui/material";
 import CheckBoxFilter from "src/components/share/CheckBoxFilter";
-import {usePathname, useRouter} from "next/navigation";
+import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import MainModal from "../../components/share/MainModal";
 import {Fragment, useEffect, useRef, useState} from "react";
 import FilterAltIcon from '../../assets/icons/share/setting-5.svg';
@@ -27,9 +27,11 @@ const sortValueItems = [
         value: "price"
     }
 ];
-const CategoryPage = ({ brands, current_page, page_count , data  , category ,childCategory}) => {
-    console.log(data)
+const CategoryPage = ({ brands, current_page, page_count , data  , category ,childCategory , products}) => {
+    console.log(products)
     const {push} = useRouter();
+    const searchParams = useSearchParams();
+    const params = new URLSearchParams(searchParams);
     const noQueryPath = usePathname();
     const [openFilterModal, setOpenFilterModal] = useState(false);
     const [openSortModal, setOpenSortModal] = useState(false);
@@ -41,154 +43,9 @@ const CategoryPage = ({ brands, current_page, page_count , data  , category ,chi
     }, [noQueryPath])
     const handleSortOnchange = (value) => {
         setSortValue(value);
-        push(noQueryPath+'?'+value)
+        params.set('ordering' , value);
+        push(noQueryPath+'?'+ params.toString())
     }
-    const product = [
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        }, {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-
-    ];
 
     return (
         <Box sx={{minHeight: "100vh", backgroundColor: "#fff"}}>
@@ -261,7 +118,7 @@ const CategoryPage = ({ brands, current_page, page_count , data  , category ,chi
 
                     }
                     <Grid item xs={12} md={8.5}>
-                        <ProductList product={product} page={current_page} count={page_count}/>
+                        <ProductList product={products} page={current_page} count={page_count}/>
                     </Grid>
                 </Grid>
             </Container>
