@@ -40,9 +40,6 @@ const ChildCategoryPage = ({ brands, current_page, page_count , data  , category
     useEffect(() => {
         setSortValue('newest')
     }, [noQueryPath])
-    useEffect(()=>{
-        console.log('re unmount')
-    },[])
     const handleSortOnchange = (value) => {
         setSortValue(value);
         params.set('ordering' , value);
@@ -66,7 +63,9 @@ const ChildCategoryPage = ({ brands, current_page, page_count , data  , category
 
             }
             <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
-                <CategorySlider selfId={category} category={childCategory}/>
+                <Box sx={{px : 1}}>
+                    <CategorySlider selfId={category} category={childCategory}/>
+                </Box>
                 <Grid sx={{px: 1.5}} container>
                     <Grid item xs={12}>
                         {

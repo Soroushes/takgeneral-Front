@@ -11,6 +11,7 @@ const SwiperCustomWrapper = ({swiperOptions , children , spaceBetween})=>{
                 <Swiper
                     modules={[FreeMode]}
                     slidesPerView={'auto'}
+                    loop={false}
                     {...swiperOptions}
                     spaceBetween={spaceBetween}
                 >
