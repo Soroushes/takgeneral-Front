@@ -6,6 +6,7 @@ import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import {useEffect, useState} from "react";
 
 const ProductList = ({product, count = 8, page = 1}) => {
+    console.log(page)
     const [pageState, setPageState] = useState(page);
     const noQueryPath = usePathname();
     const searchParams = useSearchParams();

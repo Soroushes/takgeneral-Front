@@ -3,7 +3,7 @@ import {Box} from "@mui/system";
 import {Button, Container, Divider, Grid, MenuItem, TextField, Typography} from "@mui/material";
 import {useSelector} from "react-redux";
 import {Fragment, useEffect, useState} from "react";
-import {usePathname , useRouter , useSearchParams} from "next/navigation";
+import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import MainModal from "../../../components/share/MainModal";
 import SortIcon from '../../../assets/icons/share/sort.svg';
 import ProductList from "../../../components/share/ProductList";
@@ -11,7 +11,8 @@ import Image from "next/image";
 import Banner from "../../../assets/images/categoryBanner1.jpg";
 import {Controller, useForm} from "react-hook-form";
 import {IOSSwitch} from '../../../assets/theme/theme'
-const BrandPage = () => {
+
+const BrandPage = ({product, page_count, current_page}) => {
     const {control} = useForm()
     const [sortValue, setSortValue] = useState('newest');
     const noQueryPath = usePathname();
@@ -30,163 +31,17 @@ const BrandPage = () => {
             value: "price"
         }
     ];
-    const product = [
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        }, {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-        {
-            brand: "پمپ گراندفوس Grundfos",
-            discount: 33,
-            final_price: 5995953,
-            id: 1,
-            main_image: null,
-            name: "Pomp khanegi mohiti 1",
-            price: 8949185,
-        },
-
-    ]
     const [openSortModal, setOpenSortModal] = useState(false);
     const {push} = useRouter();
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
     useEffect(() => {
-        setSortValue('newest')
+        setSortValue('newest');
     }, [noQueryPath]);
     const handleSortOnchange = (value) => {
         setSortValue(value);
-        params.set('ordering' , sortValue);
-        push(noQueryPath + '?' + params.toString())
+        params.set('ordering', value);
+        push(noQueryPath + '?' + params.toString());
     }
     return (
         <Box sx={{minHeight: "100vh", backgroundColor: "#fff"}}>
@@ -222,19 +77,28 @@ const BrandPage = () => {
                                     </Button>
                                 </Box> :
                                 <Grid container>
-                                    <Grid item md={3.5} >
-                                        <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'} sx={{mx:1 , px:2 , py:1.5 , borderRadius:2 , backgroundColor:'white' , boxShadow:1}}>
+                                    <Grid item md={3.5}>
+                                        <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'}
+                                             sx={{
+                                                 mx: 1,
+                                                 px: 2,
+                                                 py: 1.5,
+                                                 borderRadius: 2,
+                                                 backgroundColor: 'white',
+                                                 boxShadow: 1
+                                             }}>
                                             <Typography variant={'subtitle1'}>فقط کالاهای موجود</Typography>
                                             <Controller
                                                 name={'available-product'}
                                                 control={control}
                                                 render={({field}) => (
-                                                <IOSSwitch color={'primary'} onChange={field.onChange} value={field.value}/>
-                                            )}
+                                                    <IOSSwitch color={'primary'} onChange={field.onChange}
+                                                               value={field.value}/>
+                                                )}
                                             />
                                         </Box>
                                     </Grid>
-                                    <Grid item md={8.5} sx={{height:'auto', px:1}}>
+                                    <Grid item md={8.5} sx={{height: 'auto', px: 1}}>
                                         <TextField
                                             sx={{width: "150px"}}
                                             size={'small'}
@@ -256,15 +120,15 @@ const BrandPage = () => {
                     </Grid>
                     {
                         !isMobile &&
-                        <Grid item md={3.5} sx={{pt:.5,mt:2, display: {xs: 'none', md: "block"}}}>
-                            <Box sx={{backgroundColor:'white' , boxShadow:1,mx:1 , px:2 , py:1.5 , borderRadius:2 }}>
+                        <Grid item md={3.5} sx={{pt: .5, mt: 2, display: {xs: 'none', md: "block"}}}>
+                            <Box sx={{backgroundColor: 'white', boxShadow: 1, mx: 1, px: 2, py: 1.5, borderRadius: 2}}>
                                 <Typography variant={'subtitle1'}>محدوده قیمت</Typography>
                             </Box>
                         </Grid>
 
                     }
-                    <Grid item xs={12} md={8.5} sx={{mt:2}}>
-                        <ProductList product={product}/>
+                    <Grid item xs={12} md={8.5} sx={{mt: 2}}>
+                        <ProductList page={current_page} count={page_count} product={product}/>
                     </Grid>
                 </Grid>
             </Container>

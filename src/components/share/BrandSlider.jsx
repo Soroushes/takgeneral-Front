@@ -9,7 +9,7 @@ import brandImage from '../../assets/images/pentax (1).png';
 
 const BrandSlider = ({brands}) => {
     return (
-            <Container disableGutters={true} sx={{px:2}}>
+            <Container disableGutters={true} sx={{p:2}}>
                 <SwiperCustomWrapper
                     swiperOptions={{
                         modules : [Navigation, FreeMode] ,
@@ -19,7 +19,7 @@ const BrandSlider = ({brands}) => {
                     {
                         brands.map((brand) => {
                             return (
-                                <SwiperSlide key={Math.random() * 1000} style={{width: 160 , padding : '50px 0'}}>
+                                <SwiperSlide key={Math.random() * 1000} style={{width: 160 , padding : '50px 0px' }}>
                                     <InnerImageSection href={'/brand/'+ brand.brand__id} name={brand.brand__name} image={brandImage}/>
                                 </SwiperSlide>
                             )

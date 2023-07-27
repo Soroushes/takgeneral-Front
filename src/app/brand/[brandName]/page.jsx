@@ -1,6 +1,19 @@
 import BrandPage from "./brandPage";
-export default async function Page (){
+import {BASE_URL} from "../../../data/urls";
+const getData = async (params , searchParams)=>{
+    const parameters = new URLSearchParams(searchParams)
+    const res = await fetch(BASE_URL+'brands/'+ params.brandName + '?' + parameters.toString() );
+    if(!res.ok){
+        throw new  Error('Failed to fetch data')
+    }else {
+        return res.json();
+    }
+}
+export default async function Page ({params , searchParams}){
+    const data = await getData(params , searchParams);
+    const parameters = new URLSearchParams(searchParams)
+    console.log(BASE_URL+'brands/'+ params.brandName + '?' + parameters.toString())
     return(
-        <BrandPage/>
+        <BrandPage data={data} product={data.products} current_page={data.current_page} page_count={data.page_count}/>
     )
 }
