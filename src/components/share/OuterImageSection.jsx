@@ -1,14 +1,16 @@
 'use client'
-import {Typography,} from "@mui/material";
+import {Typography,useTheme} from "@mui/material";
 import {Box} from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 
-const OuterImageSection = ({image, description , title , shadow= 1 ,descriptionVariant='subtitle1' , titleVariant='h4', href = 'cat/21'}) => {
+const OuterImageSection = ({image, description , selfItem , title , shadow= 1 ,descriptionVariant='subtitle1' , titleVariant='h4', href = 'cat/21'}) => {
+    const {palette} = useTheme()
     return (
         <Link href={href}>
             <Box
                 sx={{
+                    border :selfItem ? `1px solid ${palette.secondary.main}` : 'none',
                     borderRadius: 2,
                     transition: "all .5s",
                     display: "flex",

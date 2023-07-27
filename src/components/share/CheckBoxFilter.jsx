@@ -43,14 +43,15 @@ const CheckBoxFilter = ({subFilter, category}) => {
         setCheckBox(newCheckBoxState);
         const checkedFields = Object.keys(newCheckBoxState).filter(key => newCheckBoxState[key] === true);
         if(checkedFields.length){
+            params.delete('page');
             params.delete('brand');
             checkedFields.map((checkedItems)=>{
                 params.append('brand' , checkedItems);
             })
             push(`cat/${category}?`+params.toString())
         }else{
-            params.delete('brand')
-            console.log(params.toString())
+            params.delete('brand');
+            params.set('page',1);
             push(`cat/${category}?`+params.toString())
         }
     };

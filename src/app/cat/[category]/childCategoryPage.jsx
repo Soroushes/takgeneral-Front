@@ -27,9 +27,8 @@ const sortValueItems = [
         value: "price"
     }
 ];
-const CategoryPage = ({ brands, current_page, page_count , data  , category ,childCategory , products , content}) => {
+const ChildCategoryPage = ({ brands, current_page, page_count , data  , category ,childCategory , products , content}) => {
     const {push} = useRouter();
-    console.log(content,  'asdadasd');
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
     const noQueryPath = usePathname();
@@ -67,7 +66,7 @@ const CategoryPage = ({ brands, current_page, page_count , data  , category ,chi
 
             }
             <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
-                <CategorySlider category={childCategory}/>
+                <CategorySlider selfId={category} category={childCategory}/>
                 <Grid sx={{px: 1.5}} container>
                     <Grid item xs={12}>
                         {
@@ -155,4 +154,4 @@ const CategoryPage = ({ brands, current_page, page_count , data  , category ,chi
         </Box>
     )
 }
-export default CategoryPage;
+export default ChildCategoryPage;

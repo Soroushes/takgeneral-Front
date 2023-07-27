@@ -5,6 +5,7 @@ import InnerImageSection from "./InnerImageSection";
 import {FreeMode, Navigation} from "swiper";
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import brandImage from '../../assets/images/pentax (1).png';
 
 const BrandSlider = ({brands}) => {
     return (
@@ -19,7 +20,7 @@ const BrandSlider = ({brands}) => {
                         brands.map((brand) => {
                             return (
                                 <SwiperSlide key={Math.random() * 1000} style={{width: 160 , padding : '50px 0'}}>
-                                    <InnerImageSection name={brand.name} image={brand.image}/>
+                                    <InnerImageSection href={'/brand/'+ brand.brand__id} name={brand.brand__name} image={brandImage}/>
                                 </SwiperSlide>
                             )
                         })

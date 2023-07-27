@@ -110,15 +110,15 @@ const lineHeight = ['17px','20px','25px']
 export const IOSSwitch = styled((props) => (
     <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
 ))(({ theme }) => ({
-    width: 36   ,
-    height: 20,
+    width: 42   ,
+    height: 22,
     padding: 0,
     '& .MuiSwitch-switchBase': {
         padding: 0,
         margin: 2,
         transitionDuration: '300ms',
         '&.Mui-checked': {
-            transform: 'translateX(16px)',
+            transform: 'translateX(20px)',
             color: '#fff',
             '& + .MuiSwitch-track': {
                 backgroundColor: theme.palette.primary,
@@ -145,11 +145,11 @@ export const IOSSwitch = styled((props) => (
     },
     '& .MuiSwitch-thumb': {
         boxSizing: 'border-box',
-        width: 16,
-        height: 16,
+        width: 18,
+        height: 18,
     },
     '& .MuiSwitch-track': {
-        borderRadius: 20 / 2,
+        borderRadius: 21 / 2,
         backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
         opacity: 1,
         transition: theme.transitions.create(['background-color'], {

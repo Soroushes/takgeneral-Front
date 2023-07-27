@@ -5,8 +5,7 @@ import {SwiperSlide} from "swiper/react";
 import OuterImageSection from "./OuterImageSection";
 import pompSectionImage from '../../assets/images/pomp 1.png';
 
-const CategorySlider = ({category})=>{
-    console.log(category)
+const CategorySlider = ({category , selfId})=>{
     return(
             <Container disableGutters={true} sx={{mt:3}}>
                 <SwiperCustomWrapper
@@ -19,7 +18,7 @@ const CategorySlider = ({category})=>{
                         category?.map((item) => {
                             return (
                                 <SwiperSlide key={Math.random() * 1000} style={{width: 150, padding: '50px 0'}}>
-                                    <OuterImageSection href={'cat/'+item.id} descriptionVariant={'subtitle2'} titleVariant={'h6'}  title={item.name} image={pompSectionImage}/>
+                                    <OuterImageSection selfItem={+selfId === item.id} href={'cat/'+item.id} descriptionVariant={'subtitle2'} titleVariant={'h6'}  title={item.name} image={pompSectionImage}/>
                                 </SwiperSlide>
                             )
                         })

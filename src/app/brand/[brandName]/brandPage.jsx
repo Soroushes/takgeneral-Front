@@ -2,8 +2,8 @@
 import {Box} from "@mui/system";
 import {Button, Container, Divider, Grid, MenuItem, TextField, Typography} from "@mui/material";
 import {useSelector} from "react-redux";
-import {useEffect, useState} from "react";
-import {usePathname} from "next/navigation";
+import {Fragment, useEffect, useState} from "react";
+import {usePathname , useRouter , useSearchParams} from "next/navigation";
 import MainModal from "../../../components/share/MainModal";
 import SortIcon from '../../../assets/icons/share/sort.svg';
 import ProductList from "../../../components/share/ProductList";
@@ -177,17 +177,16 @@ const BrandPage = () => {
 
     ]
     const [openSortModal, setOpenSortModal] = useState(false);
+    const {push} = useRouter();
+    const searchParams = useSearchParams();
+    const params = new URLSearchParams(searchParams);
     useEffect(() => {
         setSortValue('newest')
     }, [noQueryPath]);
     const handleSortOnchange = (value) => {
         setSortValue(value);
-        push({
-            pathname: noQueryPath,
-            query: {
-                ordering: value
-            }
-        }, undefined, {scroll: false})
+        params.set('ordering' , sortValue);
+        push(noQueryPath + '?' + params.toString())
     }
     return (
         <Box sx={{minHeight: "100vh", backgroundColor: "#fff"}}>
@@ -223,7 +222,7 @@ const BrandPage = () => {
                                     </Button>
                                 </Box> :
                                 <Grid container>
-                                    <Grid md={3.5} >
+                                    <Grid item md={3.5} >
                                         <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'} sx={{mx:1 , px:2 , py:1.5 , borderRadius:2 , backgroundColor:'white' , boxShadow:1}}>
                                             <Typography variant={'subtitle1'}>فقط کالاهای موجود</Typography>
                                             <Controller
@@ -235,7 +234,7 @@ const BrandPage = () => {
                                             />
                                         </Box>
                                     </Grid>
-                                    <Grid md={8.5} sx={{height:'auto', px:1}}>
+                                    <Grid item md={8.5} sx={{height:'auto', px:1}}>
                                         <TextField
                                             sx={{width: "150px"}}
                                             size={'small'}
@@ -272,7 +271,7 @@ const BrandPage = () => {
             <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>
                 {
                     sortValueItems.map((sortItem) => (
-                        <>
+                        <Fragment key={Math.random() * 1000}>
                             <Typography
                                 onClick={() => {
                                     handleSortOnchange(sortItem.value);
@@ -286,7 +285,7 @@ const BrandPage = () => {
                                 {sortItem.name}
                             </Typography>
                             <Divider/>
-                        </>
+                        </Fragment>
                     ))
                 }
             </MainModal>

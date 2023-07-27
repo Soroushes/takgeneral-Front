@@ -1,6 +1,6 @@
 import {BASE_URL} from "../../../data/urls";
-import CategoryPage from "./categoryPage";
-
+import ChildCategoryPage from "./childCategoryPage";
+import ParentCategoryPage from './parentCategoryPage';
 async function getData(params, searchParams) {
     let brands = searchParams.brand ?? [];
     delete searchParams.brand;
@@ -24,7 +24,12 @@ async function getData(params, searchParams) {
 
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
-    return <CategoryPage content={data.page_content.desc} childCategory={data.sub_category} products={data.product} category={params.category}
-                         data={data} brands={data.brands} current_page={data.current_page} page_count={data.page_count}/>
-    //return <CategoryPage data={data} brands={data.brands} product={data.product} current_page={data.current_page} page_count={data.page_count}/>
+    if(data.main_category.id === +params.category){
+        return (
+            <ParentCategoryPage subCatecory={data.sub_category} brands={data.brands}/>
+        )
+    }else{
+        return (<ChildCategoryPage content={data.page_content.desc} childCategory={data.sub_category} products={data.product} category={params.category}
+                                  data={data} brands={data.brands} current_page={data.current_page} page_count={data.page_count}/>)
+    }
 }

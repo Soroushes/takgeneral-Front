@@ -95,9 +95,9 @@ export default function Page(){
                         <Typography sx={{mb: 1}} component={"h1"} variant={'h6'}>
                             {validate ? "کد تایید را وارد کنید" : "ورود / ثبت نام"}
                         </Typography>
-                        {validate ? null : (<Typograp   hy variant={"body2"} component={"p"}>
+                        {validate ? null : (<Typography variant={"body2"} component={"p"}>
                             سلام!
-                        </Typograp>)}
+                        </Typography>)}
                         <Typography variant={"body2"} component={"p"}>
                             {validate ? `کد تایید برای شماره ی ${getValues('phoneNumber')} پیامک شد` : ` شماره موبایل خود را وارد کنید`}
                         </Typography>
