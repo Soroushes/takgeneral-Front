@@ -4,14 +4,14 @@ import Image from "next/image";
 import {Button, Container, Divider, Grid, MenuItem, TextField, Typography} from "@mui/material";
 import CheckBoxFilter from "src/components/share/CheckBoxFilter";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
-import MainModal from "../../components/share/MainModal";
+import MainModal from "../../../components/share/MainModal";
 import {Fragment, useEffect, useRef, useState} from "react";
-import FilterAltIcon from '../../assets/icons/share/setting-5.svg';
-import Banner from '../../assets/images/categoryBanner1.jpg'
-import CategorySlider from "../../components/share/CategorySlider";
+import FilterAltIcon from '../../../assets/icons/share/setting-5.svg';
+import Banner from '../../../assets/images/categoryBanner1.jpg'
+import CategorySlider from "../../../components/share/CategorySlider";
 import {useSelector} from "react-redux";
-import SortIcon from "../../assets/icons/share/sort.svg";
-import ProductList from "../../components/share/ProductList";
+import SortIcon from "../../../assets/icons/share/sort.svg";
+import ProductList from "../../../components/share/ProductList";
 
 const sortValueItems = [
     {
@@ -27,9 +27,9 @@ const sortValueItems = [
         value: "price"
     }
 ];
-const CategoryPage = ({ brands, current_page, page_count , data  , category ,childCategory , products}) => {
-    console.log(products)
+const CategoryPage = ({ brands, current_page, page_count , data  , category ,childCategory , products , content}) => {
     const {push} = useRouter();
+    console.log(content,  'asdadasd');
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
     const noQueryPath = usePathname();
@@ -41,12 +41,14 @@ const CategoryPage = ({ brands, current_page, page_count , data  , category ,chi
     useEffect(() => {
         setSortValue('newest')
     }, [noQueryPath])
+    useEffect(()=>{
+        console.log('re unmount')
+    },[])
     const handleSortOnchange = (value) => {
         setSortValue(value);
         params.set('ordering' , value);
         push(noQueryPath+'?'+ params.toString())
     }
-
     return (
         <Box sx={{minHeight: "100vh", backgroundColor: "#fff"}}>
             {
@@ -121,6 +123,7 @@ const CategoryPage = ({ brands, current_page, page_count , data  , category ,chi
                         <ProductList product={products} page={current_page} count={page_count}/>
                     </Grid>
                 </Grid>
+                <Box dangerouslySetInnerHTML={{__html: content}}/>
             </Container>
             <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلتر'}>
                 <Box sx={{px: 2}}>
@@ -148,6 +151,7 @@ const CategoryPage = ({ brands, current_page, page_count , data  , category ,chi
                     ))
                 }
             </MainModal>
+
         </Box>
     )
 }

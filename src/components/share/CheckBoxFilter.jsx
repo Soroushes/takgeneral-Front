@@ -47,11 +47,11 @@ const CheckBoxFilter = ({subFilter, category}) => {
             checkedFields.map((checkedItems)=>{
                 params.append('brand' , checkedItems);
             })
-            push(`${category}?`+params.toString())
+            push(`cat/${category}?`+params.toString())
         }else{
             params.delete('brand')
             console.log(params.toString())
-            push(`${category}?`+params.toString())
+            push(`cat/${category}?`+params.toString())
         }
     };
     return (

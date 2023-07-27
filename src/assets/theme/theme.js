@@ -5,47 +5,47 @@ const secondary = '#ff8301' ;
 const success = '#00966D'
 const textBlack = '#303030' ;
 const lineHeight = ['17px','20px','25px']
-const theme = createTheme({
-    direction: "rtl",
-    palette: {
-        primary: {
-            main: primary,
-            dark : primaryDark ,
-            lighter:'#1B09F91A',
-            contrastText : '#fff' ,
+    const theme = createTheme({
+        direction: "rtl",
+        palette: {
+            primary: {
+                main: primary,
+                dark : primaryDark ,
+                lighter:'#1B09F91A',
+                contrastText : '#fff' ,
+            },
+            secondary: {
+                main: secondary,
+                contrastText : '#fff' ,
+            },
+            success :{
+                main:success
+            },
+            gray: {
+                main: "#A9A9A9",
+                dark: "#c0c0c0",
+                light: "#ccc",
+                lighter: "#eee",
+                darker: "#808080"
+            },
+            btnGray: {
+                main: "#EFF1F5",
+                contrastText: "#505050"
+            },
+            text: {
+                main: "#303030",
+                blue: "#032A8E",
+                muted: "#707070",
+                white: '#fff',
+                lightBlue: '#CDE1FF'
+            }
         },
-        secondary: {
-            main: secondary,
-            contrastText : '#fff' ,
+        typography: {
+            fontFamily: "takgeneral ",
+            allVariants: {
+                color: "#505050"
+            }
         },
-        success :{
-            main:success
-        },
-        gray: {
-            main: "#A9A9A9",
-            dark: "#c0c0c0",
-            light: "#ccc",
-            lighter: "#eee",
-            darker: "#808080"
-        },
-        btnGray: {
-            main: "#EFF1F5",
-            contrastText: "#505050"
-        },
-        text: {
-            main: "#303030",
-            blue: "#032A8E",
-            muted: "#707070",
-            white: '#fff',
-            lightBlue: '#CDE1FF'
-        }
-    },
-    typography: {
-        fontFamily: "takgeneral ",
-        allVariants: {
-            color: "#505050"
-        }
-    },
     shadows :[
         'none' ,
         '0 8px 50px rgba(0,0,0,5%)',
