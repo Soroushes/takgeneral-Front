@@ -9,7 +9,7 @@ import brandImage from '../../assets/images/pentax (1).png';
 
 const BrandSlider = ({brands}) => {
     return (
-            <Container disableGutters={true} sx={{p:2}}>
+            <Container disableGutters={true}>
                 <SwiperCustomWrapper
                     swiperOptions={{
                         modules : [Navigation, FreeMode] ,

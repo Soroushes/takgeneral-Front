@@ -52,7 +52,8 @@ const CartEditionButton = ({id, boxSx , hideStatus}) => {
                 </Box>
                 {
                     hideStatus ?
-                        <IconButton onClick={deleteProduct} color={'error'} sx={{borderRadius: '100%'}} ><TrashIcon/></IconButton>:
+                        <IconButton onClick={deleteProduct} color={'error'} sx={{borderRadius: '100%'}} ><TrashIcon/></IconButton>
+                        :
                         <Typography sx={{textAlign:'center'}} variant={'subtitle1'}>در سبد خرید شما قرار گرفت</Typography>
                 }
             </Box>

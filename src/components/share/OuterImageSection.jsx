@@ -4,7 +4,7 @@ import {Box} from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 
-const OuterImageSection = ({image, description , isActive , title , shadow= 1 ,descriptionVariant='subtitle1' , titleVariant='h4', href = 'cat/21'}) => {
+const OuterImageSection = ({image, description , isActive , title , shadow= 1 ,descriptionVariant='subtitle1' , titleVariant='h4', href = 'category/21'}) => {
     const {palette} = useTheme()
     return (
         <Link href={href}>

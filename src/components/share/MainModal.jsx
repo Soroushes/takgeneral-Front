@@ -36,7 +36,6 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                 ) : (
                     <Drawer
                         PaperProps={{sx: {height: mobileFullHeight ? '100%' : 'auto'}}}
-                        sx={{display: {md: 'none'}}}
                         transitionDuration={{enter: 500, exit: 500}}
                         anchor="bottom"
                         open={open}
@@ -49,7 +48,8 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                                 position: "relative",
                                 backgroundColor: 'gray.lighter',
                                 boxShadow: "none",
-                                height: "65px",
+                                mb : 2
+
                             }}
                         >
                             <Toolbar
@@ -58,7 +58,7 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                                     display: "flex",
                                     justifyContent: "space-between",
                                     marginX: "auto",
-                                    width: '90%',
+                                    width: '93%',
                                 }}
                             >
                                 <Typography

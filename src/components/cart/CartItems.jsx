@@ -16,7 +16,8 @@ const CartItems = ({product}) => {
                            src={testImage}/>
                 </Link>
             </Grid>
-            <Grid item xs={7} md={8.5} sx={{display: 'flex', flexDirection: ' column', justifyContent: 'space-between'}}>
+            <Grid item xs={7} md={8.5}
+                  sx={{display: 'flex', flexDirection: ' column', justifyContent: 'space-between'}}>
                 <Box>
                     <Typography sx={{mb: 2}} variant="h5">{product.name}</Typography>
                     <Typography sx={{mb: 1}} variant={'subtitle2'}>درجه حفاظت : IP44</Typography>
@@ -25,17 +26,18 @@ const CartItems = ({product}) => {
                 </Box>
                 {
                     !isMobile && (
-                        <Box sx={{display : 'flex' , justifyContent : 'space-between'}}>
+                        <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
                             <CartEditionButton hideStatus={true} boxSx={{width: '90px', height: '35px'}}
                                                id={product.product_id}/>
-                            <PriceDiscount finalPriceBold={true} finalPriceColor={'#333'}
-                                           discountedPriceColor={'text.muted'}
-                                           discountedPriceFont={'subtitle2'}
-                                           align={'center'}
-                                           justifyContent={'center'}
-                                           discountPrice={product.sum_price}
-                                           finalPrice={product.sum_final_price} discountPercent={product.discount}
-                                           isDiscountNear={true}/>
+                            <PriceDiscount
+                                finalPriceBold={true} finalPriceColor={'#333'}
+                                discountedPriceColor={'text.muted'}
+                                discountedPriceFont={'subtitle2'}
+                                align={'center'}
+                                justifyContent={'center'}
+                                discountPrice={product.sum_price}
+                                finalPrice={product.sum_final_price} discountPercent={product.discount}
+                            />
                         </Box>
                     )
 
@@ -44,16 +46,14 @@ const CartItems = ({product}) => {
             {
                 isMobile && (
                     <Grid item xs={12} sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1}}>
-                        <>
-                            <CartEditionButton hideStatus={true} boxSx={{width: '90px', height: '35px'}}
-                                               id={product.product_id}/>
-                            <PriceDiscount finalPriceBold={true} finalPriceColor={'#333'}
-                                           discountedPriceColor={'text.muted'}
-                                           discountedPriceFont={'subtitle2'} justifyContent={'end'} gap={1.5}
-                                           justify={'row'} discountPrice={product.sum_price}
-                                           finalPrice={product.sum_final_price} discountPercent={product.discount}
-                                           isDiscountNear={true}/>
-                        </>
+                        <CartEditionButton hideStatus={true} boxSx={{width: '90px', height: '35px'}} id={product.product_id}/>
+                        <PriceDiscount
+                            finalPriceBold={true} finalPriceColor={'#333'}
+                            discountedPriceColor={'text.muted'}
+                            discountedPriceFont={'subtitle2'} justifyContent={'end'} gap={1.5}
+                            justify={'row'} discountPrice={product.sum_price}
+                            finalPrice={product.sum_final_price} discountPercent={product.discount}
+                        />
                     </Grid>
                 )
             }

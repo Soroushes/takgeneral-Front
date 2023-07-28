@@ -19,12 +19,12 @@ const cssCache = createCache({
     key: 'css',
     prepend: true
 })
-
 export default function RootLayout({children}) {
     const [mounted , setMounted] = useState(false) ;
     useEffect(()=>{
         setMounted(true) ;
     },[])
+
     return (
         <html dir='rtl' lang="fa">
         <body>

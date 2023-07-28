@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import {useEffect, useState} from 'react';
 import {Typography} from '@mui/material';
 import { useRouter, useSearchParams} from "next/navigation";
+import {urls} from "../../data/urls";
 
 const CheckBoxFilter = ({subFilter, category}) => {
     let filtersId = [];
@@ -48,11 +49,11 @@ const CheckBoxFilter = ({subFilter, category}) => {
             checkedFields.map((checkedItems)=>{
                 params.append('brand' , checkedItems);
             })
-            push(`cat/${category}?`+params.toString())
+            push(`${urls.categories}/${category}?`+params.toString())
         }else{
             params.delete('brand');
             params.set('page',1);
-            push(`cat/${category}?`+params.toString())
+            push(`${urls.categories}/${category}?`+params.toString())
         }
     };
     return (

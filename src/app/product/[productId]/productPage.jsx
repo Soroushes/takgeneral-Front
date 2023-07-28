@@ -20,9 +20,9 @@ const ProductPage = ({data}) => {
                         <SingleProductImage mainImage={SingleImage} otherImage={null}/>
                     </Grid>
                     <Grid item sx={{px: {md: 3}}} md={5.5} xs={12}>
-                        <SingleProductAttribute
-                            setShowAllDetails={setIsShowAllDetails} name={data.product.name}
-                            attributes={data.product.Attributes.values} attrRef={attributesTableRef}/>
+                        {/*<SingleProductAttribute*/}
+                        {/*    setShowAllDetails={setIsShowAllDetails} name={data.product.name}*/}
+                        {/*    attributes={data.product.attributes.values} attrRef={attributesTableRef}/>*/}
                     </Grid>
                     <Grid item md={3} xs={12}>
                         <SingleProductSellCard
