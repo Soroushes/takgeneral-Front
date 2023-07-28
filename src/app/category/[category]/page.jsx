@@ -1,6 +1,7 @@
 import {BASE_URL} from "../../../data/urls";
 import ChildCategoryPage from "./childCategoryPage";
 import ParentCategoryPage from './parentCategoryPage';
+
 async function getData(params, searchParams) {
     let brands = searchParams.brand ?? [];
     delete searchParams.brand;
@@ -11,7 +12,7 @@ async function getData(params, searchParams) {
     brands.map((brand) => {
         parameters.append('brand[]', brand)
     })
-    const res = await fetch(BASE_URL + `products/${params.category}/?`+ parameters.toString()
+    const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString()
         , {next: {revalidate: 60}})
     if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary
@@ -24,12 +25,15 @@ async function getData(params, searchParams) {
 
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
-    if(data.main_category.id === +params.category){
-        return (
+    return (
+        data.product ?
+            <ChildCategoryPage
+                content={data.page_content.desc} childCategory={data.sub_category}
+                products={data.product} category={params.category}
+                data={data} brands={data.brands} current_page={data.current_page}
+                page_count={data.page_count}
+            />
+            :
             <ParentCategoryPage subCatecory={data.sub_category} brands={data.brands}/>
-        )
-    }else{
-        return (<ChildCategoryPage content={data.page_content.desc} childCategory={data.sub_category} products={data.product} category={params.category}
-                                  data={data} brands={data.brands} current_page={data.current_page} page_count={data.page_count}/>)
-    }
+    )
 }
