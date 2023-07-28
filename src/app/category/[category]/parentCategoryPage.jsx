@@ -16,7 +16,7 @@ export default function ParentCategoryPage({brands , subCatecory}) {
                 <Image src={categoryBanner} style={{borderRadius: '8px'}} fill alt={'banner'}/>
             </Box>
             <Typography sx={{px:  2}} fontWeight={'bold'} variant={'h2'} component={'h1'}>پمپ و تجهیزات جانبی</Typography>
-            <Grid container sx={{justifyContent: 'start' , padding : '70px 0 60px 0'}} rowGap={6}>
+            <Grid container sx={{justifyContent: 'start' , padding : '70px 0 60px 0'}} rowGap={10}>
                 {
                     subCatecory?.map((item)=>{
                         return(

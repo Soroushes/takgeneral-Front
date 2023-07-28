@@ -17,7 +17,7 @@ const OuterImageSection = ({image, description , isActive , title , shadow= 1 ,d
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
-                    px: 1,
+                    p: 1,
                     gap:1,
                     boxShadow : shadow ,
                     "&:hover img": {
