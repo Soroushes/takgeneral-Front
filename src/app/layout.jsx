@@ -8,7 +8,7 @@ import {ThemeProvider} from "@mui/material";
 import createCache from "@emotion/cache";
 import {prefixer} from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
-import {useEffect, useState} from "react";
+import {Suspense} from 'react';
 import '../assets/styles/styles.css' ;
 
 const cacheRtl = createCache({
@@ -20,26 +20,24 @@ const cssCache = createCache({
     prepend: true
 })
 export default function RootLayout({children}) {
-    const [mounted , setMounted] = useState(false) ;
-    useEffect(()=>{
-        setMounted(true) ;
-    },[])
-
     return (
         <html dir='rtl' lang="fa">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <body>
-        <CacheProvider value={cssCache}>
-            <CacheProvider value={cacheRtl}>
-                <ThemeProvider theme={theme}>
-                    <Provider store={store}>
-                        {mounted && <Layout>
-                            {children}
-                        </Layout>}
-                    </Provider>
-                </ThemeProvider>
+        <Suspense fallback={null}>
+            <CacheProvider value={cssCache}>
+                <CacheProvider value={cacheRtl}>
+                    <ThemeProvider theme={theme}>
+                        <Provider store={store}>
+                            <Layout>
+                                {children}
+                            </Layout>
+                        </Provider>
+                    </ThemeProvider>
+                </CacheProvider>
             </CacheProvider>
-        </CacheProvider>
+        </Suspense>
         </body>
         </html>
-    )
+)
 }

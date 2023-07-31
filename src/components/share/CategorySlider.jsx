@@ -16,7 +16,6 @@ const CategorySlider = ({category , selfId})=>{
                     spaceBetween={'15px'}>
                     {
                         category?.map((item) => {
-                            console.log(+selfId , item.id);
                             return (
                                 <SwiperSlide key={Math.random() * 1000} style={{width: 150, padding: '50px 2px'}}>
                                     <OuterImageSection isActive={+selfId === item.id} href={'category/'+item.id} descriptionVariant={'subtitle2'} titleVariant={'h6'} title={item.name} image={pompSectionImage}/>

@@ -21,17 +21,17 @@ const Layout = ({children}) => {
     const desktopHeaderRef = useRef(null) ;
     const resizeTimeOutRef = useRef(null) ;
     useEffect(() => {
+        onresize = ()=>{
+            clearTimeout(resizeTimeOutRef.current) ;
+            resizeTimeOutRef.current = setTimeout(()=>{
+                dispatcher(SET_DEVICE_INFO()) ;
+            },1000)
+        }
         dispatcher(SET_DEVICE_INFO({firstTime : true}));
         dispatcher(SET_DESKTOP_HEIGHT(desktopHeaderRef.current.clientHeight));
         dispatcher(fetchInfo());
         dispatcher(fetchCart());
     }, [])
-    onresize = ()=>{
-        clearTimeout(resizeTimeOutRef.current) ;
-        resizeTimeOutRef.current = setTimeout(()=>{
-            dispatcher(SET_DEVICE_INFO()) ;
-        },1000)
-    }
     useEffect(() => {
         const show = hideLayoutPaths.find((path) => path === pathname);
         setShowLayout(!!!show);
