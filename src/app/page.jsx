@@ -5,6 +5,7 @@ import anPic from '../assets/images/an.png'
 import HomePageCategorySection from "../components/home/HomePageCategorySection";
 import testBanner from '../assets/images/1.png'
 import ProductBanners from "../components/share/productBanners";
+import {Suspense} from 'react'
 import HighRateCategorySlider from "../components/home/highRateCategorySlider";
 async function getData() {
     const res = await fetch(`${BASE_URL}home/`, {next: {revalidate: 60}})
@@ -35,7 +36,8 @@ export default async function Page() {
     const data = getData();
     // data.products bayad map bokhore dar productsortsection
     return (
-        <>
+        <Suspense fallback={<h1>loading
+        </h1>}>
             <Slider slides={data.sliders}/>
             <div style={{backgroundColor : '#fff' , position : 'relative' , zIndex : 2 , borderRadius : '20px' , padding : '20px 0 '}}>
                 <HomePageCategorySection categories={fakeSortData}/>
@@ -45,6 +47,6 @@ export default async function Page() {
                 <ProductBanners sizing={{xs : 12 , md : 5.8}} banners={[{src : testBanner} , {src: testBanner}]}/>
                 {/*<DifferentProductScaleSlider/>*/}
             </div>
-        </>
+        </Suspense>
     );
 }

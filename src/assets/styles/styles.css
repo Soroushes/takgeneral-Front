@@ -1,7 +1,3 @@
-@font-face {
-    font-family: takgeneral;
-    src: url('../font/IRANYekan.woff') format('woff2') ;
-}
 body,html{
     scroll-behavior: smooth;
     background-color: #FCFCFD ;

@@ -1,3 +1,4 @@
+'use client'
 import {useRef, useState} from "react";
 import {useAxios} from "../../hooks/useAxios";
 import {useForm, Controller} from "react-hook-form";

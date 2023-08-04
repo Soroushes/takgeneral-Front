@@ -41,7 +41,7 @@ const lineHeight = ['17px','20px','25px']
             }
         },
         typography: {
-            fontFamily: "takgeneral ",
+            fontFamily: "var(--iranYekan) ",
             allVariants: {
                 color: "#505050"
             }
@@ -162,7 +162,7 @@ theme.typography.h1 = {
     fontSize: '20px',
     fontWeight: "normal",
     color: textBlack,
-    fontFamily: "takgeneral ",
+    fontFamily: "var(--iranYekan) ",
     lineHeight : lineHeight[1] ,
     [theme.breakpoints.down('md')]: {
         fontSize: '18px'
@@ -172,7 +172,7 @@ theme.typography.h2 = {
     fontSize: '19px',
     fontWeight: "normal",
     color: textBlack,
-    fontFamily: "takgeneral ",
+    fontFamily: "var(--iranYekan) ",
     lineHeight : lineHeight[1] ,
     [theme.breakpoints.down('md')]: {
         fontSize: '17px'
@@ -182,7 +182,7 @@ theme.typography.h3 = {
     fontSize: '18px',
     fontWeight: "normal",
     color: textBlack,
-    fontFamily: "takgeneral ",
+    fontFamily: "var(--iranYekan) ",
     lineHeight : lineHeight[1] ,
     [theme.breakpoints.down('md')]: {
         fontSize: '16px'
@@ -192,7 +192,7 @@ theme.typography.h3 = {
     fontSize: '17px',
     fontWeight: "normal",
     color: textBlack,
-    fontFamily: "takgeneral ",
+    fontFamily: "var(--iranYekan) ",
     lineHeight : lineHeight[1] ,
     [theme.breakpoints.down('md')]: {
         fontSize: '15px'
@@ -202,7 +202,7 @@ theme.typography.h4 = {
     fontSize: '16px',
     fontWeight: "normal",
     color: textBlack,
-    fontFamily: "takgeneral ",
+    fontFamily: "var(--iranYekan) ",
     lineHeight : lineHeight[1] ,
     [theme.breakpoints.down('md')]: {
         fontSize: '14px'
@@ -213,7 +213,7 @@ theme.typography.h5 = {
     fontWeight: "normal",
     color: textBlack,
     lineHeight : lineHeight[1] ,
-    fontFamily: "takgeneral ",
+    fontFamily: "var(--iranYekan) ",
     [theme.breakpoints.down('md')]: {
         fontSize: '13px'
     }
@@ -224,7 +224,7 @@ theme.typography.h6 = {
     fontWeight: "normal",
     color: textBlack,
     lineHeight : lineHeight[1] ,
-    fontFamily: "takgeneral ",
+    fontFamily: "var(--iranYekan) ",
     [theme.breakpoints.down('md')]: {
         fontSize: '12px'
     }
@@ -234,7 +234,7 @@ theme.typography.body1 = {
     fontWeight: "normal",
     lineHeight : lineHeight[1] ,
     color: textBlack,
-    fontFamily: "takgeneral ",
+    fontFamily: "var(--iranYekan) ",
     [theme.breakpoints.down('md')]: {
         fontSize: '12px'
     }
@@ -244,7 +244,7 @@ theme.typography.body2 = {
     fontWeight: "normal",
     lineHeight : lineHeight[1] ,
     color: textBlack,
-    fontFamily: "takgeneral ",
+    fontFamily: "var(--iranYekan) ",
     [theme.breakpoints.down('md')]: {
         fontSize: '11px'
     }
@@ -254,7 +254,7 @@ theme.typography.subtitle1 = {
     fontWeight: "normal",
     lineHeight : lineHeight[0] ,
     color: textBlack,
-    fontFamily: "takgeneral ",
+    fontFamily: "var(--iranYekan) ",
     [theme.breakpoints.down('md')]: {
         fontSize: '10px'
     }
@@ -264,7 +264,7 @@ theme.typography.subtitle2 = {
     fontWeight: "normal",
     lineHeight : lineHeight[0] ,
     color: textBlack,
-    fontFamily: "takgeneral ",
+    fontFamily: "var(--iranYekan) ",
     [theme.breakpoints.down('md')]: {
         fontSize: '9px'
     }
@@ -274,7 +274,7 @@ theme.typography.caption = {
     fontWeight: "normal",
     color: textBlack,
     lineHeight : lineHeight[0] ,
-    fontFamily: "takgeneral ",
+    fontFamily: "var(--iranYekan) ",
     [theme.breakpoints.down('md')]: {
         fontSize: '8px'
     }
@@ -284,6 +284,6 @@ theme.typography.overline = {
     fontWeight: "normal",
     lineHeight : lineHeight[0] ,
     color: textBlack,
-    fontFamily: "takgeneral "
+    fontFamily: "var(--iranYekan) "
 }
 export default theme;
