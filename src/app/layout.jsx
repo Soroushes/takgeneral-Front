@@ -8,7 +8,6 @@ const myFont = localFont({
     display: 'swap',
     variable : '--iranYekan'
 })
-
 export default function RootLayout({children}) {
     return (
         <html className={myFont.variable} dir='rtl' lang="fa">
