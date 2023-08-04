@@ -7,6 +7,7 @@ import testBanner from '../assets/images/1.png'
 import ProductBanners from "../components/share/productBanners";
 import {Suspense} from 'react'
 import HighRateCategorySlider from "../components/home/highRateCategorySlider";
+import Loading from "./loading";
 async function getData() {
     const res = await fetch(`${BASE_URL}home/`, {next: {revalidate: 60}})
     if (!res.ok) {
@@ -32,12 +33,11 @@ export default async function Page() {
             image : anPic
         },
 
-    ]
+    ];
     const data = getData();
     // data.products bayad map bokhore dar productsortsection
     return (
-        <Suspense fallback={<h1>loading
-        </h1>}>
+        <Suspense fallback={<Loading/>}>
             <Slider slides={data.sliders}/>
             <div style={{backgroundColor : '#fff' , position : 'relative' , zIndex : 2 , borderRadius : '20px' , padding : '20px 0 '}}>
                 <HomePageCategorySection categories={fakeSortData}/>

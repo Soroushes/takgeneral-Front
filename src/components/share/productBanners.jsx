@@ -9,9 +9,9 @@ const ProductBanners = ({banners , sizing})=>{
             <Grid justifyContent={'space-between'} rowGap={3} container>
                 {
                     banners.map((banner)=>(
-                        <Grid item {...sizing}>
+                        <Grid key={Math.random() * 1000} item {...sizing}>
                             <Box textAlign={'center'}>
-                                <Image width={400} height={250} src={banner.src} style={{width : '100%' , height :'auto'}}/>
+                                <Image alt={''} width={400} height={250} src={banner.src} style={{width : '100%' , height :'auto'}}/>
                             </Box>
                         </Grid>
                     ))

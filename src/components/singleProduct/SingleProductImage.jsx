@@ -35,9 +35,9 @@ const singleProductImage = ({mainImage}) => {
                         </Box>
                     </SwiperSlide>
                     {
-                        otherImage?.map((item) => {
+                        otherImage?.map(() => {
                             return (
-                                <SwiperSlide key={item.id}>
+                                <SwiperSlide key={Math.random() * 1000}>
                                     <Box sx={{width: "100%", textAlign: 'center'}}>
                                         <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
                                                alt={'test'} src={testSlider}/>
@@ -68,9 +68,9 @@ const singleProductImage = ({mainImage}) => {
                             </Box>
                         </SwiperSlide>
                         {
-                            otherImage?.map((item) => {
+                            otherImage?.map(() => {
                                 return (
-                                    <SwiperSlide style={{borderRadius: "8px", padding: '5px'}} key={item.id}>
+                                    <SwiperSlide style={{borderRadius: "8px", padding: '5px'}} key={Math.random() * 1000}>
                                         <Box sx={{width: "100%", textAlign: 'center', boxShadow: 1}}>
                                             <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
                                                    alt={'test'} src={testSlider}/>
