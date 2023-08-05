@@ -5,7 +5,6 @@ import {useRef, useState} from 'react';
 import SingleProductDetails from "../../../components/singleProduct/SingleProductDetails";
 import CommentQuestion from "../../../components/singleProduct/Comment&Question";
 import SingleProductImage from "../../../components/singleProduct/SingleProductImage";
-import SingleProductAttribute from "../../../components/singleProduct/SingleProductAttribute";
 import SingleProductSellCard from "../../../components/singleProduct/SingleProductSellCard";
 import SingleImage from '../../../assets/images/Rectangle 1.png';
 const ProductPage = ({data}) => {

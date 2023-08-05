@@ -2,28 +2,19 @@
 import * as React from 'react';
 import createCache from '@emotion/cache';
 import {useServerInsertedHTML} from 'next/navigation';
-import {CacheProvider as DefaultCacheProvider} from '@emotion/react';
-import rtlPlugin from "stylis-plugin-rtl";
-import {prefixer} from "stylis";
+import {CacheProvider, CacheProvider as DefaultCacheProvider} from '@emotion/react';
 
-const cacheRtl = createCache({
-    key: 'muirtl',
-    stylisPlugins: [prefixer, rtlPlugin],
-});
 export default function NextAppDirEmotionCacheProvider(props) {
-    const {options, CacheProvider = DefaultCacheProvider, children} = props;
-    const [registry] = React.useState(() => {
+    const {options, children} = props;
+    const [{cache, flush}] = React.useState(() => {
         const cache = createCache(options);
         cache.compat = true;
         const prevInsert = cache.insert;
         let inserted = [];
         cache.insert = (...args) => {
-            const [selector, serialized] = args;
+            const serialized = args[1];
             if (cache.inserted[serialized.name] === undefined) {
-                inserted.push({
-                    name: serialized.name,
-                    isGlobal: !selector,
-                });
+                inserted.push(serialized.name);
             }
             return prevInsert(...args);
         };
@@ -36,55 +27,28 @@ export default function NextAppDirEmotionCacheProvider(props) {
     });
 
     useServerInsertedHTML(() => {
-        const inserted = registry.flush();
-        if (inserted.length === 0) {
+        const names = flush();
+        if (names.length === 0) {
             return null;
         }
         let styles = '';
-        let dataEmotionAttribute = registry.cache.key;
-
-        const globals = [];
-
-        inserted.forEach(({name, isGlobal}) => {
-            const style = registry.cache.inserted[name];
-
-            if (typeof style !== 'boolean') {
-                if (isGlobal) {
-                    globals.push({name, style});
-                } else {
-                    styles += style;
-                    dataEmotionAttribute += ` ${name}`;
-                }
-            }
-        });
-
+        for (const name of names) {
+            styles += cache.inserted[name];
+        }
         return (
-            <React.Fragment>
-                {globals.map(({name, style}) => (
-                    <style
-                        key={name}
-                        data-emotion={`${registry.cache.key}-global ${name}`}
-                        // eslint-disable-next-line react/no-danger
-                        dangerouslySetInnerHTML={{__html: style}}
-                    />
-                ))}
-                {styles && (
-                    <style
-                        data-emotion={dataEmotionAttribute}
-                        // eslint-disable-next-line react/no-danger
-                        dangerouslySetInnerHTML={{__html: styles}}
-                    />
-                )}
-            </React.Fragment>
+            <style
+                key={cache.key}
+                data-emotion={`${cache.key} ${names.join(' ')}`}
+                dangerouslySetInnerHTML={{
+                    __html: options.prepend ? `@layer emotion {${styles}}` : styles
+                }}
+            />
         );
     });
 
     return (
-        <CacheProvider value={registry.cache}>
-            <CacheProvider value={cacheRtl}>
-
-                {children}
-            </CacheProvider>
+        <CacheProvider value={cache}>
+            {children}
         </CacheProvider>
     );
 }
