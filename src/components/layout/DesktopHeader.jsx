@@ -81,7 +81,7 @@ const DesktopHeader = ({status, desktopHeaderRef}) => {
                             }}>
                             {headerItem.map((item) => {
                                 return (
-                                    <Link key={item.name} href={'/category'}>
+                                    <Link key={item.name} href={'/category/22'}>
                                         <Box
                                             sx={{
                                                 display: "flex",

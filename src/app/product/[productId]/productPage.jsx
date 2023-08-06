@@ -7,6 +7,7 @@ import CommentQuestion from "../../../components/singleProduct/Comment&Question"
 import SingleProductImage from "../../../components/singleProduct/SingleProductImage";
 import SingleProductSellCard from "../../../components/singleProduct/SingleProductSellCard";
 import SingleImage from '../../../assets/images/Rectangle 1.png';
+import SingleProductAttribute from "@/components/singleProduct/SingleProductAttribute";
 const ProductPage = ({data}) => {
     const attributesTableRef = useRef(null);
     const opinionTableRef = useRef(null);
@@ -18,12 +19,12 @@ const ProductPage = ({data}) => {
                     <Grid item md={3.5} xs={12}>
                         <SingleProductImage mainImage={SingleImage} otherImage={null}/>
                     </Grid>
-                    <Grid item sx={{px: {md: 3}}} md={5.5} xs={12}>
-                        {/*<SingleProductAttribute*/}
-                        {/*    setShowAllDetails={setIsShowAllDetails} name={data.product.name}*/}
-                        {/*    attributes={data.product.attributes.values} attrRef={attributesTableRef}/>*/}
+                    <Grid item md={4.5} xs={12}>
+                        <SingleProductAttribute
+                            setShowAllDetails={setIsShowAllDetails} name={data.product.name}
+                            attributes={data.product.attributes} attrRef={attributesTableRef}/>
                     </Grid>
-                    <Grid item md={3} xs={12}>
+                    <Grid item md={3.5} xs={12}>
                         <SingleProductSellCard
                             opinionRef={opinionTableRef}
                             available={data.product.product_available}

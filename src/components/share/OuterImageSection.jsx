@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const OuterImageSection = ({image, description , isActive , title , shadow= 1 ,descriptionVariant='subtitle1' , titleVariant='h4', href = 'category/21'}) => {
-    const {palette} = useTheme()
+    const {palette} = useTheme();
+    console.log(href)
     return (
         <Link href={href}>
             <Box

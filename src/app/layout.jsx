@@ -13,9 +13,9 @@ export default function RootLayout({children}) {
         <head/>
         <body>
         <ThemeRegistry>
-            {/*<Layout>*/}
+            <Layout>
                 {children}
-            {/*</Layout>*/}
+            </Layout>
         </ThemeRegistry>
         </body>
         </html>
