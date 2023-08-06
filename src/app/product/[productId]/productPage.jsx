@@ -16,15 +16,15 @@ const ProductPage = ({data}) => {
         <Box sx={{pt: 3, height: '100%'}}>
             <Container maxWidth={'lg'}>
                 <Grid container rowGap={5}>
-                    <Grid item md={3.5} xs={12}>
+                    <Grid item md={3.75} xs={12}>
                         <SingleProductImage mainImage={SingleImage} otherImage={null}/>
                     </Grid>
-                    <Grid item md={4.5} xs={12}>
+                    <Grid item md={5} xs={12}>
                         <SingleProductAttribute
                             setShowAllDetails={setIsShowAllDetails} name={data.product.name}
                             attributes={data.product.attributes} attrRef={attributesTableRef}/>
                     </Grid>
-                    <Grid item md={3.5} xs={12}>
+                    <Grid item md={3.25} xs={12}>
                         <SingleProductSellCard
                             opinionRef={opinionTableRef}
                             available={data.product.product_available}
