@@ -13,7 +13,6 @@ const deviceInfo = createSlice({
     name: "SnakeBar",
     reducers: {
         SET_DEVICE_INFO: (state) => {
-            console.log('here')
             return {
                 ...state ,
               innerWidth: window.outerWidth ,

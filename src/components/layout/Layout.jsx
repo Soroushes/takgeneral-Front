@@ -27,7 +27,7 @@ const Layout = ({children}) => {
                 dispatcher(SET_DEVICE_INFO()) ;
             },1000)
         }
-        dispatcher(SET_DEVICE_INFO({firstTime : true}));
+        dispatcher(SET_DEVICE_INFO());
         dispatcher(SET_DESKTOP_HEIGHT(desktopHeaderRef.current.clientHeight));
         dispatcher(fetchInfo());
         dispatcher(fetchCart());

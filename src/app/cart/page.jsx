@@ -16,7 +16,7 @@ export default function Page() {
                     </Box>
                     <Typography fontWeight={'bold'}>سبد خرید شما خالی است !</Typography>
             </Box> :
-            <Box sx={{backgroundColor: "#fafafa", pt: 2, minHeight: "80vh", display: 'flex'}}>
+            <Box sx={{ pt: 2, minHeight: "80vh", display: 'flex'}}>
                 <Container>
                     <Grid container rowGap={1} sx={{justifyContent:'space-between'}}>
                         <Grid item md={8} lg={8.5} xs={12}>
