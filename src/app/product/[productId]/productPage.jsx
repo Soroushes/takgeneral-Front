@@ -21,6 +21,7 @@ const ProductPage = ({data}) => {
                     </Grid>
                     <Grid item md={5} xs={12}>
                         <SingleProductAttribute
+                            opinionRef={opinionTableRef}
                             setShowAllDetails={setIsShowAllDetails} name={data.product.name}
                             attributes={data.product.attributes} attrRef={attributesTableRef}/>
                     </Grid>

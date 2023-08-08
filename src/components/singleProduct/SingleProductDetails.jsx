@@ -5,9 +5,8 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import {useState} from "react";
 import {Typography} from "@mui/material";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import CloseIcon from '@mui/icons-material/Close';
-
+import ArrowDownIcon from '../../assets/icons/single-product/arrow-down.svg';
+import ArrowUpIcon from '../../assets/icons/single-product/arrow-up.svg';
 const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) => {
     const [value, setValue] = useState("1");
     const handleTabChange = (event, newValue) => {
@@ -73,7 +72,6 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) =>
                                     <Box
                                         sx={{
                                             width: {xs: "40%", md: "25%"},
-                                            borderBottom: "1px solid #d3d3d3",
                                             pb: 1.5,
                                             pl: {md: 2},
                                             height: "100%",
@@ -90,7 +88,6 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) =>
                                     <Box
                                         sx={{
                                             width: {xs: "60%", md: "75%"},
-                                            borderBottom: "1px solid #d3d3d3",
                                             pb: 1.5,
                                             pl: 2,
                                             height: "100%",
@@ -110,11 +107,7 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) =>
                     {
                         details?.length ?
                             <Box onClick={setShowAllDetails.bind(this, prev => !prev)}
-                                 sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center"}}>
-                                {
-                                    IsShowAllDetails ? <CloseIcon color={'primary'}/> :
-                                        <KeyboardArrowDownIcon color={'primary'}/>
-                                }
+                                 sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center" , gap:1}}>
                                 <Typography
                                     variant={"body2"}
                                     color={'primary'}
@@ -124,9 +117,13 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) =>
                                     }}
                                 >
                                     {
-                                        IsShowAllDetails ? 'نشان دادن کمتر' : "مشاهده کامل مشخصات"
+                                        IsShowAllDetails ? 'مشاهده کمتر' : "مشاهده بیشتر"
                                     }
                                 </Typography>
+                                {
+                                    IsShowAllDetails ? <ArrowUpIcon color={'primary'}/> :
+                                        <ArrowDownIcon color={'primary'}/>
+                                }
                             </Box>
                             :
                             null

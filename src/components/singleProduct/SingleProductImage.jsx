@@ -16,7 +16,7 @@ const singleProductImage = ({mainImage}) => {
         testSlider
     ]
     return (
-        <Box sx={{padding: '15px 15px 7px 15px', borderRadius: 2}}>
+        <Box sx={{ borderRadius: 2}}>
             <Box sx={{mb: 1, boxShadow: 1}}>
                 <Swiper
                     navigation={true}
