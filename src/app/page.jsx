@@ -8,7 +8,6 @@ import ProductBanners from "../components/share/productBanners";
 import HighRateCategorySlider from "../components/home/highRateCategorySlider";
 import {Suspense} from "react";
 import LoadingPages from "../components/share/LoadingPages";
-import Footer from "@/components/layout/Footer";
 async function getData() {
     const res = await fetch(`${BASE_URL}home/`, {next: {revalidate: 60}})
     if (!res.ok) {

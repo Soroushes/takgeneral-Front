@@ -1,12 +1,12 @@
-import {Grid, Pagination} from "@mui/material";
+import {Grid, Pagination, PaginationItem} from "@mui/material";
 import ProductPreviewCard from "./ProductPreviewCard";
 import {BASE_URL} from "../../data/urls";
 import {Box} from "@mui/system";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import {useEffect, useState} from "react";
-
+import ArrowLeftIcon from '../../assets/icons/share/arrow-left.svg';
+import ArrowRightIcon from '../../assets/icons/share/arrow-right.svg';
 const ProductList = ({product, count = 8, page = 1}) => {
-    console.log(page)
     const [pageState, setPageState] = useState(page);
     const noQueryPath = usePathname();
     const searchParams = useSearchParams();
@@ -38,9 +38,20 @@ const ProductList = ({product, count = 8, page = 1}) => {
                 }
             </Grid>
             <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4}}>
-                <Pagination sx={{direction: 'ltr'}} shape={'rounded'} onChange={handlePaginationChange} page={pageState}
+                <Pagination sx={{direction: 'rtl'}} shape={'rounded'} onChange={handlePaginationChange} page={pageState}
                             count={count}
-                            color={'secondary'}/>
+                            color={'secondary'}
+                            renderItem={(item) => {
+                                return(
+                                    (
+                                        <PaginationItem
+                                            slots={{ previous: ArrowRightIcon, next: ArrowLeftIcon }}
+                                            {...item}
+                                        />
+                                    )
+                                )
+                            }}
+                />
             </Box>
         </>
     )
