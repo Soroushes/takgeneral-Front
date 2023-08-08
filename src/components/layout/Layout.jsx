@@ -15,28 +15,23 @@ import Footer from "@/components/layout/Footer";
 const hideLayoutPaths = ['/login'];
 const Layout = ({children}) => {
     const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight, isMobile} = useSelector(state => state.deviceInfo);
-    const pathname = usePathname();
-    const [showLayout, setShowLayout] = useState(true);
     const dispatcher = useDispatch();
     const {full_name, phone_number} = useSelector(state => state.userInfo);
-    const desktopHeaderRef = useRef(null) ;
-    const resizeTimeOutRef = useRef(null) ;
-    useEffect(() => {
-        onresize = ()=>{
-            clearTimeout(resizeTimeOutRef.current) ;
-            resizeTimeOutRef.current = setTimeout(()=>{
-                dispatcher(SET_DEVICE_INFO()) ;
-            },1000)
-        }
-        dispatcher(SET_DEVICE_INFO());
-        dispatcher(SET_DESKTOP_HEIGHT(desktopHeaderRef.current.clientHeight));
-        dispatcher(fetchInfo());
-        dispatcher(fetchCart());
-    }, [])
-    useEffect(() => {
-        const show = hideLayoutPaths.find((path) => path === pathname);
-        setShowLayout(!!!show);
-    }, [pathname])
+    const desktopHeaderRef = useRef(null);
+    const resizeTimeOutRef = useRef(null);
+    // useEffect(() => {
+    //     onresize = () => {
+    //         clearTimeout(resizeTimeOutRef.current);
+    //         resizeTimeOutRef.current = setTimeout(() => {
+    //             dispatcher(SET_DEVICE_INFO());
+    //         }, 1000)
+    //     }
+    //     dispatcher(SET_DEVICE_INFO());
+    //     dispatcher(SET_DESKTOP_HEIGHT(desktopHeaderRef.current.clientHeight));
+    //     dispatcher(fetchInfo());
+    //     dispatcher(fetchCart());
+    // }, [])
+
     return (
         <>
             <Box sx={{position: 'relative', zIndex: 10}}>
@@ -47,10 +42,13 @@ const Layout = ({children}) => {
             </Box>
             <Box
                 sx={{
-                pt: {xs: `${mobileHeaderHeight}px`, md: `${desktopHeaderHeight}px`},
-                pb: {xs: `${navbarHeight}px`, md: 0}
-            }}>
-                {children}
+                    pt: {xs: `${mobileHeaderHeight}px`, md: `${desktopHeaderHeight}px`},
+                    pb: {xs: `${navbarHeight}px`, md: 0},
+                }}>
+                <Box sx={{minHeight : '50vh'}}>
+                    {children}
+                </Box>
+                <Footer/>
             </Box>
             {isMobile &&
                 <Box
@@ -60,14 +58,12 @@ const Layout = ({children}) => {
                         bottom: 0,
                         left: 0,
                         right: 0,
-                        height: `${navbarHeight}px`,
-                        display: showLayout ? {xs: "block", md: "none"} : "none",
-                    }}>
+                        height: `${navbarHeight}px`
+                }}>
                     <Navbar/>
                 </Box>
             }
             <AlertSnakeBar/>
-            <Footer/>
         </>
     );
 }

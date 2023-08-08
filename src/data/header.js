@@ -7,23 +7,23 @@ export const headerItem = [
     {
         name: "پمپ و تجهیزات جانبی",
         icon: <WaterPompIcon/>,
-        link : allCategories.pomp.urls.mainPage
+        link : '/category/22'
     },
     {
         name: "ابزار دقیق",
         icon: <ExactToolIcon/>,
-        link : allCategories.pomp.urls.mainPage
+        link : '/category/21'
     },
     {
         name: "شیر برقی گاز",
 
         icon: <ShirbarghiIcon/>,
-        link : allCategories.pomp.urls.mainPage
+        link : '/category/22'
     },
     {
         name: "فلومتر",
 
         icon: <FlowMeterIcon/>,
-        link : allCategories.pomp.urls.mainPage
+        link : '/category/22'
     },
 ];

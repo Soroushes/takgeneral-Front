@@ -4,7 +4,7 @@ import {Box} from "@mui/system";
 
 const LoadingPages =()=>{
     return(
-        <Box sx={{ position : 'fixed' , top : '50%' , right : '50%'}}>
+        <Box sx={{ position : 'fixed' , top : '25%' , right : '50%'}}>
             <CircularProgress />
         </Box>
     )

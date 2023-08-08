@@ -57,7 +57,7 @@ const MobileHeader = ({status , size}) => {
                                 />
                             {headerItem.map((item, id) => {
                                 return (
-                                    <Link style={{display : 'block' , width : "100%"}} key={id} href={'/category'}>
+                                    <Link onClick={()=>{setDrawerIsOpen(false)}} style={{display : 'block' , width : "100%"}} key={id} href={'/category'}>
                                         <Box
                                             sx={{
                                                 borderBottom: "1px solid #ccc",
