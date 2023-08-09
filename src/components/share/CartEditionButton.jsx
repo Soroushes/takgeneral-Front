@@ -3,9 +3,9 @@ import {Box} from "@mui/system";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import LoadingButton from "@mui/lab/LoadingButton";
-import {useCart} from "../../hooks/useCart";
+import {useCart} from "@/hooks/useCart";
 import PN from "persian-number";
-import ShoppingBagIcon from '../../assets/icons/bag-2.svg';
+import ShoppingBagIcon from '../../assets/icons/share/bag.svg';
 import TrashIcon from '../../assets/icons/share/trash.svg';
 import IconButton from '@mui/material/IconButton';
 

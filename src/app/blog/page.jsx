@@ -9,9 +9,8 @@ const getData = async ()=>{
     }
 }
 export default async function Page(){
-    //console.log(`${BASE_URL}blogs/`)
-    //const data = await getData();
+    const data = await getData();
     return (
-        <BlogPage/>
+        <BlogPage data={data} />
     )
 }

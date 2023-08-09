@@ -1,10 +1,10 @@
 'use client'
 import {Box, Container, Grid, Typography} from "@mui/material";
-import categoryBanner from '../../../assets/images/categoryBanner.png';
+import categoryBanner from '../../../assets/images/home/home-main-banner.png';
 import Image from "next/image";
 import sortImage from '../../../assets/images/testSort.png'
 import BrandSlider from "../../../components/share/BrandSlider";
-import categoryImages from '../../../assets/images/1.png';
+import categoryImages from '../../../assets/images/home/homeBanner.png';
 import {useSelector} from "react-redux";
 import OuterImageSection from "../../../components/share/OuterImageSection";
 

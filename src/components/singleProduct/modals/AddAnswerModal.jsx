@@ -1,7 +1,7 @@
 import {Box, Button, TextField, Typography} from "@mui/material";
 import {Controller, useForm} from "react-hook-form";
-import {useAxios} from "../../../hooks/useAxios";
-import Message from "../../../assets/icons/message.svg";
+import {useAxios} from "@/hooks/useAxios";
+import Message from "../../../assets/icons/single-product/message.svg";
 import LoadingButton from "@mui/lab/LoadingButton";
 import useAlert from "../../../hooks/useAlert";
 import {useRouter} from "next/navigation";

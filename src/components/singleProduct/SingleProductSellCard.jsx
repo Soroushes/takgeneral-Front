@@ -2,25 +2,22 @@ import {Box} from "@mui/system";
 import {Button, Typography} from "@mui/material";
 import CartEditionButton from "../share/CartEditionButton";
 import PriceDiscount from "../share/PriceDiscount";
-import Suggestion from "../../assets/icons/suggestion.svg";
+import Suggestion from "../../assets/icons/single-product/suggestion.svg";
 import FreeDelivery from '../../assets/icons/single-product/freeDelivery.svg';
 import AvailableIcon from '../../assets/icons/single-product/available.svg';
 import OriginalIcon from '../../assets/icons/single-product/original.svg';
 import BestPriceIcon from '../../assets/icons/single-product/bestPrice.svg';
 import Warranty from '../../assets/icons/single-product/warranty.svg';
-import {useSelector} from "react-redux";
 
 const SingleProductSellCard = ({
                                    available,
                                    freeSent,
-                                   sevenDaysBack,
                                    price,
                                    finalPrice,
                                    warranty,
                                    id,
                                    opinionRef
                                }) => {
-    const {isMobile} = useSelector(state => state.deviceInfo)
     const scrollToOpinion = () => {
         window.scrollTo({
             top: opinionRef.current?.offsetTop - 150,

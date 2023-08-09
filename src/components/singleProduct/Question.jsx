@@ -1,7 +1,7 @@
 import {Box, Button, Typography} from "@mui/material";
 import QuestionIcon from '../../assets/icons/single-product/message-question.svg';
-import LeftArrow from '../../assets/icons/single-product/arrow-left.svg';
-import AnswerIcon from '../../assets/icons/single-product/message-2.svg';
+import LeftArrow from '../../assets/icons/single-product/blue-arrow-left.svg';
+import AnswerIcon from '../../assets/icons/single-product/blue-message.svg';
 
 const Question = ({eachQuestion, addAnswer}) => {
     const date = Intl.DateTimeFormat('fa', {

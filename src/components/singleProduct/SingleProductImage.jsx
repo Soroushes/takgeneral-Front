@@ -4,7 +4,7 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {FreeMode, Navigation, Thumbs, Pagination} from "swiper";
 import Image from "next/image";
 import {useSelector} from "react-redux";
-import testSlider from '../../assets/images/Rectangle 5.png' ;
+import testSlider from '../../assets/images/single-product-main-image.png' ;
 import 'swiper/swiper.css' ;
 import "swiper/css/thumbs";
 import 'swiper/css/pagination';

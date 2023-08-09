@@ -3,7 +3,7 @@ import PN from "persian-number";
 import {useAxios} from "src/hooks/useAxios";
 import {useState} from "react";
 import Rating from '@mui/material/Rating';
-import PersonIcon from '../../assets/icons/profile-circle.svg';
+import PersonIcon from '../../assets/icons/single-product/profile-circle.svg';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 const Comment = ({comment}) => {

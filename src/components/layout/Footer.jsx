@@ -3,9 +3,9 @@ import Logo from '../../assets/icons/footer/Logo.svg'
 import CallIcon from '../../assets/icons/footer/call.svg';
 import LocationIcon from '../../assets/icons/footer/location.svg';
 import MailIcon from '../../assets/icons/footer/sms.svg';
-import TelegramIcon from '../../assets/icons/footer/send-2.svg';
+import TelegramIcon from '../../assets/icons/footer/telegram.svg';
 import InstagramIcon from '../../assets/icons/footer/instagram.svg';
-import MailIcon2 from '../../assets/icons/footer/sms1.svg';
+import MailIcon2 from '../../assets/icons/footer/light-sms.svg';
 import trustImage from '../../assets/images/footer/trustImage.png';
 import nationalImage from '../../assets/images/footer/nationalImage.png';
 import unionImage from '../../assets/images/footer/unionImage.png';
