@@ -1,5 +1,5 @@
 import {Box, Button, Rating, Typography} from "@mui/material";
-import Massage from '../../assets/icons/message.svg';
+import Massage from '../../assets/icons/single-product/message.svg';
 import PN from "persian-number";
 import {useRouter} from "next/navigation";
 const AverageRatingComment = ({average, openAddComment , isLoggedIn , productId}) => {

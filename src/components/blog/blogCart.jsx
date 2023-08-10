@@ -1,7 +1,7 @@
 import {Box, Typography} from "@mui/material";
 import Image from "next/image";
-import ArrowIcon from '../../assets/icons/single-product/arrow-left.svg';
-import ClockIcon from '../../assets/icons/share/Icon.svg';
+import ArrowIcon from '../../assets/icons/single-product/blue-arrow-left.svg';
+import ClockIcon from '../../assets/icons/share/clock.svg';
 const BlogCart = ({title , content , image})=>{
     return(
         <Box sx={{p:2, borderRadius:2 , boxShadow:1 , height:'100%' , display:'flex' , flexDirection:'column' , justifyContent:'space-between'}}>

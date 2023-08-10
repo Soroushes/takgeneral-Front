@@ -1,12 +1,12 @@
 import {Box, Button, Checkbox, Grid, TextField, Typography} from "@mui/material";
 import {Controller, useForm} from "react-hook-form";
-import {useAxios} from "../../../hooks/useAxios";
+import {useAxios} from "@/hooks/useAxios";
 import {useRouter} from "next/navigation";
 import LoadingButton from "@mui/lab/LoadingButton";
 import testImage from '../../../assets/images/product-image.png'
 import Image from "next/image";
 import Rating from "@mui/material/Rating";
-import Message from '../../../assets/icons/message.svg';
+import Message from '../../../assets/icons/single-product/message.svg';
 import {useSelector} from "react-redux";
 import useAlert from "../../../hooks/useAlert";
 import MainModal from "../../share/MainModal";

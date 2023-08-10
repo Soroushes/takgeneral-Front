@@ -1,5 +1,5 @@
 import {Box, Button, Typography} from "@mui/material";
-import Massage from "../../assets/icons/message.svg";
+import Massage from "../../assets/icons/single-product/message.svg";
 import {useRouter} from "next/navigation";
 const AverageRatingQuestion = ({isLoggedIn, openAddQuestion , productId}) => {
     const Router = useRouter();

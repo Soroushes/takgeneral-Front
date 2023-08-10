@@ -1,11 +1,11 @@
 import {Badge, Box, Typography} from '@mui/material';
-import ContactIcon from '../../assets/icons/contactIcon';
-import HomeIcon from '../../assets/icons/homeIcon';
-import BasketIcon from "../../assets/icons/basketIcon";
-import SearchOutlinedIcon from "../../assets/icons/searchOutlined";
+import ContactIcon from '../../assets/icons/layout/contactIcon';
+import HomeIcon from '../../assets/icons/layout/homeIcon';
+import BasketIcon from "../../assets/icons/layout/basketIcon";
+import SearchOutlinedIcon from "../../assets/icons/layout/searchOutlined";
 import Link from "next/link";
 import {useEffect, useState} from "react";
-import {urls} from "../../data/urls";
+import {urls} from "@/data/urls";
 import {useSelector} from "react-redux";
 
 const Navbar = () => {

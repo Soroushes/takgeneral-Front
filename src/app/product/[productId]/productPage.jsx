@@ -6,7 +6,7 @@ import SingleProductDetails from "../../../components/singleProduct/SingleProduc
 import CommentQuestion from "../../../components/singleProduct/Comment&Question";
 import SingleProductImage from "../../../components/singleProduct/SingleProductImage";
 import SingleProductSellCard from "../../../components/singleProduct/SingleProductSellCard";
-import SingleImage from '../../../assets/images/Rectangle 1.png';
+import SingleImage from '../../../assets/images/single-product-image.png';
 import SingleProductAttribute from "@/components/singleProduct/SingleProductAttribute";
 const ProductPage = ({data}) => {
     const attributesTableRef = useRef(null);

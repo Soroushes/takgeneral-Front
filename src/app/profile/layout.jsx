@@ -2,11 +2,11 @@
 import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import {usePathname, useRouter} from "next/navigation";
-import {LOGOUT} from "../../redux/slices/userInfoSlice";
-import UserIcon from "../../assets/icons/user";
-import {urls} from "../../data/urls";
-import LocationIcon from "../../assets/icons/locationIcon";
-import ExitIcon from "../../assets/icons/exit";
+import {LOGOUT} from "@/redux/slices/userInfoSlice";
+import UserIcon from "../../assets/icons/layout/user";
+import {urls} from "@/data/urls";
+import LocationIcon from "../../assets/icons/layout/locationIcon";
+import ExitIcon from "../../assets/icons/layout/exit";
 import {Button, Container, Grid, Typography} from "@mui/material";
 import {Box} from "@mui/system";
 import MainModal from "../../components/share/MainModal";

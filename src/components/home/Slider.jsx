@@ -3,7 +3,7 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation, Pagination} from "swiper";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import categoryBanner from '../../assets/images/categoryBanner.png'
+import categoryBanner from '../../assets/images/home/home-main-banner.png'
 import "swiper/css";
 import {Box} from "@mui/system";
 import {useSelector} from "react-redux";
@@ -23,7 +23,7 @@ const Slider = () => {
                     style={{height : '100%'}}
                 >
                     <SwiperSlide>
-                        <Image fill src={categoryBanner} />
+                        <Image fill src={categoryBanner}  alt={''}/>
                     </SwiperSlide>
                 </Swiper>
             </Box>

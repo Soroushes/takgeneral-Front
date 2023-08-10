@@ -1,6 +1,6 @@
 'use client';
 import {Box, Container, Typography} from "@mui/material";
-import Test from "../../assets/icons/about-us/car.svg";
+import Test from "../../assets/icons/about-us/testIcon.svg";
 import testImage from '../../assets/images/about-us/testImage.png';
 import Image from "next/image";
 const AboutUsPage = () => {
