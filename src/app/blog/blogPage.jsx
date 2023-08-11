@@ -1,7 +1,5 @@
 'use client'
 import {Box, Container, Grid, Pagination, PaginationItem, Typography} from "@mui/material";
-import testImage from '../../assets/images/Blog/blog-main-image.png';
-import test2 from '../../assets/images/Blog/blog-image.png';
 import Image from "next/image";
 import BlogCart from "../../components/blog/blogCart";
 import ClockIcon from "../../assets/icons/share/clock.svg";
@@ -10,34 +8,6 @@ import { useState} from 'react' ;
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import ArrowRightIcon from "@/assets/icons/share/arrow-right.svg";
 import ArrowLeftIcon from "@/assets/icons/share/arrow-left.svg";
-
-// const dummyData = [
-//     {
-//         image: testImage,
-//         title: ' بهترین پمپ آب خانگی',
-//         content: '                                    بهترین پمپ آب خانگی کدام است؟ معرفی کم صداترین، قویترین و بهترین پمپ آب خانگی و کشاورزی در ایران، در این مقاله به تفصیه به این مضوع پرداخته وبلابلابلابلابلابلابلابلا بلا بلا بلابلا بلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلا بلابلابلابلابلابلابلابلا بلا بلا بلابلا بلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلابلا...'
-//     },
-//     {
-//         image: test2,
-//         title: 'ضرف شیپ هرامش لتیات',
-//         content: 'آن چیزی که می خواهید در خصوص متن ها نوشته شود م'
-//     },
-//     {
-//         image: test2,
-//         title: 'ضرف شیپ هرامش لتیات',
-//         content: 'آن چیزی که می خواهید در خصوص متن ها نوشته شود می تواند در این قسمت درج شود. آن چیزی که می خواهید در خصوص متن ها نوشته شود می تواند در این قسمت بنویسید....'
-//     },
-//     {
-//         image: test2,
-//         title: 'ضرف شیپ هرامش لتیات',
-//         content: 'آن چیزی که می خواهید در خصوص متن ها نوشته شود می تواند در این قسمت درج شود. آن چیزی که می خواهید در خصوص متن ها نوشته شود می تواند در این قسمت بنویسید....'
-//     },
-//     {
-//         image: test2,
-//         title: 'ضرف شیپ هرامش لتیات',
-//         content: 'آن چیزی که می خواهید در خصوص متن ها نوشته شود می تواند در این قسمت درج شود. آن چیزی که می خواهید در خصوص متن ها نوشته شود می تواند در این قسمت بنویسید....'
-//     }
-// ];
 const BlogPage = ({data}) => {
     const [pageState, setPageState] = useState(1);
     const noQueryPath = usePathname();
@@ -58,14 +28,14 @@ const BlogPage = ({data}) => {
     return (
         <Container sx={{mt: 3}}>
             <Box sx={{px:1}}>
-                <Grid container justifyContent={'space-between'} sx={{boxShadow: 1, p: 2, borderRadius: 2 , minHeight:'360px' }}>
-                    <Grid item md={6} xs={12}>
-                        <Box sx={{textAlign: 'center', width: '100%'}}>
+                <Grid container justifyContent={'space-between'} sx={{boxShadow: 1, p: 2, borderRadius: 2}}>
+                    <Grid item md={3} xs={12}>
+                        <Box sx={{textAlign: 'center', width: '100%' , aspectRatio : '1/1'}}>
                             <Image width={590} height={290} style={{width: '100%', height: 'auto'}} src={mainBlog.main_image.image}
                                    alt={''}/>
                         </Box>
                     </Grid>
-                    <Grid item md={6} xs={12} sx={{ px: 2, py: 1}} display={'flex'} flexDirection={'column'}
+                    <Grid item md={9} xs={12} sx={{ px: 2, py: 1}} display={'flex'} flexDirection={'column'}
                           justifyContent={'space-between'}>
                         <Box>
                             <Typography sx={{mb: 4}} variant={'h6'} fontWeight={'bold'}>

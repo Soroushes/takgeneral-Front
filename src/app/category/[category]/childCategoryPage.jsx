@@ -46,7 +46,7 @@ const ChildCategoryPage = ({ brands, current_page, page_count , data  , category
         push(noQueryPath+'?'+ params.toString())
     }
     return (
-        <Box sx={{minHeight: "100vh", backgroundColor: "#fff"}}>
+        <Box sx={{minHeight: "70vh"}}>
             {
                 isMobile ?
                     <Box sx={{width: '100%', aspectRatio: '1.5/1', position: 'relative', p: 0}}>

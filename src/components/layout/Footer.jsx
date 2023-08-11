@@ -1,5 +1,5 @@
 import {Box, Container, Grid, Typography} from "@mui/material";
-import Logo from '../../assets/icons/footer/Logo.svg'
+import Logo from '../../../public/fa_logo.jpg'
 import CallIcon from '../../assets/icons/footer/call.svg';
 import LocationIcon from '../../assets/icons/footer/location.svg';
 import MailIcon from '../../assets/icons/footer/sms.svg';
@@ -14,7 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 const Footer = () => {
     return (
-        <Box sx={{backgroundColor : '#FCFCFD' , position : 'relative' , zIndex : 4 , marginTop : '-3px' , py : 4}}>
+        <Box sx={{backgroundColor : '#FCFCFD' , position : 'relative' , zIndex : 4 , py : 4}}>
             <Container>
                 <Grid container sx={{justifyContent:'space-between' , display:'flex'}}>
                     <Grid item xs={12} sx={{mt:2, borderTop:'1px solid #eee' , borderBottom:'1px solid #eee'}} display={'flex'} justifyContent={'center'}>
@@ -22,10 +22,10 @@ const Footer = () => {
                             <Image width={'924px'} height={'152px'} style={{width:'100%' , height:'auto'}} src={footerImage} alt={'footer'}/>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} md={4} sx={{borderBottom:'1px solid #eee'}} py={4}>
+                    <Grid item xs={12} md={4} sx={{borderBottom:'1px solid #eee'}} pt={1} pb={4}>
                         <Box display={'flex'} flexDirection={'column'} alignItems={{md:'start' , xs:'center'}}>
                             <Box sx={{mb:1}}>
-                                <Logo/>
+                                <Image src={Logo} width={150} height={50}/>
                             </Box>
                             <Link href={"tel://+989212075118"}>
                                 <Box display={'flex'} gap={1} mt={2}>

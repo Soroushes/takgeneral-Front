@@ -2,6 +2,13 @@ import {BASE_URL} from "../../../data/urls";
 import ChildCategoryPage from "./childCategoryPage";
 import ParentCategoryPage from './parentCategoryPage';
 
+
+export const metadata = {
+    description : 'تست تست تست تست' ,
+    openGraph : {
+        type : 'article'
+    }
+}
 async function getData(params, searchParams) {
     let brands = searchParams.brand ?? [];
     delete searchParams.brand;

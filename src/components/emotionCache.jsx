@@ -2,10 +2,15 @@
 import * as React from 'react';
 import createCache from '@emotion/cache';
 import {useServerInsertedHTML} from 'next/navigation';
-import {CacheProvider, CacheProvider as DefaultCacheProvider} from '@emotion/react';
+import {CacheProvider} from '@emotion/react';
+import {store} from "@/redux/store";
+import {Provider} from "react-redux";
+import {prefixer} from "stylis";
+import rtlPlugin from "stylis-plugin-rtl";
 
 export default function NextAppDirEmotionCacheProvider(props) {
-    const {options, children} = props;
+    const options = {key: 'muirtl', stylisPlugins: [prefixer, rtlPlugin]}
+    const {children} = props;
     const [{cache, flush}] = React.useState(() => {
         const cache = createCache(options);
         cache.compat = true;
@@ -48,7 +53,9 @@ export default function NextAppDirEmotionCacheProvider(props) {
 
     return (
         <CacheProvider value={cache}>
-            {children}
+            <Provider store={store}>
+                {children}
+            </Provider>
         </CacheProvider>
     );
 }

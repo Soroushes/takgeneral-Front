@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import Theme from "../../assets/theme/theme";
 const initialState = {
     innerWidth : null ,
-    isMobile : null ,
+    isMobile : false ,
     navbarHeight : 55 ,
     mobileHeaderHeight : 80  ,
     desktopHeaderHeight : 100 ,

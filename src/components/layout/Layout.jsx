@@ -35,34 +35,35 @@ const Layout = ({children}) => {
     return (
         <>
             <Box sx={{position: 'relative', zIndex: 10}}>
-                {
-                    isMobile ? <MobileHeader size={mobileHeaderHeight} status={{full_name, phone_number}}/> :
-                        <DesktopHeader desktopHeaderRef={desktopHeaderRef} status={{full_name, phone_number}}/>
-                }
+                <Box sx={{display : isMobile ? 'block' : 'none'}}>
+                    <MobileHeader size={mobileHeaderHeight} status={{full_name, phone_number}}/>
+                </Box>
+                <Box sx={{display : isMobile ? 'none' : 'block'}}>
+                    <DesktopHeader desktopHeaderRef={desktopHeaderRef} status={{full_name, phone_number}}/>
+                </Box>
             </Box>
             <Box
                 sx={{
                     pt: {xs: `${mobileHeaderHeight}px`, md: `${desktopHeaderHeight}px`},
                     pb: {xs: `${navbarHeight}px`, md: 0},
                 }}>
-                <Box sx={{minHeight : '50vh'}}>
+                <Box sx={{minHeight: '50vh'}}>
                     {children}
                 </Box>
                 <Footer/>
             </Box>
-            {isMobile &&
-                <Box
-                    sx={{
-                        position: "fixed",
-                        zIndex: 1200,
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        height: `${navbarHeight}px`
+            <Box
+                sx={{
+                    position: "fixed",
+                    zIndex: 1200,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: `${navbarHeight}px`,
+                    display: isMobile ? 'block' : 'none'
                 }}>
-                    <Navbar/>
-                </Box>
-            }
+                <Navbar/>
+            </Box>
             <AlertSnakeBar/>
         </>
     );

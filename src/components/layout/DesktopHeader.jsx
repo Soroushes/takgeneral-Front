@@ -18,7 +18,7 @@ const DesktopHeader = ({status, desktopHeaderRef}) => {
     return (
         <AppBar ref={desktopHeaderRef} sx={{backgroundColor: "#fff"}}>
             <Toolbar>
-                <Container maxWidth={'xl'}>
+                <Container maxWidth={'lg'}>
                     <Box
                         sx={{
                             display: "flex",
@@ -34,7 +34,7 @@ const DesktopHeader = ({status, desktopHeaderRef}) => {
                                 justifyContent: "space-between"
                             }}>
                             <Link href={urls.home}>
-                                <Image width={125} height={35} alt={'تک جنرال لوگو'} src={logo}/>
+                                <Image width={180} height={32} alt={'تک جنرال لوگو'} src={logo}/>
                             </Link>
                             <Box sx={{width: "40%"}}>
                                 <TextField

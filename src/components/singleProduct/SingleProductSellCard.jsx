@@ -1,8 +1,7 @@
 import {Box} from "@mui/system";
-import {Button, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 import CartEditionButton from "../share/CartEditionButton";
 import PriceDiscount from "../share/PriceDiscount";
-import Suggestion from "../../assets/icons/single-product/suggestion.svg";
 import FreeDelivery from '../../assets/icons/single-product/freeDelivery.svg';
 import AvailableIcon from '../../assets/icons/single-product/available.svg';
 import OriginalIcon from '../../assets/icons/single-product/original.svg';
@@ -16,14 +15,7 @@ const SingleProductSellCard = ({
                                    finalPrice,
                                    warranty,
                                    id,
-                                   opinionRef
                                }) => {
-    const scrollToOpinion = () => {
-        window.scrollTo({
-            top: opinionRef.current?.offsetTop - 150,
-            behavior: 'smooth'
-        })
-    };
     return (
         <>
             <Box sx={{mb: 2, backgroundColor: '#fff', py: 2, px: .5, borderRadius: 2, boxShadow: 1}} display={'flex'}
@@ -48,20 +40,28 @@ const SingleProductSellCard = ({
                 }
             </Box>
 
-                <Box
-                    sx={{mb: 2, p: 2, borderRadius: 2, boxShadow: 1, display: 'flex', justifyContent: 'space-around' , gap:1}}>
-                        {
-                            warranty &&
-                            <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
-                                <Warranty/>
-                                <Typography textAlign={'center'} variant={'subtitle1'}>12 ماه گارانتی تعمیر و تعویض</Typography>
-                            </Box>
-                            }
+            <Box
+                sx={{
+                    mb: 2,
+                    p: 2,
+                    borderRadius: 2,
+                    boxShadow: 1,
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    gap: 1
+                }}>
+                {
+                    warranty &&
                     <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
-                        <BestPriceIcon/>
-                        <Typography textAlign={'center'} variant={'subtitle1'}>تضمین بهترین قیمت</Typography>
+                        <Warranty/>
+                        <Typography textAlign={'center'} variant={'subtitle1'}>12 ماه گارانتی تعمیر و تعویض</Typography>
                     </Box>
+                }
+                <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+                    <BestPriceIcon/>
+                    <Typography textAlign={'center'} variant={'subtitle1'}>تضمین بهترین قیمت</Typography>
                 </Box>
+            </Box>
 
             <Box sx={{
                 px: 1.5,
@@ -85,13 +85,6 @@ const SingleProductSellCard = ({
                     <CartEditionButton boxSx={{width: '110px'}} id={id}/>
                 </Box>
             </Box>
-            <Box display={'flex'} justifyContent={'end'} sx={{mt: 2}}>
-                <Button variant="contained" onClick={scrollToOpinion} color={'secondary'}
-                        sx={{aspectRatio: '1/1', borderRadius: '100%'}}>
-                    <Suggestion/>
-                </Button>
-            </Box>
-
         </>
     )
 }
