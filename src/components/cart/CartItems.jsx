@@ -9,7 +9,7 @@ import {useSelector} from "react-redux";
 const CartItems = ({product}) => {
     const {isMobile} = useSelector(state => state.deviceInfo);
     return (
-        <Grid container sx={{justifyContent: 'space-between', mt: 3}}>
+        <Grid container sx={{justifyContent: 'space-between', mt: 3 , borderBottom:'1px solid #eee' , pb:3}}>
             <Grid item xs={4} md={2.5}>
                 <Link href={'/product/' + product.product_id} style={{textAlign: 'center'}}>
                     <Image width={100} height={100} style={{width: '100%', height: 'auto'}} alt={'test'}

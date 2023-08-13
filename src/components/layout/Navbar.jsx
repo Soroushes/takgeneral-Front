@@ -1,13 +1,12 @@
 import {Badge, Box, Typography} from '@mui/material';
-import ContactIcon from '../../assets/icons/layout/contactIcon';
-import HomeIcon from '../../assets/icons/layout/homeIcon';
-import BasketIcon from "../../assets/icons/layout/basketIcon";
-import SearchOutlinedIcon from "../../assets/icons/layout/searchOutlined";
+import ContactIcon from '../../assets/icons/layout/ringing-blue-call.svg';
+import BasketIcon from "../../assets/icons/layout/blue-bag.svg";
+import User from "../../assets/icons/layout/blue-user.svg";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import {urls} from "@/data/urls";
 import {useSelector} from "react-redux";
-
+import HomeIcon from '../../assets/icons/layout/home-navbar-icon.svg';
 const Navbar = () => {
     const [navbarItems, setNavbarItems] = useState([]);
     const {total_count} = useSelector(state => state.cart)
@@ -19,20 +18,20 @@ const Navbar = () => {
                 link: urls.home
             },
             {
-                name: "جستجو",
-                icon: <SearchOutlinedIcon/>,
-                link: urls.home
-            },
-            {
                 name: "سبد خرید",
-                icon: <Badge anchorOrigin={{vertical: 'top', horizontal: 'left',}} badgeContent={total_count}><BasketIcon/></Badge>,
+                icon: <Badge anchorOrigin={{vertical: 'top', horizontal: 'left'}} color={'primary'} badgeContent={total_count}><BasketIcon/></Badge>,
                 link: urls.cart
             },
             {
                 name: "تماس با ما",
                 icon: <ContactIcon/>,
-                link: urls.home
+                link: urls.contactUs
             },
+            {
+                name: "حساب کاربری",
+                icon: <User/>,
+                link: urls.profile
+            }
         ])
     }, [total_count])
     return (
@@ -44,14 +43,15 @@ const Navbar = () => {
                 alignItems: "center",
                 width: "100%",
                 height: "100%",
-                backgroundColor: "gray.lighter"
+                backgroundColor: "#fff",
+                boxShadow:3
             }}>
             {
                 navbarItems.map((navItem, index) => {
                     return (
                         <Box key={index} sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                             <Link href={navItem.link}><Typography>{navItem.icon}</Typography></Link>
-                            <Typography color={'text.muted'} variant={"subtitle1"}>
+                            <Typography color={'primary'} variant={"subtitle1"}>
                                 {navItem.name}
                             </Typography>
                         </Box>

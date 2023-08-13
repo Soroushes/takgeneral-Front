@@ -69,8 +69,8 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
 
             <Box sx={{display: 'flex', mt: 2, alignItems: 'center', gap: 1}}>
                 <Typography variant={'body2'} onClick={scrollToDetails}
-                            sx={{cursor: 'pointer', color: 'primary.main', textAlign: 'center'}}>مشاهده همه
-                    ويژگی ها</Typography>
+                            sx={{cursor: 'pointer', color: 'primary.main', textAlign: 'center'}}>مشاهده
+                    بیشتر</Typography>
                 <ArrowDownIcon/>
             </Box>
 

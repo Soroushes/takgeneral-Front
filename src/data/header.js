@@ -1,8 +1,7 @@
-import ExactToolIcon from '../assets/icons/layout/exactToolIcon.svg'
-import WaterPompIcon from '../assets/icons/layout/waterPompICon.svg'
-import ShirbarghiIcon from '../assets/icons/layout/shirbarghiIcon.svg'
-import FlowMeterIcon from '../assets/icons/layout/flowMeterIcon.svg'
-import {allCategories} from "./category/categoriesData";
+import ExactToolIcon from '../assets/icons/layout/abzar-icon.svg'
+import WaterPompIcon from '../assets/icons/layout/pomp-icon.svg'
+import ShirbarghiIcon from '../assets/icons/layout/tahvie-icon.svg'
+import FlowMeterIcon from '../assets/icons/layout/flowmetr-icon.svg'
 export const headerItem = [
     {
         name: "پمپ و تجهیزات جانبی",

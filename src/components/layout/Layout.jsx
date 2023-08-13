@@ -3,13 +3,12 @@ import {Box} from "@mui/material";
 import Navbar from './Navbar';
 import MobileHeader from "./MobileHeader";
 import DesktopHeader from './DesktopHeader'
-import {useEffect, useRef, useState} from "react";
-import {usePathname} from 'next/navigation'
+import {useEffect, useRef} from "react";
 import AlertSnakeBar from "../share/alertSnakeBar";
 import {fetchInfo} from 'src/redux/slices/userInfoSlice';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchCart} from "../../redux/slices/cart";
-import {SET_DESKTOP_HEIGHT, SET_DEVICE_INFO} from "../../redux/slices/deviceInfo";
+import {fetchCart} from "@/redux/slices/cart";
+import {SET_DESKTOP_HEIGHT, SET_DEVICE_INFO} from "@/redux/slices/deviceInfo";
 import Footer from "@/components/layout/Footer";
 
 const hideLayoutPaths = ['/login'];
@@ -19,18 +18,18 @@ const Layout = ({children}) => {
     const {full_name, phone_number} = useSelector(state => state.userInfo);
     const desktopHeaderRef = useRef(null);
     const resizeTimeOutRef = useRef(null);
-    // useEffect(() => {
-    //     onresize = () => {
-    //         clearTimeout(resizeTimeOutRef.current);
-    //         resizeTimeOutRef.current = setTimeout(() => {
-    //             dispatcher(SET_DEVICE_INFO());
-    //         }, 1000)
-    //     }
-    //     dispatcher(SET_DEVICE_INFO());
-    //     dispatcher(SET_DESKTOP_HEIGHT(desktopHeaderRef.current.clientHeight));
-    //     dispatcher(fetchInfo());
-    //     dispatcher(fetchCart());
-    // }, [])
+    useEffect(() => {
+        onresize = () => {
+            clearTimeout(resizeTimeOutRef.current);
+            resizeTimeOutRef.current = setTimeout(() => {
+                dispatcher(SET_DEVICE_INFO());
+            }, 1000)
+        }
+        dispatcher(SET_DEVICE_INFO());
+        dispatcher(SET_DESKTOP_HEIGHT(desktopHeaderRef.current.clientHeight));
+        dispatcher(fetchInfo());
+        dispatcher(fetchCart());
+    }, [])
 
     return (
         <>

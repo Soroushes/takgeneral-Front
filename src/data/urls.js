@@ -6,5 +6,6 @@ export const urls ={
     profile : '/profile',
     ProfileAddress : "/profile/address",
     categories : "category",
+    contactUs:'/contact-us',
 }
 export const BASE_URL = 'http://takback.soroushes.tk/';

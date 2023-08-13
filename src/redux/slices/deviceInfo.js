@@ -5,7 +5,7 @@ const initialState = {
     isMobile : false ,
     navbarHeight : 55 ,
     mobileHeaderHeight : 80  ,
-    desktopHeaderHeight : 100 ,
+    desktopHeaderHeight : 80 ,
 
 }
 const deviceInfo = createSlice({

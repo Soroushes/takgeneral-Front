@@ -4,7 +4,7 @@ import {Box} from "@mui/system";
 import {Badge, Button, Container, InputAdornment, TextField, Typography} from "@mui/material";
 import UserIcon from "../../assets/icons/layout/user";
 import SearchOutlined from "../../assets/icons/layout/searchOutlined";
-import ShopIcon from '../../assets/icons/layout/ShopIcon.svg';
+import BluBag from '../../assets/icons/layout/blue-bag.svg';
 import {headerItem} from "@/data/header";
 import Link from "next/link";
 import logo from '../../../public/logo.png' ;
@@ -23,7 +23,8 @@ const DesktopHeader = ({status, desktopHeaderRef}) => {
                         sx={{
                             display: "flex",
                             flexDirection: "column",
-                            gap: 1,
+                            gap: 2,
+                            justifyContent:'space-between',
                             width: "100%",
                             height: "100%",
                             py: 1,
@@ -65,10 +66,10 @@ const DesktopHeader = ({status, desktopHeaderRef}) => {
                                             <UserIcon/>
                                         </Button>
                                 }
-                                <Button onClick={() => router.push(urls.cart)} size={'small'} sx={{p: 0}} variant={'outlined'}>
+                                <Button onClick={() => router.push(urls.cart)} size={'medium'} color={'primary'} sx={{p: 0, borderRadius:2.5 , border:'1px solid primary' , width:'auto'}} variant={'outlined'}>
                                     <Badge anchorOrigin={{vertical: 'top', horizontal: 'left',}}
                                            badgeContent={total_count} color="primary">
-                                        <ShopIcon/>
+                                        <BluBag/>
                                     </Badge>
                                 </Button>
                             </Box>

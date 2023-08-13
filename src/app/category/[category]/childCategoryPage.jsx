@@ -27,7 +27,7 @@ const sortValueItems = [
         value: "price"
     }
 ];
-const ChildCategoryPage = ({ brands, current_page, page_count , data  , category ,childCategory , products , content}) => {
+const ChildCategoryPage = ({ brands, current_page, page_count  , category ,childCategory , products , content}) => {
     const {push} = useRouter();
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
@@ -71,13 +71,13 @@ const ChildCategoryPage = ({ brands, current_page, page_count , data  , category
                         {
                             isMobile ?
                                 <Box sx={{mb: 2, px: 1, gap: 1, display: 'flex', justifyContent: 'space-between'}}>
-                                    <Button size={'small'} onClick={() => setOpenFilterModal(true)} color={'btnGray'}
-                                            variant={'contained'}>
+                                    <Button size={'small'} color={'btnLightGray'} onClick={() => setOpenFilterModal(true)}
+                                            variant={'outlined'}>
                                         <FilterAltIcon/>
                                         <Typography sx={{ml: 1}}> فیلتر</Typography>
                                     </Button>
-                                    <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnGray'}
-                                            variant={'contained'}>
+                                    <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnLightGray'}
+                                            variant={'outlined'}>
                                         <SortIcon/>
                                         <Typography sx={{ml: 1}}>
                                             {
@@ -88,13 +88,15 @@ const ChildCategoryPage = ({ brands, current_page, page_count , data  , category
                                 </Box> :
                                 <Grid container>
                                     <Grid item md={3.5}></Grid>
-                                    <Grid item md={8.5} sx={{mb: 2 , px:1}}>
+                                    <Grid item md={8.5} sx={{mb: 2 , px:1 }} gap={1} display={'flex'} alignItems={'center'}>
+                                        <Typography>
+                                            مرتب سازی براساس:
+                                        </Typography>
                                         <TextField
                                             sx={{width: "150px"}}
                                             size={'small'}
                                             select
                                             value={sortValue}
-                                            label="براساس"
                                             onChange={(e) => handleSortOnchange(e.target.value)}
                                         >
                                             {
