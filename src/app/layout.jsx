@@ -21,9 +21,9 @@ export default function RootLayout({children}) {
         <body>
         <NextAppDirEmotionCacheProvider>
         <ThemeRegistry>
-            <Layout>
+            {/*<Layout>*/}
                 {children}
-            </Layout>
+            {/*</Layout>*/}
         </ThemeRegistry>
         </NextAppDirEmotionCacheProvider>
         </body>

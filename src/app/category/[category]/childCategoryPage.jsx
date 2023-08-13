@@ -36,7 +36,8 @@ const ChildCategoryPage = ({ brands, current_page, page_count  , category ,child
     const [openSortModal, setOpenSortModal] = useState(false);
     const [sortValue, setSortValue] = useState('newest');
     const productBoxRef = useRef(null);
-    const {isMobile} = useSelector(state => state.deviceInfo)
+    const {isMobile} = useSelector(state => state.deviceInfo);
+    console.log(content)
     useEffect(() => {
         setSortValue('newest')
     }, [noQueryPath])
@@ -123,7 +124,7 @@ const ChildCategoryPage = ({ brands, current_page, page_count  , category ,child
                         <ProductList product={products} page={current_page} count={page_count}/>
                     </Grid>
                 </Grid>
-                <Box dangerouslySetInnerHTML={{__html: content}}/>
+                <Box sx={{maxWidth:'100%'}} dangerouslySetInnerHTML={{__html: content}}/>
             </Container>
             <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلتر'}>
                 <Box sx={{px: 2}}>

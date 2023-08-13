@@ -11,6 +11,6 @@ const getData = async ()=>{
 export default async function Page(){
     const data = await getData();
     return (
-        <BlogPage data={data} />
+        <BlogPage data={data} blogs={data.blogs} currentPage={data.current_page} pageCount={data.page_count}/>
     )
 }
