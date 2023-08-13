@@ -48,7 +48,8 @@ const SingleProductSellCard = ({
                     boxShadow: 1,
                     display: 'flex',
                     justifyContent: 'space-around',
-                    gap: 1
+                    gap: 1,
+                    backgroundColor:'#fff'
                 }}>
                 {
                     warranty &&
@@ -79,7 +80,7 @@ const SingleProductSellCard = ({
                     <PriceDiscount finalPriceBold={true} align={'end'} gap={1.7} justify={{md: 'column', xs: 'row'}}
                                    discountPrice={price}
                                    finalPrice={finalPrice} discountedPriceColor={'text.muted'}
-                                   finalPriceColor={'text.main'} discountedPriceFont={'h5'} fontSize={'h2'}/>
+                                   finalPriceColor={'text.main'} discountedPriceFont={'h5'} fontSize={'h4'}/>
                 </Box>
                 <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'end', width: '100%'}}>
                     <CartEditionButton boxSx={{width: '110px'}} id={id}/>

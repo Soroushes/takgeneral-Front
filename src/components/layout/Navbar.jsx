@@ -2,34 +2,43 @@ import {Badge, Box, Typography} from '@mui/material';
 import ContactIcon from '../../assets/icons/layout/ringing-blue-call.svg';
 import BasketIcon from "../../assets/icons/layout/blue-bag.svg";
 import User from "../../assets/icons/layout/blue-user.svg";
+import HomeIcon from '../../assets/icons/layout/home-navbar-icon.svg';
+import ActiveHomeIcon from '../../assets/icons/layout/active-home.svg';
+import ActiveBagIcon from '../../assets/icons/layout/active-bag.svg';
+import ActiveUserIcon from '../../assets/icons/layout/active-user.svg';
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import {urls} from "@/data/urls";
 import {useSelector} from "react-redux";
-import HomeIcon from '../../assets/icons/layout/home-navbar-icon.svg';
+import {usePathname} from "next/navigation";
 const Navbar = () => {
     const [navbarItems, setNavbarItems] = useState([]);
-    const {total_count} = useSelector(state => state.cart)
+    const {total_count} = useSelector(state => state.cart);
+    const url = usePathname();
     useEffect(() => {
         setNavbarItems([
             {
                 name: "خانه",
                 icon: <HomeIcon/>,
+                activeIcon: <ActiveHomeIcon/>,
                 link: urls.home
             },
             {
                 name: "سبد خرید",
                 icon: <Badge anchorOrigin={{vertical: 'top', horizontal: 'left'}} color={'primary'} badgeContent={total_count}><BasketIcon/></Badge>,
+                activeIcon:<Badge anchorOrigin={{vertical: 'top', horizontal: 'left'}} color={'primary'} badgeContent={total_count}><ActiveBagIcon/></Badge>,
                 link: urls.cart
             },
             {
                 name: "تماس با ما",
                 icon: <ContactIcon/>,
+                activeIcon: <ContactIcon/>,
                 link: urls.contactUs
             },
             {
                 name: "حساب کاربری",
                 icon: <User/>,
+                activeIcon: <ActiveUserIcon/>,
                 link: urls.profile
             }
         ])
@@ -39,19 +48,22 @@ const Navbar = () => {
             sx={{
                 display: "flex",
                 justifyContent: "space-between",
-                px: 3,
+                px: 4,
                 alignItems: "center",
                 width: "100%",
                 height: "100%",
                 backgroundColor: "#fff",
-                boxShadow:3
+                boxShadow:3,
+                borderRadius: '5px 5px 0 0',
             }}>
             {
                 navbarItems.map((navItem, index) => {
                     return (
                         <Box key={index} sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                            <Link href={navItem.link}><Typography>{navItem.icon}</Typography></Link>
-                            <Typography color={'primary'} variant={"subtitle1"}>
+                            <Link href={navItem.link}>
+                                <Typography>{url === navItem.link ? navItem.activeIcon : navItem.icon}</Typography>
+                            </Link>
+                            <Typography color={'primary'} variant={"body2"}>
                                 {navItem.name}
                             </Typography>
                         </Box>

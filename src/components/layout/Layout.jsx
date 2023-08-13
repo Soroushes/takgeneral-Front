@@ -10,8 +10,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {fetchCart} from "@/redux/slices/cart";
 import {SET_DESKTOP_HEIGHT, SET_DEVICE_INFO} from "@/redux/slices/deviceInfo";
 import Footer from "@/components/layout/Footer";
-
-const hideLayoutPaths = ['/login'];
 const Layout = ({children}) => {
     const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight, isMobile} = useSelector(state => state.deviceInfo);
     const dispatcher = useDispatch();
@@ -30,16 +28,16 @@ const Layout = ({children}) => {
         dispatcher(fetchInfo());
         dispatcher(fetchCart());
     }, [])
-
     return (
         <>
             <Box sx={{position: 'relative', zIndex: 10}}>
-                <Box sx={{display : isMobile ? 'block' : 'none'}}>
-                    <MobileHeader size={mobileHeaderHeight} status={{full_name, phone_number}}/>
-                </Box>
-                <Box sx={{display : isMobile ? 'none' : 'block'}}>
-                    <DesktopHeader desktopHeaderRef={desktopHeaderRef} status={{full_name, phone_number}}/>
-                </Box>
+                {
+                    isMobile ?
+                        <MobileHeader size={mobileHeaderHeight} status={{full_name, phone_number}}/>
+                        :
+                        <DesktopHeader desktopHeaderRef={desktopHeaderRef} status={{full_name, phone_number}}/>
+
+                }
             </Box>
             <Box
                 sx={{
@@ -59,9 +57,11 @@ const Layout = ({children}) => {
                     left: 0,
                     right: 0,
                     height: `${navbarHeight}px`,
-                    display: isMobile ? 'block' : 'none'
                 }}>
-                <Navbar/>
+                {
+                    isMobile ? <Navbar/> : null
+                }
+
             </Box>
             <AlertSnakeBar/>
         </>

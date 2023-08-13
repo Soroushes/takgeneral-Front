@@ -4,17 +4,13 @@ import MailIcon from '../../assets/icons/contact-us/sms.svg';
 import LocationIcon from '../../assets/icons/contact-us/location.svg';
 import CallIcon from '../../assets/icons/contact-us/call.svg'
 import {Controller, useForm} from "react-hook-form";
-import Sth from '../../assets/icons/layout/homeIcon'
 const ContactUsPage = () => {
     const {control, handleSubmit} = useForm();
     const onSubmitForm = () => {
     }
     return (
         <Container sx={{mt: 7}}>
-            <Box>
-                <Sth/>
-            </Box>
-            <Grid container sx={{flexDirection: {xs: 'column-reverse', md: 'row'}, justifyContent: 'space-between'}}>
+            <Grid container sx={{flexDirection: {xs: 'column-reverse', md: 'row'} , gap:{xs:4 , md:0}, justifyContent: 'space-between'}}>
                 <Grid item md={6} xs={12} sx={{mt: {xs: 2, md: 0}, p: {xs: 2, md: 0}}}>
                     <Typography fontWeight={'bold'} variant={'h2'}>با ما در تماس باشید</Typography>
                     <Typography variant={'body1'} sx={{mt: 3}}>کارشناسان ما در سریع ترین زمان ممکن به درخواست های شما
