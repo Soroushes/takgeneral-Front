@@ -4,10 +4,11 @@ import Image from "next/image";
 import BlogCart from "../../components/blog/blogCart";
 import ClockIcon from "../../assets/icons/share/clock.svg";
 import ArrowIcon from "../../assets/icons/single-product/blue-arrow-left.svg";
-import { useState} from 'react' ;
+import {useState} from 'react' ;
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import ArrowRightIcon from "@/assets/icons/share/arrow-right.svg";
 import ArrowLeftIcon from "@/assets/icons/share/arrow-left.svg";
+
 const BlogPage = ({data}) => {
     const [pageState, setPageState] = useState(1);
     const noQueryPath = usePathname();
@@ -19,33 +20,39 @@ const BlogPage = ({data}) => {
         push(noQueryPath + '?' + params)
         setPageState(value);
     }
-    const mainBlog = data.find((item)=> item.main_image.is_main === true);
-    const result = data.filter((item) => item.main_image.is_main !== true);
-    console.log(mainBlog.image)
     // useEffect(() => {
     //     setPageState(1)
     // }, [params])
     return (
         <Container sx={{mt: 3}}>
-            <Box sx={{px:1}}>
+            <Box sx={{px: 1}}>
                 <Grid container justifyContent={'space-between'} sx={{boxShadow: 1, p: 2, borderRadius: 2}}>
                     <Grid item md={3} xs={12}>
-                        <Box sx={{textAlign: 'center', width: '100%' , aspectRatio : '1/1'}}>
-                            <Image width={590} height={290} style={{width: '100%', height: 'auto'}} src={mainBlog.main_image.image}
+                        <Box sx={{textAlign: 'center', width: '100%', aspectRatio: '1/1'}}>
+                            <Image width={590} height={290} style={{width: '100%', height: 'auto'}}
+                                   src={data.blogs[0].main_image.image}
                                    alt={''}/>
                         </Box>
                     </Grid>
-                    <Grid item md={9} xs={12} sx={{ px: 2, py: 1}} display={'flex'} flexDirection={'column'}
+                    <Grid item md={9} xs={12} sx={{px: 2, py: 1}} display={'flex'} flexDirection={'column'}
                           justifyContent={'space-between'}>
                         <Box>
                             <Typography sx={{mb: 4}} variant={'h6'} fontWeight={'bold'}>
                                 {
-                                    mainBlog.title
+                                    data.blogs[0].title
                                 }
                             </Typography>
-                            <Typography sx={{width: '100%' , maxHeight:100 ,  textOverflow: 'ellipsis' , wordWrap: 'break-word' , overflow: 'hidden'}} variant={'body2'}>
-                                بهترین پمپ آب خانگی کدام است؟ معرفی کم صداترین، قویترین و بهترین پمپ آب خانگی و کشاورزی در
-                                ایران، در این مقاله به تفصیه به این مضوع پرداخته وبلابلابلابلابلابلابلابلا بلا بلا بلابلا
+                            <Typography sx={{
+                                width: '100%',
+                                maxHeight: 100,
+                                textOverflow: 'ellipsis',
+                                wordWrap: 'break-word',
+                                overflow: 'hidden'
+                            }} variant={'body2'}>
+                                بهترین پمپ آب خانگی کدام است؟ معرفی کم صداترین، قویترین و بهترین پمپ آب خانگی و کشاورزی
+                                در
+                                ایران، در این مقاله به تفصیه به این مضوع پرداخته وبلابلابلابلابلابلابلابلا بلا بلا
+                                بلابلا
                                 بلابلابلابلابلابلابلابلابلاب لابلابلابلابلابل ابلابلابلابلابلابلاب لابلاب لابلابلابلاب
                                 لابلابلابلا
                                 بلابلابلابلابلابلابلابلا بلا بلا بلابلا
@@ -68,32 +75,42 @@ const BlogPage = ({data}) => {
             </Box>
             <Grid container sx={{mt: 3}}>
                 {
-                    result?.map((item) => {
-                        return (
-                            <Grid item md={4} xs={12} sx={{p: 1 , '&:hover' : {transform:'translateY(-2%)'} , transition:'all .5s' , minHeight:'360px' }}>
-                                <BlogCart image={item.image} title={item.title} content={item.content}/>
-                            </Grid>
-                        )
+                    data.blogs.map((item, index) => {
+                        if (index) {
+                            return (
+                                <Grid
+                                    item md={4} xs={12} sx={{
+                                    p: 1,
+                                    '&:hover': {transform: 'translateY(-2%)'},
+                                    transition: 'all .5s',
+                                    minHeight: '360px'
+                                }}
+                                >
+                                    <BlogCart image={item.main_image.image} title={item.title}/>
+                                </Grid>
+                            )
+                        }
                     })
                 }
             </Grid>
             <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4}}>
-                <Pagination sx={{direction: 'rtl'}} shape={'rounded'} onChange={handlePaginationChange} page={pageState}
-                            count={10}
-                            color={'secondary'}
-                            boundaryCount={0}
-                            siblingCount={1}
-                            renderItem={(item) => {
-                                return(
-                                    (
-                                        <PaginationItem
-                                            slots={{ previous: ArrowRightIcon, next: ArrowLeftIcon }}
-                                            {...item}
-                                        />
-                                    )
-                                )
-                            }}
-                />            </Box>
+                <Pagination
+                    sx={{direction: 'rtl'}} shape={'rounded'} onChange={handlePaginationChange} page={pageState}
+                    count={10}
+                    color={'secondary'}
+                    boundaryCount={0}
+                    siblingCount={1}
+                    renderItem={(item) => {
+                        return (
+                            (
+                                <PaginationItem
+                                    slots={{previous: ArrowRightIcon, next: ArrowLeftIcon}}
+                                    {...item}
+                                />
+                            )
+                        )
+                    }}
+                /> </Box>
         </Container>
     )
 }

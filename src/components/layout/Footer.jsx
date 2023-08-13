@@ -8,9 +8,10 @@ import MailIcon2 from '../../assets/icons/footer/light-sms.svg';
 import trustImage from '../../assets/images/footer/trustImage.png';
 import nationalImage from '../../assets/images/footer/nationalImage.png';
 import unionImage from '../../assets/images/footer/unionImage.png';
-import footerImage from '../../assets/images/footer/footerIcon.png';
+import logo from '../../../public/fa_logo.jpg';
 import Image from "next/image";
 import Link from "next/link";
+import footerImage from '../../assets/images/footer/footerIcon.png'
 
 const Footer = () => {
     return (
@@ -27,9 +28,9 @@ const Footer = () => {
                     <Grid item xs={12} md={4} pt={1} pb={4}>
                         <Box sx={{height: '100%'}} display={'flex'} flexDirection={'column'}
                              justifyContent={'space-between'} alignItems={{md: 'start', xs: 'center'}} >
-                            {/*<Box sx={{mb:1}}>*/}
-                            {/*    <Image src={Logo} width={150} height={50}/>*/}
-                            {/*</Box>*/}
+                            <Box sx={{mb:1}}>
+                                <Image src={logo} width={150} height={50}/>
+                            </Box>
                             <Link href={"tel://+989212075118"}>
                                 <Box display={'flex'} gap={1} mt={2}>
                                     <Box>
