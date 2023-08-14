@@ -1,6 +1,5 @@
 import { Container} from "@mui/material";
 import SwiperCustomWrapper from "./SwiperCustomWrapper";
-import {FreeMode, Navigation} from "swiper";
 import {SwiperSlide} from "swiper/react";
 import OuterImageSection from "./OuterImageSection";
 import pompSectionImage from '../../assets/images/pomp 1.png';
@@ -9,10 +8,7 @@ const CategorySlider = ({category , selfId})=>{
     return(
             <Container disableGutters={true} sx={{mt:3}}>
                 <SwiperCustomWrapper
-                    swiperOptions={{
-                        modules: [Navigation, FreeMode],
-                        navigation: true
-                    }}
+                    navigation={false}
                     spaceBetween={'15px'}>
                     {
                         category?.map((item) => {

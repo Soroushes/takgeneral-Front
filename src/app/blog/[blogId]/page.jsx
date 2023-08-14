@@ -12,5 +12,5 @@ const getData = async (id)=>{
 }
 export default async function Page({params}) {
     const data = await getData(params.blogId);
-    return (<SingleBlog data={data} images={data.blog_images} title={data.title} createAt={data.create_time}/>)
+    return (<SingleBlog data={data} images={data.blog_images} title={data.title} timeStamp={data.created_time.timestamp}/>)
 }

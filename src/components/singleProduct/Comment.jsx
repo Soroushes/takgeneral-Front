@@ -6,10 +6,8 @@ import Rating from '@mui/material/Rating';
 import PersonIcon from '../../assets/icons/single-product/profile-circle.svg';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import {timeStampToDate} from "@/hooks/timeStampToDate";
 const Comment = ({comment}) => {
-    const date = Intl.DateTimeFormat('fa', {
-        useGrouping: false, year: "numeric", month: "long", day: "numeric"
-    }).format(comment.created_at.timestamp * 1000);
     const [likeDislike, setLikeDislike] = useState('');
     const {callApi} = useAxios();
     const handlelikeDislike = (like) => {
@@ -46,7 +44,7 @@ const Comment = ({comment}) => {
                         <PersonIcon fontSize={'small'} color={'gray'}/>
                         <Typography color={'text.muted'} variant="body1">{comment?.user_alias_name}</Typography>
                     </Box>
-                    <Typography variant={'body1'} color={'text.muted'}>{date}</Typography>
+                    <Typography variant={'body1'} color={'text.muted'}>{timeStampToDate(comment.created_at.timestamp)}</Typography>
                 </Box>
                 <Box color={'gray.main'} display={'flex'} justifyContent={'end'} alignItems={'center'} gap={1}>
                     <Box onClick={handlelikeDislike.bind(this, true)} display={'flex'} gap={1}

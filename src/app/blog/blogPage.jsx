@@ -9,11 +9,9 @@ import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import ArrowRightIcon from "@/assets/icons/share/arrow-right.svg";
 import ArrowLeftIcon from "@/assets/icons/share/arrow-left.svg";
 import Link from "next/link";
+import {timeStampToDate} from "@/hooks/timeStampToDate";
 
-const BlogPage = ({data, blogs, currentPage, pageCount}) => {
-    const date = Intl.DateTimeFormat('fa', {
-        useGrouping: false, year: "numeric", month: "long", day: "numeric"
-    }).format(blogs[0].created_time.timestamp * 1000);
+const BlogPage = ({blogs, currentPage, pageCount}) => {
     const [pageState, setPageState] = useState(1);
     const noQueryPath = usePathname();
     const searchParams = useSearchParams();
@@ -69,7 +67,7 @@ const BlogPage = ({data, blogs, currentPage, pageCount}) => {
                         <Box sx={{display: 'flex', px: .5, mt: 2, justifyContent: 'space-between'}}>
                             <Box display={'flex'} alignItems={'center'} gap={.5}>
                                 <ClockIcon/>
-                                <Typography variant={'subtitle1'} sx={{textAlign: 'center'}}>{date}</Typography>
+                                <Typography variant={'subtitle1'} sx={{textAlign: 'center'}}>{timeStampToDate(blogs[0].created_time.timestamp)}</Typography>
                             </Box>
                             <Link href={`/blog/${blogs[0].id}`}>
                                 <Box display={'flex'} alignItems={'center'} gap={.5}>
@@ -85,9 +83,6 @@ const BlogPage = ({data, blogs, currentPage, pageCount}) => {
                 {
                     blogs?.map((item, index) => {
                         if (index > 0) {
-                            const date = Intl.DateTimeFormat('fa', {
-                                useGrouping: false, year: "numeric", month: "long", day: "numeric"
-                            }).format(item.created_time.timestamp * 1000);
                             return (
                                 <Grid item md={4} xs={12} sx={{
                                     p: 1,
@@ -96,7 +91,7 @@ const BlogPage = ({data, blogs, currentPage, pageCount}) => {
                                     minHeight: '360px'
                                 }}>
                                     <BlogCart image={item.main_image.image} title={item.title} content={item.content}
-                                              id={item.id} date={date}/>
+                                              id={item.id} date={timeStampToDate(item.created_time.timestamp)}/>
                                 </Grid>
                             )
                         }

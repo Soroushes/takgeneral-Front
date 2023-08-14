@@ -3,7 +3,7 @@ import {SwiperSlide} from "swiper/react";
 import {Box} from "@mui/system";
 import {Typography} from "@mui/material";
 import ProductPreviewCard from "../share/ProductPreviewCard";
-import {BASE_URL} from "../../data/urls";
+import {BASE_URL} from "@/data/urls";
 import SwiperCustomWrapper from "../share/SwiperCustomWrapper";
 import HighRateBanner from '../../assets/images/home/highRateSilderPic.png'
 import {useSelector} from "react-redux";
@@ -121,10 +121,12 @@ const HighRateCategorySlider = () => {
                 <Typography sx={{wordSpacing : '2px'}} textAlign={'center'} variant={'h3'} fontWeight={'bold'}
                             color={'white'}>محبوب ترین های کولر گازی</Typography>
             </Box>
-            <SwiperCustomWrapper>
+            <SwiperCustomWrapper
+            navigation={false}
+            >
                 <SwiperSlide style={{width: isMobile ? 320 : 370}}>
                     <Box sx={{position: 'relative', height: {xs : 450 , md : 500}}}>
-                        <Image fill src={HighRateBanner}/>
+                        <Image alt={''} fill src={HighRateBanner}/>
                     </Box>
                 </SwiperSlide>
                     {dummyData.map((data, index) => {

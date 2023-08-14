@@ -2,11 +2,9 @@ import {Box, Button, Typography} from "@mui/material";
 import QuestionIcon from '../../assets/icons/single-product/message-question.svg';
 import LeftArrow from '../../assets/icons/single-product/blue-arrow-left.svg';
 import AnswerIcon from '../../assets/icons/single-product/blue-message.svg';
+import {timeStampToDate} from "@/hooks/timeStampToDate";
 
 const Question = ({eachQuestion, addAnswer}) => {
-    const date = Intl.DateTimeFormat('fa', {
-        useGrouping: false, year: "numeric", month: "long", day: "numeric"
-    }).format(eachQuestion.created_at.timestamp * 1000);
     return (
         <Box key={eachQuestion.id} sx={{width: '100%'}}>
             <Box sx={{borderBottom: '1px solid #f4f4f4', pb: 1}} display={'flex'} justifyContent={'space-between'}>
@@ -15,7 +13,7 @@ const Question = ({eachQuestion, addAnswer}) => {
                     <Typography>{eachQuestion.content}</Typography>
                 </Box>
                 <Typography sx={{minWidth: '80px', textAlign: 'end'}} variant={'body1'}
-                            color={'text.muted'}>{date}</Typography>
+                            color={'text.muted'}>{timeStampToDate(eachQuestion.created_at.timestamp)}</Typography>
             </Box>
 
             {eachQuestion.replys.length ?
@@ -23,9 +21,6 @@ const Question = ({eachQuestion, addAnswer}) => {
                     <Box sx={{width: '20px', height: '20px' , pt:.8}}><AnswerIcon/></Box>
                     <Box sx={{width:'100%'}}>
                         {eachQuestion.replys.map((answer, index) => {
-                            const answerDate = Intl.DateTimeFormat('fa', {
-                                useGrouping: false, year: "numeric", month: "long", day: "numeric"
-                            }).format(answer.created_at.timestamp * 1000);
                             return (
                                 <Box sx={{
                                     display:'flex',
@@ -45,7 +40,7 @@ const Question = ({eachQuestion, addAnswer}) => {
                                         <Typography sx={{textAlign:'start'}} display={'flex'} alignItems={'center'}>{answer.content}</Typography>
                                     </Box>
                                     <Typography sx={{minWidth: '80px' , height:'32px' , justifyContent:'end' ,display:'flex' ,alignItems:'center'}}  variant={'body2'}
-                                                color={'text.muted'}>{answerDate}</Typography>
+                                                color={'text.muted'}>{timeStampToDate(answer.created_at.timestamp)}</Typography>
                                 </Box>
                             )
                         })}

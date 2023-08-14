@@ -2,7 +2,6 @@ import SwiperCustomWrapper from "./SwiperCustomWrapper";
 import {Container} from "@mui/material";
 import {SwiperSlide} from "swiper/react";
 import InnerImageSection from "./InnerImageSection";
-import {FreeMode, Navigation} from "swiper";
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import brandImage from '../../assets/images/pentax (1).png';
@@ -11,10 +10,6 @@ const BrandSlider = ({brands}) => {
     return (
             <Container disableGutters={true}>
                 <SwiperCustomWrapper
-                    swiperOptions={{
-                        modules : [Navigation, FreeMode] ,
-                        navigation : true
-                    }}
                      spaceBetween={'15px'}>
                     {
                         brands.map((brand) => {

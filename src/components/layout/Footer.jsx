@@ -28,9 +28,11 @@ const Footer = () => {
                     <Grid item xs={12} md={4} pt={1} pb={4}>
                         <Box sx={{height: '100%'}} display={'flex'} flexDirection={'column'}
                              justifyContent={'space-between'} alignItems={{md: 'start', xs: 'center'}} >
-                            <Box sx={{mb:1}}>
-                                <Image src={logo} width={150} height={50}/>
-                            </Box>
+                            <Link href={'/'}>
+                                <Box sx={{mb:1}}>
+                                    <Image alt={''} src={logo} width={150} height={50}/>
+                                </Box>
+                            </Link>
                             <Link href={"tel://+989212075118"}>
                                 <Box display={'flex'} gap={1} mt={2}>
                                     <Box>

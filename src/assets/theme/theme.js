@@ -54,7 +54,9 @@ const lineHeight = ['17px','20px','25px']
         'none' ,
         '0 8px 50px rgba(0,0,0,5%)',
         '0 20px 50px rgba(0,0,0,9%)',
-         '0px 20px 50px 0px rgba(0,0,0,16%)'
+         '0px 20px 50px 0px rgba(0,0,0,16%)',
+
+
 
 ],
     components: {

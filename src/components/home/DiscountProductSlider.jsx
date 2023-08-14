@@ -3,7 +3,7 @@ import {SwiperSlide} from "swiper/react";
 import {Box} from "@mui/system";
 import {Container, Typography} from "@mui/material";
 import ProductPreviewCard from "../share/ProductPreviewCard";
-import {BASE_URL} from "../../data/urls";
+import {BASE_URL} from "@/data/urls";
 import SwiperCustomWrapper from "../share/SwiperCustomWrapper";
 import DiscountShape from '../../assets/icons/home/discount-shape.svg' ;
 import DiscountShapeBig from '../../assets/icons/home/discount-shape-big.svg' ;
@@ -110,7 +110,9 @@ const DiscountProductSlider = () => {
                     <Typography sx={{wordSpacing :'3px'}} textAlign={'center'} variant={'h3'} fontWeight={'bold'} color={'white'}>تخفیف ویژه تک جنرال</Typography>
                     <DiscountShape/>
                 </Box>
-                <SwiperCustomWrapper>
+                <SwiperCustomWrapper
+                navigation={false}
+                >
                     {dummyData.map((data)=>{
                         return(
                             <SwiperSlide key={Math.random()*1000} style={{width : isMobile ? 170 : 200, marginRight : '16px'}}>
