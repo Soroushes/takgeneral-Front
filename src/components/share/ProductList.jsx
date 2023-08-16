@@ -4,8 +4,8 @@ import {BASE_URL} from "@/data/urls";
 import {Box} from "@mui/system";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import {useEffect, useState} from "react";
-import ArrowLeftIcon from '../../assets/icons/share/arrow-left.svg';
-import ArrowRightIcon from '../../assets/icons/share/arrow-right.svg';
+import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
+import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 const ProductList = ({product, count = 8, page = 1}) => {
     const [pageState, setPageState] = useState(page);
     const noQueryPath = usePathname();
@@ -47,7 +47,7 @@ const ProductList = ({product, count = 8, page = 1}) => {
                                 return(
                                     (
                                         <PaginationItem
-                                            slots={{ previous: ArrowRightIcon, next: ArrowLeftIcon }}
+                                            slots={{ previous: ChevronRightRoundedIcon, next: ChevronLeftRoundedIcon }}
                                             {...item}
                                         />
                                     )

@@ -1,7 +1,7 @@
 import {Box, Typography} from "@mui/material";
 import Image from "next/image";
-import ArrowIcon from '../../assets/icons/single-product/blue-arrow-left.svg';
 import ClockIcon from '../../assets/icons/share/clock.svg';
+import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import Link from "next/link";
 const BlogCart = ({title , content , image , id , date})=>{
     return(
@@ -20,7 +20,7 @@ const BlogCart = ({title , content , image , id , date})=>{
                     <Link href={`/blog/${id}`}>
                         <Box display={'flex'} alignItems={'center'} gap={.5}>
                             <Typography color={'primary'} variant={'subtitle1'}>ادامه مطلب</Typography>
-                            <ArrowIcon/>
+                            <ChevronLeftRoundedIcon color={'primary'} fontSize={'small'}/>
                         </Box>
                     </Link>
             </Box>

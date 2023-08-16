@@ -1,7 +1,7 @@
 import {Box, Button, MenuItem, TextField, Typography} from "@mui/material";
 import Rating from '@mui/material/Rating';
 import PN from "persian-number";
-import ArrowDownIcon from '../../assets/icons/single-product/arrow-down.svg';
+import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 
 const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, opinionRef}) => {
     const scrollToDetails = () => {
@@ -67,11 +67,11 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
                 }
             </Box>
 
-            <Box sx={{cursor: 'pointer', display: 'flex', mt: 2, alignItems: 'center', gap: 1}}  onClick={scrollToDetails}>
+            <Box sx={{cursor: 'pointer', display: 'flex', mt: 2, alignItems: 'center'}}  onClick={scrollToDetails}>
                 <Typography variant={'body2'}
                             sx={{ color: 'primary.main', textAlign: 'center'}}>مشاهده
                     بیشتر</Typography>
-                <ArrowDownIcon/>
+                <ExpandMoreRoundedIcon color={'primary'}/>
             </Box>
 
         </Box>

@@ -2,9 +2,10 @@
 import {Box, Container, Grid, Typography} from "@mui/material";
 import Image from "next/image";
 import ClockIcon from "@/assets/icons/share/clock.svg";
-import {setDate} from "@/hooks/timeStampToDate";
+import {timeStampToDate} from "@/hooks/timeStampToDate";
 
-const SingleBlog = ({images , timeStamp , title}) => {
+const SingleBlog = ({images , timeStamp , title , data , content}) => {
+    console.log(data.desc)
     const mainImage = images.find((element) => element.is_main === true);
     return (
         <Container mt={3}>
@@ -40,9 +41,12 @@ const SingleBlog = ({images , timeStamp , title}) => {
                         </Typography>
                         <Box mb={{xs:2 , md:0}} display={'flex'} alignItems={'center'} gap={1}>
                             <ClockIcon/>
-                            <Typography variant={'subtitle1'} sx={{textAlign: 'center'}}>{setDate(timeStamp)}</Typography>
+                            <Typography variant={'subtitle1'} sx={{textAlign: 'center'}}>{timeStampToDate(timeStamp)}</Typography>
                         </Box>
                     </Box>
+                </Grid>
+                <Grid md={12}>
+                    <Box sx={{maxWidth:'100%'}} dangerouslySetInnerHTML={{__html: content}}/>
                 </Grid>
             </Grid>
         </Container>

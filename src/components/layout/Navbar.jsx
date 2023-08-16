@@ -48,7 +48,7 @@ const Navbar = () => {
             sx={{
                 display: "flex",
                 justifyContent: "space-between",
-                px: 4,
+                px:1,
                 alignItems: "center",
                 width: "100%",
                 height: "100%",
@@ -59,7 +59,7 @@ const Navbar = () => {
             {
                 navbarItems.map((navItem, index) => {
                     return (
-                        <Box key={index} sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                        <Box key={index} sx={{display: "flex", flexDirection: "column", alignItems: "center" , width:'25%'}}>
                             <Link href={navItem.link}>
                                 <Typography>{url === navItem.link ? navItem.activeIcon : navItem.icon}</Typography>
                             </Link>

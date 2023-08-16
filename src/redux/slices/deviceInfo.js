@@ -3,7 +3,7 @@ import Theme from "../../assets/theme/theme";
 const initialState = {
     innerWidth : null ,
     isMobile : null ,
-    navbarHeight : 70 ,
+    navbarHeight : 75 ,
     mobileHeaderHeight : 80  ,
     desktopHeaderHeight : 80 ,
 
