@@ -1,5 +1,5 @@
 import {Swiper} from "swiper/react";
-import {FreeMode, Navigation} from "swiper";
+import {FreeMode} from "swiper";
 import {Box} from "@mui/system";
 import {useSelector} from "react-redux";
 import 'swiper/swiper.css';
@@ -7,7 +7,7 @@ import {useRef} from "react";
 import ArrowLeft from "../../assets/icons/share/arrow-left.svg";
 import ArrowRight from "../../assets/icons/share/arrow-right.svg";
 
-const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween , navigation = true}) => {
+const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation = true}) => {
     const {isMobile} = useSelector(state => state.deviceInfo);
     const swiperRef = useRef();
     return (
@@ -35,7 +35,7 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween , navigation
                         centeredSlides={false}
                         centeredSlidesBounds={false}
                         style={{width: '100%'}}
-                        modules={[FreeMode, Navigation]}
+                        modules={[FreeMode]}
                         slidesPerView={'auto'}
                         onBeforeInit={(swiper) => {
                             swiperRef.current = swiper;
@@ -61,7 +61,8 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween , navigation
                                  position: 'relative',
                                  zIndex: '3',
                                  '&:hover': {backgroundColor: 'secondary.main'}
-                             }} onClick={() => swiperRef.current?.slideNext()}><ArrowLeft/></Box>
+                             }} onClick={() => swiperRef.current?.slideNext()}><ArrowLeft/>
+                        </Box>
                     }
                 </Box>
             ) : (
