@@ -1,8 +1,8 @@
 import {Box, Button, Typography} from "@mui/material";
 import QuestionIcon from '../../assets/icons/single-product/message-question.svg';
-import LeftArrow from '../../assets/icons/single-product/blue-arrow-left.svg';
 import AnswerIcon from '../../assets/icons/single-product/blue-message.svg';
 import {timeStampToDate} from "@/hooks/timeStampToDate";
+import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 
 const Question = ({eachQuestion, addAnswer}) => {
     return (
@@ -46,14 +46,14 @@ const Question = ({eachQuestion, addAnswer}) => {
                         })}
                         <Button variant={'text'} onClick={addAnswer} sx={{mt: 2, display: 'flex', alignItems: 'center', gap: 1, cursor: 'pointer'}}>
                             <Typography variant={'subtitle1'} color={'primary'}>ثبت پاسخ جدید</Typography>
-                            <LeftArrow/>
+                            <ChevronLeftRoundedIcon fontSize={'small'}/>
                         </Button>
                     </Box>
                 </Box>
                 :
-                <Button variant={'text'} onClick={addAnswer} sx={{mt: 2, display: 'flex', alignItems: 'center', gap: 1, cursor: 'pointer'}}>
+                <Button variant={'text'} onClick={addAnswer} sx={{mt: 2, display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
                     <Typography variant={'subtitle1'} color={'primary'}>ثبت پاسخ جدید</Typography>
-                    <LeftArrow/>
+                    <ChevronLeftRoundedIcon fontSize={'small'}/>
                 </Button>
 
             }

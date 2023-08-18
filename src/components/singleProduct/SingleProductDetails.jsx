@@ -5,8 +5,8 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import {useState} from "react";
 import {Typography} from "@mui/material";
-import ArrowDownIcon from '../../assets/icons/single-product/arrow-down.svg';
-import ArrowUpIcon from '../../assets/icons/single-product/arrow-up.svg';
+import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
+import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded';
 const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) => {
     const [value, setValue] = useState("1");
     const handleTabChange = (event, newValue) => {
@@ -121,8 +121,8 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) =>
                                     }
                                 </Typography>
                                 {
-                                    IsShowAllDetails ? <ArrowUpIcon color={'primary'}/> :
-                                        <ArrowDownIcon color={'primary'}/>
+                                    IsShowAllDetails ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :
+                                        <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>
                                 }
                             </Box>
                             :

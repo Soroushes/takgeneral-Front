@@ -3,18 +3,18 @@ import {Box} from "@mui/material";
 import Navbar from './Navbar';
 import MobileHeader from "./MobileHeader";
 import DesktopHeader from './DesktopHeader'
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import AlertSnakeBar from "../share/alertSnakeBar";
 import {fetchInfo} from 'src/redux/slices/userInfoSlice';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchCart} from "@/redux/slices/cart";
-import {SET_DESKTOP_HEIGHT, SET_DEVICE_INFO} from "@/redux/slices/deviceInfo";
+import {SET_DEVICE_INFO} from "@/redux/slices/deviceInfo";
 import Footer from "@/components/layout/Footer";
 const Layout = ({children}) => {
     const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight, isMobile} = useSelector(state => state.deviceInfo);
     const dispatcher = useDispatch();
     const {full_name, phone_number} = useSelector(state => state.userInfo);
-    const desktopHeaderRef = useRef(null);
+    const [mounted , setMounted] = useState(false)
     const resizeTimeOutRef = useRef(null);
     useEffect(() => {
         onresize = () => {
@@ -24,18 +24,18 @@ const Layout = ({children}) => {
             }, 1000)
         }
         dispatcher(SET_DEVICE_INFO());
-        dispatcher(SET_DESKTOP_HEIGHT(desktopHeaderRef.current.clientHeight));
         dispatcher(fetchInfo());
         dispatcher(fetchCart());
+        setMounted(true)
     }, [])
     return (
         <>
             <Box sx={{position: 'relative', zIndex: 10}}>
                 {
                     isMobile ?
-                        <MobileHeader size={mobileHeaderHeight} status={{full_name, phone_number}}/>
+                        <MobileHeader/>
                         :
-                        <DesktopHeader desktopHeaderRef={desktopHeaderRef} status={{full_name, phone_number}}/>
+                        <DesktopHeader status={{full_name, phone_number}}/>
 
                 }
             </Box>

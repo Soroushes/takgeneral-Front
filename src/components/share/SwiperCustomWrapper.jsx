@@ -3,16 +3,20 @@ import {FreeMode} from "swiper";
 import {Box} from "@mui/system";
 import {useSelector} from "react-redux";
 import 'swiper/swiper.css';
-import {useRef} from "react";
-import ArrowLeft from "../../assets/icons/share/arrow-left.svg";
-import ArrowRight from "../../assets/icons/share/arrow-right.svg";
+import {useEffect, useRef, useState} from "react";
+import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
+import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 
 const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation = true}) => {
     const {isMobile} = useSelector(state => state.deviceInfo);
+    const [mounted , setMounted] = useState(false)
     const swiperRef = useRef();
+    useEffect(()=>{
+        setMounted(true)
+    })
     return (
         <>
-            {!isMobile ? (
+            {!isMobile && mounted ? (
                 <Box display={'flex'} alignItems={'center'}>
                     {
                         navigation &&
@@ -27,8 +31,8 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation 
                                  transition: 'all .3s',
                                  position: 'relative',
                                  zIndex: '3',
-                                 '&:hover': {backgroundColor: 'secondary.main'}
-                             }} onClick={() => swiperRef.current?.slidePrev()}><ArrowRight/></Box>
+                                 '&:hover': {backgroundColor: 'secondary.main' , color:'white'}
+                             }} onClick={() => swiperRef.current?.slidePrev()}><ChevronRightRoundedIcon/></Box>
                     }
                     <Swiper
                         centerInsufficientSlides={false}
@@ -60,9 +64,8 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation 
                                  transition: 'all .3s',
                                  position: 'relative',
                                  zIndex: '3',
-                                 '&:hover': {backgroundColor: 'secondary.main'}
-                             }} onClick={() => swiperRef.current?.slideNext()}><ArrowLeft/>
-                        </Box>
+                                 '&:hover': {backgroundColor: 'secondary.main' , color:'white'}
+                             }} onClick={() => swiperRef.current?.slideNext()}><ChevronLeftRoundedIcon/></Box>
                     }
                 </Box>
             ) : (

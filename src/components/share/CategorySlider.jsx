@@ -8,7 +8,6 @@ const CategorySlider = ({category , selfId})=>{
     return(
             <Container disableGutters={true} sx={{mt:3}}>
                 <SwiperCustomWrapper
-                    navigation={false}
                     spaceBetween={'15px'}>
                     {
                         category?.map((item) => {

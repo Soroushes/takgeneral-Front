@@ -1,5 +1,4 @@
 import Slider from "../components/home/Slider";
-import DiscountProductSlider from "../components/home/DiscountProductSlider";
 import {BASE_URL} from "@/data/urls";
 import anPic from '../assets/images/home/homeCategoryImage.png'
 import HomePageCategorySection from "../components/home/HomePageCategorySection";
@@ -8,6 +7,7 @@ import ProductBanners from "../components/share/productBanners";
 import HighRateCategorySlider from "../components/home/highRateCategorySlider";
 import {Suspense} from "react";
 import LoadingPages from "../components/share/LoadingPages";
+import DiscountProductSlider from "@/components/home/DiscountProductSlider";
 async function getData() {
     const res = await fetch(`${BASE_URL}home/`, {next: {revalidate: 60}})
     if (!res.ok) {

@@ -3,14 +3,12 @@ import {Box, Container, Grid, Pagination, PaginationItem, Typography} from "@mui
 import Image from "next/image";
 import BlogCart from "../../components/blog/blogCart";
 import ClockIcon from "../../assets/icons/share/clock.svg";
-import ArrowIcon from "../../assets/icons/single-product/blue-arrow-left.svg";
 import {useEffect, useState} from 'react' ;
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
-import ArrowRightIcon from "@/assets/icons/share/arrow-right.svg";
-import ArrowLeftIcon from "@/assets/icons/share/arrow-left.svg";
+import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
+import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import Link from "next/link";
 import {timeStampToDate} from "@/hooks/timeStampToDate";
-
 const BlogPage = ({blogs, currentPage, pageCount}) => {
     const [pageState, setPageState] = useState(1);
     const noQueryPath = usePathname();
@@ -72,7 +70,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                             <Link href={`/blog/${blogs[0].id}`}>
                                 <Box display={'flex'} alignItems={'center'} gap={.5}>
                                     <Typography color={'primary'} variant={'subtitle1'}>مشاهده بیشتر</Typography>
-                                    <ArrowIcon/>
+                                    <ChevronLeftRoundedIcon color={'primary'} fontSize={'small'}/>
                                 </Box>
                             </Link>
                         </Box>
@@ -82,7 +80,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
             <Grid container sx={{mt: 3}}>
                 {
                     blogs?.map((item, index) => {
-                        if (index > 0) {
+                        if (index === 0) {
                             return (
                                 <Grid item md={4} xs={12} sx={{
                                     p: 1,
@@ -98,7 +96,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                     })
                 }
             </Grid>
-            <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4}}>
+            <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4 , px:2}}>
                 <Pagination sx={{direction: 'rtl'}} shape={'rounded'} onChange={handlePaginationChange} page={pageState}
                             count={pageCount}
                             color={'secondary'}
@@ -108,7 +106,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                                 return (
                                     (
                                         <PaginationItem
-                                            slots={{previous: ArrowRightIcon, next: ArrowLeftIcon}}
+                                            slots={{previous: ChevronRightRoundedIcon, next: ChevronLeftRoundedIcon}}
                                             {...item}
                                         />
                                     )

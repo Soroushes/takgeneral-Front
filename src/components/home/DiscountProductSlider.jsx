@@ -98,7 +98,6 @@ const dummyData =[
 ]
 const DiscountProductSlider = () => {
     const {isMobile} = useSelector(state => state.deviceInfo) ;
-
     return (
             <Container disableGutters={true} sx={{backgroundImage: 'linear-gradient(to left, #EF4800 , #FF8301)' , my : 8 , pt : 4 , pb:  6 , borderRadius : '4px 4px 25px 25px' , position : 'relative'}}>
                 <Box top={'-25%'} left={'0'} position={'absolute'}>

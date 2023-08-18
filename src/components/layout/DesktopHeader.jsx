@@ -12,11 +12,12 @@ import Image from "next/image";
 import {urls} from "@/data/urls";
 import {useSelector} from "react-redux";
 import {useRouter} from "next/navigation";
-const DesktopHeader = ({status, desktopHeaderRef}) => {
+const DesktopHeader = ({status}) => {
     const router = useRouter();
     const {total_count} = useSelector(state => state.cart)
+    const {desktopHeaderHeight} = useSelector(state => state.deviceInfo);
     return (
-        <AppBar ref={desktopHeaderRef} sx={{backgroundColor: "#fff"}}>
+        <AppBar sx={{backgroundColor: "#fff" , height : desktopHeaderHeight }}>
             <Toolbar>
                 <Container maxWidth={'lg'}>
                     <Box
