@@ -7,15 +7,16 @@ import AvailableIcon from '../../assets/icons/single-product/available.svg';
 import OriginalIcon from '../../assets/icons/single-product/original.svg';
 import BestPriceIcon from '../../assets/icons/single-product/bestPrice.svg';
 import Warranty from '../../assets/icons/single-product/warranty.svg';
+import {useCart} from "@/hooks/useCart";
 
 const SingleProductSellCard = ({
                                    available,
                                    freeSent,
-                                   price,
-                                   finalPrice,
                                    warranty,
                                    id,
+                                   price, finalPrice
                                }) => {
+    const {priceItem} = useCart(id);
     return (
         <>
             <Box sx={{mb: 2, backgroundColor: '#fff', py: 2, px: .5, borderRadius: 2, boxShadow: 1}} display={'flex'}
@@ -49,7 +50,7 @@ const SingleProductSellCard = ({
                     display: 'flex',
                     justifyContent: 'space-around',
                     gap: 1,
-                    backgroundColor:'#fff'
+                    backgroundColor: '#fff'
                 }}>
                 {
                     warranty &&
@@ -78,8 +79,8 @@ const SingleProductSellCard = ({
                             variant={'h5'}>قیمت محصول:</Typography>
                 <Box sx={{my: 2, display: 'flex', justifyContent: 'end', width: '100%', direction: 'ltr'}}>
                     <PriceDiscount finalPriceBold={true} align={'end'} gap={1.7} justify={{md: 'column', xs: 'row'}}
-                                   discountPrice={price}
-                                   finalPrice={finalPrice} discountedPriceColor={'text.muted'}
+                                   discountPrice={priceItem.price ?? price}
+                                   finalPrice={priceItem.finalPrice ?? finalPrice} discountedPriceColor={'text.muted'}
                                    finalPriceColor={'text.main'} discountedPriceFont={'h5'} fontSize={'h4'}/>
                 </Box>
                 <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'end', width: '100%'}}>

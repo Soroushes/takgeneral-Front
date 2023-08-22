@@ -31,9 +31,9 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                 <Grid container justifyContent={'space-between'} sx={{boxShadow: 1, p: 2, borderRadius: 2}}>
                     <Grid item md={3} xs={12}>
                         <Box sx={{textAlign: 'center', width: '100%', aspectRatio: '1/1'}}>
-                            <Image width={590} height={290} style={{width: '100%', height: 'auto'}}
-                                   src={blogs[0].main_image.image}
-                                   alt={''}/>
+                            {/*<Image width={590} height={290} style={{width: '100%', height: 'auto'}}*/}
+                            {/*       src={blogs[0].main_image}*/}
+                            {/*       alt={''}/>*/}
                         </Box>
                     </Grid>
                     <Grid item md={9} xs={12} sx={{px: 2, py: 1}} display={'flex'} flexDirection={'column'}
@@ -80,15 +80,15 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
             <Grid container sx={{mt: 3}}>
                 {
                     blogs?.map((item, index) => {
-                        if (index === 0) {
+                        if (index > 0) {
                             return (
-                                <Grid item md={4} xs={12} sx={{
+                                <Grid key={item.id} item md={4} xs={12} sx={{
                                     p: 1,
                                     '&:hover': {transform: 'translateY(-2%)'},
                                     transition: 'all .5s',
                                     minHeight: '360px'
                                 }}>
-                                    <BlogCart image={item.main_image.image} title={item.title} content={item.content}
+                                    <BlogCart image={item.main_image} title={item.title} content={item.content}
                                               id={item.id} date={timeStampToDate(item.created_time.timestamp)}/>
                                 </Grid>
                             )
