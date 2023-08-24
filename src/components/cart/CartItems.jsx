@@ -28,7 +28,7 @@ const CartItems = ({product}) => {
                     !isMobile && (
                         <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
                             <CartEditionButton hideStatus={true} boxSx={{width: '90px', height: '35px'}}
-                                               id={product.product_id}/>
+                                               id={product.product_variant_id}/>
                             <PriceDiscount
                                 finalPriceBold={true} finalPriceColor={'#333'}
                                 discountedPriceColor={'text.muted'}

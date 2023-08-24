@@ -4,14 +4,13 @@ import Image from "next/image";
 import ClockIcon from "@/assets/icons/share/clock.svg";
 import {timeStampToDate} from "@/hooks/timeStampToDate";
 
-const SingleBlog = ({images , timeStamp , title , data , content}) => {
-    const mainImage = images.find((element) => element.is_main === true);
+const SingleBlog = ({images , timeStamp , title , content}) => {
     return (
         <Container mt={3}>
             <Grid container justifyContent={'space-between'} sx={{ minHeight: '360px'}}>
                 <Grid sx={{py: 1}} item md={3} xs={12}>
                     <Box sx={{textAlign: 'center', width: '100%'}}>
-                        <Image width={590} height={290} style={{width: '100%', height: 'auto'}} src={mainImage.image}
+                        <Image width={590} height={290} style={{width: '100%', height: 'auto'}} src={images[0]}
                                alt={''}/>
                     </Box>
                 </Grid>

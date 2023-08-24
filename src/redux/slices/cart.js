@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
-import {BASE_URL} from "../../data/urls";
+import {BASE_URL} from "@/data/urls";
 const initialState = {};
 
 export const fetchCart = createAsyncThunk(
@@ -22,7 +22,7 @@ export const fetchCart = createAsyncThunk(
             })
             localStorage.setItem('cart', JSON.stringify(data.products.map((cart) => ({
                 count: cart.quantity,
-                id: cart.product_id
+                id: cart.product_variant_id
             }))))
             return data
         } catch (err) {

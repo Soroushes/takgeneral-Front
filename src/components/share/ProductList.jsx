@@ -29,9 +29,9 @@ const ProductList = ({product, count = 8, page = 1}) => {
                             <ProductPreviewCard
                                 shadow={2}
                                 id={productItem.id}
-                                price={productItem.price} title={productItem.name}
-                                discountPercent={+productItem.discount}
-                                afterDiscountPrice={productItem.final_price}
+                                price={productItem.min_price.price} title={productItem.name}
+                                discountPercent={+productItem.min_price.discount}
+                                afterDiscountPrice={productItem.min_price.final_price}
                                 image={`${BASE_URL}media/Group_2073.png`}/>
                         </Grid>
                     ))

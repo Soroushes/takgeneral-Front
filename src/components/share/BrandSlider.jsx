@@ -6,7 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import brandImage from '../../assets/images/pentax (1).png';
 
-const BrandSlider = ({brands}) => {
+const BrandSlider = ({brands = []}) => {
     return (
             <Container disableGutters={true}>
                 <SwiperCustomWrapper
@@ -14,7 +14,7 @@ const BrandSlider = ({brands}) => {
                     {
                         brands.map((brand) => {
                             return (
-                                <SwiperSlide key={Math.random() * 1000} style={{width: 160 , padding : '50px 0px' }}>
+                                <SwiperSlide key={Math.random() * 1000} style={ {width: 160 , padding : '50px 0px' }}>
                                     <InnerImageSection href={'/product_brand/'+ brand.brand__id} name={brand.brand__name} image={brandImage}/>
                                 </SwiperSlide>
                             )

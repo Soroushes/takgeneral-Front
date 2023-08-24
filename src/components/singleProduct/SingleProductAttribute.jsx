@@ -3,7 +3,7 @@ import Rating from '@mui/material/Rating';
 import PN from "persian-number";
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 
-const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, opinionRef}) => {
+const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, opinionRef , productOptions , setOptions , options}) => {
     const scrollToDetails = () => {
         setShowAllDetails(true);
         //goToDetails.current?.scrollIntoView({behavior: 'smooth' , block : 'nearest' , inline : 'start' });
@@ -19,6 +19,9 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
             behavior: 'smooth'
         })
     };
+    const handleSortOnchange = (value)=>{
+        setOptions(value)
+    }
     return (
         <Box px={3}>
             <Typography variant="h4" sx={{fontWeight: 'bold', mb: 2}} component={'h1'}>{name}</Typography>
@@ -35,25 +38,28 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
                     </Typography>
                 </Button>
             </Box>
-            <Box mt={3} display={'flex'} alignItems={'center'} gap={4}>
-                <Typography>عنوان نوشته :</Typography>
-                <TextField
-                    sx={{
-                        width: "150px", "& fieldset": {border: '1px solid #eee'},
-                    }}
-                    size={'small'}
-                    select
-                    value={'sth'}
-                    onChange={(e) => handleSortOnchange(e.target.value)}
-                >
-                    {
-                        [{name: 'عنوان نوشته', value: 'sth'}].map((sortItem) => (
-                            <MenuItem key={sortItem.value} variant={'subtitle1'}
-                                      value={sortItem.value}>{sortItem.name}</MenuItem>
-                        ))
-                    }
-                </TextField>
-            </Box>
+            {
+                !options.no_option &&
+                <Box mt={3} display={'flex'} alignItems={'center'} gap={4}>
+                    <Typography>{options.name} :</Typography>
+                    <TextField
+                        sx={{
+                            width: "150px", "& fieldset": {border: '1px solid #eee'},
+                        }}
+                        size={'small'}
+                        select
+                        defaultValue={productOptions}
+                        onChange={(e) => handleSortOnchange(e.target.value)}
+                    >
+                        {
+                            options.product_variant.map((sortItem) => (
+                                <MenuItem key={sortItem.option_value} variant={'subtitle1'}
+                                          value={sortItem}>{sortItem.option_value}</MenuItem>
+                            ))
+                        }
+                    </TextField>
+                </Box>
+            }
             <Box component={'ul'} sx={{display: 'flex', flexDirection: 'column', gap: .75, mt: 1}}>
                 {
                     attributes?.map((attr, index) => {

@@ -1,4 +1,4 @@
-import {BASE_URL} from "../../../data/urls";
+import {BASE_URL} from "@/data/urls";
 import ChildCategoryPage from "./childCategoryPage";
 import ParentCategoryPage from './parentCategoryPage';
 

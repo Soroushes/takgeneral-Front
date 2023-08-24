@@ -37,7 +37,6 @@ const ChildCategoryPage = ({ brands, current_page, page_count  , category ,child
     const [sortValue, setSortValue] = useState('newest');
     const productBoxRef = useRef(null);
     const {isMobile} = useSelector(state => state.deviceInfo);
-    console.log(content)
     useEffect(() => {
         setSortValue('newest')
     }, [noQueryPath])

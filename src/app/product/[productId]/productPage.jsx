@@ -12,6 +12,7 @@ const ProductPage = ({data}) => {
     const attributesTableRef = useRef(null);
     const opinionTableRef = useRef(null);
     const [isShowAllDetails, setIsShowAllDetails] = useState(false);
+    const [productOptions , setProductOptions] = useState(data.product.options.product_variant[0]);
     return (
         <Box sx={{pt: 3, height: '100%'}}>
             <Container maxWidth={'lg'}>
@@ -21,21 +22,22 @@ const ProductPage = ({data}) => {
                     </Grid>
                     <Grid item md={5} xs={12}>
                         <SingleProductAttribute
+                            options={data.product.options}
+                            productOptions={productOptions}
+                            setOptions={setProductOptions}
                             opinionRef={opinionTableRef}
                             setShowAllDetails={setIsShowAllDetails} name={data.product.name}
                             attributes={data.product.attributes} attrRef={attributesTableRef}/>
                     </Grid>
                     <Grid item md={3.25} xs={12}>
                         <SingleProductSellCard
-                            opinionRef={opinionTableRef}
-                            available={data.product.product_available}
-                            price={data.product.price}
-                            finalPrice={data.product.final_price}
-                            discount={data.product.discount}
-                            warranty={data.product.warranty}
-                            sevenDaysBack={data.product.seven_days_back}
-                            freeSent={data.product.free_send}
-                            id={data.product.id}
+                            key={productOptions.id}
+                            available={productOptions.product_available}
+                            price={productOptions.price}
+                            finalPrice={productOptions.final_price}
+                            warranty={productOptions.warranty}
+                            freeSent={productOptions.free_send}
+                            id={productOptions.id}
                         />
                     </Grid>
                 </Grid>
