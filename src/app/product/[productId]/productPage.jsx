@@ -8,6 +8,7 @@ import SingleProductImage from "../../../components/singleProduct/SingleProductI
 import SingleProductSellCard from "../../../components/singleProduct/SingleProductSellCard";
 import SingleImage from '../../../assets/images/single-product-image.png';
 import SingleProductAttribute from "@/components/singleProduct/SingleProductAttribute";
+import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 const ProductPage = ({data}) => {
     const attributesTableRef = useRef(null);
     const opinionTableRef = useRef(null);
@@ -16,6 +17,8 @@ const ProductPage = ({data}) => {
     return (
         <Box sx={{pt: 3, height: '100%'}}>
             <Container maxWidth={'lg'}>
+                <BreadcrumbGenerator product={data.product} breadcrumb={data.breadcrumb}/>
+
                 <Grid container rowGap={5}>
                     <Grid item md={3.75} xs={12}>
                         <SingleProductImage mainImage={SingleImage} otherImage={null}/>

@@ -37,10 +37,10 @@ export default async function Page({params, searchParams}) {
             <ChildCategoryPage
                 content={data.page_content.desc} childCategory={data.sub_category}
                 products={data.product} category={params.category}
-                data={data} brands={data.brands} current_page={data.current_page}
+                data={data} breadcrumb={data.breadcrumb} brands={data.brands} current_page={data.current_page}
                 page_count={data.page_count}
             />
             :
-            <ParentCategoryPage subCatecory={data.sub_category} brands={data.brands}/>
+            <ParentCategoryPage breadcrumb={data.breadcrumb} subCatecory={data.sub_category} brands={data.brands}/>
     )
 }
