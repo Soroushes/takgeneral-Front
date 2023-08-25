@@ -1,7 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import Theme from "../../assets/theme/theme";
 const initialState = {
-    innerWidth : null ,
     isMobile : true,
     navbarHeight : 75 ,
     mobileHeaderHeight : 80  ,
@@ -14,9 +13,7 @@ const deviceInfo = createSlice({
     reducers: {
         SET_DEVICE_INFO: (state) => {
             return {
-                ...state ,
-              innerWidth: window.outerWidth ,
-              isMobile : Theme.breakpoints.values.md > window.outerWidth
+                ...state , isMobile : Theme.breakpoints.values.md > window.outerWidth
             }
         }
     }

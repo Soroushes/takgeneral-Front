@@ -57,6 +57,6 @@ export default async function Page({params, searchParams}) {
                 page_count={data.page_count}
             />
             :
-            <ParentCategoryPage breadcrumb={data.breadcrumb} subCatecory={data.sub_category} brands={data.brands}/>
+            <ParentCategoryPage main_category={data.main_category} breadcrumb={data.breadcrumb} subCategory={data.sub_category} brands={data.brands}/>
     )
 }

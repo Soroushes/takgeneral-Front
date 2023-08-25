@@ -12,7 +12,8 @@ import Image from "next/image";
 import {urls} from "@/data/urls";
 import {useSelector} from "react-redux";
 import {useRouter} from "next/navigation";
-const DesktopHeader = ({status}) => {
+const DesktopHeader = () => {
+    const {phone_number} = useSelector(state => state.userInfo);
     const router = useRouter();
     const {total_count} = useSelector(state => state.cart)
     const {desktopHeaderHeight} = useSelector(state => state.deviceInfo);
@@ -56,7 +57,7 @@ const DesktopHeader = ({status}) => {
                             </Box>
                             <Box sx={{display: "flex", gap: 2}}>
                                 {
-                                    status.phone_number ?
+                                    phone_number ?
                                         <Button onClick={() => router.push(urls.profile)} sx={{px: 2, gap: 1, py: .8 , borderRadius : 2}} variant={'outlined'}>
                                             حساب کاربری
                                             <UserIcon/>

@@ -13,7 +13,7 @@ import SearchIcon from '../../assets/icons/layout/search-normal.svg';
 import XIcon from '../../assets/icons/layout/x-shape.svg';
 import {Controller, useForm} from "react-hook-form";
 import {useSelector} from "react-redux";
-const MobileHeader = () => {
+const MobileHeader = ({layoutData}) => {
     const {mobileHeaderHeight} = useSelector(state => state.deviceInfo);
     const {control} = useForm();
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
@@ -102,7 +102,7 @@ const MobileHeader = () => {
                                                             alignItems: 'center'
                                                         }}
                                                     >
-                                                        {item.icon}
+
                                                         <Typography variant={'body2'} component={'li'}>{item.name}</Typography>
                                                     </Box>
                                                 </Link>

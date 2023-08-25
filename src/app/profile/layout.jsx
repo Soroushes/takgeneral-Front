@@ -36,6 +36,7 @@ export default function Layout ({children}) {
         },
     ]
     useEffect(() => {
+        // todo get token from redux
         const token = localStorage.getItem('token');
         if (!token) {
             router.push(urls.login);

@@ -9,7 +9,7 @@ import {useSelector} from "react-redux";
 import OuterImageSection from "../../../components/share/OuterImageSection";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 
-export default function ParentCategoryPage({brands , subCatecory , breadcrumb}) {
+export default function ParentCategoryPage({brands , subCategory , breadcrumb , main_category}) {
     const {isMobile} = useSelector(state => state.deviceInfo);
     return (
         <Container disableGutters>
@@ -19,10 +19,10 @@ export default function ParentCategoryPage({brands , subCatecory , breadcrumb}) 
             <Box sx={{px:1}}>
                 <BreadcrumbGenerator breadcrumb={breadcrumb}/>
             </Box>
-            <Typography sx={{px:  2}} fontWeight={'bold'} variant={'h2'} component={'h1'}>پمپ و تجهیزات جانبی</Typography>
+            <Typography sx={{px:  2}} fontWeight={'bold'} variant={'h2'} component={'h1'}>{main_category.name}</Typography>
             <Grid container sx={{justifyContent: 'start' , padding : '70px 0 60px 0'}} rowGap={10}>
                 {
-                    subCatecory?.map((item)=>{
+                    subCategory?.map((item)=>{
                         return(
                             <Grid key={item.id} sx={{px: 2}} item xs={6} md={3}>
                                 <OuterImageSection href={'/category/' + item.id} shadow={2} image={sortImage} title={item.name}/>

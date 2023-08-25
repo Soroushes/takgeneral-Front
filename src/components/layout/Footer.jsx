@@ -15,7 +15,7 @@ import footerImage from '../../assets/images/footer/footerIcon.png'
 
 const Footer = () => {
     return (
-        <Box sx={{backgroundColor: '#FCFCFD', position: 'relative', zIndex: 4, py: 4}}>
+        <Box component={'footer'} sx={{backgroundColor: '#FCFCFD', position: 'relative', zIndex: 4, py: 4}}>
             <Container>
                 <Box sx={{mt: 2, borderTop: '1px solid #eee', borderBottom: '1px solid #eee'}} display={'flex'}
                      justifyContent={'center'}>
