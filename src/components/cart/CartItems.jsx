@@ -47,7 +47,7 @@ const CartItems = ({product}) => {
             {
                 isMobile && (
                     <Grid item xs={12} sx={{display: 'flex', alignItems: 'center', mt: 1}}>
-                        <CartEditionButton hideStatus={true} boxSx={{width: '90px', height: '35px'}} id={product.product_id}/>
+                        <CartEditionButton hideStatus={true} boxSx={{width: '90px', height: '35px'}} id={product.product_variant_id}/>
                         <PriceDiscount
                             finalPriceBold={true} finalPriceColor={'#333'}
                             discountedPriceColor={'text.muted'}

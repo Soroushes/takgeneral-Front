@@ -12,6 +12,8 @@ import CategorySlider from "../../../components/share/CategorySlider";
 import {useSelector} from "react-redux";
 import SortIcon from "../../../assets/icons/share/sort.svg";
 import ProductList from "../../../components/share/ProductList";
+import Link from "next/link";
+import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 
 const sortValueItems = [
     {
@@ -27,7 +29,16 @@ const sortValueItems = [
         value: "price"
     }
 ];
-const ChildCategoryPage = ({ brands, current_page, page_count  , category ,childCategory , products , content}) => {
+const ChildCategoryPage = ({
+                               brands,
+                               current_page,
+                               page_count,
+                               category,
+                               childCategory,
+                               products,
+                               content,
+                               breadcrumb
+                           }) => {
     const {push} = useRouter();
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
@@ -42,8 +53,8 @@ const ChildCategoryPage = ({ brands, current_page, page_count  , category ,child
     }, [noQueryPath])
     const handleSortOnchange = (value) => {
         setSortValue(value);
-        params.set('ordering' , value);
-        push(noQueryPath+'?'+ params.toString())
+        params.set('ordering', value);
+        push(noQueryPath + '?' + params.toString())
     }
     return (
         <Box sx={{minHeight: "70vh"}}>
@@ -63,7 +74,10 @@ const ChildCategoryPage = ({ brands, current_page, page_count  , category ,child
 
             }
             <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
-                <Box sx={{px : 1}}>
+                <Box sx={{px:1}}>
+                    <BreadcrumbGenerator breadcrumb={breadcrumb}/>
+                </Box>
+                <Box sx={{px: 1}}>
                     <CategorySlider selfId={category} category={childCategory}/>
                 </Box>
                 <Grid sx={{px: 1.5}} container>
@@ -71,7 +85,8 @@ const ChildCategoryPage = ({ brands, current_page, page_count  , category ,child
                         {
                             isMobile ?
                                 <Box sx={{mb: 2, px: 1, gap: 1, display: 'flex', justifyContent: 'space-between'}}>
-                                    <Button size={'small'} color={'btnLightGray'} onClick={() => setOpenFilterModal(true)}
+                                    <Button size={'small'} color={'btnLightGray'}
+                                            onClick={() => setOpenFilterModal(true)}
                                             variant={'outlined'}>
                                         <FilterAltIcon/>
                                         <Typography sx={{ml: 1}}> فیلتر</Typography>
@@ -88,7 +103,8 @@ const ChildCategoryPage = ({ brands, current_page, page_count  , category ,child
                                 </Box> :
                                 <Grid container>
                                     <Grid item md={3.5}></Grid>
-                                    <Grid item md={8.5} sx={{mb: 2 , px:1 }} gap={1} display={'flex'} alignItems={'center'}>
+                                    <Grid item md={8.5} sx={{mb: 2, px: 1}} gap={1} display={'flex'}
+                                          alignItems={'center'}>
                                         <Typography>
                                             مرتب سازی براساس:
                                         </Typography>
@@ -123,7 +139,7 @@ const ChildCategoryPage = ({ brands, current_page, page_count  , category ,child
                         <ProductList product={products} page={current_page} count={page_count}/>
                     </Grid>
                 </Grid>
-                <Box sx={{maxWidth:'100%'}} dangerouslySetInnerHTML={{__html: content}}/>
+                <Box sx={{maxWidth: '100%'}} dangerouslySetInnerHTML={{__html: content}}/>
             </Container>
             <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلتر'}>
                 <Box sx={{px: 2}}>

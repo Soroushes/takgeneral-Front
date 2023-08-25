@@ -7,13 +7,17 @@ import BrandSlider from "../../../components/share/BrandSlider";
 import categoryImages from '../../../assets/images/home/homeBanner.png';
 import {useSelector} from "react-redux";
 import OuterImageSection from "../../../components/share/OuterImageSection";
+import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 
-export default function ParentCategoryPage({brands , subCatecory}) {
-    const {isMobile} = useSelector(state => state.deviceInfo)
+export default function ParentCategoryPage({brands , subCatecory , breadcrumb}) {
+    const {isMobile} = useSelector(state => state.deviceInfo);
     return (
         <Container disableGutters>
             <Box sx={{position: "relative", width: '100%', aspectRatio: isMobile ? '1.5/1' : '4.5/1', mt: 1, mb: 3}}>
                 <Image src={categoryBanner} style={{borderRadius: '8px'}} fill alt={'banner'}/>
+            </Box>
+            <Box sx={{px:1}}>
+                <BreadcrumbGenerator breadcrumb={breadcrumb}/>
             </Box>
             <Typography sx={{px:  2}} fontWeight={'bold'} variant={'h2'} component={'h1'}>پمپ و تجهیزات جانبی</Typography>
             <Grid container sx={{justifyContent: 'start' , padding : '70px 0 60px 0'}} rowGap={10}>

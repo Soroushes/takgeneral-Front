@@ -6,7 +6,7 @@ import pompSectionImage from '../../assets/images/pomp 1.png';
 
 const CategorySlider = ({category , selfId})=>{
     return(
-            <Container disableGutters={true} sx={{mt:3}}>
+            <Container disableGutters={true} >
                 <SwiperCustomWrapper
                     spaceBetween={'15px'}>
                     {

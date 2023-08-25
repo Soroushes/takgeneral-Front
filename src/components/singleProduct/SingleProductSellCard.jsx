@@ -1,5 +1,4 @@
-import {Box} from "@mui/system";
-import {Typography} from "@mui/material";
+import {Typography , Box} from "@mui/material";
 import CartEditionButton from "../share/CartEditionButton";
 import PriceDiscount from "../share/PriceDiscount";
 import FreeDelivery from '../../assets/icons/single-product/freeDelivery.svg';
@@ -79,8 +78,8 @@ const SingleProductSellCard = ({
                             variant={'h5'}>قیمت محصول:</Typography>
                 <Box sx={{my: 2, display: 'flex', justifyContent: 'end', width: '100%', direction: 'ltr'}}>
                     <PriceDiscount finalPriceBold={true} align={'end'} gap={1.7} justify={{md: 'column', xs: 'row'}}
-                                   discountPrice={priceItem.price ?? price}
-                                   finalPrice={priceItem.finalPrice ?? finalPrice} discountedPriceColor={'text.muted'}
+                                   discountPrice={priceItem.price ? priceItem.price: price}
+                                   finalPrice={priceItem.finalPrice ? priceItem.finalPrice: finalPrice} discountedPriceColor={'text.muted'}
                                    finalPriceColor={'text.main'} discountedPriceFont={'h5'} fontSize={'h4'}/>
                 </Box>
                 <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'end', width: '100%'}}>
