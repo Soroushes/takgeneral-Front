@@ -3,7 +3,7 @@ import {Box} from "@mui/material";
 import Navbar from './Navbar';
 import MobileHeader from "./MobileHeader";
 import DesktopHeader from './DesktopHeader'
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 import AlertSnakeBar from "../share/alertSnakeBar";
 import {fetchInfo} from 'src/redux/slices/userInfoSlice';
 import {useDispatch, useSelector} from 'react-redux';
@@ -14,7 +14,6 @@ const Layout = ({children}) => {
     const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight, isMobile} = useSelector(state => state.deviceInfo);
     const dispatcher = useDispatch();
     const {full_name, phone_number} = useSelector(state => state.userInfo);
-    const [mounted , setMounted] = useState(false)
     const resizeTimeOutRef = useRef(null);
     useEffect(() => {
         onresize = () => {
@@ -26,7 +25,6 @@ const Layout = ({children}) => {
         dispatcher(SET_DEVICE_INFO());
         dispatcher(fetchInfo());
         dispatcher(fetchCart());
-        setMounted(true)
     }, [])
     return (
         <>

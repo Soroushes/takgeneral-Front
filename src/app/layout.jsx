@@ -14,7 +14,9 @@ export const metadata = {
         locale : 'fa_IR'
     }
 }
+// const getData
 export default function RootLayout({children}) {
+    // const layoutData =  getData()
     return (
         <html className={myFont.variable} dir='rtl' lang="fa_IR">
         <head/>

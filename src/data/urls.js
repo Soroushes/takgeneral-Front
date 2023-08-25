@@ -9,3 +9,4 @@ export const urls ={
     contactUs:'/contact-us',
 }
 export const BASE_URL = 'http://takback.soroushes.tk/';
+export const domainName = 'https://soroushes.tk'

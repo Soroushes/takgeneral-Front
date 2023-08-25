@@ -1,35 +1,51 @@
-import {BASE_URL} from "@/data/urls";
+import {BASE_URL, domainName} from "@/data/urls";
 import ChildCategoryPage from "./childCategoryPage";
 import ParentCategoryPage from './parentCategoryPage';
+import {notFound} from "next/navigation";
 
-
-export const metadata = {
-    description : 'تست تست تست تست' ,
-    openGraph : {
-        type : 'article'
-    }
-}
 async function getData(params, searchParams) {
-    let brands = searchParams.brand ?? [];
-    delete searchParams.brand;
-    const parameters = new URLSearchParams(searchParams);
-    if (typeof brands !== 'object') {
-        brands = Array(brands);
-    }
-    brands.map((brand) => {
-        parameters.append('brand[]', brand)
-    })
-    const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString()
-        , {next: {revalidate: 60}})
-    if (!res.ok) {
-        // This will activate the closest `error.js` Error Boundary
+    try {
+        let brands = searchParams.brand ?? [];
+        delete searchParams.brand;
+        const parameters = new URLSearchParams(searchParams);
+        if (typeof brands !== 'object') {
+            brands = Array(brands);
+        }
+        brands.map((brand) => {
+            parameters.append('brand[]', brand)
+        })
+        const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString()
+            , {next: {revalidate: 60}})
+        if (res.ok) {
+            return res.json();
+        }else {
+            if (res.status === '404'){
+                notFound() ;
+            }
+            throw new Error('Failed to fetch data')
+        }
+    }catch (err){
         throw new Error('Failed to fetch data')
-    } else {
-        return res.json();
     }
 }
 
-
+export async function generateMetadata({params , searchParams}){
+    const result = await getData(params, searchParams);
+    return {
+        title : result.meta_tag.title ? result.meta_tag.title : result.main_category.name ,
+        description : result.meta_tag.desc,
+        alternates: {
+            canonical : `${domainName}/category/${result.main_category.id}`
+        },
+        openGraph : {
+            title : result.meta_tag.og_title ? result.meta_tag.og_title : (result.meta_tag.title ? result.meta_tag.title : result.main_category.name),
+            description: result.meta_tag.og_desc ? result.meta_tag.og_desc : result.meta_tag.desc ,
+            siteName : result.meta_tag.og_site_name,
+            // type : result.meta_tag.og_type,
+            url :  `${domainName}/category/${result.main_category.id}`
+        }
+    }
+}
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
     return (
