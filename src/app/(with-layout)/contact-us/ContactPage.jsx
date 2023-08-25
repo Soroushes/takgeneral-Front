@@ -1,8 +1,8 @@
 'use client'
 import {Box, Button, Container, Grid, TextField, Typography} from "@mui/material";
-import MailIcon from '../../assets/icons/contact-us/sms.svg';
-import LocationIcon from '../../assets/icons/contact-us/location.svg';
-import CallIcon from '../../assets/icons/contact-us/call.svg'
+import MailIcon from '../../../assets/icons/contact-us/sms.svg';
+import LocationIcon from '../../../assets/icons/contact-us/location.svg';
+import CallIcon from '../../../assets/icons/contact-us/call.svg'
 import {Controller, useForm} from "react-hook-form";
 const ContactUsPage = () => {
     const {control, handleSubmit} = useForm();

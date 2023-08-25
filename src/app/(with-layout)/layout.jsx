@@ -1,21 +1,22 @@
 'use client'
 import {Box} from "@mui/material";
-import Navbar from './Navbar';
-import MobileHeader from "./MobileHeader";
-import DesktopHeader from './DesktopHeader'
-import AlertSnakeBar from "../share/alertSnakeBar";
+import Navbar from '../../components/layout/Navbar';
+import MobileHeader from "../../components/layout/MobileHeader";
+import DesktopHeader from '../../components/layout/DesktopHeader'
+import AlertSnakeBar from "../../components/share/alertSnakeBar";
 import {useSelector} from 'react-redux';
 import Footer from "@/components/layout/Footer";
-const Layout = ({children, layoutData = []}) => {
+export default function Layout({children}) {
     const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight, isMobile} = useSelector(state => state.deviceInfo);
+    console.log(isMobile)
     return (
         <>
             <Box sx={{position: 'relative', zIndex: 10}}>
                 {
                     isMobile ?
-                        <MobileHeader layoutData={layoutData}/>
+                        <MobileHeader/>
                         :
-                        <DesktopHeader layoutData={layoutData}/>
+                        <DesktopHeader/>
 
                 }
             </Box>
@@ -47,4 +48,3 @@ const Layout = ({children, layoutData = []}) => {
         </>
     );
 }
-export default Layout;

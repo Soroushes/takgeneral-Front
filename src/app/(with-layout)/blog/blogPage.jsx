@@ -1,8 +1,8 @@
 'use client'
 import {Box, Container, Grid, Pagination, PaginationItem, Typography} from "@mui/material";
 import Image from "next/image";
-import BlogCart from "../../components/blog/blogCart";
-import ClockIcon from "../../assets/icons/share/clock.svg";
+import BlogCart from "../../../components/blog/blogCart";
+import ClockIcon from "../../../assets/icons/share/clock.svg";
 import {useEffect, useState} from 'react' ;
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';

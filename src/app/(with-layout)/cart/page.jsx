@@ -1,4 +1,4 @@
-import CartPage from "@/app/cart/cartPage";
+import CartPage from "@/app/(with-layout)/cart/cartPage";
 export const metadata = {
     title : 'سبد خرید',
     robots : {

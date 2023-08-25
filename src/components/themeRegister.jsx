@@ -3,7 +3,7 @@ import * as React from 'react';
 import {ThemeProvider} from '@mui/material/styles';
 import theme from "../assets/theme/theme";
 import {useDispatch} from "react-redux";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, Suspense} from "react";
 import {SET_DEVICE_INFO} from "@/redux/slices/deviceInfo";
 import {fetchInfo} from "@/redux/slices/userInfoSlice";
 import {fetchCart} from "@/redux/slices/cart";

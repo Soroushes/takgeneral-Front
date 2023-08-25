@@ -2,16 +2,16 @@
 import {Box} from "@mui/system";
 import Image from "next/image";
 import {Button, Container, Divider, Grid, MenuItem, TextField, Typography} from "@mui/material";
-import CheckBoxFilter from "src/components/share/CheckBoxFilter";
+import CheckBoxFilter from "@/components/share/CheckBoxFilter";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
-import MainModal from "../../../components/share/MainModal";
+import MainModal from "../../../../components/share/MainModal";
 import {Fragment, useEffect, useRef, useState} from "react";
-import FilterAltIcon from '../../../assets/icons/share/setting-5.svg';
-import Banner from '../../../assets/images/categoryBanner1.jpg'
-import CategorySlider from "../../../components/share/CategorySlider";
+import FilterAltIcon from '../../../../assets/icons/share/setting-5.svg';
+import Banner from '../../../../assets/images/categoryBanner1.jpg'
+import CategorySlider from "../../../../components/share/CategorySlider";
 import {useSelector} from "react-redux";
-import SortIcon from "../../../assets/icons/share/sort.svg";
-import ProductList from "../../../components/share/ProductList";
+import SortIcon from "../../../../assets/icons/share/sort.svg";
+import ProductList from "../../../../components/share/ProductList";
 import Link from "next/link";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 

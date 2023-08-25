@@ -3,8 +3,8 @@ import {Box} from "@mui/system";
 import {Button, Container, Grid, Typography} from "@mui/material";
 import {useSelector} from "react-redux";
 import PN from "persian-number";
-import CartItems from "../../components/cart/CartItems";
-import EmptyCart from '../../assets/icons/cart/emptyCartIcon.svg';
+import CartItems from "../../../components/cart/CartItems";
+import EmptyCart from '../../../assets/icons/cart/emptyCartIcon.svg';
 
 const CartPage =()=> {
     const selectedProducts = useSelector(state => state.cart) ;

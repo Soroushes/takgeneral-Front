@@ -1,12 +1,12 @@
 'use client'
 import {Box, Container, Grid, Typography} from "@mui/material";
-import categoryBanner from '../../../assets/images/home/home-main-banner.png';
+import categoryBanner from '../../../../assets/images/home/home-main-banner.png';
 import Image from "next/image";
-import sortImage from '../../../assets/images/testSort.png'
-import BrandSlider from "../../../components/share/BrandSlider";
-import categoryImages from '../../../assets/images/home/homeBanner.png';
+import sortImage from '../../../../assets/images/testSort.png'
+import BrandSlider from "../../../../components/share/BrandSlider";
+import categoryImages from '../../../../assets/images/home/homeBanner.png';
 import {useSelector} from "react-redux";
-import OuterImageSection from "../../../components/share/OuterImageSection";
+import OuterImageSection from "../../../../components/share/OuterImageSection";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 
 export default function ParentCategoryPage({brands , subCategory , breadcrumb , main_category}) {

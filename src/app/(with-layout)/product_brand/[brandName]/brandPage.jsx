@@ -4,13 +4,13 @@ import {Button, Container, Divider, Grid, MenuItem, TextField, Typography} from 
 import {useSelector} from "react-redux";
 import {Fragment, useEffect, useState} from "react";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
-import MainModal from "../../../components/share/MainModal";
-import SortIcon from '../../../assets/icons/share/sort.svg';
-import ProductList from "../../../components/share/ProductList";
+import MainModal from "../../../../components/share/MainModal";
+import SortIcon from '../../../../assets/icons/share/sort.svg';
+import ProductList from "../../../../components/share/ProductList";
 import Image from "next/image";
-import Banner from "../../../assets/images/categoryBanner1.jpg";
+import Banner from "../../../../assets/images/categoryBanner1.jpg";
 import {Controller, useForm} from "react-hook-form";
-import {IOSSwitch} from '../../../assets/theme/theme'
+import {IOSSwitch} from '../../../../assets/theme/theme'
 
 const BrandPage = ({product, page_count, current_page}) => {
     const {control} = useForm()

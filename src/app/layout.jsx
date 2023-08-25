@@ -1,6 +1,5 @@
 import ThemeRegistry from "../components/themeRegister";
 import '../assets/styles/styles.css' ;
-import Layout from "../components/layout/Layout";
 import localFont from 'next/font/local';
 import NextAppDirEmotionCacheProvider from "@/components/emotionCache";
 import {BASE_URL} from "@/data/urls";
@@ -33,9 +32,7 @@ export default async function RootLayout({children}) {
         <body>
         <NextAppDirEmotionCacheProvider>
             <ThemeRegistry>
-                <Layout layoutData={[]}>
-                    {children}
-                </Layout>
+                {children}
             </ThemeRegistry>
         </NextAppDirEmotionCacheProvider>
         </body>

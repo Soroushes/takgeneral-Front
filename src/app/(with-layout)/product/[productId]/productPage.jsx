@@ -2,11 +2,11 @@
 import {Box} from "@mui/system";
 import {Grid, Container, Divider} from "@mui/material";
 import {useRef, useState} from 'react';
-import SingleProductDetails from "../../../components/singleProduct/SingleProductDetails";
-import CommentQuestion from "../../../components/singleProduct/Comment&Question";
-import SingleProductImage from "../../../components/singleProduct/SingleProductImage";
-import SingleProductSellCard from "../../../components/singleProduct/SingleProductSellCard";
-import SingleImage from '../../../assets/images/single-product-image.png';
+import SingleProductDetails from "../../../../components/singleProduct/SingleProductDetails";
+import CommentQuestion from "../../../../components/singleProduct/Comment&Question";
+import SingleProductImage from "../../../../components/singleProduct/SingleProductImage";
+import SingleProductSellCard from "../../../../components/singleProduct/SingleProductSellCard";
+import SingleImage from '../../../../assets/images/single-product-image.png';
 import SingleProductAttribute from "@/components/singleProduct/SingleProductAttribute";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 const ProductPage = ({data}) => {
