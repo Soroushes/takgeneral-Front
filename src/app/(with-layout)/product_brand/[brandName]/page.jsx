@@ -17,3 +17,4 @@ export default async function Page ({params , searchParams}){
         <BrandPage data={data} product={data.products} current_page={data.current_page} page_count={data.page_count}/>
     )
 }
+
