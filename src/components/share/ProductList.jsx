@@ -1,6 +1,5 @@
 import {Grid, Pagination, PaginationItem , Box} from "@mui/material";
 import ProductPreviewCard from "./ProductPreviewCard";
-import {BASE_URL} from "@/data/urls";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import {useEffect, useState} from "react";
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
@@ -31,7 +30,7 @@ const ProductList = ({product, count = 8, page = 1}) => {
                                 price={productItem.min_price.price} title={productItem.name}
                                 discountPercent={+productItem.min_price.discount}
                                 afterDiscountPrice={productItem.min_price.final_price}
-                                image={`${BASE_URL}media/Group_2073.png`}/>
+                                image={productItem.main_image}/>
                         </Grid>
                     ))
                 }

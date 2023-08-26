@@ -13,7 +13,7 @@ export default function ParentCategoryPage({brands , subCategory , breadcrumb , 
     const {isMobile} = useSelector(state => state.deviceInfo);
     return (
         <Container disableGutters>
-            <Box sx={{position: "relative", width: '100%', aspectRatio: isMobile ? '1.5/1' : '4.5/1', mt: 1, mb: 3}}>
+            <Box sx={{position: "relative", width: '100%', aspectRatio: isMobile ? '1.5/1' : '4.5/1', mt: 1}}>
                 <Image src={categoryBanner} style={{borderRadius: '8px'}} fill alt={'banner'}/>
             </Box>
             <Box sx={{px:1}}>

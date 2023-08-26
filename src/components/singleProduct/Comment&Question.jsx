@@ -16,6 +16,7 @@ import NoCommentIcon from '../../assets/icons/single-product/no comment.svg';
 import NoQuestion from '../../assets/icons/single-product/no question.svg'
 import AverageRatingQuestion from "./AverageRatingQuestion";
 import {useRouter, useSearchParams} from "next/navigation";
+import PN from "persian-number";
 
 const CommentQuestion = ({comments, rate, productId, questions}) => {
     const {isLoggedIn} = useSelector(state => state.userInfo)
@@ -69,11 +70,11 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                         sx={{
                             mr: 2,
                         }}
-                        label="دیدگاه کاربران"
+                        label={`دیدگاه کاربران (${PN.convertEnToPe(comments.length)})`}
                         value="1"
                     />
                     <Tab
-                        label="پرسش و پاسخ"
+                        label={`پرسش و پاسخ (${PN.convertEnToPe(questions.length)})`}
                         value="2"
                     />
                 </TabList>

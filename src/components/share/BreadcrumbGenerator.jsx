@@ -4,7 +4,7 @@ import {Typography} from "@mui/material";
 
 const BreadcrumbGenerator = ({breadcrumb , product})=>{
     return(
-        <Box display={'flex'} sx={{py: 3}}>
+        <Box display={'flex'} flexWrap={"wrap"} sx={{py: 3}}>
             <Link href={`/`}>
                 <Box display={'flex'}>
                     <Typography sx={{px:1}} color={'text.muted'} variant={'body2'}>خانه</Typography>

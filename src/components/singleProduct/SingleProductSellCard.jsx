@@ -55,12 +55,12 @@ const SingleProductSellCard = ({
                     warranty &&
                     <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
                         <Warranty/>
-                        <Typography textAlign={'center'} variant={'subtitle1'}>12 ماه گارانتی تعمیر و تعویض</Typography>
+                        <Typography textAlign={'center'} variant={'subtitle1'}>{warranty}</Typography>
                     </Box>
                 }
                 <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
                     <BestPriceIcon/>
-                    <Typography textAlign={'center'} variant={'subtitle1'}>تضمین بهترین قیمت</Typography>
+                    <Typography textAlign={'center'} variant={'subtitle1'}>کمترین قیمت در ایران</Typography>
                 </Box>
             </Box>
 

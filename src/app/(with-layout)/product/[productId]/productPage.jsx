@@ -15,16 +15,17 @@ const ProductPage = ({data}) => {
     const [isShowAllDetails, setIsShowAllDetails] = useState(false);
     const [productOptions , setProductOptions] = useState(data.product.options.product_variant[0]);
     return (
-        <Box sx={{pt: 3, height: '100%'}}>
+        <Box sx={{height: '100%'}}>
             <Container maxWidth={'lg'}>
                 <BreadcrumbGenerator product={data.product} breadcrumb={data.breadcrumb}/>
-
                 <Grid container rowGap={5}>
                     <Grid item md={3.75} xs={12}>
                         <SingleProductImage mainImage={SingleImage} otherImage={null}/>
                     </Grid>
                     <Grid item md={5} xs={12}>
                         <SingleProductAttribute
+                            comments={data.comments}
+                            rate={data.avg_rate.avg_rate}
                             options={data.product.options}
                             productOptions={productOptions}
                             setOptions={setProductOptions}
@@ -53,6 +54,7 @@ const ProductPage = ({data}) => {
                     <CommentQuestion rate={data.avg_rate} comments={data.comments} productId={data.product.id}
                                      questions={data.questions}/>
                 </Grid>
+                <Box sx={{maxWidth:'100%'}} dangerouslySetInnerHTML={{__html: data.page_content.desc}}/>
             </Container>
         </Box>
     )

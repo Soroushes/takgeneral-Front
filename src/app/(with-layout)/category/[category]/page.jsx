@@ -28,9 +28,23 @@ async function getData(params, searchParams) {
         throw new Error('Failed to fetch data')
     }
 }
-
-export async function generateMetadata({params , searchParams}){
-    const result = await getData(params, searchParams);
+async function getMetaData (params){
+    try {
+        const res = await fetch(BASE_URL + `products/${params.category}/?`, {next: {revalidate: 60}});
+        if (res.ok) {
+            return res.json();
+        }else {
+            if (res.status === '404'){
+                notFound() ;
+            }
+            throw new Error('Failed to fetch data')
+        }
+    }catch (err){
+        throw new Error('Failed to fetch data');
+    }
+}
+export async function generateMetadata({params}){
+    const result = await getMetaData(params);
     return {
         title : result.meta_tag.title ? result.meta_tag.title : result.main_category.name ,
         description : result.meta_tag.desc,
@@ -48,6 +62,7 @@ export async function generateMetadata({params , searchParams}){
 }
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
+    console.log(data)
     return (
         data.product ?
             <ChildCategoryPage
