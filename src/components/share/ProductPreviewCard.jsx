@@ -50,9 +50,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 }
                 <Box>
                     <Box textAlign={'center'}>
-                        <Image width={140} height={140}
-                               style={{transform: 'scale(0.9)', transition: 'all .3s', width: '100%', height: 'auto'}}
-                               src={testPic} alt={title}/>
+                        <Image width={140} height={140} src={testPic} alt={title}/>
                     </Box>
                     <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center'}}>
                         <Typography
