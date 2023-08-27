@@ -16,6 +16,7 @@ async function getData(params, searchParams) {
         })
         const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString()
             , {next: {revalidate: 60}})
+        console.log(res.status);
         if (res.ok) {
             return res.json();
         }else {

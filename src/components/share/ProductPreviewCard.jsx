@@ -1,12 +1,12 @@
 import {Stack, Typography} from "@mui/material";
 import {Box} from "@mui/system";
-import Image from "next/image";
 import Link from "next/link";
 import PriceDiscount from "./PriceDiscount";
 import testPic from '../../assets/images/product-image.png'
 import PN from "persian-number";
 import {urls} from "src/data/urls";
 import {useSelector} from "react-redux";
+import Image from "next/image";
 
 const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price, id, shadow, sx}) => {
     const {isMobile} = useSelector(state => state.deviceInfo)
@@ -50,7 +50,10 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 }
                 <Box>
                     <Box textAlign={'center'}>
-                        <Image width={140} height={140} src={testPic} alt={title}/>
+                        <Image width={140} height={140}
+                               style={{transform: 'scale(0.9)', transition: 'all .3s', width: '100%', height: 'auto'}}
+                               src={testPic} alt={title}
+                        />
                     </Box>
                     <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center'}}>
                         <Typography
