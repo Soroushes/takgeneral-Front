@@ -15,7 +15,6 @@ async function getData(params, searchParams) {
     })
     const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString()
         , {next: {revalidate: 60}})
-    console.log(res.status, 'get data')
     if (res.ok) {
         return res.json();
     } else {
@@ -24,11 +23,11 @@ async function getData(params, searchParams) {
         }
         throw new Error('Fail to fetch data')
     }
+    throw new Error('nnn')
 }
 
 async function getMetaData(params) {
     const res = await fetch(BASE_URL + `products/${params.category}/?`, {next: {revalidate: 60}});
-    console.log(res.status, 'meta data')
     if (res.ok) {
         return res.json();
     } else {
@@ -37,6 +36,7 @@ async function getMetaData(params) {
         }
         throw new Error('Failed to fetch data')
     }
+
 }
 
 export async function generateMetadata({params}) {

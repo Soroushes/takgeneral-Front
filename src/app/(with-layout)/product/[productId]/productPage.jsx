@@ -18,6 +18,7 @@ const ProductPage = ({data}) => {
     const opinionTableRef = useRef(null);
     const [isShowAllDetails, setIsShowAllDetails] = useState(false);
     const [productOptions, setProductOptions] = useState(data.product.options.product_variant[0]);
+    console.log(data)
     return (
         <Box sx={{height: '100%'}}>
             <Container maxWidth={'lg'}>

@@ -8,13 +8,21 @@ import PN from "persian-number";
 import ShoppingBagIcon from '../../assets/icons/share/bag.svg';
 import TrashIcon from '../../assets/icons/share/trash.svg';
 import IconButton from '@mui/material/IconButton';
-
-const CartEditionButton = ({id, boxSx , hideStatus}) => {
+import useAlert from "@/hooks/useAlert";
+const CartEditionButton = ({id, boxSx , hideStatus , available = true}) => {
     const {setCart, countItem, loading ,deleteProduct} = useCart(id);
+    const {warningAlert} = useAlert();
+    const addItem =()=>{
+        if(available){
+            setCart( true);
+        }else{
+            warningAlert('کالای مورد نظر در انبار موجود نمیباشد')
+        }
+    };
     return (
         countItem < 1 ?
             (
-                <LoadingButton loading={loading} onClick={setCart.bind(this, true)} fullWidth sx={{
+                <LoadingButton disabled={!available} color={'primary'} loading={loading} onClick={addItem} fullWidth sx={{
                     px:1,
                     height: 40,
                     borderRadius: 2,

@@ -8,7 +8,6 @@ import {useSelector} from 'react-redux';
 import Footer from "@/components/layout/Footer";
 export default function Layout({children}) {
     const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight, isMobile} = useSelector(state => state.deviceInfo);
-    console.log(isMobile)
     return (
         <>
             <Box sx={{position: 'relative', zIndex: 10}}>

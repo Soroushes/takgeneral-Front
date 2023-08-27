@@ -6,6 +6,7 @@ import HomeIcon from '../../assets/icons/layout/home-navbar-icon.svg';
 import ActiveHomeIcon from '../../assets/icons/layout/active-home.svg';
 import ActiveBagIcon from '../../assets/icons/layout/active-bag.svg';
 import ActiveUserIcon from '../../assets/icons/layout/active-user.svg';
+import ActiveContactIcon from '../../assets/icons/layout/blue-active-call.svg';
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import {urls} from "@/data/urls";
@@ -32,7 +33,7 @@ const Navbar = () => {
             {
                 name: "تماس با ما",
                 icon: <ContactIcon/>,
-                activeIcon: <ContactIcon/>,
+                activeIcon: <ActiveContactIcon/>,
                 link: urls.contactUs
             },
             {

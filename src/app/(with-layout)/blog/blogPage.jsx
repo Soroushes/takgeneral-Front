@@ -9,7 +9,7 @@ import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import Link from "next/link";
 import {timeStampToDate} from "@/hooks/timeStampToDate";
-const BlogPage = ({blogs, currentPage, pageCount}) => {
+const BlogPage = ({blogs, currentPage, pageCount , data}) => {
     const [pageState, setPageState] = useState(1);
     const noQueryPath = usePathname();
     const searchParams = useSearchParams();
@@ -22,7 +22,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
     }
     useEffect(() => {
         setPageState(currentPage)
-    }, [params])
+    }, [params]);
     return (
         <Container sx={{mt: 3}}>
             <Typography variant={'h3'} my={3} fontWeight={'bold'} sx={{display: {xs: 'block', md: 'none'}}}>مجله تک
@@ -31,9 +31,12 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                 <Grid container justifyContent={'space-between'} sx={{boxShadow: 1, p: 2, borderRadius: 2}}>
                     <Grid item md={3} xs={12}>
                         <Box sx={{textAlign: 'center', width: '100%', aspectRatio: '1/1'}}>
-                            {/*<Image width={590} height={290} style={{width: '100%', height: 'auto'}}*/}
-                            {/*       src={blogs[0].main_image}*/}
-                            {/*       alt={''}/>*/}
+                            {
+                                blogs[0]?.main_image &&
+                                <Image width={590} height={290} style={{width: '100%', height: 'auto'}}
+                                       src={blogs[0].main_image}
+                                       alt={''}/>
+                            }
                         </Box>
                     </Grid>
                     <Grid item md={9} xs={12} sx={{px: 2, py: 1}} display={'flex'} flexDirection={'column'}
@@ -41,7 +44,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                         <Box>
                             <Typography sx={{mb: 4}} variant={'h6'} fontWeight={'bold'}>
                                 {
-                                    blogs[0].title
+                                    blogs[0]?.title
                                 }
                             </Typography>
                             <Typography sx={{
@@ -65,9 +68,9 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                         <Box sx={{display: 'flex', px: .5, mt: 2, justifyContent: 'space-between'}}>
                             <Box display={'flex'} alignItems={'center'} gap={.5}>
                                 <ClockIcon/>
-                                <Typography variant={'subtitle1'} sx={{textAlign: 'center'}}>{timeStampToDate(blogs[0].created_time.timestamp)}</Typography>
+                                <Typography variant={'subtitle1'} sx={{textAlign: 'center'}}>{timeStampToDate(blogs[0]?.created_time.timestamp)}</Typography>
                             </Box>
-                            <Link href={`/blog/${blogs[0].id}`}>
+                            <Link href={`/blog/${blogs[0]?.id}`}>
                                 <Box display={'flex'} alignItems={'center'} gap={.5}>
                                     <Typography color={'primary'} variant={'subtitle1'}>مشاهده بیشتر</Typography>
                                     <ChevronLeftRoundedIcon color={'primary'} fontSize={'small'}/>

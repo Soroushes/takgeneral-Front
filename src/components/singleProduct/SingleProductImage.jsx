@@ -1,7 +1,7 @@
 import {Box} from "@mui/system";
 import {useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
-import {FreeMode, Navigation, Thumbs, Pagination} from "swiper";
+import {FreeMode , Thumbs, Pagination} from "swiper";
 import Image from "next/image";
 import {useSelector} from "react-redux";
 import testSlider from '../../assets/images/single-product-main-image.png' ;
@@ -56,7 +56,7 @@ const singleProductImage = ({mainImage}) => {
                         spaceBetween={1}
                         slidesPerView={4}
                         watchSlidesProgress={true}
-                        modules={[Navigation, Thumbs]}
+                        modules={[Thumbs]}
                         className="mySwiper"
                     >
                         <SwiperSlide style={{borderRadius: "8px", padding: '5px'}}>

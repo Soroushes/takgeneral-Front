@@ -1,15 +1,14 @@
 import {Stack, Typography} from "@mui/material";
 import {Box} from "@mui/system";
+import Image from "next/image";
 import Link from "next/link";
 import PriceDiscount from "./PriceDiscount";
-import testPic from '../../assets/images/product-image.png'
 import PN from "persian-number";
 import {urls} from "src/data/urls";
 import {useSelector} from "react-redux";
-import Image from "next/image";
 
 const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price, id, shadow, sx}) => {
-    const {isMobile} = useSelector(state => state.deviceInfo)
+    const {isMobile} = useSelector(state => state.deviceInfo);
     return (
         <Link href={urls.singleProduct + id}>
             <Stack
@@ -24,7 +23,9 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                     position: "relative",
                     boxShadow: shadow ? shadow : 0,
                     '&:hover img': {
-                        transform: 'scale(1) !important'
+                        md:{
+                            transform: 'scale(1) !important'
+                        },xs:'none'
                     },
                     ...sx
                 }}>
@@ -49,11 +50,13 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                         </Typography> : null
                 }
                 <Box>
-                    <Box textAlign={'center'}>
-                        <Image width={140} height={140}
-                               style={{transform: 'scale(0.9)', transition: 'all .3s', width: '100%', height: 'auto'}}
-                               src={testPic} alt={title}
-                        />
+                    <Box textAlign={'center'} sx={{aspectRatio:'1/1'}}>
+                        {
+                            image &&
+                            <Image width={140} height={140}
+                                   style={{transform: 'scale(0.9)', transition: 'all .3s', width: '100%', height: 'auto'}}
+                                   src={image} alt={title}/>
+                        }
                     </Box>
                     <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center'}}>
                         <Typography

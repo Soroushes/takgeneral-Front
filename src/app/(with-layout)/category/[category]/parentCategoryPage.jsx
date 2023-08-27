@@ -13,13 +13,13 @@ export default function ParentCategoryPage({brands , subCategory , breadcrumb , 
     const {isMobile} = useSelector(state => state.deviceInfo);
     return (
         <Container disableGutters>
-            <Box sx={{position: "relative", width: '100%', aspectRatio: isMobile ? '1.5/1' : '4.5/1', mt: 1, mb: 3}}>
+            <Box sx={{position: "relative", width: '100%', aspectRatio: isMobile ? '1.5/1' : '4.5/1', mt: 1}}>
                 <Image src={categoryBanner} style={{borderRadius: '8px'}} fill alt={'banner'}/>
             </Box>
             <Box sx={{px:1}}>
                 <BreadcrumbGenerator breadcrumb={breadcrumb}/>
             </Box>
-            <Typography sx={{px:  2}} fontWeight={'bold'} variant={'h2'} component={'h1'}>{main_category.name}</Typography>
+            <Typography sx={{px:  2}} fontWeight={'bold'} variant={'h2'} component={'h1'}>{main_category?.name}</Typography>
             <Grid container sx={{justifyContent: 'start' , padding : '70px 0 60px 0'}} rowGap={10}>
                 {
                     subCategory?.map((item)=>{

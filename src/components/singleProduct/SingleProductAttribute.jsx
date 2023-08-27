@@ -3,7 +3,7 @@ import Rating from '@mui/material/Rating';
 import PN from "persian-number";
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 
-const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, opinionRef , productOptions , setOptions , options}) => {
+const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, opinionRef , productOptions , setOptions , options , comments , rate , available}) => {
     const scrollToDetails = () => {
         setShowAllDetails(true);
         //goToDetails.current?.scrollIntoView({behavior: 'smooth' , block : 'nearest' , inline : 'start' });
@@ -30,11 +30,11 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
                 <Box display={'flex'} alignItems={'center'}>
                     <Rating readOnly size={'small'} sx={{mr: .5}} defaultValue={1} max={1}/>
                     <Typography variant={'subtitle1'}
-                                textAlign={'center'}>{PN.convertEnToPe(PN.sliceNumber(4.5))}</Typography>
+                                textAlign={'center'}>{PN.convertEnToPe(PN.sliceNumber(rate ?? 0))}</Typography>
                 </Box>
                 <Button size={'small'} variant={'text'} color={'secondary'} onClick={scrollToOpinion}>
                     <Typography color={'secondary'} variant={'subtitle1'}>
-                        دیدگاه کاربران ({PN.convertEnToPe(PN.sliceNumber(27))})
+                        دیدگاه کاربران ({PN.convertEnToPe(PN.sliceNumber(comments.length))})
                     </Typography>
                 </Button>
             </Box>
