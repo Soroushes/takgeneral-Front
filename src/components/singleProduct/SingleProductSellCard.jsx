@@ -22,7 +22,7 @@ const SingleProductSellCard = ({
                  justifyContent={'space-around'}>
                 <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: .5}}>
                     <OriginalIcon/>
-                    <Typography sx={{textAlign: 'center'}} variant={'subtitle1'}>ضمانت اصالت کالا</Typography>
+                    <Typography sx={{textAlign: 'center'}} variant={'subtitle1'}>کالای اورجینال</Typography>
                 </Box>
                 {
                     freeSent &&
@@ -83,7 +83,7 @@ const SingleProductSellCard = ({
                                    finalPriceColor={'text.main'} discountedPriceFont={'h5'} fontSize={'h4'}/>
                 </Box>
                 <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'end', width: '100%'}}>
-                    <CartEditionButton boxSx={{width: '110px'}} id={id}/>
+                    <CartEditionButton available={available} boxSx={{width: '110px'}} id={id}/>
                 </Box>
             </Box>
         </>

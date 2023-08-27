@@ -3,7 +3,7 @@ import Rating from '@mui/material/Rating';
 import PN from "persian-number";
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 
-const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, opinionRef , productOptions , setOptions , options , comments , rate}) => {
+const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, opinionRef , productOptions , setOptions , options , comments , rate , available}) => {
     const scrollToDetails = () => {
         setShowAllDetails(true);
         //goToDetails.current?.scrollIntoView({behavior: 'smooth' , block : 'nearest' , inline : 'start' });

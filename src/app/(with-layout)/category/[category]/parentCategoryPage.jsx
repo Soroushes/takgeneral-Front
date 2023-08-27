@@ -19,7 +19,7 @@ export default function ParentCategoryPage({brands , subCategory , breadcrumb , 
             <Box sx={{px:1}}>
                 <BreadcrumbGenerator breadcrumb={breadcrumb}/>
             </Box>
-            <Typography sx={{px:  2}} fontWeight={'bold'} variant={'h2'} component={'h1'}>{main_category.name}</Typography>
+            <Typography sx={{px:  2}} fontWeight={'bold'} variant={'h2'} component={'h1'}>{main_category?.name}</Typography>
             <Grid container sx={{justifyContent: 'start' , padding : '70px 0 60px 0'}} rowGap={10}>
                 {
                     subCategory?.map((item)=>{

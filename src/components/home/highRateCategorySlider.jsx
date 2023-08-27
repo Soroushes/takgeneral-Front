@@ -3,97 +3,97 @@ import {SwiperSlide} from "swiper/react";
 import {Box} from "@mui/system";
 import {Typography} from "@mui/material";
 import ProductPreviewCard from "../share/ProductPreviewCard";
-import {BASE_URL} from "@/data/urls";
 import SwiperCustomWrapper from "../share/SwiperCustomWrapper";
 import HighRateBanner from '../../assets/images/home/highRateSilderPic.png'
 import {useSelector} from "react-redux";
 import Image from "next/image";
+import anPic from '../../assets/images/home/homeCategoryImage.png'
 
 const dummyData = [
     {
         title: 'فلومتر مایع و گاز سایز 25 میلی متر مدل خطی LZB-VA تمام استیل',
         afterDiscountPrice: 9000000,
         price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`
+        image: anPic
     },
     {
         title: 'asdd َُیشس یشسسی asdasd',
         afterDiscountPrice: 9000000,
         price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`,
-        discountPercent: 10
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        afterDiscountPrice: 9000000,
-        price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`,
-        discountPercent: 10
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`,
-        discountPercent: 10
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`,
+        image: anPic,
         discountPercent: 10
     },
     {
         title: 'asdd َُیشس یشسسی asdasd',
         afterDiscountPrice: 9000000,
         price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`,
+        image: anPic,
+        discountPercent: 10
+    },
+    {
+        title: 'asdd َُیشس یشسسی asdasd',
+        price: 10000000,
+        image: anPic,
+        discountPercent: 10
+    },
+    {
+        title: 'asdd َُیشس یشسسی asdasd',
+        price: 10000000,
+        image: anPic,
         discountPercent: 10
     },
     {
         title: 'asdd َُیشس یشسسی asdasd',
         afterDiscountPrice: 9000000,
         price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`,
+        image: anPic,
         discountPercent: 10
     },
     {
         title: 'asdd َُیشس یشسسی asdasd',
         afterDiscountPrice: 9000000,
         price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`,
+        image: anPic,
         discountPercent: 10
     },
     {
         title: 'asdd َُیشس یشسسی asdasd',
         afterDiscountPrice: 9000000,
         price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`,
+        image: anPic,
         discountPercent: 10
     },
     {
         title: 'asdd َُیشس یشسسی asdasd',
         afterDiscountPrice: 9000000,
         price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`,
+        image: anPic,
         discountPercent: 10
     },
     {
         title: 'asdd َُیشس یشسسی asdasd',
         afterDiscountPrice: 9000000,
         price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`,
+        image: anPic,
+        discountPercent: 10
+    },
+    {
+        title: 'asdd َُیشس یشسسی asdasd',
+        afterDiscountPrice: 9000000,
+        price: 10000000,
+        image: anPic,
     },
     {
         title: 'asdd َُیشس یشسسی asdasd',
         afterDiscountPrice: 10000000,
         price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`,
+        image: anPic,
     },
     {
         title: 'asdd َُیشس یشسسی asdasd',
         afterDiscountPrice: 10000000,
         price: 10000000,
-        image: `${BASE_URL}media/Group_2073.png`,
+        image: anPic,
     }
 
 ]

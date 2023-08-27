@@ -16,53 +16,60 @@ async function getData(params, searchParams) {
         })
         const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString()
             , {next: {revalidate: 60}})
+        console.log(res.status)
         if (res.ok) {
+            console.log('ok')
             return res.json();
         }else {
             if (res.status === '404'){
-                notFound() ;
+                notFound();
             }
-            throw new Error('Failed to fetch data')
+            console.log('else')
+            throw new Error('Fail to fetch data')
         }
     }catch (err){
-        throw new Error('Failed to fetch data')
+        console.log(err)
+        throw new Error('nnn')
     }
 }
 async function getMetaData (params){
     try {
         const res = await fetch(BASE_URL + `products/${params.category}/?`, {next: {revalidate: 60}});
+        console.log(res.status)
         if (res.ok) {
+            console.log('ok')
             return res.json();
         }else {
+            console.log('not ok')
             if (res.status === '404'){
-                notFound() ;
+                notFound();
             }
             throw new Error('Failed to fetch data')
         }
     }catch (err){
+        console.log(err)
         throw new Error('Failed to fetch data');
     }
 }
 export async function generateMetadata({params}){
     const result = await getMetaData(params);
     return {
-        title : result.meta_tag.title ? result.meta_tag.title : result.main_category.name ,
-        description : result.meta_tag.desc,
+        title : result?.meta_tag?.title ? result.meta_tag.title : result.main_category?.name ,
+        description : result.meta_tag?.desc,
         alternates: {
-            canonical : `${domainName}/category/${result.main_category.id}`
+            canonical : `${domainName}/category/${result.main_category?.id}`
         },
         openGraph : {
-            title : result.meta_tag.og_title ? result.meta_tag.og_title : (result.meta_tag.title ? result.meta_tag.title : result.main_category.name),
-            description: result.meta_tag.og_desc ? result.meta_tag.og_desc : result.meta_tag.desc ,
-            siteName : result.meta_tag.og_site_name,
+            title : result?.meta_tag?.og_title ? result.meta_tag.og_title : (result.meta_tag?.title ? result.meta_tag.title : result.main_category?.name),
+            description: result.meta_tag?.og_desc ? result.meta_tag.og_desc : result.meta_tag?.desc ,
+            siteName : result.meta_tag?.og_site_name,
             // type : result.meta_tag.og_type,
-            url :  `${domainName}/category/${result.main_category.id}`
+            url :  `${domainName}/category/${result.main_category?.id}`
         }
     }
 }
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
-    console.log(data)
     return (
         data.product ?
             <ChildCategoryPage

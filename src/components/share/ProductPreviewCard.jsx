@@ -23,7 +23,9 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                     position: "relative",
                     boxShadow: shadow ? shadow : 0,
                     '&:hover img': {
-                        transform: 'scale(1) !important'
+                        md:{
+                            transform: 'scale(1) !important'
+                        },xs:'none'
                     },
                     ...sx
                 }}>
