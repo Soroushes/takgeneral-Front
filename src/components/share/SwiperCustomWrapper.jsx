@@ -3,20 +3,16 @@ import {FreeMode} from "swiper";
 import {Box} from "@mui/system";
 import {useSelector} from "react-redux";
 import 'swiper/swiper.css';
-import {useEffect, useRef, useState} from "react";
+import {useRef} from "react";
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 
 const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation = true}) => {
     const {isMobile} = useSelector(state => state.deviceInfo);
-    const [mounted , setMounted] = useState(false)
     const swiperRef = useRef();
-    useEffect(()=>{
-        setMounted(true)
-    })
     return (
         <>
-            {!isMobile && mounted ? (
+            {!isMobile ? (
                 <Box display={'flex'} alignItems={'center'}>
                     {
                         navigation &&

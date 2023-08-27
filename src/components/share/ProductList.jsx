@@ -11,15 +11,23 @@ const ProductList = ({product, count = 8, page = 1}) => {
     const noQueryPath = usePathname();
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
+    const [random , setRandom] = useState(0) ;
     const {push} = useRouter();
     const handlePaginationChange = (e, value) => {
         params.set('page', value)
         push(noQueryPath + '?' + params)
         setPageState(value);
     }
+    useEffect(()=>{
+        setInterval(()=>{
+            setRandom(Math.random())
+        },1000)
+    })
+    console.log('re render')
     useEffect(() => {
         setPageState(page)
     }, [params])
+
     return (
         <>
             <Grid container sx={{borderRadius: 2}}>

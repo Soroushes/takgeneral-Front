@@ -10,7 +10,7 @@ const OuterImageSection = ({image, description , isActive , title , shadow= 1 ,d
         <Link href={href}>
             <Box
                 sx={{
-                    outline :isActive ? `1px solid ${palette.secondary.main}` : 'none',
+                    border :isActive ? `1px solid ${palette.secondary.main}` : '1px solid transparent',
                     borderRadius: 2,
                     transition: "all .5s",
                     display: "flex",
