@@ -1,10 +1,11 @@
-import {Grid, Pagination, PaginationItem , Box} from "@mui/material";
+import {Grid, Pagination, PaginationItem, Box} from "@mui/material";
 import ProductPreviewCard from "./ProductPreviewCard";
 import {BASE_URL} from "@/data/urls";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import {useEffect, useState} from "react";
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
+
 const ProductList = ({product, count = 8, page = 1}) => {
     const [pageState, setPageState] = useState(page);
     const noQueryPath = usePathname();
