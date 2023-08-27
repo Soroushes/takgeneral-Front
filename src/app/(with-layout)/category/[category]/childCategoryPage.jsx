@@ -12,7 +12,6 @@ import CategorySlider from "../../../../components/share/CategorySlider";
 import {useSelector} from "react-redux";
 import SortIcon from "../../../../assets/icons/share/sort.svg";
 import ProductList from "../../../../components/share/ProductList";
-import Link from "next/link";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 
 const sortValueItems = [
@@ -74,7 +73,7 @@ const ChildCategoryPage = ({
 
             }
             <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
-                <Box sx={{px:1}}>
+                <Box sx={{px: 1}}>
                     <BreadcrumbGenerator breadcrumb={breadcrumb}/>
                 </Box>
                 <Box sx={{px: 1}}>
@@ -116,7 +115,7 @@ const ChildCategoryPage = ({
                                             onChange={(e) => handleSortOnchange(e.target.value)}
                                         >
                                             {
-                                                sortValueItems.map((sortItem) => (
+                                                sortValueItems?.map((sortItem) => (
                                                     <MenuItem key={sortItem.value} variant={'subtitle1'}
                                                               value={sortItem.value}>{sortItem.name}</MenuItem>
                                                 ))

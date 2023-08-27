@@ -11,7 +11,7 @@ const BreadcrumbGenerator = ({breadcrumb , product})=>{
                     /
                 </Box>
             </Link>{
-            breadcrumb.map((item, index) => (
+            breadcrumb?.map((item, index) => (
                 <Link key={Math.random() * 1000} href={`category/${item.id}`}>
                     <Box display={'flex'}>
                         {index ? '/' :''}

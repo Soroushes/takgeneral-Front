@@ -4,49 +4,59 @@ import ParentCategoryPage from './parentCategoryPage';
 import {notFound} from "next/navigation";
 
 async function getData(params, searchParams) {
-    try {
-        let brands = searchParams.brand ?? [];
-        delete searchParams.brand;
-        const parameters = new URLSearchParams(searchParams);
-        if (typeof brands !== 'object') {
-            brands = Array(brands);
+    let brands = searchParams.brand ?? [];
+    delete searchParams.brand;
+    const parameters = new URLSearchParams(searchParams);
+    if (typeof brands !== 'object') {
+        brands = Array(brands);
+    }
+    brands.map((brand) => {
+        parameters.append('brand[]', brand)
+    })
+    const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString()
+        , {next: {revalidate: 60}})
+    console.log(res.status, 'get data')
+    if (res.ok) {
+        return res.json();
+    } else {
+        if (res.status == '404') {
+            notFound();
         }
-        brands.map((brand) => {
-            parameters.append('brand[]', brand)
-        })
-        const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString()
-            , {next: {revalidate: 60}})
-        console.log(res.status);
-        if (res.ok) {
-            return res.json();
-        }else {
-            if (res.status === '404'){
-                notFound() ;
-            }
-            throw new Error('Failed to fetch data')
+        throw new Error('Fail to fetch data')
+    }
+}
+
+async function getMetaData(params) {
+    const res = await fetch(BASE_URL + `products/${params.category}/?`, {next: {revalidate: 60}});
+    console.log(res.status, 'meta data')
+    if (res.ok) {
+        return res.json();
+    } else {
+        if (res.status == '404') {
+            notFound();
         }
-    }catch (err){
         throw new Error('Failed to fetch data')
     }
 }
 
-export async function generateMetadata({params , searchParams}){
-    const result = await getData(params, searchParams);
+export async function generateMetadata({params}) {
+    const result = await getMetaData(params);
     return {
-        title : result.meta_tag.title ? result.meta_tag.title : result.main_category.name ,
-        description : result.meta_tag.desc,
+        title: result?.meta_tag?.title ? result.meta_tag.title : result.main_category?.name,
+        description: result.meta_tag?.desc,
         alternates: {
-            canonical : `${domainName}/category/${result.main_category.id}`
+            canonical: `${domainName}/category/${result.main_category?.id}`
         },
-        openGraph : {
-            title : result.meta_tag.og_title ? result.meta_tag.og_title : (result.meta_tag.title ? result.meta_tag.title : result.main_category.name),
-            description: result.meta_tag.og_desc ? result.meta_tag.og_desc : result.meta_tag.desc ,
-            siteName : result.meta_tag.og_site_name,
+        openGraph: {
+            title: result?.meta_tag?.og_title ? result.meta_tag.og_title : (result.meta_tag?.title ? result.meta_tag.title : result.main_category?.name),
+            description: result.meta_tag?.og_desc ? result.meta_tag.og_desc : result.meta_tag?.desc,
+            siteName: result.meta_tag?.og_site_name,
             // type : result.meta_tag.og_type,
-            url :  `${domainName}/category/${result.main_category.id}`
+            url: `${domainName}/category/${result.main_category?.id}`
         }
     }
 }
+
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
     return (
@@ -58,6 +68,7 @@ export default async function Page({params, searchParams}) {
                 page_count={data.page_count}
             />
             :
-            <ParentCategoryPage main_category={data.main_category} breadcrumb={data.breadcrumb} subCategory={data.sub_category} brands={data.brands}/>
+            <ParentCategoryPage main_category={data.main_category} breadcrumb={data.breadcrumb}
+                                subCategory={data.sub_category} brands={data.brands}/>
     )
 }
