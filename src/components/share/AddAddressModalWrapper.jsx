@@ -1,13 +1,12 @@
 'use client'
 import {useRef, useState} from "react";
-import {useAxios} from "../../hooks/useAxios";
+import {useAxios} from "@/hooks/useAxios";
 import {useForm, Controller} from "react-hook-form";
 import MainModal from "./MainModal";
 import {MapContainer, useMap} from "react-leaflet";
-import {Button, Divider, Grid, TextField, Typography} from "@mui/material";
-import {Box} from "@mui/system";
+import {Button, Divider, Grid, TextField, Typography , Box} from "@mui/material";
 import MapControl from "./MapControl";
-import {addressFormData} from "../../data/profile/addressFormData";
+import {addressFormData} from "@/data/profile/addressFormData";
 import LoadingButton from "@mui/lab/LoadingButton";
 
 const AddAddressModalWrapper = ({open , setOpen , getAddress}) => {
@@ -97,7 +96,7 @@ export default AddAddressModalWrapper ;
 
 
 export const MapSearchModal = ({open, setOpen}) => {
-    const {loading, callApi} = useAxios();
+    const {callApi} = useAxios();
     const [items, setItems] = useState([]);
     const map = useMap();
     const searchTimeout = useRef(null);

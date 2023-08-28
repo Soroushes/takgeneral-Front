@@ -1,5 +1,5 @@
 import BrandPage from "./brandPage";
-import {BASE_URL} from "../../../../data/urls";
+import {BASE_URL} from "@/data/urls";
 const getData = async (params , searchParams)=>{
     const parameters = new URLSearchParams(searchParams)
     const res = await fetch(BASE_URL+'brands/'+ params.brandName + '?' + parameters.toString() );

@@ -5,15 +5,13 @@ import Image from "next/image";
 import sortImage from '../../../../assets/images/testSort.png'
 import BrandSlider from "../../../../components/share/BrandSlider";
 import categoryImages from '../../../../assets/images/home/homeBanner.png';
-import {useSelector} from "react-redux";
 import OuterImageSection from "../../../../components/share/OuterImageSection";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 
 export default function ParentCategoryPage({brands , subCategory , breadcrumb , main_category}) {
-    const {isMobile} = useSelector(state => state.deviceInfo);
     return (
         <Container disableGutters>
-            <Box sx={{position: "relative", width: '100%', aspectRatio: isMobile ? '1.5/1' : '4.5/1', mt: 1}}>
+            <Box sx={{position: "relative", width: '100%', aspectRatio:{md: '4.5/1' , xs:'1.5/1' } , mt: 1}}>
                 <Image src={categoryBanner} style={{borderRadius: '8px'}} fill alt={'banner'}/>
             </Box>
             <Box sx={{px:1}}>

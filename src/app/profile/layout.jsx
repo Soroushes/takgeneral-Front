@@ -7,8 +7,7 @@ import UserIcon from "../../assets/icons/layout/user";
 import {urls} from "@/data/urls";
 import LocationIcon from "../../assets/icons/layout/locationIcon";
 import ExitIcon from "../../assets/icons/layout/exit";
-import {Button, Container, Grid, Typography} from "@mui/material";
-import {Box} from "@mui/system";
+import {Button, Container, Grid, Typography ,Box} from "@mui/material";
 import MainModal from "../../components/share/MainModal";
 import Link from "next/link";
 

@@ -4,20 +4,19 @@ import Image from "next/image";
 import BlogCart from "../../../components/blog/blogCart";
 import ClockIcon from "../../../assets/icons/share/clock.svg";
 import {useEffect, useState} from 'react' ;
-import {usePathname, useRouter, useSearchParams} from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import Link from "next/link";
 import {timeStampToDate} from "@/hooks/timeStampToDate";
-const BlogPage = ({blogs, currentPage, pageCount , data}) => {
+const BlogPage = ({blogs, currentPage, pageCount}) => {
     const [pageState, setPageState] = useState(1);
-    const noQueryPath = usePathname();
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
     const {push} = useRouter();
     const handlePaginationChange = (e, value) => {
         params.set('page', value)
-        push(noQueryPath + '?' + params)
+        push( '?' + params)
         setPageState(value);
     }
     useEffect(() => {

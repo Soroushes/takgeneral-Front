@@ -1,6 +1,5 @@
 import {MapContainer, Marker, TileLayer} from "react-leaflet";
-import {Box} from "@mui/system";
-import {Divider, Typography} from "@mui/material";
+import {Divider, Typography , Box} from "@mui/material";
 
 const AddressPreview = ({address}) => {
     return (

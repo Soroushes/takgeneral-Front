@@ -1,6 +1,5 @@
 'use client'
-import {Box} from "@mui/system";
-import {Grid, Container} from "@mui/material";
+import {Grid, Container , Box} from "@mui/material";
 import Skeleton from "@mui/material/Skeleton";
 
 const SingleProductLoading =()=>{

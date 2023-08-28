@@ -1,8 +1,7 @@
 'use client';
-import {Grid, TextField, Typography} from "@mui/material";
+import {Grid, TextField, Typography , Box} from "@mui/material";
 import {userInputData} from "@/data/profile/userInputData";
 import {Controller, useForm} from "react-hook-form";
-import {Box} from "@mui/system";
 import LoadingButton from "@mui/lab/LoadingButton";
 import {useAxios} from "@/hooks/useAxios";
 import useAlert from "../../hooks/useAlert";

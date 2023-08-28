@@ -1,7 +1,6 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import {Box} from "@mui/system";
-import {Badge, Button, Container, InputAdornment, TextField, Typography} from "@mui/material";
+import {Badge, Button, Container, InputAdornment, TextField, Typography , Box} from "@mui/material";
 import UserIcon from "../../assets/icons/layout/user";
 import SearchOutlined from "../../assets/icons/layout/searchOutlined";
 import BluBag from '../../assets/icons/layout/blue-bag.svg';

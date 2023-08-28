@@ -1,7 +1,6 @@
 'use client'
-import {Container, Grid, Typography} from "@mui/material";
+import {Container, Grid, Typography , Box} from "@mui/material";
 import Image from "next/image";
-import {Box} from "@mui/system";
 import Link from "next/link";
 
 const HomePageCategorySection = ({categories}) => {
@@ -23,7 +22,7 @@ const HomePageCategorySection = ({categories}) => {
                         <Grid key={index} sx={{px: {md: 6, xs: 3}}} xs={6} sm={4} md={3} item>
                             <Link style={{width : '100%'}} href={'/category/21'}>
                                 <Box sx={{mb: 2 , width : '100%' , textAlign : 'center'}}>
-                                    <Image style={{width : '100%' , height : '100%'}} width={160} height={160} src={item.image}/>
+                                    <Image alt={''} style={{width : '100%' , height : '100%'}} width={160} height={160} src={item.image}/>
                                 </Box>
                                 <Typography
                                     variant={'h5'}

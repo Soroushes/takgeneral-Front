@@ -1,6 +1,5 @@
 'use client'
-import {Box} from "@mui/system";
-import {Container, Divider, Grid, Typography} from "@mui/material";
+import {Container, Divider, Grid, Typography , Box} from "@mui/material";
 import {useRef, useState} from 'react';
 import SingleProductDetails from "../../../../components/singleProduct/SingleProductDetails";
 import CommentQuestion from "../../../../components/singleProduct/Comment&Question";
@@ -18,7 +17,6 @@ const ProductPage = ({data}) => {
     const opinionTableRef = useRef(null);
     const [isShowAllDetails, setIsShowAllDetails] = useState(false);
     const [productOptions, setProductOptions] = useState(data.product.options.product_variant[0]);
-    console.log(data)
     return (
         <Box sx={{height: '100%'}}>
             <Container maxWidth={'lg'}>

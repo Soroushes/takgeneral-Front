@@ -1,14 +1,11 @@
-import {Stack, Typography} from "@mui/material";
-import {Box} from "@mui/system";
+import {Stack, Typography ,Box} from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import PriceDiscount from "./PriceDiscount";
 import PN from "persian-number";
 import {urls} from "src/data/urls";
-import {useSelector} from "react-redux";
 
 const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price, id, shadow, sx}) => {
-    const {isMobile} = useSelector(state => state.deviceInfo);
     return (
         <Link href={urls.singleProduct + id}>
             <Stack
@@ -68,7 +65,12 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                         </Typography>
                     </Box>
                 </Box>
-                <PriceDiscount finalPriceBold={!isMobile} discountPrice={price} finalPrice={afterDiscountPrice}/>
+                <Box display={{md:'block' , xs:'none'}}>
+                    <PriceDiscount  finalPriceBold={true} discountPrice={price} finalPrice={afterDiscountPrice}/>
+                </Box>
+                <Box display={{xs:'block' , md:'none'}}>
+                    <PriceDiscount finalPriceBold={false} discountPrice={price} finalPrice={afterDiscountPrice}/>
+                </Box>
             </Stack>
         </Link>
     )

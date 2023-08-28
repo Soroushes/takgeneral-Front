@@ -1,7 +1,7 @@
 import {useEffect} from "react";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import {TileLayer, useMap} from "react-leaflet";
-import {Box} from "@mui/system";
+import {Box} from "@mui/material";
 const MapControl = () => {
     const map = useMap();
     useEffect(() => {

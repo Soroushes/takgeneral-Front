@@ -1,6 +1,5 @@
-import {Box} from "@mui/system";
 import Link from "next/link";
-import {Typography} from "@mui/material";
+import {Typography, Box} from "@mui/material";
 
 const BreadcrumbGenerator = ({breadcrumb , product})=>{
     return(
@@ -12,7 +11,7 @@ const BreadcrumbGenerator = ({breadcrumb , product})=>{
                 </Box>
             </Link>{
             breadcrumb?.map((item, index) => (
-                <Link key={Math.random() * 1000} href={`category/${item.id}`}>
+                <Link key={Math.random() * 1000} href={`/category/${item.id}`}>
                     <Box display={'flex'}>
                         {index ? '/' :''}
                         <Typography sx={{px:1}} color={'text.muted'} variant={'body2'}>{item.name}</Typography>
@@ -21,7 +20,7 @@ const BreadcrumbGenerator = ({breadcrumb , product})=>{
             ))
         }{
                 product ?
-                    <Link href={`product/${product.id}`}>
+                    <Link href={`${product.id}`}>
                         <Box display={'flex'}>
                             /
                             <Typography sx={{px:1}} color={'text.muted'} variant={'body2'}>{product.name}</Typography>

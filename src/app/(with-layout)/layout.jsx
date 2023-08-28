@@ -7,17 +7,12 @@ import AlertSnakeBar from "../../components/share/alertSnakeBar";
 import {useSelector} from 'react-redux';
 import Footer from "@/components/layout/Footer";
 export default function Layout({children}) {
-    const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight, isMobile} = useSelector(state => state.deviceInfo);
+    const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight} = useSelector(state => state.deviceInfo);
     return (
         <>
             <Box sx={{position: 'relative', zIndex: 10}}>
-                {
-                    isMobile ?
-                        <MobileHeader/>
-                        :
-                        <DesktopHeader/>
-
-                }
+                <Box sx={{display:{md:'none' , xs:'block'}}}><MobileHeader/></Box>
+                <Box sx={{display:{xs:'none' , md:'block'}}}><DesktopHeader/></Box>
             </Box>
             <Box
                 sx={{
@@ -31,6 +26,7 @@ export default function Layout({children}) {
             </Box>
             <Box
                 sx={{
+                    display:{md:'none' , xs:'block'},
                     position: "fixed",
                     zIndex: 1200,
                     bottom: 0,
@@ -38,10 +34,7 @@ export default function Layout({children}) {
                     right: 0,
                     height: `${navbarHeight}px`,
                 }}>
-                {
-                    isMobile ? <Navbar/> : null
-                }
-
+                <Navbar/>
             </Box>
             <AlertSnakeBar/>
         </>

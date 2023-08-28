@@ -1,7 +1,6 @@
 'use client'
 import {SwiperSlide} from "swiper/react";
-import {Box} from "@mui/system";
-import {Typography} from "@mui/material";
+import {Typography , Box} from "@mui/material";
 import ProductPreviewCard from "../share/ProductPreviewCard";
 import SwiperCustomWrapper from "../share/SwiperCustomWrapper";
 import HighRateBanner from '../../assets/images/home/highRateSilderPic.png'
@@ -124,15 +123,15 @@ const HighRateCategorySlider = () => {
             <SwiperCustomWrapper
             navigation={false}
             >
-                <SwiperSlide style={{width: isMobile ? 320 : 370}}>
-                    <Box sx={{position: 'relative', height: {xs : 450 , md : 500}}}>
+                <SwiperSlide style={{width: 'auto'}}>
+                    <Box sx={{width: {xs:320 , md:370},position: 'relative', height: {xs : 450 , md : 500}}}>
                         <Image alt={''} fill src={HighRateBanner}/>
                     </Box>
                 </SwiperSlide>
                     {dummyData.map((data, index) => {
                         return (
-                            <SwiperSlide key={Math.random() * 1000} style={{width: isMobile ? 170 : 200,  marginRight : !index ? isMobile ? '-120px' : '-150px' : '15px'}}>
-                                <Box marginTop={5}>
+                            <SwiperSlide key={Math.random() * 1000} style={{width:'auto', marginRight : !index ? (isMobile ? '-120px' : '-150px') : '15px'}}>
+                                <Box sx={{width: {md: 200, xs: 170}}} marginTop={5}>
                                     <ProductPreviewCard title={data.title} discountPercent={data.discountPercent}
                                                         price={data.price} afterDiscountPrice={data.afterDiscountPrice}
                                                         id={2}

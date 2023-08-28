@@ -1,7 +1,6 @@
 'use client'
-import {Box} from "@mui/system";
 import Image from "next/image";
-import {Button, Container, Divider, Grid, MenuItem, TextField, Typography} from "@mui/material";
+import {Button, Container , Box, Divider, Grid, MenuItem, TextField, Typography} from "@mui/material";
 import CheckBoxFilter from "@/components/share/CheckBoxFilter";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import MainModal from "../../../../components/share/MainModal";
@@ -9,7 +8,6 @@ import {Fragment, useEffect, useRef, useState} from "react";
 import FilterAltIcon from '../../../../assets/icons/share/setting-5.svg';
 import Banner from '../../../../assets/images/categoryBanner1.jpg'
 import CategorySlider from "../../../../components/share/CategorySlider";
-import {useSelector} from "react-redux";
 import SortIcon from "../../../../assets/icons/share/sort.svg";
 import ProductList from "../../../../components/share/ProductList";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
@@ -46,32 +44,34 @@ const ChildCategoryPage = ({
     const [openSortModal, setOpenSortModal] = useState(false);
     const [sortValue, setSortValue] = useState('newest');
     const productBoxRef = useRef(null);
-    const {isMobile} = useSelector(state => state.deviceInfo);
     useEffect(() => {
         setSortValue('newest')
     }, [noQueryPath])
     const handleSortOnchange = (value) => {
         setSortValue(value);
         params.set('ordering', value);
-        push(noQueryPath + '?' + params.toString())
+        push('?' + params.toString())
     }
     return (
         <Box sx={{minHeight: "70vh"}}>
-            {
-                isMobile ?
-                    <Box sx={{width: '100%', aspectRatio: '1.5/1', position: 'relative', p: 0}}>
-                        <Image fill alt={''} src={Banner}/>
-                    </Box> :
-                    <Box sx={{
-                        width: '100%',
-                        aspectRatio: '4.5/1',
-                        position: 'relative',
-                        p: 0
-                    }}>
-                        <Image fill alt={''} src={Banner}/>
-                    </Box>
-
-            }
+            <Box sx={{
+                width: '100%',
+                aspectRatio: '1.5/1',
+                position: 'relative',
+                p: 0,
+                display: {xs: 'block', md: 'none'}
+            }}>
+                <Image fill alt={''} src={Banner}/>
+            </Box>
+            <Box sx={{
+                display: {md: 'block', xs: 'none'},
+                width: '100%',
+                aspectRatio: '4.5/1',
+                position: 'relative',
+                p: 0
+            }}>
+                <Image fill alt={''} src={Banner}/>
+            </Box>
             <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
                 <Box sx={{px: 1}}>
                     <BreadcrumbGenerator breadcrumb={breadcrumb}/>
@@ -81,59 +81,59 @@ const ChildCategoryPage = ({
                 </Box>
                 <Grid sx={{px: 1.5}} container>
                     <Grid item xs={12}>
-                        {
-                            isMobile ?
-                                <Box sx={{mb: 2, px: 1, gap: 1, display: 'flex', justifyContent: 'space-between'}}>
-                                    <Button size={'small'} color={'btnLightGray'}
-                                            onClick={() => setOpenFilterModal(true)}
-                                            variant={'outlined'}>
-                                        <FilterAltIcon/>
-                                        <Typography sx={{ml: 1}}> فیلتر</Typography>
-                                    </Button>
-                                    <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnLightGray'}
-                                            variant={'outlined'}>
-                                        <SortIcon/>
-                                        <Typography sx={{ml: 1}}>
-                                            {
-                                                sortValueItems.find((item) => item.value === sortValue).name
-                                            }
-                                        </Typography>
-                                    </Button>
-                                </Box> :
-                                <Grid container>
-                                    <Grid item md={3.5}></Grid>
-                                    <Grid item md={8.5} sx={{mb: 2, px: 1}} gap={1} display={'flex'}
-                                          alignItems={'center'}>
-                                        <Typography>
-                                            مرتب سازی براساس:
-                                        </Typography>
-                                        <TextField
-                                            sx={{width: "150px"}}
-                                            size={'small'}
-                                            select
-                                            value={sortValue}
-                                            onChange={(e) => handleSortOnchange(e.target.value)}
-                                        >
-                                            {
-                                                sortValueItems?.map((sortItem) => (
-                                                    <MenuItem key={sortItem.value} variant={'subtitle1'}
-                                                              value={sortItem.value}>{sortItem.name}</MenuItem>
-                                                ))
-                                            }
-                                        </TextField>
-                                    </Grid>
-                                </Grid>
-                        }
-                    </Grid>
-                    {
-                        !isMobile &&
-                        <Grid item md={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
-                            <Box sx={{p: 2, borderRadius: 2, backgroundColor: '#fff', boxShadow: 1, width: '100%'}}>
-                                <CheckBoxFilter category={category} key={noQueryPath} subFilter={brands}/>
-                            </Box>
+                        <Box sx={{
+                            mb: 2,
+                            px: 1,
+                            gap: 1,
+                            display: {xs: 'flex', md: 'none'},
+                            justifyContent: 'space-between'
+                        }}>
+                            <Button size={'small'} color={'btnLightGray'}
+                                    onClick={() => setOpenFilterModal(true)}
+                                    variant={'outlined'}>
+                                <FilterAltIcon/>
+                                <Typography sx={{ml: 1}}> فیلتر</Typography>
+                            </Button>
+                            <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnLightGray'}
+                                    variant={'outlined'}>
+                                <SortIcon/>
+                                <Typography sx={{ml: 1}}>
+                                    {
+                                        sortValueItems.find((item) => item.value === sortValue).name
+                                    }
+                                </Typography>
+                            </Button>
+                        </Box>
+                        <Grid container sx={{display: {md: 'flex', xs: 'none'}}}>
+                            <Grid item md={3.5}></Grid>
+                            <Grid item md={8.5} sx={{mb: 2, px: 1}} gap={1} display={'flex'}
+                                  alignItems={'center'}>
+                                <Typography>
+                                    مرتب سازی براساس:
+                                </Typography>
+                                <TextField
+                                    sx={{width: "150px"}}
+                                    size={'small'}
+                                    select
+                                    value={sortValue}
+                                    onChange={(e) => handleSortOnchange(e.target.value)}
+                                >
+                                    {
+                                        sortValueItems?.map((sortItem) => (
+                                            <MenuItem key={sortItem.value} variant={'subtitle1'}
+                                                      value={sortItem.value}>{sortItem.name}</MenuItem>
+                                        ))
+                                    }
+                                </TextField>
+                            </Grid>
                         </Grid>
 
-                    }
+                    </Grid>
+                    <Grid item md={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
+                        <Box sx={{p: 2, borderRadius: 2, backgroundColor: '#fff', boxShadow: 1, width: '100%'}}>
+                            <CheckBoxFilter category={category} key={noQueryPath} subFilter={brands}/>
+                        </Box>
+                    </Grid>
                     <Grid item xs={12} md={8.5}>
                         <ProductList product={products} page={current_page} count={page_count}/>
                     </Grid>
@@ -166,7 +166,6 @@ const ChildCategoryPage = ({
                     ))
                 }
             </MainModal>
-
         </Box>
     )
 }

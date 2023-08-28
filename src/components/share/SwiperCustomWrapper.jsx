@@ -1,19 +1,17 @@
 import {Swiper} from "swiper/react";
 import {FreeMode} from "swiper";
-import {Box} from "@mui/system";
-import {useSelector} from "react-redux";
+import {Box} from "@mui/material";
 import 'swiper/swiper.css';
 import {useRef} from "react";
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 
 const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation = true}) => {
-    const {isMobile} = useSelector(state => state.deviceInfo);
     const swiperRef = useRef();
     return (
         <>
-            {!isMobile ? (
-                <Box display={'flex'} alignItems={'center'}>
+
+                <Box display={{md:'flex' , xs:'none'}} alignItems={'center'}>
                     {
                         navigation &&
                         <Box display={'flex'} alignItems={'center'} justifyContent={'center'}
@@ -64,9 +62,7 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation 
                              }} onClick={() => swiperRef.current?.slideNext()}><ChevronLeftRoundedIcon/></Box>
                     }
                 </Box>
-            ) : (
-                <Box className={'hide-scroll-bar'} sx={{
-                    display: 'flex',
+                <Box  display={{xs:'flex' , md:'none'}} className={'hide-scroll-bar'} sx={{
                     flexWrap: 'nowrap',
                     overflowX: 'auto',
                     scrollBehavior: 'smooth',
@@ -76,7 +72,6 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation 
                 }}>
                     {children}
                 </Box>
-            )}
         </>
     )
 }

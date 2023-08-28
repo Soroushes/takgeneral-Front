@@ -1,10 +1,8 @@
 'use client'
-import {Container, Typography} from "@mui/material";
+import {Container, Typography , Box} from "@mui/material";
 import {useSelector} from "react-redux";
-import {Box} from "@mui/system";
-
 import ProductPreviewCard from "../share/ProductPreviewCard";
-import {BASE_URL} from "../../data/urls";
+import {BASE_URL} from "@/data/urls";
 
 const dummyData = [
     {

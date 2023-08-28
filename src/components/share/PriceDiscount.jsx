@@ -1,5 +1,4 @@
-import {Box} from "@mui/system";
-import {Typography} from "@mui/material";
+import {Typography , Box} from "@mui/material";
 import PN from "persian-number";
 
 const PriceDiscount = ({
