@@ -7,6 +7,7 @@ import BrandSlider from "../../../../components/share/BrandSlider";
 import categoryImages from '../../../../assets/images/home/homeBanner.png';
 import OuterImageSection from "../../../../components/share/OuterImageSection";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
+import Link from "next/link";
 
 export default function ParentCategoryPage({brands , subCategory , breadcrumb , main_category}) {
     return (
@@ -23,7 +24,9 @@ export default function ParentCategoryPage({brands , subCategory , breadcrumb , 
                     subCategory?.map((item)=>{
                         return(
                             <Grid key={item.id} sx={{px: 2}} item xs={6} md={3}>
-                                <OuterImageSection href={'/category/' + item.id} shadow={2} image={sortImage} title={item.name}/>
+                                <Link href={'/category/' + item.id}>
+                                    <OuterImageSection shadow={2} image={sortImage} title={item.name}/>
+                                </Link>
                             </Grid>
                         )
                     })

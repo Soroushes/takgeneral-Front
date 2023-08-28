@@ -50,7 +50,7 @@ const ChildCategoryPage = ({
     const handleSortOnchange = (value) => {
         setSortValue(value);
         params.set('ordering', value);
-        push('?' + params.toString())
+        push('?' + params.toString() , {scroll : false})
     }
     return (
         <Box sx={{minHeight: "70vh"}}>

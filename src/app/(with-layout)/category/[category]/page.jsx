@@ -18,12 +18,11 @@ async function getData(params, searchParams) {
     if (res.ok) {
         return res.json();
     } else {
-        if (res.status === '404') {
+        if (res.status === 404) {
             notFound();
         }
         throw new Error('Fail to fetch data')
     }
-    throw new Error('nnn')
 }
 
 async function getMetaData(params) {
@@ -31,7 +30,7 @@ async function getMetaData(params) {
     if (res.ok) {
         return res.json();
     } else {
-        if (res.status === '404') {
+        if (res.status === 404) {
             notFound();
         }
         throw new Error('Failed to fetch data')

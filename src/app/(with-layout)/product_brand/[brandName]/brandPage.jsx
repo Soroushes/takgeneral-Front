@@ -61,7 +61,7 @@ const BrandPage = ({product, page_count, current_page}) => {
                 <Image fill alt={''} src={Banner}/>
             </Box>
             <Container>
-                <Grid sx={{px: 1.5}} container>
+                <Grid container>
                     <Grid item xs={12} sx={{mt: 4}}>
                         <Box display={{md: 'none', xs: 'block'}} sx={{mb: 2, px: 1}}>
                             <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnGray'}

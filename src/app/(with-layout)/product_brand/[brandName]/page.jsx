@@ -1,9 +1,13 @@
 import BrandPage from "./brandPage";
 import {BASE_URL} from "@/data/urls";
+import {notFound} from "next/navigation";
 const getData = async (params , searchParams)=>{
     const parameters = new URLSearchParams(searchParams)
     const res = await fetch(BASE_URL+'brands/'+ params.brandName + '?' + parameters.toString() );
     if(!res.ok){
+        if (res.status === 404){
+            notFound() ;
+        }
         throw new  Error('Failed to fetch data')
     }else {
         return res.json();

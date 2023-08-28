@@ -4,7 +4,6 @@ import {Typography , Box} from "@mui/material";
 import ProductPreviewCard from "../share/ProductPreviewCard";
 import SwiperCustomWrapper from "../share/SwiperCustomWrapper";
 import HighRateBanner from '../../assets/images/home/highRateSilderPic.png'
-import {useSelector} from "react-redux";
 import Image from "next/image";
 import anPic from '../../assets/images/home/homeCategoryImage.png'
 
@@ -97,7 +96,6 @@ const dummyData = [
 
 ]
 const HighRateCategorySlider = () => {
-    const {isMobile} = useSelector(state => state.deviceInfo);
     return (
         <Box sx={{
             my: 8,
@@ -130,7 +128,7 @@ const HighRateCategorySlider = () => {
                 </SwiperSlide>
                     {dummyData.map((data, index) => {
                         return (
-                            <SwiperSlide key={Math.random() * 1000} style={{width:'auto', marginRight : !index ? (isMobile ? '-120px' : '-150px') : '15px'}}>
+                            <SwiperSlide key={Math.random() * 1000} style={{width:'auto', marginRight : !index ? '-135px' : '15px'}}>
                                 <Box sx={{width: {md: 200, xs: 170}}} marginTop={5}>
                                     <ProductPreviewCard title={data.title} discountPercent={data.discountPercent}
                                                         price={data.price} afterDiscountPrice={data.afterDiscountPrice}

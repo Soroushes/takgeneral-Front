@@ -19,7 +19,7 @@ export default function Layout({children}) {
                     pt: {xs: `${mobileHeaderHeight}px`, md: `${desktopHeaderHeight}px`},
                     pb: {xs: `${navbarHeight}px`, md: 0},
                 }}>
-                <Box>
+                <Box sx={{minHeight : '70vh'}}>
                     {children}
                 </Box>
                 <Footer/>
