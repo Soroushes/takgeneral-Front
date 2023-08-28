@@ -4,7 +4,7 @@ import {notFound} from "next/navigation";
 async function getData(productId) {
     const res = await fetch(`${BASE_URL}product-detail/${productId}/`, {next : {revalidate : 60}})
     if (!res.ok) {
-        if (res.status === '404') {
+        if (res.status === 404) {
             notFound()
         }
         throw new Error('Failed to fetch data') ;
