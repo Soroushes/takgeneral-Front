@@ -23,24 +23,10 @@ async function getData(params, searchParams) {
         }
         throw new Error('Fail to fetch data')
     }
-    throw new Error('nnn')
+    throw new Error('Fail to fetch data')
 }
-
-async function getMetaData(params) {
-    const res = await fetch(BASE_URL + `products/${params.category}/?`, {next: {revalidate: 60}});
-    if (res.ok) {
-        return res.json();
-    } else {
-        if (res.status === '404') {
-            notFound();
-        }
-        throw new Error('Failed to fetch data')
-    }
-
-}
-
-export async function generateMetadata({params}) {
-    const result = await getMetaData(params);
+export async function generateMetadata({params , searchParams}) {
+    const result = await getData(params , searchParams);
     return {
         title: result?.meta_tag?.title ? result.meta_tag.title : result.main_category?.name,
         description: result.meta_tag?.desc,
