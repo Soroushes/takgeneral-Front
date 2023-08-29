@@ -12,6 +12,7 @@ const OuterImageSection = ({
                                titleVariant = 'h4',
                            }) => {
     const {palette} = useTheme();
+    console.log(image)
     return (
         <Box
             sx={{

@@ -6,7 +6,6 @@ import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import MainModal from "../../../../components/share/MainModal";
 import {Fragment, useEffect, useRef, useState} from "react";
 import FilterAltIcon from '../../../../assets/icons/share/setting-5.svg';
-import Banner from '../../../../assets/images/categoryBanner1.jpg'
 import CategorySlider from "../../../../components/share/CategorySlider";
 import SortIcon from "../../../../assets/icons/share/sort.svg";
 import ProductList from "../../../../components/share/ProductList";
@@ -34,7 +33,8 @@ const ChildCategoryPage = ({
                                childCategory,
                                products,
                                content,
-                               breadcrumb
+                               breadcrumb,
+    main_banner
                            }) => {
     const {push} = useRouter();
     const searchParams = useSearchParams();
@@ -61,7 +61,7 @@ const ChildCategoryPage = ({
                 p: 0,
                 display: {xs: 'block', md: 'none'}
             }}>
-                <Image fill alt={''} src={Banner}/>
+                <Image fill alt={''} src={main_banner[0]?.image}/>
             </Box>
             <Box sx={{
                 display: {md: 'block', xs: 'none'},
@@ -70,7 +70,7 @@ const ChildCategoryPage = ({
                 position: 'relative',
                 p: 0
             }}>
-                <Image fill alt={''} src={Banner}/>
+                <Image fill alt={''} src={main_banner[0]?.image}/>
             </Box>
             <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
                 <Box sx={{px: 1}}>

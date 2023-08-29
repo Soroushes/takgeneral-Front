@@ -119,6 +119,23 @@ const MobileHeader = ({categories}) => {
                                                 <Typography variant={'body2'} component={'li'}>درباره ما</Typography>
                                             </Box>
                                         </Link>
+                                        <Link onClick={() => {
+                                            setDrawerIsOpen(false)
+                                        }} style={{display: 'block', width: "100%"}} href={'/blog'}>
+                                            <Box
+                                                sx={{
+                                                    borderBottom: "1px solid #ccc",
+                                                    py: 2.5,
+                                                    display: 'flex',
+                                                    width: "100%",
+                                                    gap: 1,
+                                                    alignItems: 'center'
+                                                }}
+                                            >
+
+                                                <Typography variant={'body2'} component={'li'}>وبلاگ</Typography>
+                                            </Box>
+                                        </Link>
                                         {categories?.map((item) => {
                                             return (
                                                 <Link onClick={() => {

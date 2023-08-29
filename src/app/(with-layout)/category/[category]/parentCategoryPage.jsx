@@ -1,19 +1,17 @@
 'use client'
 import {Box, Container, Grid, Typography} from "@mui/material";
-import categoryBanner from '../../../../assets/images/home/home-main-banner.png';
 import Image from "next/image";
-import sortImage from '../../../../assets/images/testSort.png'
 import BrandSlider from "../../../../components/share/BrandSlider";
-import categoryImages from '../../../../assets/images/home/homeBanner.png';
 import OuterImageSection from "../../../../components/share/OuterImageSection";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import Link from "next/link";
 
-export default function ParentCategoryPage({brands , subCategory , breadcrumb , main_category}) {
+export default function ParentCategoryPage({brands , subCategory , breadcrumb , main_category , main_banner , other_banner}) {
+    console.log(subCategory);
     return (
         <Container disableGutters>
             <Box sx={{position: "relative", width: '100%', aspectRatio:{md: '4.5/1' , xs:'1.5/1' } , mt: 1}}>
-                <Image src={categoryBanner} style={{borderRadius: '8px'}} fill alt={'banner'}/>
+                <Image src={main_banner[0]?.image} style={{borderRadius: '8px'}} fill alt={'banner'}/>
             </Box>
             <Box sx={{px:1}}>
                 <BreadcrumbGenerator breadcrumb={breadcrumb}/>
@@ -25,7 +23,7 @@ export default function ParentCategoryPage({brands , subCategory , breadcrumb , 
                         return(
                             <Grid key={item.id} sx={{px: 2}} item xs={6} md={3}>
                                 <Link href={'/category/' + item.id}>
-                                    <OuterImageSection shadow={2} image={sortImage} title={item.name}/>
+                                    <OuterImageSection shadow={2} image={item.image} title={item.name}/>
                                 </Link>
                             </Grid>
                         )
@@ -38,13 +36,13 @@ export default function ParentCategoryPage({brands , subCategory , breadcrumb , 
             <Grid sx={{my: 4}} container rowGap={2}>
                 <Grid sx={{px: 1}} item xs={12} md={6}>
                     <Box>
-                        <Image width={600} height={250} style={{width: '100%', height: 'auto'}} src={categoryImages}
+                        <Image width={600} height={250} style={{width: '100%', height: 'auto'}} src={other_banner[0]?.image}
                                alt={'banner'}/>
                     </Box>
                 </Grid>
                 <Grid sx={{px: 1}} item xs={12} md={6}>
                     <Box>
-                        <Image width={600} height={250} style={{width: '100%', height: 'auto'}} src={categoryImages}
+                        <Image width={600} height={250} style={{width: '100%', height: 'auto'}} src={other_banner[1]?.image}
                                alt={'banner'}/>
                     </Box>
                 </Grid>

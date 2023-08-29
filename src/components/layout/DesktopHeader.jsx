@@ -101,7 +101,19 @@ const DesktopHeader = ({categories}) => {
                                     {/*{item.icon}*/}
                                     <Typography sx={{color :'text.main'}} variant={'subtitle1'} component={'li'}>درباره ما</Typography>
                                 </Box>
-                            </Link>{categories?.map((item) => {
+                            </Link>
+                            <Link href={'/blog'}>
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        gap: 1,
+                                        alignItems: "center ",
+                                    }}>
+                                    {/*{item.icon}*/}
+                                    <Typography sx={{color :'text.main'}} variant={'subtitle1'} component={'li'}>درباره ما</Typography>
+                                </Box>
+                            </Link>
+                            {categories?.map((item) => {
                                 return (
                                     <Link key={item.name} href={'/category/13'}>
                                         <Box
