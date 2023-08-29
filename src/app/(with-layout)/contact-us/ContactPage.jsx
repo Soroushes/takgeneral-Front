@@ -9,9 +9,9 @@ const ContactUsPage = () => {
     const onSubmitForm = () => {
     }
     return (
-        <Container sx={{mt: 7}}>
-            <Grid container sx={{flexDirection: {xs: 'column-reverse', md: 'row'} , gap:{xs:4 , md:0}, justifyContent: 'space-between'}}>
-                <Grid item md={6} xs={12} sx={{mt: {xs: 2, md: 0}, p: {xs: 2, md: 0}}}>
+        <Container sx={{mt: 2}}>
+            <Grid container sx={{flexDirection: {xs: 'column', md: 'row'} , gap:{xs:4 , md:0}, justifyContent: 'space-between'}}>
+                <Grid item md={6} xs={12} sx={{p: {xs: 2, md: 0}}}>
                     <Typography fontWeight={'bold'} variant={'h2'}>با ما در تماس باشید</Typography>
                     <Typography variant={'body1'} sx={{mt: 3}}>کارشناسان ما در سریع ترین زمان ممکن به درخواست های شما
                         پاسخ خواهند داد.</Typography>
@@ -65,7 +65,7 @@ const ContactUsPage = () => {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid item md={4.5} xs={12} sx={{pt: 1}}>
+                <Grid sx={{mt: {xs: 5, md: 0} , pt: 1}} item md={4.5} xs={12}>
                     <Box component={'form'} onSubmit={handleSubmit(onSubmitForm)}
                          sx={{border: {md: '1px solid #eee', xs: 'none'}, p: {md:2 , xs:0}, pt: 3, borderRadius: 2}}>
                         <Typography sx={{mt: '-25px' , mb:{xs:4 , md:0}}} variant={'h2'} fontWeight={'bold'}>فرم تماس با ما</Typography>

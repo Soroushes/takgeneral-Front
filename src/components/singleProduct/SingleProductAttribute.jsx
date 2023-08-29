@@ -13,7 +13,6 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
         })
     };
     const scrollToOpinion = () => {
-        console.log(opinionRef?.current?.offsetTop - 150)
         window.scrollTo({
             top: opinionRef?.current?.offsetTop - 150,
             behavior: 'smooth'
@@ -66,8 +65,8 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
                         if (index > 6) return null
                         return (
                             <Typography key={index}
-                                        variant="body1" component={'li'}>ویژگی‌های پمپ سیالات : ویژگی‌های پمپ
-                                سیالات </Typography>
+                                        variant="body1" component={'li'}>{attr.specification} : {attr.value}
+                                 </Typography>
                         )
                     })
                 }

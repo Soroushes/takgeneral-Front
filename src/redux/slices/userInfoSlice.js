@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
-import {BASE_URL} from "../../data/urls";
+import {BASE_URL} from "@/data/urls";
 
 const initialState = {
     full_name: '',
@@ -30,7 +30,6 @@ export const fetchInfo = createAsyncThunk(
             })
             return {...data , isLoggedIn : true , token}
         } catch (err) {
-            console.log(err.response)
             if (err?.response?.status===401){
                 console.log('in if')
             localStorage.removeItem('token') ;

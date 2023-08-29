@@ -4,7 +4,6 @@ import HamburgerMenu from "../../assets/icons/layout/hamburgerMenu.svg";
 import Link from "next/link";
 import {Drawer, Typography , TextField , Box} from "@mui/material";
 import {useState} from "react";
-import {headerItem} from "@/data/header";
 import logo from '../../../public/logo.png'
 import Image from "next/image";
 import {urls} from "src/data/urls";
@@ -12,7 +11,7 @@ import SearchIcon from '../../assets/icons/layout/search-normal.svg';
 import XIcon from '../../assets/icons/layout/x-shape.svg';
 import {Controller, useForm} from "react-hook-form";
 import {useSelector} from "react-redux";
-const MobileHeader = ({layoutData}) => {
+const MobileHeader = ({categories}) => {
     const {mobileHeaderHeight} = useSelector(state => state.deviceInfo);
     const {control} = useForm();
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
@@ -86,11 +85,45 @@ const MobileHeader = ({layoutData}) => {
                                             src={logo}
                                             alt="Takgeneral Logo"
                                         />
-                                        {headerItem.map((item, id) => {
+                                        <Link onClick={() => {
+                                            setDrawerIsOpen(false)
+                                        }} style={{display: 'block', width: "100%"}} href={'/contact-us'}>
+                                            <Box
+                                                sx={{
+                                                    borderBottom: "1px solid #ccc",
+                                                    py: 2.5,
+                                                    display: 'flex',
+                                                    width: "100%",
+                                                    gap: 1,
+                                                    alignItems: 'center'
+                                                }}
+                                            >
+
+                                                <Typography variant={'body2'} component={'li'}>تماس با ما</Typography>
+                                            </Box>
+                                        </Link>
+                                        <Link onClick={() => {
+                                            setDrawerIsOpen(false)
+                                        }} style={{display: 'block', width: "100%"}} href={'/about-us'}>
+                                            <Box
+                                                sx={{
+                                                    borderBottom: "1px solid #ccc",
+                                                    py: 2.5,
+                                                    display: 'flex',
+                                                    width: "100%",
+                                                    gap: 1,
+                                                    alignItems: 'center'
+                                                }}
+                                            >
+
+                                                <Typography variant={'body2'} component={'li'}>درباره ما</Typography>
+                                            </Box>
+                                        </Link>
+                                        {categories?.map((item) => {
                                             return (
                                                 <Link onClick={() => {
                                                     setDrawerIsOpen(false)
-                                                }} style={{display: 'block', width: "100%"}} key={id} href={'/category'}>
+                                                }} style={{display: 'block', width: "100%"}} href={'/category'}>
                                                     <Box
                                                         sx={{
                                                             borderBottom: "1px solid #ccc",

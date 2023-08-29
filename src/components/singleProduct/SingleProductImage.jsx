@@ -8,12 +8,9 @@ import 'swiper/swiper.css';
 import "swiper/css/thumbs";
 import 'swiper/css/pagination';
 
-const singleProductImage = ({mainImage}) => {
+const singleProductImage = ({images}) => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    const otherImage = [
-        testSlider,
-        testSlider
-    ]
+    const mainImage = images.find((item)=>item.is_main);
     return (
         <Box sx={{borderRadius: 2}}>
             <Box sx={{mb: 1, boxShadow: 1}}>
@@ -29,20 +26,22 @@ const singleProductImage = ({mainImage}) => {
                             {
                                 mainImage ?
                                     <Image width={300} height={300} style={{width: '100%', height: 'auto'}} alt={'test'}
-                                           src={mainImage}/> : null
+                                           src={mainImage.image ?? null}/> : null
                             }
                         </Box>
                     </SwiperSlide>
                     {
-                        otherImage?.map(() => {
-                            return (
-                                <SwiperSlide key={Math.random() * 1000}>
-                                    <Box sx={{width: "100%", textAlign: 'center'}}>
-                                        <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
-                                               alt={'test'} src={testSlider}/>
-                                    </Box>
-                                </SwiperSlide>
-                            )
+                        images?.map((item) => {
+                            if(!item.is_main){
+                                return (
+                                    <SwiperSlide key={Math.random() * 1000}>
+                                        <Box sx={{width: "100%", textAlign: 'center'}}>
+                                            <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
+                                                   alt={'test'} src={item.image}/>
+                                        </Box>
+                                    </SwiperSlide>
+                                )
+                            }
                         })
                     }
                 </Swiper>
@@ -61,20 +60,22 @@ const singleProductImage = ({mainImage}) => {
                         <Box sx={{width: "100%", textAlign: 'center', boxShadow: 1}}>
                             {
                                 mainImage ? <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
-                                                   alt={'test'} src={mainImage}/> : null
+                                                   alt={'test'} src={mainImage.image ?? null}/> : null
                             }
                         </Box>
                     </SwiperSlide>
                     {
-                        otherImage?.map(() => {
-                            return (
-                                <SwiperSlide style={{borderRadius: "8px", padding: '5px'}} key={Math.random() * 1000}>
-                                    <Box sx={{width: "100%", textAlign: 'center', boxShadow: 1}}>
-                                        <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
-                                               alt={'test'} src={testSlider}/>
-                                    </Box>
-                                </SwiperSlide>
-                            )
+                        images?.map((item) => {
+                            if(!item.is_main) {
+                                return (
+                                    <SwiperSlide style={{borderRadius: "8px", padding: '5px'}} key={Math.random() * 1000}>
+                                        <Box sx={{width: "100%", textAlign: 'center', boxShadow: 1}}>
+                                            <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
+                                                   alt={'test'} src={testSlider}/>
+                                        </Box>
+                                    </SwiperSlide>
+                                )
+                            }
                         })
                     }
                 </Swiper>

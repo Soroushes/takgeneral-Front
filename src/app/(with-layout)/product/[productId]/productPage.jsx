@@ -5,7 +5,6 @@ import SingleProductDetails from "../../../../components/singleProduct/SinglePro
 import CommentQuestion from "../../../../components/singleProduct/Comment&Question";
 import SingleProductImage from "../../../../components/singleProduct/SingleProductImage";
 import SingleProductSellCard from "../../../../components/singleProduct/SingleProductSellCard";
-import SingleImage from '../../../../assets/images/single-product-image.png';
 import SingleProductAttribute from "@/components/singleProduct/SingleProductAttribute";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import SwiperCustomWrapper from "@/components/share/SwiperCustomWrapper";
@@ -23,7 +22,7 @@ const ProductPage = ({data}) => {
                 <BreadcrumbGenerator product={data.product} breadcrumb={data.breadcrumb}/>
                 <Grid container rowGap={5}>
                     <Grid item md={3.75} xs={12}>
-                        <SingleProductImage mainImage={SingleImage} otherImage={null}/>
+                        <SingleProductImage images={data.product.all_images} />
                     </Grid>
                     <Grid item md={5} xs={12}>
                         <SingleProductAttribute
@@ -39,6 +38,8 @@ const ProductPage = ({data}) => {
                     </Grid>
                     <Grid item md={3.25} xs={12}>
                         <SingleProductSellCard
+                            minPrice={productOptions.min_price}
+                            madeIn={productOptions.made_in}
                             key={productOptions.id}
                             available={productOptions.product_available}
                             price={productOptions.price}
@@ -50,7 +51,7 @@ const ProductPage = ({data}) => {
                     </Grid>
                 </Grid>
                 <Grid ref={attributesTableRef} sx={{mt: 4}} item xs={12}>
-                    <SingleProductDetails setShowAllDetails={setIsShowAllDetails} IsShowAllDetails={isShowAllDetails}
+                    <SingleProductDetails content={data.page_content.desc} setShowAllDetails={setIsShowAllDetails} IsShowAllDetails={isShowAllDetails}
                                           details={data.product.attributes}/>
                 </Grid>
                 <Grid ref={opinionTableRef} sx={{mt: 4}} item xs={12}>
@@ -77,7 +78,6 @@ const ProductPage = ({data}) => {
                         }
                     </SwiperCustomWrapper>
                 </Grid>
-                <Box sx={{maxWidth: '100%'}} dangerouslySetInnerHTML={{__html: data.page_content.desc}}/>
             </Container>
         </Box>
     )

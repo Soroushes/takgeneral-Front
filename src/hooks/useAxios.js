@@ -1,10 +1,10 @@
 'use client'
 import axios from "axios";
 import {useState} from "react";
-import {BASE_URL} from "../data/urls";
+import {BASE_URL} from "@/data/urls";
 import useAlert from "./useAlert";
 import {useDispatch} from "react-redux";
-import {LOGOUT} from "../redux/slices/userInfoSlice";
+import {LOGOUT} from "@/redux/slices/userInfoSlice";
 export const useAxios = () => {
     const [loading, setLoading] = useState(false);
     const {errorAlert} = useAlert() ;

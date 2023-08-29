@@ -4,20 +4,19 @@ import {Badge, Button, Container, InputAdornment, TextField, Typography , Box} f
 import UserIcon from "../../assets/icons/layout/user";
 import SearchOutlined from "../../assets/icons/layout/searchOutlined";
 import BluBag from '../../assets/icons/layout/blue-bag.svg';
-import {headerItem} from "@/data/header";
 import Link from "next/link";
 import logo from '../../../public/logo.png' ;
 import Image from "next/image";
 import {urls} from "@/data/urls";
 import {useSelector} from "react-redux";
 import {useRouter} from "next/navigation";
-const DesktopHeader = () => {
+const DesktopHeader = ({categories}) => {
     const {phone_number} = useSelector(state => state.userInfo);
     const router = useRouter();
     const {total_count} = useSelector(state => state.cart)
     const {desktopHeaderHeight} = useSelector(state => state.deviceInfo);
     return (
-        <AppBar sx={{backgroundColor: "#fff" , height : desktopHeaderHeight }}>
+        <AppBar sx={{backgroundColor: "#fff" , height : desktopHeaderHeight}}>
             <Toolbar>
                 <Container maxWidth={'lg'}>
                     <Box
@@ -81,7 +80,28 @@ const DesktopHeader = () => {
                                 display: "flex",
                                 gap: 6,
                             }}>
-                            {headerItem.map((item) => {
+                            <Link href={'/contact-us'}>
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        gap: 1,
+                                        alignItems: "center ",
+                                    }}>
+                                    {/*{item.icon}*/}
+                                    <Typography sx={{color :'text.main'}} variant={'subtitle1'} component={'li'}>تماس با ما</Typography>
+                                </Box>
+                            </Link>
+                            <Link href={'/about-us'}>
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        gap: 1,
+                                        alignItems: "center ",
+                                    }}>
+                                    {/*{item.icon}*/}
+                                    <Typography sx={{color :'text.main'}} variant={'subtitle1'} component={'li'}>درباره ما</Typography>
+                                </Box>
+                            </Link>{categories?.map((item) => {
                                 return (
                                     <Link key={item.name} href={'/category/13'}>
                                         <Box
@@ -90,7 +110,7 @@ const DesktopHeader = () => {
                                                 gap: 1,
                                                 alignItems: "center ",
                                             }}>
-                                            {item.icon}
+                                            {/*{item.icon}*/}
                                             <Typography sx={{color :'text.main'}} variant={'subtitle1'} component={'li'}>{item.name}</Typography>
                                         </Box>
                                     </Link>

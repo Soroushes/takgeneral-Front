@@ -44,6 +44,7 @@ export async function generateMetadata({params , searchParams}) {
 
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
+    console.log(data)
     return (
         data.product ?
             <ChildCategoryPage

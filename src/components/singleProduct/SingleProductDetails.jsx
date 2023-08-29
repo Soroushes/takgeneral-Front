@@ -7,7 +7,7 @@ import {useState} from "react";
 import {Typography} from "@mui/material";
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded';
-const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) => {
+const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails , content}) => {
     const [value, setValue] = useState("1");
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
@@ -80,9 +80,10 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) =>
                                         }}
                                     >
                                         <Typography
-                                            variant="body1"
+                                            variant="body2"
+                                            color={'text.muted'}
                                         >
-                                            {detail.title}
+                                            {detail.specification}:
                                         </Typography>
                                     </Box>
                                     <Box
@@ -96,7 +97,7 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) =>
                                         }}
                                     >
                                         <Typography
-                                            variant="body1"
+                                            variant="body2"
                                         >
                                             {detail.value}
                                         </Typography>
@@ -129,7 +130,9 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails}) =>
                             null
                     }
                 </TabPanel>
-                <TabPanel value="2">Item Two</TabPanel>
+                <TabPanel value="2">
+                    <Box sx={{maxWidth: '100%'}} dangerouslySetInnerHTML={{__html: content}}/>
+                </TabPanel>
             </Box>
         </TabContext>
     );
