@@ -62,7 +62,7 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
             <Box component={'ul'} sx={{display: 'flex', flexDirection: 'column', gap: .75, mt: 1}}>
                 {
                     attributes?.map((attr, index) => {
-                        if (index > 6) return null
+                        if (index >= 3) return null
                         return (
                             <Typography key={index}
                                         variant="body1" component={'li'}>{attr.specification} : {attr.value}
@@ -71,7 +71,6 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
                     })
                 }
             </Box>
-
             <Box sx={{cursor: 'pointer', display: 'flex', mt: 2, alignItems: 'center'}}  onClick={scrollToDetails}>
                 <Typography variant={'body2'}
                             sx={{ color: 'primary.main', textAlign: 'center'}}>مشاهده

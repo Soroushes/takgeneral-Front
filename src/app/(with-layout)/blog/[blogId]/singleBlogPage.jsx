@@ -3,14 +3,16 @@ import {Box, Container, Grid, Typography} from "@mui/material";
 import Image from "next/image";
 import ClockIcon from "@/assets/icons/share/clock.svg";
 import {timeStampToDate} from "@/hooks/timeStampToDate";
+import HtmlDescription from "@/components/share/HtmlDescription";
 
-const SingleBlog = ({images , timeStamp , title , content}) => {
+const SingleBlog = ({images , timeStamp , title , content , data}) => {
+    console.log(data)
     return (
         <Container mt={3}>
             <Grid container justifyContent={'space-between'} sx={{ minHeight: '360px'}}>
                 <Grid sx={{py: 1}} item md={3} xs={12}>
                     <Box sx={{textAlign: 'center', width: '100%'}}>
-                        <Image width={590} height={290} style={{width: '100%', height: 'auto'}} src={images[0]}
+                        <Image width={590} height={290} style={{width: '100%', height: 'auto'}} src={images[0].image}
                                alt={''}/>
                     </Box>
                 </Grid>
@@ -24,27 +26,16 @@ const SingleBlog = ({images , timeStamp , title , content}) => {
                     <Box display={'flex'} flexDirection={{md:'column' , xs:'column-reverse'}} justifyContent={'space-between'} sx={{height:'85%'}}>
                         <Typography sx={{
                             width: '100%',
-                            maxHeight: 100,
+                            maxHeight: 200,
                             textOverflow: 'ellipsis',
-                            wordWrap: 'break-word',
-                            overflow: 'hidden'
                         }} variant={'body2'}>
-                            بهترین پمپ آب خانگی کدام است؟ معرفی کم صداترین، قویترین و بهترین پمپ آب خانگی و کشاورزی در
-                            ایران، در این مقاله به تفصیه به این مضوع پرداخته وبلابلابلابلابلابلابلابلا بلا بلا بلابلا
-                            بلابلابلابلابلابلابلابلابلاب لابلابلابلابلابل ابلابلابلابلابلابلاب لابلاب لابلابلابلاب
-                            لابلابلابلا
-                            بلابلابلابلابلابلابلابلا بلا بلا بلابلا
-                            بلابلابلابلابلابلابلابلاب لابلابلابلابلابلابلابلابلا بلابلابلابلاب
-                            لابلابلابلابلابلابلابلابلابلا....
+                            <HtmlDescription><Box dangerouslySetInnerHTML={{__html: content}}/></HtmlDescription>
                         </Typography>
                         <Box mb={{xs:2 , md:0}} display={'flex'} alignItems={'center'} gap={1}>
                             <ClockIcon/>
                             <Typography variant={'subtitle1'} sx={{textAlign: 'center'}}>{timeStampToDate(timeStamp)}</Typography>
                         </Box>
                     </Box>
-                </Grid>
-                <Grid md={12}>
-                    <Box sx={{maxWidth:'100%'}} dangerouslySetInnerHTML={{__html: content}}/>
                 </Grid>
             </Grid>
         </Container>

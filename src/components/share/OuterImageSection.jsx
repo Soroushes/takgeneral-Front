@@ -10,9 +10,9 @@ const OuterImageSection = ({
                                shadow = 1,
                                descriptionVariant = 'subtitle1',
                                titleVariant = 'h4',
+    alt = ''
                            }) => {
     const {palette} = useTheme();
-    console.log(image)
     return (
         <Box
             sx={{
@@ -41,7 +41,7 @@ const OuterImageSection = ({
                 aspectRatio: '1/1'
             }}>
                 <Image
-                    alt={description}
+                    alt={alt}
                     width={120}
                     height={120}
                     style={{transition: "all .5s", transform: "scale(0.9)", width: '100%', height: 'auto'}}

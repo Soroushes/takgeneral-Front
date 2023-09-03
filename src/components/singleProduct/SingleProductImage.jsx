@@ -3,7 +3,6 @@ import {useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {FreeMode, Pagination, Thumbs} from "swiper";
 import Image from "next/image";
-import testSlider from '../../assets/images/single-product-main-image.png';
 import 'swiper/swiper.css';
 import "swiper/css/thumbs";
 import 'swiper/css/pagination';
@@ -46,7 +45,7 @@ const singleProductImage = ({images}) => {
                     }
                 </Swiper>
             </Box>
-            <Box display={{md: 'block', xs: 'none'}}>
+            <Box>
                 <Swiper
                     navigation={false}
                     onSwiper={setThumbsSwiper}
@@ -71,7 +70,7 @@ const singleProductImage = ({images}) => {
                                     <SwiperSlide style={{borderRadius: "8px", padding: '5px'}} key={Math.random() * 1000}>
                                         <Box sx={{width: "100%", textAlign: 'center', boxShadow: 1}}>
                                             <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
-                                                   alt={'test'} src={testSlider}/>
+                                                   alt={'test'} src={item.image}/>
                                         </Box>
                                     </SwiperSlide>
                                 )

@@ -56,6 +56,7 @@ export default async function Page({params, searchParams}) {
             />
             :
             <ParentCategoryPage
+                content={data.page_content.desc}
                 other_banner={data.other_banner}
                 main_banner={data.main_banner}
                 main_category={data.main_category} breadcrumb={data.breadcrumb}

@@ -9,6 +9,7 @@ import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import Link from "next/link";
 import {timeStampToDate} from "@/hooks/timeStampToDate";
+import HtmlDescription from "@/components/share/HtmlDescription";
 const BlogPage = ({blogs, currentPage, pageCount}) => {
     const [pageState, setPageState] = useState(1);
     const searchParams = useSearchParams();
@@ -22,6 +23,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
     useEffect(() => {
         setPageState(currentPage)
     }, [params]);
+    console.log(blogs)
     return (
         <Container sx={{mt: 3}}>
             <Typography variant={'h3'} my={3} fontWeight={'bold'} sx={{display: {xs: 'block', md: 'none'}}}>مجله تک
@@ -33,7 +35,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                             {
                                 blogs[0]?.main_image &&
                                 <Image width={590} height={290} style={{width: '100%', height: 'auto'}}
-                                       src={blogs[0].main_image}
+                                       src={blogs[0].main_image.image}
                                        alt={''}/>
                             }
                         </Box>
@@ -48,20 +50,12 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                             </Typography>
                             <Typography sx={{
                                 width: '100%',
-                                maxHeight: 100,
+                                maxHeight: 150,
                                 textOverflow: 'ellipsis',
                                 wordWrap: 'break-word',
                                 overflow: 'hidden'
                             }} variant={'body2'}>
-                                بهترین پمپ آب خانگی کدام است؟ معرفی کم صداترین، قویترین و بهترین پمپ آب خانگی و کشاورزی
-                                در
-                                ایران، در این مقاله به تفصیه به این مضوع پرداخته وبلابلابلابلابلابلابلابلا بلا بلا
-                                بلابلا
-                                بلابلابلابلابلابلابلابلابلاب لابلابلابلابلابل ابلابلابلابلابلابلاب لابلاب لابلابلابلاب
-                                لابلابلابلا
-                                بلابلابلابلابلابلابلابلا بلا بلا بلابلا
-                                بلابلابلابلابلابلابلابلاب لابلابلابلابلابلابلابلابلا بلابلابلابلاب
-                                لابلابلابلابلابلابلابلابلابلا....
+                                <HtmlDescription><Box dangerouslySetInnerHTML={{__html: content}}/></HtmlDescription>
                             </Typography>
                         </Box>
                         <Box sx={{display: 'flex', px: .5, mt: 2, justifyContent: 'space-between'}}>

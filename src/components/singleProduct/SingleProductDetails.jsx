@@ -7,7 +7,9 @@ import {useState} from "react";
 import {Typography} from "@mui/material";
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded';
-const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails , content}) => {
+import HtmlDescription from "@/components/share/HtmlDescription";
+
+const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, content}) => {
     const [value, setValue] = useState("1");
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
@@ -24,7 +26,7 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails , co
                 <TabList textColor="secondary" indicatorColor="gray" onChange={handleTabChange}>
                     <Tab
                         sx={{
-                            mr:2,
+                            mr: 2,
                         }}
                         label="مشخصات"
                         value="1"
@@ -35,105 +37,97 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails , co
                     />
                 </TabList>
             </Box>
-            <Box
+            <TabPanel
+                value="1"
                 sx={{
-                    display: "flex",
-                    transition: "all .3s",
-                    justifyContent: "center",
                     width: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "start",
+                    gap: 3,
+                    p:0 ,
+                    px: 2,
+                    pt:2
                 }}
             >
-                <TabPanel
-                    value="1"
-                    sx={{
-                        width: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "start",
-                        gap: 3,
-                        pt: 4,
-                        px: 2,
-                    }}
-                >
-                    {details?.map((detail, index) => {
-                        return (
-                            !IsShowAllDetails && index > 7 ? null
-                                :
-                                <Box
-                                    key={detail.id}
-                                    sx={{
-                                        display: "flex",
-                                        justifyContent: "space-between",
-                                        alignItems: "center",
-                                        width: "100%",
-                                        gap: {xs: 2, md: 5},
-                                    }}
-                                >
-                                    <Box
-                                        sx={{
-                                            width: {xs: "40%", md: "25%"},
-                                            pb: 1.5,
-                                            pl: {md: 2},
-                                            height: "100%",
-                                            display: "flex",
-                                            alignItems: "center",
-                                        }}
-                                    >
-                                        <Typography
-                                            variant="body2"
-                                            color={'text.muted'}
-                                        >
-                                            {detail.specification}:
-                                        </Typography>
-                                    </Box>
-                                    <Box
-                                        sx={{
-                                            width: {xs: "60%", md: "75%"},
-                                            pb: 1.5,
-                                            pl: 2,
-                                            height: "100%",
-                                            display: "flex",
-                                            alignItems: "center",
-                                        }}
-                                    >
-                                        <Typography
-                                            variant="body2"
-                                        >
-                                            {detail.value}
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                        );
-                    })}
-                    {
-                        details?.length ?
-                            <Box onClick={setShowAllDetails.bind(this, prev => !prev)}
-                                 sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center" , gap:1}}>
-                                <Typography
-                                    variant={"body2"}
-                                    color={'primary'}
-                                    sx={{
-                                        cursor: "pointer",
-                                        textAlign: "center",
-                                    }}
-                                >
-                                    {
-                                        IsShowAllDetails ? 'مشاهده کمتر' : "مشاهده بیشتر"
-                                    }
-                                </Typography>
-                                {
-                                    IsShowAllDetails ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :
-                                        <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>
-                                }
-                            </Box>
+                {details?.map((detail, index) => {
+                    return (
+                        !IsShowAllDetails && index > 2 ? null
                             :
-                            null
-                    }
-                </TabPanel>
-                <TabPanel value="2">
-                    <Box sx={{maxWidth: '100%'}} dangerouslySetInnerHTML={{__html: content}}/>
-                </TabPanel>
-            </Box>
+                            <Box
+                                key={detail.id}
+                                sx={{
+                                    display: "flex",
+                                    justifyContent: "space-between",
+                                    alignItems: "center",
+                                    width: "100%",
+                                    gap: {xs: 2, md: 5},
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        width: {xs: "40%", md: "25%"},
+                                        pb: 1.5,
+                                        pl: {md: 2},
+                                        height: "100%",
+                                        display: "flex",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    <Typography
+                                        variant="body2"
+                                        color={'text.muted'}
+                                    >
+                                        {detail.specification}:
+                                    </Typography>
+                                </Box>
+                                <Box
+                                    sx={{
+                                        width: {xs: "60%", md: "75%"},
+                                        pb: 1.5,
+                                        pl: 2,
+                                        height: "100%",
+                                        display: "flex",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    <Typography
+                                        variant="body2"
+                                    >
+                                        {detail.value}
+                                    </Typography>
+                                </Box>
+                            </Box>
+                    );
+                })}
+                {
+                    details?.length > 3 ?
+                        <Box onClick={setShowAllDetails.bind(this, prev => !prev)}
+                             sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
+                            <Typography
+                                variant={"body2"}
+                                color={'primary'}
+                                sx={{
+                                    cursor: "pointer",
+                                    textAlign: "center",
+                                }}
+                            >
+                                {
+                                    IsShowAllDetails ? 'مشاهده کمتر' : "مشاهده بیشتر"
+                                }
+                            </Typography>
+                            {
+                                IsShowAllDetails ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :
+                                    <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>
+                            }
+                        </Box>
+                        :
+                        null
+                }
+            </TabPanel>
+            <TabPanel value="2" sx={{width: '100%'}}>
+                <HtmlDescription><Box dangerouslySetInnerHTML={{__html: content}}/></HtmlDescription>
+            </TabPanel>
         </TabContext>
     );
 };

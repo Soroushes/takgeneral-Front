@@ -10,6 +10,7 @@ import CategorySlider from "../../../../components/share/CategorySlider";
 import SortIcon from "../../../../assets/icons/share/sort.svg";
 import ProductList from "../../../../components/share/ProductList";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
+import HtmlDescription from "@/components/share/HtmlDescription";
 
 const sortValueItems = [
     {
@@ -138,7 +139,10 @@ const ChildCategoryPage = ({
                         <ProductList product={products} page={current_page} count={page_count}/>
                     </Grid>
                 </Grid>
-                <Box sx={{maxWidth: '100%'}} dangerouslySetInnerHTML={{__html: content}}/>
+
+                <HtmlDescription>
+                    <Box dangerouslySetInnerHTML={{__html: content}}/>
+                </HtmlDescription>
             </Container>
             <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلتر'}>
                 <Box sx={{px: 2}}>
