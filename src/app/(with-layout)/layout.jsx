@@ -28,7 +28,6 @@ export default function Layout({children}) {
         const categories = await getCategories();
         await setCategoryNames(categories)
     },[])
-    console.log(categoryNames)
     const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight} = useSelector(state => state.deviceInfo);
     return (
         <>

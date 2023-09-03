@@ -55,7 +55,7 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                         !IsShowAllDetails && index > 2 ? null
                             :
                             <Box
-                                key={detail.id}
+                                key={Math.random()*1000}
                                 sx={{
                                     display: "flex",
                                     justifyContent: "space-between",

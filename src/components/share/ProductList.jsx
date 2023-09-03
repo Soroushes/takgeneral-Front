@@ -30,7 +30,9 @@ const ProductList = ({product, count = 8, page = 1}) => {
                                 price={productItem.min_price.price} title={productItem.name}
                                 discountPercent={+productItem.min_price.discount}
                                 afterDiscountPrice={productItem.min_price.final_price}
-                                image={productItem.main_image}/>
+                                image={productItem.main_image.image}
+                                alt={productItem.main_image.alt_text}
+                            />
                         </Grid>
                     ))
                 }
