@@ -30,3 +30,7 @@ li {
 .mySwiper .swiper-slide-thumb-active {
     border: 2px solid #2A74C9;
 }
+.html-response-elements * {
+    font-family: var(--iranYekan) !important;
+    line-height: 30px;
+}

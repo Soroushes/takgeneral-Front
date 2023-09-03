@@ -46,7 +46,6 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                     alignItems: "start",
                     gap: 3,
                     p:0 ,
-                    px: 2,
                     pt:2
                 }}
             >
