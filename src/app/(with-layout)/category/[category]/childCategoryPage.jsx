@@ -107,7 +107,7 @@ const ChildCategoryPage = ({
                         </Box>
                         <Grid container sx={{display: {md: 'flex', xs: 'none'}}}>
                             <Grid item md={3.5}></Grid>
-                            <Grid item md={8.5} sx={{mb: 2, px: 1}} gap={1} display={'flex'}
+                            <Grid item md={8.5} sx={{mb: 3, px: 1}} gap={1} display={'flex'}
                                   alignItems={'center'}>
                                 <Typography>
                                     مرتب سازی براساس:

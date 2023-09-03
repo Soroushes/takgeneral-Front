@@ -5,7 +5,6 @@ import OuterImageSection from "./OuterImageSection";
 import Link from "next/link";
 
 const CategorySlider = ({category , selfId})=>{
-    console.log(category)
     return(
             <Container disableGutters={true} >
                 <SwiperCustomWrapper

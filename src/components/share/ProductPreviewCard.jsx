@@ -5,7 +5,7 @@ import PriceDiscount from "./PriceDiscount";
 import PN from "persian-number";
 import {urls} from "src/data/urls";
 
-const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price, id, shadow, sx}) => {
+const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price, id, shadow, sx , alt=''}) => {
     return (
         <Link href={urls.singleProduct + id}>
             <Stack
@@ -52,7 +52,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                             image &&
                             <Image width={140} height={140}
                                    style={{transform: 'scale(0.9)', transition: 'all .3s', width: '100%', height: 'auto'}}
-                                   src={image} alt={title}/>
+                                   src={image} alt={alt}/>
                         }
                     </Box>
                     <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center'}}>
