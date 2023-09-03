@@ -124,7 +124,7 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                         null
                 }
             </TabPanel>
-            <TabPanel value="2" sx={{width: '100%'}}>
+            <TabPanel value="2" sx={{width: '100%' , p : 0}}>
                 <HtmlDescription><Box dangerouslySetInnerHTML={{__html: content}}/></HtmlDescription>
             </TabPanel>
         </TabContext>
