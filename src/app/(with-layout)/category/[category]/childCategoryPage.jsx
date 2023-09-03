@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import {Button, Container , Box, Divider, Grid, MenuItem, TextField, Typography} from "@mui/material";
+import {Button, Container, Box, Divider, Grid, MenuItem, TextField, Typography} from "@mui/material";
 import CheckBoxFilter from "@/components/share/CheckBoxFilter";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import MainModal from "../../../../components/share/MainModal";
@@ -35,7 +35,7 @@ const ChildCategoryPage = ({
                                products,
                                content,
                                breadcrumb,
-    main_banner
+                               main_banner
                            }) => {
     const {push} = useRouter();
     const searchParams = useSearchParams();
@@ -51,7 +51,7 @@ const ChildCategoryPage = ({
     const handleSortOnchange = (value) => {
         setSortValue(value);
         params.set('ordering', value);
-        push('?' + params.toString() , {scroll : false})
+        push('?' + params.toString(), {scroll: false})
     }
     return (
         <Box sx={{minHeight: "70vh"}}>
