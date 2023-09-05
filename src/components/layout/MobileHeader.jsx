@@ -140,7 +140,7 @@ const MobileHeader = ({categories}) => {
                                             return (
                                                 <Link onClick={() => {
                                                     setDrawerIsOpen(false)
-                                                }} style={{display: 'block', width: "100%"}} href={'/category'}>
+                                                }} style={{display: 'block', width: "100%"}} href={`/category/${item.id}`}>
                                                     <Box
                                                         sx={{
                                                             borderBottom: "1px solid #ccc",

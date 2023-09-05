@@ -5,97 +5,8 @@ import ProductPreviewCard from "../share/ProductPreviewCard";
 import SwiperCustomWrapper from "../share/SwiperCustomWrapper";
 import HighRateBanner from '../../assets/images/home/highRateSilderPic.png'
 import Image from "next/image";
-import anPic from '../../assets/images/home/homeCategoryImage.png'
 
-const dummyData = [
-    {
-        title: 'فلومتر مایع و گاز سایز 25 میلی متر مدل خطی LZB-VA تمام استیل',
-        afterDiscountPrice: 9000000,
-        price: 10000000,
-        image: anPic
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        afterDiscountPrice: 9000000,
-        price: 10000000,
-        image: anPic,
-        discountPercent: 10
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        afterDiscountPrice: 9000000,
-        price: 10000000,
-        image: anPic,
-        discountPercent: 10
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        price: 10000000,
-        image: anPic,
-        discountPercent: 10
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        price: 10000000,
-        image: anPic,
-        discountPercent: 10
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        afterDiscountPrice: 9000000,
-        price: 10000000,
-        image: anPic,
-        discountPercent: 10
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        afterDiscountPrice: 9000000,
-        price: 10000000,
-        image: anPic,
-        discountPercent: 10
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        afterDiscountPrice: 9000000,
-        price: 10000000,
-        image: anPic,
-        discountPercent: 10
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        afterDiscountPrice: 9000000,
-        price: 10000000,
-        image: anPic,
-        discountPercent: 10
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        afterDiscountPrice: 9000000,
-        price: 10000000,
-        image: anPic,
-        discountPercent: 10
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        afterDiscountPrice: 9000000,
-        price: 10000000,
-        image: anPic,
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        afterDiscountPrice: 10000000,
-        price: 10000000,
-        image: anPic,
-    },
-    {
-        title: 'asdd َُیشس یشسسی asdasd',
-        afterDiscountPrice: 10000000,
-        price: 10000000,
-        image: anPic,
-    }
-
-]
-const HighRateCategorySlider = () => {
+const HighRateCategorySlider = ({products}) => {
     return (
         <Box sx={{
             my: 8,
@@ -126,13 +37,13 @@ const HighRateCategorySlider = () => {
                         <Image alt={''} fill src={HighRateBanner}/>
                     </Box>
                 </SwiperSlide>
-                    {dummyData.map((data, index) => {
+                    {products?.map((data, index) => {
                         return (
                             <SwiperSlide key={Math.random() * 1000} style={{width:'auto', marginRight : !index ? '-135px' : '15px'}}>
                                 <Box sx={{width: {md: 200, xs: 170}}} marginTop={5}>
-                                    <ProductPreviewCard title={data.title} discountPercent={data.discountPercent}
-                                                        price={data.price} afterDiscountPrice={data.afterDiscountPrice}
-                                                        id={2}
+                                    <ProductPreviewCard title={data.name} discountPercent={data.min_price.discount}
+                                                        price={data.min_price.price} afterDiscountPrice={data.min_price.final_price}
+                                                        id={data.id}
                                                         image={data.image}/>
                                 </Box>
                             </SwiperSlide>

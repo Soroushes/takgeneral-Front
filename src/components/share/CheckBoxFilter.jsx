@@ -8,7 +8,7 @@ import { useRouter, useSearchParams} from "next/navigation";
 const CheckBoxFilter = ({subFilter}) => {
     let filtersId = [];
     subFilter.map((value) => {
-        filtersId.push(value.brand__id);
+        filtersId.push(value.id);
     })
     let initialCheckBox = {}
     filtersId.forEach((id) => {
@@ -64,7 +64,7 @@ const CheckBoxFilter = ({subFilter}) => {
                 subFilter.map((value) => {
                     return (
                         <Box
-                            key={value.brand__id}
+                            key={value.id}
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
@@ -73,9 +73,9 @@ const CheckBoxFilter = ({subFilter}) => {
                                 fontWeight: 'bold'
                             }}>
                             <Checkbox inputProps={{'aria-label': 'controlled'}} size={'small'}
-                                      checked={checkBox[value.brand__id]} onChange={handleCheck}
-                                      name={String(value.brand__id)}/>
-                            <Typography variant={'body2'} sx={{textAlign: 'center'}}>{value.brand__name}</Typography>
+                                      checked={checkBox[value.id]} onChange={handleCheck}
+                                      name={String(value.id)}/>
+                            <Typography variant={'body2'} sx={{textAlign: 'center'}}>{value.name}</Typography>
                             <Typography variant={'subtitle2'}>({value.product_count})</Typography>
                         </Box>
                     )

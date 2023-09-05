@@ -5,6 +5,8 @@ import OuterImageSection from "../../../../components/share/OuterImageSection";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import Link from "next/link";
 import HtmlDescription from "@/components/share/HtmlDescription";
+import BrandSlider from "@/components/share/BrandSlider";
+
 export default function ParentCategoryPage({
                                                brands,
                                                content,
@@ -12,15 +14,24 @@ export default function ParentCategoryPage({
                                                breadcrumb,
                                                main_category,
                                                main_banner,
-                                               other_banner,data
+                                               other_banner
                                            }) {
-    console.log(data)
     return (
         <>
-            <Box sx={{position: "relative",display:{md:'block' , xs:'none'}, width: '100%', aspectRatio: {md: '4.5/1', xs: '1.5/1'}}}>
+            <Box sx={{
+                position: "relative",
+                display: {md: 'block', xs: 'none'},
+                width: '100%',
+                aspectRatio: {md: '4.5/1', xs: '1.5/1'}
+            }}>
                 <Image src={main_banner[0]?.image} style={{borderRadius: '8px'}} fill alt={main_banner[0]?.alt}/>
             </Box>
-            <Box sx={{position: "relative" , display:{md:'none' , xs:'block'}, width: '100%', aspectRatio: {md: '4.5/1', xs: '1.5/1'}}}>
+            <Box sx={{
+                position: "relative",
+                display: {md: 'none', xs: 'block'},
+                width: '100%',
+                aspectRatio: {md: '4.5/1', xs: '1.5/1'}
+            }}>
                 <Image src={main_banner[0]?.mobile_image} style={{borderRadius: '8px'}} fill alt={main_banner[0]?.alt}/>
             </Box>
             <Container disableGutters>
@@ -35,16 +46,16 @@ export default function ParentCategoryPage({
                             return (
                                 <Grid key={item.id} sx={{px: 2}} item xs={6} md={3}>
                                     <Link href={'/category/' + item.id}>
-                                        <OuterImageSection alt={item.alt} shadow={2} image={item.image} title={item.name}/>
+                                        <OuterImageSection alt={item.alt} shadow={2} image={item.image}
+                                                           title={item.name}/>
                                     </Link>
                                 </Grid>
                             )
                         })
                     }
-
                 </Grid>
                 <Typography sx={{px: 2}} fontWeight={'bold'} variant={'h2'} component={'h2'}>انواع برند ها</Typography>
-                {/*<BrandSlider brands={brands}/>*/}
+                <BrandSlider brands={brands}/>
                 <Grid sx={{my: 4}} container rowGap={2}>
                     {
                         other_banner?.map((item) => (

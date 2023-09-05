@@ -1,8 +1,6 @@
 import Slider from "../../components/home/Slider";
 import {BASE_URL} from "@/data/urls";
-import anPic from '../../assets/images/home/homeCategoryImage.png'
 import HomePageCategorySection from "../../components/home/HomePageCategorySection";
-import testBanner from '../../assets/images/home/homeBanner.png'
 import ProductBanners from "../../components/share/productBanners";
 import HighRateCategorySlider from "../../components/home/highRateCategorySlider";
 import {Suspense} from "react";
@@ -16,25 +14,7 @@ async function getData() {
     return res.json()
 }
 export default async function Page() {
-    const fakeSortData = [
-        {
-            title: 'ابزار دقیق',
-            image: anPic
-        },
-        {
-            title: 'ابزار دقیق',
-            image: anPic
-        }, {
-            title: 'ابزار دقیق',
-            image: anPic
-        },
-        {
-            title: 'ابزار دقیق',
-            image: anPic
-        },
-
-    ];
-    const data = getData();
+    const data = await getData();
     return (
         <Suspense fallback={<LoadingPages/>}>
             <Slider slides={data.sliders}/>
@@ -45,12 +25,13 @@ export default async function Page() {
                 borderRadius: '20px 20px 0 0',
                 padding: '20px 0 '
             }}>
-                <HomePageCategorySection data={data} categories={fakeSortData}/>
-                <DiscountProductSlider/>
+                <HomePageCategorySection mainCategories={data.mother_categories}/>
+                <DiscountProductSlider data={data} products={data.amazing_offer_product}/>
                 <ProductBanners sizing={{xs: 12, md: 3.8}}
-                                banners={[{src: testBanner}, {src: testBanner}, {src: testBanner}]}/>
-                <HighRateCategorySlider/>
-                <ProductBanners sizing={{xs: 12, md: 5.8}} banners={[{src: testBanner}, {src: testBanner}]}/>
+                                banners={data.mid_banner}/>
+                <HighRateCategorySlider products={data.popular_categories}/>
+                <ProductBanners sizing={{xs: 12, md: 5.8}} banners={data.end_banner}/>
+                <DiscountProductSlider backGroundImage={'linear-gradient(to left, #1B09F9 , #27E1BC)'} products={data.special_offer_products}/>
                 {/*<DifferentProductScaleSlider/>*/}
             </div>
         </Suspense>

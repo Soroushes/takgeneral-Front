@@ -11,10 +11,10 @@ const BrandSlider = ({brands = []}) => {
                 <SwiperCustomWrapper
                      spaceBetween={'15px'}>
                     {
-                        brands.map((brand) => {
+                        brands?.map((brand) => {
                             return (
                                 <SwiperSlide key={Math.random() * 1000} style={ {width: 160 , padding : '50px 0px' }}>
-                                    <InnerImageSection href={'/product_brand/'+ brand.brand__id} name={brand.brand__name} image={brand.brand__logo}/>
+                                    <InnerImageSection href={'/product_brand/'+ brand.id} name={brand.name} image={brand.logo}/>
                                 </SwiperSlide>
                             )
                         })

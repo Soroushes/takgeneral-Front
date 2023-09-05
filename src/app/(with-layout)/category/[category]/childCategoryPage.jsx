@@ -35,9 +35,8 @@ const ChildCategoryPage = ({
                                products,
                                content,
                                breadcrumb,
-                               main_banner, data
+                               main_banner
                            }) => {
-    console.log(data)
     const {push} = useRouter();
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);

@@ -3,8 +3,7 @@ import {Container, Grid, Typography , Box} from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 
-const HomePageCategorySection = ({categories , data}) => {
-    console.log(data)
+const HomePageCategorySection = ({mainCategories}) => {
     return (
         <Container sx={{my: 3}}>
             <Grid justifyContent={'center'} rowGap={5} container>
@@ -19,7 +18,7 @@ const HomePageCategorySection = ({categories , data}) => {
                     </Box>
                 </Grid>
                 {
-                    categories.map((item, index) => (
+                    mainCategories.map((item, index) => (
                         <Grid key={index} sx={{px: {md: 6, xs: 3}}} xs={6} sm={4} md={3} item>
                             <Link style={{width : '100%'}} href={'/category/21'}>
                                 <Box sx={{mb: 2 , width : '100%' , textAlign : 'center'}}>
@@ -33,7 +32,7 @@ const HomePageCategorySection = ({categories , data}) => {
                                     textOverflow={'ellipsis'}
                                     whiteSpace={'nowrap'}
                                 >
-                                    {item.title}
+                                    {item.name}
                                 </Typography>
                             </Link>
                         </Grid>
