@@ -49,34 +49,37 @@ const ProductPage = ({data}) => {
                             id={productOptions.id}
                         />
                     </Grid>
-                </Grid>
-                <Grid ref={attributesTableRef} sx={{mt: 4}} item xs={12}>
-                    <SingleProductDetails content={data.page_content.desc} setShowAllDetails={setIsShowAllDetails} IsShowAllDetails={isShowAllDetails}
-                                          details={data.product.attributes}/>
-                </Grid>
-                <Grid ref={opinionTableRef} sx={{mt: 4}} item xs={12}>
-                    <Divider sx={{my: 3, display: {md: 'none'}}}/>
-                    <CommentQuestion rate={data.avg_rate} comments={data.comments} productId={data.product.id}
-                                     questions={data.questions}/>
-                </Grid>
-                <Grid item xs={12} my={5}>
-                    <Box sx={{width:'auto' , display:'flex',mx:2 , my:3}}>
-                        <Typography fontWeight={'bold'} sx={{ borderBottom:'1px solid #ff8301' }}>محصولات مشابه</Typography>
-                    </Box>
-                    <SwiperCustomWrapper navigation={false}>
-                        {
-                            data.similar_product.map((item) => {
-                                return (
-                                    <SwiperSlide key={Math.random() * 1000} style={{width:'200px' ,  marginRight : '16px'}}>
-                                        <ProductPreviewCard title={item.name} id={item.id} image={item.main_image}
-                                                            price={item.min_price.price}
-                                                            afterDiscountPrice={item.min_price.final_price}
-                                                            discountPercent={item.min_price.discount}/>
-                                    </SwiperSlide>
-                                )
-                            })
-                        }
-                    </SwiperCustomWrapper>
+                    <Grid ref={attributesTableRef} sx={{mt: 4}} item xs={12}>
+                        <SingleProductDetails content={data.page_content.desc} setShowAllDetails={setIsShowAllDetails} IsShowAllDetails={isShowAllDetails}
+                                              details={data.product.attributes}/>
+                    </Grid>
+                    <Grid ref={opinionTableRef} sx={{mt: 4}} item xs={12}>
+                        <Divider sx={{my: 3, display: {md: 'none'}}}/>
+                        <CommentQuestion rate={data.avg_rate} comments={data.comments} productId={data.product.id}
+                                         questions={data.questions}/>
+                    </Grid>
+                    {
+                        data.similar_product.length ?
+                        <Grid item xs={12} mb={5}>
+                            <Box sx={{width:'auto' , display:'flex',mx:2 , my:3}}>
+                                <Typography fontWeight={'bold'} sx={{ borderBottom:'1px solid #ff8301' }}>محصولات مشابه</Typography>
+                            </Box>
+                            <SwiperCustomWrapper navigation={false}>
+                                {
+                                    data.similar_product.map((item) => {
+                                        return (
+                                            <SwiperSlide key={Math.random() * 1000} style={{width:'200px' ,  marginRight : '16px'}}>
+                                                <ProductPreviewCard title={item.name} id={item.id} image={item.main_image}
+                                                                    price={item.min_price.price}
+                                                                    afterDiscountPrice={item.min_price.final_price}
+                                                                    discountPercent={item.min_price.discount}/>
+                                            </SwiperSlide>
+                                        )
+                                    })
+                                }
+                            </SwiperCustomWrapper>
+                        </Grid> : null
+                    }
                 </Grid>
             </Container>
         </Box>

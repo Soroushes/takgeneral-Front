@@ -6,11 +6,11 @@ import MainModal from "../../../../components/share/MainModal";
 import SortIcon from '../../../../assets/icons/share/sort.svg';
 import ProductList from "../../../../components/share/ProductList";
 import Image from "next/image";
-import Banner from "../../../../assets/images/categoryBanner1.jpg";
 import {Controller, useForm} from "react-hook-form";
 import {IOSSwitch} from '@/assets/theme/theme';
+import HtmlDescription from "@/components/share/HtmlDescription";
 
-const BrandPage = ({product, page_count, current_page}) => {
+const BrandPage = ({product, page_count, current_page , content , main_banner}) => {
     const {control} = useForm()
     const [sortValue, setSortValue] = useState('newest');
     const noQueryPath = usePathname();
@@ -49,7 +49,7 @@ const BrandPage = ({product, page_count, current_page}) => {
                 p: 0,
                 display: {xs: 'block', md: 'none'}
             }}>
-                <Image fill alt={''} src={Banner}/>
+                <Image fill alt={''} src={main_banner[0]?.mobile_image}/>
             </Box>
             <Box sx={{
                 display: {md: 'block', xs: 'none'},
@@ -58,7 +58,7 @@ const BrandPage = ({product, page_count, current_page}) => {
                 position: 'relative',
                 p: 0
             }}>
-                <Image fill alt={''} src={Banner}/>
+                <Image fill alt={''} src={main_banner[0]?.image}/>
             </Box>
             <Container>
                 <Grid container>
@@ -124,6 +124,7 @@ const BrandPage = ({product, page_count, current_page}) => {
                         <ProductList page={current_page} count={page_count} product={product}/>
                     </Grid>
                 </Grid>
+                <HtmlDescription>{content.desc}</HtmlDescription>
             </Container>
             <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>
                 {

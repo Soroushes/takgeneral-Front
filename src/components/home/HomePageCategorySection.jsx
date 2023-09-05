@@ -3,7 +3,8 @@ import {Container, Grid, Typography , Box} from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 
-const HomePageCategorySection = ({categories}) => {
+const HomePageCategorySection = ({categories , data}) => {
+    console.log(data)
     return (
         <Container sx={{my: 3}}>
             <Grid justifyContent={'center'} rowGap={5} container>

@@ -1,4 +1,4 @@
-import {SET_ALERT} from "../redux/slices/snakeBarSlice";
+import {SET_ALERT} from "@/redux/slices/snakeBarSlice";
 import {useDispatch} from "react-redux";
 
 const useAlert = () => {

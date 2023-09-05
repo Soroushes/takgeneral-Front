@@ -61,7 +61,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                     borderColor: "divider",
                     display: "flex",
                     width: "100%",
-                    mb: {xs: 2, md: 2, lg: 0},
+                    mb: {xs: 4, md: 4, lg: 3},
                     borderBottom: '1px solid #eee'
                 }}
             >
@@ -99,7 +99,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                     }}
                 >
                     {
-                        <Grid container sx={{py: 3}} rowGap={5} justifyContent={'space-between'}>
+                        <Grid container rowGap={5} justifyContent={'space-between'}>
                             <Grid item xs={12} md={2.6}>
                                 <AverageRatingComment productId={productId} isLoggedIn={isLoggedIn}
                                                       openAddComment={setCommentIsOpen} average={rate.avg_keyfiyat_rate}
@@ -166,7 +166,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                     flexDirection: 'column',
                 }}>
 
-                    <Grid container sx={{py: 3}} rowGap={5} justifyContent={'space-between'}>
+                    <Grid container  rowGap={5} justifyContent={'space-between'}>
                         <Grid item xs={12} md={2.6}>
                             <AverageRatingQuestion productId={productId} isLoggedIn={isLoggedIn}
                                                    openAddQuestion={setQuestionIsOpen}/>

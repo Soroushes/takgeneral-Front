@@ -15,7 +15,6 @@ async function getData() {
     }
     return res.json()
 }
-
 export default async function Page() {
     const fakeSortData = [
         {
@@ -36,7 +35,6 @@ export default async function Page() {
 
     ];
     const data = getData();
-    // data.products bayad map bokhore dar productsortsection
     return (
         <Suspense fallback={<LoadingPages/>}>
             <Slider slides={data.sliders}/>
@@ -47,7 +45,7 @@ export default async function Page() {
                 borderRadius: '20px 20px 0 0',
                 padding: '20px 0 '
             }}>
-                <HomePageCategorySection categories={fakeSortData}/>
+                <HomePageCategorySection data={data} categories={fakeSortData}/>
                 <DiscountProductSlider/>
                 <ProductBanners sizing={{xs: 12, md: 3.8}}
                                 banners={[{src: testBanner}, {src: testBanner}, {src: testBanner}]}/>

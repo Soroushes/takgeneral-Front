@@ -3,13 +3,14 @@ import {Box, Container, Grid, Pagination, PaginationItem, Typography} from "@mui
 import Image from "next/image";
 import BlogCart from "../../../components/blog/blogCart";
 import ClockIcon from "../../../assets/icons/share/clock.svg";
-import {useEffect, useState} from 'react' ;
+import {useEffect, useState} from 'react';
 import {useRouter, useSearchParams} from "next/navigation";
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import Link from "next/link";
 import {timeStampToDate} from "@/hooks/timeStampToDate";
 import HtmlDescription from "@/components/share/HtmlDescription";
+
 const BlogPage = ({blogs, currentPage, pageCount}) => {
     const [pageState, setPageState] = useState(1);
     const searchParams = useSearchParams();
@@ -17,13 +18,12 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
     const {push} = useRouter();
     const handlePaginationChange = (e, value) => {
         params.set('page', value)
-        push( '?' + params)
+        push('?' + params)
         setPageState(value);
     }
     useEffect(() => {
         setPageState(currentPage)
     }, [params]);
-    console.log(blogs)
     return (
         <Container sx={{mt: 3}}>
             <Typography variant={'h3'} my={3} fontWeight={'bold'} sx={{display: {xs: 'block', md: 'none'}}}>مجله تک
@@ -48,20 +48,19 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                                     blogs[0]?.title
                                 }
                             </Typography>
-                            <Typography sx={{
+                            <HtmlDescription boxSx={{
                                 width: '100%',
                                 maxHeight: 150,
                                 textOverflow: 'ellipsis',
                                 wordWrap: 'break-word',
                                 overflow: 'hidden'
-                            }} variant={'body2'}>
-                                <HtmlDescription><Box dangerouslySetInnerHTML={{__html: content}}/></HtmlDescription>
-                            </Typography>
+                            }}>{blogs[0].desc}</HtmlDescription>
                         </Box>
                         <Box sx={{display: 'flex', px: .5, mt: 2, justifyContent: 'space-between'}}>
                             <Box display={'flex'} alignItems={'center'} gap={.5}>
                                 <ClockIcon/>
-                                <Typography variant={'subtitle1'} sx={{textAlign: 'center'}}>{timeStampToDate(blogs[0]?.created_time.timestamp)}</Typography>
+                                <Typography variant={'subtitle1'}
+                                            sx={{textAlign: 'center'}}>{timeStampToDate(blogs[0]?.created_time.timestamp)}</Typography>
                             </Box>
                             <Link href={`/blog/${blogs[0]?.id}`}>
                                 <Box display={'flex'} alignItems={'center'} gap={.5}>
@@ -92,7 +91,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                     })
                 }
             </Grid>
-            <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4 , px:2}}>
+            <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4, px: 2}}>
                 <Pagination sx={{direction: 'rtl'}} shape={'rounded'} onChange={handlePaginationChange} page={pageState}
                             count={pageCount}
                             color={'secondary'}

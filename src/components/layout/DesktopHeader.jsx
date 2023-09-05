@@ -110,7 +110,7 @@ const DesktopHeader = ({categories}) => {
                                         alignItems: "center ",
                                     }}>
                                     {/*{item.icon}*/}
-                                    <Typography sx={{color :'text.main'}} variant={'subtitle1'} component={'li'}>درباره ما</Typography>
+                                    <Typography sx={{color :'text.main'}} variant={'subtitle1'} component={'li'}>وبلاگ</Typography>
                                 </Box>
                             </Link>
                             {categories?.map((item) => {

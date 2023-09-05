@@ -1,4 +1,7 @@
 import CartPage from "@/app/(with-layout)/cart/cartPage";
+import {Suspense} from "react";
+import LoadingPages from "@/components/share/LoadingPages";
+
 export const metadata = {
     title : 'سبد خرید',
     robots : {
@@ -12,6 +15,8 @@ export const metadata = {
 }
 export default function Page(){
     return(
-        <CartPage/>
+        <Suspense fallback={<LoadingPages/>}>
+            <CartPage/>
+        </Suspense>
     )
 }
