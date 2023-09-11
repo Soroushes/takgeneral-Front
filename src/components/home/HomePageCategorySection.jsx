@@ -20,7 +20,7 @@ const HomePageCategorySection = ({mainCategories}) => {
                 {
                     mainCategories.map((item, index) => (
                         <Grid key={index} sx={{px: {md: 6, xs: 3}}} xs={6} sm={4} md={3} item>
-                            <Link style={{width : '100%'}} href={'/category/21'}>
+                            <Link style={{width : '100%'}} href={`/category/${item.id}`}>
                                 <Box sx={{mb: 2 , width : '100%' , textAlign : 'center'}}>
                                     <Image alt={''} style={{width : '100%' , height : '100%'}} width={160} height={160} src={item.image}/>
                                 </Box>

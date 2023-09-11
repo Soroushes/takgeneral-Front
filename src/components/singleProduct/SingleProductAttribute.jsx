@@ -33,14 +33,14 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
                 </Box>
                 <Button size={'small'} variant={'text'} color={'secondary'} onClick={scrollToOpinion}>
                     <Typography color={'secondary'} variant={'subtitle1'}>
-                        دیدگاه کاربران ({PN.convertEnToPe(PN.sliceNumber(comments.length))})
+                        دیدگاه کاربران ({PN.convertEnToPe(PN.sliceNumber(comments?.length))})
                     </Typography>
                 </Button>
             </Box>
             {
-                !options.no_option &&
+                !options?.no_option &&
                 <Box mt={3} display={'flex'} alignItems={'center'} gap={4}>
-                    <Typography>{options.name} :</Typography>
+                    <Typography>{options?.name} :</Typography>
                     <TextField
                         sx={{
                             width: "150px", "& fieldset": {border: '1px solid #eee'},
@@ -51,7 +51,7 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
                         onChange={(e) => handleSortOnchange(e.target.value)}
                     >
                         {
-                            options.product_variant.map((sortItem) => (
+                            options?.product_variant.map((sortItem) => (
                                 <MenuItem key={sortItem.option_value} variant={'subtitle1'}
                                           value={sortItem}>{sortItem.option_value}</MenuItem>
                             ))
