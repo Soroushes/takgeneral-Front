@@ -13,10 +13,10 @@ import MainModal from "../../share/MainModal";
 
 const AddCommentModal = ({rate, productId, setOpen , open}) => {
     const {errorAlert, successAlert} = useAlert();
-    const {full_name} = useSelector(state => state.userInfo)
+    const {full_name} = useSelector(state => state.userInfo);
     const {control, handleSubmit, reset} = useForm({
         defaultValues: {
-            kefiyat_rate: rate.avg_keyfiyat_rate ?? 2,
+            kefiyat_rate: rate?.avg_keyfiyat_rate ?? 2,
         }
     });
     const {loading, callApi} = useAxios();
@@ -29,9 +29,9 @@ const AddCommentModal = ({rate, productId, setOpen , open}) => {
             data: {
                 ...data,
                 product: productId,
-                arzesh_rate: data.kefiyat_rate,
-                title: data.content,
-                user_alias_name: data.content
+                arzesh_rate: data?.kefiyat_rate,
+                title: data?.content,
+                user_alias_name: data?.content
 
             },
             successFunc: () => {
@@ -105,6 +105,7 @@ const AddCommentModal = ({rate, productId, setOpen , open}) => {
                                     }}
                                     render={({field, fieldState}) =>
                                         <TextField
+                                            placeholder={'نام و نام خانوادگی'}
                                             error={!!fieldState.error}
                                             value={field.value}
                                             onChange={field.onChange}

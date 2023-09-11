@@ -48,7 +48,7 @@ const MobileHeader = ({categories}) => {
                                     name={'searchInput'}
                                     defaultValue={''}
                                     render={({field})=>(
-                                        <TextField sx={{width:'80%'}} size={'small'} placeholder={'جستوجو در تک جنرال'} value={field.value} onChange={field.onChange}/>
+                                        <TextField sx={{width:'80%'}} size={'small'} placeholder={'جستجو در تک جنرال'} value={field.value} onChange={field.onChange}/>
                                     )}
                                 />
                                 <Box onClick={toggleSearch}>

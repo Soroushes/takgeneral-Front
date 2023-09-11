@@ -19,6 +19,7 @@ import {useRouter, useSearchParams} from "next/navigation";
 import PN from "persian-number";
 
 const CommentQuestion = ({comments, rate, productId, questions}) => {
+    console.log(comments)
     const {isLoggedIn} = useSelector(state => state.userInfo)
     const [value, setValue] = useState("1");
     const [questionIsShow, setQuestionIsShow] = useState(false);
@@ -70,11 +71,11 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                         sx={{
                             mr: 2,
                         }}
-                        label={`دیدگاه کاربران (${PN.convertEnToPe(comments.length)})`}
+                        label={`دیدگاه کاربران (${PN.convertEnToPe(comments?.length)})`}
                         value="1"
                     />
                     <Tab
-                        label={`پرسش و پاسخ (${PN.convertEnToPe(questions.length)})`}
+                        label={`پرسش و پاسخ (${PN.convertEnToPe(questions?.length)})`}
                         value="2"
                     />
                 </TabList>
@@ -102,15 +103,15 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                         <Grid container rowGap={5} justifyContent={'space-between'}>
                             <Grid item xs={12} md={2.6}>
                                 <AverageRatingComment productId={productId} isLoggedIn={isLoggedIn}
-                                                      openAddComment={setCommentIsOpen} average={rate.avg_keyfiyat_rate}
+                                                      openAddComment={setCommentIsOpen} average={rate?.avg_keyfiyat_rate}
                                                       title={'comment'}/>
                             </Grid>
                             {
-                                comments.length ?
+                                comments?.length ?
                                     <Grid item xs={12} md={9}>
                                         <Box sx={{width: '100%', display: 'flex', flexDirection: 'column'}}>
                                             {
-                                                comments.map((comment, index) => {
+                                                comments?.map((comment, index) => {
                                                     const show = index < 2 || commentIsShow
                                                     return (
                                                         <Box sx={{display: show ? 'block' : 'none'}} key={index}>
@@ -120,7 +121,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                                 })
                                             }
                                             {
-                                                comments.length > 2 ?
+                                                comments?.length > 2 ?
                                                     <Button
                                                         onClick={showComment}
                                                         variant="outlined"
@@ -172,10 +173,10 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                                    openAddQuestion={setQuestionIsOpen}/>
                         </Grid>
                         {
-                            questions.length ?
+                            questions?.length ?
                                 <Grid item xs={12} md={9}>
                                     {
-                                        questions.map((eachQuestion, index) => {
+                                        questions?.map((eachQuestion, index) => {
                                             const show = index < 2 || questionIsShow;
                                             return (
                                                 <Box sx={{display: show ? 'block' : 'none', width: '100%', mb: 6}}
@@ -188,7 +189,7 @@ const CommentQuestion = ({comments, rate, productId, questions}) => {
                                         })
                                     }
                                     {
-                                        questions.length > 2 ?
+                                        questions?.length > 2 ?
                                             <Button
                                                 onClick={showQuestion}
                                                 variant="outlined"

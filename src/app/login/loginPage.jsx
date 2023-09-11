@@ -16,13 +16,13 @@ const boxStyles = {
     width: 450, px: 3, background: "white", borderRadius: 3, position: "relative",
 };
 const LoginPage = ()=>{
-    const searchParams = useSearchParams()
+    const searchParams = useSearchParams();
     const from = searchParams.get('from');
     const {errorAlert} = useAlert() ;
     const [validate, setValidate] = useState(false);
     const {count, startTimer, isFinished, resetTimer} = useCounter(55);
     const {palette} = useTheme();
-    const router = useRouter() ;
+    const {push} = useRouter() ;
     const dispatch = useDispatch() ;
     const {control, handleSubmit, getValues , setValue} = useForm({
         defaultValues: {
@@ -53,9 +53,12 @@ const LoginPage = ()=>{
             data: {phone_number: '98' + getValues('phoneNumber'), code: getValues('otp')},
             successFunc: (res) => {
                 localStorage.setItem('token' , res.token.access) ;
-                //router.push(urls.profile) ;
-                router.push('/' + from);
-
+                // push(urls.profile) ;
+                if(from){
+                    push('/' + from);
+                }else{
+                    push('/');
+                }
                 dispatch(fetchInfo());
             }
             , errFunc: (err) => {
@@ -75,7 +78,7 @@ const LoginPage = ()=>{
     useEffect(()=>{
         const token = localStorage.getItem('token') ;
         if (token){
-            router.push('/' ) ;
+            push('/' ) ;
         }
     },[])
     return (
