@@ -10,7 +10,6 @@ async function getData(productId) {
         return res.json();
     } else {
         if (res.status === 404) {
-            console.log('not found')
             notFound();
         }
         throw new Error('Fail to fetch data')
