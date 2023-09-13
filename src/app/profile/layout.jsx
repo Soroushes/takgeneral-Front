@@ -99,7 +99,7 @@ export default function Layout ({children}) {
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid sx={{backgroundColor: "white", height: 'fit-content', borderRadius: 4}} xs={12} md={9} item>
+                    <Grid sx={{backgroundColor: "white", height: 'fit-content', borderRadius: 4}} xs={12} md={8} lg={9} item>
                         {children}
                     </Grid>
                 </Grid>

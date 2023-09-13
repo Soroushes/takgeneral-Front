@@ -3,7 +3,6 @@ import CartEditionButton from "../share/CartEditionButton";
 import Image from "next/image";
 import PriceDiscount from "../share/PriceDiscount";
 import Link from "next/link";
-import testImage from '../../assets/images/product-image.png';
 
 const CartItems = ({product}) => {
     return (
@@ -11,7 +10,7 @@ const CartItems = ({product}) => {
             <Grid item xs={4} md={2.5}>
                 <Link href={'/product/' + product.product_id} style={{textAlign: 'center'}}>
                     <Image width={100} height={100} style={{width: '100%', height: 'auto'}} alt={'test'}
-                           src={testImage}/>
+                           src={product?.main_image}/>
                 </Link>
             </Grid>
             <Grid item xs={7} md={8.5}

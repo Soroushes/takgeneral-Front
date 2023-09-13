@@ -55,7 +55,7 @@ const ProductPage = ({data}) => {
                     </Grid>
                     <Grid ref={opinionTableRef} sx={{mt: 4}} item xs={12}>
                         <Divider sx={{my: 3, display: {md: 'none'}}}/>
-                        <CommentQuestion rate={data?.avg_rate} comments={data?.comments} productId={data?.product.id}
+                        <CommentQuestion image={data?.product.all_images} rate={data?.avg_rate} comments={data?.comments} productId={data?.product.id}
                                          questions={data?.questions}/>
                     </Grid>
                     {
