@@ -28,66 +28,64 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
         <Container sx={{mt: 3}}>
             <Typography variant={'h3'} my={3} fontWeight={'bold'} sx={{display: {xs: 'block', md: 'none'}}}>مجله تک
                 جنرال</Typography>
-            <Box sx={{px: 1}}>
-                <Grid container justifyContent={'space-between'} sx={{boxShadow: 1, p: 2, borderRadius: 2}}>
-                    <Grid item md={3} xs={12}>
-                        <Box sx={{textAlign: 'center', width: '100%', aspectRatio: '1/1'}}>
-                            {
-                                blogs[0]?.main_image &&
-                                <Image width={590} height={290} style={{width: '100%', height: 'auto'}}
-                                       src={blogs[0].main_image.image}
-                                       alt={''}/>
-                            }
-                        </Box>
-                    </Grid>
-                    <Grid item md={9} xs={12} sx={{px: 2, py: 1}} display={'flex'} flexDirection={'column'}
-                          justifyContent={'space-between'}>
-                        <Box>
-                            <Typography sx={{mb: 4}} variant={'h6'} fontWeight={'bold'}>
-                                {
-                                    blogs[0]?.title
-                                }
-                            </Typography>
-                            <HtmlDescription boxSx={{
-                                width: '100%',
-                                maxHeight: 150,
-                                textOverflow: 'ellipsis',
-                                wordWrap: 'break-word',
-                                overflow: 'hidden'
-                            }}>{blogs[0].desc}</HtmlDescription>
-                        </Box>
-                        <Box sx={{display: 'flex', px: .5, mt: 2, justifyContent: 'space-between'}}>
-                            <Box display={'flex'} alignItems={'center'} gap={.5}>
-                                <ClockIcon/>
-                                <Typography variant={'subtitle1'}
-                                            sx={{textAlign: 'center'}}>{timeStampToDate(blogs[0]?.created_time.timestamp)}</Typography>
-                            </Box>
-                            <Link href={`/blog/${blogs[0]?.id}`}>
-                                <Box display={'flex'} alignItems={'center'} gap={.5}>
-                                    <Typography color={'primary'} variant={'subtitle1'}>مشاهده بیشتر</Typography>
-                                    <ChevronLeftRoundedIcon color={'primary'} fontSize={'small'}/>
-                                </Box>
-                            </Link>
-                        </Box>
-                    </Grid>
-                </Grid>
-            </Box>
+            {/*<Grid container justifyContent={'space-between'} sx={{boxShadow: 1, px: 2, py: 2, borderRadius: 2}}>*/}
+            {/*    <Grid item md={5} xs={12}>*/}
+            {/*        <Link href={`/blog/${blogs[0]?.id}`}>*/}
+            {/*            <Box sx={{textAlign: 'center', width: '100%'}}>*/}
+            {/*                {*/}
+            {/*                    blogs[0]?.main_image &&*/}
+            {/*                    <Image width={590} height={290} style={{width: '100%', height: 'auto'}}*/}
+            {/*                           src={blogs[0].main_image.image}*/}
+            {/*                           alt={''}/>*/}
+            {/*                }*/}
+            {/*            </Box>*/}
+            {/*        </Link>*/}
+            {/*    </Grid>*/}
+            {/*    <Grid item md={7} xs={12} sx={{px: 2, py: 1, mt: 1}} display={'flex'} flexDirection={'column'}*/}
+            {/*          justifyContent={'space-between'}>*/}
+            {/*        <Box>*/}
+            {/*            <Typography sx={{mb: 4}} variant={'h6'} fontWeight={'bold'}>*/}
+            {/*                {*/}
+            {/*                    blogs[0]?.title*/}
+            {/*                }*/}
+            {/*            </Typography>*/}
+            {/*            <HtmlDescription boxSx={{*/}
+            {/*                px: 0, py: 0,*/}
+            {/*                width: '100%',*/}
+            {/*                textOverflow: 'ellipsis',*/}
+            {/*                wordWrap: 'break-word',*/}
+            {/*                overflow: 'hidden' , fontSize:'15px'*/}
+            {/*            }}>{blogs[0].desc}</HtmlDescription>*/}
+            {/*        </Box>*/}
+            {/*        <Box sx={{display: 'flex', px: .5, mt: 2, justifyContent: 'space-between'}}>*/}
+            {/*            <Box display={'flex'} alignItems={'center'} gap={.5}>*/}
+            {/*                <ClockIcon/>*/}
+            {/*                <Typography variant={'subtitle1'}*/}
+            {/*                            sx={{textAlign: 'center'}}>{timeStampToDate(blogs[0]?.created_time.timestamp)}</Typography>*/}
+            {/*            </Box>*/}
+            {/*            <Link href={`/blog/${blogs[0]?.id}`}>*/}
+            {/*                <Box display={'flex'} alignItems={'center'} gap={.5}>*/}
+            {/*                    <Typography color={'primary'} variant={'subtitle1'}>مشاهده بیشتر</Typography>*/}
+            {/*                    <ChevronLeftRoundedIcon color={'primary'} fontSize={'small'}/>*/}
+            {/*                </Box>*/}
+            {/*            </Link>*/}
+            {/*        </Box>*/}
+            {/*    </Grid>*/}
+            {/*</Grid>*/}
             <Grid container sx={{mt: 3}}>
                 {
-                    blogs?.map((item, index) => {
-                        if (index > 0) {
+                    blogs?.map((item) => {
                             return (
-                                <Grid key={item.id} item md={4} xs={12} sx={{
+                                <Grid key={item?.id} item md={4} xs={12} sx={{
                                     p: 1,
                                     '&:hover': {transform: 'translateY(-2%)'},
                                     transition: 'all .5s',
                                     minHeight: '360px'
                                 }}>
-                                    <BlogCart image={item.main_image} title={item.title} content={item.content}
-                                              id={item.id} date={timeStampToDate(item.created_time.timestamp)}/>
+                                    <BlogCart image={item?.main_image} title={item?.title} content={item?.desc}
+                                              id={item?.id} date={timeStampToDate(item?.created_time?.timestamp)}/>
                                 </Grid>
                             )
-                        }
                     })
                 }
             </Grid>

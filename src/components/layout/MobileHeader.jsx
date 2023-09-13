@@ -11,6 +11,10 @@ import SearchIcon from '../../assets/icons/layout/search-normal.svg';
 import XIcon from '../../assets/icons/layout/x-shape.svg';
 import {Controller, useForm} from "react-hook-form";
 import {useSelector} from "react-redux";
+import MessageIcon from '../../assets/icons/layout/sms.svg';
+import TelegramIcon from '../../assets/icons/layout/send-2.svg';
+import InstagramIcon from '../../assets/icons/layout/instagram.svg';
+import WhatsappIcon from '../../assets/icons/layout/whatsapp.svg';
 const MobileHeader = ({categories}) => {
     const {mobileHeaderHeight} = useSelector(state => state.deviceInfo);
     const {control} = useForm();
@@ -70,93 +74,107 @@ const MobileHeader = ({categories}) => {
                                     open={drawerIsOpen}
                                     onClose={() => setDrawerIsOpen(false)}
                                     transitionDuration={500}
+                                    sx={{height:'100%'}}
                                 >
                                     <Box
                                         sx={{
                                             display: "flex",
-                                            alignItems: "center",
                                             flexDirection: "column",
+                                            justifyContent:'space-between',
                                             width: "300px",
+                                            height:'100%',
                                             px: 3,
-                                            py: 1
+                                            py: 2
                                         }}>
-                                        <Image
-                                            width={125} height={25}
-                                            src={logo}
-                                            alt="Takgeneral Logo"
-                                        />
-                                        <Link onClick={() => {
-                                            setDrawerIsOpen(false)
-                                        }} style={{display: 'block', width: "100%"}} href={'/contact-us'}>
-                                            <Box
-                                                sx={{
-                                                    borderBottom: "1px solid #ccc",
-                                                    py: 2.5,
-                                                    display: 'flex',
-                                                    width: "100%",
-                                                    gap: 1,
-                                                    alignItems: 'center'
-                                                }}
-                                            >
-
-                                                <Typography variant={'body2'} component={'li'}>تماس با ما</Typography>
+                                        <Box sx={{display: "flex",
+                                            flexDirection: "column"}}>
+                                            <Box sx={{borderBottom:'1px solid #eee'}}>
+                                                <Image
+                                                    style={{marginBottom:'15px' }}
+                                                    width={125} height={25}
+                                                    src={logo}
+                                                    alt="Takgeneral Logo"
+                                                />
                                             </Box>
-                                        </Link>
-                                        <Link onClick={() => {
-                                            setDrawerIsOpen(false)
-                                        }} style={{display: 'block', width: "100%"}} href={'/about-us'}>
-                                            <Box
-                                                sx={{
-                                                    borderBottom: "1px solid #ccc",
-                                                    py: 2.5,
-                                                    display: 'flex',
-                                                    width: "100%",
-                                                    gap: 1,
-                                                    alignItems: 'center'
-                                                }}
-                                            >
+                                            <Link onClick={() => {
+                                                setDrawerIsOpen(false)
+                                            }} style={{display: 'block', width: "100%"}} href={'/contact-us'}>
+                                                <Box
+                                                    sx={{
+                                                        py: 1.5,
+                                                        display: 'flex',
+                                                        width: "100%",
+                                                        gap: 1,
+                                                        alignItems: 'center'
+                                                    }}
+                                                >
 
-                                                <Typography variant={'body2'} component={'li'}>درباره ما</Typography>
+                                                    <Typography variant={'body2'} component={'li'}>تماس با ما</Typography>
+                                                </Box>
+                                            </Link>
+                                            <Link onClick={() => {
+                                                setDrawerIsOpen(false)
+                                            }} style={{display: 'block', width: "100%"}} href={'/about-us'}>
+                                                <Box
+                                                    sx={{
+                                                        py: 1.5,
+                                                        display: 'flex',
+                                                        width: "100%",
+                                                        gap: 1,
+                                                        alignItems: 'center'
+                                                    }}
+                                                >
+
+                                                    <Typography variant={'body2'} component={'li'}>درباره ما</Typography>
+                                                </Box>
+                                            </Link>
+                                            <Link onClick={() => {
+                                                setDrawerIsOpen(false)
+                                            }} style={{display: 'block', width: "100%"}} href={'/blog'}>
+                                                <Box
+                                                    sx={{
+                                                        py: 1.5,
+                                                        display: 'flex',
+                                                        width: "100%",
+                                                        gap: 1,
+                                                        alignItems: 'center'
+                                                    }}
+                                                >
+
+                                                    <Typography variant={'body2'} component={'li'}>وبلاگ</Typography>
+                                                </Box>
+                                            </Link>
+                                            <Typography sx={{py:1 , borderBottom:'1px solid #eee' , fontWeight:'bold'}}>دسته بندی تک جنرال</Typography>
+                                            {categories?.map((item) => {
+                                                return (
+                                                    <Link onClick={() => {
+                                                        setDrawerIsOpen(false)
+                                                    }} style={{display: 'block', width: "100%"}} href={`/category/${item.id}`}>
+                                                        <Box
+                                                            sx={{
+                                                                py: 1.5,
+                                                                display: 'flex',
+                                                                width: "100%",
+                                                                gap: 1,
+                                                                alignItems: 'center'
+                                                            }}
+                                                        >
+
+                                                            <Typography variant={'body2'} component={'li'}>{item.name}</Typography>
+                                                        </Box>
+                                                    </Link>
+                                                )
+                                            })}
+                                        </Box>
+                                        <Box textAlign={'center'} sx={{borderTop:'1px solid #eee'}}>
+                                            <Box display={'flex'} gap={1} justifyContent={'center'} mb={1} mt={2}>
+                                                <InstagramIcon/>
+                                                <WhatsappIcon/>
+                                                <MessageIcon/>
+                                                <TelegramIcon/>
                                             </Box>
-                                        </Link>
-                                        <Link onClick={() => {
-                                            setDrawerIsOpen(false)
-                                        }} style={{display: 'block', width: "100%"}} href={'/blog'}>
-                                            <Box
-                                                sx={{
-                                                    borderBottom: "1px solid #ccc",
-                                                    py: 2.5,
-                                                    display: 'flex',
-                                                    width: "100%",
-                                                    gap: 1,
-                                                    alignItems: 'center'
-                                                }}
-                                            >
-
-                                                <Typography variant={'body2'} component={'li'}>وبلاگ</Typography>
-                                            </Box>
-                                        </Link>
-                                        {categories?.map((item) => {
-                                            return (
-                                                <Link onClick={() => {
-                                                    setDrawerIsOpen(false)
-                                                }} style={{display: 'block', width: "100%"}} href={`/category/${item.id}`}>
-                                                    <Box
-                                                        sx={{
-                                                            borderBottom: "1px solid #ccc",
-                                                            py: 2.5,
-                                                            display: 'flex',
-                                                            width: "100%",
-                                                            gap: 1,
-                                                            alignItems: 'center'
-                                                        }}
-                                                    >
-
-                                                        <Typography variant={'body2'} component={'li'}>{item.name}</Typography>
-                                                    </Box>
-                                                </Link>
-                                            )
-                                        })}
+                                            <Typography variant={'subtitle2'}>حقوق این سرویس محفوظ و متعلق به شرکت تک جنرال می‌باشد</Typography>
+                                        </Box>
                                     </Box>
                                 </Drawer>
                                 <Link href={urls.home}>

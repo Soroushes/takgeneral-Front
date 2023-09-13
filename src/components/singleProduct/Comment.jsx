@@ -8,7 +8,6 @@ import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import {timeStampToDate} from "@/hooks/timeStampToDate";
 const Comment = ({comment}) => {
-    console.log(comment)
     const [likeDislike, setLikeDislike] = useState('');
     const {callApi} = useAxios();
     const handlelikeDislike = (like) => {

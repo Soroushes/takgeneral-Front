@@ -3,7 +3,6 @@ import {Controller, useForm} from "react-hook-form";
 import {useAxios} from "@/hooks/useAxios";
 import {useRouter} from "next/navigation";
 import LoadingButton from "@mui/lab/LoadingButton";
-import testImage from '../../../assets/images/product-image.png'
 import Image from "next/image";
 import Rating from "@mui/material/Rating";
 import Message from '../../../assets/icons/single-product/message.svg';
@@ -11,7 +10,9 @@ import {useSelector} from "react-redux";
 import useAlert from "../../../hooks/useAlert";
 import MainModal from "../../share/MainModal";
 
-const AddCommentModal = ({rate, productId, setOpen , open}) => {
+const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
+    const mainImage = image.find(item => item.is_main === true)
+    console.log(mainImage)
     const {errorAlert, successAlert} = useAlert();
     const {full_name} = useSelector(state => state.userInfo);
     const {control, handleSubmit, reset} = useForm({
@@ -38,7 +39,7 @@ const AddCommentModal = ({rate, productId, setOpen , open}) => {
                 reset();
                 setOpen((prev) => !prev);
                 successAlert('دیدگاه شما با موفقیت ثبت شد');
-                router.push(`/product/${productId}`)
+                router.push(`/product/${productId}`);
             },
             errFunc: (err) => {
                 console.log(err)
@@ -48,20 +49,20 @@ const AddCommentModal = ({rate, productId, setOpen , open}) => {
     }
     return (
         <MainModal title={'افزودن دیدگاه'} open={open} setOpen={setOpen} desktopFullScreen={true}>
-            <Box sx={{width: '100%', p: 3}} component={'form'} onSubmit={handleSubmit(onFormSubmit)}>
-                <Grid container justifyContent={'space-between'} rowGap={3}>
+            <Box sx={{width: '100%', px: 3 , pb:3}} component={'form'} onSubmit={handleSubmit(onFormSubmit)}>
+                <Grid container justifyContent={'space-between'} rowGap={3} sx={{mt:{xs:0 , md:3}}}>
                     <Grid item md={4} xs={12}>
                         <Box sx={{height: '100%'}} display={'flex'} alignItems={'center'}
                              justifyContent={'space-between'}
                              flexDirection={'column'}>
-                            <Typography variant={'h6'} fontWeight={'bold'} sx={{textAlign: 'center'}}>ست کنترل پنتاکس
+                            <Typography variant={'h6'} fontWeight={'bold'} sx={{textAlign: 'center' , mb:{md:0 , xs:2} }}>ست کنترل پنتاکس
                                 اصلی
                                 هیدروماتیک
                                 H2
                             </Typography>
                             <Box sx={{width: {md: '100%', xs: '50%'}, textAlign: 'center'}}>
-                                <Image height={250} width={250} style={{width: '100%', height: 'auto'}} src={testImage}
-                                       alt={'test'}/>
+                                <Image height={250} width={250} style={{width: '100%', height: 'auto'}} src={mainImage?.image}
+                                       alt={mainImage?.alt_text}/>
                             </Box>
                         </Box>
                     </Grid>
@@ -126,7 +127,7 @@ const AddCommentModal = ({rate, productId, setOpen , open}) => {
                                     render={({field, fieldState}) =>
                                         <TextField
                                             error={!!fieldState.error}
-                                            label={'دیدیگاه شما'}
+                                            label={'دیدگاه شما'}
                                             value={field?.value}
                                             onChange={field?.onChange}
                                             helperText={fieldState.error?.message ?? ''}

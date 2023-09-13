@@ -2,8 +2,6 @@ import {BASE_URL, domainName} from "@/data/urls";
 import ChildCategoryPage from "./childCategoryPage";
 import ParentCategoryPage from './parentCategoryPage';
 import {notFound} from "next/navigation";
-import {Suspense} from "react";
-import LoadingPages from "@/components/share/LoadingPages";
 
 async function getData(params, searchParams) {
     let brands = searchParams.brand ?? [];
@@ -26,8 +24,9 @@ async function getData(params, searchParams) {
         throw new Error('Fail to fetch data')
     }
 }
-export async function generateMetadata({params , searchParams}) {
-    const result = await getData(params , searchParams);
+
+export async function generateMetadata({params, searchParams}) {
+    const result = await getData(params, searchParams);
     return {
         title: result?.meta_tag?.title ? result.meta_tag.title : result.main_category?.name,
         description: result.meta_tag?.desc,
@@ -47,25 +46,24 @@ export async function generateMetadata({params , searchParams}) {
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
     return (
-
-            <Suspense fallback={<LoadingPages/>}>
-                {
-                    data.product ?
-                        <ChildCategoryPage
-                            main_banner={data.main_banner}
-                            content={data.page_content.desc} childCategory={data.sub_category}
-                            products={data.product} category={params.category}
-                            data={data} breadcrumb={data.breadcrumb} brands={data.brands} current_page={data.current_page}
-                            page_count={data.page_count}
-                        /> :
-                        <ParentCategoryPage
-                            data={data}
-                            content={data.page_content.desc}
-                            other_banner={data.other_banner}
-                            main_banner={data.main_banner}
-                            main_category={data.main_category} breadcrumb={data.breadcrumb}
-                            subCategory={data.sub_category} brands={data.brands}/>
-                }
-            </Suspense>
+        <>
+            {data.product ?
+                    <ChildCategoryPage
+                        main_banner={data.main_banner}
+                        content={data.page_content.desc} childCategory={data.sub_category}
+                        products={data.product} category={params.category}
+                        data={data} breadcrumb={data.breadcrumb} brands={data.brands} current_page={data.current_page}
+                        page_count={data.page_count}
+                    />
+                 :
+                    <ParentCategoryPage
+                        data={data}
+                        content={data.page_content.desc}
+                        other_banner={data.other_banner}
+                        main_banner={data.main_banner}
+                        main_category={data.main_category} breadcrumb={data.breadcrumb}
+                        subCategory={data.sub_category} brands={data.brands}/>
+            }
+        </>
     )
 }

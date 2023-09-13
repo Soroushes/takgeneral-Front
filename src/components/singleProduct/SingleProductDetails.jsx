@@ -60,14 +60,14 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                                     justifyContent: "space-between",
                                     alignItems: "center",
                                     width: "100%",
-                                    gap: {xs: 2, md: 5},
+                                    gap: {xs: 2, md: 0},
+                                    px:1
                                 }}
                             >
                                 <Box
                                     sx={{
-                                        width: {xs: "40%", md: "25%"},
+                                        width: {xs: "20%", md: "15%"},
                                         pb: 1.5,
-                                        pl: {md: 2},
                                         height: "100%",
                                         display: "flex",
                                         alignItems: "center",
@@ -82,9 +82,8 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                                 </Box>
                                 <Box
                                     sx={{
-                                        width: {xs: "60%", md: "75%"},
+                                        width: {xs: "80%", md: "85%"},
                                         pb: 1.5,
-                                        pl: 2,
                                         height: "100%",
                                         display: "flex",
                                         alignItems: "center",
