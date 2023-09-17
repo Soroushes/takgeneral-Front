@@ -6,14 +6,15 @@ import {Suspense} from "react";
 
 const getData = async (params , searchParams)=>{
     const parameters = new URLSearchParams(searchParams)
-    const res = await fetch(BASE_URL+'brands/'+ params.brandName + '?' + parameters.toString() );
-    if(!res.ok){
-        if (res.status === 404){
-            notFound() ;
+    try{
+        const res = await fetch(BASE_URL+'brands/'+ params.brandName + '?' + parameters.toString() );
+        if(!res.ok){
+            notFound();
+        }else {
+            return res.json();
         }
-        throw new  Error('Failed to fetch data')
-    }else {
-        return res.json();
+    }catch (err){
+        notFound();
     }
 }
 export default async function Page ({params , searchParams}){

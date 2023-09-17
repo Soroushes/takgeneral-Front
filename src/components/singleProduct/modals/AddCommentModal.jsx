@@ -12,7 +12,6 @@ import MainModal from "../../share/MainModal";
 
 const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
     const mainImage = image.find(item => item.is_main === true)
-    console.log(mainImage)
     const {errorAlert, successAlert} = useAlert();
     const {full_name} = useSelector(state => state.userInfo);
     const {control, handleSubmit, reset} = useForm({

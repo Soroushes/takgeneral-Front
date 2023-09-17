@@ -5,14 +5,16 @@ import {Suspense} from "react";
 import {notFound} from "next/navigation";
 
 async function getData(productId) {
-    const res = await fetch(`${BASE_URL}product-detail/${productId}/`, {next: {revalidate: 60}})
-    if (res.ok) {
-        return res.json();
-    } else {
-        if (res.status === 404) {
+    try {
+        const res = await fetch(`${BASE_URL}product-detail/${productId}/`, {next: {revalidate: 60}})
+        if (res.ok) {
+            return res.json();
+        } else {
             notFound();
         }
-        throw new Error('Fail to fetch data')
+    } catch (err) {
+        notFound();
+
     }
 }
 

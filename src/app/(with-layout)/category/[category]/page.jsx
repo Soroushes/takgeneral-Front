@@ -13,15 +13,17 @@ async function getData(params, searchParams) {
     brands.map((brand) => {
         parameters.append('brand[]', brand)
     })
-    const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString()
-        , {next: {revalidate: 60}})
-    if (res.ok) {
-        return res.json();
-    } else {
-        if (res.status === 404) {
+    try{
+        const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString()
+            , {next: {revalidate: 60}})
+        if (res.ok) {
+            return res.json();
+        } else {
             notFound();
         }
-        throw new Error('Fail to fetch data')
+    }catch (err){
+        notFound();
+
     }
 }
 

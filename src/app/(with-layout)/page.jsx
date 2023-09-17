@@ -6,12 +6,18 @@ import HighRateCategorySlider from "../../components/home/highRateCategorySlider
 import {Suspense} from "react";
 import LoadingPages from "../../components/share/LoadingPages";
 import DiscountProductSlider from "@/components/home/DiscountProductSlider";
+import Blogs from "@/components/home/blogs";
+import {notFound} from "next/navigation";
 async function getData() {
-    const res = await fetch(`${BASE_URL}home/`, {next: {revalidate: 60}})
-    if (!res.ok) {
-        throw new Error('Failed to fetch data')
+    try{
+        const res = await fetch(`${BASE_URL}home/`, {next: {revalidate: 60}})
+        if (!res.ok) {
+            notFound();
+        }
+        return res.json()
+    }catch (err){
+        notFound();
     }
-    return res.json()
 }
 export default async function Page() {
     const data = await getData();
@@ -33,6 +39,7 @@ export default async function Page() {
                 <ProductBanners sizing={{xs: 12, md: 5.8}} banners={data.end_banner}/>
                 <DiscountProductSlider backGroundImage={'linear-gradient(to left, #1B09F9 , #27E1BC)'} products={data.special_offer_products}/>
                 {/*<DifferentProductScaleSlider/>*/}
+                <Blogs blogs={data?.new_blogs}/>
             </div>
         </Suspense>
     );

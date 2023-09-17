@@ -5,6 +5,7 @@ import PriceDiscount from "../share/PriceDiscount";
 import Link from "next/link";
 
 const CartItems = ({product}) => {
+    console.log(product)
     return (
         <Grid container sx={{justifyContent: 'space-between', mt: 3, borderBottom: '1px solid #eee', pb: 3}}>
             <Grid item xs={4} md={2.5}>
@@ -17,9 +18,8 @@ const CartItems = ({product}) => {
                   sx={{display: 'flex', flexDirection: ' column', justifyContent: 'space-between'}}>
                 <Box>
                     <Typography sx={{mb: 2}} variant="h5">{product.name}</Typography>
-                    <Typography sx={{mb: 1}} variant={'subtitle2'}>درجه حفاظت : IP44</Typography>
-                    <Typography sx={{mb: 1}} variant={'subtitle2'}>جنس پروانه : برنج</Typography>
-                    <Typography sx={{mb: 1}} variant={'subtitle2'}>گارانتی اصالت و سلامت فیزیکی کالا</Typography>
+                    <Typography sx={{mb: 1}} variant={'subtitle2'}>{product.product_variant_key}  : {product.product_variant_value}</Typography>
+                    <Typography sx={{mb: 1}} variant={'subtitle2'}>{product.warranty}</Typography>
                 </Box>
                 <Box sx={{display: {md: 'flex', xs: 'none'}, justifyContent: 'space-between'}}>
                     <CartEditionButton hideStatus={true} boxSx={{width: '90px', height: '35px'}}

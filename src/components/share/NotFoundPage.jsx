@@ -1,11 +1,13 @@
 import {Box, Container} from "@mui/material";
-import Image from "next/image";
-import error from '../../assets/images/error/404.png'
+import Error from '../../assets/icons/share/404.svg'
+import Link from "next/link";
 const NotFoundPage = ()=>{
      return(<Container>
-         <Box sx={{width:'100%'}}>
-             <Image style={{width:'100%'}} src={error} alt={''}/>
-         </Box>
+         <Link href={'/'}>
+             <Box sx={{width:'100%' , height:'100%' , textAlign:'center'}}>
+                 <Error/>
+             </Box>
+         </Link>
      </Container>)
 }
 export default NotFoundPage
