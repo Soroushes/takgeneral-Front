@@ -20,7 +20,7 @@ const LayoutPage = ({children , categoryNames}) => {
                     pt: {xs: `${mobileHeaderHeight}px`, md: `${desktopHeaderHeight}px`},
                     pb: {xs: `${navbarHeight}px`, md: 0},
                 }}>
-                <Box sx={{minHeight : '70vh'}}>
+                <Box sx={{minHeight : '50vh'}}>
                     {children}
                 </Box>
                 <Footer/>

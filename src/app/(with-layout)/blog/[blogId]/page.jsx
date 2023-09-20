@@ -9,11 +9,16 @@ const getData = async (id)=>{
                 res.json()
             )
         }else{
-            notFound();
-            throw new Error('Failed to fetch data')
+            let error = new Error('Failed to fetch data !');
+            error.statusCode = res.status;
+            throw error;
         }
     }catch (err){
-        notFound();
+        if(err.statusCode === 404){
+            notFound();
+        }else{
+            console.log(err.message);
+        }
     }
 }
 export default async function Page({params}) {

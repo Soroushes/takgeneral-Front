@@ -8,13 +8,19 @@ const getData = async (params , searchParams)=>{
     const parameters = new URLSearchParams(searchParams)
     try{
         const res = await fetch(BASE_URL+'brands/'+ params.brandName + '?' + parameters.toString() );
-        if(!res.ok){
-            notFound();
-        }else {
+        if(res.ok){
             return res.json();
+        }else {
+            let error = new Error('failed to fetch data !');
+            error.statusCode = res.status;
+            throw error;
         }
     }catch (err){
-        notFound();
+        if(err.statusCode === 404){
+            notFound();
+        }else {
+            console.log(err.message)
+        }
     }
 }
 export default async function Page ({params , searchParams}){

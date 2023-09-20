@@ -32,5 +32,11 @@ li {
 }
 .html-response-elements * {
     font-family: var(--iranYekan) !important;
-    line-height: 30px;
+    line-height: 30px !important;
+}
+.html-response-elements:before{
+    position:absolute;
+    left:0;
+    top:0;
+    background:linear-gradient(transparent 150px, white);
 }
