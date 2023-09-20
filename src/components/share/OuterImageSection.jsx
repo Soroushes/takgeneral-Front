@@ -16,7 +16,7 @@ const OuterImageSection = ({
     return (
         <Box
             sx={{
-                outline: isActive ? `1px solid ${palette.secondary.main}` : 'none',
+                border : `1px solid ${isActive ? palette.secondary.main : 'transparent'}`,
                 borderRadius: 2,
                 transition: "all .5s",
                 display: "flex",
