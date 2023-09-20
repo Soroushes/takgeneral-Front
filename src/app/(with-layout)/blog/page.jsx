@@ -1,17 +1,16 @@
 import BlogPage from './blogPage';
 import {BASE_URL} from "@/data/urls";
-import {notFound} from "next/navigation";
 
 const getData = async () => {
     try {
         const res = await fetch(`${BASE_URL}blogs/`, {next: {revalidate: 60}});
-        if(res.ok){
+        if (res.ok) {
             return res.json();
-        }else{
-            throw new Error('Failed to fetch data')
+        } else {
+            throw new Error('failed to fetch data !');
         }
-    }catch (err){
-        notFound();
+    } catch (err) {
+        console.log(err.message);
     }
 }
 export default async function Page() {

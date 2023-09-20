@@ -9,12 +9,16 @@ async function getData(productId) {
         const res = await fetch(`${BASE_URL}product-detail/${productId}/`, {next: {revalidate: 60}})
         if (res.ok) {
             return res.json();
-        } else {
-            notFound();
         }
+        let error = new Error('failed to fetch data !')
+        error.statusCode = res.status;
+        throw (error)
     } catch (err) {
-        notFound();
-
+        if (err.statusCode === 404) {
+            notFound();
+        } else {
+            console.log(err.message)
+        }
     }
 }
 

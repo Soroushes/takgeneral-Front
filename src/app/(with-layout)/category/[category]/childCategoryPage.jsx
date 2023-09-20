@@ -11,6 +11,8 @@ import SortIcon from "../../../../assets/icons/share/sort.svg";
 import ProductList from "../../../../components/share/ProductList";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import HtmlDescription from "@/components/share/HtmlDescription";
+import ExpandLessRoundedIcon from "@mui/icons-material/ExpandLessRounded";
+import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 
 const sortValueItems = [
     {
@@ -45,6 +47,7 @@ const ChildCategoryPage = ({
     const [openSortModal, setOpenSortModal] = useState(false);
     const [sortValue, setSortValue] = useState('newest');
     const productBoxRef = useRef(null);
+    const [contentIsShow, setContentIsShow] = useState(false);
     useEffect(() => {
         setSortValue('newest')
     }, [noQueryPath])
@@ -52,7 +55,7 @@ const ChildCategoryPage = ({
         setSortValue(value);
         params.set('ordering', value);
         push('?' + params.toString(), {scroll: false})
-    }
+    };
     return (
         <>
             <Box sx={{
@@ -140,7 +143,32 @@ const ChildCategoryPage = ({
                             <ProductList product={products} page={current_page} count={page_count}/>
                         </Grid>
                     </Grid>
-                    <HtmlDescription>{content}</HtmlDescription>
+                    <Box sx={{px:1 ,position:'relative'}}>
+                        <HtmlDescription boxSx={{
+                            mt: 3,
+                            maxHeight: !contentIsShow ? '30px' : 'auto',
+                            overflow: 'hidden' ,textOverflow: 'ellipsis' , px:0 , background:'linear-gradient(transparent 150px, white)'
+                        }}>{content}</HtmlDescription>
+                        <Box onClick={setContentIsShow.bind(this, prev => !prev)}
+                             sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
+                            <Typography
+                                variant={"body2"}
+                                color={'primary'}
+                                sx={{
+                                    cursor: "pointer",
+                                    textAlign: "center",
+                                }}
+                            >
+                                {
+                                    contentIsShow ? 'مشاهده کمتر' : "مشاهده بیشتر"
+                                }
+                            </Typography>
+                            {
+                                contentIsShow ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :
+                                    <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>
+                            }
+                        </Box>
+                    </Box>
                 </Container>
                 <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلتر'}>
                     <Box sx={{px: 2}}>
