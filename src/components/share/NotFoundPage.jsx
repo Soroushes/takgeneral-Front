@@ -3,12 +3,14 @@ import Error from '../../assets/images/error/404error.png'
 import Link from "next/link";
 import Image from "next/image";
 const NotFoundPage = ()=>{
-     return(<Container>
-         <Link href={'/'}>
-             <Box sx={{ textAlign:'center' ,aspectRatio:'1.6/1'}}>
-                 <Image style={{width:'100%' , height:'100%'}} src={Error} alt={''}/>
-             </Box>
-         </Link>
-     </Container>)
+     return(
+         <Container sx={{minHeight : '50vh' , display : 'flex' , alignItems : 'center'}}>
+             <Link href={'/'}>
+                 <Box sx={{textAlign: 'center'}}>
+                     <Image style={{width : '100%' , height : 'auto'}} src={Error} alt={''}/>
+                 </Box>
+             </Link>
+        </Container>
+     )
 }
 export default NotFoundPage;
