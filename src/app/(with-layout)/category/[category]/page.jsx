@@ -2,7 +2,7 @@ import {BASE_URL, domainName} from "@/data/urls";
 import ChildCategoryPage from "./childCategoryPage";
 import ParentCategoryPage from './parentCategoryPage';
 import {notFound} from "next/navigation";
-
+import {convertBreadcrumb} from "@/hooks/convertBreadcrumb";
 async function getData(params, searchParams) {
     let brands = searchParams.brand ?? [];
     delete searchParams.brand;
@@ -53,6 +53,10 @@ export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(convertBreadcrumb(data.breadcrumb)) }}
+            />
             {data.product ?
                     <ChildCategoryPage
                         main_banner={data.main_banner}
