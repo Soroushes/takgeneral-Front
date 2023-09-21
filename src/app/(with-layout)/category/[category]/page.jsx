@@ -2,7 +2,7 @@ import {BASE_URL, domainName} from "@/data/urls";
 import ChildCategoryPage from "./childCategoryPage";
 import ParentCategoryPage from './parentCategoryPage';
 import {notFound} from "next/navigation";
-import {convertBreadcrumb} from "@/hooks/convertBreadcrumb";
+import {BreadCrumbSchema} from "@/components/schemas/BreadCrumbSchema";
 async function getData(params, searchParams) {
     let brands = searchParams.brand ?? [];
     delete searchParams.brand;
@@ -53,10 +53,7 @@ export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(convertBreadcrumb(data.breadcrumb)) }}
-            />
+            <BreadCrumbSchema breadcrumb={data.breadcrumb}/>
             {data.product ?
                     <ChildCategoryPage
                         main_banner={data.main_banner}
@@ -72,7 +69,8 @@ export default async function Page({params, searchParams}) {
                         other_banner={data.other_banner}
                         main_banner={data.main_banner}
                         main_category={data.main_category} breadcrumb={data.breadcrumb}
-                        subCategory={data.sub_category} brands={data.brands}/>
+                        subCategory={data.sub_category} brands={data.brands}
+                    />
             }
         </>
     )

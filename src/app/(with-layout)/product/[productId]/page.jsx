@@ -1,8 +1,7 @@
 import ProductPage from "./productPage";
-import {BASE_URL} from "@/data/urls";
-import LoadingPages from "@/components/share/LoadingPages";
-import {Suspense} from "react";
+import {BASE_URL, domainName} from "@/data/urls";
 import {notFound} from "next/navigation";
+import {BreadCrumbSchema} from "@/components/schemas/BreadCrumbSchema";
 
 async function getData(productId) {
     try {
@@ -21,12 +20,31 @@ async function getData(productId) {
         }
     }
 }
+export async function generateMetadata({params : {productId}}) {
+    const result = await getData(productId);
+    if (!result) return
+    return {
+        title: result.meta_tag.title ? result.meta_tag.title : result.product.name,
+        description: result.meta_tag.desc,
+        alternates: {
+            canonical: `${domainName}/product/${result.product.id}`
+        },
+        openGraph: {
+            title: result.meta_tag.og_title ? result.meta_tag.og_title : (result.meta_tag.title ? result.meta_tag.title : result.product.name),
+            description: result.meta_tag.og_desc ? result.meta_tag.og_desc : result.meta_tag.desc,
+            siteName: result.meta_tag.og_site_name,
+            url: `${domainName}/product/${result.product.id}`
+        }
+    }
+}
 
 export default async function Page({params: {productId}}) {
     const data = await getData(productId);
     return (
-        <Suspense fallback={<LoadingPages/>}>
+        <>
+            <BreadCrumbSchema breadcrumb={data.breadcrumb}/>
             <ProductPage data={data}/>
-        </Suspense>
+        </>
+
     )
 }
