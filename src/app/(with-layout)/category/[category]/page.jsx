@@ -34,17 +34,17 @@ async function getData(params, searchParams) {
 export async function generateMetadata({params, searchParams}) {
     const result = await getData(params, searchParams);
     return {
-        title: result?.meta_tag?.title ? result.meta_tag.title : result.main_category?.name,
-        description: result.meta_tag?.desc,
+        title: result?.meta_tag?.title ? result?.meta_tag.title : result?.main_category?.name,
+        description: result?.meta_tag?.desc,
         alternates: {
-            canonical: `${domainName}/category/${result.main_category?.id}`
+            canonical: `${domainName}/category/${result?.main_category?.id}`
         },
         openGraph: {
-            title: result?.meta_tag?.og_title ? result.meta_tag.og_title : (result.meta_tag?.title ? result.meta_tag.title : result.main_category?.name),
-            description: result.meta_tag?.og_desc ? result.meta_tag.og_desc : result.meta_tag?.desc,
-            siteName: result.meta_tag?.og_site_name,
+            title: result?.meta_tag?.og_title ? result?.meta_tag.og_title : (result?.meta_tag?.title ? result?.meta_tag.title : result?.main_category?.name),
+            description: result?.meta_tag?.og_desc ? result?.meta_tag.og_desc : result?.meta_tag?.desc,
+            siteName: result?.meta_tag?.og_site_name,
             // type : result.meta_tag.og_type,
-            url: `${domainName}/category/${result.main_category?.id}`
+            url: `${domainName}/category/${result?.main_category?.id}`
         }
     }
 }

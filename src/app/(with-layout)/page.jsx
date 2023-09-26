@@ -11,12 +11,19 @@ import {notFound} from "next/navigation";
 async function getData() {
     try{
         const res = await fetch(`${BASE_URL}home/`, {next: {revalidate: 60}})
-        if (!res.ok) {
-            notFound();
+        if (res.ok) {
+            return res.json()
+        }else{
+            let error = new Error('failed to fetch data !');
+            error.statusCode = res.status;
+            throw error;
         }
-        return res.json()
     }catch (err){
-        notFound();
+        if(err.statusCode === 404){
+            notFound();
+        }else {
+            console.log(err.message);
+        }
     }
 }
 export default async function Page() {
@@ -25,7 +32,7 @@ export default async function Page() {
         <Suspense fallback={<LoadingPages/>}>
             <Slider slides={data.sliders}/>
             <div style={{
-                backgroundColor: '#fff',
+                backgroundColor: '#FCFCFD',
                 position: 'relative',
                 zIndex: 2,
                 borderRadius: '20px 20px 0 0',
