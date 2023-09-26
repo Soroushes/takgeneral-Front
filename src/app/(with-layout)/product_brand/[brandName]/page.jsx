@@ -7,7 +7,7 @@ import {Suspense} from "react";
 const getData = async (params , searchParams)=>{
     const parameters = new URLSearchParams(searchParams)
     try{
-        const res = await fetch(BASE_URL+'brands/'+ params.brandName + '?' + parameters.toString() );
+        const res = await fetch(BASE_URL+'brands/'+ params.brandName + '?' + parameters.toString()  , { cache: 'no-store'});
         if(res.ok){
             return res.json();
         }else {

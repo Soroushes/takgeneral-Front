@@ -11,7 +11,7 @@ const SingleBlog = ({images, timeStamp, title, content}) => {
             <Grid container justifyContent={'space-between'}>
                 <Grid sx={{py: 1}} item xs={12}>
                     <Box sx={{textAlign: 'center', width: '100%'}}>
-                        <Image width={590} height={290} style={{width: '100%', height: 'auto'}} src={images[0].image}
+                        <Image width={590} height={290} style={{maxWidth: '100%', height: 'auto'}} src={images[0].image}
                                alt={''}/>
                     </Box>
                 </Grid>

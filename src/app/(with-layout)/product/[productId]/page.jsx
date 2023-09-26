@@ -6,7 +6,7 @@ import {notFound} from "next/navigation";
 
 async function getData(productId) {
     try {
-        const res = await fetch(`${BASE_URL}product-detail/${productId}/`, {next: {revalidate: 60}})
+        const res = await fetch(`${BASE_URL}product-detail/${productId}/`, { cache: 'no-store'})
         if (res.ok) {
             return res.json();
         }

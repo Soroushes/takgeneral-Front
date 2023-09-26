@@ -6,6 +6,9 @@ import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import Link from "next/link";
 import HtmlDescription from "@/components/share/HtmlDescription";
 import BrandSlider from "@/components/share/BrandSlider";
+import ExpandLessRoundedIcon from "@mui/icons-material/ExpandLessRounded";
+import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
+import {useState} from "react";
 
 export default function ParentCategoryPage({
                                                brands,
@@ -16,6 +19,7 @@ export default function ParentCategoryPage({
                                                main_banner,
                                                other_banner
                                            }) {
+    const [contentIsShow, setContentIsShow] = useState(false);
     return (
         <>
             <Box sx={{
@@ -69,9 +73,32 @@ export default function ParentCategoryPage({
                         ))
                     }
                 </Grid>
-                <HtmlDescription>
-                    {content}
-                </HtmlDescription>
+                <Box sx={{px:1 ,position:'relative'}}>
+                    <HtmlDescription boxSx={{
+                        mt: 3,
+                        maxHeight: !contentIsShow ? '90px' : 'auto',
+                        overflow: 'hidden' ,textOverflow: 'ellipsis' , px:0
+                    }}>{content}</HtmlDescription>
+                    <Box onClick={setContentIsShow.bind(this, prev => !prev)}
+                         sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
+                        <Typography
+                            variant={"body2"}
+                            color={'primary'}
+                            sx={{
+                                cursor: "pointer",
+                                textAlign: "center",
+                            }}
+                        >
+                            {
+                                contentIsShow ? 'مشاهده کمتر' : "مشاهده بیشتر"
+                            }
+                        </Typography>
+                        {
+                            contentIsShow ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :
+                                <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>
+                        }
+                    </Box>
+                </Box>
             </Container>
         </>
     )
