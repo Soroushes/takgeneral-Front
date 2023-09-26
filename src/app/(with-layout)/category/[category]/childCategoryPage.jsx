@@ -82,7 +82,7 @@ const ChildCategoryPage = ({
                         <BreadcrumbGenerator breadcrumb={breadcrumb}/>
                     </Box>
                     <Box sx={{px: 1}}>
-                        <CategorySlider selfId={category} category={childCategory}/>
+                        <CategorySlider categoryUrl={category} category={childCategory}/>
                     </Box>
                     <Grid sx={{px: 1.5}} container>
                         <Grid item xs={12}>
