@@ -1,6 +1,6 @@
 module.exports = {
     images: {
-        domains: ['takback.soroushes.tk' , 'swiperjs.com' , 'api.soroushes.tk'],
+        domains: ['sahm.soroushes.tk' , 'swiperjs.com' , 'api.soroushes.tk'],
     },
     experimental : {
         appDir : true

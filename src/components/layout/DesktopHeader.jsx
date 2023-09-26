@@ -115,7 +115,7 @@ const DesktopHeader = ({categories}) => {
                             </Link>
                             {categories?.map((item) => {
                                 return (
-                                    <Link key={item.name} href={`/category/${item.id}`}>
+                                    <Link key={item.name} href={`/category/${item.url}`}>
                                         <Box
                                             sx={{
                                                 display: "flex",

@@ -14,7 +14,7 @@ const BrandSlider = ({brands = []}) => {
                         brands?.map((brand) => {
                             return (
                                 <SwiperSlide key={Math.random() * 1000} style={ {width: 160 , padding : '50px 0px' }}>
-                                    <InnerImageSection href={'/product_brand/'+ brand.id} name={brand.name} image={brand.logo}/>
+                                    <InnerImageSection href={'/product_brand/'+ brand.url} name={brand.name} image={brand.logo}/>
                                 </SwiperSlide>
                             )
                         })

@@ -37,14 +37,14 @@ export async function generateMetadata({params, searchParams}) {
         title: result?.meta_tag?.title ? result?.meta_tag.title : result?.main_category?.name,
         description: result?.meta_tag?.desc,
         alternates: {
-            canonical: `${domainName}/category/${result?.main_category?.id}`
+            canonical: `${domainName}/category/${result?.main_category?.url}`
         },
         openGraph: {
             title: result?.meta_tag?.og_title ? result?.meta_tag.og_title : (result?.meta_tag?.title ? result?.meta_tag.title : result?.main_category?.name),
             description: result?.meta_tag?.og_desc ? result?.meta_tag.og_desc : result?.meta_tag?.desc,
             siteName: result?.meta_tag?.og_site_name,
             // type : result.meta_tag.og_type,
-            url: `${domainName}/category/${result?.main_category?.id}`
+            url: `${domainName}/category/${result?.main_category?.url}`
         }
     }
 }
