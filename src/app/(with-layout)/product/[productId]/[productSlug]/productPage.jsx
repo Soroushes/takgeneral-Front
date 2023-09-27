@@ -1,10 +1,10 @@
 'use client'
 import {Container, Divider, Grid, Typography , Box} from "@mui/material";
 import {useRef, useState} from 'react';
-import SingleProductDetails from "../../../../components/singleProduct/SingleProductDetails";
-import CommentQuestion from "../../../../components/singleProduct/Comment&Question";
-import SingleProductImage from "../../../../components/singleProduct/SingleProductImage";
-import SingleProductSellCard from "../../../../components/singleProduct/SingleProductSellCard";
+import SingleProductDetails from "../../../../../components/singleProduct/SingleProductDetails";
+import CommentQuestion from "../../../../../components/singleProduct/Comment&Question";
+import SingleProductImage from "../../../../../components/singleProduct/SingleProductImage";
+import SingleProductSellCard from "../../../../../components/singleProduct/SingleProductSellCard";
 import SingleProductAttribute from "@/components/singleProduct/SingleProductAttribute";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import SwiperCustomWrapper from "@/components/share/SwiperCustomWrapper";
