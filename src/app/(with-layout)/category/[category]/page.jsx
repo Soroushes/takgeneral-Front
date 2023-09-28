@@ -2,7 +2,6 @@ import {BASE_URL, domainName} from "@/data/urls";
 import ChildCategoryPage from "./childCategoryPage";
 import ParentCategoryPage from './parentCategoryPage';
 import {notFound} from "next/navigation";
-import {BreadCrumbSchema} from "@/components/schemas/BreadCrumbSchema";
 async function getData(params, searchParams) {
     let brands = searchParams.brand ?? [];
     delete searchParams.brand;
@@ -53,7 +52,6 @@ export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
     return (
         <>
-            <BreadCrumbSchema breadcrumb={data.breadcrumb}/>
             {data.product ?
                     <ChildCategoryPage
                         main_banner={data.main_banner}

@@ -1,7 +1,6 @@
 import ProductPage from "./productPage";
 import {BASE_URL, domainName} from "@/data/urls";
 import {notFound, redirect} from "next/navigation";
-import {BreadCrumbSchema} from "@/components/schemas/BreadCrumbSchema";
 
 async function getData(productId) {
     try {
@@ -44,12 +43,9 @@ export default async function Page({params: {productId, productSlug}}) {
     if (data.product.url !== productSlug) {
         return (
             redirect(`/product/${productId}/${data.product.url}`)
-      )
+        )
     }
     return (
-        <>
-            <BreadCrumbSchema breadcrumb={data.breadcrumb}/>
-            <ProductPage data={data}/>
-        </>
+        <ProductPage data={data}/>
     )
 }
