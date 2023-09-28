@@ -3,7 +3,7 @@ import Rating from '@mui/material/Rating';
 import PN from "persian-number";
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import Link from "next/link";
-
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 const singleProductAttribute = ({attrRef , pdf, attributes, name, setShowAllDetails, opinionRef , productOptions , setOptions , options , comments , rate , id}) => {
     const scrollToDetails = () => {
         setShowAllDetails(true);
@@ -83,7 +83,7 @@ const singleProductAttribute = ({attrRef , pdf, attributes, name, setShowAllDeta
                 {
                     pdf ?
                         <Link href={pdf} passHref target="_blank">
-                            <Button variant={'contained'} size={'small'} sx={{borderRadius:2}}>دانلود کاتالوگ</Button>
+                            <Button variant={'contained'} size={'small'} sx={{borderRadius:2}}><Typography color={'white'} variant={'body2'} mr={1}>دانلود کاتالوگ</Typography><CloudDownloadIcon/></Button>
                         </Link>:null
                 }
             </Box>
