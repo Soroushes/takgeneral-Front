@@ -69,7 +69,9 @@ const ProductPage = ({data}) => {
                                     data?.similar_product.map((item) => {
                                         return (
                                             <SwiperSlide key={Math.random() * 1000} style={{width:'200px' ,  marginRight : '16px'}}>
-                                                <ProductPreviewCard title={item.name} id={item.id} image={item.main_image}
+                                                <ProductPreviewCard
+                                                    url={item.url}
+                                                    title={item.name} id={item.id} image={item.main_image}
                                                                     price={item.min_price.price}
                                                                     afterDiscountPrice={item.min_price.final_price}
                                                                     discountPercent={item.min_price.discount}/>

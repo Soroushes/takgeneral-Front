@@ -3,11 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import PriceDiscount from "./PriceDiscount";
 import PN from "persian-number";
-import {urls} from "src/data/urls";
-
-const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price, id, shadow, sx , alt=''}) => {
+const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price, id, shadow, sx , alt='' , url}) => {
     return (
-        <Link href={urls.singleProduct + id}>
+        <Link href={`/product/${id}/${url}`}>
             <Stack
                 justifyContent={'space-between'}
                 sx={{

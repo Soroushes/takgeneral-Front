@@ -1,7 +1,6 @@
 import {Box, Button, Checkbox, Grid, TextField, Typography} from "@mui/material";
 import {Controller, useForm} from "react-hook-form";
 import {useAxios} from "@/hooks/useAxios";
-import {useRouter} from "next/navigation";
 import LoadingButton from "@mui/lab/LoadingButton";
 import Image from "next/image";
 import Rating from "@mui/material/Rating";
@@ -20,7 +19,6 @@ const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
         }
     });
     const {loading, callApi} = useAxios();
-    const router = useRouter();
     const onFormSubmit = (data) => {
         callApi({
             method: 'post',
@@ -38,7 +36,6 @@ const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
                 reset();
                 setOpen((prev) => !prev);
                 successAlert('دیدگاه شما با موفقیت ثبت شد');
-                router.push(`/product/${productId}`);
             },
             errFunc: (err) => {
                 console.log(err)

@@ -4,13 +4,11 @@ import {useAxios} from "@/hooks/useAxios";
 import Message from "../../../assets/icons/single-product/message.svg";
 import LoadingButton from "@mui/lab/LoadingButton";
 import useAlert from "../../../hooks/useAlert";
-import {useRouter} from "next/navigation";
 import MainModal from "../../share/MainModal";
 const AddAnswerModal = ({setOpen, open, productId}) => {
     const {control, handleSubmit, getValues, reset} = useForm();
     const {callApi, loading} = useAxios();
     const {errorAlert, successAlert} = useAlert();
-    const router = useRouter();
     const onFormSubmit = async () => {
         callApi({
             url: 'question-reply', method: 'post', token: true, data: {
@@ -20,7 +18,6 @@ const AddAnswerModal = ({setOpen, open, productId}) => {
                 reset();
                 setOpen(prev => !prev);
                 successAlert('پاسخ شما با موفقیت ثبت شد');
-                router.push(`/product/${productId}`);
             }, errFunc: () => {
                 errorAlert('پاسخ شما ثبت نشد')
             }

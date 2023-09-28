@@ -30,14 +30,14 @@ export async function generateMetadata({params, searchParams}) {
         title: result.meta_tag.title ? result.meta_tag.title : result.brand.name,
         description: result.meta_tag.desc,
         alternates: {
-            canonical: `${domainName}/product_brand/${result.brand.url}`
+            canonical: `${domainName}/brand/${result.brand.url}`
         },
         openGraph: {
             title: result.meta_tag.og_title ? result.meta_tag.og_title : (result.meta_tag.title ? result.meta_tag.title : result.brand.name),
             description: result.meta_tag.og_desc ? result.meta_tag.og_desc : result.meta_tag.desc,
             siteName: result.meta_tag.og_site_name,
             // type : result.meta_tag.og_type,
-            url: `${domainName}/product_brand/${result.brand.url}`
+            url: `${domainName}/brand/${result.brand.url}`
         }
     }
 }

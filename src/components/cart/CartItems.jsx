@@ -9,7 +9,7 @@ const CartItems = ({product}) => {
     return (
         <Grid container sx={{justifyContent: 'space-between', mt: 3, borderBottom: '1px solid #eee', pb: 3}}>
             <Grid item xs={4} md={2.5}>
-                <Link href={'/product/' + product.product_id} style={{textAlign: 'center'}}>
+                <Link href={`/product/${product.product_id}/${product.product_url}`} style={{textAlign: 'center'}}>
                     <Image width={100} height={100} style={{width: '100%', height: 'auto'}} alt={'test'}
                            src={product?.main_image}/>
                 </Link>

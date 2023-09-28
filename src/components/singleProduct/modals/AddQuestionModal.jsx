@@ -4,14 +4,12 @@ import {useAxios} from "src/hooks/useAxios";
 import Message from "../../../assets/icons/single-product/message.svg";
 import LoadingButton from "@mui/lab/LoadingButton";
 import useAlert from "../../../hooks/useAlert";
-import {useRouter} from "next/navigation";
 import MainModal from "../../share/MainModal";
 
 const AddQuestionModal = ({productId, setOpen, open , title , question}) => {
     const {control, getValues, handleSubmit, reset} = useForm();
     const {errorAlert, successAlert} = useAlert();
     const {callApi, loading} = useAxios();
-    const router = useRouter();
     const submitForm = async () => {
         if(question){
             callApi({
@@ -25,7 +23,6 @@ const AddQuestionModal = ({productId, setOpen, open , title , question}) => {
                     reset();
                     setOpen((prev) => !prev);
                     successAlert('پرسش شما با موفقیت ثبت شد');
-                    router.push(`/product/${productId}`)
                 },
                 errFunc: () => {
                     errorAlert('پرسش شما ثبت نشد')
@@ -35,12 +32,10 @@ const AddQuestionModal = ({productId, setOpen, open , title , question}) => {
             callApi({
                 url: 'question-reply', method: 'post', token: true, data: {
                     question: productId, content: getValues('newAnswer')
-
                 }, successFunc: () => {
                     reset();
                     setOpen(prev => !prev);
                     successAlert('پاسخ شما با موفقیت ثبت شد');
-                    router.push(`/product/${productId}`);
                 }, errFunc: () => {
                     errorAlert('پاسخ شما ثبت نشد')
                 }
@@ -77,9 +72,7 @@ const AddQuestionModal = ({productId, setOpen, open , title , question}) => {
                 <Box gap={2} sx={{mt: 3, mb: 2}} display={'flex'} alignItems={'center'}
                      justifyContent={'space-between'}>
                     <LoadingButton sx={{borderRadius: 2, width: '50%', height: 40}} loading={loading} type={'submit'} variant="contained"><Typography variant={'body1'} sx={{mr: 1}} color={'#fff'}>{question ? ' ثبت پرسش ها' : ' ثبت پاسخ'}</Typography><Message/></LoadingButton>
-                    <Button onClick={reset} sx={{borderRadius: 2, width: '50%', height: 40}} color={'gray'}
-                            variant={'outlined'}><Typography variant={'body1'}>پاک کردن
-                        همه</Typography></Button>
+                    <Button onClick={reset} sx={{borderRadius: 2, width: '50%', height: 40}} color={'gray'} variant={'outlined'}><Typography variant={'body1'}>پاک کردن همه</Typography></Button>
                 </Box>
             </Box>
         </MainModal>
