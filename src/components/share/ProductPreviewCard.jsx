@@ -50,7 +50,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                             image &&
                             <Image width={140} height={140}
                                    style={{transform: 'scale(0.9)', transition: 'all .3s', width: '100%', height: 'auto'}}
-                                   src={image} alt={alt}/>
+                                   src={image} alt={alt ?? ''}/>
                         }
                     </Box>
                     <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center'}}>

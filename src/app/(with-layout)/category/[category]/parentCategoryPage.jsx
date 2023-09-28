@@ -22,22 +22,27 @@ export default function ParentCategoryPage({
     const [contentIsShow, setContentIsShow] = useState(false);
     return (
         <>
-            <Box sx={{
-                position: "relative",
-                display: {md: 'block', xs: 'none'},
-                width: '100%',
-                aspectRatio: {md: '4.5/1', xs: '1.5/1'}
-            }}>
-                <Image src={main_banner[0]?.image} style={{borderRadius: '8px'}} fill alt={main_banner[0]?.alt}/>
-            </Box>
-            <Box sx={{
-                position: "relative",
-                display: {md: 'none', xs: 'block'},
-                width: '100%',
-                aspectRatio: {md: '4.5/1', xs: '1.5/1'}
-            }}>
-                <Image src={main_banner[0]?.mobile_image} style={{borderRadius: '8px'}} fill alt={main_banner[0]?.alt}/>
-            </Box>
+            {
+                main_banner.length ?
+                    <>
+                        <Box sx={{
+                            position: "relative",
+                            display: {md: 'block', xs: 'none'},
+                            width: '100%',
+                            aspectRatio: {md: '4.5/1', xs: '1.5/1'}
+                        }}>
+                            <Image src={main_banner[0]?.image} style={{borderRadius: '8px'}} fill alt={main_banner[0]?.alt ?? ''}/>
+                        </Box>
+                        <Box sx={{
+                            position: "relative",
+                            display: {md: 'none', xs: 'block'},
+                            width: '100%',
+                            aspectRatio: {md: '4.5/1', xs: '1.5/1'}
+                        }}>
+                            <Image src={main_banner[0]?.mobile_image} style={{borderRadius: '8px'}} fill alt={main_banner[0]?.alt ?? ''}/>
+                        </Box>
+                    </>:null
+            }
             <Container disableGutters>
                 <Box sx={{px: 1}}>
                     <BreadcrumbGenerator breadcrumb={breadcrumb}/>
@@ -50,7 +55,7 @@ export default function ParentCategoryPage({
                             return (
                                 <Grid key={item.id} sx={{px: 2}} item xs={6} md={3}>
                                     <Link href={'/category/' + item.url}>
-                                        <OuterImageSection alt={item.alt} shadow={2} image={item.image}
+                                        <OuterImageSection alt={item.alt ?? ''} shadow={2} image={item.image}
                                                            title={item.name}/>
                                     </Link>
                                 </Grid>
@@ -67,38 +72,41 @@ export default function ParentCategoryPage({
                                 <Box>
                                     <Image width={600} height={250} style={{width: '100%', height: 'auto'}}
                                            src={item?.image}
-                                           alt={item?.alt}/>
+                                           alt={item?.alt ?? ''}/>
                                 </Box>
                             </Grid>
                         ))
                     }
                 </Grid>
-                <Box sx={{px:1 ,position:'relative'}}>
-                    <HtmlDescription boxSx={{
-                        mt: 3,
-                        maxHeight: !contentIsShow ? '90px' : 'auto',
-                        overflow: 'hidden' ,textOverflow: 'ellipsis' , px:0
-                    }}>{content}</HtmlDescription>
-                    <Box onClick={setContentIsShow.bind(this, prev => !prev)}
-                         sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
-                        <Typography
-                            variant={"body2"}
-                            color={'primary'}
-                            sx={{
-                                cursor: "pointer",
-                                textAlign: "center",
-                            }}
-                        >
+                {
+                    content ?
+                    <Box sx={{px:1 ,position:'relative'}}>
+                        <HtmlDescription boxSx={{
+                            mt: 3,
+                            maxHeight: !contentIsShow ? '90px' : 'auto',
+                            overflow: 'hidden' ,textOverflow: 'ellipsis' , px:0
+                        }}>{content}</HtmlDescription>
+                        <Box onClick={setContentIsShow.bind(this, prev => !prev)}
+                             sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
+                            <Typography
+                                variant={"body2"}
+                                color={'primary'}
+                                sx={{
+                                    cursor: "pointer",
+                                    textAlign: "center",
+                                }}
+                            >
+                                {
+                                    contentIsShow ? 'مشاهده کمتر' : "مشاهده بیشتر"
+                                }
+                            </Typography>
                             {
-                                contentIsShow ? 'مشاهده کمتر' : "مشاهده بیشتر"
+                                contentIsShow ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :
+                                    <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>
                             }
-                        </Typography>
-                        {
-                            contentIsShow ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :
-                                <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>
-                        }
-                    </Box>
-                </Box>
+                        </Box>
+                    </Box> : null
+                }
             </Container>
         </>
     )

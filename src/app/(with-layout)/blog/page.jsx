@@ -3,7 +3,7 @@ import {BASE_URL} from "@/data/urls";
 
 const getData = async () => {
     try {
-        const res = await fetch(`${BASE_URL}blogs/`, {next: {revalidate: 60}});
+        const res = await fetch(`${BASE_URL}blogs/`, {cache:'no-store'});
         if (res.ok) {
             return res.json();
         } else {

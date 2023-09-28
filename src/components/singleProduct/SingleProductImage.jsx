@@ -21,7 +21,7 @@ const singleProductImage = ({images}) => {
                     modules={[FreeMode, Thumbs, Pagination]}
                 >
                     <SwiperSlide>
-                        <Box sx={{width: "100%", textAlign: 'center'}}>
+                        <Box sx={{width: "100%", textAlign: 'center' , aspectRatio:'1/1'}}>
                             {
                                 mainImage ?
                                     <Image width={300} height={300} style={{width: '100%', height: 'auto'}} alt={'test'}
@@ -36,7 +36,7 @@ const singleProductImage = ({images}) => {
                                     <SwiperSlide key={Math.random() * 1000}>
                                         <Box sx={{width: "100%", textAlign: 'center'}}>
                                             <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
-                                                   alt={'test'} src={item.image}/>
+                                                   alt={item.alt_text ?? ''} src={item.image}/>
                                         </Box>
                                     </SwiperSlide>
                                 )

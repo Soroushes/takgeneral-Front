@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const HomePageCategorySection = ({mainCategories}) => {
+    console.log(mainCategories)
     return (
         <Container sx={{my: 3}}>
             <Grid justifyContent={'center'} rowGap={5} container>
@@ -22,7 +23,7 @@ const HomePageCategorySection = ({mainCategories}) => {
                         <Grid key={index} sx={{px: {md: 6, xs: 3}}} xs={6} sm={4} md={3} item>
                             <Link style={{width : '100%'}} href={`/category/${item.url}`}>
                                 <Box sx={{mb: 2 , width : '100%' , textAlign : 'center'}}>
-                                    <Image alt={''} style={{width : '100%' , height : '100%'}} width={160} height={160} src={item.image}/>
+                                    <Image alt={item.name ?? ''} style={{width : '100%' , height : '100%'}} width={160} height={160} src={item.image}/>
                                 </Box>
                                 <Typography
                                     variant={'h5'}

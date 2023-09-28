@@ -4,8 +4,8 @@ import {useEffect, useState} from "react";
 import {Grid, Typography , Box} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import dynamic from "next/dynamic";
-const AddressPreview = dynamic(() => import("../../../components/share/AddressPreview"), { ssr:false })
-const AddAddressModalWrapper = dynamic(() => import("../../../components/share/AddAddressModalWrapper"), { ssr:false })
+const AddressPreview = dynamic(() => import("../../../../components/share/AddressPreview"), { ssr:false })
+const AddAddressModalWrapper = dynamic(() => import("../../../../components/share/AddAddressModalWrapper"), { ssr:false })
 const AddressPage = ()=>{
     const {callApi} = useAxios();
     const [addresses, setAddresses] = useState([]);

@@ -2,7 +2,7 @@ import {BASE_URL} from "@/data/urls";
 import LayoutPage from "@/components/layout/LayoutPage";
 const getCategories = async ()=>{
     try{
-        const res = await fetch(`${BASE_URL}all-categories/`);
+        const res = await fetch(`${BASE_URL}all-categories/` , {cache:'no-store'});
         if(!res.ok){
             console.log(res.error())
         }else{

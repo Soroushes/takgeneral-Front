@@ -58,7 +58,7 @@ const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
                             </Typography>
                             <Box sx={{width: {md: '100%', xs: '50%'}, textAlign: 'center'}}>
                                 <Image height={250} width={250} style={{width: '100%', height: 'auto'}} src={mainImage?.image}
-                                       alt={mainImage?.alt_text}/>
+                                       alt={mainImage?.alt_text ?? ''}/>
                             </Box>
                         </Box>
                     </Grid>

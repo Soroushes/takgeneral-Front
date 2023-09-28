@@ -2,7 +2,7 @@ import SingleBlog from "./singleBlogPage";
 import {BASE_URL} from "@/data/urls";
 import {notFound} from "next/navigation";
 const getData = async (id)=>{
-    const res = await fetch(`${BASE_URL}blog-detail/${+id}/`, {next:{revalidate:60}})
+    const res = await fetch(`${BASE_URL}blog-detail/${+id}/`, {cache:'no-store'})
     try {
         if(res.ok){
             return(

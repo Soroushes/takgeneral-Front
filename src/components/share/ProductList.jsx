@@ -39,25 +39,28 @@ const ProductList = ({product, count = 8, page = 1}) => {
                     ))
                 }
             </Grid>
-            <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4}}>
-                <Pagination
-                    sx={{direction: 'rtl'}} shape={'rounded'} onChange={handlePaginationChange} page={pageState}
-                    count={count}
-                    boundaryCount={0}
-                    siblingCount={1}
-                    color={'secondary'}
-                    renderItem={(item) => {
-                        return (
-                            (
-                                <PaginationItem
-                                    slots={{previous: ChevronRightRoundedIcon, next: ChevronLeftRoundedIcon}}
-                                    {...item}
-                                />
-                            )
-                        )
-                    }}
-                />
-            </Box>
+            {
+                count > 1 ?
+                    <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4}}>
+                        <Pagination
+                            sx={{direction: 'rtl'}} shape={'rounded'} onChange={handlePaginationChange} page={pageState}
+                            count={count}
+                            boundaryCount={0}
+                            siblingCount={1}
+                            color={'secondary'}
+                            renderItem={(item) => {
+                                return (
+                                    (
+                                        <PaginationItem
+                                            slots={{previous: ChevronRightRoundedIcon, next: ChevronLeftRoundedIcon}}
+                                            {...item}
+                                        />
+                                    )
+                                )
+                            }}
+                        />
+                    </Box>:null
+            }
         </>
     )
 }

@@ -19,7 +19,6 @@ import {useRouter, useSearchParams} from "next/navigation";
 import PN from "persian-number";
 
 const CommentQuestion = ({comments, rate, productId, questions , image}) => {
-    console.log(image)
     const {isLoggedIn} = useSelector(state => state.userInfo)
     const [value, setValue] = useState("1");
     const [questionIsShow, setQuestionIsShow] = useState(false);

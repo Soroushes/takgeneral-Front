@@ -10,7 +10,7 @@ import Blogs from "@/components/home/blogs";
 import {notFound} from "next/navigation";
 async function getData() {
     try{
-        const res = await fetch(`${BASE_URL}home/`, {next: {revalidate: 60}})
+        const res = await fetch(`${BASE_URL}home/`, {cache:'no-store'})
         if (res.ok) {
             return res.json()
         }else{
@@ -46,7 +46,11 @@ export default async function Page() {
                 <ProductBanners sizing={{xs: 12, md: 5.8}} banners={data.end_banner}/>
                 <DiscountProductSlider backGroundImage={'linear-gradient(to left, #1B09F9 , #27E1BC)'} products={data.special_offer_products}/>
                 {/*<DifferentProductScaleSlider/>*/}
-                <Blogs blogs={data?.new_blogs}/>
+                {
+                    data.new_blogs.length ?
+                        <Blogs blogs={data?.new_blogs}/>
+                    :null
+                }
             </div>
         </Suspense>
     );
