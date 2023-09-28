@@ -4,7 +4,7 @@ import {userInputData} from "@/data/profile/userInputData";
 import {Controller, useForm} from "react-hook-form";
 import LoadingButton from "@mui/lab/LoadingButton";
 import {useAxios} from "@/hooks/useAxios";
-import useAlert from "../../hooks/useAlert";
+import useAlert from "../../../hooks/useAlert";
 import {useEffect} from "react";
 
 const ProfilePage = ()=>{

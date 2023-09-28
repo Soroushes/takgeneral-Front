@@ -26,6 +26,8 @@ const ProductPage = ({data}) => {
                     </Grid>
                     <Grid item md={5} xs={12}>
                         <SingleProductAttribute
+                            pdf={data?.product.pdf}
+                            id={data?.product.id}
                             available={productOptions?.product_available}
                             comments={data?.comments}
                             rate={data?.avg_rate.avg_rate}

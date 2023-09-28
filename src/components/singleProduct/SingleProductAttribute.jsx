@@ -2,8 +2,9 @@ import {Box, Button, MenuItem, TextField, Typography} from "@mui/material";
 import Rating from '@mui/material/Rating';
 import PN from "persian-number";
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
+import Link from "next/link";
 
-const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, opinionRef , productOptions , setOptions , options , comments , rate , available}) => {
+const singleProductAttribute = ({attrRef , pdf, attributes, name, setShowAllDetails, opinionRef , productOptions , setOptions , options , comments , rate , id}) => {
     const scrollToDetails = () => {
         setShowAllDetails(true);
         //goToDetails.current?.scrollIntoView({behavior: 'smooth' , block : 'nearest' , inline : 'start' });
@@ -21,10 +22,11 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
     const handleSortOnchange = (value)=>{
         setOptions(value)
     }
+    console.log(pdf)
     return (
         <Box px={3}>
             <Typography variant="h4" sx={{fontWeight: 'bold', mb: 2}} component={'h1'}>{name}</Typography>
-            <Typography variant={'body2'} sx={{my: 1}}>{name}</Typography>
+            <Typography variant={'body2'} sx={{my: 1}}>شناسه محصول : {id}-{productOptions.id}</Typography>
             <Box display={'flex'} alignItems={'center'} gap={4}>
                 <Box display={'flex'} alignItems={'center'}>
                     <Rating readOnly size={'small'} sx={{mr: .5}} defaultValue={1} max={1}/>
@@ -71,13 +73,20 @@ const singleProductAttribute = ({attrRef, attributes, name, setShowAllDetails, o
                     })
                 }
             </Box>
-            <Box sx={{cursor: 'pointer', display: 'flex', mt: 2, alignItems: 'center'}}  onClick={scrollToDetails}>
-                <Typography variant={'body2'}
-                            sx={{ color: 'primary.main', textAlign: 'center'}}>مشاهده
-                    بیشتر</Typography>
-                <ExpandMoreRoundedIcon color={'primary'}/>
+            <Box display={'flex'} alignItems={'center'} mt={2} justifyContent={'space-between'}>
+                <Box sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}  onClick={scrollToDetails}>
+                    <Typography variant={'body2'}
+                                sx={{ color: 'primary.main', textAlign: 'center'}}>مشاهده
+                        بیشتر</Typography>
+                    <ExpandMoreRoundedIcon color={'primary'}/>
+                </Box>
+                {
+                    pdf ?
+                        <Link href={pdf} passHref target="_blank">
+                            <Button variant={'contained'} size={'small'} sx={{borderRadius:2}}>دانلود کاتالوگ</Button>
+                        </Link>:null
+                }
             </Box>
-
         </Box>
     )
 }

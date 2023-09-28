@@ -58,25 +58,31 @@ const ChildCategoryPage = ({
     };
     return (
         <>
-            <Box sx={{
-                width: '100%',
-                aspectRatio: '1.5/1',
-                position: 'relative',
-                p: 0,
-                display: {xs: 'block', md: 'none'}
-            }}>
-                <Image fill alt={''} src={main_banner[0]?.mobile_image}/>
-            </Box>
+            {
+                main_banner.length ?
+                    <Box sx={{
+                        width: '100%',
+                        aspectRatio: '1.5/1',
+                        position: 'relative',
+                        p: 0,
+                        display: {xs: 'block', md: 'none'}
+                    }}>
+                        <Image fill alt={main_banner[0]?.alt ??''} src={main_banner[0]?.mobile_image}/>
+                    </Box>:null
+            }
             <Box sx={{minHeight: "70vh"}}>
-                <Box sx={{
-                    display: {md: 'block', xs: 'none'},
-                    width: '100%',
-                    aspectRatio: '4.5/1',
-                    position: 'relative',
-                    p: 0
-                }}>
-                    <Image fill alt={''} src={main_banner[0]?.image}/>
-                </Box>
+                {
+                    main_banner.length ?
+                        <Box sx={{
+                            display: {md: 'block', xs: 'none'},
+                            width: '100%',
+                            aspectRatio: '4.5/1',
+                            position: 'relative',
+                            p: 0
+                        }}>
+                            <Image fill alt={main_banner[0]?.alt ??''} src={main_banner[0]?.image}/>
+                        </Box>:null
+                }
                 <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
                     <Box sx={{px: 1}}>
                         <BreadcrumbGenerator breadcrumb={breadcrumb}/>
@@ -143,32 +149,35 @@ const ChildCategoryPage = ({
                             <ProductList product={products} page={current_page} count={page_count}/>
                         </Grid>
                     </Grid>
-                    <Box sx={{px:1 ,position:'relative'}}>
-                        <HtmlDescription boxSx={{
-                            mt: 3,
-                            maxHeight: !contentIsShow ? '90px' : 'auto',
-                            overflow: 'hidden' ,textOverflow: 'ellipsis' , px:0
-                        }}>{content}</HtmlDescription>
-                        <Box onClick={setContentIsShow.bind(this, prev => !prev)}
-                             sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
-                            <Typography
-                                variant={"body2"}
-                                color={'primary'}
-                                sx={{
-                                    cursor: "pointer",
-                                    textAlign: "center",
-                                }}
-                            >
-                                {
-                                    contentIsShow ? 'مشاهده کمتر' : "مشاهده بیشتر"
-                                }
-                            </Typography>
-                            {
-                                contentIsShow ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :
-                                    <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>
-                            }
-                        </Box>
-                    </Box>
+                    {
+                        content ?
+                            <Box sx={{px: 1, position: 'relative'}}>
+                                <HtmlDescription boxSx={{
+                                    mt: 3,
+                                    maxHeight: !contentIsShow ? '90px' : 'auto',
+                                    overflow: 'hidden', textOverflow: 'ellipsis', px: 0
+                                }}>{content}</HtmlDescription>
+                                <Box onClick={setContentIsShow.bind(this, prev => !prev)}
+                                     sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
+                                    <Typography
+                                        variant={"body2"}
+                                        color={'primary'}
+                                        sx={{
+                                            cursor: "pointer",
+                                            textAlign: "center",
+                                        }}
+                                    >
+                                        {
+                                            contentIsShow ? 'مشاهده کمتر' : "مشاهده بیشتر"
+                                        }
+                                    </Typography>
+                                    {
+                                        contentIsShow ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :
+                                            <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>
+                                    }
+                                </Box>
+                            </Box> : null
+                    }
                 </Container>
                 <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلتر'}>
                     <Box sx={{px: 2}}>

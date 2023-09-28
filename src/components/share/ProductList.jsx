@@ -27,35 +27,38 @@ const ProductList = ({product, count = 8, page = 1}) => {
                             <ProductPreviewCard
                                 shadow={2}
                                 id={productItem.id}
-                                price={productItem.min_price.price} title={productItem.name}
-                                discountPercent={+productItem.min_price.discount}
-                                afterDiscountPrice={productItem.min_price.final_price}
-                                image={productItem.main_image?.image}
-                                alt={productItem.main_image?.alt_text}
+                                price={productItem?.min_price?.price} title={productItem.name}
+                                discountPercent={+productItem?.min_price?.discount}
+                                afterDiscountPrice={productItem?.min_price?.final_price}
+                                image={productItem?.main_image?.image}
+                                alt={productItem?.main_image?.alt_text}
                             />
                         </Grid>
                     ))
                 }
             </Grid>
-            <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4}}>
-                <Pagination
-                    sx={{direction: 'rtl'}} shape={'rounded'} onChange={handlePaginationChange} page={pageState}
-                    count={count}
-                    boundaryCount={0}
-                    siblingCount={1}
-                    color={'secondary'}
-                    renderItem={(item) => {
-                        return (
-                            (
-                                <PaginationItem
-                                    slots={{previous: ChevronRightRoundedIcon, next: ChevronLeftRoundedIcon}}
-                                    {...item}
-                                />
-                            )
-                        )
-                    }}
-                />
-            </Box>
+            {
+                count > 1 ?
+                    <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4}}>
+                        <Pagination
+                            sx={{direction: 'rtl'}} shape={'rounded'} onChange={handlePaginationChange} page={pageState}
+                            count={count}
+                            boundaryCount={0}
+                            siblingCount={1}
+                            color={'secondary'}
+                            renderItem={(item) => {
+                                return (
+                                    (
+                                        <PaginationItem
+                                            slots={{previous: ChevronRightRoundedIcon, next: ChevronLeftRoundedIcon}}
+                                            {...item}
+                                        />
+                                    )
+                                )
+                            }}
+                        />
+                    </Box>:null
+            }
         </>
     )
 }
