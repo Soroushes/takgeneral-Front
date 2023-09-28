@@ -20,7 +20,7 @@ const DiscountProductSlider = ({products , backGroundImage = 'linear-gradient(to
                         return(
                             <SwiperSlide key={Math.random()*1000} style={{width : 'auto', marginRight : '16px'}}>
                                 <Box sx={{width : {md:200 , xs:170}}}>
-                                    <ProductPreviewCard title={data.name} discountPercent={data.min_price.discount} price={data.min_price.price} afterDiscountPrice={data.min_price.final_price} id={data.id} image={data.main_image} url={data.url} />
+                                    <ProductPreviewCard title={data.name} discountPercent={data.min_price?.discount} price={data.min_price?.price} afterDiscountPrice={data.min_price?.final_price} id={data.id} image={data.main_image} url={data.url} />
                                 </Box>
                             </SwiperSlide>
                         )

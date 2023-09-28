@@ -41,8 +41,8 @@ const HighRateCategorySlider = ({products}) => {
                         return (
                             <SwiperSlide key={Math.random() * 1000} style={{width:'auto', marginRight : !index ? '-135px' : '15px'}}>
                                 <Box sx={{width: {md: 200, xs: 170}}} marginTop={5}>
-                                    <ProductPreviewCard title={data.name} discountPercent={data.min_price.discount}
-                                                        price={data.min_price.price} afterDiscountPrice={data.min_price.final_price}
+                                    <ProductPreviewCard title={data.name} discountPercent={data.min_price?.discount}
+                                                        price={data.min_price?.price} afterDiscountPrice={data.min_price?.final_price}
                                                         id={data.id}
                                                         image={data.image}/>
                                 </Box>
