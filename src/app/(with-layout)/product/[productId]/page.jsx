@@ -1,25 +1,21 @@
 import {BASE_URL} from "@/data/urls";
-import {notFound} from "next/navigation";
-import { redirect } from 'next/navigation'
+import {notFound, redirect} from "next/navigation";
+import Error from "@/app/error";
+
 async function getData(productId) {
-    try {
-        const res = await fetch(`${BASE_URL}product-detail/${productId}/`, { cache: 'no-store'})
-        if (res.ok) {
-            return res.json();
-        }
-        let error = new Error('failed to fetch data !')
-        error.statusCode = res.status;
-        throw (error)
-    } catch (err) {
-        if (err.statusCode === 404) {
+    const res = await fetch(`${BASE_URL}product-detail/${productId}/`, {cache: 'no-store'})
+    if (res.ok) {
+        return res.json();
+    } else {
+        if (res.status === 404) {
             notFound();
         } else {
-            console.log(err.message)
+            throw new Error('failed to fetch data !');
         }
     }
 }
 
-export default async function Page({params: {productId}}) {
+export default async function Page({params: {productId}, searchParams: {fromSection}}) {
     const data = await getData(productId);
-    return redirect(`/product/${productId}/${data.product.url}`) ;
+    return redirect(`/product/${productId}/${data.product.url}?fromSection=${fromSection}`);
 }

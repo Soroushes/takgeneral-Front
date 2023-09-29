@@ -27,7 +27,7 @@ const CommentQuestion = ({comments, rate, productId, questions , image}) => {
     const [questionIsOpen, setQuestionIsOpen] = useState(false);
     const [answerIsOpen, setAnswerIsOpen] = useState(false);
     const searchParams = useSearchParams();
-    const from = searchParams.get('from');
+    const from = searchParams.get('fromSection');
     const Router = useRouter();
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
@@ -42,7 +42,7 @@ const CommentQuestion = ({comments, rate, productId, questions , image}) => {
         if (isLoggedIn) {
             setAnswerIsOpen(prev => !prev);
         } else {
-            Router.push(`/login?from=product/${productId}?from=answer`)
+            Router.push(`/login?from=product/${productId}?fromSection=answer`)
         }
     }
     useEffect(() => {

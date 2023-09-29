@@ -7,12 +7,19 @@ import PersonIcon from '../../assets/icons/single-product/profile-circle.svg';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import {timeStampToDate} from "@/hooks/timeStampToDate";
-const Comment = ({comment}) => {
+import {useSelector} from "react-redux";
+import {useRouter} from "next/navigation";
+const Comment = ({comment , productId}) => {
     const [likeDislike, setLikeDislike] = useState('');
+    const {isLoggedIn} = useSelector(state =>state.userInfo);
+    const {push} = useRouter();
     const {callApi} = useAxios();
     const handlelikeDislike = (like) => {
         if ((like && likeDislike === 'like') || (!like && likeDislike === 'dislike')) {
             return
+        }
+        if(!isLoggedIn){
+            push(`/login?from=product/${productId}?fromSection=like`)
         }
         callApi({
             url: 'like-disslike-comment',
