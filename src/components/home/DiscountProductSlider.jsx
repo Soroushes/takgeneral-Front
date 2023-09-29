@@ -16,7 +16,7 @@ const DiscountProductSlider = ({products , backGroundImage = 'linear-gradient(to
                 </Box>
                 <SwiperCustomWrapper
                 navigation={false}>
-                    {products.map((data)=>{
+                    {products?.map((data)=>{
                         return(
                             <SwiperSlide key={Math.random()*1000} style={{width : 'auto', marginRight : '16px'}}>
                                 <Box sx={{width : {md:200 , xs:170}}}>

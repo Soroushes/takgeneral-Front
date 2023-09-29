@@ -42,24 +42,29 @@ const BrandPage = ({product, page_count, current_page , content , main_banner}) 
     }
     return (
         <Box sx={{minHeight: "70vh"}}>
-            <Box sx={{
-                width: '100%',
-                aspectRatio: '1.5/1',
-                position: 'relative',
-                p: 0,
-                display: {xs: 'block', md: 'none'}
-            }}>
-                <Image fill alt={''} src={main_banner[0]?.mobile_image}/>
-            </Box>
-            <Box sx={{
-                display: {md: 'block', xs: 'none'},
-                width: '100%',
-                aspectRatio: '4.5/1',
-                position: 'relative',
-                p: 0
-            }}>
-                <Image fill alt={''} src={main_banner[0]?.image}/>
-            </Box>
+            {
+                main_banner.length ?
+                    <>
+                        <Box sx={{
+                            width: '100%',
+                            aspectRatio: '1.5/1',
+                            position: 'relative',
+                            p: 0,
+                            display: {xs: 'block', md: 'none'}
+                        }}>
+                            <Image fill alt={''} src={main_banner[0]?.mobile_image}/>
+                        </Box>
+                        <Box sx={{
+                            display: {md: 'block', xs: 'none'},
+                            width: '100%',
+                            aspectRatio: '4.5/1',
+                            position: 'relative',
+                            p: 0
+                        }}>
+                            <Image fill alt={''} src={main_banner[0]?.image}/>
+                        </Box>
+                    </> :null
+            }
             <Container>
                 <Grid container>
                     <Grid item xs={12} sx={{mt: 4}}>

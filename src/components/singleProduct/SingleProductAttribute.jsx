@@ -5,6 +5,7 @@ import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import Link from "next/link";
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 const singleProductAttribute = ({attrRef , pdf, attributes, name, setShowAllDetails, opinionRef , productOptions , setOptions , options , comments , rate , id}) => {
+    console.log(productOptions)
     const scrollToDetails = () => {
         setShowAllDetails(true);
         //goToDetails.current?.scrollIntoView({behavior: 'smooth' , block : 'nearest' , inline : 'start' });
@@ -22,7 +23,6 @@ const singleProductAttribute = ({attrRef , pdf, attributes, name, setShowAllDeta
     const handleSortOnchange = (value)=>{
         setOptions(value)
     }
-    console.log(pdf)
     return (
         <Box px={3}>
             <Typography variant="h4" sx={{fontWeight: 'bold', mb: 2}} component={'h1'}>{name}</Typography>

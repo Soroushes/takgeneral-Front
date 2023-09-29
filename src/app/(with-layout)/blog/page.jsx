@@ -2,15 +2,11 @@ import BlogPage from './blogPage';
 import {BASE_URL} from "@/data/urls";
 
 const getData = async () => {
-    try {
-        const res = await fetch(`${BASE_URL}blogs/`, {cache:'no-store'});
-        if (res.ok) {
-            return res.json();
-        } else {
-            throw new Error('failed to fetch data !');
-        }
-    } catch (err) {
-        console.log(err.message);
+    const res = await fetch(`${BASE_URL}blogs/`, {cache: 'no-store'});
+    if (res.ok) {
+        return res.json();
+    } else {
+        throw new Error('failed to fetch data !');
     }
 }
 export default async function Page() {

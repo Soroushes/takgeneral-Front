@@ -18,6 +18,7 @@ const boxStyles = {
 const LoginPage = ()=>{
     const searchParams = useSearchParams();
     const from = searchParams.get('from');
+    console.log(from)
     const {errorAlert} = useAlert() ;
     const [validate, setValidate] = useState(false);
     const {count, startTimer, isFinished, resetTimer} = useCounter(55);

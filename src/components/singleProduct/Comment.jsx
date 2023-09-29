@@ -11,7 +11,7 @@ import {useSelector} from "react-redux";
 import {useRouter} from "next/navigation";
 const Comment = ({comment , productId}) => {
     const [likeDislike, setLikeDislike] = useState('');
-    const {isLoggedIn} = useSelector(state => state.userInfo);
+    const {isLoggedIn} = useSelector(state =>state.userInfo);
     const {push} = useRouter();
     const {callApi} = useAxios();
     const handlelikeDislike = (like) => {
@@ -20,6 +20,9 @@ const Comment = ({comment , productId}) => {
         }
         if ((like && likeDislike === 'like') || (!like && likeDislike === 'dislike')) {
             return
+        }
+        if(!isLoggedIn){
+            push(`/login?from=product/${productId}?fromSection=like`)
         }
         callApi({
             url: 'like-disslike-comment',

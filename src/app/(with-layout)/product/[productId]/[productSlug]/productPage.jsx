@@ -1,6 +1,6 @@
 'use client'
 import {Container, Divider, Grid, Typography , Box} from "@mui/material";
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import SingleProductDetails from "../../../../../components/singleProduct/SingleProductDetails";
 import CommentQuestion from "../../../../../components/singleProduct/Comment&Question";
 import SingleProductImage from "../../../../../components/singleProduct/SingleProductImage";
@@ -10,12 +10,28 @@ import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import SwiperCustomWrapper from "@/components/share/SwiperCustomWrapper";
 import ProductPreviewCard from "@/components/share/ProductPreviewCard";
 import {SwiperSlide} from "swiper/react";
+import {useRouter, useSearchParams} from "next/navigation";
 
 const ProductPage = ({data}) => {
     const attributesTableRef = useRef(null);
     const opinionTableRef = useRef(null);
     const [isShowAllDetails, setIsShowAllDetails] = useState(false);
     const [productOptions, setProductOptions] = useState(data?.product.options.product_variant[0]);
+    const searchParams = useSearchParams();
+    const {push} = useRouter();
+    const from = searchParams.get('fromSection');
+    const params = new URLSearchParams(searchParams);
+    useEffect(()=>{
+        if(from === 'like'){
+            window.scrollTo({
+                top: opinionTableRef.current?.offsetTop - 150,
+                behavior: 'smooth'
+            })
+        }
+        params.delete('fromSection');
+        push(`?${params}`);
+        console.log(productOptions)
+    },[])
     return (
         <Box sx={{height: '100%'}}>
             <Container maxWidth={'lg'}>

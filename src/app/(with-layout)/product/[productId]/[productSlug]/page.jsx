@@ -1,21 +1,17 @@
 import ProductPage from "./productPage";
 import {BASE_URL, domainName} from "@/data/urls";
 import {notFound, redirect} from "next/navigation";
+import Error from "@/app/error";
 
 async function getData(productId) {
-    try {
-        const res = await fetch(`${BASE_URL}product-detail/${productId}/`, {cache: 'no-store'})
-        if (res.ok) {
-            return res.json();
-        }
-        let error = new Error('failed to fetch data !')
-        error.statusCode = res.status;
-        throw (error)
-    } catch (err) {
-        if (err.statusCode === 404) {
+    const res = await fetch(`${BASE_URL}product-detail/${productId}/`, {cache: 'no-store'})
+    if (res.ok) {
+        return res.json();
+    } else {
+        if (res.status === 404) {
             notFound();
         } else {
-            console.log(err.message)
+            throw new Error('failed to fetch data !');
         }
     }
 }
@@ -38,11 +34,11 @@ export async function generateMetadata({params: {productId}}) {
     }
 }
 
-export default async function Page({params: {productId, productSlug}}) {
+export default async function Page({params: {productId, productSlug}, searchParams: {from}}) {
     const data = await getData(productId);
     if (data.product.url !== productSlug) {
         return (
-            redirect(`/product/${productId}/${data.product.url}`)
+            redirect(`/product/${productId}/${data.product.url}?from=${from}`)
         )
     }
     return (

@@ -8,7 +8,7 @@ const AverageRatingComment = ({average, openAddComment , isLoggedIn , productId}
         if(isLoggedIn) {
             openAddComment((prev) => !prev);
         }else{
-            Router.push(`/login?from=product/${productId}?from=comment`)
+            Router.push(`/login?from=product/${productId}?fromSection=comment`)
         }
     };
     return (

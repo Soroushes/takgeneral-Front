@@ -7,7 +7,7 @@ const AverageRatingQuestion = ({isLoggedIn, openAddQuestion , productId}) => {
         if (isLoggedIn) {
             openAddQuestion((prev) => !prev);
         } else {
-            Router.push(`/login?from=product/${productId}?from=question`)
+            Router.push(`/login?from=product/${productId}?fromSection=question`)
         }
     }
     return (
