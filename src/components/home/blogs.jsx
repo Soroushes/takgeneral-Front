@@ -26,7 +26,7 @@ const Blogs = ({blogs}) => {
             </Box>
             <Grid container gap={2} sx={{mt: 3 , display:{md:'flex' , xs:'none'}}}>
                 {
-                    blogs?.map((item) => {
+                    blogs.map((item) => {
                         return (
                             <Grid key={item?.id} item md={4} xs={12} sx={{
                                 p: 1,
@@ -45,7 +45,7 @@ const Blogs = ({blogs}) => {
             <Box sx={{display:{xs:'block' , md:'none'}}}>
                 <SwiperCustomWrapper navigation={false}>
                     {
-                        blogs?.map((item) => {
+                        blogs.map((item) => {
                             return(
                                 <SwiperSlide key={item.id} style={{ '&:hover': {transform: 'translateY(-2%)'}, transition: 'all .5s', minHeight: '360px'}}>
                                     <BlogCard blog={item}/>

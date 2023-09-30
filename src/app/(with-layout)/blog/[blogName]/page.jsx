@@ -3,8 +3,9 @@ import {BASE_URL} from "@/data/urls";
 import {notFound} from "next/navigation";
 import Error from "@/app/error";
 
-const getData = async (id) => {
-    const res = await fetch(`${BASE_URL}blog-detail/${+id}/`, {cache: 'no-store'})
+const getData = async (blogName) => {
+    console.log(`${BASE_URL}blog-detail/${blogName}/`)
+    const res = await fetch(`${BASE_URL}blog-detail/${blogName}/`, {cache: 'no-store'})
     if (res.ok) {
         return res.json();
     } else {
@@ -16,7 +17,7 @@ const getData = async (id) => {
     }
 }
 export default async function Page({params}) {
-    const data = await getData(params.blogId);
-    return (<SingleBlog data={data} images={data.blog_images} content={data.desc} title={data.title}
-                        timeStamp={data.created_time.timestamp}/>)
+    const {blog} = await getData(params.blogName);
+    return (<SingleBlog data={blog} images={blog.blog_images} content={blog.desc} title={blog.title}
+                        timeStamp={blog.created_time.timestamp}/>)
 }

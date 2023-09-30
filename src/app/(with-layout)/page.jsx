@@ -35,19 +35,17 @@ export default async function Page() {
                 borderRadius: '20px 20px 0 0',
                 padding: '20px 0 '
             }}>
-                <HomePageCategorySection mainCategories={data?.mother_categories}/>
-                <DiscountProductSlider data={data} products={data?.amazing_offer_product}/>
+                <HomePageCategorySection mainCategories={data.mother_categories}/>
+                <DiscountProductSlider data={data} products={data.amazing_offer_product}/>
                 <ProductBanners sizing={{xs: 12, md: 3.8}}
-                                banners={data?.mid_banner}/>
-                <HighRateCategorySlider products={data?.popular_categories}/>
-                <ProductBanners sizing={{xs: 12, md: 5.8}} banners={data?.end_banner}/>
+                                banners={data.mid_banner}/>
+                <HighRateCategorySlider products={data.popular_categories}/>
+                <ProductBanners sizing={{xs: 12, md: 5.8}} banners={data.end_banner}/>
                 <DiscountProductSlider backGroundImage={'linear-gradient(to left, #1B09F9 , #27E1BC)'}
-                                       products={data?.special_offer_products}/>
+                                       products={data.special_offer_products}/>
                 {/*<DifferentProductScaleSlider/>*/}
                 {
-                    data?.new_blogs?.length ?
-                        <Blogs blogs={data?.new_blogs}/>
-                        : null
+                    data.new_blogs.length ? <Blogs blogs={data.new_blogs}/> : null
                 }
             </div>
         </Suspense>
