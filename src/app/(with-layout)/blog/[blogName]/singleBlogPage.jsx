@@ -11,28 +11,30 @@ const SingleBlog = ({images, timeStamp, title, content}) => {
             <Grid container justifyContent={'space-between'}>
                 <Grid sx={{py: 1}} item xs={12}>
                     <Box sx={{textAlign: 'center', width: '100%'}}>
-                        <Image width={590} height={290} style={{maxWidth: '100%', height: 'auto'}} src={images[0]?.image}
+                        <Image width={590} height={290} style={{maxWidth: '100%', height: 'auto'}}
+                               src={images[0]?.image}
                                alt={''}/>
                     </Box>
                 </Grid>
                 <Grid item xs={12} sx={{py: 1}} display={'flex'} flexDirection={'column'}
                       justifyContent={'space-between'}>
-                    <Typography sx={{mb: {xs: 1, md: 0}}} variant={'h5'} fontWeight={'bold'}>
+                    <Typography sx={{mb: 1}} variant={'h5'} fontWeight={'bold'}>
                         {
                             title
                         }
                     </Typography>
                     <Box display={'flex'} flexDirection={{md: 'column', xs: 'column-reverse'}}
                          justifyContent={'space-between'}>
-                            <HtmlDescription boxSx={{
-                                width: '100%', px:0
-                            }}>
-                                {content}
-                            </HtmlDescription>
-                        <Box my={{xs: 1, md: 0}} display={'flex'} alignItems={'center'} gap={1}>
+                        <HtmlDescription boxSx={{
+                            width: '100%', px: 0
+                        }}>
+                            {content}
+                        </HtmlDescription>
+                        <Box my={2} display={'flex'} alignItems={'center'} gap={1}>
                             <ClockIcon/>
-                            <Typography variant={'subtitle1'}
-                                        sx={{textAlign: 'center'}}>{timeStampToDate(timeStamp)}</Typography>
+                            <Typography
+                                variant={'subtitle1'}
+                                sx={{textAlign: 'center'}}>{timeStampToDate(timeStamp)}</Typography>
                         </Box>
                     </Box>
                 </Grid>

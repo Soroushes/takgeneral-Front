@@ -29,8 +29,17 @@ export async function generateMetadata({params: {productId}}) {
             title: result.meta_tag.og_title ? result.meta_tag.og_title : (result.meta_tag.title ? result.meta_tag.title : result.product.name),
             description: result.meta_tag.og_desc ? result.meta_tag.og_desc : result.meta_tag.desc,
             siteName: result.meta_tag.og_site_name,
-            url: `${domainName}/product/${result.product.id}/${result.product.url}`
-        }
+            url: `${domainName}/product/${result.product.id}/${result.product.url}` ,
+            type: 'website'
+        },
+        robots: {
+            index: result.meta_tag.index,
+            follow: result.meta_tag.follow,
+            googleBot: {
+                index: result.meta_tag.index,
+                follow: result.meta_tag.follow,
+            },
+        },
     }
 }
 

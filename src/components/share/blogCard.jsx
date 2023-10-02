@@ -12,6 +12,7 @@ const BlogCard = ({blog}) => {
         <Box onClick={() => {
             push(`/blog/${blog.slug}`)
         }} sx={{
+            cursor : 'pointer',
             height: '100%',
             display: 'flex',
             flexDirection: 'column',

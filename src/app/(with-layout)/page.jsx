@@ -33,7 +33,7 @@ export default async function Page() {
                 position: 'relative',
                 zIndex: 2,
                 borderRadius: '20px 20px 0 0',
-                padding: '20px 0 '
+                padding: '20px 0 50px 0 '
             }}>
                 <HomePageCategorySection mainCategories={data.mother_categories}/>
                 <DiscountProductSlider data={data} products={data.amazing_offer_product}/>

@@ -8,12 +8,6 @@ const myFont = localFont({
     display: 'swap',
     variable: '--iranYekan'
 })
-export const metadata = {
-    title: 'تست لیوت',
-    openGraph: {
-        locale: 'fa_IR'
-    }
-}
 export default async function RootLayout({children}) {
     return (
         <html className={myFont.variable} dir='rtl' lang="fa_IR">

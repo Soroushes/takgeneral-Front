@@ -31,17 +31,26 @@ export async function generateMetadata({params, searchParams}) {
         openGraph: {
             title: result.meta_tag.og_title ? result.meta_tag.og_title : (result.meta_tag.title ? result.meta_tag.title : result.brand.name),
             description: result.meta_tag.og_desc ? result.meta_tag.og_desc : result.meta_tag.desc,
-            siteName: result.meta_tag.og_site_name, // type : result.meta_tag.og_type,
+            siteName: result.meta_tag.og_site_name,
+            type: 'website',
             url: `${domainName}/brand/${result.brand.url}`
-        }
+        },
+        robots: {
+            index: result.meta_tag.index,
+            follow: result.meta_tag.follow,
+            googleBot: {
+                index: result.meta_tag.index,
+                follow: result.meta_tag.follow,
+            },
+        },
     }
 }
 
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
     return (<Suspense fallback={<LoadingPages/>}>
-            <BrandPage data={data} main_banner={data.main_banner} product={data.products} content={data.page_content}
-                       current_page={data.current_page} page_count={data.page_count}/>
-        </Suspense>)
+        <BrandPage data={data} main_banner={data.main_banner} product={data.products} content={data.page_content}
+                   current_page={data.current_page} page_count={data.page_count}/>
+    </Suspense>)
 }
 

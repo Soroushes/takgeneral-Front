@@ -20,11 +20,11 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
         setPageState(currentPage)
     }, [params]);
     return (
-        <Container sx={{mt: 3, my: 4}}>
-            <Typography variant={'h3'} my={3} fontWeight={'bold'} sx={{display: {xs: 'block', md: 'none'}}}>
+        <Container sx={{py: 6}}>
+            <Typography variant={'h3'} mt={1} fontWeight={'bold'} sx={{display: {xs: 'block', md: 'none'}}}>
                 مجله تک جنرال
             </Typography>
-            <Grid container gap={1} sx={{mt: 3}}>
+            <Grid sx={{mt: 4}} container gap={1}>
                 {
                     blogs?.map((item) => {
                         return (
@@ -45,7 +45,9 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
             {
                 pageCount > 1 ? <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4, px: 2}}>
                     <Pagination
-                        sx={{direction: 'rtl'}} shape={'rounded'} onChange={handlePaginationChange}
+                        sx={{direction: 'rtl'}}
+                        shape={'rounded'}
+                        onChange={handlePaginationChange}
                         page={pageState}
                         count={pageCount}
                         color={'secondary'}
