@@ -5,6 +5,14 @@ module.exports = {
     experimental : {
         appDir : true
     } ,
+    async redirects() {
+        const res = await fetch(`https://sahm.soroushes.tk/redirects/` ,{cache: 'no-store'}) ;
+        if (!res.ok){
+            throw new Error('fail to fetch redirects') ;
+        }
+        const data = await res.json() ;
+        return data.map((redirect)=>({source : redirect.source , destination : redirect.destination , permanent : redirect.permanent }))
+    },
     webpack(config) {
         // Grab the existing rule that handles SVG imports
         const fileLoaderRule = config.module.rules.find((rule) =>
