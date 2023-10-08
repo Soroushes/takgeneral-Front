@@ -1,12 +1,12 @@
 module.exports = {
     images: {
-        domains: ['sahm.soroushes.tk' , 'swiperjs.com' , 'api.soroushes.tk'],
+        domains: ['api.takgeneral.com' , 'swiperjs.com'],
     },
     experimental : {
         appDir : true
     } ,
     async redirects() {
-        const res = await fetch(`https://sahm.soroushes.tk/redirects/` ,{cache: 'no-store'}) ;
+        const res = await fetch(`https://api.takgeneral.com/redirects/` ,{cache: 'no-store'}) ;
         if (!res.ok){
             throw new Error('fail to fetch redirects') ;
         }
