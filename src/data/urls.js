@@ -8,5 +8,5 @@ export const urls ={
     categories : "category",
     contactUs:'/contact-us',
 }
-export const BASE_URL = 'https://sahm.soroushes.tk/';
-export const domainName = 'https://soroushes.tk'
+export const BASE_URL = 'https://api.takgeneral.com/';
+export const domainName = 'https://takgeneral.com'
