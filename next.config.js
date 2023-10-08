@@ -11,7 +11,7 @@ module.exports = {
             throw new Error('fail to fetch redirects') ;
         }
         const data = await res.json() ;
-        return data.map((redirect)=>({source : redirect.source , destination : redirect.destination , permanent : redirect.permanent }))
+        return data.map((redirect)=>({source : redirect.source , destination : redirect.destination , statusCode : redirect.permanent ? 301 : 302 }))
     },
     webpack(config) {
         // Grab the existing rule that handles SVG imports
