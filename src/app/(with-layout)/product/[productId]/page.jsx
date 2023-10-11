@@ -17,5 +17,5 @@ async function getData(productId) {
 
 export default async function Page({params: {productId}, searchParams: {fromSection}}) {
     const data = await getData(productId);
-    return redirect(`/product/${productId}/${data.product.url}?fromSection=${fromSection}`);
+    return redirect(`/product/${productId}/${data.product.url}${fromSection ? `?fromSection=${fromSection}` : ''}`);
 }

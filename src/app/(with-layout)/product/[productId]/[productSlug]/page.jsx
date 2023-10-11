@@ -43,11 +43,11 @@ export async function generateMetadata({params: {productId}}) {
     }
 }
 
-export default async function Page({params: {productId, productSlug}, searchParams: {from}}) {
+export default async function Page({params: {productId, productSlug}, searchParams: {fromSection}}) {
     const data = await getData(productId);
     if (data.product.url !== productSlug) {
         return (
-            redirect(`/product/${productId}/${data.product.url}?from=${from}`)
+            redirect(`/product/${productId}/${data.product.url}${fromSection ? `?fromSection=${fromSection}` : ''}`)
         )
     }
     return (

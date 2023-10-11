@@ -49,7 +49,7 @@ const Comment = ({comment , productId}) => {
             <Box sx={{borderBottom: '1px solid #eee', pb: 1.5}} display={'flex'} justifyContent={'space-between'}>
                 <Box display={'flex'} gap={3} alignItems={'center'} justifyContent={'space-between'}>
                     <Box display={'flex'}><Rating readOnly size={'small'} sx={{mr: .5}} defaultValue={1}
-                                                  max={1}/><Typography>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(comment.arzesh_rate)))}</Typography></Box>
+                                                  max={1}/><Typography>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(comment.rate)))}</Typography></Box>
                     <Box display={"flex"} alignItems={"center"} gap={.5}>
                         <PersonIcon fontSize={'small'} color={'gray'}/>
                         <Typography color={'text.muted'} variant="body1">{comment?.user_alias_name}</Typography>

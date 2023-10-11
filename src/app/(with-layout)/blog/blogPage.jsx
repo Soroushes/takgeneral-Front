@@ -24,19 +24,21 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
             <Typography variant={'h3'} mt={1} fontWeight={'bold'} sx={{display: {xs: 'block', md: 'none'}}}>
                 مجله تک جنرال
             </Typography>
-            <Grid sx={{mt: 4}} container gap={1}>
+            <Grid sx={{mt: 4}} container>
                 {
                     blogs?.map((item) => {
                         return (
-                            <Grid key={item?.id} item md={4} xs={12} sx={{
-                                p: 1,
-                                '&:hover': {transform: 'translateY(-2%)'},
-                                transition: 'all .5s',
-                                minHeight: '360px',
-                                borderRadius: 2,
-                                boxShadow: 1,
-                            }}>
-                                <BlogCard blog={item}/>
+                            <Grid sx={{p:.5 , minHeight: '360px'}} key={item?.id} item md={4} xs={12} >
+                                <Box sx={{
+                                    p: 1,
+                                    '&:hover': {transform: 'translateY(-2%)'},
+                                    transition: 'all .5s',
+                                    borderRadius: 2,
+                                    height:'100%',
+                                    boxShadow: 1,
+                                }}>
+                                    <BlogCard blog={item}/>
+                                </Box>
                             </Grid>
                         )
                     })

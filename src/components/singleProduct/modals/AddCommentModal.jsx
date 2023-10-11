@@ -15,7 +15,7 @@ const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
     const {full_name} = useSelector(state => state.userInfo);
     const {control, handleSubmit, reset} = useForm({
         defaultValues: {
-            kefiyat_rate: rate?.avg_keyfiyat_rate ?? 2,
+            rate: rate?.avg_rate ?? 2,
         }
     });
     const {loading, callApi} = useAxios();
@@ -27,7 +27,7 @@ const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
             data: {
                 ...data,
                 product: productId,
-                arzesh_rate: data?.kefiyat_rate,
+                rate: data?.rate,
                 title: data?.content,
                 user_alias_name: data?.content
 
@@ -69,7 +69,7 @@ const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
                                  justifyContent={'space-between'}>
                                 <Typography>امتیاز شما:</Typography>
                                 <Controller
-                                    name="kefiyat_rate"
+                                    name="rate"
                                     control={control}
                                     defaultValue={0}
                                     render={({field}) =>
@@ -81,7 +81,6 @@ const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
                                 <Controller
                                     name={'suggest_me'}
                                     control={control}
-                                    defaultValue={false}
                                     render={({field}) =>
                                         <Checkbox
                                             value={field?.value}

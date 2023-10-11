@@ -24,19 +24,21 @@ const Blogs = ({blogs}) => {
                     </Link>
                 </Box>
             </Box>
-            <Grid container gap={2} sx={{mt: 3 , display:{md:'flex' , xs:'none'}}}>
+            <Grid container sx={{mt: 3 , display:{md:'flex' , xs:'none'} }}>
                 {
                     blogs.map((item) => {
                         return (
-                            <Grid key={item?.id} item md={4} xs={12} sx={{
-                                p: 1,
-                                '&:hover': {transform: 'translateY(-2%)'},
-                                transition: 'all .5s',
-                                minHeight: '360px',
-                                borderRadius: 2,
-                                boxShadow: 1,
-                            }}>
-                                <BlogCard blog={item}/>
+                            <Grid key={item?.id} sx={{px:.5 , minHeight: '360px'}} item md={4} >
+                                <Box sx={{
+                                    p: 1,
+                                    '&:hover': {transform: 'translateY(-2%)'},
+                                    transition: 'all .5s',
+                                    borderRadius: 2,
+                                    height:'100%',
+                                    boxShadow: 1,
+                                }}>
+                                    <BlogCard blog={item}/>
+                                </Box>
                             </Grid>
                         )
                     })
