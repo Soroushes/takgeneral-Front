@@ -1,17 +1,29 @@
 module.exports = {
     images: {
-        domains: ['api.takgeneral.com' , 'swiperjs.com'],
+        domains: ['api.takgeneral.com', 'swiperjs.com'],
     },
-    experimental : {
-        appDir : true
-    } ,
+    experimental: {
+        appDir: true
+    },
     async redirects() {
-        const res = await fetch(`https://api.takgeneral.com/redirects/` ,{cache: 'no-store'}) ;
-        if (!res.ok){
-            throw new Error('fail to fetch redirects') ;
+        const persianRegex = /[\u0600-\u06FF\uFB8A\u067E\u0686\u06AF]/;
+        const res = await fetch(`https://api.takgeneral.com/redirects/`, {cache: 'no-store'});
+        if (!res.ok) {
+            throw new Error('fail to fetch redirects');
         }
-        const data = await res.json() ;
-        return data.map((redirect)=>({source : redirect.source , destination : redirect.destination , statusCode : redirect.permanent ? 301 : 302 }))
+        const data = await res.json();
+        return data.map((redirect) => {
+            const finalSourceAddress = redirect.source.split('/').map((item)=>{
+                if (persianRegex.test(item)){
+                    return encodeURI(item)
+                } else return item ;
+            })
+            return {
+                source: `${finalSourceAddress.join('/')}`,
+                destination: redirect.destination,
+                statusCode: redirect.permanent ? 301 : 302
+            }
+        })
     },
     webpack(config) {
         // Grab the existing rule that handles SVG imports
@@ -29,7 +41,7 @@ module.exports = {
             {
                 test: /\.svg$/i,
                 issuer: /\.[jt]sx?$/,
-                resourceQuery: { not: /url/ }, // exclude if *.svg?url
+                resourceQuery: {not: /url/}, // exclude if *.svg?url
                 use: ['@svgr/webpack'],
             },
         )
