@@ -20,7 +20,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
         setPageState(currentPage)
     }, [params]);
     return (
-        <Container sx={{py: 6}}>
+        <Container sx={{pb: 6 , pt:2}}>
             <Typography variant={'h3'} mt={1} fontWeight={'bold'} sx={{display: {xs: 'block', md: 'none'}}}>
                 مجله تک جنرال
             </Typography>

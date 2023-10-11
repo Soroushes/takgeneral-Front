@@ -28,6 +28,7 @@ async function getData(params, searchParams) {
 
 export async function generateMetadata({params, searchParams}) {
     const result = await getData(params, searchParams);
+    console.log(result);
     return {
         title: result?.meta_tag?.title ? result?.meta_tag.title : result?.main_category?.name,
         description: result?.meta_tag?.desc,
@@ -61,7 +62,7 @@ export default async function Page({params, searchParams}) {
                     main_banner={data.main_banner}
                     content={data.page_content.desc} childCategory={data.sub_category}
                     products={data.product} category={params.category}
-                    data={data} breadcrumb={data.breadcrumb} brands={data.brands} current_page={data.current_page}
+                    data={data} main_category={data?. main_category} breadcrumb={data.breadcrumb} brands={data.brands} current_page={data.current_page}
                     page_count={data.page_count}
                 />
                 :
