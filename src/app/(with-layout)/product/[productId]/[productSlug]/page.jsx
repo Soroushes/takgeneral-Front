@@ -2,6 +2,7 @@ import ProductPage from "./productPage";
 import {BASE_URL, domainName} from "@/data/urls";
 import {notFound, redirect} from "next/navigation";
 import Error from "@/app/error";
+import {metadataGenerator} from "@/hooks/metadataGenerator";
 
 async function getData(productId) {
     const res = await fetch(`${BASE_URL}product-detail/${productId}/`, {cache: 'no-store'})
@@ -19,28 +20,7 @@ async function getData(productId) {
 export async function generateMetadata({params: {productId}}) {
     const result = await getData(productId);
     if (!result) return
-    return {
-        title: result.meta_tag.title ? result.meta_tag.title : result.product.name,
-        description: result.meta_tag.desc,
-        alternates: {
-            canonical: `${domainName}/product/${result.product.id}/${result.product.url}`
-        },
-        openGraph: {
-            title: result.meta_tag.og_title ? result.meta_tag.og_title : (result.meta_tag.title ? result.meta_tag.title : result.product.name),
-            description: result.meta_tag.og_desc ? result.meta_tag.og_desc : result.meta_tag.desc,
-            siteName: result.meta_tag.og_site_name,
-            url: `${domainName}/product/${result.product.id}/${result.product.url}` ,
-            type: 'website'
-        },
-        robots: {
-            index: result.meta_tag.index,
-            follow: result.meta_tag.follow,
-            googleBot: {
-                index: result.meta_tag.index,
-                follow: result.meta_tag.follow,
-            },
-        },
-    }
+    return metadataGenerator(result?.meta_tag , result.product.name , `${domainName}/product/${result.product.id}/${result.product.url}` , `${domainName}/product/${result.product.id}/${result.product.url}` ,'website')
 }
 
 export default async function Page({params: {productId, productSlug}, searchParams: {fromSection}}) {

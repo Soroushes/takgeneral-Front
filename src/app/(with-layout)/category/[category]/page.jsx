@@ -3,7 +3,7 @@ import ChildCategoryPage from "./childCategoryPage";
 import ParentCategoryPage from './parentCategoryPage';
 import {notFound} from "next/navigation";
 import Error from "@/app/error";
-
+import {metadataGenerator} from "@/hooks/metadataGenerator";
 async function getData(params, searchParams) {
     let brands = searchParams.brand ?? [];
     delete searchParams.brand;
@@ -28,29 +28,7 @@ async function getData(params, searchParams) {
 
 export async function generateMetadata({params, searchParams}) {
     const result = await getData(params, searchParams);
-    console.log(result);
-    return {
-        title: result?.meta_tag?.title ? result?.meta_tag.title : result?.main_category?.name,
-        description: result?.meta_tag?.desc,
-        alternates: {
-            canonical: `${domainName}/category/${result?.main_category?.url}`
-        },
-        openGraph: {
-            title: result?.meta_tag?.og_title ? result?.meta_tag.og_title : (result?.meta_tag?.title ? result?.meta_tag.title : result?.main_category?.name),
-            description: result?.meta_tag?.og_desc ? result?.meta_tag.og_desc : result?.meta_tag?.desc,
-            siteName: result?.meta_tag?.og_site_name,
-            type : 'website',
-            url: `${domainName}/category/${result?.main_category?.url}`
-        },
-        robots: {
-            index: result.meta_tag.index,
-            follow: result.meta_tag.follow,
-            googleBot: {
-                index: result.meta_tag.index,
-                follow: result.meta_tag.follow,
-            },
-        },
-    }
+    return metadataGenerator(result?.meta_tag , result?.main_category?.name , `${domainName}/category/${result?.main_category?.url}` , `${domainName}/category/${result?.main_category?.url}` , 'website');
 }
 
 export default async function Page({params, searchParams}) {
