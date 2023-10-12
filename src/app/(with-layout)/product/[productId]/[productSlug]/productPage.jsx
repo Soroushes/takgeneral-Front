@@ -13,6 +13,7 @@ import {SwiperSlide} from "swiper/react";
 import {useRouter, useSearchParams} from "next/navigation";
 
 const ProductPage = ({data}) => {
+    console.log(<data></data>)
     const attributesTableRef = useRef(null);
     const opinionTableRef = useRef(null);
     const [isShowAllDetails, setIsShowAllDetails] = useState(false);
@@ -29,8 +30,7 @@ const ProductPage = ({data}) => {
             })
         }
         params.delete('fromSection');
-        push(`?${params}`);
-        console.log(productOptions)
+        push(`?${params}` , {scroll:false});
     },[])
     return (
         <Box sx={{height: '100%'}}>
@@ -42,9 +42,9 @@ const ProductPage = ({data}) => {
                     </Grid>
                     <Grid item md={5} xs={12}>
                         <SingleProductAttribute
+                            productStaus={productOptions?.inventory_status}
                             pdf={data?.product.pdf}
                             id={data?.product.id}
-                            available={productOptions?.product_available}
                             comments={data?.comments}
                             rate={data?.avg_rate.avg_rate}
                             options={data?.product.options}

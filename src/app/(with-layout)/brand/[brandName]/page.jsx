@@ -4,6 +4,7 @@ import {notFound} from "next/navigation";
 import LoadingPages from "@/components/share/LoadingPages";
 import {Suspense} from "react";
 import Error from "@/app/error";
+import {metadataGenerator} from "@/hooks/metadataGenerator";
 
 const getData = async (params, searchParams) => {
     const parameters = new URLSearchParams(searchParams)
@@ -22,28 +23,7 @@ const getData = async (params, searchParams) => {
 export async function generateMetadata({params, searchParams}) {
     const result = await getData(params, searchParams);
     if (!result) return;
-    return {
-        title: result.meta_tag.title ? result.meta_tag.title : result.brand.name,
-        description: result.meta_tag.desc,
-        alternates: {
-            canonical: `${domainName}/brand/${result.brand.url}`
-        },
-        openGraph: {
-            title: result.meta_tag.og_title ? result.meta_tag.og_title : (result.meta_tag.title ? result.meta_tag.title : result.brand.name),
-            description: result.meta_tag.og_desc ? result.meta_tag.og_desc : result.meta_tag.desc,
-            siteName: result.meta_tag.og_site_name,
-            type: 'website',
-            url: `${domainName}/brand/${result.brand.url}`
-        },
-        robots: {
-            index: result.meta_tag.index,
-            follow: result.meta_tag.follow,
-            googleBot: {
-                index: result.meta_tag.index,
-                follow: result.meta_tag.follow,
-            },
-        },
-    }
+    return metadataGenerator(result.meta_tag , result.brand.name , `${domainName}/brand/${result.brand.url}` , `${domainName}/brand/${result.brand.url}`,'website')
 }
 
 export default async function Page({params, searchParams}) {

@@ -10,11 +10,14 @@ const SingleBlog = ({images, timeStamp, title, content}) => {
         <Container mt={3}>
             <Grid container justifyContent={'space-between'}>
                 <Grid sx={{py: 1}} item xs={12}>
-                    <Box sx={{textAlign: 'center', width: '100%'}}>
-                        <Image width={590} height={290} style={{maxWidth: '100%', height: 'auto'}}
-                               src={images[0]?.image}
-                               alt={''}/>
-                    </Box>
+                    {
+                        images[0]?.image ?
+                            <Box sx={{textAlign: 'center', width: '100%'}}>
+                                <Image width={590} height={290} style={{maxWidth: '100%', height: 'auto'}}
+                                       src={images[0]?.image}
+                                       alt={''}/>
+                            </Box>:null
+                    }
                 </Grid>
                 <Grid item xs={12} sx={{py: 1}} display={'flex'} flexDirection={'column'}
                       justifyContent={'space-between'}>

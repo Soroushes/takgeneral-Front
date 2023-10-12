@@ -2,6 +2,7 @@ import SingleBlog from "./singleBlogPage";
 import {BASE_URL, domainName} from "@/data/urls";
 import {notFound} from "next/navigation";
 import Error from "@/app/error";
+import {metadataGenerator} from "@/hooks/metadataGenerator";
 
 const getData = async (blogName) => {
     const res = await fetch(`${BASE_URL}blog-detail/${blogName}/`, {cache: 'no-store'})
@@ -19,29 +20,7 @@ const getData = async (blogName) => {
 export async function generateMetadata({params: {blogName}}) {
     const result = await getData(blogName);
     if (!result) return;
-
-    return {
-        title: result.meta_tag.title ? result.meta_tag.title : result.blog.title,
-        description: result.meta_tag.desc,
-        alternates: {
-            canonical: result.meta_tag.canonical ? result.meta_tag.canonical : `${domainName}/blog/${result.blog.slug}/`
-        },
-        openGraph: {
-            title: result.meta_tag.og_title ? result.meta_tag.og_title : (result.meta_tag.title ? result.meta_tag.title : result.blog.title),
-            description: result.meta_tag.og_desc ? result.meta_tag.og_desc : result.meta_tag.desc,
-            siteName: result.meta_tag.og_site_name,
-            url: `${domainName}/blog/${result.blog.slug}`,
-            type: 'article'
-        },
-        robots: {
-            index: result.meta_tag.index,
-            follow: result.meta_tag.follow,
-            googleBot: {
-                index: result.meta_tag.index,
-                follow: result.meta_tag.follow,
-            },
-        },
-    }
+    return metadataGenerator(result?.meta_tag , result.blog.title , result.meta_tag.canonical ? result.meta_tag.canonical : `${domainName}/blog/${result.blog.slug}/` , `${domainName}/blog/${result.blog.slug}` , 'article')
 }
 
 export default async function Page({params}) {

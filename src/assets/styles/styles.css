@@ -34,7 +34,12 @@ li {
     font-family: var(--iranYekan) !important;
     line-height: 30px !important;
 }
+.html-response-elements{
+    position: relative;
+}
 .html-response-elements:before{
+    width:100%;
+    height:100%;
     position:absolute;
     left:0;
     top:0;

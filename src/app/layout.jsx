@@ -10,7 +10,7 @@ const myFont = localFont({
 })
 export default async function RootLayout({children}) {
     return (
-        <html className={myFont.variable} dir='rtl' lang="fa_IR">
+        <html className={myFont.variable} dir='rtl' lang="fa-IR">
         <head/>
         <body>
         <NextAppDirEmotionCacheProvider>

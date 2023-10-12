@@ -1,5 +1,5 @@
 import Slider from "../../components/home/Slider";
-import {BASE_URL} from "@/data/urls";
+import {BASE_URL, domainName} from "@/data/urls";
 import HomePageCategorySection from "../../components/home/HomePageCategorySection";
 import ProductBanners from "../../components/share/productBanners";
 import HighRateCategorySlider from "../../components/home/highRateCategorySlider";
@@ -9,7 +9,23 @@ import DiscountProductSlider from "@/components/home/DiscountProductSlider";
 import Blogs from "@/components/home/blogs";
 import {notFound} from "next/navigation";
 import Error from "@/app/error";
-
+export const metadata = {
+    title : 'خانه | تک جنرال',
+    alternates: {
+        canonical: `${domainName}/`
+    },
+    openGraph:{
+        title : 'خانه | تک جنرال'
+    },
+    robots : {
+        index : true ,
+        follow : true,
+        googleBot : {
+            index : true ,
+            follow : true ,
+        }
+    }
+}
 async function getData() {
     const res = await fetch(`${BASE_URL}home/`, {cache: 'no-store'})
     if (res.ok) {

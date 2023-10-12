@@ -37,9 +37,10 @@ const ChildCategoryPage = ({
                                products,
                                content,
                                breadcrumb,
-                               main_banner
+                               main_banner , main_category
                            }) => {
     const {push} = useRouter();
+    console.log(main_category)
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
     const noQueryPath = usePathname();
@@ -87,6 +88,7 @@ const ChildCategoryPage = ({
                     <Box sx={{px: 1}}>
                         <BreadcrumbGenerator breadcrumb={breadcrumb}/>
                     </Box>
+                    <Typography sx={{mb:1 , mx:2}} variant={'h4'} component={'h1'}>{main_category?.name}</Typography>
                     <Box sx={{px: 1}}>
                         <CategorySlider categoryUrl={category} category={childCategory}/>
                     </Box>
@@ -154,7 +156,7 @@ const ChildCategoryPage = ({
                             <Box sx={{px: 1, position: 'relative'}}>
                                 <HtmlDescription boxSx={{
                                     mt: 3,
-                                    maxHeight: !contentIsShow ? '90px' : 'auto',
+                                    maxHeight: !contentIsShow ? '30px' : 'auto',
                                     overflow: 'hidden', textOverflow: 'ellipsis', px: 0
                                 }}>{content}</HtmlDescription>
                                 <Box onClick={setContentIsShow.bind(this, prev => !prev)}
