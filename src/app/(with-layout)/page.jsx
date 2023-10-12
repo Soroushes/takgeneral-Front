@@ -12,7 +12,7 @@ import Error from "@/app/error";
 export const metadata = {
     title : 'خانه | تک جنرال',
     alternates: {
-        canonical: `${domainName}/`
+        canonical: `${domainName}`
     },
     openGraph:{
         title : 'خانه | تک جنرال'
