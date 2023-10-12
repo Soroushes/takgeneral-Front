@@ -32,13 +32,12 @@ const Comment = ({comment , productId}) => {
                 comment: comment.id,
                 like_vote: like,
                 dislike_vote: !like
-            }, successFunc: (result) => {
+            }, successFunc: () => {
                 if (like) {
                     setLikeDislike('like');
                 } else {
                     setLikeDislike('dislike');
                 }
-                console.log(result)
             } , errFunc:(err)=>{
                 console.log(err);
             }

@@ -5,7 +5,6 @@ import PriceDiscount from "../share/PriceDiscount";
 import Link from "next/link";
 
 const CartItems = ({product}) => {
-    console.log(product)
     return (
         <Grid container sx={{justifyContent: 'space-between', mt: 3, borderBottom: '1px solid #eee', pb: 3}}>
             <Grid item xs={4} md={2.5}>

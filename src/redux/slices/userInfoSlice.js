@@ -31,7 +31,6 @@ export const fetchInfo = createAsyncThunk(
             return {...data , isLoggedIn : true , token}
         } catch (err) {
             if (err?.response?.status===401){
-                console.log('in if')
             localStorage.removeItem('token') ;
             return {
                 full_name: '',

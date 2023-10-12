@@ -13,7 +13,6 @@ import {SwiperSlide} from "swiper/react";
 import {useRouter, useSearchParams} from "next/navigation";
 
 const ProductPage = ({data}) => {
-    console.log(<data></data>)
     const attributesTableRef = useRef(null);
     const opinionTableRef = useRef(null);
     const [isShowAllDetails, setIsShowAllDetails] = useState(false);

@@ -40,7 +40,6 @@ const ChildCategoryPage = ({
                                main_banner , main_category
                            }) => {
     const {push} = useRouter();
-    console.log(main_category)
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
     const noQueryPath = usePathname();

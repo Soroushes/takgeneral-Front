@@ -1,5 +1,4 @@
 export const metadataGenerator =(res , title , canonical , url , type)=>{
-    console.log(`تک جنرال |${res?.title}`)
     return {
         title: `${res.title ? res.title : title} | تک جنرال `,
         description: res?.desc,
