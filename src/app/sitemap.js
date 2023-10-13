@@ -1,0 +1,29 @@
+import {BASE_URL, domainName} from "@/data/urls";
+
+export default async function sitemap() {
+    const res = await fetch(`${BASE_URL}sitemap`, {cache: 'no-store'});
+    const data = await res.json();
+    const finalSitemap = [] ;
+    console.log(data)
+    const products = data.products.map((product) => ({
+        url: `${domainName}/product/${product.id}/${product.url}`,
+        lastModified: product.update_at.date
+    }))
+    const blogs = data.blogs.map((blog) => ({
+        url: `${domainName}/blog/${blog.slug}`,
+        lastModified: blog.updated_time.date
+    }))
+    const brands = data.brands.map((brand)=>({
+        url: `${domainName}/brand/${brand.url}`,
+        lastModified: brand.update_at.date
+    }))
+    const categories = data.categories.map((category)=>({
+        url: `${domainName}/category/${category.url}`,
+        lastModified: category.update_at.date
+    }))
+    finalSitemap.push(...products);
+    finalSitemap.push(...blogs);
+    finalSitemap.push(...brands);
+    finalSitemap.push(...categories);
+    return finalSitemap
+}
