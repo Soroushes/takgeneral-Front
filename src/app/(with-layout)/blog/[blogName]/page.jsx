@@ -26,5 +26,5 @@ export async function generateMetadata({params: {blogName}}) {
 export default async function Page({params}) {
     const {blog} = await getData(params.blogName);
     return (<SingleBlog data={blog} images={blog.blog_images} content={blog.desc} title={blog.title}
-                        timeStamp={blog.created_time.timestamp}/>)
+                        createdTimeStamp={blog.created_time} updatedTimeStamp={blog.updated_time}/>)
 }
