@@ -4,7 +4,6 @@ export default async function sitemap() {
     const res = await fetch(`${BASE_URL}sitemap`, {cache: 'no-store'});
     const data = await res.json();
     const finalSitemap = [] ;
-    console.log(data)
     const products = data.products.map((product) => ({
         url: `${domainName}/product/${product.id}/${product.url}`,
         lastModified: product.update_at.date
