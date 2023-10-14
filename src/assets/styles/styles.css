@@ -36,12 +36,21 @@ li {
 }
 .html-response-elements{
     position: relative;
+    border: 0;
+
 }
 .html-response-elements:before{
     width:100%;
     height:100%;
     position:absolute;
     left:0;
-    top:0;
-    background:linear-gradient(transparent 150px, white);
+    bottom:0;
+    z-index: 1;
+    background-image: linear-gradient(to top, rgba(239,239,239,255), rgba(239,239,239,0));
+
+}
+.html-response-elements:after {
+    content: '';
+    display: block;
+    height: 9999px;
 }

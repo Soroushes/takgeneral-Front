@@ -83,7 +83,7 @@ export default function ParentCategoryPage({
                     <Box sx={{px:1 ,position:'relative'}}>
                         <HtmlDescription boxSx={{
                             mt: 3,
-                            maxHeight: !contentIsShow ? '90px' : 'auto',
+                            maxHeight: !contentIsShow ? '160px' : 'auto',
                             overflow: 'hidden' ,textOverflow: 'ellipsis' , px:0
                         }}>{content}</HtmlDescription>
                         <Box onClick={setContentIsShow.bind(this, prev => !prev)}
