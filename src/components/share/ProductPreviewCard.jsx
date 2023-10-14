@@ -19,7 +19,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                     boxShadow: shadow ? shadow : 0,
                     '&:hover img': {
                         md:{
-                            transform: 'scale(1) !important'
+                            transform: 'scale(0.9) !important'
                         },xs:'none'
                     },
                     ...sx
@@ -49,11 +49,11 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                         {
                             image &&
                             <Image width={140} height={140}
-                                   style={{transform: 'scale(0.9)', transition: 'all .3s', width: '100%', height: 'auto'}}
+                                   style={{transition: 'all .3s', width: '100%', height: 'auto'}}
                                    src={image} alt={alt ?? ''}/>
                         }
                     </Box>
-                    <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center'}}>
+                    <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center' , my : 1}}>
                         <Typography
                             component={'h3'}
                             variant="body2"
