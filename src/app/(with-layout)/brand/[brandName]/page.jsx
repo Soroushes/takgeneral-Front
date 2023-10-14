@@ -29,7 +29,7 @@ export async function generateMetadata({params, searchParams}) {
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
     return (<Suspense fallback={<LoadingPages/>}>
-        <BrandPage data={data} main_banner={data.main_banner} product={data.products} content={data.page_content}
+        <BrandPage brand={data.brand} main_banner={data.main_banner} product={data.products} content={data.page_content}
                    current_page={data.current_page} page_count={data.page_count}/>
     </Suspense>)
 }

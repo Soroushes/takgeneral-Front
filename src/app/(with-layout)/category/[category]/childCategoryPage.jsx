@@ -133,7 +133,6 @@ const ChildCategoryPage = ({
                                         {
                                             sortValueItems?.map((sortItem) => (
                                                 <MenuItem
-                                                    component={'p'}
                                                     key={sortItem.value} sx={{background: 'primary'}}
                                                     value={sortItem.value}>{sortItem.name}</MenuItem>
                                             ))

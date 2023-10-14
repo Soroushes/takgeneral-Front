@@ -10,7 +10,7 @@ import {Controller, useForm} from "react-hook-form";
 import {IOSSwitch} from '@/assets/theme/theme';
 import HtmlDescription from "@/components/share/HtmlDescription";
 
-const BrandPage = ({product, page_count, current_page , content , main_banner}) => {
+const BrandPage = ({product, page_count, current_page , content , main_banner , brand}) => {
     const {control} = useForm()
     const [sortValue, setSortValue] = useState('newest');
     const noQueryPath = usePathname();
@@ -68,6 +68,7 @@ const BrandPage = ({product, page_count, current_page , content , main_banner}) 
             <Container>
                 <Grid container>
                     <Grid item xs={12} sx={{mt: 4}}>
+                        <Typography component={'h1'} px={1} mb={2} variant={'h3'}>برند {brand.name}</Typography>
                         <Box display={{md: 'none', xs: 'block'}} sx={{mb: 2, px: 1}}>
                             <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnGray'}
                                     variant={'contained'}>
