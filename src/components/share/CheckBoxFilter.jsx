@@ -75,8 +75,8 @@ const CheckBoxFilter = ({subFilter}) => {
                             <Checkbox inputProps={{'aria-label': 'controlled'}} size={'small'}
                                       checked={checkBox[value.id]} onChange={handleCheck}
                                       name={String(value.id)}/>
-                            <Typography variant={'body2'} sx={{textAlign: 'center'}}>{value.name}</Typography>
-                            <Typography variant={'subtitle2'}>({value.product_count})</Typography>
+                            <Typography variant={'body2'} component={'p'} sx={{textAlign: 'center'}}>{value.name}</Typography>
+                            <Typography component={'p'} variant={'subtitle2'}>({value.product_count})</Typography>
                         </Box>
                     )
                 })

@@ -12,6 +12,7 @@ const OuterImageSection = ({
                                titleVariant = 'h4',
     alt = ''
                            }) => {
+    console.log(title)
     const {palette} = useTheme();
     return (
         <Box
@@ -49,7 +50,7 @@ const OuterImageSection = ({
             </Box>
             <Typography
                 textAlign={'center'}
-                component={"h2"}
+                component={"h5"}
                 variant={titleVariant}
                 sx={{mb: 1, width: '100%'}}
                 overflow={'hidden'}

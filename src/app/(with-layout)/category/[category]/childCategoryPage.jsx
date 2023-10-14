@@ -16,15 +16,15 @@ import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 
 const sortValueItems = [
     {
-        name: "جدیدترین",
+        name: <Typography component={'p'}>جدیدترین</Typography>,
         value: "newest"
     },
     {
-        name: "گران ترین",
+        name: <Typography component={'p'}>گران ترین</Typography>,
         value: "-price"
     },
     {
-        name: "ارزان ترین",
+        name: <Typography component={'p'}>ارزان ترین</Typography>,
         value: "price"
     }
 ];
@@ -37,7 +37,7 @@ const ChildCategoryPage = ({
                                products,
                                content,
                                breadcrumb,
-                               main_banner , main_category
+                               main_banner, main_category
                            }) => {
     const {push} = useRouter();
     const searchParams = useSearchParams();
@@ -67,8 +67,8 @@ const ChildCategoryPage = ({
                         p: 0,
                         display: {xs: 'block', md: 'none'}
                     }}>
-                        <Image fill alt={main_banner[0]?.alt ??''} src={main_banner[0]?.mobile_image}/>
-                    </Box>:null
+                        <Image fill alt={main_banner[0]?.alt ?? ''} src={main_banner[0]?.mobile_image}/>
+                    </Box> : null
             }
             <Box sx={{minHeight: "70vh"}}>
                 {
@@ -80,14 +80,14 @@ const ChildCategoryPage = ({
                             position: 'relative',
                             p: 0
                         }}>
-                            <Image fill alt={main_banner[0]?.alt ??''} src={main_banner[0]?.image}/>
-                        </Box>:null
+                            <Image fill alt={main_banner[0]?.alt ?? ''} src={main_banner[0]?.image}/>
+                        </Box> : null
                 }
                 <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
                     <Box sx={{px: 1}}>
                         <BreadcrumbGenerator breadcrumb={breadcrumb}/>
                     </Box>
-                    <Typography sx={{mb:1 , mx:2}} variant={'h4'} component={'h1'}>{main_category?.name}</Typography>
+                    <Typography sx={{mb: 1, mx: 2}} variant={'h4'} component={'h1'}>{main_category?.name}</Typography>
                     <Box sx={{px: 1}}>
                         <CategorySlider categoryUrl={category} category={childCategory}/>
                     </Box>
@@ -109,7 +109,7 @@ const ChildCategoryPage = ({
                                 <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnLightGray'}
                                         variant={'outlined'}>
                                     <SortIcon/>
-                                    <Typography sx={{ml: 1}}>
+                                    <Typography component={'p'} sx={{ml: 1}}>
                                         {
                                             sortValueItems.find((item) => item.value === sortValue).name
                                         }
@@ -132,8 +132,10 @@ const ChildCategoryPage = ({
                                     >
                                         {
                                             sortValueItems?.map((sortItem) => (
-                                                <MenuItem key={sortItem.value} variant={'subtitle1'}
-                                                          value={sortItem.value}>{sortItem.name}</MenuItem>
+                                                <MenuItem
+                                                    component={'p'}
+                                                    key={sortItem.value} sx={{background: 'primary'}}
+                                                    value={sortItem.value}>{sortItem.name}</MenuItem>
                                             ))
                                         }
                                     </TextField>
@@ -190,6 +192,7 @@ const ChildCategoryPage = ({
                         sortValueItems.map((sortItem) => (
                             <Fragment key={sortItem.value}>
                                 <Typography
+                                    component={'p'}
                                     onClick={() => {
                                         handleSortOnchange(sortItem.value);
                                         setOpenSortModal(false);
