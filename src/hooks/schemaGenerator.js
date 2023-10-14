@@ -11,8 +11,9 @@ export const singleBlogSchemaGenerator = (images , createdDate , updatedDate , t
 }
 export const productSchemaGenerator =(name , image , description , brand , rates , offers)=>{
     const imagesArray = image.map((item)=>item.image);
-    console.log(offers)
-    const minPriceItem = offers.filter((item)=>item.min_price === true);
+     const prices = offers.map((item)=>item.final_price);
+     const maxPrice = Math.max(...prices);
+     const minPrice = Math.min(...prices);
     return({
         "@context" : "https://schema.org/" ,
         "@type" : "Product" ,
@@ -25,14 +26,14 @@ export const productSchemaGenerator =(name , image , description , brand , rates
         },
         "aggregateRating":{
           "@type":"AggregateRating",
-          "ratingValue":rates,
-          "reviewCount":'5'
+          "ratingValue":rates || 0,
+          "reviewCount":''
         },
         "offers":{
           "@type":"AggregateOffer",
-          "offerCount":offers.discount,
-          "lowPrice":minPriceItem.price,
-          "highPrice":'',
+          "offerCount":offers.length,
+          "lowPrice":minPrice,
+          "highPrice":maxPrice,
           "priceCurrency":"IRR"
         },
     })
