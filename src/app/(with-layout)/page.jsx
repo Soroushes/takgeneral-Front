@@ -52,7 +52,7 @@ export default async function Page() {
                 padding: '20px 0 50px 0 '
             }}>
                 <HomePageCategorySection mainCategories={data.mother_categories}/>
-                <DiscountProductSlider data={data} products={data.amazing_offer_product}/>
+                <DiscountProductSlider products={data.amazing_offer_product}/>
                 <ProductBanners sizing={{xs: 12, md: 3.8}}
                                 banners={data.mid_banner}/>
                 <HighRateCategorySlider products={data.popular_categories}/>
