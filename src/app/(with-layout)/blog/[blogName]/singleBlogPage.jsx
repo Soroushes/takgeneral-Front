@@ -26,7 +26,7 @@ const SingleBlog = ({images, createdTimeStamp , title , content , updatedTimeSta
                     </Grid>
                     <Grid item xs={12} sx={{py: 1}} display={'flex'} flexDirection={'column'}
                           justifyContent={'space-between'}>
-                        <Typography sx={{mb: 1}} variant={'h5'} fontWeight={'bold'}>
+                        <Typography sx={{mb: 1}} variant={'h3'} component={'h1'} fontWeight={'bold'}>
                             {
                                 title
                             }

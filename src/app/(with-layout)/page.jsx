@@ -20,10 +20,10 @@ export const metadata = {
     robots : {
         index : true ,
         follow : true,
-        googleBot : {
-            index : true ,
-            follow : true ,
-        }
+        // googleBot : {
+        //     index : true ,
+        //     follow : true ,
+        // }
     }
 }
 async function getData() {
@@ -43,7 +43,7 @@ export default async function Page() {
     const data = await getData();
     return (
         <Suspense fallback={<LoadingPages/>}>
-            <Slider slides={data?.sliders}/>
+            <Slider slides={data?.main_banner}/>
             <div style={{
                 backgroundColor: '#FCFCFD',
                 position: 'relative',

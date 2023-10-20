@@ -21,7 +21,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
     }, [params]);
     return (
         <Container sx={{pb: 6 , pt:2}}>
-            <Typography variant={'h3'} mt={1} fontWeight={'bold'} sx={{display: {xs: 'block', md: 'none'}}}>
+            <Typography component={'h1'} variant={'h3'} mt={1} fontWeight={'bold'} textAlign={'center'}>
                 مجله تک جنرال
             </Typography>
             <Grid sx={{mt: 4}} container>

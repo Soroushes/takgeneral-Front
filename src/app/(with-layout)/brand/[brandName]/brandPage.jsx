@@ -16,15 +16,15 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
     const noQueryPath = usePathname();
     const sortValueItems = [
         {
-            name: "جدیدترین",
+            name: <Typography component={'p'}>جدیدترین</Typography>,
             value: "newest"
         },
         {
-            name: "گران ترین",
+            name: <Typography component={'p'}>گران ترین</Typography>,
             value: "-price"
         },
         {
-            name: "ارزان ترین",
+            name: <Typography component={'p'}>ارزان ترین</Typography>,
             value: "price"
         }
     ];
@@ -73,7 +73,7 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
                             <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnGray'}
                                     variant={'contained'}>
                                 <SortIcon/>
-                                <Typography sx={{ml: 1}}>
+                                <Typography component={'div'} sx={{ml: 1}}>
                                     {
                                         sortValueItems.find((item) => item.value === sortValue).name
                                     }

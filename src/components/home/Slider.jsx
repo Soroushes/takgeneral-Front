@@ -8,7 +8,8 @@ import "swiper/css";
 import {Box} from "@mui/material";
 import {useSelector} from "react-redux";
 import Image from "next/image";
-const Slider = () => {
+const Slider = ({slides}) => {
+    console.log(slides)
     const {desktopHeaderHeight , mobileHeaderHeight} = useSelector(state => state.deviceInfo);
     return (
         <Box sx={{height : 400}}>

@@ -55,7 +55,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                     </Box>
                     <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center' , my : 1}}>
                         <Typography
-                            component={'h3'}
+                            component={'h6'}
                             variant="body2"
                             textAlign={'justify'}
                         >

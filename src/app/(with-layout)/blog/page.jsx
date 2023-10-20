@@ -11,10 +11,10 @@ export const metadata = {
     robots : {
         index : true ,
         follow : true,
-        googleBot : {
-            index : true ,
-            follow : true ,
-        }
+        // googleBot : {
+        //     index : true ,
+        //     follow : true ,
+        // }
     }
 }
 const getData = async () => {
