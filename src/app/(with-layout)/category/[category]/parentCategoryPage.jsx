@@ -29,7 +29,7 @@ export default function ParentCategoryPage({
                             position: "relative",
                             display: {md: 'block', xs: 'none'},
                             width: '100%',
-                            aspectRatio: {md: '4.5/1', xs: '1.5/1'}
+                            aspectRatio:'4.5/1'
                         }}>
                             <Image src={main_banner[0]?.image} style={{borderRadius: '8px'}} fill alt={main_banner[0]?.alt ?? ''}/>
                         </Box>
@@ -37,7 +37,7 @@ export default function ParentCategoryPage({
                             position: "relative",
                             display: {md: 'none', xs: 'block'},
                             width: '100%',
-                            aspectRatio: {md: '4.5/1', xs: '1.5/1'}
+                            aspectRatio: '1.5/1'
                         }}>
                             <Image src={main_banner[0]?.mobile_image} style={{borderRadius: '8px'}} fill alt={main_banner[0]?.alt ?? ''}/>
                         </Box>

@@ -55,7 +55,7 @@ export default async function Page() {
                 <DiscountProductSlider products={data.amazing_offer_product}/>
                 <ProductBanners sizing={{xs: 12, md: 3.8}}
                                 banners={data.mid_banner}/>
-                <HighRateCategorySlider products={data.popular_categories}/>
+                {/*<HighRateCategorySlider products={data.popular_categories}/>*/}
                 <ProductBanners sizing={{xs: 12, md: 5.8}} banners={data.end_banner}/>
                 <DiscountProductSlider backGroundImage={'linear-gradient(to left, #1B09F9 , #27E1BC)'}
                                        products={data.special_offer_products}/>

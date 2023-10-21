@@ -3,11 +3,11 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation, Pagination} from "swiper";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import categoryBanner from '../../assets/images/home/home-main-banner.png'
 import "swiper/css";
 import {Box} from "@mui/material";
 import {useSelector} from "react-redux";
 import Image from "next/image";
+import Link from "next/link";
 const Slider = ({slides}) => {
     console.log(slides)
     const {desktopHeaderHeight , mobileHeaderHeight} = useSelector(state => state.deviceInfo);
@@ -23,9 +23,22 @@ const Slider = ({slides}) => {
                     }}
                     style={{height : '100%'}}
                 >
-                    <SwiperSlide>
-                        <Image fill src={categoryBanner}  alt={''}/>
-                    </SwiperSlide>
+                    {
+                        slides.map((slide)=>{
+                            return(
+                                <SwiperSlide>
+                                    <Link href={slide.link_url ?? '/'}>
+                                        <Box sx={{aspectRatio: '4.5/1', display:{md:'block' , xs:'none'}}}>
+                                            <Image fill src={slide.image}  alt={slide.alt}/>
+                                        </Box>
+                                        <Box sx={{aspectRatio: '1.5/1' , display:{md:'none' , xs:'block'}}}>
+                                            <Image fill src={slide.mobile_image}  alt={slide.alt}/>
+                                        </Box>
+                                    </Link>
+                                </SwiperSlide>
+                            )
+                        })
+                    }
                 </Swiper>
             </Box>
         </Box>
