@@ -36,7 +36,7 @@ const ProductPage = ({data}) => {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{__html: JSON.stringify(productSchemaGenerator(data?.product.name, data?.product.all_images, data?.meta_tag.desc, data?.product.brand, data?.avg_rate.avg_rate, data?.product.options.product_variant))}}
+                dangerouslySetInnerHTML={{__html: JSON.stringify(productSchemaGenerator(data?.product.name, data?.product.all_images, data?.meta_tag.desc, data?.product.brand, data?.avg_rate.avg_rate, data?.product.options.product_variant , data.comments.length))}}
             />
             <Box sx={{height: '100%'}}>
                 <Container maxWidth={'lg'}>
