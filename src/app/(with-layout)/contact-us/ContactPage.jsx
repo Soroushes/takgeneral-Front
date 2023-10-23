@@ -4,12 +4,15 @@ import MailIcon from '../../../assets/icons/contact-us/sms.svg';
 import LocationIcon from '../../../assets/icons/contact-us/location.svg';
 import CallIcon from '../../../assets/icons/contact-us/call.svg'
 import {Controller, useForm} from "react-hook-form";
+import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
+const breadcrumbData = [{url : '/contact-us' , name : 'تماس با ما'}]
 const ContactUsPage = () => {
     const {control, handleSubmit} = useForm();
     const onSubmitForm = () => {
     }
     return (
         <Container sx={{mt: 2}}>
+            <BreadcrumbGenerator breadcrumb={breadcrumbData} hasEmptyUrl={false}/>
             <Grid container sx={{flexDirection: {xs: 'column', md: 'row'} , gap:{xs:4 , md:0}, justifyContent: 'space-between'}}>
                 <Grid item md={6} xs={12} sx={{p: {xs: 2, md: 0}}}>
                     <Typography component={'h1'} fontWeight={'bold'} variant={'h2'}>با ما در تماس باشید</Typography>

@@ -5,7 +5,8 @@ import {useEffect, useState} from 'react';
 import {useRouter, useSearchParams} from "next/navigation";
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
-
+import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
+const breadcrumbData = [{url : '/blog' , name : 'وبلاگ ها'}]
 const BlogPage = ({blogs, currentPage, pageCount}) => {
     const [pageState, setPageState] = useState(1);
     const searchParams = useSearchParams();
@@ -21,6 +22,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
     }, [params]);
     return (
         <Container sx={{pb: 6 , pt:2}}>
+            <BreadcrumbGenerator breadcrumb={breadcrumbData} hasEmptyUrl={false}/>
             <Typography component={'h1'} variant={'h3'} mt={1} fontWeight={'bold'} textAlign={'center'}>
                 مجله تک جنرال
             </Typography>

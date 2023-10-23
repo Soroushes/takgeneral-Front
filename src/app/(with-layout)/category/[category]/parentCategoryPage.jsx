@@ -45,7 +45,7 @@ export default function ParentCategoryPage({
             }
             <Container disableGutters>
                 <Box sx={{px: 1}}>
-                    <BreadcrumbGenerator breadcrumb={breadcrumb}/>
+                    <BreadcrumbGenerator breadcrumb={breadcrumb.map(item=> ({...item , url :  `/category/${item.url}`}))}/>
                 </Box>
                 <Typography sx={{px: 2}} fontWeight={'bold'} variant={'h2'}
                             component={'h1'}>{main_category?.name}</Typography>

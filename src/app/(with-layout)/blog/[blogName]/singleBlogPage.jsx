@@ -5,7 +5,10 @@ import ClockIcon from "@/assets/icons/share/clock.svg";
 import {timeStampToDate} from "@/hooks/timeStampToDate";
 import HtmlDescription from "@/components/share/HtmlDescription";
 import {singleBlogSchemaGenerator} from "@/hooks/schemaGenerator";
-const SingleBlog = ({images, createdTimeStamp , title , content , updatedTimeStamp}) => {
+import {useMemo} from "react";
+import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
+const SingleBlog = ({images, createdTimeStamp , title , content , updatedTimeStamp , url}) => {
+    const breadcrumbData = useMemo(()=>[{url : '/blog' , name : 'وبلاگ ها'} , {url: `/blog/${url}` , name: title}])
     return (
         <>
             <script
@@ -13,6 +16,7 @@ const SingleBlog = ({images, createdTimeStamp , title , content , updatedTimeSta
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(singleBlogSchemaGenerator(images , createdTimeStamp , updatedTimeStamp , title))}}
             />
             <Container mt={3}>
+                <BreadcrumbGenerator hasEmptyUrl={false} breadcrumb={breadcrumbData}/>
                 <Grid container justifyContent={'space-between'}>
                     <Grid sx={{py: 1}} item xs={12}>
                         {

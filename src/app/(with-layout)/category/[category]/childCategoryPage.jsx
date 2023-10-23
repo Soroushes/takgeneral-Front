@@ -85,7 +85,7 @@ const ChildCategoryPage = ({
                 }
                 <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
                     <Box sx={{px: 1}}>
-                        <BreadcrumbGenerator breadcrumb={breadcrumb}/>
+                        <BreadcrumbGenerator breadcrumb={breadcrumb.map(item=> ({...item , url :  `/category/${item.url}`}))}/>
                     </Box>
                     <Typography sx={{mb: 1, mx: 2}} variant={'h4'} component={'h1'}>{main_category?.name}</Typography>
                     <Box sx={{px: 1}}>

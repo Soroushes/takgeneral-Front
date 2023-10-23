@@ -1,6 +1,6 @@
 'use client'
 import {Button, Container, Divider, Grid, MenuItem, TextField, Typography , Box} from "@mui/material";
-import {Fragment, useEffect, useState} from "react";
+import {Fragment, useEffect, useMemo, useState} from "react";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import MainModal from "../../../../components/share/MainModal";
 import SortIcon from '../../../../assets/icons/share/sort.svg';
@@ -9,8 +9,10 @@ import Image from "next/image";
 import {Controller, useForm} from "react-hook-form";
 import {IOSSwitch} from '@/assets/theme/theme';
 import HtmlDescription from "@/components/share/HtmlDescription";
+import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 
 const BrandPage = ({product, page_count, current_page , content , main_banner , brand}) => {
+    const breadcrumbData = useMemo(()=>[{url : `/brand/${brand.url}` , name : brand.name}] ,[brand])
     const {control} = useForm()
     const [sortValue, setSortValue] = useState('newest');
     const noQueryPath = usePathname();
@@ -68,6 +70,7 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
             <Container>
                 <Grid container>
                     <Grid item xs={12} sx={{mt: 4}}>
+                        <BreadcrumbGenerator breadcrumb={breadcrumbData} hasEmptyUrl={false}/>
                         <Typography component={'h1'} px={1} mb={2} variant={'h3'}>برند {brand.name}</Typography>
                         <Box display={{md: 'none', xs: 'block'}} sx={{mb: 2, px: 1}}>
                             <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnGray'}
