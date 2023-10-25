@@ -40,7 +40,7 @@ const singleProductAttribute = ({attrRef , pdf, attributes, name, setShowAllDeta
             </Box>
             {
                 !options?.no_option &&
-                <Box mt={3} display={'flex'} alignItems={'center'} gap={4}>
+                <Box my={2} display={'flex'} alignItems={'center'} gap={2}>
                     <Typography>{options?.name} :</Typography>
                     <TextField
                         sx={{

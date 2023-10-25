@@ -8,7 +8,7 @@ const AboutUsPage = () => {
         <Container>
             <BreadcrumbGenerator hasEmptyUrl={false} breadcrumb={breadcrumbData}/>
             <Box>
-                <Typography component={'h1'} sx={{my:10}} textAlign={'center'} fontWeight={'bold'} fontSize={'24px !important'}>درباره تک جنرال</Typography>
+                <Typography component={'h1'} sx={{my:4}} textAlign={'center'} fontWeight={'bold'} fontSize={'24px !important'}>درباره تک جنرال</Typography>
                 <Box display={'flex'} justifyContent={'space-between'} sx={{my:10}} gap={1}>
                     <Box gap={1} display={'flex'} flexDirection={'column'} alignItems={'center'}>
                         <Box sx={{

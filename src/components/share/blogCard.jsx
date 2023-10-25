@@ -33,10 +33,12 @@ const BlogCard = ({blog}) => {
                         <Typography variant={'subtitle1'}
                                     sx={{textAlign: 'center'}}>{timeStampToDate(blog?.created_time?.timestamp)}</Typography>
                     </Box>
-                    <Box display={'flex'} alignItems={'center'} gap={.5}>
-                        <Button variant={'text'}>ادامه مطلب</Button>
+                    <Button variant={'text'}>
+                        <Typography color={'primary'}>
+                            ادامه مطلب
+                        </Typography>
                         <ChevronLeftRoundedIcon color={'primary'} fontSize={'small'}/>
-                    </Box>
+                    </Button>
                 </Box>
             </Box>
         </Box>

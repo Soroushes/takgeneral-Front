@@ -109,11 +109,11 @@ const ChildCategoryPage = ({
                                 <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnLightGray'}
                                         variant={'outlined'}>
                                     <SortIcon/>
-                                    <Typography component={'p'} sx={{ml: 1}}>
+                                    <Box sx={{ml: 1}}>
                                         {
                                             sortValueItems.find((item) => item.value === sortValue).name
                                         }
-                                    </Typography>
+                                    </Box>
                                 </Button>
                             </Box>
                             <Grid container sx={{display: {md: 'flex', xs: 'none'}}}>
@@ -147,7 +147,7 @@ const ChildCategoryPage = ({
                                 <CheckBoxFilter category={category} key={noQueryPath} subFilter={brands}/>
                             </Box>
                         </Grid>
-                        <Grid item xs={12} md={8.5}>
+                        <Grid pb={5.5} item xs={12} md={8.5}>
                             <ProductList product={products} page={current_page} count={page_count}/>
                         </Grid>
                     </Grid>
