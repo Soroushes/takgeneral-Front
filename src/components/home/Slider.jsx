@@ -20,7 +20,7 @@ const Slider = ({slides}) => {
                     {
                         slides.map((slide)=>{
                             return(
-                                <SwiperSlide>
+                                <SwiperSlide key={slide.id}>
                                     <Link href={slide.link_url ?? '/'}>
                                         <Box sx={{aspectRatio: '4.5/1', display:{md:'block' , xs:'none'}}}>
                                             <Image fill src={slide.image}  alt={slide.alt}/>

@@ -21,7 +21,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
         setPageState(currentPage)
     }, [params]);
     return (
-        <Container sx={{pb: 6 , pt:2}}>
+        <Container sx={{pb: 6}}>
             <BreadcrumbGenerator breadcrumb={breadcrumbData} hasEmptyUrl={false}/>
             <Typography component={'h1'} variant={'h3'} mt={1} fontWeight={'bold'} textAlign={'center'}>
                 مجله تک جنرال

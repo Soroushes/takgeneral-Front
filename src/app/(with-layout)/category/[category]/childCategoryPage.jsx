@@ -13,6 +13,7 @@ import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import HtmlDescription from "@/components/share/HtmlDescription";
 import ExpandLessRoundedIcon from "@mui/icons-material/ExpandLessRounded";
 import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
+import Link from "next/link";
 
 const sortValueItems = [
     {
@@ -60,15 +61,18 @@ const ChildCategoryPage = ({
         <>
             {
                 main_banner.length ?
-                    <Box sx={{
-                        width: '100%',
-                        aspectRatio: '1.5/1',
-                        position: 'relative',
-                        p: 0,
-                        display: {xs: 'block', md: 'none'}
-                    }}>
-                        <Image fill alt={main_banner[0]?.alt ?? ''} src={main_banner[0]?.mobile_image}/>
-                    </Box> : null
+                    <Link href={'/'}>
+                        <Box sx={{
+                            width: '100%',
+                            aspectRatio: '1.5/1',
+                            position: 'relative',
+                            p: 0,
+                            display: {xs: 'block', md: 'none'}
+                        }}>
+                            <Image fill alt={main_banner[0]?.alt ?? ''} src={main_banner[0]?.mobile_image}/>
+                        </Box>
+                    </Link>
+                     : null
             }
             <Box sx={{minHeight: "70vh"}}>
                 {

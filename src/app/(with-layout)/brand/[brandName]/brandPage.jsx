@@ -69,7 +69,7 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
             }
             <Container>
                 <Grid container>
-                    <Grid item xs={12} sx={{mt: 4}}>
+                    <Grid item xs={12}>
                         <BreadcrumbGenerator breadcrumb={breadcrumbData} hasEmptyUrl={false}/>
                         <Typography component={'h1'} px={1} mb={2} variant={'h3'}>برند {brand.name}</Typography>
                         <Box display={{md: 'none', xs: 'block'}} sx={{mb: 2, px: 1}}>

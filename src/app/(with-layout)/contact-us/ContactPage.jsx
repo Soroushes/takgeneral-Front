@@ -11,7 +11,7 @@ const ContactUsPage = () => {
     const onSubmitForm = () => {
     }
     return (
-        <Container sx={{mt: 2}}>
+        <Container>
             <BreadcrumbGenerator breadcrumb={breadcrumbData} hasEmptyUrl={false}/>
             <Grid container sx={{flexDirection: {xs: 'column', md: 'row'} , gap:{xs:4 , md:0}, justifyContent: 'space-between'}}>
                 <Grid item md={6} xs={12} sx={{px: {xs: 2, md: 0}}}>

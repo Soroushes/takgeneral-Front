@@ -1,6 +1,7 @@
 module.exports = {
     images: {
         domains: ['api.takgeneral.com', 'swiperjs.com'],
+        unoptimized: true
     },
     experimental: {
         appDir: true

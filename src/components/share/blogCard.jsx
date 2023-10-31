@@ -4,27 +4,24 @@ import Image from "next/image";
 import ClockIcon from '../../assets/icons/share/clock.svg';
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import {timeStampToDate} from "@/hooks/timeStampToDate";
-import {useRouter} from "next/navigation";
+import Link from "next/link";
 
 const BlogCard = ({blog}) => {
-    const {push} = useRouter();
     return (
-        <Box onClick={() => {
-            push(`/blog/${blog.slug}`)
-        }} sx={{
+        <Link href={`/blog/${blog.slug}`} sx={{
             cursor : 'pointer',
             height: '100%',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between'
         }}>
-            <Box sx={{textAlign: 'center', width: '100%', borderRadius: 7, aspectRatio: '1/1'}}>
+            <Box sx={{textAlign: 'center', width: '100%', borderRadius: 7, aspectRatio: '1/1' , mb:2}}>
                 <Image
                     width={590} height={290} style={{maxWidth: '100%', height: 'auto', borderRadius: 7}}
                     src={blog?.main_image?.image}
                     alt={''}/>
             </Box>
-            <Box sx={{minHeight: '70px', pt: 1}} display={'flex'} flexDirection={'column'}
+            <Box sx={{minHeight: '90px' }} display={'flex'} flexDirection={'column'}
                  justifyContent={'space-between'}>
                 <Typography fontWeight={'bold'}>{blog?.title}</Typography>
                 <Box sx={{display: 'flex', px: .5, mt: 2, justifyContent: 'space-between'}}>
@@ -41,7 +38,7 @@ const BlogCard = ({blog}) => {
                     </Button>
                 </Box>
             </Box>
-        </Box>
+        </Link>
     )
 }
 export default BlogCard;
