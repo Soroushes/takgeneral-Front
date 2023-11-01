@@ -168,7 +168,7 @@ const MobileHeader = ({categories}) => {
                                         </Box>
                                         <Box textAlign={'center'} sx={{borderTop:'1px solid #eee'}}>
                                             <Box display={'flex'} gap={1} justifyContent={'center'} mb={1} mt={2}>
-                                                <Link href={'https://instagram.com/hsti_fdai?igshid=YTQwZjQ0NmI0OA%3D%3D&utm_source=qr'}>
+                                                <Link href={'https://instagram.com/'}>
                                                     <InstagramIcon/>
                                                 </Link>
                                                 <Link href={'https://api.whatsapp.com/send?phone=09212075118'}>

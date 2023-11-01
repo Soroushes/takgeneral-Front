@@ -131,7 +131,7 @@ const Footer = () => {
                         <Link href={'mailto:takgeneral.com@gmail.com?Subject=Hello%20User'}>
                             <MailIcon2/>
                         </Link>
-                        <Link href={'https://instagram.com/hsti_fdai?igshid=YTQwZjQ0NmI0OA%3D%3D&utm_source=qr'}>
+                        <Link href={'https://instagram.com/'}>
                             <InstagramIcon/>
                         </Link>
                     </Box>

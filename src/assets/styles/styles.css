@@ -34,6 +34,6 @@ li {
     font-family: var(--iranYekan) !important;
     line-height: 30px !important;
 }
-input{ touch-action: none; }
+input{ touch-action: none !important; }
 
 
