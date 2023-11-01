@@ -168,10 +168,18 @@ const MobileHeader = ({categories}) => {
                                         </Box>
                                         <Box textAlign={'center'} sx={{borderTop:'1px solid #eee'}}>
                                             <Box display={'flex'} gap={1} justifyContent={'center'} mb={1} mt={2}>
-                                                <InstagramIcon/>
-                                                <WhatsappIcon/>
-                                                <MessageIcon/>
-                                                <TelegramIcon/>
+                                                <Link href={'https://instagram.com/hsti_fdai?igshid=YTQwZjQ0NmI0OA%3D%3D&utm_source=qr'}>
+                                                    <InstagramIcon/>
+                                                </Link>
+                                                <Link href={'https://api.whatsapp.com/send?phone=09212075118'}>
+                                                    <WhatsappIcon/>
+                                                </Link>
+                                                <Link href={'mailto:takgeneral.com@gmail.com?Subject=Hello%20User'}>
+                                                    <MessageIcon/>
+                                                </Link>
+                                                <Link href={'https://t.me/atworkk'}>
+                                                    <TelegramIcon/>
+                                                </Link>
                                             </Box>
                                             <Typography variant={'subtitle2'}>حقوق این سرویس محفوظ و متعلق به شرکت تک جنرال می‌باشد</Typography>
                                         </Box>

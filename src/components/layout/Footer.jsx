@@ -125,9 +125,15 @@ const Footer = () => {
                     <Typography color={'text.muted'} variant={'body1'}>حقوق این سرویس محفوظ و متعلق به شرکت تک جنرال
                         می‌باشد</Typography>
                     <Box display={'flex'}>
-                        <TelegramIcon/>
-                        <MailIcon2/>
-                        <InstagramIcon/>
+                        <Link href={'https://t.me/atworkk'}>
+                            <TelegramIcon/>
+                        </Link>
+                        <Link href={'mailto:takgeneral.com@gmail.com?Subject=Hello%20User'}>
+                            <MailIcon2/>
+                        </Link>
+                        <Link href={'https://instagram.com/hsti_fdai?igshid=YTQwZjQ0NmI0OA%3D%3D&utm_source=qr'}>
+                            <InstagramIcon/>
+                        </Link>
                     </Box>
                 </Box>
             </Container>

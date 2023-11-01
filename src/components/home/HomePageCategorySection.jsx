@@ -28,9 +28,9 @@ const HomePageCategorySection = ({mainCategories}) => {
                                     variant={'h5'}
                                     textAlign={'center'}
                                     sx={{width: '100%'}}
-                                    overflow={'hidden'}
-                                    textOverflow={'ellipsis'}
-                                    whiteSpace={'nowrap'}
+                                    // overflow={'hidden'}
+                                    // textOverflow={'ellipsis'}
+                                    // whiteSpace={'nowrap'}
                                 >
                                     {item.name}
                                 </Typography>

@@ -5,7 +5,9 @@ import LocationIcon from '../../../assets/icons/contact-us/location.svg';
 import CallIcon from '../../../assets/icons/contact-us/call.svg'
 import {Controller, useForm} from "react-hook-form";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
-const breadcrumbData = [{url : '/contact-us' , name : 'تماس با ما'}]
+import Link from "next/link";
+
+const breadcrumbData = [{url: '/contact-us', name: 'تماس با ما'}]
 const ContactUsPage = () => {
     const {control, handleSubmit} = useForm();
     const onSubmitForm = () => {
@@ -13,65 +15,77 @@ const ContactUsPage = () => {
     return (
         <Container>
             <BreadcrumbGenerator breadcrumb={breadcrumbData} hasEmptyUrl={false}/>
-            <Grid container sx={{flexDirection: {xs: 'column', md: 'row'} , gap:{xs:4 , md:0}, justifyContent: 'space-between'}}>
+            <Grid container
+                  sx={{flexDirection: {xs: 'column', md: 'row'}, gap: {xs: 4, md: 0}, justifyContent: 'space-between'}}>
                 <Grid item md={6} xs={12} sx={{px: {xs: 2, md: 0}}}>
                     <Typography component={'h1'} fontWeight={'bold'} variant={'h2'}>با ما در تماس باشید</Typography>
                     <Typography variant={'body1'} sx={{mt: 3}}>کارشناسان ما در سریع ترین زمان ممکن به درخواست های شما
                         پاسخ خواهند داد.</Typography>
                     <Box justifyContent={'space-between'} display={'flex'} gap={1} sx={{mt: {md: 12, xs: 2}}}>
-                        <Box sx={{width: '33%'}} display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
-                            <Box sx={{
-                                backgroundColor: '#fff',
-                                aspectRatio: '1/1',
-                                p: 1.5,
-                                boxShadow: 1,
-                                borderRadius: '100%' ,
-                                display:'flex' ,
-                                justifyContent:'center' ,
-                                alignItems:'center'
-                            }}>
-                                <MailIcon/>
+                        <Link style={{width:'33%'}} href={'mailto:takgeneral.com@gmail.com?Subject=Hello%20User'}>
+                            <Box display={'flex'} flexDirection={'column'} gap={2}
+                                 alignItems={'center'}>
+                                <Box sx={{
+                                    backgroundColor: '#fff',
+                                    aspectRatio: '1/1',
+                                    p: 1.5,
+                                    boxShadow: 1,
+                                    borderRadius: '100%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center'
+                                }}>
+                                    <MailIcon/>
+                                </Box>
+                                <Typography variant={'body1'}
+                                            sx={{textAlign: 'center'}}>Takgeneral@Gmail.Com</Typography>
                             </Box>
-                            <Typography variant={'body1'} sx={{textAlign: 'center'}}>Takgeneral@Gmail.Com</Typography>
-                        </Box>
-                        <Box sx={{width: '33%'}} display={'flex'} flexDirection={'column'} gap={2}
-                             alignItems={'center'}>
-                            <Box sx={{
-                                backgroundColor: '#fff',
-                                aspectRatio: '1/1',
-                                p: 1.5,
-                                boxShadow: 1,
-                                borderRadius: '100%',
-                                display:'flex' ,
-                                justifyContent:'center' ,
-                                alignItems:'center'
-                            }}>
-                                <LocationIcon/>
+                        </Link>
+                        <Link style={{width: '33%'}} target={'_blank'}
+                              href={'https://maps.app.goo.gl/Se34YkXvsEBH3EEG8'}>
+                            <Box display={'flex'} flexDirection={'column'} gap={2}
+                                 alignItems={'center'}>
+                                <Box sx={{
+                                    backgroundColor: '#fff',
+                                    aspectRatio: '1/1',
+                                    p: 1.5,
+                                    boxShadow: 1,
+                                    borderRadius: '100%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center'
+                                }}>
+                                    <LocationIcon/>
+                                </Box>
+                                <Typography variant={'h6'} sx={{textAlign: 'center'}}>تهران، خیابان طالقانی، نبش
+                                    چهار راه بهار، پلاک 126</Typography>
                             </Box>
-                            <Typography variant={'h6'} sx={{textAlign: 'center'}}>تهران، خیابان طالقانی، نبش
-                                چهار راه بهار، پلاک 126</Typography>
-                        </Box>
-                        <Box sx={{width:'33%'}} display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
-                            <Box sx={{
-                                backgroundColor: '#fff',
-                                aspectRatio: '1/1',
-                                p: 1.5,
-                                boxShadow: 1,
-                                borderRadius: '100%',
-                                display:'flex' ,
-                                justifyContent:'center' ,
-                                alignItems:'center'
-                            }}>
-                                <CallIcon/>
+                        </Link>
+                        <Link style={{width: '33%'}} href={"tel://+989212075118"}>
+                            <Box display={'flex'} flexDirection={'column'} gap={2}
+                                 alignItems={'center'}>
+                                <Box sx={{
+                                    backgroundColor: '#fff',
+                                    aspectRatio: '1/1',
+                                    p: 1.5,
+                                    boxShadow: 1,
+                                    borderRadius: '100%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center'
+                                }}>
+                                    <CallIcon/>
+                                </Box>
+                                <Typography variant={'body1'} textAlign={'center'}>۰۹۲۱۲۰۷۵۱۱۸</Typography>
                             </Box>
-                            <Typography variant={'body1'} textAlign={'center'}>۰۹۲۱۲۰۷۵۱۱۸</Typography>
-                        </Box>
+                        </Link>
                     </Box>
                 </Grid>
-                <Grid sx={{mt: {xs: 5, md: 0} , pt: 1}} item md={4.5} xs={12}>
+                <Grid sx={{mt: {xs: 5, md: 0}, pt: 1}} item md={4.5} xs={12}>
                     <Box component={'form'} onSubmit={handleSubmit(onSubmitForm)}
-                         sx={{border: {md: '1px solid #eee', xs: 'none'}, p: {md:2 , xs:0}, pt: 3, borderRadius: 2}}>
-                        <Typography sx={{mt: '-25px' , mb:{xs:4 , md:0}}} variant={'h2'} fontWeight={'bold'}>فرم تماس با ما</Typography>
+                         sx={{border: {md: '1px solid #eee', xs: 'none'}, p: {md: 2, xs: 0}, pt: 3, borderRadius: 2}}>
+                        <Typography sx={{mt: '-25px', mb: {xs: 4, md: 0}}} variant={'h2'} fontWeight={'bold'}>فرم تماس
+                            با ما</Typography>
                         <Box sx={{mt: 2}}>
                             <Controller
                                 name={'name'}
