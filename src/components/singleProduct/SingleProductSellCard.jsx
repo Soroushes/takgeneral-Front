@@ -20,15 +20,18 @@ const SingleProductSellCard = ({
         <>
             <Box sx={{mb: 2, backgroundColor: '#fff', py: 2, px: .5, borderRadius: 2, boxShadow: 1}} display={'flex'}
                  justifyContent={'space-around'}>
-                <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: .5}}>
-                    {
-                        madeIn === 'کالای اورجینال' ?
-                            <OriginalIcon/>
-                            :
-                            <FakeIcon/>
-                    }
-                    <Typography sx={{textAlign: 'center'}} variant={'subtitle1'}>{madeIn}</Typography>
-                </Box>
+                {
+                    madeIn &&
+                    <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: .5}}>
+                        {
+                            madeIn === 'کالای اورجینال' ?
+                                <OriginalIcon/>
+                                :
+                                <FakeIcon/>
+                        }
+                        <Typography sx={{textAlign: 'center'}} variant={'subtitle1'}>{madeIn}</Typography>
+                    </Box>
+                }
                 {
                     freeSent &&
                     <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: .5}}>
@@ -64,10 +67,13 @@ const SingleProductSellCard = ({
                                 <Typography textAlign={'center'} variant={'subtitle1'}>{warranty}</Typography>
                             </Box>
                         }
-                        <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
-                            <BestPriceIcon/>
-                            <Typography textAlign={'center'} variant={'subtitle1'}>کمترین قیمت در ایران</Typography>
-                        </Box>
+                        {
+                            minPrice &&
+                            <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+                                <BestPriceIcon/>
+                                <Typography textAlign={'center'} variant={'subtitle1'}>کمترین قیمت در ایران</Typography>
+                            </Box>
+                        }
                     </Box>: null
 
 

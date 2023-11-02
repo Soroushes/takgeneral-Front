@@ -13,7 +13,7 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                 open={open}
                 onClose={() => setOpen(false)}
             >
-                <DialogTitle sx={{px: 4}} fontWeight={'bold'} variant={'h6'}>
+                <DialogTitle sx={{px: 4 }} fontWeight={'bold'} variant={'h6'}>
                     {title}
                 </DialogTitle>
                 <Divider/>
@@ -22,7 +22,7 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                 </DialogContent>
             </Dialog>
             <Drawer
-                PaperProps={{sx: {height: mobileFullHeight ? '100%' : 'auto'}}}
+                PaperProps={{sx: {height: mobileFullHeight ? '100%' : 'auto' , borderRadius:'15px 15px 0 0 '}}}
                 sx={{display: {md: 'none ', xs: 'block'}}}
                 transitionDuration={{enter: 500, exit: 500}}
                 anchor="bottom"
@@ -34,7 +34,7 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                 <AppBar
                     sx={{
                         position: "relative",
-                        backgroundColor: 'gray.lighter',
+                        backgroundColor: 'white',
                         boxShadow: "none",
                         mb: 2
 
@@ -47,11 +47,13 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                             justifyContent: "space-between",
                             marginX: "auto",
                             width: '93%',
+                            minHeight:'auto !important'
                         }}
                     >
                         <Typography
                             variant="body1"
                             fontWeight={'bold'}
+                            sx={{ borderBottom:`2px solid #ff8301` , py:1.5 , minHeight:'auto !important'}}
                         >
                             {title}
                         </Typography>

@@ -108,7 +108,7 @@ const ChildCategoryPage = ({
                                         onClick={() => setOpenFilterModal(true)}
                                         variant={'outlined'}>
                                     <FilterAltIcon/>
-                                    <Typography sx={{ml: 1}}> فیلتر</Typography>
+                                    <Typography sx={{ml: 1}}> فیلترها</Typography>
                                 </Button>
                                 <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnLightGray'}
                                         variant={'outlined'}>
@@ -148,7 +148,7 @@ const ChildCategoryPage = ({
                         </Grid>
                         <Grid item md={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
                             <Box sx={{p: 2, borderRadius: 2, backgroundColor: '#fff', boxShadow: 1, width: '100%'}}>
-                                <CheckBoxFilter category={category} key={noQueryPath} subFilter={brands}/>
+                                <CheckBoxFilter category={main_category?.name} key={noQueryPath} subFilter={brands}/>
                             </Box>
                         </Grid>
                         <Grid pb={5.5} item xs={12} md={8.5}>
@@ -185,9 +185,9 @@ const ChildCategoryPage = ({
                             </Box> : null
                     }
                 </Container>
-                <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلتر'}>
+                <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلترها'}>
                     <Box sx={{px: 2}}>
-                        <CheckBoxFilter key={noQueryPath} subFilter={brands}/>
+                        <CheckBoxFilter category={main_category?.name}  key={noQueryPath} subFilter={brands}/>
                     </Box>
                 </MainModal>
                 <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>

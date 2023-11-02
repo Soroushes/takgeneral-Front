@@ -32,7 +32,6 @@ const ProductPage = ({data}) => {
         params.delete('fromSection');
         push(`?${params}`, {scroll: false});
     }, [])
-    console.log(productOptions)
     return (
         <>
             <script

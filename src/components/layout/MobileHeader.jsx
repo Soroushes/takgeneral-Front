@@ -88,9 +88,9 @@ const MobileHeader = ({categories}) => {
                                         }}>
                                         <Box sx={{display: "flex",
                                             flexDirection: "column"}}>
-                                            <Box sx={{borderBottom:'1px solid #eee'}}>
+                                            <Box sx={{borderBottom:'1px solid #eee' , textAlign:'center'}}>
                                                 <Image
-                                                    style={{marginBottom:'15px' }}
+                                                    style={{marginBottom:'15px'}}
                                                     width={125} height={25}
                                                     src={logo}
                                                     alt="Takgeneral Logo"
@@ -171,7 +171,7 @@ const MobileHeader = ({categories}) => {
                                                 <Link href={'https://instagram.com/'}>
                                                     <InstagramIcon/>
                                                 </Link>
-                                                <Link href={'https://api.whatsapp.com/send?phone=09212075118'}>
+                                                <Link href={'https://wa.me/989212075118'}>
                                                     <WhatsappIcon/>
                                                 </Link>
                                                 <Link href={'mailto:takgeneral.com@gmail.com?Subject=Hello%20User'}>

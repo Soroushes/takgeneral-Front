@@ -1,7 +1,9 @@
 'use client';
-import {Box, Container, Tooltip, Typography} from "@mui/material";
-import Test from "../../../assets/icons/about-us/testIcon.svg";
+import {Box, Container, Typography} from "@mui/material";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
+import PompIcon from '../../../assets/icons/share/pompIcon.svg';
+import AbzarIcon from '../../../assets/icons/share/abzarIcon.svg';
+import TahvieIcon from '../../../assets/icons/share/tahvieIcon.svg';
 
 const breadcrumbData = [{url: '/about-us', name: 'درباره تک جنرال'}]
 const AboutUsPage = () => {
@@ -9,9 +11,9 @@ const AboutUsPage = () => {
         <Container>
             <BreadcrumbGenerator hasEmptyUrl={false} breadcrumb={breadcrumbData}/>
             <Box>
-                <Typography component={'h1'} sx={{my: 4}} textAlign={'center'} fontWeight={'bold'}
+                <Typography component={'h1'} sx={{my: 2}} textAlign={'center'} fontWeight={'bold'}
                             fontSize={'24px !important'}>درباره تک جنرال</Typography>
-                <Box display={'flex'} justifyContent={'space-between'} sx={{my: 10}} gap={1}>
+                <Box display={'flex'} justifyContent={'space-between'} sx={{mb: 8, mt: 6}} gap={1}>
                     <Box sx={{width: '33%'}} gap={1} display={'flex'} flexDirection={'column'} alignItems={'center'}>
                         <Box sx={{
                             backgroundColor: '#fff',
@@ -22,15 +24,10 @@ const AboutUsPage = () => {
                             justifyContent: 'center',
                             alignItems: 'center'
                         }}>
-                            <Test/>
+                            <PompIcon/>
                         </Box>
-                        <Typography textAlign={'center'} variant={'h2'} fontWeight={'bold'}>ابزار دقیق</Typography>
-                        <Tooltip title="فروش تجهیزات اندازه گیری فلو">
-                            <Typography overflow={'hidden'}
-                                        textOverflow={'ellipsis'}
-                                        whiteSpace={'nowrap'} width={'100%'}
-                                        textAlign={'center'}>فروش تجهیزات اندازه گیری فلو</Typography>
-                        </Tooltip>
+                        <Typography textAlign={'center'} sx={{fontSize: {md: 19, xs: 11}, minHeight: {md:'auto' , xs:40}}} variant={'h2'} fontWeight={'bold'}>ابزار دقیق</Typography>
+                        <Typography sx={{fontSize: {md: 12, xs: 10}}} width={'100%'} textAlign={'center'}>فروش تجهیزات اندازه گیری فلو</Typography>
                     </Box>
                     <Box sx={{width: '33%'}} gap={1} display={'flex'} flexDirection={'column'} alignItems={'center'}>
                         <Box sx={{
@@ -43,22 +40,12 @@ const AboutUsPage = () => {
                             justifyContent: 'center',
                             alignItems: 'center'
                         }}>
-                            <Test/>
+                            <AbzarIcon/>
                         </Box>
-                        <Tooltip title="تهویه مطبوع و سرمایش و گرمایش">
-                            <Typography width={'100%'} overflow={'hidden'}
-                                        textOverflow={'ellipsis'}
-                                        whiteSpace={'nowrap'}
-                                        textAlign={'center'}
-                                        variant={'h2'}
-                                        fontWeight={'bold'}>تهویه مطبوع و سرمایش و گرمایش</Typography>
-                        </Tooltip>
-                        <Tooltip title="فروش کولر گازی (اسپیلت)">
-                            <Typography overflow={'hidden'}
-                                        textOverflow={'ellipsis'}
-                                        whiteSpace={'nowrap'}
-                                        textAlign={'center'}>فروش کولر گازی (اسپیلت)</Typography>
-                        </Tooltip>
+                        <Typography width={'100%'} textAlign={'center'} sx={{fontSize: {md: 19, xs: 11}, minHeight: {md:'auto' , xs:40}}}
+                                    fontWeight={'bold'}>تهویه مطبوع و سرمایش و گرمایش</Typography>
+                        <Typography sx={{fontSize: {md: 12, xs: 10}}} textAlign={'center'}>فروش کولر گازی
+                            (اسپیلت)</Typography>
                     </Box>
                     <Box sx={{width: '33%'}} gap={1} display={'flex'} flexDirection={'column'} alignItems={'center'}>
                         <Box sx={{
@@ -71,23 +58,12 @@ const AboutUsPage = () => {
                             justifyContent: 'center',
                             alignItems: 'center'
                         }}>
-                            <Test/>
+                            <TahvieIcon/>
                         </Box>
-                        <Tooltip title="پمپ و تجهیزات جانبی">
-                            <Typography overflow={'hidden'}
-                                        textOverflow={'ellipsis'}
-                                        whiteSpace={'nowrap'} width={'100%'}
-                                        textAlign={'center'}
-                                        variant={'h2'}
-                                        fontWeight={'bold'}>پمپ و تجهیزات جانبی</Typography>
-                        </Tooltip>
-                        <Tooltip title="فروش پمپ آب خانگی و پمپ آب طبقاتی و ..">
-                            <Typography overflow={'hidden'}
-                                        textOverflow={'ellipsis'}
-                                        whiteSpace={'nowrap'}
-                                        width={'100%'}
-                                        textAlign={'center'}>فروش پمپ آب خانگی و پمپ آب طبقاتی و ...</Typography>
-                        </Tooltip>
+                        <Typography width={'100%'} textAlign={'center'} sx={{fontSize: {md: 19, xs: 11}, minHeight: {md:'auto' , xs:40}}}
+                                    fontWeight={'bold'}>پمپ و تجهیزات جانبی</Typography>
+                        <Typography sx={{fontSize: {md: 12, xs: 10}}} width={'100%'} textAlign={'center'}>فروش پمپ آب
+                            خانگی و پمپ آب طبقاتی و ...</Typography>
                     </Box>
                 </Box>
                 <Typography variant={'h5'} lineHeight={'29px'}>

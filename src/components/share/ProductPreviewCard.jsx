@@ -31,8 +31,8 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                             color={'text.main'}
                             sx={{
                                 position: 'absolute',
-                                left: "10px",
-                                top: "10px",
+                                right: "10px",
+                                bottom: "10px",
                                 backgroundColor: "secondary.main",
                                 display: 'flex',
                                 justifyContent: 'center',

@@ -11,25 +11,42 @@ import unionImage from '../../assets/images/footer/unionImage.png';
 import logo from '../../../public/fa_logo.jpg';
 import Image from "next/image";
 import Link from "next/link";
-import footerImage from '../../assets/images/footer/footerIcon.png'
-
+import PN from "persian-number";
+import FactorIcon from '../../assets/icons/footer/factor.svg'
+import DeliveryIcon from '../../assets/icons/footer/delivery.svg'
+import PhoneIcon from '../../assets/icons/footer/cellPhone.svg'
+import ContactIcon from '../../assets/icons/footer/contactIcon.svg'
 const Footer = () => {
     return (
-        <Box component={'footer'} sx={{backgroundColor: '#FCFCFD', position: 'relative', zIndex: 4, pb: 4 , pt:2}}>
+        <Box component={'footer'} sx={{backgroundColor: '#FCFCFD', position: 'relative', zIndex: 4, pb: 4, pt: 2}}>
             <Container>
                 <Box sx={{mt: 2, borderTop: '1px solid #eee', borderBottom: '1px solid #eee'}} display={'flex'}
                      justifyContent={'center'}>
-                    <Box sx={{width: {md: '80%', xs: '100% '}, height: 'auto', textAlign: 'center'}}>
-                        <Image width={'924px'} height={'152px'} style={{width: '100%', height: 'auto'}}
-                               src={footerImage} alt={'footer'}/>
+                    <Box sx={{width:{md:'80%' , xs:'100%'}}} display={'flex'} justifyContent={'space-between'} my={2}>
+                        <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
+                            <FactorIcon/>
+                            <Typography variant={'subtitle1'} textAlign={'center'}>صدور فاکتور و پیش فاکتور</Typography>
+                        </Box>
+                        <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
+                            <DeliveryIcon/>
+                            <Typography variant={'subtitle1'} textAlign={'center'}>ارسال رایگان</Typography>
+                        </Box>
+                        <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
+                            <ContactIcon/>
+                            <Typography variant={'subtitle1'} textAlign={'center'}>مشاوره رایگان</Typography>
+                        </Box>
+                        <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
+                            <PhoneIcon/>
+                            <Typography variant={'subtitle1'} textAlign={'center'}>پشتیبانی ۲۴ ساعته</Typography>
+                        </Box>
                     </Box>
                 </Box>
                 <Grid container sx={{justifyContent: 'space-between', display: 'flex', borderBottom: '1px solid #eee'}}>
                     <Grid item xs={12} md={4} pt={1} pb={4}>
                         <Box sx={{height: '100%'}} display={'flex'} flexDirection={'column'}
-                             justifyContent={'space-between'} alignItems={{md: 'start', xs: 'center'}} >
+                             justifyContent={'space-between'} alignItems={{md: 'start', xs: 'center'}}>
                             <Link href={'/'}>
-                                <Box sx={{mb:1}}>
+                                <Box sx={{mb: 1}}>
                                     <Image alt={''} src={logo} width={150} height={50}/>
                                 </Box>
                             </Link>
@@ -38,24 +55,28 @@ const Footer = () => {
                                     <Box>
                                         <CallIcon/>
                                     </Box>
-                                    <Typography>۰۹۲۱۲۰۷۵۱۱۸</Typography>
+                                    <Typography>{PN.convertEnToPe('09212075118')}</Typography>
                                 </Box>
                             </Link>
-                            <Box display={'flex'} gap={1} mt={2} >
-                                <Box >
-                                    <MailIcon/>
+                            <Link href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
+                                <Box display={'flex'} gap={1} mt={2}>
+                                    <Box>
+                                        <MailIcon/>
+                                    </Box>
+                                    <Typography>Takgeneral@gmail.com</Typography>
                                 </Box>
-                                <Typography>takgeneral@gmail.com</Typography>
-                            </Box>
-                            <Box display={'flex'} gap={1} mt={2}>
-                                <Box>
-                                    <LocationIcon/>
+                            </Link>
+                            <Link href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
+                                <Box display={'flex'} gap={1} mt={2}>
+                                    <Box>
+                                        <LocationIcon/>
+                                    </Box>
+                                    <Typography>تهران، خیابان طالقانی، نبش چهار راه بهار، پلاک {PN.convertEnToPe(126)}</Typography>
                                 </Box>
-                                <Typography>تهران، خیابان طالقانی، نبش چهار راه بهار، پلاک 126</Typography>
-                            </Box>
+                            </Link>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} md={3} py={4} >
+                    <Grid item xs={12} md={3} py={4}>
                         <Box height={'100%'} display={'flex'}
                              justifyContent={{md: 'space-between', xs: 'space-around'}}>
                             <Box sx={{height: '100%'}} display={'flex'} justifyContent={'space-between'}

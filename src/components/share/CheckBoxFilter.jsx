@@ -5,7 +5,7 @@ import {useEffect, useState} from 'react';
 import {Typography} from '@mui/material';
 import { useRouter, useSearchParams} from "next/navigation";
 
-const CheckBoxFilter = ({subFilter}) => {
+const CheckBoxFilter = ({subFilter , category}) => {
     let filtersId = [];
     subFilter.map((value) => {
         filtersId.push(value.id);
@@ -58,7 +58,7 @@ const CheckBoxFilter = ({subFilter}) => {
     return (
         <>
             <FormLabel sx={{borderBottom: '1px solid #ccc', pb: 1, fontSize: 14, mb: 1}} component="legend">
-                برندهای پمپ
+                برندهای {category}
             </FormLabel>
             {
                 subFilter.map((value) => {

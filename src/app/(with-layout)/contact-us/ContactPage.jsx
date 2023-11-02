@@ -6,6 +6,7 @@ import CallIcon from '../../../assets/icons/contact-us/call.svg'
 import {Controller, useForm} from "react-hook-form";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import Link from "next/link";
+import PN from "persian-number";
 
 const breadcrumbData = [{url: '/contact-us', name: 'تماس با ما'}]
 const ContactUsPage = () => {
@@ -19,10 +20,10 @@ const ContactUsPage = () => {
                   sx={{flexDirection: {xs: 'column', md: 'row'}, gap: {xs: 4, md: 0}, justifyContent: 'space-between'}}>
                 <Grid item md={6} xs={12} sx={{px: {xs: 2, md: 0}}}>
                     <Typography component={'h1'} fontWeight={'bold'} variant={'h2'}>با ما در تماس باشید</Typography>
-                    <Typography variant={'body1'} sx={{mt: 3}}>کارشناسان ما در سریع ترین زمان ممکن به درخواست های شما
+                    <Typography variant={'body1'} sx={{mt: 3}}>کارشناسان ما با پشتیبانی {PN.convertEnToPe(24)} ساعته در سریع ترین زمان ممکن به درخواست های شما
                         پاسخ خواهند داد.</Typography>
                     <Box justifyContent={'space-between'} display={'flex'} gap={1} sx={{mt: {md: 12, xs: 2}}}>
-                        <Link style={{width:'33%'}} href={'mailto:takgeneral.com@gmail.com?Subject=Hello%20User'}>
+                        <Link style={{width:'33%'}} href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
                             <Box display={'flex'} flexDirection={'column'} gap={2}
                                  alignItems={'center'}>
                                 <Box sx={{
@@ -37,12 +38,11 @@ const ContactUsPage = () => {
                                 }}>
                                     <MailIcon/>
                                 </Box>
-                                <Typography variant={'body1'}
-                                            sx={{textAlign: 'center'}}>Takgeneral@Gmail.Com</Typography>
+                                <Typography sx={{fontSize:{md:13 , xs:10 , textAlign: 'center'}}}>Takgeneral@gmail.Com</Typography>
                             </Box>
                         </Link>
                         <Link style={{width: '33%'}} target={'_blank'}
-                              href={'https://maps.app.goo.gl/Se34YkXvsEBH3EEG8'}>
+                              href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
                             <Box display={'flex'} flexDirection={'column'} gap={2}
                                  alignItems={'center'}>
                                 <Box sx={{
@@ -57,8 +57,8 @@ const ContactUsPage = () => {
                                 }}>
                                     <LocationIcon/>
                                 </Box>
-                                <Typography variant={'h6'} sx={{textAlign: 'center'}}>تهران، خیابان طالقانی، نبش
-                                    چهار راه بهار، پلاک 126</Typography>
+                                <Typography sx={{fontSize:{md:13 , xs:11 , textAlign: 'center'}}}>تهران، خیابان طالقانی، نبش
+                                    چهار راه بهار، پلاک {PN.convertEnToPe(126)}</Typography>
                             </Box>
                         </Link>
                         <Link style={{width: '33%'}} href={"tel://+989212075118"}>
@@ -76,7 +76,7 @@ const ContactUsPage = () => {
                                 }}>
                                     <CallIcon/>
                                 </Box>
-                                <Typography variant={'body1'} textAlign={'center'}>۰۹۲۱۲۰۷۵۱۱۸</Typography>
+                                <Typography sx={{fontSize:{md:13 , xs:11 , textAlign: 'center'}}}>{PN.convertEnToPe('09212075118')}</Typography>
                             </Box>
                         </Link>
                     </Box>
