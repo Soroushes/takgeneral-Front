@@ -16,7 +16,16 @@ import FactorIcon from '../../assets/icons/footer/factor.svg'
 import DeliveryIcon from '../../assets/icons/footer/delivery.svg'
 import PhoneIcon from '../../assets/icons/footer/cellPhone.svg'
 import ContactIcon from '../../assets/icons/footer/contactIcon.svg'
+import {useEffect, useState} from "react";
 const Footer = () => {
+    const [icons , setIcons] = useState({
+        factor:'',delivery: '' , phone: '' , contact: ''
+    })
+    useEffect(()=>{
+        setIcons({
+            factor: <FactorIcon/> ,delivery: <DeliveryIcon/> , phone: <PhoneIcon/> , contact: <ContactIcon/>
+        })
+    },[])
     return (
         <Box component={'footer'} sx={{backgroundColor: '#FCFCFD', position: 'relative', zIndex: 4, pb: 4, pt: 2}}>
             <Container>
@@ -24,19 +33,27 @@ const Footer = () => {
                      justifyContent={'center'}>
                     <Box sx={{width:{md:'80%' , xs:'100%'}}} display={'flex'} justifyContent={'space-between'} my={2}>
                         <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
-                            <FactorIcon/>
+                            {
+                                icons?.factor
+                            }
                             <Typography variant={'subtitle1'} textAlign={'center'}>صدور فاکتور و پیش فاکتور</Typography>
                         </Box>
                         <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
-                            <DeliveryIcon/>
+                            {
+                                icons?.delivery
+                            }
                             <Typography variant={'subtitle1'} textAlign={'center'}>ارسال رایگان</Typography>
                         </Box>
                         <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
-                            <ContactIcon/>
+                            {
+                                icons?.contact
+                            }
                             <Typography variant={'subtitle1'} textAlign={'center'}>مشاوره رایگان</Typography>
                         </Box>
                         <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
-                            <PhoneIcon/>
+                            {
+                                icons?.phone
+                            }
                             <Typography variant={'subtitle1'} textAlign={'center'}>پشتیبانی ۲۴ ساعته</Typography>
                         </Box>
                     </Box>
@@ -47,10 +64,10 @@ const Footer = () => {
                              justifyContent={'space-between'} alignItems={{md: 'start', xs: 'center'}}>
                             <Link href={'/'}>
                                 <Box sx={{mb: 1}}>
-                                    <Image alt={''} src={logo} width={150} height={50}/>
+                                    <Image priority alt={''} src={logo} width={150} height={50}/>
                                 </Box>
                             </Link>
-                            <Link href={"tel://+989212075118"}>
+                            <Link passHref target={'_blank'} href={"tel:989212075118"}>
                                 <Box display={'flex'} gap={1} mt={2}>
                                     <Box>
                                         <CallIcon/>
@@ -58,7 +75,7 @@ const Footer = () => {
                                     <Typography>{PN.convertEnToPe('09212075118')}</Typography>
                                 </Box>
                             </Link>
-                            <Link href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
+                            <Link passHref target={'_blank'} href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
                                 <Box display={'flex'} gap={1} mt={2}>
                                     <Box>
                                         <MailIcon/>
@@ -66,7 +83,7 @@ const Footer = () => {
                                     <Typography>Takgeneral@gmail.com</Typography>
                                 </Box>
                             </Link>
-                            <Link href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
+                            <Link passHref target={'_blank'} href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
                                 <Box display={'flex'} gap={1} mt={2}>
                                     <Box>
                                         <LocationIcon/>

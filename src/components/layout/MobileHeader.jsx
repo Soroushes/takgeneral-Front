@@ -90,6 +90,7 @@ const MobileHeader = ({categories}) => {
                                             flexDirection: "column"}}>
                                             <Box sx={{borderBottom:'1px solid #eee' , textAlign:'center'}}>
                                                 <Image
+                                                    priority
                                                     style={{marginBottom:'15px'}}
                                                     width={125} height={25}
                                                     src={logo}
@@ -171,13 +172,13 @@ const MobileHeader = ({categories}) => {
                                                 <Link href={'https://instagram.com/'}>
                                                     <InstagramIcon/>
                                                 </Link>
-                                                <Link href={'https://wa.me/989212075118'}>
+                                                <Link passHref target={'_blank'} href={'https://wa.me/989212075118'}>
                                                     <WhatsappIcon/>
                                                 </Link>
-                                                <Link href={'mailto:takgeneral.com@gmail.com?Subject=Hello%20User'}>
+                                                <Link passHref target={'_blank'} href={'mailto:takgeneral.com@gmail.com?Subject=Hello%20User'}>
                                                     <MessageIcon/>
                                                 </Link>
-                                                <Link href={'https://t.me/atworkk'}>
+                                                <Link passHref target={'_blank'} href={'https://t.me/atworkk'}>
                                                     <TelegramIcon/>
                                                 </Link>
                                             </Box>
@@ -189,6 +190,7 @@ const MobileHeader = ({categories}) => {
                                     <Image
                                         width={125} height={25}
                                         src={logo}
+                                        priority
                                         alt="TakgeneralLogo"
                                     />
                                 </Link>

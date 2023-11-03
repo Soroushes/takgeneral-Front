@@ -1,13 +1,14 @@
 import {Typography , Box} from "@mui/material";
 import CartEditionButton from "../share/CartEditionButton";
 import PriceDiscount from "../share/PriceDiscount";
-import FreeDelivery from '../../assets/icons/single-product/freeDelivery.svg';
+import FreeDeliveryIcon from '../../assets/icons/single-product/freeDelivery.svg';
 import AvailableIcon from '../../assets/icons/single-product/available.svg';
 import OriginalIcon from '../../assets/icons/single-product/original.svg';
 import BestPriceIcon from '../../assets/icons/single-product/bestPrice.svg';
-import Warranty from '../../assets/icons/single-product/warranty.svg';
+import WarrantyIcon from '../../assets/icons/single-product/warranty.svg';
 import {useCart} from "@/hooks/useCart";
 import FakeIcon from '../../assets/icons/single-product/iranian.svg';
+import {useEffect, useState} from "react";
 const SingleProductSellCard = ({
                                    available,
                                    freeSent,
@@ -16,6 +17,10 @@ const SingleProductSellCard = ({
                                    price, finalPrice , madeIn , minPrice
                                }) => {
     const {priceItem} = useCart(id);
+    const [icons , setIcons] = useState({freeDelivery:'' , Available:'' , original :'' , bestPrice :'' , Warranty :'' , fake:''});
+    useEffect(()=>{
+        setIcons({freeDelivery : <FreeDeliveryIcon/> , Available :<AvailableIcon/> , original:<OriginalIcon/> , bestPrice : <BestPriceIcon/> , Warranty :<WarrantyIcon/> , fake :<FakeIcon/>})
+    },[])
     return (
         <>
             <Box sx={{mb: 2, backgroundColor: '#fff', py: 2, px: .5, borderRadius: 2, boxShadow: 1}} display={'flex'}
@@ -25,9 +30,9 @@ const SingleProductSellCard = ({
                     <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: .5}}>
                         {
                             madeIn === 'کالای اورجینال' ?
-                                <OriginalIcon/>
+                                icons.original
                                 :
-                                <FakeIcon/>
+                                icons.fake
                         }
                         <Typography sx={{textAlign: 'center'}} variant={'subtitle1'}>{madeIn}</Typography>
                     </Box>
@@ -35,14 +40,14 @@ const SingleProductSellCard = ({
                 {
                     freeSent &&
                     <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: .5}}>
-                        <FreeDelivery/>
+                        {icons.freeDelivery}
                         <Typography sx={{textAlign: 'center'}} variant={'subtitle1'}>ارسال رایگان</Typography>
                     </Box>
                 }
                 {
                     available &&
                     <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: .5}}>
-                        <AvailableIcon/>
+                        {icons.Available}
                         <Typography sx={{textAlign: 'center'}} variant={'subtitle2'}>موجود در انبار</Typography>
                     </Box>
                 }
@@ -63,14 +68,14 @@ const SingleProductSellCard = ({
                         {
                             warranty &&
                             <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
-                                <Warranty/>
+                                {icons.Warranty}
                                 <Typography textAlign={'center'} variant={'subtitle1'}>{warranty}</Typography>
                             </Box>
                         }
                         {
                             minPrice &&
                             <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
-                                <BestPriceIcon/>
+                                {icons.bestPrice}
                                 <Typography textAlign={'center'} variant={'subtitle1'}>کمترین قیمت در ایران</Typography>
                             </Box>
                         }

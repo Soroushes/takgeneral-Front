@@ -20,7 +20,8 @@ const singleProductAttribute = ({attrRef , pdf, attributes, name, setShowAllDeta
         })
     };
     const handleSortOnchange = (value)=>{
-        setOptions(value)
+        const newOption = options?.product_variant.find((item)=>item.id === value);
+        setOptions(newOption);
     }
     return (
         <Box px={3}>
@@ -48,13 +49,13 @@ const singleProductAttribute = ({attrRef , pdf, attributes, name, setShowAllDeta
                         }}
                         size={'small'}
                         select
-                        defaultValue={productOptions}
+                        defaultValue={productOptions.id}
                         onChange={(e) => handleSortOnchange(e.target.value)}
                     >
                         {
                             options?.product_variant.map((sortItem) => (
                                 <MenuItem key={sortItem.option_value} variant={'subtitle1'}
-                                          value={sortItem}>{sortItem.option_value}</MenuItem>
+                                          value={sortItem.id}>{sortItem.option_value}</MenuItem>
                             ))
                         }
                     </TextField>
