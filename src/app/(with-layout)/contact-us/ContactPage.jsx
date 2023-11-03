@@ -23,7 +23,7 @@ const ContactUsPage = () => {
                     <Typography variant={'body1'} sx={{mt: 3}}>کارشناسان ما با پشتیبانی {PN.convertEnToPe(24)} ساعته در سریع ترین زمان ممکن به درخواست های شما
                         پاسخ خواهند داد.</Typography>
                     <Box justifyContent={'space-between'} display={'flex'} gap={1} sx={{mt: {md: 12, xs: 2}}}>
-                        <Link style={{width:'33%'}} href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
+                        <Link passHref target={'_blank'} style={{width:'33%'}} href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
                             <Box display={'flex'} flexDirection={'column'} gap={2}
                                  alignItems={'center'}>
                                 <Box sx={{
@@ -41,7 +41,7 @@ const ContactUsPage = () => {
                                 <Typography sx={{fontSize:{md:13 , xs:10 , textAlign: 'center'}}}>Takgeneral@gmail.Com</Typography>
                             </Box>
                         </Link>
-                        <Link style={{width: '33%'}} target={'_blank'}
+                        <Link passHref style={{width: '33%'}} target={'_blank'}
                               href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
                             <Box display={'flex'} flexDirection={'column'} gap={2}
                                  alignItems={'center'}>
@@ -61,7 +61,7 @@ const ContactUsPage = () => {
                                     چهار راه بهار، پلاک {PN.convertEnToPe(126)}</Typography>
                             </Box>
                         </Link>
-                        <Link style={{width: '33%'}} href={"tel://+989212075118"}>
+                        <Link passHref target={'_blank'} style={{width: '33%'}} href={"tel://+989212075118"}>
                             <Box display={'flex'} flexDirection={'column'} gap={2}
                                  alignItems={'center'}>
                                 <Box sx={{
