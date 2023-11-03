@@ -35,7 +35,7 @@ const DesktopHeader = ({categories}) => {
                                 justifyContent: "space-between"
                             }}>
                             <Link href={urls.home}>
-                                <Image width={180} height={32} alt={'تک جنرال لوگو'} src={logo}/>
+                                <Image priority width={180} height={32} alt={'تک جنرال لوگو'} src={logo}/>
                             </Link>
                             <Box sx={{width: "40%"}}>
                                 <TextField
