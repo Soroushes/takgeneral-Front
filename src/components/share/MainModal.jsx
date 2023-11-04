@@ -3,7 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import CloseIcon from '@mui/icons-material/Close';
 
-const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFullScreen}) => {
+const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFullScreen , setDrawer = ()=>{}}) => {
     return (
         <>
             <Dialog
@@ -28,6 +28,7 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                 anchor="bottom"
                 open={open}
                 onClose={() => {
+                    setDrawer(false)
                     setOpen(false)
                 }}
             >
@@ -57,7 +58,10 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                         >
                             {title}
                         </Typography>
-                        <IconButton sx={{p: 0}} onClick={() => setOpen(false)}>
+                        <IconButton sx={{p: 0}} onClick={() => {
+                            setOpen(false)
+                            setDrawer(false)
+                        }}>
                             <CloseIcon/>
                         </IconButton>
                     </Toolbar>

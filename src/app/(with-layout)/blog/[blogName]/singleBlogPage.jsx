@@ -26,7 +26,7 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
                                 <Box sx={{textAlign: 'center', width: '100%'}}>
                                     <Image width={590} height={290} style={{maxWidth: '100%', height: 'auto'}}
                                            src={images[0]?.image}
-                                           alt={''}/>
+                                           alt={title}/>
                                 </Box>
                             </Grid>
                             : null

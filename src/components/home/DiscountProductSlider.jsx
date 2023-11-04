@@ -4,7 +4,7 @@ import {Container, Typography , Box} from "@mui/material";
 import ProductPreviewCard from "../share/ProductPreviewCard";
 import SwiperCustomWrapper from "../share/SwiperCustomWrapper";
 import DiscountShapeBig from '../../assets/icons/home/discount-shape-big.svg' ;
-const DiscountProductSlider = ({products , backGroundImage = 'linear-gradient(to left, #EF4800 , #FF8301)'}) => {
+const DiscountProductSlider = ({products , title , backGroundImage = 'linear-gradient(to left, #EF4800 , #FF8301)'}) => {
     return (
             <Container disableGutters={true} sx={{backgroundImage: backGroundImage , my : 8 , pt : 4 , pb:  6 , borderRadius : '4px 4px 25px 25px' , position : 'relative'}}>
                 <Box top={'-25%'} left={'0'} position={'absolute'}>
@@ -12,7 +12,7 @@ const DiscountProductSlider = ({products , backGroundImage = 'linear-gradient(to
                 </Box>
                 <Box sx={{width : {md : '90%'} , mx : 'auto'}}>
                 <Box sx={{mb: 4 , display : 'flex' , justifyContent : 'center' , alignItems : 'center' , gap : 2}}>
-                    <Typography sx={{wordSpacing :'3px'}} textAlign={'center'} variant={'h3'} fontWeight={'bold'} color={'white'}>پیشنهادات ویژه تک جنرال </Typography>
+                    <Typography sx={{wordSpacing :'3px'}} textAlign={'center'} variant={'h3'} fontWeight={'bold'} color={'white'}>{title}</Typography>
                 </Box>
                 <SwiperCustomWrapper
                 navigation={false}>

@@ -5,8 +5,6 @@ import MailIcon from '../../assets/icons/footer/sms.svg';
 import TelegramIcon from '../../assets/icons/footer/telegram.svg';
 import InstagramIcon from '../../assets/icons/footer/instagram.svg';
 import MailIcon2 from '../../assets/icons/footer/light-sms.svg';
-import trustImage from '../../assets/images/footer/trustImage.png';
-import nationalImage from '../../assets/images/footer/nationalImage.png';
 import unionImage from '../../assets/images/footer/unionImage.png';
 import logo from '../../../public/fa_logo.jpg';
 import Image from "next/image";
@@ -16,22 +14,24 @@ import FactorIcon from '../../assets/icons/footer/factor.svg'
 import DeliveryIcon from '../../assets/icons/footer/delivery.svg'
 import PhoneIcon from '../../assets/icons/footer/cellPhone.svg'
 import ContactIcon from '../../assets/icons/footer/contactIcon.svg'
+import test from '../../assets/images/namad/samandehi.webp'
 import {useEffect, useState} from "react";
+
 const Footer = () => {
-    const [icons , setIcons] = useState({
-        factor:'',delivery: '' , phone: '' , contact: ''
+    const [icons, setIcons] = useState({
+        factor: '', delivery: '', phone: '', contact: ''
     })
-    useEffect(()=>{
+    useEffect(() => {
         setIcons({
-            factor: <FactorIcon/> ,delivery: <DeliveryIcon/> , phone: <PhoneIcon/> , contact: <ContactIcon/>
+            factor: <FactorIcon/>, delivery: <DeliveryIcon/>, phone: <PhoneIcon/>, contact: <ContactIcon/>
         })
-    },[])
+    }, [])
     return (
         <Box component={'footer'} sx={{backgroundColor: '#FCFCFD', position: 'relative', zIndex: 4, pb: 4, pt: 2}}>
             <Container>
                 <Box sx={{mt: 2, borderTop: '1px solid #eee', borderBottom: '1px solid #eee'}} display={'flex'}
                      justifyContent={'center'}>
-                    <Box sx={{width:{md:'80%' , xs:'100%'}}} display={'flex'} justifyContent={'space-between'} my={2}>
+                    <Box sx={{width: {md: '80%', xs: '100%'}}} display={'flex'} justifyContent={'space-between'} my={2}>
                         <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
                             {
                                 icons?.factor
@@ -75,12 +75,13 @@ const Footer = () => {
                                     <Typography>{PN.convertEnToPe('09212075118')}</Typography>
                                 </Box>
                             </Link>
-                            <Link passHref target={'_blank'} href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
+                            <Link passHref target={'_blank'}
+                                  href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
                                 <Box display={'flex'} gap={1} mt={2}>
                                     <Box>
                                         <MailIcon/>
                                     </Box>
-                                    <Typography>Takgeneral@gmail.com</Typography>
+                                    <Typography>Takgeneral.com@gmail.com</Typography>
                                 </Box>
                             </Link>
                             <Link passHref target={'_blank'} href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
@@ -88,7 +89,8 @@ const Footer = () => {
                                     <Box>
                                         <LocationIcon/>
                                     </Box>
-                                    <Typography>تهران، خیابان طالقانی، نبش چهار راه بهار، پلاک {PN.convertEnToPe(126)}</Typography>
+                                    <Typography>تهران، خیابان طالقانی، نبش چهار راه بهار،
+                                        پلاک {PN.convertEnToPe(126)}</Typography>
                                 </Box>
                             </Link>
                         </Box>
@@ -130,8 +132,15 @@ const Footer = () => {
                                 borderRadius: 2,
                                 boxShadow: 1
                             }}>
-                                <Image width={'120px'} height={'132px'} style={{width: '100%', height: 'auto'}}
-                                       src={trustImage} alt={''}/>
+                                <Link style={{width: '100%', height: '100%'}} referrerPolicy='origin' target={'_blank'}
+                                      href='https://trustseal.enamad.ir/?id=344613&Code='>
+                                    <Image referrerPolicy='origin'
+                                         src='https://trustseal.enamad.ir/logo.aspx?id=344613&Code='
+                                         alt='' width={75} height={75}
+                                         // style={{cursor: 'pointer', width: '100%', height: '100%'}}
+                                         Code=''/></Link>
+                                {/*<Image width={'120px'} height={'132px'} style={{width: '100%', height: 'auto'}}*/}
+                                {/*       src={trustImage} alt={''}/>*/}
                             </Box>
                             <Box sx={{
                                 width: '100%',
@@ -141,8 +150,15 @@ const Footer = () => {
                                 borderRadius: 2,
                                 boxShadow: 1
                             }}>
-                                <Image width={'120px'} height={'132px'} style={{width: '100%', height: 'auto'}}
-                                       src={nationalImage} alt={''}/>
+                                <Image referrerPolicy='origin' id='rgvjwlaooeukwlaofukzoeuk'
+                                       style={{cursor: 'pointer', width: '100%', height: '100%'}}
+                                       onClick={() => {
+                                           window.open("https://logo.samandehi.ir/Verify.aspx?id=348468&p=xlaoaodsmcsiaodsgvkamcsi", "Popup", "toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")
+                                       }}
+                                       alt={'logo-samandehi'}
+                                       src={test}/>
+                                {/*<Image width={'120px'} height={'132px'} style={{width: '100%', height: 'auto'}}*/}
+                                {/*       src={nationalImage} alt={''}/>*/}
                             </Box>
                             <Box sx={{
                                 width: '100%',

@@ -20,66 +20,78 @@ const ContactUsPage = () => {
                   sx={{flexDirection: {xs: 'column', md: 'row'}, gap: {xs: 4, md: 0}, justifyContent: 'space-between'}}>
                 <Grid item md={6} xs={12} sx={{px: {xs: 2, md: 0}}}>
                     <Typography component={'h1'} fontWeight={'bold'} variant={'h2'}>با ما در تماس باشید</Typography>
-                    <Typography variant={'body1'} sx={{mt: 3}}>کارشناسان ما با پشتیبانی {PN.convertEnToPe(24)} ساعته در سریع ترین زمان ممکن به درخواست های شما
+                    <Typography variant={'body1'} sx={{mt: 3}}>کارشناسان ما با پشتیبانی {PN.convertEnToPe(24)} ساعته در
+                        سریع ترین زمان ممکن به درخواست های شما
                         پاسخ خواهند داد.</Typography>
-                    <Box justifyContent={'space-between'} display={'flex'} gap={1} sx={{mt: {md: 12, xs: 2}}}>
-                        <Link passHref target={'_blank'} style={{width:'33%'}} href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
-                            <Box display={'flex'} flexDirection={'column'} gap={2}
-                                 alignItems={'center'}>
-                                <Box sx={{
-                                    backgroundColor: '#fff',
-                                    aspectRatio: '1/1',
-                                    p: 1.5,
-                                    boxShadow: 1,
-                                    borderRadius: '100%',
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                }}>
-                                    <MailIcon/>
+                    <Grid container rowGap={2} justifyContent={'space-between'} display={'flex'} sx={{mt: {md: 12, xs: 2}}}>
+                        <Grid item md={4} xs={6}>
+                            <Link passHref target={'_blank'}
+                                  href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
+                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
+                                    <Box sx={{
+                                        backgroundColor: '#fff',
+                                        aspectRatio: '1/1',
+                                        p: 1.5,
+                                        boxShadow: 1,
+                                        borderRadius: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <MailIcon/>
+                                    </Box>
+                                    <Typography
+                                        sx={{fontSize: {md: 13, xs: 10, textAlign: 'center'}}}>Takgeneral@gmail.Com</Typography>
                                 </Box>
-                                <Typography sx={{fontSize:{md:13 , xs:10 , textAlign: 'center'}}}>Takgeneral@gmail.Com</Typography>
-                            </Box>
-                        </Link>
-                        <Link passHref style={{width: '33%'}} target={'_blank'}
-                              href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
-                            <Box display={'flex'} flexDirection={'column'} gap={2}
-                                 alignItems={'center'}>
-                                <Box sx={{
-                                    backgroundColor: '#fff',
-                                    aspectRatio: '1/1',
-                                    p: 1.5,
-                                    boxShadow: 1,
-                                    borderRadius: '100%',
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                }}>
-                                    <LocationIcon/>
+                            </Link>
+                        </Grid>
+                        <Grid item md={4} xs={6}>
+                            <Link passHref target={'_blank'} href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
+                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
+                                    <Box sx={{
+                                        backgroundColor: '#fff',
+                                        aspectRatio: '1/1',
+                                        p: 1.5,
+                                        boxShadow: 1,
+                                        borderRadius: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <LocationIcon/>
+                                    </Box>
+                                    <Typography sx={{fontSize: {md: 13, xs: 11, textAlign: 'center'}}}>تهران، خیابان
+                                        طالقانی، نبش
+                                        چهار راه بهار، پلاک {PN.convertEnToPe(126)}</Typography>
                                 </Box>
-                                <Typography sx={{fontSize:{md:13 , xs:11 , textAlign: 'center'}}}>تهران، خیابان طالقانی، نبش
-                                    چهار راه بهار، پلاک {PN.convertEnToPe(126)}</Typography>
-                            </Box>
-                        </Link>
-                        <Link passHref target={'_blank'} style={{width: '33%'}} href={"tel://+989212075118"}>
-                            <Box display={'flex'} flexDirection={'column'} gap={2}
-                                 alignItems={'center'}>
-                                <Box sx={{
-                                    backgroundColor: '#fff',
-                                    aspectRatio: '1/1',
-                                    p: 1.5,
-                                    boxShadow: 1,
-                                    borderRadius: '100%',
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                }}>
-                                    <CallIcon/>
+                            </Link>
+                        </Grid>
+                        <Grid item md={4} xs={12}>
+                            <Link passHref target={'_blank'} href={"tel://+989212075118"}>
+                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
+                                    <Box sx={{
+                                        backgroundColor: '#fff',
+                                        aspectRatio: '1/1',
+                                        p: 1.5,
+                                        boxShadow: 1,
+                                        borderRadius: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <CallIcon/>
+                                    </Box>
+                                    <Typography sx={{
+                                        fontSize: {
+                                            md: 13,
+                                            xs: 11,
+                                            textAlign: 'center'
+                                        }
+                                    }}>{PN.convertEnToPe('09212075118')}</Typography>
                                 </Box>
-                                <Typography sx={{fontSize:{md:13 , xs:11 , textAlign: 'center'}}}>{PN.convertEnToPe('09212075118')}</Typography>
-                            </Box>
-                        </Link>
-                    </Box>
+                            </Link>
+                        </Grid>
+                    </Grid>
                 </Grid>
                 <Grid sx={{mt: {xs: 5, md: 0}, pt: 1}} item md={4.5} xs={12}>
                     <Box component={'form'} onSubmit={handleSubmit(onSubmitForm)}

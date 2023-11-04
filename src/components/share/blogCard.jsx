@@ -7,6 +7,7 @@ import {timeStampToDate} from "@/hooks/timeStampToDate";
 import Link from "next/link";
 
 const BlogCard = ({blog}) => {
+    console.log(blog)
     return (
         <Link href={`/blog/${blog.slug}`} >
             <Box sx={{
@@ -20,7 +21,7 @@ const BlogCard = ({blog}) => {
                     <Image
                         width={590} height={290} style={{maxWidth: '100%', height: 'auto', borderRadius: 7}}
                         src={blog?.main_image?.image}
-                        alt={''}/>
+                        alt={blog.title}/>
                 </Box>
                 <Box sx={{minHeight: '90px' }} display={'flex'} flexDirection={'column'}
                      justifyContent={'space-between'}>

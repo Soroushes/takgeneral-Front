@@ -1,10 +1,10 @@
 'use client'
 import Image from "next/image";
-import {Box, Button, Container, Divider, Grid, MenuItem, TextField, Typography} from "@mui/material";
+import {Box, Button, Container, Grid, MenuItem, TextField, Typography} from "@mui/material";
 import CheckBoxFilter from "@/components/share/CheckBoxFilter";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import MainModal from "../../../../components/share/MainModal";
-import {Fragment, useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import FilterAltIcon from '../../../../assets/icons/share/setting-5.svg';
 import CategorySlider from "../../../../components/share/CategorySlider";
 import SortIcon from "../../../../assets/icons/share/sort.svg";
@@ -14,6 +14,7 @@ import HtmlDescription from "@/components/share/HtmlDescription";
 import ExpandLessRoundedIcon from "@mui/icons-material/ExpandLessRounded";
 import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import Link from "next/link";
+import {IOSSwitch} from "@/assets/theme/theme";
 
 const sortValueItems = [
     {
@@ -49,6 +50,7 @@ const ChildCategoryPage = ({
     const [sortValue, setSortValue] = useState('newest');
     const productBoxRef = useRef(null);
     const [contentIsShow, setContentIsShow] = useState(false);
+    const [drawerIsOpen, setDrawerIsOpen] = useState(false);
     useEffect(() => {
         setSortValue('newest')
     }, [noQueryPath])
@@ -56,6 +58,9 @@ const ChildCategoryPage = ({
         setSortValue(value);
         params.set('ordering', value);
         push('?' + params.toString(), {scroll: false})
+    };
+    const toggleDrawer = () => {
+        setDrawerIsOpen(prev => !prev);
     };
     return (
         <>
@@ -72,7 +77,7 @@ const ChildCategoryPage = ({
                             <Image fill alt={main_banner[0]?.alt ?? ''} src={main_banner[0]?.mobile_image}/>
                         </Box>
                     </Link>
-                     : null
+                    : null
             }
             <Box sx={{minHeight: "70vh"}}>
                 {
@@ -89,7 +94,8 @@ const ChildCategoryPage = ({
                 }
                 <Container disableGutters={true} ref={productBoxRef} maxWidth={'lg'}>
                     <Box sx={{px: 1}}>
-                        <BreadcrumbGenerator breadcrumb={breadcrumb.map(item=> ({...item , url :  `/category/${item.url}`}))}/>
+                        <BreadcrumbGenerator
+                            breadcrumb={breadcrumb.map(item => ({...item, url: `/category/${item.url}`}))}/>
                     </Box>
                     <Typography sx={{mb: 1, mx: 2}} variant={'h4'} component={'h1'}>{main_category?.name}</Typography>
                     <Box sx={{px: 1}}>
@@ -185,30 +191,55 @@ const ChildCategoryPage = ({
                             </Box> : null
                     }
                 </Container>
-                <MainModal setOpen={setOpenFilterModal} open={openFilterModal} title={'فیلترها'}>
-                    <Box sx={{px: 2}}>
-                        <CheckBoxFilter category={main_category?.name}  key={noQueryPath} subFilter={brands}/>
+                <MainModal setOpen={setOpenFilterModal} setDrawer={setDrawerIsOpen} open={openFilterModal} title={'فیلترها'}>
+                    <Box sx={{p: 2}}>
+                        <Box display={'flex'} mb={1} alignItems={'center'} justifyContent={'space-between'}
+                             sx={{
+                                 mx: 1,
+                                 px: 2,
+                                 py: 1.5,
+                                 borderRadius: 2,
+                                 border: '1px solid #eee'
+                             }}>
+                            <Typography>فقط کالاهای موجود</Typography>
+                            <IOSSwitch color={'primary'}/>
+                        </Box>
+                        <Box onClick={toggleDrawer} sx={{mx: 1, px: 2, py: 1.5, borderRadius: 2, border: '1px solid #eee' }}>
+                            <Box display={'flex'} justifyContent={'space-between'}>
+                                <Typography>برندها</Typography>
+                                {
+                                    drawerIsOpen ?
+                                        <ExpandLessRoundedIcon/> :
+                                        <ExpandMoreRoundedIcon/>
+                                }
+                            </Box>
+                            {
+                                drawerIsOpen &&
+                                <Box mt={1}>
+                                    <CheckBoxFilter category={main_category?.name} key={noQueryPath} subFilter={brands}/>
+                                </Box>
+
+                            }
+                        </Box>
                     </Box>
                 </MainModal>
                 <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>
                     {
                         sortValueItems.map((sortItem) => (
-                            <Fragment key={sortItem.value}>
+                            <Box sx={{border: '1px solid #eee', borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
                                 <Typography
                                     component={'p'}
                                     onClick={() => {
                                         handleSortOnchange(sortItem.value);
                                         setOpenSortModal(false);
                                     }}
-                                    sx={{py: 1.5, px: 3}}
+                                    sx={{py: 1.5, px: 1.5}}
                                     key={sortItem.value}
                                     value={sortItem.value}
-                                    color={sortItem.value === sortValue ? 'primary' : "text"}
                                 >
                                     {sortItem.name}
                                 </Typography>
-                                <Divider/>
-                            </Fragment>
+                            </Box>
                         ))
                     }
                 </MainModal>

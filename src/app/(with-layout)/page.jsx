@@ -52,12 +52,12 @@ export default async function Page() {
                 padding: '20px 0 50px 0 '
             }}>
                 <HomePageCategorySection mainCategories={data.mother_categories}/>
-                <DiscountProductSlider products={data.amazing_offer_product}/>
+                <DiscountProductSlider title={'تخفیف ویژه تک جنرال'} products={data.amazing_offer_product}/>
                 <ProductBanners sizing={{xs: 12, md: 3.8}}
                                 banners={data.mid_banner}/>
                 {/*<HighRateCategorySlider products={data.popular_categories}/>*/}
                 <ProductBanners sizing={{xs: 12, md: 5.8}} banners={data.end_banner}/>
-                <DiscountProductSlider backGroundImage={'linear-gradient(to left, #1B09F9 , #27E1BC)'}
+                <DiscountProductSlider title={'پیشنهادات تک جنرال'} backGroundImage={'linear-gradient(to left, #1B09F9 , #27E1BC)'}
                                        products={data.special_offer_products}/>
                 {/*<DifferentProductScaleSlider/>*/}
                 {

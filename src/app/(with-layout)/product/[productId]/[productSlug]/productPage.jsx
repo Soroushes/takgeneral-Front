@@ -1,5 +1,5 @@
 'use client'
-import {Container, Divider, Grid, Typography, Box} from "@mui/material";
+import {Container, Grid, Typography, Box} from "@mui/material";
 import {useEffect, useRef, useState} from 'react';
 import SingleProductDetails from "../../../../../components/singleProduct/SingleProductDetails";
 import CommentQuestion from "../../../../../components/singleProduct/Comment&Question";
@@ -46,7 +46,7 @@ const ProductPage = ({data}) => {
                             ...item,
                             url: `/category/${item.url}`
                         }))}/>
-                    <Grid container rowGap={5}>
+                    <Grid container rowGap={3}>
                         <Grid item md={3.75} xs={12}>
                             <SingleProductImage images={data?.product.all_images}/>
                         </Grid>
@@ -68,7 +68,6 @@ const ProductPage = ({data}) => {
                             <SingleProductSellCard
                                 minPrice={productOptions?.min_price}
                                 madeIn={productOptions?.made_in}
-                                key={productOptions?.id}
                                 available={productOptions?.product_available}
                                 price={productOptions?.price}
                                 finalPrice={productOptions?.final_price}
@@ -83,8 +82,7 @@ const ProductPage = ({data}) => {
                                                   IsShowAllDetails={isShowAllDetails}
                                                   details={data?.product.attributes}/>
                         </Grid>
-                        <Grid ref={opinionTableRef} sx={{mt: 4}} item xs={12}>
-                            <Divider sx={{my: 3, display: {md: 'none'}}}/>
+                        <Grid ref={opinionTableRef} item xs={12}>
                             <CommentQuestion image={data?.product.all_images} rate={data?.avg_rate}
                                              comments={data?.comments} productId={data?.product.id}
                                              questions={data?.questions}/>

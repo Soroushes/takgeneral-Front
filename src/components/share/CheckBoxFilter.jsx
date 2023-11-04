@@ -57,7 +57,7 @@ const CheckBoxFilter = ({subFilter , category}) => {
     };
     return (
         <>
-            <FormLabel sx={{borderBottom: '1px solid #ccc', pb: 1, fontSize: 14, mb: 1}} component="legend">
+            <FormLabel sx={{borderBottom: '1px solid #ccc', pb: 1, fontSize: 14, mb: 1 , display:{md:'block' , xs:'none'}}} component="legend">
                 برندهای {category}
             </FormLabel>
             {
@@ -68,7 +68,7 @@ const CheckBoxFilter = ({subFilter , category}) => {
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                justifyContent: ' space-between',
+                                justifyContent: {md:'space-between' , xs:'start'},
                                 mb: 1,
                                 fontWeight: 'bold'
                             }}>
@@ -76,7 +76,7 @@ const CheckBoxFilter = ({subFilter , category}) => {
                                       checked={checkBox[value.id]} onChange={handleCheck}
                                       name={String(value.id)}/>
                             <Typography variant={'body2'} component={'p'} sx={{textAlign: 'center'}}>{value.name}</Typography>
-                            <Typography component={'p'} variant={'subtitle2'}>({value.product_count})</Typography>
+                            <Typography sx={{mx:{md:0 , xs:1}}} component={'p'} variant={'subtitle2'}>({value.product_count})</Typography>
                         </Box>
                     )
                 })

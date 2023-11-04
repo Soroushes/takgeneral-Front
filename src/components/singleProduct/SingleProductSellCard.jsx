@@ -16,11 +16,14 @@ const SingleProductSellCard = ({
                                    id,
                                    price, finalPrice , madeIn , minPrice
                                }) => {
-    const {priceItem} = useCart(id);
+    const {priceItem , setId} = useCart(id);
     const [icons , setIcons] = useState({freeDelivery:'' , Available:'' , original :'' , bestPrice :'' , Warranty :'' , fake:''});
     useEffect(()=>{
         setIcons({freeDelivery : <FreeDeliveryIcon/> , Available :<AvailableIcon/> , original:<OriginalIcon/> , bestPrice : <BestPriceIcon/> , Warranty :<WarrantyIcon/> , fake :<FakeIcon/>})
-    },[])
+    },[]);
+    useEffect(()=>{
+        setId(id)
+    },[id])
     return (
         <>
             <Box sx={{mb: 2, backgroundColor: '#fff', py: 2, px: .5, borderRadius: 2, boxShadow: 1}} display={'flex'}
@@ -102,7 +105,7 @@ const SingleProductSellCard = ({
                                    finalPriceColor={'text.main'} discountedPriceFont={'h5'} fontSize={'h4'}/>
                 </Box>
                 <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'end', width: '100%'}}>
-                    <CartEditionButton available={available} boxSx={{width: '110px'}} id={id}/>
+                    <CartEditionButton key={id} available={available} boxSx={{width: '110px'}} id={id}/>
                 </Box>
             </Box>
         </>

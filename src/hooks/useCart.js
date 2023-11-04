@@ -2,7 +2,8 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCart} from "@/redux/slices/cart";
 
-export const useCart = (id) => {
+export const useCart = (initialId) => {
+    const [id , setId] = useState(initialId);
     const [countItem, setCountItem] = useState(0);
     const [priceItem , setPriceItem] = useState({finalPrice : 0 , price:0});
     const dispatch = useDispatch();
@@ -40,5 +41,5 @@ export const useCart = (id) => {
         setCountItem(+selectedCartItem?.quantity || 0);
         setPriceItem({price: selectedCartItem?.sum_price , finalPrice: selectedCartItem?.sum_final_price});
     };
-    return {setCart, countItem, deleteProduct , priceItem};
+    return {setCart, countItem, deleteProduct , priceItem , setId};
 };
