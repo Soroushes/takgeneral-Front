@@ -2,7 +2,10 @@
 import {Box, Button, Container, Grid, TextField, Typography} from "@mui/material";
 import MailIcon from '../../../assets/icons/contact-us/sms.svg';
 import LocationIcon from '../../../assets/icons/contact-us/location.svg';
-import CallIcon from '../../../assets/icons/contact-us/call.svg'
+import CallIcon from '../../../assets/icons/contact-us/call.svg';
+import InstagramIcon from '../../../assets/icons/contact-us/instagram.svg';
+import TelegramIcon from '../../../assets/icons/contact-us/telegram.svg';
+import WhatsappIcon from '../../../assets/icons/contact-us/whatsapp.svg';
 import {Controller, useForm} from "react-hook-form";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import Link from "next/link";
@@ -23,7 +26,8 @@ const ContactUsPage = () => {
                     <Typography variant={'body1'} sx={{mt: 3}}>کارشناسان ما با پشتیبانی {PN.convertEnToPe(24)} ساعته در
                         سریع ترین زمان ممکن به درخواست های شما
                         پاسخ خواهند داد.</Typography>
-                    <Grid container rowGap={2} justifyContent={'space-between'} display={'flex'} sx={{mt: {md: 12, xs: 2}}}>
+                    <Grid container rowGap={2} justifyContent={'space-between'} display={'flex'}
+                          sx={{mt: {md: 12, xs: 2}}}>
                         <Grid item md={4} xs={6}>
                             <Link passHref target={'_blank'}
                                   href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
@@ -41,7 +45,13 @@ const ContactUsPage = () => {
                                         <MailIcon/>
                                     </Box>
                                     <Typography
-                                        sx={{fontSize: {md: 13, xs: 10, textAlign: 'center'}}}>Takgeneral@gmail.Com</Typography>
+                                        sx={{
+                                            fontSize: {
+                                                md: 13,
+                                                xs: 10,
+                                                textAlign: 'center'
+                                            }
+                                        }}>Takgeneral.com@gmail.Com</Typography>
                                 </Box>
                             </Link>
                         </Grid>
@@ -60,13 +70,40 @@ const ContactUsPage = () => {
                                     }}>
                                         <LocationIcon/>
                                     </Box>
-                                    <Typography sx={{fontSize: {md: 13, xs: 11, textAlign: 'center'}}}>تهران، خیابان
+                                    <Typography
+                                        sx={{fontSize: {md: 13, xs: 11, textAlign: 'center'}, mr: {xs: 1, md: 0}}}>تهران،
+                                        خیابان
                                         طالقانی، نبش
                                         چهار راه بهار، پلاک {PN.convertEnToPe(126)}</Typography>
                                 </Box>
                             </Link>
                         </Grid>
-                        <Grid item md={4} xs={12}>
+                        <Grid item md={4} xs={6}>
+                            <Link passHref target={'_blank'} href={"tel://+982177500376"}>
+                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
+                                    <Box sx={{
+                                        backgroundColor: '#fff',
+                                        aspectRatio: '1/1',
+                                        p: 1.5,
+                                        boxShadow: 1,
+                                        borderRadius: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <CallIcon/>
+                                    </Box>
+                                    <Typography sx={{
+                                        fontSize: {
+                                            md: 13,
+                                            xs: 11,
+                                            textAlign: 'center'
+                                        }
+                                    }}>{PN.convertEnToPe('02177500376')}</Typography>
+                                </Box>
+                            </Link>
+                        </Grid>
+                        <Grid item md={4} xs={6}>
                             <Link passHref target={'_blank'} href={"tel://+989212075118"}>
                                 <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
                                     <Box sx={{
@@ -88,6 +125,81 @@ const ContactUsPage = () => {
                                             textAlign: 'center'
                                         }
                                     }}>{PN.convertEnToPe('09212075118')}</Typography>
+                                </Box>
+                            </Link>
+                        </Grid>
+                        <Grid item md={4} xs={6}>
+                            <Link passHref target={'_blank'} href={"https://wa.me/989212075118"}>
+                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
+                                    <Box sx={{
+                                        backgroundColor: '#fff',
+                                        aspectRatio: '1/1',
+                                        p: 1.5,
+                                        boxShadow: 1,
+                                        borderRadius: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <WhatsappIcon/>
+                                    </Box>
+                                    <Typography sx={{
+                                        fontSize: {
+                                            md: 13,
+                                            xs: 11,
+                                            textAlign: 'center'
+                                        }
+                                    }}>{PN.convertEnToPe('09212075118')}</Typography>
+                                </Box>
+                            </Link>
+                        </Grid>
+                        <Grid item md={4} xs={6}>
+                            <Link passHref target={'_blank'} href={"https://t.me/atworkk"}>
+                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
+                                    <Box sx={{
+                                        backgroundColor: '#fff',
+                                        aspectRatio: '1/1',
+                                        p: 1.5,
+                                        boxShadow: 1,
+                                        borderRadius: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <TelegramIcon/>
+                                    </Box>
+                                    <Typography sx={{
+                                        fontSize: {
+                                            md: 13,
+                                            xs: 11,
+                                            textAlign: 'center'
+                                        }
+                                    }}>{PN.convertEnToPe('09212075118')}</Typography>
+                                </Box>
+                            </Link>
+                        </Grid>
+                        <Grid item md={4} xs={12}>
+                            <Link passHref target={'_blank'} href={"https://instagram.com/"}>
+                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
+                                    <Box sx={{
+                                        backgroundColor: '#fff',
+                                        aspectRatio: '1/1',
+                                        p: 1.5,
+                                        boxShadow: 1,
+                                        borderRadius: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <InstagramIcon/>
+                                    </Box>
+                                    <Typography sx={{
+                                        fontSize: {
+                                            md: 13,
+                                            xs: 11,
+                                            textAlign: 'center'
+                                        }
+                                    }}>instagram</Typography>
                                 </Box>
                             </Link>
                         </Grid>

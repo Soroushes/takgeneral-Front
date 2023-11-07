@@ -1,10 +1,12 @@
 import {Box, Container, Grid, Typography} from "@mui/material";
 import CallIcon from '../../assets/icons/footer/call.svg';
+import CallingIcon from '../../assets/icons/footer/call-calling.svg';
 import LocationIcon from '../../assets/icons/footer/location.svg';
 import MailIcon from '../../assets/icons/footer/sms.svg';
 import TelegramIcon from '../../assets/icons/footer/telegram.svg';
 import InstagramIcon from '../../assets/icons/footer/instagram.svg';
 import MailIcon2 from '../../assets/icons/footer/light-sms.svg';
+import WhatsappIcon from '../../assets/icons/footer/whatsapp-1.svg';
 import unionImage from '../../assets/images/footer/unionImage.png';
 import logo from '../../../public/fa_logo.jpg';
 import Image from "next/image";
@@ -70,9 +72,17 @@ const Footer = () => {
                             <Link passHref target={'_blank'} href={"tel:989212075118"}>
                                 <Box display={'flex'} gap={1} mt={2}>
                                     <Box>
-                                        <CallIcon/>
+                                        <CallingIcon/>
                                     </Box>
                                     <Typography>{PN.convertEnToPe('09212075118')}</Typography>
+                                </Box>
+                            </Link>
+                            <Link passHref target={'_blank'} href={"tel:+982177500376"}>
+                                <Box display={'flex'} gap={1} mt={2}>
+                                    <Box>
+                                        <CallIcon/>
+                                    </Box>
+                                    <Typography>{PN.convertEnToPe('02177500376')}</Typography>
                                 </Box>
                             </Link>
                             <Link passHref target={'_blank'}
@@ -187,6 +197,9 @@ const Footer = () => {
                         </Link>
                         <Link href={'https://instagram.com/'}>
                             <InstagramIcon/>
+                        </Link>
+                        <Link href={"https://wa.me/989212075118"}>
+                            <WhatsappIcon/>
                         </Link>
                     </Box>
                 </Box>

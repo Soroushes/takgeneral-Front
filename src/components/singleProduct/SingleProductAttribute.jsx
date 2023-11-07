@@ -4,7 +4,21 @@ import PN from "persian-number";
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import Link from "next/link";
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
-const singleProductAttribute = ({attrRef , pdf, attributes, name, setShowAllDetails, opinionRef , productOptions , setOptions , options , comments , rate , id}) => {
+
+const singleProductAttribute = ({
+                                    attrRef,
+                                    pdf,
+                                    attributes,
+                                    name,
+                                    setShowAllDetails,
+                                    opinionRef,
+                                    productOptions,
+                                    setOptions,
+                                    options,
+                                    comments,
+                                    rate,
+                                    id
+                                }) => {
     const scrollToDetails = () => {
         setShowAllDetails(true);
         //goToDetails.current?.scrollIntoView({behavior: 'smooth' , block : 'nearest' , inline : 'start' });
@@ -19,8 +33,8 @@ const singleProductAttribute = ({attrRef , pdf, attributes, name, setShowAllDeta
             behavior: 'smooth'
         })
     };
-    const handleSortOnchange = (value)=>{
-        const newOption = options?.product_variant.find((item)=>item.id === value);
+    const handleSortOnchange = (value) => {
+        const newOption = options?.product_variant.find((item) => item.id === value);
         setOptions(newOption);
     }
     return (
@@ -54,7 +68,8 @@ const singleProductAttribute = ({attrRef , pdf, attributes, name, setShowAllDeta
                     >
                         {
                             options?.product_variant.map((sortItem) => (
-                                <MenuItem key={sortItem.option_value} variant={'subtitle1'}
+                                <MenuItem key={sortItem.option_value}
+                                          variant={'subtitle1'}
                                           value={sortItem.id}>{sortItem.option_value}</MenuItem>
                             ))
                         }
@@ -68,23 +83,24 @@ const singleProductAttribute = ({attrRef , pdf, attributes, name, setShowAllDeta
                         return (
                             <Typography key={index}
                                         variant="body1" component={'li'}>{attr.specification} : {attr.value}
-                                 </Typography>
+                            </Typography>
                         )
                     })
                 }
             </Box>
             <Box display={'flex'} alignItems={'center'} mt={2} justifyContent={'space-between'}>
-                <Box sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}}  onClick={scrollToDetails}>
+                <Box sx={{cursor: 'pointer', display: 'flex', alignItems: 'center'}} onClick={scrollToDetails}>
                     <Typography variant={'body2'}
-                                sx={{ color: 'primary.main', textAlign: 'center'}}>مشاهده
+                                sx={{color: 'primary.main', textAlign: 'center'}}>مشاهده
                         بیشتر</Typography>
                     <ExpandMoreRoundedIcon color={'primary'}/>
                 </Box>
                 {
                     pdf ?
                         <Link href={pdf} passHref target="_blank">
-                            <Button variant={'contained'} size={'small'} sx={{borderRadius:2}}><Typography color={'white'} variant={'body2'} mr={1}>دانلود کاتالوگ</Typography><CloudDownloadIcon/></Button>
-                        </Link>:null
+                            <Button variant={'contained'} size={'small'} sx={{borderRadius: 2}}><Typography
+                                color={'white'} variant={'body2'} mr={1}>دانلود کاتالوگ</Typography><CloudDownloadIcon/></Button>
+                        </Link> : null
                 }
             </Box>
             <Typography mt={1}>{productOptions.inventory_status}</Typography>

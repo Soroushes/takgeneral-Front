@@ -4,6 +4,7 @@ import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import PompIcon from '../../../assets/icons/share/pompIcon.svg';
 import AbzarIcon from '../../../assets/icons/share/abzarIcon.svg';
 import TahvieIcon from '../../../assets/icons/share/tahvieIcon.svg';
+import Link from "next/link";
 
 const breadcrumbData = [{url: '/about-us', name: 'درباره تک جنرال'}]
 const AboutUsPage = () => {
@@ -14,56 +15,72 @@ const AboutUsPage = () => {
                 <Typography component={'h1'} sx={{my: 2}} textAlign={'center'} fontWeight={'bold'}
                             fontSize={'24px !important'}>درباره تک جنرال</Typography>
                 <Grid container display={'flex'} rowGap={1} justifyContent={'space-between'} sx={{mb: 8, mt: 6}}>
-                    <Grid item md={4} xs={6} display={'flex'} justifyContent={'space-between'} flexDirection={'column'} alignItems={'center'}>
-                        <Box sx={{
-                            backgroundColor: '#fff',
-                            p: 1.5,
-                            boxShadow: 1,
-                            borderRadius: '100%',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-                            <AbzarIcon/>
-                        </Box>
-                        <Typography textAlign={'center'} sx={{fontSize: {md: 19, xs: 10}}} fontWeight={'bold'}>ابزار دقیق</Typography>
-                        <Typography sx={{fontSize: {md: 12, xs: 10}}} width={'100%'} textAlign={'center'}>فروش تجهیزات اندازه گیری فلو</Typography>
+                    <Grid item md={4} xs={6}>
+                        <Link href={'/category/instrumentation'}>
+                            <Box display={'flex'} justifyContent={'space-between'} flexDirection={'column'} alignItems={'center'}>
+                                <Box sx={{
+                                    backgroundColor: '#fff',
+                                    p: 1.5,
+                                    boxShadow: 1,
+                                    borderRadius: '100%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center' ,
+                                    mb:1
+                                }}>
+                                    <AbzarIcon/>
+                                </Box>
+                                <Typography textAlign={'center'} sx={{fontSize: {md: 19, xs: 10} }} fontWeight={'bold'}>ابزار دقیق</Typography>
+                                <Typography sx={{fontSize: {md: 12, xs: 10}, minHeight:{xs:'40px' , md:'auto'}}} width={'100%'} textAlign={'center'}>فروش تجهیزات اندازه گیری فلو</Typography>
+                            </Box>
+                        </Link>
                     </Grid>
-                    <Grid item md={4} xs={6} gap={1} display={'flex'} flexDirection={'column'} justifyContent={'space-between'} alignItems={'center'}>
-                        <Box sx={{
-                            backgroundColor: '#fff',
-                            aspectRatio: '1/1',
-                            p: 1.5,
-                            boxShadow: 1,
-                            borderRadius: '100%',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-                            <TahvieIcon/>
-                        </Box>
-                        <Typography width={'100%'} textAlign={'center'} sx={{fontSize: {md: 19, xs: 10}}}
-                                    fontWeight={'bold'}>تهویه مطبوع و سرمایش و گرمایش</Typography>
-                        <Typography sx={{fontSize: {md: 12, xs: 10}}} textAlign={'center'}>فروش کولر گازی
-                            (اسپیلت)</Typography>
+                    <Grid item md={4} xs={6}>
+                        <Link href={'/category/pomps'}>
+                            <Box display={'flex'} justifyContent={'space-between'} flexDirection={'column'} alignItems={'center'}>
+                                <Box sx={{
+                                    backgroundColor: '#fff',
+                                    aspectRatio: '1/1',
+                                    p: 1.5,
+                                    boxShadow: 1,
+                                    borderRadius: '100%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    mb:1
+
+                                }}>
+                                    <PompIcon/>
+                                </Box>
+                                <Typography width={'100%'} textAlign={'center'} sx={{fontSize: {md: 19, xs: 10}}}
+                                            fontWeight={'bold'}>پمپ و تجهیزات جانبی</Typography>
+                                <Typography sx={{fontSize: {md: 12, xs: 10}, minHeight:{xs:'40px' , md:'auto'}}} width={'100%'} textAlign={'center'}>فروش پمپ آب
+                                    خانگی و پمپ آب طبقاتی و ...</Typography>
+                            </Box>
+                        </Link>
                     </Grid>
-                    <Grid item md={4} xs={12} gap={1} justifyContent={'space-between'} display={'flex'} flexDirection={'column'} alignItems={'center'}>
-                        <Box sx={{
-                            backgroundColor: '#fff',
-                            aspectRatio: '1/1',
-                            p: 1.5,
-                            boxShadow: 1,
-                            borderRadius: '100%',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-                            <PompIcon/>
-                        </Box>
-                        <Typography width={'100%'} textAlign={'center'} sx={{fontSize: {md: 19, xs: 10}}}
-                                    fontWeight={'bold'}>پمپ و تجهیزات جانبی</Typography>
-                        <Typography sx={{fontSize: {md: 12, xs: 10}}} width={'100%'} textAlign={'center'}>فروش پمپ آب
-                            خانگی و پمپ آب طبقاتی و ...</Typography>
+                    <Grid item md={4} xs={12}>
+                        <Link href={'/category/air-conditioning'}>
+                            <Box display={'flex'} justifyContent={'space-between'} flexDirection={'column'} alignItems={'center'}>
+                                <Box sx={{
+                                    backgroundColor: '#fff',
+                                    aspectRatio: '1/1',
+                                    p: 1.5,
+                                    boxShadow: 1,
+                                    borderRadius: '100%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    mb:1
+                                }}>
+                                    <TahvieIcon/>
+                                </Box>
+                                <Typography width={'100%'} textAlign={'center'} sx={{fontSize: {md: 19, xs: 10}}}
+                                            fontWeight={'bold'}>تهویه مطبوع و سرمایش و گرمایش</Typography>
+                                <Typography sx={{fontSize: {md: 12, xs: 10}, minHeight:{xs:'40px' , md:'auto'}}} textAlign={'center'}>فروش کولر گازی
+                                    (اسپیلت)</Typography>
+                            </Box>
+                        </Link>
                     </Grid>
                 </Grid>
                 <Typography variant={'h5'} lineHeight={'29px'} textAlign={'justify'}>
