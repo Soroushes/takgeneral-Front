@@ -7,7 +7,6 @@ import {timeStampToDate} from "@/hooks/timeStampToDate";
 import Link from "next/link";
 
 const BlogCard = ({blog}) => {
-    console.log(blog)
     return (
         <Link href={`/blog/${blog.slug}`} >
             <Box sx={{

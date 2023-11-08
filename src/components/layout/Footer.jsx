@@ -1,6 +1,5 @@
 import {Box, Container, Grid, Typography} from "@mui/material";
 import CallIcon from '../../assets/icons/footer/call.svg';
-import CallingIcon from '../../assets/icons/footer/call-calling.svg';
 import LocationIcon from '../../assets/icons/footer/location.svg';
 import MailIcon from '../../assets/icons/footer/sms.svg';
 import TelegramIcon from '../../assets/icons/footer/telegram.svg';
@@ -18,6 +17,7 @@ import PhoneIcon from '../../assets/icons/footer/cellPhone.svg'
 import ContactIcon from '../../assets/icons/footer/contactIcon.svg'
 import test from '../../assets/images/namad/samandehi.webp'
 import {useEffect, useState} from "react";
+import {ImageSearch} from "@mui/icons-material";
 
 const Footer = () => {
     const [icons, setIcons] = useState({
@@ -69,22 +69,17 @@ const Footer = () => {
                                     <Image priority alt={''} src={logo} width={150} height={50}/>
                                 </Box>
                             </Link>
-                            <Link passHref target={'_blank'} href={"tel:989212075118"}>
-                                <Box display={'flex'} gap={1} mt={2}>
-                                    <Box>
-                                        <CallingIcon/>
-                                    </Box>
+                            <Box display={'flex'} mt={2}>
+                                <Box mr={1}>
+                                    <CallIcon/>
+                                </Box>
+                                <Link passHref target={'_blank'} href={"tel:989212075118"}>
+                                    <Typography>{PN.convertEnToPe('02177500376')}_</Typography>
+                                </Link>
+                                <Link passHref target={'_blank'} href={"tel:+982177500376"}>
                                     <Typography>{PN.convertEnToPe('09212075118')}</Typography>
-                                </Box>
-                            </Link>
-                            <Link passHref target={'_blank'} href={"tel:+982177500376"}>
-                                <Box display={'flex'} gap={1} mt={2}>
-                                    <Box>
-                                        <CallIcon/>
-                                    </Box>
-                                    <Typography>{PN.convertEnToPe('02177500376')}</Typography>
-                                </Box>
-                            </Link>
+                                </Link>
+                            </Box>
                             <Link passHref target={'_blank'}
                                   href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
                                 <Box display={'flex'} gap={1} mt={2}>
@@ -142,15 +137,13 @@ const Footer = () => {
                                 borderRadius: 2,
                                 boxShadow: 1
                             }}>
-                                <Link style={{width: '100%', height: '100%'}} referrerPolicy='origin' target={'_blank'}
-                                      href='https://trustseal.enamad.ir/?id=344613&Code='>
-                                    <Image referrerPolicy='origin'
-                                         src='https://trustseal.enamad.ir/logo.aspx?id=344613&Code='
-                                         alt='' width={75} height={75}
-                                         // style={{cursor: 'pointer', width: '100%', height: '100%'}}
-                                         Code=''/></Link>
-                                {/*<Image width={'120px'} height={'132px'} style={{width: '100%', height: 'auto'}}*/}
-                                {/*       src={trustImage} alt={''}/>*/}
+                                <a referrerPolicy='origin' target='_blank'
+                                   href='https://trustseal.enamad.ir/?id=344613&Code=oFIMPdMkR76yp32fW0aU'>
+                                    <Image referrerPolicy='origin' width={75} height={75}
+                                         src='https://trustseal.enamad.ir/logo.aspx?id=344613&Code=oFIMPdMkR76yp32fW0aU'
+                                         alt=''
+                                         style={{cursor: 'pointer'}}
+                                    /></a>
                             </Box>
                             <Box sx={{
                                 width: '100%',

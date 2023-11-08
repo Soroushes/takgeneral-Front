@@ -3,7 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import CloseIcon from '@mui/icons-material/Close';
 
-const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFullScreen , setDrawer = ()=>{}}) => {
+const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFullScreen , onCloseFn}) => {
     return (
         <>
             <Dialog
@@ -13,7 +13,7 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                 open={open}
                 onClose={() => setOpen(false)}
             >
-                <DialogTitle sx={{px: 4 }} fontWeight={'bold'} variant={'h6'}>
+                <DialogTitle sx={{px: 4}} fontWeight={'bold'} variant={'h6'}>
                     {title}
                 </DialogTitle>
                 <Divider/>
@@ -28,8 +28,8 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                 anchor="bottom"
                 open={open}
                 onClose={() => {
-                    setDrawer(false)
-                    setOpen(false)
+                    onCloseFn?.();
+                    setOpen(false);
                 }}
             >
                 <AppBar
@@ -60,7 +60,7 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                         </Typography>
                         <IconButton sx={{p: 0}} onClick={() => {
                             setOpen(false)
-                            setDrawer(false)
+                            onCloseFn?.()
                         }}>
                             <CloseIcon/>
                         </IconButton>

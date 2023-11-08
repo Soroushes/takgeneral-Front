@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import {Box, Button, Container, Grid, MenuItem, TextField, Typography} from "@mui/material";
+import {Box, Button, Collapse, Container, Grid, MenuItem, TextField, Typography} from "@mui/material";
 import CheckBoxFilter from "@/components/share/CheckBoxFilter";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import MainModal from "../../../../components/share/MainModal";
@@ -34,7 +34,6 @@ const ChildCategoryPage = ({
                                brands,
                                current_page,
                                page_count,
-                               category,
                                childCategory,
                                products,
                                content,
@@ -69,7 +68,7 @@ const ChildCategoryPage = ({
                     <Link href={'/'}>
                         <Box sx={{
                             width: '100%',
-                            aspectRatio: '1.5/1',
+                            aspectRatio: '1.3/1',
                             position: 'relative',
                             p: 0,
                             display: {xs: 'block', md: 'none'}
@@ -99,7 +98,7 @@ const ChildCategoryPage = ({
                     </Box>
                     <Typography sx={{mb: 1, mx: 2}} variant={'h4'} component={'h1'}>{main_category?.name}</Typography>
                     <Box sx={{px: 1}}>
-                        <CategorySlider categoryUrl={category} category={childCategory}/>
+                        <CategorySlider mainCategory={main_category} category={childCategory}/>
                     </Box>
                     <Grid sx={{px: 1.5}} container>
                         <Grid item xs={12}>
@@ -150,7 +149,6 @@ const ChildCategoryPage = ({
                                     </TextField>
                                 </Grid>
                             </Grid>
-
                         </Grid>
                         <Grid item md={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
                             <Box sx={{p: 2, borderRadius: 2, backgroundColor: '#fff', boxShadow: 1, width: '100%'}}>
@@ -191,7 +189,9 @@ const ChildCategoryPage = ({
                             </Box> : null
                     }
                 </Container>
-                <MainModal setOpen={setOpenFilterModal} setDrawer={setDrawerIsOpen} open={openFilterModal} title={'فیلترها'}>
+                <MainModal setOpen={setOpenFilterModal} onCloseFn={() => {
+                    setDrawerIsOpen(false)
+                }} open={openFilterModal} title={'فیلترها'}>
                     <Box sx={{p: 2}}>
                         <Box display={'flex'} mb={1} alignItems={'center'} justifyContent={'space-between'}
                              sx={{
@@ -204,8 +204,8 @@ const ChildCategoryPage = ({
                             <Typography>فقط کالاهای موجود</Typography>
                             <IOSSwitch color={'primary'}/>
                         </Box>
-                        <Box onClick={toggleDrawer} sx={{mx: 1, px: 2, py: 1.5, borderRadius: 2, border: '1px solid #eee' }}>
-                            <Box display={'flex'} justifyContent={'space-between'}>
+                        <Box sx={{mx: 1, px: 2, py: 1.5, borderRadius: 2, border: '1px solid #eee'}}>
+                            <Box onClick={toggleDrawer} display={'flex'} justifyContent={'space-between'}>
                                 <Typography>برندها</Typography>
                                 {
                                     drawerIsOpen ?
@@ -213,13 +213,12 @@ const ChildCategoryPage = ({
                                         <ExpandMoreRoundedIcon/>
                                 }
                             </Box>
-                            {
-                                drawerIsOpen &&
+                            <Collapse in={drawerIsOpen}>
                                 <Box mt={1}>
-                                    <CheckBoxFilter category={main_category?.name} key={noQueryPath} subFilter={brands}/>
+                                    <CheckBoxFilter category={main_category?.name} key={noQueryPath}
+                                                    subFilter={brands}/>
                                 </Box>
-
-                            }
+                            </Collapse>
                         </Box>
                     </Box>
                 </MainModal>
@@ -234,8 +233,6 @@ const ChildCategoryPage = ({
                                         setOpenSortModal(false);
                                     }}
                                     sx={{py: 1.5, px: 1.5}}
-                                    key={sortItem.value}
-                                    value={sortItem.value}
                                 >
                                     {sortItem.name}
                                 </Typography>

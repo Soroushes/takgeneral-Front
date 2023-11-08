@@ -37,7 +37,7 @@ export default function ParentCategoryPage({
                             position: "relative",
                             display: {md: 'none', xs: 'block'},
                             width: '100%',
-                            aspectRatio: '1.5/1'
+                            aspectRatio: '1.3/1'
                         }}>
                             <Image src={main_banner[0]?.mobile_image} style={{borderRadius: '8px'}} fill alt={main_banner[0]?.alt ?? ''}/>
                         </Box>

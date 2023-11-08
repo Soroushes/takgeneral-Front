@@ -4,6 +4,9 @@ import PN from "persian-number";
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import Link from "next/link";
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import {useState} from "react";
+import MainModal from "@/components/share/MainModal";
 
 const singleProductAttribute = ({
                                     attrRef,
@@ -19,6 +22,7 @@ const singleProductAttribute = ({
                                     rate,
                                     id
                                 }) => {
+    const [modalIsOpen , setModalIsOpen] = useState();
     const scrollToDetails = () => {
         setShowAllDetails(true);
         //goToDetails.current?.scrollIntoView({behavior: 'smooth' , block : 'nearest' , inline : 'start' });
@@ -60,6 +64,7 @@ const singleProductAttribute = ({
                     <TextField
                         sx={{
                             width: "150px", "& fieldset": {border: '1px solid #eee'},
+                            display:{md:'block' , xs:'none'}
                         }}
                         size={'small'}
                         select
@@ -74,6 +79,10 @@ const singleProductAttribute = ({
                             ))
                         }
                     </TextField>
+                    <Box onClick={()=>{setModalIsOpen(true)}} sx={{display:{md:'none' , xs:'flex'} , alignItems:'center' , gap:5 , border:'1px solid #eee' , py:.5 , px:1.5 , borderRadius:2}}>
+                        <Typography>{productOptions?.option_value}</Typography>
+                        <KeyboardArrowDownIcon color={'primary'}/>
+                    </Box>
                 </Box>
             }
             <Box component={'ul'} sx={{display: 'flex', flexDirection: 'column', gap: .75, mt: 1}}>
@@ -104,6 +113,24 @@ const singleProductAttribute = ({
                 }
             </Box>
             <Typography mt={1}>{productOptions.inventory_status}</Typography>
+            <MainModal open={modalIsOpen} setOpen={setModalIsOpen} title={options?.name}>
+                {
+                    options?.product_variant.map((sortItem) => (
+                        <Box sx={{border: '1px solid #eee', borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
+                            <Typography
+                                component={'p'}
+                                onClick={() => {
+                                    handleSortOnchange(sortItem.id);
+                                    setModalIsOpen(false);
+                                }}
+                                sx={{py: 1.5, px: 1.5}}
+                            >
+                                {sortItem.option_value}
+                            </Typography>
+                        </Box>
+                    ))
+                }
+            </MainModal>
         </Box>
     )
 }

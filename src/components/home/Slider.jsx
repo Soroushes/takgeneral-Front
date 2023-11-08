@@ -10,8 +10,8 @@ import Link from "next/link";
 const Slider = ({slides}) => {
     const {desktopHeaderHeight , mobileHeaderHeight} = useSelector(state => state.deviceInfo);
     return (
-        <Box sx={{height : 400}}>
-            <Box sx={{top : {xs: mobileHeaderHeight , md: desktopHeaderHeight}   , height : '410px' , width : '100%'}} left={0} right={0} position={'fixed'} zIndex={1}>
+        <Box sx={{aspectRatio: {xs:'1.3/1' , md:'4.5/1'}}}>
+            <Box sx={{top : {xs: mobileHeaderHeight , md: desktopHeaderHeight}   , aspectRatio: {xs:'1.3/1' , md:'4.5/1'} , width : '100%'}} left={0} right={0} position={'fixed'} zIndex={1}>
                 <Swiper
                     modules={[Navigation]}
                     spaceBetween={0}
@@ -26,7 +26,7 @@ const Slider = ({slides}) => {
                                                 <Image fill src={slide.image}  alt={slide.alt}/>
                                             </Link>
                                         </Box>
-                                        <Box sx={{aspectRatio: '1.5/1' , display:{md:'none' , xs:'block'}}}>
+                                        <Box sx={{aspectRatio: '1.3/1' , display:{md:'none' , xs:'block'}}}>
                                             <Link href={slide.link_url ?? '/'}>
                                                 <Image fill src={slide.mobile_image}  alt={slide.alt}/>
                                             </Link>

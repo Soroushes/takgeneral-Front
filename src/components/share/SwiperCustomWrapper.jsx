@@ -6,7 +6,7 @@ import {useRef} from "react";
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 
-const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation = true}) => {
+const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation = true , sliderRef = null}) => {
     const swiperRef = useRef();
     return (
         <>
@@ -61,13 +61,13 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation 
                          }} onClick={() => swiperRef.current?.slideNext()}><ChevronLeftRoundedIcon/></Box>
                 }
             </Box>
-            <Box display={{xs: 'flex', md: 'none'}} className={'hide-scroll-bar'} sx={{
+            <Box display={{xs: 'flex', md: 'none'}} ref={sliderRef} className={'hide-scroll-bar'} sx={{
                 flexWrap: 'nowrap',
                 overflowX: 'auto',
                 scrollBehavior: 'smooth',
                 gap: spaceBetween,
                 overflowY: 'hidden',
-                alignItems: 'center'
+                alignItems: 'center',
             }}>
                 {children}
             </Box>

@@ -17,7 +17,7 @@ const AboutUsPage = () => {
                 <Grid container display={'flex'} rowGap={1} justifyContent={'space-between'} sx={{mb: 8, mt: 6}}>
                     <Grid item md={4} xs={6}>
                         <Link href={'/category/instrumentation'}>
-                            <Box display={'flex'} justifyContent={'space-between'} flexDirection={'column'} alignItems={'center'}>
+                            <Box display={'flex'} gap={1} justifyContent={'space-between'} flexDirection={'column'} alignItems={'center'}>
                                 <Box sx={{
                                     backgroundColor: '#fff',
                                     p: 1.5,
@@ -36,8 +36,8 @@ const AboutUsPage = () => {
                         </Link>
                     </Grid>
                     <Grid item md={4} xs={6}>
-                        <Link href={'/category/pomps'}>
-                            <Box display={'flex'} justifyContent={'space-between'} flexDirection={'column'} alignItems={'center'}>
+                        <Link href={'/category/pumps'}>
+                            <Box display={'flex'} gap={1} justifyContent={'space-between'} flexDirection={'column'} alignItems={'center'}>
                                 <Box sx={{
                                     backgroundColor: '#fff',
                                     aspectRatio: '1/1',
@@ -61,7 +61,7 @@ const AboutUsPage = () => {
                     </Grid>
                     <Grid item md={4} xs={12}>
                         <Link href={'/category/air-conditioning'}>
-                            <Box display={'flex'} justifyContent={'space-between'} flexDirection={'column'} alignItems={'center'}>
+                            <Box display={'flex'} gap={1} justifyContent={'space-between'} flexDirection={'column'} alignItems={'center'}>
                                 <Box sx={{
                                     backgroundColor: '#fff',
                                     aspectRatio: '1/1',

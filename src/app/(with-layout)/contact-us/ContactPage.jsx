@@ -27,8 +27,108 @@ const ContactUsPage = () => {
                         سریع ترین زمان ممکن به درخواست های شما
                         پاسخ خواهند داد.</Typography>
                     <Grid container rowGap={2} justifyContent={'space-between'} display={'flex'}
-                          sx={{mt: {md: 12, xs: 2}}}>
-                        <Grid item md={4} xs={6}>
+                          sx={{mt: {md: 12, xs: 2} , columnGap:{md:1 , xs:0}}}>
+                        <Grid item md={3.5} xs={6}>
+                            <Link passHref target={'_blank'} href={"tel://+982177500376"}>
+                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
+                                    <Box sx={{
+                                        backgroundColor: '#fff',
+                                        aspectRatio: '1/1',
+                                        p: 1.5,
+                                        boxShadow: 1,
+                                        borderRadius: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <CallIcon/>
+                                    </Box>
+                                    <Typography sx={{
+                                        fontSize: {
+                                            md: 13,
+                                            xs: 11,
+                                            textAlign: 'center'
+                                        }
+                                    }}>تماس در ساعات کاری</Typography>
+                                </Box>
+                            </Link>
+                        </Grid>
+                        <Grid item md={3.5} xs={6}>
+                            <Link passHref target={'_blank'} href={"tel://+989212075118"}>
+                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
+                                    <Box sx={{
+                                        backgroundColor: '#fff',
+                                        aspectRatio: '1/1',
+                                        p: 1.5,
+                                        boxShadow: 1,
+                                        borderRadius: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <CallIcon/>
+                                    </Box>
+                                    <Typography sx={{
+                                        fontSize: {
+                                            md: 13,
+                                            xs: 11,
+                                            textAlign: 'center'
+                                        }
+                                    }}>تماس {PN.convertEnToPe('24')} ساعته</Typography>
+                                </Box>
+                            </Link>
+                        </Grid>
+                        <Grid item md={3.5} xs={6}>
+                            <Link passHref target={'_blank'} href={"https://t.me/atworkk"}>
+                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
+                                    <Box sx={{
+                                        backgroundColor: '#fff',
+                                        aspectRatio: '1/1',
+                                        p: 1.5,
+                                        boxShadow: 1,
+                                        borderRadius: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <TelegramIcon/>
+                                    </Box>
+                                    <Typography sx={{
+                                        fontSize: {
+                                            md: 13,
+                                            xs: 11,
+                                            textAlign: 'center'
+                                        }
+                                    }}>telegram</Typography>
+                                </Box>
+                            </Link>
+                        </Grid>
+                        <Grid item md={3.5} xs={6}>
+                            <Link passHref target={'_blank'} href={"https://wa.me/989212075118"}>
+                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
+                                    <Box sx={{
+                                        backgroundColor: '#fff',
+                                        aspectRatio: '1/1',
+                                        p: 1.5,
+                                        boxShadow: 1,
+                                        borderRadius: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <WhatsappIcon/>
+                                    </Box>
+                                    <Typography sx={{
+                                        fontSize: {
+                                            md: 13,
+                                            xs: 11,
+                                            textAlign: 'center'
+                                        }
+                                    }}>whatsapp</Typography>
+                                </Box>
+                            </Link>
+                        </Grid>
+                        <Grid item md={3.5} xs={6}>
                             <Link passHref target={'_blank'}
                                   href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
                                 <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
@@ -55,130 +155,7 @@ const ContactUsPage = () => {
                                 </Box>
                             </Link>
                         </Grid>
-                        <Grid item md={4} xs={6}>
-                            <Link passHref target={'_blank'} href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
-                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
-                                    <Box sx={{
-                                        backgroundColor: '#fff',
-                                        aspectRatio: '1/1',
-                                        p: 1.5,
-                                        boxShadow: 1,
-                                        borderRadius: '100%',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center'
-                                    }}>
-                                        <LocationIcon/>
-                                    </Box>
-                                    <Typography
-                                        sx={{fontSize: {md: 13, xs: 11, textAlign: 'center'}, mr: {xs: 1, md: 0}}}>تهران،
-                                        خیابان
-                                        طالقانی، نبش
-                                        چهار راه بهار، پلاک {PN.convertEnToPe(126)}</Typography>
-                                </Box>
-                            </Link>
-                        </Grid>
-                        <Grid item md={4} xs={6}>
-                            <Link passHref target={'_blank'} href={"tel://+982177500376"}>
-                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
-                                    <Box sx={{
-                                        backgroundColor: '#fff',
-                                        aspectRatio: '1/1',
-                                        p: 1.5,
-                                        boxShadow: 1,
-                                        borderRadius: '100%',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center'
-                                    }}>
-                                        <CallIcon/>
-                                    </Box>
-                                    <Typography sx={{
-                                        fontSize: {
-                                            md: 13,
-                                            xs: 11,
-                                            textAlign: 'center'
-                                        }
-                                    }}>{PN.convertEnToPe('02177500376')}</Typography>
-                                </Box>
-                            </Link>
-                        </Grid>
-                        <Grid item md={4} xs={6}>
-                            <Link passHref target={'_blank'} href={"tel://+989212075118"}>
-                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
-                                    <Box sx={{
-                                        backgroundColor: '#fff',
-                                        aspectRatio: '1/1',
-                                        p: 1.5,
-                                        boxShadow: 1,
-                                        borderRadius: '100%',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center'
-                                    }}>
-                                        <CallIcon/>
-                                    </Box>
-                                    <Typography sx={{
-                                        fontSize: {
-                                            md: 13,
-                                            xs: 11,
-                                            textAlign: 'center'
-                                        }
-                                    }}>{PN.convertEnToPe('09212075118')}</Typography>
-                                </Box>
-                            </Link>
-                        </Grid>
-                        <Grid item md={4} xs={6}>
-                            <Link passHref target={'_blank'} href={"https://wa.me/989212075118"}>
-                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
-                                    <Box sx={{
-                                        backgroundColor: '#fff',
-                                        aspectRatio: '1/1',
-                                        p: 1.5,
-                                        boxShadow: 1,
-                                        borderRadius: '100%',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center'
-                                    }}>
-                                        <WhatsappIcon/>
-                                    </Box>
-                                    <Typography sx={{
-                                        fontSize: {
-                                            md: 13,
-                                            xs: 11,
-                                            textAlign: 'center'
-                                        }
-                                    }}>{PN.convertEnToPe('09212075118')}</Typography>
-                                </Box>
-                            </Link>
-                        </Grid>
-                        <Grid item md={4} xs={6}>
-                            <Link passHref target={'_blank'} href={"https://t.me/atworkk"}>
-                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
-                                    <Box sx={{
-                                        backgroundColor: '#fff',
-                                        aspectRatio: '1/1',
-                                        p: 1.5,
-                                        boxShadow: 1,
-                                        borderRadius: '100%',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center'
-                                    }}>
-                                        <TelegramIcon/>
-                                    </Box>
-                                    <Typography sx={{
-                                        fontSize: {
-                                            md: 13,
-                                            xs: 11,
-                                            textAlign: 'center'
-                                        }
-                                    }}>{PN.convertEnToPe('09212075118')}</Typography>
-                                </Box>
-                            </Link>
-                        </Grid>
-                        <Grid item md={4} xs={12}>
+                        <Grid item md={3.5} xs={6}>
                             <Link passHref target={'_blank'} href={"https://instagram.com/"}>
                                 <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
                                     <Box sx={{
@@ -200,6 +177,29 @@ const ContactUsPage = () => {
                                             textAlign: 'center'
                                         }
                                     }}>instagram</Typography>
+                                </Box>
+                            </Link>
+                        </Grid>
+                        <Grid item md={3.5} xs={12}>
+                            <Link passHref target={'_blank'} href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
+                                <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
+                                    <Box sx={{
+                                        backgroundColor: '#fff',
+                                        aspectRatio: '1/1',
+                                        p: 1.5,
+                                        boxShadow: 1,
+                                        borderRadius: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                        <LocationIcon/>
+                                    </Box>
+                                    <Typography
+                                        sx={{fontSize: {md: 13, xs: 11, textAlign: 'center'}, mr: {xs: 1, md: 0}}}>تهران،
+                                        خیابان
+                                        طالقانی، نبش
+                                        چهار راه بهار، پلاک {PN.convertEnToPe(126)}</Typography>
                                 </Box>
                             </Link>
                         </Grid>
