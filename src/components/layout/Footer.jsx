@@ -74,10 +74,10 @@ const Footer = () => {
                                     <CallIcon/>
                                 </Box>
                                 <Link passHref target={'_blank'} href={"tel:989212075118"}>
-                                    <Typography>{PN.convertEnToPe('02177500376')}_</Typography>
+                                    <Typography>{PN.convertEnToPe('09212075118')} _</Typography>
                                 </Link>
                                 <Link passHref target={'_blank'} href={"tel:+982177500376"}>
-                                    <Typography>{PN.convertEnToPe('09212075118')}</Typography>
+                                    <Typography> {PN.convertEnToPe('02177500376')}</Typography>
                                 </Link>
                             </Box>
                             <Link passHref target={'_blank'}
@@ -139,10 +139,10 @@ const Footer = () => {
                             }}>
                                 <a referrerPolicy='origin' target='_blank'
                                    href='https://trustseal.enamad.ir/?id=344613&Code=oFIMPdMkR76yp32fW0aU'>
-                                    <Image referrerPolicy='origin' width={75} height={75}
+                                    <Image referrerPolicy='origin' width={86} height={94}
                                          src='https://trustseal.enamad.ir/logo.aspx?id=344613&Code=oFIMPdMkR76yp32fW0aU'
                                          alt=''
-                                         style={{cursor: 'pointer'}}
+                                         style={{cursor: 'pointer' , width:'100%' , height:'100%'}}
                                     /></a>
                             </Box>
                             <Box sx={{
@@ -153,15 +153,19 @@ const Footer = () => {
                                 borderRadius: 2,
                                 boxShadow: 1
                             }}>
-                                <Image referrerPolicy='origin' id='rgvjwlaooeukwlaofukzoeuk'
-                                       style={{cursor: 'pointer', width: '100%', height: '100%'}}
-                                       onClick={() => {
-                                           window.open("https://logo.samandehi.ir/Verify.aspx?id=348468&p=xlaoaodsmcsiaodsgvkamcsi", "Popup", "toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")
-                                       }}
-                                       alt={'logo-samandehi'}
-                                       src={test}/>
+                                {/*<Image referrerPolicy='origin' id='rgvjwlaooeukwlaofukzoeuk'*/}
+                                {/*       style={{cursor: 'pointer', width: '100%', height: '100%'}}*/}
+                                {/*       onClick={() => {*/}
+                                {/*           window.open("https://logo.samandehi.ir/Verify.aspx?id=348468&p=xlaoaodsmcsiaodsgvkamcsi", "Popup", "toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")*/}
+                                {/*       }}*/}
+                                {/*       alt={'logo-samandehi'}*/}
+                                {/*       src={test}/>*/}
                                 {/*<Image width={'120px'} height={'132px'} style={{width: '100%', height: 'auto'}}*/}
                                 {/*       src={nationalImage} alt={''}/>*/}
+                                <img referrerPolicy='origin' id='rgvjwlaooeukwlaofukzoeuk' style={{cursor: 'pointer' , width:'100%' , height:'100%'}}
+                                     onClick={window.open("https://logo.samandehi.ir/Verify.aspx?id=348468&p=xlaoaodsmcsiaodsgvkamcsi", "Popup", "toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")}
+                                     alt='logo-samandehi'
+                                     src='https://logo.samandehi.ir/logo.aspx?id=348468&p=qftishwlaqgwshwlwlbqaqgw'/>
                             </Box>
                             <Box sx={{
                                 width: '100%',

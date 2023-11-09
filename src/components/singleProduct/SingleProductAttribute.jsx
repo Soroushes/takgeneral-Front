@@ -42,7 +42,7 @@ const singleProductAttribute = ({
         setOptions(newOption);
     }
     return (
-        <Box px={3}>
+        <Box sx={{px:{md:3 , xs:0}}} px={3}>
             <Typography variant="h4" sx={{fontWeight: 'bold', mb: 2}} component={'h1'}>{name}</Typography>
             <Typography variant={'body2'} sx={{my: 1}}>شناسه محصول : {id}-{productOptions.id}</Typography>
             <Box display={'flex'} alignItems={'center'} gap={4}>
@@ -60,7 +60,7 @@ const singleProductAttribute = ({
             {
                 !options?.no_option &&
                 <Box my={2} display={'flex'} alignItems={'center'} gap={2}>
-                    <Typography>{options?.name} :</Typography>
+                    <Typography minWidth={'31px'}>{options?.name} :</Typography>
                     <TextField
                         sx={{
                             width: "150px", "& fieldset": {border: '1px solid #eee'},

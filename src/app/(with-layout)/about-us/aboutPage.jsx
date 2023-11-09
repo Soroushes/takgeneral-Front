@@ -76,7 +76,7 @@ const AboutUsPage = () => {
                                     <TahvieIcon/>
                                 </Box>
                                 <Typography width={'100%'} textAlign={'center'} sx={{fontSize: {md: 19, xs: 10}}}
-                                            fontWeight={'bold'}>تهویه مطبوع و سرمایش و گرمایش</Typography>
+                                            fontWeight={'bold'}>تهویه مطبوع , سرمایش و گرمایش</Typography>
                                 <Typography sx={{fontSize: {md: 12, xs: 10}, minHeight:{xs:'40px' , md:'auto'}}} textAlign={'center'}>فروش کولر گازی
                                     (اسپیلت)</Typography>
                             </Box>
