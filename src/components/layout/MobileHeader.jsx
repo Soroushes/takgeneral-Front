@@ -15,6 +15,8 @@ import MessageIcon from '../../assets/icons/layout/sms.svg';
 import TelegramIcon from '../../assets/icons/layout/send-2.svg';
 import InstagramIcon from '../../assets/icons/layout/instagram.svg';
 import WhatsappIcon from '../../assets/icons/layout/whatsapp.svg';
+ import RingingCall from '../../assets/icons/layout/call-calling.svg';
+ import Call from '../../assets/icons/layout/call.svg';
 const MobileHeader = ({categories}) => {
     const {mobileHeaderHeight} = useSelector(state => state.deviceInfo);
     const {control} = useForm();
@@ -180,6 +182,12 @@ const MobileHeader = ({categories}) => {
                                                 </Link>
                                                 <Link passHref target={'_blank'} href={'https://t.me/atworkk'}>
                                                     <TelegramIcon/>
+                                                </Link>
+                                                <Link passHref target={'_blank'} href={'tel:989212075118'}>
+                                                    <RingingCall/>
+                                                </Link>
+                                                <Link passHref target={'_blank'} href={'tel:+982177500376'}>
+                                                    <Call/>
                                                 </Link>
                                             </Box>
                                             <Typography variant={'subtitle2'}>حقوق این سرویس محفوظ و متعلق به شرکت تک جنرال می‌باشد</Typography>

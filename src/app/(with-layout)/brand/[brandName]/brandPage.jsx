@@ -1,6 +1,6 @@
 'use client'
-import {Button, Container, Divider, Grid, MenuItem, TextField, Typography , Box} from "@mui/material";
-import {Fragment, useEffect, useMemo, useState} from "react";
+import {Button, Container, Grid, MenuItem, TextField, Typography , Box} from "@mui/material";
+import { useEffect, useMemo, useState} from "react";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import MainModal from "../../../../components/share/MainModal";
 import SortIcon from '../../../../assets/icons/share/sort.svg';
@@ -138,21 +138,18 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
             <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>
                 {
                     sortValueItems.map((sortItem) => (
-                        <Fragment key={Math.random() * 1000}>
+                        <Box sx={{border:`1px solid ${sortItem.value === sortValue ? '#ff8301' :'#eee'}`, borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
                             <Typography
+                                component={'p'}
                                 onClick={() => {
                                     handleSortOnchange(sortItem.value);
                                     setOpenSortModal(false);
                                 }}
-                                sx={{py: 1.5, px: 3}}
-                                key={sortItem.value}
-                                value={sortItem.value}
-                                color={sortItem.value === sortValue ? 'primary' : "text"}
+                                sx={{py: 1.5, px: 1.5}}
                             >
                                 {sortItem.name}
                             </Typography>
-                            <Divider/>
-                        </Fragment>
+                        </Box>
                     ))
                 }
             </MainModal>

@@ -225,7 +225,7 @@ const ChildCategoryPage = ({
                 <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>
                     {
                         sortValueItems.map((sortItem) => (
-                            <Box sx={{border: '1px solid #eee', borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
+                            <Box sx={{border:`1px solid ${sortItem.value === sortValue ? '#ff8301' :'#eee'}`, borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
                                 <Typography
                                     component={'p'}
                                     onClick={() => {

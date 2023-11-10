@@ -6,7 +6,6 @@ import TelegramIcon from '../../assets/icons/footer/telegram.svg';
 import InstagramIcon from '../../assets/icons/footer/instagram.svg';
 import MailIcon2 from '../../assets/icons/footer/light-sms.svg';
 import WhatsappIcon from '../../assets/icons/footer/whatsapp-1.svg';
-import unionImage from '../../assets/images/footer/unionImage.png';
 import logo from '../../../public/fa_logo.jpg';
 import Image from "next/image";
 import Link from "next/link";
@@ -15,9 +14,7 @@ import FactorIcon from '../../assets/icons/footer/factor.svg'
 import DeliveryIcon from '../../assets/icons/footer/delivery.svg'
 import PhoneIcon from '../../assets/icons/footer/cellPhone.svg'
 import ContactIcon from '../../assets/icons/footer/contactIcon.svg'
-import test from '../../assets/images/namad/samandehi.webp'
 import {useEffect, useState} from "react";
-import {ImageSearch} from "@mui/icons-material";
 
 const Footer = () => {
     const [icons, setIcons] = useState({
@@ -31,7 +28,7 @@ const Footer = () => {
     return (
         <Box component={'footer'} sx={{backgroundColor: '#FCFCFD', position: 'relative', zIndex: 4, pb: 4, pt: 2}}>
             <Container>
-                <Box sx={{mt: 2, borderTop: '1px solid #eee', borderBottom: '1px solid #eee'}} display={'flex'}
+                <Box sx={{mt: 2 , borderTop: '1px solid #eee', borderBottom: '1px solid #eee'}} display={'flex'}
                      justifyContent={'center'}>
                     <Box sx={{width: {md: '80%', xs: '100%'}}} display={'flex'} justifyContent={'space-between'} my={2}>
                         <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
@@ -60,7 +57,7 @@ const Footer = () => {
                         </Box>
                     </Box>
                 </Box>
-                <Grid container sx={{justifyContent: 'space-between', display: 'flex', borderBottom: '1px solid #eee'}}>
+                <Grid container sx={{justifyContent: 'space-between' , pb:{xs:2 , md:0}, display: 'flex', borderBottom: '1px solid #eee'}}>
                     <Grid item xs={12} md={4} pt={1} pb={4}>
                         <Box sx={{height: '100%'}} display={'flex'} flexDirection={'column'}
                              justifyContent={'space-between'} alignItems={{md: 'start', xs: 'center'}}>
@@ -128,10 +125,21 @@ const Footer = () => {
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <Box display={'flex'} gap={2}>
-                            <Box sx={{
-                                width: '100%',
-                                height: 'auto',
+                        <Box display={'flex'} justifyContent={'center'} gap={4}>
+                            <Box width={86} height={94} sx={{
+                                mt: 4,
+                                background: 'white',
+                                borderRadius: 2,
+                                boxShadow: 1
+                            }}>
+                                <Image referrerPolicy='origin' width={86} height={94} id='rgvjwlaooeukwlaofukzoeuk' style={{cursor: 'pointer'}}
+                                       onClick={()=> {
+                                           window.open("https://logo.samandehi.ir/Verify.aspx?id=348468&p=xlaoaodsmcsiaodsgvkamcsi", "Popup", "toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")
+                                       }}
+                                       alt='logo-samandehi'
+                                       src='https://logo.samandehi.ir/logo.aspx?id=348468&p=qftishwlaqgwshwlwlbqaqgw'/>
+                            </Box>
+                            <Box width={86} height={94} sx={{
                                 mt: 4,
                                 background: 'white',
                                 borderRadius: 2,
@@ -142,35 +150,20 @@ const Footer = () => {
                                     <Image referrerPolicy='origin' width={86} height={94}
                                          src='https://trustseal.enamad.ir/logo.aspx?id=344613&Code=oFIMPdMkR76yp32fW0aU'
                                          alt=''
-                                         style={{cursor: 'pointer' , width:'100%' , height:'100%'}}
+                                         style={{cursor: 'pointer'}}
                                     /></a>
                             </Box>
-                            <Box sx={{
-                                width: '100%',
-                                height: 'auto',
-                                mt: 4,
-                                background: 'white',
-                                borderRadius: 2,
-                                boxShadow: 1
-                            }}>
-                                <Image referrerPolicy='origin' width={86} height={94} id='rgvjwlaooeukwlaofukzoeuk' style={{cursor: 'pointer' , width:'100%' , height:'100%'}}
-                                     onClick={()=> {
-                                         window.open("https://logo.samandehi.ir/Verify.aspx?id=348468&p=xlaoaodsmcsiaodsgvkamcsi", "Popup", "toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")
-                                     }}
-                                     alt='logo-samandehi'
-                                     src='https://logo.samandehi.ir/logo.aspx?id=348468&p=qftishwlaqgwshwlwlbqaqgw'/>
-                            </Box>
-                            <Box sx={{
-                                width: '100%',
-                                height: 'auto',
-                                mt: 4,
-                                background: 'white',
-                                borderRadius: 2,
-                                boxShadow: 1
-                            }}>
-                                <Image width={'120px'} height={'132px'} style={{width: '100%', height: 'auto'}}
-                                       src={unionImage} alt={''}/>
-                            </Box>
+                            {/*<Box sx={{*/}
+                            {/*    width: '100%',*/}
+                            {/*    height: 'auto',*/}
+                            {/*    mt: 4,*/}
+                            {/*    background: 'white',*/}
+                            {/*    borderRadius: 2,*/}
+                            {/*    boxShadow: 1*/}
+                            {/*}}>*/}
+                            {/*    <Image width={84} height={94} style={{width: '100%', height: 'auto'}}*/}
+                            {/*           src={unionImage} alt={''}/>*/}
+                            {/*</Box>*/}
                         </Box>
                     </Grid>
                 </Grid>

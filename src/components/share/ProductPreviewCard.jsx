@@ -5,7 +5,7 @@ import PriceDiscount from "./PriceDiscount";
 import PN from "persian-number";
 const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price, id, shadow, sx , alt='' , url}) => {
     return (
-        <Link href={`/product/${id}/${url}`}>
+        <Link style={{height:'100% !important'}} href={`/product/${id}/${url}`}>
             <Stack
                 justifyContent={'space-between'}
                 sx={{
@@ -53,11 +53,12 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                                    src={image} alt={alt ?? ''}/>
                         }
                     </Box>
-                    <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center' , my : 1}}>
+                    <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center' , my : {md:1 , xs:0}}}>
                         <Typography
                             component={'h6'}
                             variant="body2"
                             textAlign={'justify'}
+                            maxHeight={'40px'}
                         >
                             {title}
                         </Typography>

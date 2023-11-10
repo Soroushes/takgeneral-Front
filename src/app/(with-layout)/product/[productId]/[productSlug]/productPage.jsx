@@ -12,16 +12,19 @@ import ProductPreviewCard from "@/components/share/ProductPreviewCard";
 import {SwiperSlide} from "swiper/react";
 import {useRouter, useSearchParams} from "next/navigation";
 import {productSchemaGenerator} from "@/hooks/schemaGenerator";
+import Image from "next/image";
 
 const ProductPage = ({data}) => {
     const attributesTableRef = useRef(null);
     const opinionTableRef = useRef(null);
     const [isShowAllDetails, setIsShowAllDetails] = useState(false);
     const [productOptions, setProductOptions] = useState(data?.product.options.product_variant[0]);
+    const [imageIsShow , setImageIsShow] = useState({image :'', show:false})
     const searchParams = useSearchParams();
     const {push} = useRouter();
     const from = searchParams.get('fromSection');
     const params = new URLSearchParams(searchParams);
+    console.log(imageIsShow)
     useEffect(() => {
         if (from === 'like') {
             window.scrollTo({
@@ -39,6 +42,20 @@ const ProductPage = ({data}) => {
                 dangerouslySetInnerHTML={{__html: JSON.stringify(productSchemaGenerator(data?.product.name, data?.product.all_images, data?.meta_tag.desc, data?.product.brand, data?.avg_rate.avg_rate, data?.product.options.product_variant , data.comments.length))}}
             />
             <Box sx={{height: '100%'}}>
+                <Box sx={{display:{md:'none' , xs:'block'}}}>
+                    <Box onClick={()=> {
+                        setImageIsShow({image:'' , show:false})
+                    }} sx={{display:imageIsShow?.show ? 'flex':'none' ,backgroundColor:'rgba(0,0,0,.3)' , position:'fixed' , width:'100%' , height:'80% ' , zIndex:12  , justifyContent:'center' , alignItems:'center' }}>
+                        <Image alt={''} width={300} height={300} src={imageIsShow?.image ?? null}/>
+                    </Box>
+                </Box>
+                <Box sx={{display:{md:'flex' , xs:'none'}}}>
+                    <Box onClick={()=> {
+                        setImageIsShow({image:'' , show:false})
+                    }} sx={{display:imageIsShow?.show ? 'flex':'none' ,backgroundColor:'rgba(0,0,0,.3)' , position:'fixed' , width: '100%' , height:{md:'85%' , lg:'100%'} , zIndex:12  , justifyContent:'center' , alignItems:'center' }}>
+                        <Image alt={''} width={420} height={420} src={imageIsShow?.image ?? null}/>
+                    </Box>
+                </Box>
                 <Container maxWidth={'lg'}>
                     <BreadcrumbGenerator
                         product={data?.product}
@@ -48,7 +65,7 @@ const ProductPage = ({data}) => {
                         }))}/>
                     <Grid container rowGap={3}>
                         <Grid item md={3.75} xs={12}>
-                            <SingleProductImage images={data?.product.all_images}/>
+                            <SingleProductImage setShowImage={setImageIsShow} images={data?.product.all_images}/>
                         </Grid>
                         <Grid item md={5} xs={12}>
                             <SingleProductAttribute
