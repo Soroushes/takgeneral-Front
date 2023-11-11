@@ -13,6 +13,7 @@ import {SwiperSlide} from "swiper/react";
 import {useRouter, useSearchParams} from "next/navigation";
 import {productSchemaGenerator} from "@/hooks/schemaGenerator";
 import Image from "next/image";
+import {Swiper} from "swiper";
 
 const ProductPage = ({data}) => {
     const attributesTableRef = useRef(null);
@@ -24,7 +25,6 @@ const ProductPage = ({data}) => {
     const {push} = useRouter();
     const from = searchParams.get('fromSection');
     const params = new URLSearchParams(searchParams);
-    console.log(imageIsShow)
     useEffect(() => {
         if (from === 'like') {
             window.scrollTo({
@@ -34,7 +34,10 @@ const ProductPage = ({data}) => {
         }
         params.delete('fromSection');
         push(`?${params}`, {scroll: false});
-    }, [])
+    }, []);
+    const handleImage = ()=> {
+        setImageIsShow({image:'' , show:false})
+    }
     return (
         <>
             <script
@@ -42,20 +45,22 @@ const ProductPage = ({data}) => {
                 dangerouslySetInnerHTML={{__html: JSON.stringify(productSchemaGenerator(data?.product.name, data?.product.all_images, data?.meta_tag.desc, data?.product.brand, data?.avg_rate.avg_rate, data?.product.options.product_variant , data.comments.length))}}
             />
             <Box sx={{height: '100%'}}>
-                <Box sx={{display:{md:'none' , xs:'block'}}}>
-                    <Box onClick={()=> {
-                        setImageIsShow({image:'' , show:false})
-                    }} sx={{display:imageIsShow?.show ? 'flex':'none' ,backgroundColor:'rgba(0,0,0,.3)' , position:'fixed' , width:'100%' , height:'80% ' , zIndex:12  , justifyContent:'center' , alignItems:'center' }}>
-                        <Image alt={''} width={300} height={300} src={imageIsShow?.image ?? null}/>
+                {
+                    imageIsShow.show &&
+                    <Box sx={{backgroundColor:'rgba(0,0,0,.2)' , position:'fixed' , width: '100%' , height:'100%' , zIndex:1201 }}>
+                        {/*<Swiper>*/}
+                        {/*    <SwiperSlide>*/}
+                        {/*        <Image alt={''} width={420} height={420} src={imageIsShow?.image ?? null}/>*/}
+                        {/*    </SwiperSlide>*/}
+                        {/*</Swiper>*/}
+                        <Box onClick={handleImage} sx={{display:{md:'flex' , xs:'none'}, width: '100%' , height:'100%' , justifyContent:'center' , alignItems:'center'}}>
+                            <Image  alt={''} width={420} height={420} src={imageIsShow?.image ?? null}/>
+                        </Box>
+                        <Box onClick={handleImage} sx={{display:{md:'none' , xs:'flex'} , width:'100%' , height:'100%' , justifyContent:'center' , alignItems:'center'}}>
+                            <Image alt={''} width={300} height={300} src={imageIsShow?.image ?? null}/>
+                        </Box>
                     </Box>
-                </Box>
-                <Box sx={{display:{md:'flex' , xs:'none'}}}>
-                    <Box onClick={()=> {
-                        setImageIsShow({image:'' , show:false})
-                    }} sx={{display:imageIsShow?.show ? 'flex':'none' ,backgroundColor:'rgba(0,0,0,.3)' , position:'fixed' , width: '100%' , height:{md:'85%' , lg:'100%'} , zIndex:12  , justifyContent:'center' , alignItems:'center' }}>
-                        <Image alt={''} width={420} height={420} src={imageIsShow?.image ?? null}/>
-                    </Box>
-                </Box>
+                }
                 <Container maxWidth={'lg'}>
                     <BreadcrumbGenerator
                         product={data?.product}

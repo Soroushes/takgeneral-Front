@@ -132,7 +132,7 @@ const Footer = () => {
                                 borderRadius: 2,
                                 boxShadow: 1
                             }}>
-                                <Image referrerPolicy='origin' width={86} height={94} id='rgvjwlaooeukwlaofukzoeuk' style={{cursor: 'pointer'}}
+                                <Image priority referrerPolicy='origin' width={86} height={94} id='rgvjwlaooeukwlaofukzoeuk' style={{cursor: 'pointer'}}
                                        onClick={()=> {
                                            window.open("https://logo.samandehi.ir/Verify.aspx?id=348468&p=xlaoaodsmcsiaodsgvkamcsi", "Popup", "toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")
                                        }}
@@ -147,7 +147,7 @@ const Footer = () => {
                             }}>
                                 <a referrerPolicy='origin' target='_blank'
                                    href='https://trustseal.enamad.ir/?id=344613&Code=oFIMPdMkR76yp32fW0aU'>
-                                    <Image referrerPolicy='origin' width={86} height={94}
+                                    <Image priority referrerPolicy='origin' width={86} height={94}
                                          src='https://trustseal.enamad.ir/logo.aspx?id=344613&Code=oFIMPdMkR76yp32fW0aU'
                                          alt=''
                                          style={{cursor: 'pointer'}}
@@ -178,7 +178,7 @@ const Footer = () => {
                         <Link href={'mailto:takgeneral.com@gmail.com?Subject=Hello%20User'}>
                             <MailIcon2/>
                         </Link>
-                        <Link href={'https://instagram.com/'}>
+                        <Link href={'https://instagram.com/_u/tak_general/'}>
                             <InstagramIcon/>
                         </Link>
                         <Link href={"https://wa.me/989212075118"}>

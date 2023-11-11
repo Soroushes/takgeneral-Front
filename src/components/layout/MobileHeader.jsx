@@ -17,6 +17,7 @@ import InstagramIcon from '../../assets/icons/layout/instagram.svg';
 import WhatsappIcon from '../../assets/icons/layout/whatsapp.svg';
  import RingingCall from '../../assets/icons/layout/call-calling.svg';
  import Call from '../../assets/icons/layout/call.svg';
+ import LocationIcon from '../../assets/icons/layout/location2.svg';
 const MobileHeader = ({categories}) => {
     const {mobileHeaderHeight} = useSelector(state => state.deviceInfo);
     const {control} = useForm();
@@ -171,7 +172,7 @@ const MobileHeader = ({categories}) => {
                                         </Box>
                                         <Box textAlign={'center'} sx={{borderTop:'1px solid #eee'}}>
                                             <Box display={'flex'} gap={1} justifyContent={'center'} mb={1} mt={2}>
-                                                <Link href={'https://instagram.com/'}>
+                                                <Link href={'https://instagram.com/_u/tak_general/'}>
                                                     <InstagramIcon/>
                                                 </Link>
                                                 <Link passHref target={'_blank'} href={'https://wa.me/989212075118'}>
@@ -188,6 +189,9 @@ const MobileHeader = ({categories}) => {
                                                 </Link>
                                                 <Link passHref target={'_blank'} href={'tel:+982177500376'}>
                                                     <Call/>
+                                                </Link>
+                                                <Link passHref target={'_blank'} href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
+                                                    <LocationIcon/>
                                                 </Link>
                                             </Box>
                                             <Typography variant={'subtitle2'}>حقوق این سرویس محفوظ و متعلق به شرکت تک جنرال می‌باشد</Typography>
