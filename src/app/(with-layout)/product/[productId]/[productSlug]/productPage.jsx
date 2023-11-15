@@ -13,7 +13,6 @@ import {SwiperSlide} from "swiper/react";
 import {useRouter, useSearchParams} from "next/navigation";
 import {productSchemaGenerator} from "@/hooks/schemaGenerator";
 import Image from "next/image";
-import {Swiper} from "swiper";
 
 const ProductPage = ({data}) => {
     const attributesTableRef = useRef(null);
@@ -44,21 +43,36 @@ const ProductPage = ({data}) => {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{__html: JSON.stringify(productSchemaGenerator(data?.product.name, data?.product.all_images, data?.meta_tag.desc, data?.product.brand, data?.avg_rate.avg_rate, data?.product.options.product_variant , data.comments.length))}}
             />
-            <Box sx={{height: '100%'}}>
+            <Box sx={{height: '100%' , width:'100%'}}>
                 {
                     imageIsShow.show &&
-                    <Box sx={{backgroundColor:'rgba(0,0,0,.2)' , position:'fixed' , width: '100%' , height:'100%' , zIndex:1201 }}>
-                        {/*<Swiper>*/}
-                        {/*    <SwiperSlide>*/}
-                        {/*        <Image alt={''} width={420} height={420} src={imageIsShow?.image ?? null}/>*/}
-                        {/*    </SwiperSlide>*/}
-                        {/*</Swiper>*/}
-                        <Box onClick={handleImage} sx={{display:{md:'flex' , xs:'none'}, width: '100%' , height:'100%' , justifyContent:'center' , alignItems:'center'}}>
-                            <Image  alt={''} width={420} height={420} src={imageIsShow?.image ?? null}/>
-                        </Box>
-                        <Box onClick={handleImage} sx={{display:{md:'none' , xs:'flex'} , width:'100%' , height:'100%' , justifyContent:'center' , alignItems:'center'}}>
-                            <Image alt={''} width={300} height={300} src={imageIsShow?.image ?? null}/>
-                        </Box>
+                    <Box sx={{backgroundColor:'rgba(0,0,0,.2)' , position:'fixed' , width: '100%' , height:'100%' , zIndex:1201 ,display :'flex' , justifyContent:'center' }}>
+                        <SwiperCustomWrapper swiperOptions={{sx: {display:'flex' , alignItems:'center'}}}>
+                            <SwiperSlide onClick={handleImage} style={{display:'flex' , justifyContent:'center' , alignItems:'center'}}>
+                                <Box display={{md: 'block', xs: 'none' , borderRadius:2}}>
+                                    <Image alt={''} width={400} height={400} style={{borderRadius:'3%'}} src={imageIsShow?.image ?? null}/>
+                                </Box>
+                                <Box display={{md: 'none', xs: 'block'}}>
+                                    <Image alt={''} width={300} height={300} style={{borderRadius:'3%'}} src={imageIsShow?.image ?? null}/>
+                                </Box>
+                            </SwiperSlide>
+                            {
+                                data?.product?.all_images.map((item)=>{
+                                    if(item.image !== imageIsShow?.image){
+                                        return(
+                                            <SwiperSlide onClick={handleImage}>
+                                                <Box display={{md: 'block', xs: 'none'}}>
+                                                    <Image alt={''} width={400} height={400}  style={{borderRadius:'3%'}} src={item?.image ?? null}/>
+                                                </Box>
+                                                <Box display={{md: 'none', xs: 'block'}}>
+                                                    <Image alt={''} width={300} height={300} style={{borderRadius:'3%'}} src={item?.image ?? null}/>
+                                                </Box>
+                                            </SwiperSlide>
+                                        )
+                                    }
+                                })
+                            }
+                        </SwiperCustomWrapper>
                     </Box>
                 }
                 <Container maxWidth={'lg'}>

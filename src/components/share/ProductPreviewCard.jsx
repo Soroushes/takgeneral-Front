@@ -17,6 +17,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                     aspectRatio: '1/1.5',
                     position: "relative",
                     boxShadow: shadow ? shadow : 0,
+                    overflow:'hidden',
                     '&:hover img': {
                         md:{
                             transform: 'scale(0.9) !important'
@@ -27,20 +28,20 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 {
                     discountPercent ?
                         <Typography
-                            variant={'caption'}
+                            variant={'body1'}
                             color={'text.main'}
                             sx={{
                                 position: 'absolute',
-                                right: "10px",
-                                bottom: "10px",
+                                right: 0,
+                                bottom: 0,
                                 backgroundColor: "secondary.main",
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                width: 30,
-                                height: 30,
-                                borderRadius: '50%',
-                                zIndex: 3
+                                width: 50,
+                                height: 50,
+                                borderRadius: '100% 0 0 0 ',
+                                zIndex: 3,pl:1 , pt:1
                             }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%
                         </Typography> : null
                 }

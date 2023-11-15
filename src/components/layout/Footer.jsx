@@ -4,7 +4,6 @@ import LocationIcon from '../../assets/icons/footer/location.svg';
 import MailIcon from '../../assets/icons/footer/sms.svg';
 import TelegramIcon from '../../assets/icons/footer/telegram.svg';
 import InstagramIcon from '../../assets/icons/footer/instagram.svg';
-import MailIcon2 from '../../assets/icons/footer/light-sms.svg';
 import WhatsappIcon from '../../assets/icons/footer/whatsapp-1.svg';
 import logo from '../../../public/fa_logo.jpg';
 import Image from "next/image";
@@ -132,7 +131,7 @@ const Footer = () => {
                                 borderRadius: 2,
                                 boxShadow: 1
                             }}>
-                                <Image priority referrerPolicy='origin' width={86} height={94} id='rgvjwlaooeukwlaofukzoeuk' style={{cursor: 'pointer'}}
+                                <Image referrerPolicy='origin' width={86} height={94} id='rgvjwlaooeukwlaofukzoeuk' style={{cursor: 'pointer'}}
                                        onClick={()=> {
                                            window.open("https://logo.samandehi.ir/Verify.aspx?id=348468&p=xlaoaodsmcsiaodsgvkamcsi", "Popup", "toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")
                                        }}
@@ -174,9 +173,6 @@ const Footer = () => {
                     <Box display={'flex'}>
                         <Link href={'https://t.me/atworkk'}>
                             <TelegramIcon/>
-                        </Link>
-                        <Link href={'mailto:takgeneral.com@gmail.com?Subject=Hello%20User'}>
-                            <MailIcon2/>
                         </Link>
                         <Link href={'https://instagram.com/_u/tak_general/'}>
                             <InstagramIcon/>

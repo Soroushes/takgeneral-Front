@@ -99,7 +99,7 @@ const ContactUsPage = () => {
                                             xs: 11,
                                             textAlign: 'center'
                                         }
-                                    }}>telegram</Typography>
+                                    }}>تلگرام</Typography>
                                 </Box>
                             </Link>
                         </Grid>
@@ -124,7 +124,7 @@ const ContactUsPage = () => {
                                             xs: 11,
                                             textAlign: 'center'
                                         }
-                                    }}>whatsapp</Typography>
+                                    }}>واتس اپ</Typography>
                                 </Box>
                             </Link>
                         </Grid>
@@ -176,7 +176,7 @@ const ContactUsPage = () => {
                                             xs: 11,
                                             textAlign: 'center'
                                         }
-                                    }}>instagram</Typography>
+                                    }}>اینستاگرام</Typography>
                                 </Box>
                             </Link>
                         </Grid>

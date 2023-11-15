@@ -17,16 +17,16 @@ export const metadata = {
         // }
     }
 }
-const getData = async () => {
-    const res = await fetch(`${BASE_URL}blogs/`, {cache: 'no-store'});
+const getData = async (params , searchParams) => {
+    const res = await fetch(`${BASE_URL}blogs/${searchParams.page ? `page=${searchParams?.page}` :''}`, {cache: 'no-store'});
     if (res.ok) {
         return res.json();
     } else {
         throw new Error('failed to fetch data !');
     }
 }
-export default async function Page() {
-    const data = await getData();
+export default async function Page({params ,searchParams}) {
+    const data = await getData(params , searchParams);
     return (
         <BlogPage data={data} blogs={data.blogs} currentPage={data.current_page} pageCount={data.page_count}/>
     )

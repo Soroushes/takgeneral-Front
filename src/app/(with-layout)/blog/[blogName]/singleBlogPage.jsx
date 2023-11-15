@@ -22,9 +22,13 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
                     {
                         images[0]?.image ?
                             <Grid sx={{py: 1}} item xs={12}>
-
-                                <Box sx={{textAlign: 'center', width: '100%'}}>
+                                <Box sx={{display:{md:'none' , xs:'block'},textAlign: 'center', width: '100%'}}>
                                     <Image width={590} height={290} style={{maxWidth: '100%', height: 'auto'}}
+                                           src={images[0]?.image}
+                                           alt={title}/>
+                                </Box>
+                                <Box sx={{display:{md:'block' , xs:'none'},textAlign: 'center', width: '100%'}}>
+                                    <Image width={500} height={400} style={{maxWidth: '100%'}}
                                            src={images[0]?.image}
                                            alt={title}/>
                                 </Box>

@@ -1,4 +1,4 @@
-import {Box, Button, MenuItem, TextField, Typography} from "@mui/material";
+import {Box, Button, Typography} from "@mui/material";
 import Rating from '@mui/material/Rating';
 import PN from "persian-number";
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
@@ -6,7 +6,7 @@ import Link from "next/link";
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import {useState} from "react";
-import MainModal from "@/components/share/MainModal";
+import SelectionButton from "@/components/share/selectionButton";
 
 const singleProductAttribute = ({
                                     attrRef,
@@ -22,7 +22,12 @@ const singleProductAttribute = ({
                                     rate,
                                     id
                                 }) => {
-    const [modalIsOpen , setModalIsOpen] = useState();
+    let textColor = '';
+    if(productOptions.Inventory_number === 1){
+         textColor = '#ff0000'
+    }else if(productOptions.Inventory_number <4 ){
+         textColor = '#ff8301'
+    }
     const scrollToDetails = () => {
         setShowAllDetails(true);
         //goToDetails.current?.scrollIntoView({behavior: 'smooth' , block : 'nearest' , inline : 'start' });
@@ -61,28 +66,10 @@ const singleProductAttribute = ({
                 !options?.no_option &&
                 <Box my={2} display={'flex'} alignItems={'center'} gap={2}>
                     <Typography minWidth={'31px'}>{options?.name} :</Typography>
-                    <TextField
-                        sx={{
-                            width: "150px", "& fieldset": {border: '1px solid #eee'},
-                            display:{md:'block' , xs:'none'}
-                        }}
-                        size={'small'}
-                        select
-                        defaultValue={productOptions.id}
-                        onChange={(e) => handleSortOnchange(e.target.value)}
-                    >
-                        {
-                            options?.product_variant.map((sortItem) => (
-                                <MenuItem key={sortItem.option_value}
-                                          variant={'subtitle1'}
-                                          value={sortItem.id}>{sortItem.option_value}</MenuItem>
-                            ))
-                        }
-                    </TextField>
-                    <Box onClick={()=>{setModalIsOpen(true)}} sx={{display:{md:'none' , xs:'flex'} , alignItems:'center' , gap:5 , border:'1px solid #eee' , py:.5 , px:1.5 , borderRadius:2}}>
-                        <Typography>{productOptions?.option_value}</Typography>
+                    <SelectionButton defaultValue={productOptions.id} handleChangeFn={handleSortOnchange} modalName={options?.name} items={options?.product_variant} itemValues={'option_value'}>
+                        <Typography mr={1}>{productOptions?.option_value}</Typography>
                         <KeyboardArrowDownIcon color={'primary'}/>
-                    </Box>
+                    </SelectionButton>
                 </Box>
             }
             <Box component={'ul'} sx={{display: 'flex', flexDirection: 'column', gap: .75, mt: 1}}>
@@ -112,25 +99,10 @@ const singleProductAttribute = ({
                         </Link> : null
                 }
             </Box>
-            <Typography mt={1}>{productOptions.inventory_status}</Typography>
-            <MainModal open={modalIsOpen} setOpen={setModalIsOpen} title={options?.name}>
-                {
-                    options?.product_variant.map((sortItem) => (
-                        <Box sx={{border: '1px solid #eee', borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
-                            <Typography
-                                component={'p'}
-                                onClick={() => {
-                                    handleSortOnchange(sortItem.id);
-                                    setModalIsOpen(false);
-                                }}
-                                sx={{py: 1.5, px: 1.5}}
-                            >
-                                {sortItem.option_value}
-                            </Typography>
-                        </Box>
-                    ))
-                }
-            </MainModal>
+            {
+                productOptions.Inventory_number<4 &&
+                <Typography sx={{color:textColor}} mt={1}>{productOptions.inventory_status}</Typography>
+            }
         </Box>
     )
 }

@@ -29,7 +29,7 @@ const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
                 product: productId,
                 rate: data?.rate,
                 title: data?.content,
-                user_alias_name: data?.content
+                user_alias_name: data?.user_alias_name
 
             },
             successFunc: () => {
@@ -71,7 +71,9 @@ const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
                                 <Controller
                                     name="rate"
                                     control={control}
-                                    defaultValue={0}
+                                    rules={{
+                                        required: "وارد کردن امتیاز اجباری میباشد"
+                                    }}
                                     render={({field}) =>
                                         <Rating value={+field.value} onChange={field.onChange}/>
                                     }

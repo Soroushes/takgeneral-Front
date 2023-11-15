@@ -4,7 +4,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import {useState} from "react";
-import {Typography} from "@mui/material";
+import {Collapse, Typography} from "@mui/material";
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded';
 import HtmlDescription from "@/components/share/HtmlDescription";
@@ -45,59 +45,59 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                     flexDirection: "column",
                     alignItems: "start",
                     gap: 3,
-                    p:0 ,
-                    pt:2
+                    p: 0,
+                    pt: 2,
                 }}
             >
-                {details?.map((detail, index) => {
-                    return (
-                        !IsShowAllDetails && index > 2 ? null
-                            :
-                            <Box
-                                key={Math.random()*1000}
-                                sx={{
-                                    display: "flex",
-                                    justifyContent: "space-between",
-                                    alignItems: "center",
-                                    width: "100%",
-                                    gap: {xs: 2, md: 0},
-                                    px:1
-                                }}
-                            >
+                {/*<Collapse sx={{height: 'auto', width: '100%'}} in={IsShowAllDetails}>*/}
+                    {details?.map((detail, index) => {
+                        return (
+                            !IsShowAllDetails && index > 2 ?
+                                null :
                                 <Box
+                                    key={Math.random() * 1000}
                                     sx={{
-                                        width: {xs: "20%", md: "15%"},
-                                        pb: 1.5,
-                                        height: "100%",
                                         display: "flex",
+                                        justifyContent: "space-between",
                                         alignItems: "center",
+                                        width: "100%",
+                                        gap: {xs: 2, md: 0},
+                                        px: 1,
                                     }}
                                 >
-                                    <Typography
-                                        variant="body2"
-                                        color={'text.muted'}
+                                    <Box
+                                        sx={{
+                                            width: {xs: "20%", md: "15%"},
+                                            pb: 1.5,
+                                            display: "flex",
+                                            alignItems: "center",
+                                        }}
                                     >
-                                        {detail.specification}:
-                                    </Typography>
-                                </Box>
-                                <Box
-                                    sx={{
-                                        width: {xs: "80%", md: "85%"},
-                                        pb: 1.5,
-                                        height: "100%",
-                                        display: "flex",
-                                        alignItems: "center",
-                                    }}
-                                >
-                                    <Typography
-                                        variant="body2"
+                                        <Typography
+                                            variant="body2"
+                                            color={'text.muted'}
+                                        >
+                                            {detail.specification}:
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            width: {xs: "80%", md: "85%"},
+                                            pb: 1.5,
+                                            display: "flex",
+                                            alignItems: "center",
+                                        }}
                                     >
-                                        {detail.value}
-                                    </Typography>
+                                        <Typography
+                                            variant="body2"
+                                        >
+                                            {detail.value}
+                                        </Typography>
+                                    </Box>
                                 </Box>
-                            </Box>
-                    );
-                })}
+                        );
+                    })}
+                {/*</Collapse>*/}
                 {
                     details?.length > 3 ?
                         <Box onClick={setShowAllDetails.bind(this, prev => !prev)}
@@ -123,7 +123,7 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                         null
                 }
             </TabPanel>
-            <TabPanel value="2" sx={{width: '100%' , p : 0}}>
+            <TabPanel value="2" sx={{width: '100%', p: 0}}>
                 <HtmlDescription>{content}</HtmlDescription>
             </TabPanel>
         </TabContext>

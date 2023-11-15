@@ -6,14 +6,14 @@ import {useRef} from "react";
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 
-const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation = true , sliderRef = null}) => {
+const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween , useSwiper = false, navigation = true}) => {
     const swiperRef = useRef();
     return (
         <>
-            <Box display={{md: 'flex', xs: 'none'}} alignItems={'center'}>
+            <Box width={'100%'} display={useSwiper ? 'flex': {md: 'flex', xs: 'none'}} alignItems={'center'}>
                 {
                     navigation &&
-                    <Box display={'flex'} alignItems={'center'} justifyContent={'center'}
+                    <Box display={{md:'flex' , xs:'none'}} alignItems={'center'} justifyContent={'center'}
                          sx={{
                              backgroundColor: 'white',
                              boxShadow: 3,
@@ -45,7 +45,7 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation 
                 </Swiper>
                 {
                     navigation &&
-                    <Box display={'flex'} className={''} alignItems={'center'} justifyContent={'center'}
+                    <Box display={{md:'flex' , xs:'none'}} className={''} alignItems={'center'} justifyContent={'center'}
                          sx={{
                              backgroundColor: 'white',
                              aspectRatio: "1/1",
@@ -61,7 +61,7 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, navigation 
                          }} onClick={() => swiperRef.current?.slideNext()}><ChevronLeftRoundedIcon/></Box>
                 }
             </Box>
-            <Box display={{xs: 'flex', md: 'none'}} ref={sliderRef} className={'hide-scroll-bar'} sx={{
+            <Box display={useSwiper ?'none':{xs: 'flex', md: 'none'}} className={'hide-scroll-bar'} sx={{
                 flexWrap: 'nowrap',
                 overflowX: 'auto',
                 scrollBehavior: 'smooth',

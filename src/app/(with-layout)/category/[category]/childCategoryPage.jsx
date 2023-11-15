@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import {Box, Button, Collapse, Container, Grid, MenuItem, TextField, Typography} from "@mui/material";
+import {Box, Button, Collapse, Container, Grid, Typography} from "@mui/material";
 import CheckBoxFilter from "@/components/share/CheckBoxFilter";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import MainModal from "../../../../components/share/MainModal";
@@ -15,19 +15,20 @@ import ExpandLessRoundedIcon from "@mui/icons-material/ExpandLessRounded";
 import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import Link from "next/link";
 import {IOSSwitch} from "@/assets/theme/theme";
+import SelectionButton from "@/components/share/selectionButton";
 
 const sortValueItems = [
     {
-        name: <Typography component={'p'}>جدیدترین</Typography>,
-        value: "newest"
+        name: <Typography variant={'subtitle1'} component={'p'}>جدیدترین</Typography>,
+        id: "newest"
     },
     {
-        name: <Typography component={'p'}>گران ترین</Typography>,
-        value: "-price"
+        name: <Typography variant={'subtitle1'} component={'p'}>گران ترین</Typography>,
+        id: "-price"
     },
     {
-        name: <Typography component={'p'}>ارزان ترین</Typography>,
-        value: "price"
+        name: <Typography variant={'subtitle1'} component={'p'}>ارزان ترین</Typography>,
+        id: "price"
     }
 ];
 const ChildCategoryPage = ({
@@ -60,6 +61,11 @@ const ChildCategoryPage = ({
     };
     const toggleDrawer = () => {
         setDrawerIsOpen(prev => !prev);
+    };
+    const handleCancel = ()=>{
+        params.delete('brand');
+        push('?'+ params.toString());
+        setOpenFilterModal(false)
     };
     return (
         <>
@@ -109,44 +115,28 @@ const ChildCategoryPage = ({
                                 display: {xs: 'flex', md: 'none'},
                                 justifyContent: 'space-between'
                             }}>
-                                <Button size={'small'} color={'btnLightGray'}
+                                <Box width={'30%'} sx={{border:'1px solid #eee' , display:'flex' , alignItems:'center' , py:.5 , px:1.5 , borderRadius:1}}
                                         onClick={() => setOpenFilterModal(true)}
                                         variant={'outlined'}>
                                     <FilterAltIcon/>
-                                    <Typography sx={{ml: 1}}> فیلترها</Typography>
-                                </Button>
-                                <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnLightGray'}
-                                        variant={'outlined'}>
-                                    <SortIcon/>
-                                    <Box sx={{ml: 1}}>
-                                        {
-                                            sortValueItems.find((item) => item.value === sortValue).name
-                                        }
-                                    </Box>
-                                </Button>
+                                    <Typography variant={'subtitle1'} sx={{ml: 1}}> فیلترها</Typography>
+                                </Box>
+                                    <SelectionButton defaultValue={sortValue} modalName={'دسته بندی بر اساس'} items={sortValueItems} itemValues={'name'} handleChangeFn={handleSortOnchange}>
+                                        <SortIcon/>
+                                        <Box ml={1}>
+                                            {
+                                                sortValueItems.find((item) => item.id === sortValue).name
+                                            }
+                                        </Box>
+                                    </SelectionButton>
                             </Box>
                             <Grid container sx={{display: {md: 'flex', xs: 'none'}}}>
                                 <Grid item md={3.5}></Grid>
-                                <Grid item md={8.5} sx={{mb: 3, px: 1}} gap={1} display={'flex'}
-                                      alignItems={'center'}>
+                                <Grid item md={8.5} sx={{mb: 3, px: 1}} gap={1} display={'flex'} alignItems={'center'}>
                                     <Typography>
                                         مرتب سازی براساس:
                                     </Typography>
-                                    <TextField
-                                        sx={{width: "150px"}}
-                                        size={'small'}
-                                        select
-                                        value={sortValue}
-                                        onChange={(e) => handleSortOnchange(e.target.value)}
-                                    >
-                                        {
-                                            sortValueItems?.map((sortItem) => (
-                                                <MenuItem
-                                                    key={sortItem.value} sx={{background: 'primary'}}
-                                                    value={sortItem.value}>{sortItem.name}</MenuItem>
-                                            ))
-                                        }
-                                    </TextField>
+                                    <SelectionButton defaultValue={sortValue} items={sortValueItems} itemValues={'name'} handleChangeFn={handleSortOnchange}/>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -220,16 +210,20 @@ const ChildCategoryPage = ({
                                 </Box>
                             </Collapse>
                         </Box>
+                        <Box px={1} mt={1} display={'flex'} justifyContent={'space-between'}>
+                            <Button onClick={()=>{setOpenFilterModal(false)}} size={'large'} color={'primary'} variant={'contained'} sx={{width:'48%' , borderRadius:2}}>اعمال فیلتر</Button>
+                            <Button onClick={handleCancel} size={'large'} color={'gray'} variant={'outlined'} sx={{width:'48%' , borderRadius:2}}>لغو</Button>
+                        </Box>
                     </Box>
                 </MainModal>
                 <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>
                     {
                         sortValueItems.map((sortItem) => (
-                            <Box sx={{border:`1px solid ${sortItem.value === sortValue ? '#ff8301' :'#eee'}`, borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
+                            <Box sx={{border:`1px solid ${sortItem.id === sortValue ? '#ff8301' :'#eee'}`, borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
                                 <Typography
                                     component={'p'}
                                     onClick={() => {
-                                        handleSortOnchange(sortItem.value);
+                                        handleSortOnchange(sortItem.id);
                                         setOpenSortModal(false);
                                     }}
                                     sx={{py: 1.5, px: 1.5}}
