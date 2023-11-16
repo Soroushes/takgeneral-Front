@@ -158,6 +158,7 @@ const ChildCategoryPage = ({
                                         maxHeight: !contentIsShow ? '170px' : 'auto',
                                         overflow: 'hidden', textOverflow: 'ellipsis', px: 0 ,
                                         '&::before':{
+                                            content:'""',
                                             width:'100%',
                                             height:'100%',
                                             position:'absolute',
