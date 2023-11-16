@@ -80,12 +80,22 @@ export default function ParentCategoryPage({
                 </Grid>
                 {
                     content ?
-                    <Box sx={{px:1 ,position:'relative'}}>
-                        <HtmlDescription boxSx={{
-                            mt: 3,
-                            maxHeight: !contentIsShow ? '160px' : 'auto',
-                            overflow: 'hidden' ,textOverflow: 'ellipsis' , px:0
-                        }}>{content}</HtmlDescription>
+                    <Box sx={{px:1}}>
+                        <Box sx={{position: contentIsShow ? '': 'relative'}}>
+                            <HtmlDescription boxSx={{
+                                mt: 3,
+                                maxHeight: !contentIsShow ? '160px' : 'auto',
+                                overflow: 'hidden' ,textOverflow: 'ellipsis' , px:0,
+                                '&::before':{
+                                    width:'100%',
+                                    height:'100%',
+                                    position:'absolute',
+                                    left:0,
+                                    top:0,
+                                    background:'linear-gradient(transparent 110px, #FCFCFD)'
+                                }
+                            }}>{content}</HtmlDescription>
+                        </Box>
                         <Box onClick={setContentIsShow.bind(this, prev => !prev)}
                              sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
                             <Typography

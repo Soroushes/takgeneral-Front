@@ -124,7 +124,9 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                 }
             </TabPanel>
             <TabPanel value="2" sx={{width: '100%', p: 0}}>
-                <HtmlDescription>{content}</HtmlDescription>
+                <Box sx={{position:'relative'}}>
+                    <HtmlDescription>{content}</HtmlDescription>
+                </Box>
             </TabPanel>
         </TabContext>
     );

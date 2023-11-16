@@ -44,11 +44,11 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
                         </Typography>
                         <Box display={'flex'} flexDirection={{md: 'column', xs: 'column-reverse'}}
                              justifyContent={'space-between'}>
-                            <HtmlDescription boxSx={{
-                                width: '100%', px: 0
-                            }}>
-                                {content}
-                            </HtmlDescription>
+                                <HtmlDescription boxSx={{
+                                    width: '100%', px: 0
+                                }}>
+                                    {content}
+                                </HtmlDescription>
                             <Box my={2} display={'flex'} alignItems={'center'} gap={1}>
                                 <ClockIcon/>
                                 <Typography

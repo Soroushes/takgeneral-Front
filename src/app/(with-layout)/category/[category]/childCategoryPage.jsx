@@ -62,11 +62,11 @@ const ChildCategoryPage = ({
     const toggleDrawer = () => {
         setDrawerIsOpen(prev => !prev);
     };
-    const handleCancel = ()=>{
-        params.delete('brand');
-        push('?'+ params.toString());
-        setOpenFilterModal(false)
-    };
+    // const handleCancel = ()=>{
+    //     params.delete('brand');
+    //     push('?'+ params.toString());
+    //     setOpenFilterModal(false)
+    // };
     return (
         <>
             {
@@ -151,13 +151,23 @@ const ChildCategoryPage = ({
                     </Grid>
                     {
                         content ?
-                            <Box sx={{px: 1, position: 'relative'}}>
-                                <HtmlDescription boxSx={{
-                                    mt: 3,
-                                    maxHeight: !contentIsShow ? '160px' : 'auto',
-                                    overflow: 'hidden', textOverflow: 'ellipsis', px: 0
-                                }}>{content}</HtmlDescription>
-                                <Box onClick={setContentIsShow.bind(this, prev => !prev)}
+                            <Box sx={{px: 1}}>
+                                <Box sx={{position: contentIsShow ? '': 'relative'}}>
+                                    <HtmlDescription boxSx={{
+                                        mt: 3,
+                                        maxHeight: !contentIsShow ? '170px' : 'auto',
+                                        overflow: 'hidden', textOverflow: 'ellipsis', px: 0 ,
+                                        '&::before':{
+                                            width:'100%',
+                                            height:'100%',
+                                            position:'absolute',
+                                            left:0,
+                                            top:0,
+                                            background:'linear-gradient(transparent 110px, #FCFCFD)'
+                                        }
+                                    }}>{content}</HtmlDescription>
+                                </Box>
+                                <Box mt={3} onClick={setContentIsShow.bind(this, prev => !prev)}
                                      sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
                                     <Typography
                                         variant={"body2"}
@@ -210,10 +220,10 @@ const ChildCategoryPage = ({
                                 </Box>
                             </Collapse>
                         </Box>
-                        <Box px={1} mt={1} display={'flex'} justifyContent={'space-between'}>
-                            <Button onClick={()=>{setOpenFilterModal(false)}} size={'large'} color={'primary'} variant={'contained'} sx={{width:'48%' , borderRadius:2}}>اعمال فیلتر</Button>
-                            <Button onClick={handleCancel} size={'large'} color={'gray'} variant={'outlined'} sx={{width:'48%' , borderRadius:2}}>لغو</Button>
-                        </Box>
+                        {/*<Box px={1} mt={1} display={'flex'} justifyContent={'space-between'}>*/}
+                        {/*    <Button onClick={()=>{setOpenFilterModal(false)}} size={'large'} color={'primary'} variant={'contained'} sx={{width:'48%' , borderRadius:2}}>اعمال فیلتر</Button>*/}
+                        {/*    <Button onClick={handleCancel} size={'large'} color={'gray'} variant={'outlined'} sx={{width:'48%' , borderRadius:2}}>لغو</Button>*/}
+                        {/*</Box>*/}
                     </Box>
                 </MainModal>
                 <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>

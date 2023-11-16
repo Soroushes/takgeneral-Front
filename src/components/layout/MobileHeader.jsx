@@ -102,6 +102,22 @@ const MobileHeader = ({categories}) => {
                                             </Box>
                                             <Link onClick={() => {
                                                 setDrawerIsOpen(false)
+                                            }} style={{display: 'block', width: "100%"}} href={'/'}>
+                                                <Box
+                                                    sx={{
+                                                        py: 1.5,
+                                                        display: 'flex',
+                                                        width: "100%",
+                                                        gap: 1,
+                                                        alignItems: 'center'
+                                                    }}
+                                                >
+
+                                                    <Typography variant={'body2'} component={'li'}>خانه</Typography>
+                                                </Box>
+                                            </Link>
+                                            <Link onClick={() => {
+                                                setDrawerIsOpen(false)
                                             }} style={{display: 'block', width: "100%"}} href={'/contact-us'}>
                                                 <Box
                                                     sx={{

@@ -102,7 +102,7 @@ const CommentQuestion = ({comments, rate, productId, questions , image}) => {
                         <Grid container rowGap={5} justifyContent={'space-between'}>
                             <Grid item xs={12} md={2.6}>
                                 <AverageRatingComment productId={productId} isLoggedIn={isLoggedIn}
-                                                      openAddComment={setCommentIsOpen} average={rate?.avg_keyfiyat_rate}
+                                                      openAddComment={setCommentIsOpen} average={rate?.avg_rate}
                                                       title={'comment'}/>
                             </Grid>
                             {

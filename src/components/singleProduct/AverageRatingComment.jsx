@@ -20,7 +20,7 @@ const AverageRatingComment = ({average, openAddComment , isLoggedIn , productId}
                     <>
                         <Typography variant={'h5'}>میانگین امتیازات کاربران</Typography>
                         <Box sx={{display: 'flex', gap: .5}}>
-                            <Typography color={'primary'} fontWeight={'bold'} variant={'h1'}>{PN.convertEnToPe(4.5)}</Typography>
+                            <Typography color={'primary'} fontWeight={'bold'} variant={'h1'}>{PN.convertEnToPe(average)}</Typography>
                             <Typography>از {PN.convertEnToPe(5)}</Typography>
                         </Box>
                     </> :

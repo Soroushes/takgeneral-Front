@@ -18,7 +18,7 @@ export const metadata = {
     }
 }
 const getData = async (params , searchParams) => {
-    const res = await fetch(`${BASE_URL}blogs/${searchParams.page ? `page=${searchParams?.page}` :''}`, {cache: 'no-store'});
+    const res = await fetch(`${BASE_URL}blogs/${searchParams.page ? `?page=${searchParams?.page}` :''}`, {cache: 'no-store'});
     if (res.ok) {
         return res.json();
     } else {
