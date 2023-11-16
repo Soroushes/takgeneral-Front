@@ -2,7 +2,7 @@ import {Box, MenuItem, TextField, Typography} from "@mui/material";
 import {useState} from "react";
 import MainModal from "@/components/share/MainModal";
 
-const SelectionButton = ({defaultValue , items , handleChangeFn , itemValues , children , modalName})=>{
+const SelectionButton = ({defaultValue , items , handleChangeFn , itemValues , children , modalName , selectedValue})=>{
     const [modalIsOpen , setModalIsOpen] = useState(false);
     return(
         <>
@@ -28,11 +28,12 @@ const SelectionButton = ({defaultValue , items , handleChangeFn , itemValues , c
                 {
                     children
                 }
+                <Typography ml={1}>{selectedValue}</Typography>
             </Box>
             <MainModal open={modalIsOpen} setOpen={setModalIsOpen} title={modalName}>
                 {
                     items.map((sortItem) => (
-                        <Box sx={{border:'1px solid #eee', borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
+                        <Box sx={{border:`1px solid ${sortItem[itemValues] === selectedValue ? '#ff8301':'#eee'}`, borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
                             <Typography
                                 component={'p'}
                                 onClick={() => {

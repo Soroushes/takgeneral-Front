@@ -5,7 +5,6 @@ import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import Link from "next/link";
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import {useState} from "react";
 import SelectionButton from "@/components/share/selectionButton";
 
 const singleProductAttribute = ({
@@ -66,8 +65,7 @@ const singleProductAttribute = ({
                 !options?.no_option &&
                 <Box my={2} display={'flex'} alignItems={'center'} gap={2}>
                     <Typography minWidth={'31px'}>{options?.name} :</Typography>
-                    <SelectionButton defaultValue={productOptions.id} handleChangeFn={handleSortOnchange} modalName={options?.name} items={options?.product_variant} itemValues={'option_value'}>
-                        <Typography mr={1}>{productOptions?.option_value}</Typography>
+                    <SelectionButton selectedValue={productOptions?.option_value} defaultValue={productOptions.id} handleChangeFn={handleSortOnchange} modalName={options?.name} items={options?.product_variant} itemValues={'option_value'}>
                         <KeyboardArrowDownIcon color={'primary'}/>
                     </SelectionButton>
                 </Box>

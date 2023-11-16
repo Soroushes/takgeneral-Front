@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import {Box, Button, Collapse, Container, Grid, Typography} from "@mui/material";
+import {Box, Collapse, Container, Grid, Typography} from "@mui/material";
 import CheckBoxFilter from "@/components/share/CheckBoxFilter";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import MainModal from "../../../../components/share/MainModal";
@@ -19,15 +19,15 @@ import SelectionButton from "@/components/share/selectionButton";
 
 const sortValueItems = [
     {
-        name: <Typography variant={'subtitle1'} component={'p'}>جدیدترین</Typography>,
+        name: 'جدیدترین',
         id: "newest"
     },
     {
-        name: <Typography variant={'subtitle1'} component={'p'}>گران ترین</Typography>,
+        name: 'گران ترین',
         id: "-price"
     },
     {
-        name: <Typography variant={'subtitle1'} component={'p'}>ارزان ترین</Typography>,
+        name: 'ارزان ترین',
         id: "price"
     }
 ];
@@ -46,7 +46,6 @@ const ChildCategoryPage = ({
     const params = new URLSearchParams(searchParams);
     const noQueryPath = usePathname();
     const [openFilterModal, setOpenFilterModal] = useState(false);
-    const [openSortModal, setOpenSortModal] = useState(false);
     const [sortValue, setSortValue] = useState('newest');
     const productBoxRef = useRef(null);
     const [contentIsShow, setContentIsShow] = useState(false);
@@ -115,19 +114,14 @@ const ChildCategoryPage = ({
                                 display: {xs: 'flex', md: 'none'},
                                 justifyContent: 'space-between'
                             }}>
-                                <Box width={'30%'} sx={{border:'1px solid #eee' , display:'flex' , alignItems:'center' , py:.5 , px:1.5 , borderRadius:1}}
+                                <Box sx={{border:'1px solid #eee' , display:'flex' , alignItems:'center' , py:.5 , px:1.5 , borderRadius:2}}
                                         onClick={() => setOpenFilterModal(true)}
                                         variant={'outlined'}>
                                     <FilterAltIcon/>
                                     <Typography variant={'subtitle1'} sx={{ml: 1}}> فیلترها</Typography>
                                 </Box>
-                                    <SelectionButton defaultValue={sortValue} modalName={'دسته بندی بر اساس'} items={sortValueItems} itemValues={'name'} handleChangeFn={handleSortOnchange}>
+                                    <SelectionButton selectedValue={sortValueItems?.find((item) => item.id === sortValue).name}  defaultValue={sortValue} modalName={'دسته بندی بر اساس'} items={sortValueItems} itemValues={'name'} handleChangeFn={handleSortOnchange}>
                                         <SortIcon/>
-                                        <Box ml={1}>
-                                            {
-                                                sortValueItems.find((item) => item.id === sortValue).name
-                                            }
-                                        </Box>
                                     </SelectionButton>
                             </Box>
                             <Grid container sx={{display: {md: 'flex', xs: 'none'}}}>
@@ -226,24 +220,6 @@ const ChildCategoryPage = ({
                         {/*    <Button onClick={handleCancel} size={'large'} color={'gray'} variant={'outlined'} sx={{width:'48%' , borderRadius:2}}>لغو</Button>*/}
                         {/*</Box>*/}
                     </Box>
-                </MainModal>
-                <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>
-                    {
-                        sortValueItems.map((sortItem) => (
-                            <Box sx={{border:`1px solid ${sortItem.id === sortValue ? '#ff8301' :'#eee'}`, borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
-                                <Typography
-                                    component={'p'}
-                                    onClick={() => {
-                                        handleSortOnchange(sortItem.id);
-                                        setOpenSortModal(false);
-                                    }}
-                                    sx={{py: 1.5, px: 1.5}}
-                                >
-                                    {sortItem.name}
-                                </Typography>
-                            </Box>
-                        ))
-                    }
                 </MainModal>
             </Box>
         </>

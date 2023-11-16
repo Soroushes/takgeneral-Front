@@ -1,8 +1,7 @@
 'use client'
-import {Button, Container, Grid, MenuItem, TextField, Typography , Box} from "@mui/material";
+import { Container, Grid, Typography , Box} from "@mui/material";
 import { useEffect, useMemo, useState} from "react";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
-import MainModal from "../../../../components/share/MainModal";
 import SortIcon from '../../../../assets/icons/share/sort.svg';
 import ProductList from "../../../../components/share/ProductList";
 import Image from "next/image";
@@ -12,6 +11,7 @@ import HtmlDescription from "@/components/share/HtmlDescription";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import ExpandLessRoundedIcon from "@mui/icons-material/ExpandLessRounded";
 import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
+import SelectionButton from "@/components/share/selectionButton";
 
 const BrandPage = ({product, page_count, current_page , content , main_banner , brand}) => {
     const [contentIsShow, setContentIsShow] = useState(false);
@@ -21,19 +21,18 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
     const noQueryPath = usePathname();
     const sortValueItems = [
         {
-            name: <Typography component={'p'}>جدیدترین</Typography>,
-            value: "newest"
+            name: 'جدیدترین',
+            id: "newest"
         },
         {
-            name: <Typography component={'p'}>گران ترین</Typography>,
-            value: "-price"
+            name: 'گران ترین',
+            id: "-price"
         },
         {
-            name: <Typography component={'p'}>ارزان ترین</Typography>,
-            value: "price"
+            name: 'ارزان ترین',
+            id: "price"
         }
     ];
-    const [openSortModal, setOpenSortModal] = useState(false);
     const {push} = useRouter();
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
@@ -75,16 +74,10 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
                     <Grid item xs={12}>
                         <BreadcrumbGenerator breadcrumb={breadcrumbData} hasEmptyUrl={false}/>
                         <Typography component={'h1'} px={1} mb={2} variant={'h3'}>برند {brand.name}</Typography>
-                        <Box display={{md: 'none', xs: 'block'}} sx={{mb: 2, px: 1}}>
-                            <Button size={'small'} onClick={() => setOpenSortModal(true)} color={'btnGray'}
-                                    variant={'contained'}>
+                        <Box display={{md: 'none', xs: 'block'}} sx={{mb: 2, px: 1 , width:'25%'}}>
+                            <SelectionButton selectedValue={sortValueItems.find((item) => item.id === sortValue).name}  defaultValue={sortValue} modalName={'دسته بندی بر اساس'} items={sortValueItems} itemValues={'name'} handleChangeFn={handleSortOnchange}>
                                 <SortIcon/>
-                                <Typography component={'div'} sx={{ml: 1}}>
-                                    {
-                                        sortValueItems.find((item) => item.value === sortValue).name
-                                    }
-                                </Typography>
-                            </Button>
+                            </SelectionButton>
                         </Box>
                         <Grid container sx={{display: {md: 'flex', xs: 'none'}}}>
                             <Grid item md={3.5}>
@@ -109,21 +102,7 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
                                 </Box>
                             </Grid>
                             <Grid item md={8.5} sx={{height: 'auto', px: 1}}>
-                                <TextField
-                                    sx={{width: "150px"}}
-                                    size={'small'}
-                                    select
-                                    value={sortValue}
-                                    label="براساس"
-                                    onChange={(e) => handleSortOnchange(e.target.value)}
-                                >
-                                    {
-                                        sortValueItems.map((sortItem) => (
-                                            <MenuItem key={sortItem.value} variant={'subtitle1'}
-                                                      value={sortItem.value}>{sortItem.name}</MenuItem>
-                                        ))
-                                    }
-                                </TextField>
+                                <SelectionButton defaultValue={sortValue} items={sortValueItems} itemValues={'name'} handleChangeFn={handleSortOnchange}/>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -180,24 +159,6 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
                         </Box> : null
                 }
             </Container>
-            <MainModal setOpen={setOpenSortModal} open={openSortModal} title={'دسته بندی بر اساس'}>
-                {
-                    sortValueItems.map((sortItem) => (
-                        <Box sx={{border:`1px solid ${sortItem.value === sortValue ? '#ff8301' :'#eee'}`, borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
-                            <Typography
-                                component={'p'}
-                                onClick={() => {
-                                    handleSortOnchange(sortItem.value);
-                                    setOpenSortModal(false);
-                                }}
-                                sx={{py: 1.5, px: 1.5}}
-                            >
-                                {sortItem.name}
-                            </Typography>
-                        </Box>
-                    ))
-                }
-            </MainModal>
         </Box>
     )
 }
