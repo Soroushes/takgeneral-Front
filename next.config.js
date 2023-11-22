@@ -1,6 +1,6 @@
 module.exports = {
     images: {
-        domains: ['api.takgeneral.com', 'swiperjs.com'],
+        domains: ['api.takgeneral.com', 'swiperjs.com' , 'https://logo.samandehi.ir' , 'https://trustseal.enamad.ir'],
         unoptimized: true
     },
     experimental: {

@@ -32,17 +32,17 @@ const SelectionButton = ({defaultValue , items , handleChangeFn , itemValues , c
             </Box>
             <MainModal open={modalIsOpen} setOpen={setModalIsOpen} title={modalName}>
                 {
-                    items.map((sortItem) => (
-                        <Box sx={{border:`1px solid ${sortItem[itemValues] === selectedValue ? '#ff8301':'#eee'}`, borderRadius: 2}} mx={2} mb={1} key={sortItem.value}>
+                    items.map((item) => (
+                        <Box sx={{border:`1px solid ${item[itemValues] === selectedValue ? '#ff8301':'#eee'}`, borderRadius: 2}} mx={2} mb={1} key={item.id}>
                             <Typography
                                 component={'p'}
                                 onClick={() => {
-                                    handleChangeFn(sortItem.id);
+                                    handleChangeFn(item.id);
                                     setModalIsOpen(false);
                                 }}
                                 sx={{py: 1.5, px: 1.5}}
                             >
-                                {sortItem[itemValues]}
+                                {item[itemValues]}
                             </Typography>
                         </Box>
                     ))

@@ -75,7 +75,7 @@ const singleProductAttribute = ({
                     attributes?.map((attr, index) => {
                         if (index >= 3) return null
                         return (
-                            <Typography key={index}
+                            <Typography key={attr.specification}
                                         variant="body1" component={'li'}>{attr.specification} : {attr.value}
                             </Typography>
                         )

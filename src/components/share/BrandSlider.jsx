@@ -7,13 +7,13 @@ import 'swiper/css/pagination';
 
 const BrandSlider = ({brands = []}) => {
     return (
-            <Container disableGutters={true}>
+            <Container sx={{px:{md:0 , xs:2}}} disableGutters={true}>
                 <SwiperCustomWrapper
                      spaceBetween={'15px'}>
                     {
                         brands?.map((brand) => {
                             return (
-                                <SwiperSlide key={Math.random() * 1000} style={ {width: 160 , padding : '50px 0px' }}>
+                                <SwiperSlide key={brand.name} style={ {width: 160 , padding : '50px 0px' }}>
                                     <InnerImageSection href={'/brand/'+ brand.url} name={brand.name} image={brand.logo}/>
                                 </SwiperSlide>
                             )

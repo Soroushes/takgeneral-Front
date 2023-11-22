@@ -43,7 +43,7 @@ const BreadcrumbGenerator = ({breadcrumb, product, hasEmptyUrl = true}) => {
             <Box display={'flex'} flexWrap={"wrap"} sx={{py: 3}}>
                 {
                     allBreadcrumbs?.map((item, index) => (
-                        <Link key={Math.random() * 1000} href={item.url ?? ''}>
+                        <Link key={item.url} href={item.url ?? ''}>
                             <Box display={'flex'}>
                                 {index ? '/' : ''}
                                 <Typography sx={{px: 1}} color={'text.muted'} variant={'body2'}>{item.name}</Typography>

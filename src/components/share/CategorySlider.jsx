@@ -16,7 +16,7 @@ const CategorySlider = ({category , mainCategory})=>{
                     {
                         category?.map((item) => {
                             return (
-                                <SwiperSlide key={Math.random() * 1000} style={{width: 150, padding: '50px 2px'}}>
+                                <SwiperSlide key={item.url} style={{width: 150, padding: '50px 2px'}}>
                                     <Link scroll={false} href={'/category/'+item.url}>
                                         <Box>
                                             <OuterImageSection isActive={mainCategory.url === item.url} descriptionVariant={'subtitle2'} titleVariant={'h6'} title={item.name} image={item.image}/>

@@ -34,9 +34,6 @@ const ProductPage = ({data}) => {
         params.delete('fromSection');
         push(`?${params}`, {scroll: false});
     }, []);
-    const handleImage = ()=> {
-        setImageIsShow({image:'' , show:false})
-    }
     return (
         <>
             <script
@@ -46,9 +43,9 @@ const ProductPage = ({data}) => {
             <Box sx={{height: '100%' , width:'100%'}}>
                 {
                     imageIsShow.show &&
-                    <Box sx={{backgroundColor:'rgba(0,0,0,.2)' , position:'fixed' , width: '100%' , height:'100%' , zIndex:1201 ,display :'flex' , justifyContent:'center' }}>
+                    <Box onClick={()=> {setImageIsShow({image:'' , show:false})}} sx={{backgroundColor:'rgba(0,0,0,.2)' , position:'fixed' , width: '100%' , height:'100%' , zIndex:1201 ,display :'flex' , justifyContent:'center' }}>
                         <SwiperCustomWrapper swiperOptions={{sx: {display:'flex' , alignItems:'center'}}}>
-                            <SwiperSlide onClick={handleImage} style={{display:'flex' , justifyContent:'center' , alignItems:'center'}}>
+                            <SwiperSlide style={{display:'flex' , justifyContent:'center' , alignItems:'center'}}>
                                 <Box display={{md: 'block', xs: 'none' , borderRadius:2}}>
                                     <Image alt={''} width={400} height={400} style={{borderRadius:'3%'}} src={imageIsShow?.image ?? null}/>
                                 </Box>
@@ -56,11 +53,22 @@ const ProductPage = ({data}) => {
                                     <Image alt={''} width={300} height={300} style={{borderRadius:'3%'}} src={imageIsShow?.image ?? null}/>
                                 </Box>
                             </SwiperSlide>
+                    {/*<Box onClick={()=> {*/}
+                    {/*    setImageIsShow({image:'' , show:false})}} sx={{backgroundColor:'rgba(0,0,0,.2)' , position:'fixed' , width: '100%' , height:'100%' , zIndex:1400 ,display :'flex' , justifyContent:'center' , alignItems:'center' }}>*/}
+                    {/*    <SwiperCustomWrapper useSwiper={true} swiperOptions={{sx: {display:'flex' , alignItems:'center'}}}>*/}
+                    {/*        <SwiperSlide style={{display:'flex' , justifyContent:'center' , alignItems:'center'}}>*/}
+                    {/*                <Box width={'100%'} sx={{ borderRadius:2 , aspectRatio:'1/1' , width:'45%'  , position:'relative !important'}}>*/}
+                    {/*                    <Image alt={''} fill style={{borderRadius:'12px' }} src={imageIsShow?.image ?? null}/>*/}
+                    {/*                </Box>*/}
+                    {/*            /!*<Box display={{md: 'none', xs: 'block'}}>*!/*/}
+                    {/*            /!*    <Image alt={''} width={300} height={300} style={{borderRadius:'3%'}} src={imageIsShow?.image ?? null}/>*!/*/}
+                    {/*            /!*</Box>*!/*/}
+                    {/*        </SwiperSlide>*/}
                             {
                                 data?.product?.all_images.map((item)=>{
                                     if(item.image !== imageIsShow?.image){
                                         return(
-                                            <SwiperSlide onClick={handleImage}>
+                                            <SwiperSlide key={item.image}>
                                                 <Box display={{md: 'block', xs: 'none'}}>
                                                     <Image alt={''} width={400} height={400}  style={{borderRadius:'3%'}} src={item?.image ?? null}/>
                                                 </Box>
@@ -134,7 +142,7 @@ const ProductPage = ({data}) => {
                                         {
                                             data?.similar_product.map((item) => {
                                                 return (
-                                                    <SwiperSlide key={Math.random() * 1000}
+                                                    <SwiperSlide key={item.id}
                                                                  style={{width: '200px', marginRight: '16px'}}>
                                                         <ProductPreviewCard
                                                             url={item.url}

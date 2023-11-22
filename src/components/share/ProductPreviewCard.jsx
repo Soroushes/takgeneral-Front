@@ -3,11 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PriceDiscount from "./PriceDiscount";
 import PN from "persian-number";
-import {useMemo} from "react";
-import {CostumeNextImages} from "@/components/share/CostumeNextImage";
-const imageStyle = {transition: 'all .3s', width: '100%', height: 'auto'}
 const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, price, id, shadow, sx , alt='' , url}) => {
-    //const imageStyle = useMemo(()=>({transition: 'all .3s', width: '100%', height: 'auto'}) , [])
     return (
         <Link style={{height:'100% !important'}} href={`/product/${id}/${url}`}>
             <Stack

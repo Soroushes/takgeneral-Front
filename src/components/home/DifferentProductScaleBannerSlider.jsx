@@ -113,7 +113,7 @@ const DifferentProductScaleSlider = () => {
                         if (index > itemNumbers-1) return ;
                         const scaleNumber = Math.abs(-(itemNumbers-1)/2 + index) ;
                         return (
-                            <Box sx={{width: {xs : 160 - scaleNumber*30 ,md : 250 - scaleNumber*40}, position : 'relative' , zIndex : 10-scaleNumber , mx:  -.7}}>
+                            <Box key={item.title} sx={{width: {xs : 160 - scaleNumber*30 ,md : 250 - scaleNumber*40}, position : 'relative' , zIndex : 10-scaleNumber , mx:  -.7}}>
                                 <ProductPreviewCard
                                     sx={{border : '1px solid #fff'}}
                                     shadow={0}

@@ -37,7 +37,7 @@ const singleProductImage = ({images, setShowImage}) => {
                         images?.map((item) => {
                             if (!item.is_main) {
                                 return (
-                                    <SwiperSlide key={Math.random() * 1000} onClick={
+                                    <SwiperSlide key={item.id} onClick={
                                         ()=>{
                                             if(item?.image){
 
@@ -77,7 +77,7 @@ const singleProductImage = ({images, setShowImage}) => {
                             if (!item.is_main) {
                                 return (
                                     <SwiperSlide style={{borderRadius: "8px", padding: '5px'}}
-                                                 key={Math.random() * 1000}>
+                                                 key={item.image}>
                                         <Box sx={{width: "100%", textAlign: 'center', boxShadow: 1}}>
                                             <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
                                                    alt={'test'} src={item.image}/>

@@ -15,47 +15,48 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
         setValue(newValue);
     };
     return (
-        <TabContext value={value}>
-            <Box
-                sx={{
-                    display: "flex",
-                    width: "100%",
-                    borderBottom: '1px solid #eee'
-                }}
-            >
-                <TabList textColor="secondary" indicatorColor="gray" onChange={handleTabChange}>
-                    <Tab
-                        sx={{
-                            mr: 2,
-                        }}
-                        label="مشخصات"
-                        value="1"
-                    />
-                    <Tab
-                        label="معرفی محصول"
-                        value="2"
-                    />
-                </TabList>
-            </Box>
-            <TabPanel
-                value="1"
-                sx={{
-                    width: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "start",
-                    gap: 3,
-                    p: 0,
-                    pt: 2,
-                }}
-            >
-                {/*<Collapse sx={{height: 'auto', width: '100%'}} in={IsShowAllDetails}>*/}
+        <>
+            <TabContext value={value}>
+                <Box
+                    sx={{
+                        display: "flex",
+                        width: "100%",
+                        borderBottom: '1px solid #eee'
+                    }}
+                >
+                    <TabList textColor="secondary" indicatorColor="gray" onChange={handleTabChange}>
+                        <Tab
+                            sx={{
+                                mr: 2,
+                            }}
+                            label="مشخصات"
+                            value="1"
+                        />
+                        <Tab
+                            label="معرفی محصول"
+                            value="2"
+                        />
+                    </TabList>
+                </Box>
+                <TabPanel
+                    value="1"
+                    sx={{
+                        width: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "start",
+                        gap: 3,
+                        p: 0,
+                        pt: 2,
+                    }}
+                >
+                    {/*<Collapse sx={{height: 'auto', width: '100%'}} in={IsShowAllDetails}>*/}
                     {details?.map((detail, index) => {
                         return (
                             !IsShowAllDetails && index > 2 ?
                                 null :
                                 <Box
-                                    key={Math.random() * 1000}
+                                    key={detail.specification}
                                     sx={{
                                         display: "flex",
                                         justifyContent: "space-between",
@@ -97,36 +98,37 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                                 </Box>
                         );
                     })}
-                {/*</Collapse>*/}
-                {
-                    details?.length > 3 ?
-                        <Box onClick={setShowAllDetails.bind(this, prev => !prev)}
-                             sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
-                            <Typography
-                                variant={"body2"}
-                                color={'primary'}
-                                sx={{
-                                    cursor: "pointer",
-                                    textAlign: "center",
-                                }}
-                            >
+                    {/*</Collapse>*/}
+                    {
+                        details?.length > 3 ?
+                            <Box onClick={setShowAllDetails.bind(this, prev => !prev)}
+                                 sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
+                                <Typography
+                                    variant={"body2"}
+                                    color={'primary'}
+                                    sx={{
+                                        cursor: "pointer",
+                                        textAlign: "center",
+                                    }}
+                                >
+                                    {
+                                        IsShowAllDetails ? 'مشاهده کمتر' : "مشاهده بیشتر"
+                                    }
+                                </Typography>
                                 {
-                                    IsShowAllDetails ? 'مشاهده کمتر' : "مشاهده بیشتر"
+                                    IsShowAllDetails ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :
+                                        <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>
                                 }
-                            </Typography>
-                            {
-                                IsShowAllDetails ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :
-                                    <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>
-                            }
-                        </Box>
-                        :
-                        null
-                }
-            </TabPanel>
-            <TabPanel value="2" sx={{width: '100%', p: 0}}>
-                <HtmlDescription>{content}</HtmlDescription>
-            </TabPanel>
-        </TabContext>
+                            </Box>
+                            :
+                            null
+                    }
+                </TabPanel>
+                <TabPanel value="2" sx={{width: '100%', p: 0}}>
+                    <HtmlDescription>{content}</HtmlDescription>
+                </TabPanel>
+            </TabContext>
+        </>
     );
 };
 export default SingleProductDetails;

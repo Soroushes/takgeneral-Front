@@ -58,9 +58,9 @@ const Navbar = () => {
                 borderRadius: '5px 5px 0 0',
             }}>
             {
-                navbarItems.map((navItem, index) => {
+                navbarItems.map((navItem) => {
                     return (
-                        <Box key={index} sx={{display: "flex", flexDirection: "column", alignItems: "center" , width:'25%'}}>
+                        <Box key={navItem.name} sx={{display: "flex", flexDirection: "column", alignItems: "center" , width:'25%'}}>
                             <Link href={navItem.link}>
                                 <Typography>{url === navItem.link ? navItem.activeIcon : navItem.icon}</Typography>
                             </Link>

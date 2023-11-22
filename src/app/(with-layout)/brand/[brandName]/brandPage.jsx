@@ -74,7 +74,7 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
                     <Grid item xs={12}>
                         <BreadcrumbGenerator breadcrumb={breadcrumbData} hasEmptyUrl={false}/>
                         <Typography component={'h1'} px={1} mb={2} variant={'h3'}>برند {brand.name}</Typography>
-                        <Box display={{md: 'none', xs: 'block'}} sx={{mb: 2, px: 1 , width:'25%'}}>
+                        <Box display={{md: 'none', xs: 'block'}} sx={{mb: 2 , width:'100px'}}>
                             <SelectionButton selectedValue={sortValueItems.find((item) => item.id === sortValue).name}  defaultValue={sortValue} modalName={'دسته بندی بر اساس'} items={sortValueItems} itemValues={'name'} handleChangeFn={handleSortOnchange}>
                                 <SortIcon/>
                             </SelectionButton>

@@ -167,7 +167,7 @@ const MobileHeader = ({categories}) => {
                                             <Typography sx={{py:1 , borderBottom:'1px solid #eee' , fontWeight:'bold'}}>دسته بندی تک جنرال</Typography>
                                             {categories?.map((item) => {
                                                 return (
-                                                    <Link key={Math.random()*1000} onClick={() => {
+                                                    <Link key={item.id} onClick={() => {
                                                         setDrawerIsOpen(false)
                                                     }} style={{display: 'block', width: "100%"}} href={`/category/${item.url}`}>
                                                         <Box

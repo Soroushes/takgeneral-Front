@@ -10,7 +10,7 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween , useSwiper 
     const swiperRef = useRef();
     return (
         <>
-            <Box width={'100%'} display={useSwiper ? 'flex': {md: 'flex', xs: 'none'}} alignItems={'center'}>
+            <Box width={'100%'} height={'100%'} display={useSwiper ? 'flex': {md: 'flex', xs: 'none'}} alignItems={'center'}>
                 {
                     navigation &&
                     <Box display={{md:'flex' , xs:'none'}} alignItems={'center'} justifyContent={'center'}
@@ -31,7 +31,7 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween , useSwiper 
                     centerInsufficientSlides={false}
                     centeredSlides={false}
                     centeredSlidesBounds={false}
-                    style={{width: '100%'}}
+                    style={{width: '100%' , height:'100%'}}
                     modules={[FreeMode]}
                     slidesPerView={'auto'}
                     onBeforeInit={(swiper) => {
