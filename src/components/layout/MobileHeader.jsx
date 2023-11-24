@@ -188,7 +188,7 @@ const MobileHeader = ({categories}) => {
                                         </Box>
                                         <Box textAlign={'center'} sx={{borderTop:'1px solid #eee'}}>
                                             <Box display={'flex'} gap={1} justifyContent={'center'} mb={1} mt={2}>
-                                                <Link href={'https://instagram.com/_u/tak_general/'}>
+                                                <Link passHref target={'_blank'} href={'https://instagram.com/_u/tak_general/'}>
                                                     <InstagramIcon/>
                                                 </Link>
                                                 <Link passHref target={'_blank'} href={'https://wa.me/989212075118'}>

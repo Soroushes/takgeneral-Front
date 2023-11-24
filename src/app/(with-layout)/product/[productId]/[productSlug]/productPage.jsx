@@ -19,7 +19,7 @@ const ProductPage = ({data}) => {
     const opinionTableRef = useRef(null);
     const [isShowAllDetails, setIsShowAllDetails] = useState(false);
     const [productOptions, setProductOptions] = useState(data?.product.options.product_variant[0]);
-    const [imageIsShow , setImageIsShow] = useState({image :'', show:false})
+    const [imageIsShow, setImageIsShow] = useState({image: '', show: false})
     const searchParams = useSearchParams();
     const {push} = useRouter();
     const from = searchParams.get('fromSection');
@@ -38,42 +38,49 @@ const ProductPage = ({data}) => {
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{__html: JSON.stringify(productSchemaGenerator(data?.product.name, data?.product.all_images, data?.meta_tag.desc, data?.product.brand, data?.avg_rate.avg_rate, data?.product.options.product_variant , data.comments.length))}}
+                dangerouslySetInnerHTML={{__html: JSON.stringify(productSchemaGenerator(data?.product.name, data?.product.all_images, data?.meta_tag.desc, data?.product.brand, data?.avg_rate.avg_rate, data?.product.options.product_variant, data.comments.length))}}
             />
-            <Box sx={{height: '100%' , width:'100%'}}>
+            <Box sx={{height: '100%', width: '100%'}}>
                 {
                     imageIsShow.show &&
-                    <Box onClick={()=> {setImageIsShow({image:'' , show:false})}} sx={{backgroundColor:'rgba(0,0,0,.2)' , position:'fixed' , width: '100%' , height:'100%' , zIndex:1201 ,display :'flex' , justifyContent:'center' }}>
-                        <SwiperCustomWrapper swiperOptions={{sx: {display:'flex' , alignItems:'center'}}}>
-                            <SwiperSlide style={{display:'flex' , justifyContent:'center' , alignItems:'center'}}>
-                                <Box display={{md: 'block', xs: 'none' , borderRadius:2}}>
-                                    <Image alt={''} width={400} height={400} style={{borderRadius:'3%'}} src={imageIsShow?.image ?? null}/>
-                                </Box>
-                                <Box display={{md: 'none', xs: 'block'}}>
-                                    <Image alt={''} width={300} height={300} style={{borderRadius:'3%'}} src={imageIsShow?.image ?? null}/>
+                    <Box onClick={() => {
+                        setImageIsShow({image: '', show: false})
+                    }} sx={{
+                        backgroundColor: 'rgba(0,0,0,.2)',
+                        position: 'fixed',
+                        width: '100%',
+                        top:0,right:0,left:0,
+                        height: '100%',
+                        zIndex: 1500,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}>
+                        <SwiperCustomWrapper useSwiper={true}
+                                             swiperOptions={{sx: {display: 'flex', alignItems: 'center'}}}>
+                            <SwiperSlide style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                                <Box width={'100%'} sx={{
+                                    borderRadius: 2,
+                                    aspectRatio: '1/1',
+                                    width: {xs: '90%', sm: '70%', md:'50%', lg: '45%' },
+                                    position: 'relative !important'
+                                }}>
+                                    <Image alt={''} fill style={{borderRadius: '12px'}}
+                                           src={imageIsShow?.image ?? null}/>
                                 </Box>
                             </SwiperSlide>
-                    {/*<Box onClick={()=> {*/}
-                    {/*    setImageIsShow({image:'' , show:false})}} sx={{backgroundColor:'rgba(0,0,0,.2)' , position:'fixed' , width: '100%' , height:'100%' , zIndex:1400 ,display :'flex' , justifyContent:'center' , alignItems:'center' }}>*/}
-                    {/*    <SwiperCustomWrapper useSwiper={true} swiperOptions={{sx: {display:'flex' , alignItems:'center'}}}>*/}
-                    {/*        <SwiperSlide style={{display:'flex' , justifyContent:'center' , alignItems:'center'}}>*/}
-                    {/*                <Box width={'100%'} sx={{ borderRadius:2 , aspectRatio:'1/1' , width:'45%'  , position:'relative !important'}}>*/}
-                    {/*                    <Image alt={''} fill style={{borderRadius:'12px' }} src={imageIsShow?.image ?? null}/>*/}
-                    {/*                </Box>*/}
-                    {/*            /!*<Box display={{md: 'none', xs: 'block'}}>*!/*/}
-                    {/*            /!*    <Image alt={''} width={300} height={300} style={{borderRadius:'3%'}} src={imageIsShow?.image ?? null}/>*!/*/}
-                    {/*            /!*</Box>*!/*/}
-                    {/*        </SwiperSlide>*/}
                             {
-                                data?.product?.all_images.map((item)=>{
-                                    if(item.image !== imageIsShow?.image){
-                                        return(
+                                data?.product?.all_images.map((item) => {
+                                    if (item.image !== imageIsShow?.image) {
+                                        return (
                                             <SwiperSlide key={item.image}>
                                                 <Box display={{md: 'block', xs: 'none'}}>
-                                                    <Image alt={''} width={400} height={400}  style={{borderRadius:'3%'}} src={item?.image ?? null}/>
+                                                    <Image alt={''} width={400} height={400}
+                                                           style={{borderRadius: '3%'}} src={item?.image ?? null}/>
                                                 </Box>
                                                 <Box display={{md: 'none', xs: 'block'}}>
-                                                    <Image alt={''} width={300} height={300} style={{borderRadius:'3%'}} src={item?.image ?? null}/>
+                                                    <Image alt={''} width={300} height={300}
+                                                           style={{borderRadius: '3%'}} src={item?.image ?? null}/>
                                                 </Box>
                                             </SwiperSlide>
                                         )

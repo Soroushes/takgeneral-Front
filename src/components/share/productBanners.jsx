@@ -3,7 +3,6 @@ import {Container, Grid , Box} from "@mui/material";
 import Image from "next/image";
 
 const ProductBanners = ({banners , sizing})=>{
-    console.log(banners)
     return (
         <Container sx={{my : 8}}>
             <Grid justifyContent={'space-between'} rowGap={3} container>

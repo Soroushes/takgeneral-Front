@@ -156,7 +156,7 @@ const ContactUsPage = () => {
                             </Link>
                         </Grid>
                         <Grid item md={3.5} xs={6}>
-                            <Link href={"https://instagram.com/_u/tak_general/"}>
+                            <Link passHref target={'_blank'} href={"https://instagram.com/_u/tak_general/"}>
                                 <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
                                     <Box sx={{
                                         backgroundColor: '#fff',

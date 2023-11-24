@@ -12,6 +12,8 @@ import {fetchInfo} from "@/redux/slices/userInfoSlice";
 import Link from "next/link";
 import OtpInput from "react18-input-otp";
 import LoadingButton from "@mui/lab/LoadingButton";
+import Logo from '../../../public/logo.png';
+import Image from "next/image";
 const boxStyles = {
     width: 450, px: 3, background: "white", borderRadius: 3, position: "relative",
 };
@@ -85,15 +87,16 @@ const LoginPage = ()=>{
         <Container maxWidth={"lg"} sx={{height: "75vh", p: 0}} disableGutters>
             <Grid sx={{height: "100%"}} container justifyContent={"center"} alignItems={"center"}>
                 <Box component={'form'} sx={boxStyles} onSubmit={handleSubmit(submitForm)}>
-                    <Box sx={{width: "50%", m: "auto", mb: 6}}>
-                        <Link href={urls.home}>
-                            <img
-                                style={{width: "100%"}}
-                                src="../logo.png"
+                    <Link href={urls.home}>
+                        <Box sx={{ aspectRatio:'5/1' , position:'relative' , width:'50%', m: "auto", mb: 6}}>
+                            <Image
+                                fill
+                                style={{width: "100%" }}
+                                src={Logo}
                                 alt="Takgeneral Logo"
                             />
-                        </Link>
-                    </Box>
+                        </Box>
+                    </Link>
                     <Box sx={{display: 'flex', flexDirection: 'column ', gap: 1}}>
                         <Typography sx={{mb: 1}} component={"h1"} variant={'h6'}>
                             {validate ? "کد تایید را وارد کنید" : "ورود / ثبت نام"}

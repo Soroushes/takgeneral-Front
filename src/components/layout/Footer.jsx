@@ -171,13 +171,13 @@ const Footer = () => {
                     <Typography color={'text.muted'} variant={'body1'}>حقوق این سرویس محفوظ و متعلق به شرکت تک جنرال
                         می‌باشد</Typography>
                     <Box display={'flex'}>
-                        <Link href={'https://t.me/atworkk'}>
+                        <Link passHref target={'_blank'} href={'https://t.me/atworkk'}>
                             <TelegramIcon/>
                         </Link>
-                        <Link href={'https://instagram.com/_u/tak_general/'}>
+                        <Link passHref target={'_blank'} href={'https://instagram.com/_u/tak_general/'}>
                             <InstagramIcon/>
                         </Link>
-                        <Link href={"https://wa.me/989212075118"}>
+                        <Link passHref target={'_blank'} href={"https://wa.me/989212075118"}>
                             <WhatsappIcon/>
                         </Link>
                     </Box>

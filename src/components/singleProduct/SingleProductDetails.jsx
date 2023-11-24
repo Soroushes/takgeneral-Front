@@ -50,10 +50,9 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                         pt: 2,
                     }}
                 >
-                    {/*<Collapse sx={{height: 'auto', width: '100%'}} in={IsShowAllDetails}>*/}
                     {details?.map((detail, index) => {
                         return (
-                            !IsShowAllDetails && index > 2 ?
+                            index > 2 ?
                                 null :
                                 <Box
                                     key={detail.specification}
@@ -98,7 +97,65 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                                 </Box>
                         );
                     })}
-                    {/*</Collapse>*/}
+                    <Collapse sx={{width:'100%' }} in={IsShowAllDetails}>
+                        <Box sx={{
+                            width: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "start",
+                            gap: 3,
+                            p: 0,
+                            pt: 2,
+                        }}>
+                            {details?.map((detail, index) => {
+                                return (
+                                    index <= 2 ?
+                                        null :
+                                        <Box
+                                            key={detail.specification}
+                                            sx={{
+                                                display: "flex",
+                                                justifyContent: "space-between",
+                                                alignItems: "center",
+                                                width: "100%",
+                                                gap: {xs: 2, md: 0},
+                                                px: 1,
+                                            }}
+                                        >
+                                            <Box
+                                                sx={{
+                                                    width: {xs: "20%", md: "15%"},
+                                                    pb: 1.5,
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                }}
+                                            >
+                                                <Typography
+                                                    variant="body2"
+                                                    color={'text.muted'}
+                                                >
+                                                    {detail.specification}:
+                                                </Typography>
+                                            </Box>
+                                            <Box
+                                                sx={{
+                                                    width: {xs: "80%", md: "85%"},
+                                                    pb: 1.5,
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                }}
+                                            >
+                                                <Typography
+                                                    variant="body2"
+                                                >
+                                                    {detail.value}
+                                                </Typography>
+                                            </Box>
+                                        </Box>
+                                );
+                            })}
+                        </Box>
+                    </Collapse>
                     {
                         details?.length > 3 ?
                             <Box onClick={setShowAllDetails.bind(this, prev => !prev)}

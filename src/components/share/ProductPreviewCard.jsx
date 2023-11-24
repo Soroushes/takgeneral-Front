@@ -28,7 +28,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                 {
                     discountPercent ?
                         <Typography
-                            variant={'subtitle1'}
+                            variant={'body2'}
                             color={'text.main'}
                             sx={{
                                 position: 'absolute',
@@ -41,7 +41,7 @@ const ProductPreviewCard = ({title, discountPercent, image, afterDiscountPrice, 
                                 width: 35,
                                 height: 35,
                                 borderRadius: '100% 0 0 0 ',
-                                zIndex: 3,pl:1
+                                zIndex: 3,pl:.5,pt:1
                             }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%
                         </Typography> : null
                 }
