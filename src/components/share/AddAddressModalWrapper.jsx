@@ -31,26 +31,31 @@ const AddAddressModalWrapper = ({open , setOpen , getAddress}) => {
     }
     return (
         <>
-            <MainModal setOpen={setOpen} title={'انتخاب آدرس بر روی نقشه'} open={open} mobileFullHeight={true} desktopFullScreen={true}>
-                <MapContainer
-                    style={{
+                <MainModal setOpen={setOpen} title={'انتخاب آدرس بر روی نقشه'} open={open} mobileFullHeight={true} desktopFullScreen={true}>
+                <Box sx={{
+                    height : '100%' ,
+                    '& .leaflet-container' : {
+                        aspectRatio : {md : '1.5/1'},
                         width: "100%",
                         zIndex: "10",
                         height: "100%",
                         position: "relative",
-                    }}
-                    zoomControl={false}
-                    center={position}
-                    zoom={18}
-                >
-                    <MapControl/>
-                    <MapSearchModal open={openSearchModal} setOpen={setOpenSearchModal}/>
-                    <MapSearchPart
-                        setOpenAddressModal={setOpenAddressModal}
-                        setOpenSearchModal={setOpenSearchModal}
-                        setValue={setValue}
-                    />
-                </MapContainer>
+                    }
+                }}>
+                    <MapContainer
+                        zoomControl={false}
+                        center={position}
+                        zoom={18}
+                    >
+                        <MapControl/>
+                        <MapSearchModal open={openSearchModal} setOpen={setOpenSearchModal}/>
+                        <MapSearchPart
+                            setOpenAddressModal={setOpenAddressModal}
+                            setOpenSearchModal={setOpenSearchModal}
+                            setValue={setValue}
+                        />
+                    </MapContainer>
+                </Box>
             </MainModal>
             <MainModal title={'ثبت مشخصات آدرس'} setOpen={setOpenAddressModal} open={openAddressModal}
                        desktopFullScreen={false}>
