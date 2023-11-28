@@ -45,30 +45,25 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "start",
-                        gap: 3,
                         p: 0,
                         pt: 2,
                     }}
                 >
-                    {details?.map((detail, index) => {
+                    {details?.slice(0,2).map((detail) => {
                         return (
-                            index > 2 ?
-                                null :
                                 <Box
                                     key={detail.specification}
                                     sx={{
                                         display: "flex",
-                                        justifyContent: "space-between",
-                                        alignItems: "center",
                                         width: "100%",
                                         gap: {xs: 2, md: 0},
                                         px: 1,
+                                        pb:1.5
                                     }}
                                 >
                                     <Box
                                         sx={{
                                             width: {xs: "20%", md: "15%"},
-                                            pb: 1.5,
                                             display: "flex",
                                             alignItems: "center",
                                         }}
@@ -83,7 +78,6 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                                     <Box
                                         sx={{
                                             width: {xs: "80%", md: "85%"},
-                                            pb: 1.5,
                                             display: "flex",
                                             alignItems: "center",
                                         }}
@@ -103,14 +97,11 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "start",
-                            gap: 3,
-                            p: 0,
-                            pt: 2,
+                            gap: 2.5,
+                            p: 0,pt:2
                         }}>
-                            {details?.map((detail, index) => {
+                            {details?.slice(2).map((detail) => {
                                 return (
-                                    index <= 2 ?
-                                        null :
                                         <Box
                                             key={detail.specification}
                                             sx={{
