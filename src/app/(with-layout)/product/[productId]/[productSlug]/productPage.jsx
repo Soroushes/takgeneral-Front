@@ -15,6 +15,8 @@ import {productSchemaGenerator} from "@/hooks/schemaGenerator";
 import Image from "next/image";
 
 const ProductPage = ({data}) => {
+    const BoxRef = useRef(null);
+    const imageRef = useRef(null);
     const attributesTableRef = useRef(null);
     const opinionTableRef = useRef(null);
     const [isShowAllDetails, setIsShowAllDetails] = useState(false);
@@ -34,18 +36,24 @@ const ProductPage = ({data}) => {
         params.delete('fromSection');
         push(`?${params}`, {scroll: false});
     }, []);
+    const handleClickOutSide = (event)=>{
+        console.log(imageRef.current.contains(event.target))
+        if(imageRef.current.contains(event.target)){
+            console.log(1)
+            // setImageIsShow({image: '', show: false})
+        }
+    }
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{__html: JSON.stringify(productSchemaGenerator(data?.product.name, data?.product.all_images, data?.meta_tag.desc, data?.product.brand, data?.avg_rate.avg_rate, data?.product.options.product_variant, data.comments.length))}}
             />
+            {/*<FormBuilder name={'test'} render={<TextField/>}/>*/}
             <Box sx={{height: '100%', width: '100%'}}>
                 {
                     imageIsShow.show &&
-                    <Box onClick={() => {
-                        setImageIsShow({image: '', show: false})
-                    }} sx={{
+                    <Box ref={BoxRef} onClick={handleClickOutSide.bind(this)}  sx={{
                         backgroundColor: 'rgba(0,0,0,.2)',
                         position: 'fixed',
                         width: '100%',
@@ -56,16 +64,17 @@ const ProductPage = ({data}) => {
                         justifyContent: 'center',
                         alignItems: 'center',
                     }}>
-                        <SwiperCustomWrapper useSwiper={true}
+                        <SwiperCustomWrapper navigation={false} useSwiper={true}
                                              swiperOptions={{sx: {display: 'flex', alignItems: 'center'}}}>
                             <SwiperSlide style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                                 <Box width={'100%'} sx={{
                                     borderRadius: 2,
                                     aspectRatio: '1/1',
-                                    width: {xs: '90%', sm: '70%', md:'50%', lg: '45%' },
+                                    maxWidth:'500px',
+                                    width: '100%',
                                     position: 'relative !important'
                                 }}>
-                                    <Image alt={''} fill style={{borderRadius: '12px'}}
+                                    <Image ref={imageRef} alt={''} fill style={{borderRadius: '12px'}}
                                            src={imageIsShow?.image ?? null}/>
                                 </Box>
                             </SwiperSlide>

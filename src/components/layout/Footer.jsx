@@ -25,7 +25,7 @@ const Footer = () => {
         })
     }, [])
     return (
-        <Box component={'footer'} sx={{backgroundColor: '#FCFCFD', position: 'relative', zIndex: 4, pb: 4, pt: 2}}>
+        <Box width={'100%'} component={'footer'} sx={{backgroundColor: '#FCFCFD', position: 'relative', zIndex: 4, pb: 4, pt: 2}}>
             <Container>
                 <Box sx={{mt: 2 , borderTop: '1px solid #eee', borderBottom: '1px solid #eee'}} display={'flex'}
                      justifyContent={'center'}>
