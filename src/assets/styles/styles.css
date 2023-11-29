@@ -46,6 +46,13 @@ li {
 input {
     touch-action: none !important;
 }
+.link-building-in-content-seo{
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #1b09f9;
+    color: #fff;
+}
 
 
 

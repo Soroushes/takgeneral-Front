@@ -15,7 +15,6 @@ import {productSchemaGenerator} from "@/hooks/schemaGenerator";
 import Image from "next/image";
 
 const ProductPage = ({data}) => {
-    console.log(data.product.attentions)
     const BoxRef = useRef(null);
     const imageRef = useRef(null);
     const attributesTableRef = useRef(null);

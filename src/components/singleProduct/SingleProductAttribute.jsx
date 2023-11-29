@@ -61,10 +61,10 @@ const singleProductAttribute = ({
                     </Typography>
                 </Button>
             </Box>
-            <Box component={'ul'} width={'80%'} mt={2}>
+            <Box width={'90%'} mt={2}>
                 {
                     attentions.map((item)=>{
-                        return(<Typography component={'li'} sx={{listStyleType:'circle' }} fontWeight={'bold'} color={'primary'}>{item.text}</Typography>)
+                        return(<Typography component={'li'} fontWeight={'bold'} color={'primary'}>* {item.text}</Typography>)
                     })
                 }
             </Box>
