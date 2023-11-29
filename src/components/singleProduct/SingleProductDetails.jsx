@@ -46,10 +46,10 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                         flexDirection: "column",
                         alignItems: "start",
                         p: 0,
-                        pt: 2,
+                        pt: 2,gap:3
                     }}
                 >
-                    {details?.slice(0,2).map((detail) => {
+                    {details?.slice(0,3).map((detail) => {
                         return (
                                 <Box
                                     key={detail.specification}
@@ -58,7 +58,6 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                                         width: "100%",
                                         gap: {xs: 2, md: 0},
                                         px: 1,
-                                        pb:1.5
                                     }}
                                 >
                                     <Box
@@ -91,23 +90,21 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                                 </Box>
                         );
                     })}
-                    <Collapse sx={{width:'100%' }} in={IsShowAllDetails}>
+                    <Collapse sx={{width:'100%'}} in={IsShowAllDetails}>
                         <Box sx={{
                             width: "100%",
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "start",
-                            gap: 2.5,
-                            p: 0,pt:2
+                            gap: 3,
+                            p: 0
                         }}>
-                            {details?.slice(2).map((detail) => {
+                            {details?.slice(3).map((detail) => {
                                 return (
                                         <Box
                                             key={detail.specification}
                                             sx={{
                                                 display: "flex",
-                                                justifyContent: "space-between",
-                                                alignItems: "center",
                                                 width: "100%",
                                                 gap: {xs: 2, md: 0},
                                                 px: 1,
@@ -116,7 +113,6 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                                             <Box
                                                 sx={{
                                                     width: {xs: "20%", md: "15%"},
-                                                    pb: 1.5,
                                                     display: "flex",
                                                     alignItems: "center",
                                                 }}
@@ -131,7 +127,6 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                                             <Box
                                                 sx={{
                                                     width: {xs: "80%", md: "85%"},
-                                                    pb: 1.5,
                                                     display: "flex",
                                                     alignItems: "center",
                                                 }}
@@ -150,7 +145,7 @@ const SingleProductDetails = ({details, setShowAllDetails, IsShowAllDetails, con
                     {
                         details?.length > 3 ?
                             <Box onClick={setShowAllDetails.bind(this, prev => !prev)}
-                                 sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
+                                 sx={{display: "flex", cursor: 'pointer', alignItems: "center" , mt:IsShowAllDetails ?'none':'-20px', gap: 1}}>
                                 <Typography
                                     variant={"body2"}
                                     color={'primary'}

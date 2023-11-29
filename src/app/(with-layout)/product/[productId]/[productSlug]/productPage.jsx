@@ -15,6 +15,7 @@ import {productSchemaGenerator} from "@/hooks/schemaGenerator";
 import Image from "next/image";
 
 const ProductPage = ({data}) => {
+    console.log(data.product.attentions)
     const BoxRef = useRef(null);
     const imageRef = useRef(null);
     const attributesTableRef = useRef(null);
@@ -112,6 +113,7 @@ const ProductPage = ({data}) => {
                         </Grid>
                         <Grid item md={5} xs={12}>
                             <SingleProductAttribute
+                                attentions={data.product.attentions}
                                 productStaus={productOptions?.inventory_status}
                                 pdf={data?.product.pdf}
                                 id={data?.product.id}
