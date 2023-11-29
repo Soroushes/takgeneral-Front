@@ -37,11 +37,11 @@ const ProductPage = ({data}) => {
         push(`?${params}`, {scroll: false});
     }, []);
     const handleClickOutSide = (event)=>{
-        console.log(imageRef.current.contains(event.target))
-        if(imageRef.current.contains(event.target)){
-            console.log(1)
-            // setImageIsShow({image: '', show: false})
-        }
+        // console.log(imageRef.current.contains(event.target))
+        // if(imageRef.current.contains(event.target)){
+        //     console.log(1)
+             setImageIsShow({image: '', show: false})
+        // }
     }
     return (
         <>
