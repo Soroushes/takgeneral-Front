@@ -16,6 +16,7 @@ const Navbar = () => {
     const [navbarItems, setNavbarItems] = useState([]);
     const {total_count} = useSelector(state => state.cart);
     const url = usePathname();
+    const {phone_number} = useSelector(state => state.userInfo);
     useEffect(() => {
         setNavbarItems([
             {
@@ -36,14 +37,22 @@ const Navbar = () => {
                 activeIcon: <ActiveContactIcon/>,
                 link: urls.contactUs
             },
-            {
-                name: "حساب کاربری",
-                icon: <User/>,
-                activeIcon: <ActiveUserIcon/>,
-                link: urls.profile
-            }
+            phone_number ?
+                {
+                    name: "حساب کاربری",
+                    icon: <User/>,
+                    activeIcon: <ActiveUserIcon/>,
+                    link: urls.profile
+                }:
+                {
+                    name:'ورود و عضویت',
+                    icon: <User/>,
+                    activeIcon: <ActiveUserIcon/>,
+                    link:urls.login
+                }
+            ,
         ])
-    }, [total_count])
+    }, [total_count , phone_number])
     return (
         <Box
             sx={{

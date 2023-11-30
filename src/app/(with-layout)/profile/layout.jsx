@@ -2,7 +2,7 @@
 import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import {usePathname, useRouter} from "next/navigation";
-import {LOGOUT} from "@/redux/slices/userInfoSlice";
+import {fetchInfo, LOGOUT} from "@/redux/slices/userInfoSlice";
 import UserIcon from "../../../assets/icons/layout/user";
 import {urls} from "@/data/urls";
 import LocationIcon from "../../../assets/icons/layout/locationIcon";
@@ -18,6 +18,7 @@ export default function Layout ({children}) {
     const pathName = usePathname()
     const removeToken = ()=>{
         dispatch(LOGOUT()) ;
+        dispatch(fetchInfo());
         router.push('/');
     }
     const panelItems = [

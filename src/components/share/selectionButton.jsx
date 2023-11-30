@@ -2,7 +2,7 @@ import {Box, MenuItem, TextField, Typography} from "@mui/material";
 import {useState} from "react";
 import MainModal from "@/components/share/MainModal";
 
-const SelectionButton = ({defaultValue , items , handleChangeFn , itemValues , children , modalName , selectedValue})=>{
+const SelectionButton = ({defaultValue , items , handleChangeFn , itemValues , children , modalName , selectedValue , boldTextfield=false})=>{
     const [modalIsOpen , setModalIsOpen] = useState(false);
     return(
         <>
@@ -24,7 +24,7 @@ const SelectionButton = ({defaultValue , items , handleChangeFn , itemValues , c
                     ))
                 }
             </TextField>
-            <Box onClick={()=>{setModalIsOpen(true)}} sx={{display:{md:'none' , xs:'flex'} , border:'1px solid #eee' , alignItems:'center' , py:.5 , px:1.5 , borderRadius:2}}>
+            <Box onClick={()=>{setModalIsOpen(true)}} sx={{display:{md:'none' , xs:'flex'} , border:boldTextfield ?'2px solid #1b09f9':'1px solid #eee' , alignItems:'center' , py:.5 , px:1.5 , borderRadius:2}}>
                 {
                     children
                 }

@@ -61,10 +61,10 @@ const singleProductAttribute = ({
                     </Typography>
                 </Button>
             </Box>
-            <Box width={'90%'} mt={2}>
+            <Box width={'90%'}>
                 {
                     attentions.map((item)=>{
-                        return(<Typography component={'li'} fontWeight={'bold'} color={'primary'}>* {item.text}</Typography>)
+                        return(<Typography key={item.text} pt={1} component={'li'} fontWeight={'bold'} color={'primary'}>* {item.text}</Typography>)
                     })
                 }
             </Box>
@@ -72,7 +72,7 @@ const singleProductAttribute = ({
                 !options?.no_option &&
                 <Box my={2} display={'flex'} alignItems={'center'} gap={2}>
                     <Typography minWidth={'31px'}>{options?.name} :</Typography>
-                    <SelectionButton selectedValue={productOptions?.option_value} defaultValue={productOptions.id} handleChangeFn={handleSortOnchange} modalName={options?.name} items={options?.product_variant} itemValues={'option_value'}>
+                    <SelectionButton boldTextfield={true} selectedValue={productOptions?.option_value} defaultValue={productOptions.id} handleChangeFn={handleSortOnchange} modalName={options?.name} items={options?.product_variant} itemValues={'option_value'}>
                         <KeyboardArrowDownIcon color={'primary'}/>
                     </SelectionButton>
                 </Box>
