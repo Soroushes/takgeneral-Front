@@ -5,7 +5,7 @@ import Error from "@/app/error";
 import {metadataGenerator} from "@/hooks/metadataGenerator";
 
 async function getData(productId) {
-    const res = await fetch(`${BASE_URL}product-detail/${productId}/`, {cache: 'no-store'})
+    const res = await fetch(`${BASE_URL}product-detail/${productId}/`,{next:{revalidate :60}})
     if (res.ok) {
         return res.json();
     } else {

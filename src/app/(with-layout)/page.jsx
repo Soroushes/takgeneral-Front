@@ -24,7 +24,7 @@ export const metadata = {
     }
 }
 async function getData() {
-    const res = await fetch(`${BASE_URL}home/`, {cache: 'no-store'})
+    const res = await fetch(`${BASE_URL}home/`,{next:{revalidate :60}})
     if (res.ok) {
         return res.json()
     } else {

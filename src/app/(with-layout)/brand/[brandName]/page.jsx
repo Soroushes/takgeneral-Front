@@ -6,7 +6,7 @@ import {metadataGenerator} from "@/hooks/metadataGenerator";
 
 const getData = async (params, searchParams) => {
     const parameters = new URLSearchParams(searchParams)
-    const res = await fetch(BASE_URL + 'brands/' + params.brandName + '?' + parameters.toString(), {cache: 'no-store'});
+    const res = await fetch(BASE_URL + 'brands/' + params.brandName + '?' + parameters.toString() , {next:{revalidate :60}});
     if (res.ok) {
         return res.json();
     } else {

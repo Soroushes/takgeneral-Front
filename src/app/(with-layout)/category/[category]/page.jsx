@@ -14,7 +14,7 @@ async function getData(params, searchParams) {
     brands.map((brand) => {
         parameters.append('brand[]', brand)
     })
-    const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString(), {cache: 'no-store'})
+    const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString(),{next:{revalidate :60}})
     if (res.ok) {
         return res.json();
     } else {
