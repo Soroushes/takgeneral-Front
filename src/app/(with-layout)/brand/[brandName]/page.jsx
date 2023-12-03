@@ -1,8 +1,6 @@
 import BrandPage from "./brandPage";
 import {BASE_URL, domainName} from "@/data/urls";
 import {notFound} from "next/navigation";
-import LoadingPages from "@/components/share/LoadingPages";
-import {Suspense} from "react";
 import Error from "@/app/error";
 import {metadataGenerator} from "@/hooks/metadataGenerator";
 
@@ -28,9 +26,9 @@ export async function generateMetadata({params, searchParams}) {
 
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
-    return (<Suspense fallback={<LoadingPages/>}>
+    return (
         <BrandPage brand={data.brand} main_banner={data.main_banner} product={data.products} content={data.page_content}
                    current_page={data.current_page} page_count={data.page_count}/>
-    </Suspense>)
+    )
 }
 

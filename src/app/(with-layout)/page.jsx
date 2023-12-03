@@ -2,9 +2,6 @@ import Slider from "../../components/home/Slider";
 import {BASE_URL, domainName} from "@/data/urls";
 import HomePageCategorySection from "../../components/home/HomePageCategorySection";
 import ProductBanners from "../../components/share/productBanners";
-import HighRateCategorySlider from "../../components/home/highRateCategorySlider";
-import {Suspense} from "react";
-import LoadingPages from "../../components/share/LoadingPages";
 import DiscountProductSlider from "@/components/home/DiscountProductSlider";
 import Blogs from "@/components/home/blogs";
 import {notFound} from "next/navigation";
@@ -42,7 +39,7 @@ async function getData() {
 export default async function Page() {
     const data = await getData();
     return (
-        <Suspense fallback={<LoadingPages/>}>
+        <>
             <Slider slides={data?.main_banner}/>
             <div style={{
                 backgroundColor: '#FCFCFD',
@@ -64,6 +61,6 @@ export default async function Page() {
                     data.new_blogs.length ? <Blogs blogs={data.new_blogs}/> : null
                 }
             </div>
-        </Suspense>
+        </>
     );
 }
