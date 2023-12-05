@@ -9,15 +9,15 @@ import {useMemo} from "react";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 
 const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp, url}) => {
-    // const breadcrumbData = useMemo(() => [{url: '/blog', name: 'وبلاگ ها'}, {url: `/blog/${url}`, name: title}])
+    const breadcrumbData = useMemo(() => [{url: '/blog', name: 'وبلاگ ها'}, {url: `/blog/${url}`, name: title}])
     return (
         <>
-            {/*<script*/}
-            {/*    type="application/ld+json"*/}
-            {/*    dangerouslySetInnerHTML={{__html: JSON.stringify(singleBlogSchemaGenerator(images, createdTimeStamp, updatedTimeStamp, title))}}*/}
-            {/*/>*/}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{__html: JSON.stringify(singleBlogSchemaGenerator(images, createdTimeStamp, updatedTimeStamp, title))}}
+            />
             <Container mt={3}>
-                {/*<BreadcrumbGenerator hasEmptyUrl={false} breadcrumb={breadcrumbData}/>*/}
+                <BreadcrumbGenerator hasEmptyUrl={false} breadcrumb={breadcrumbData}/>
                 <Grid container justifyContent={'space-between'}>
                     {
                         images[0]?.image ?
@@ -37,9 +37,7 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
                                 <Box width={500} height={400}
                                      sx={{display: {md: 'block', xs: 'none'}, textAlign: 'center', width: '100%'}}>
                                     <Image
-                                        loading='eager' width={500}
-                                        height={400}
-                                        style={{maxWidth: '100%'}}
+                                        loading='eager' width={500} height={400} style={{maxWidth: '100%'}}
                                         src={images[0]?.image}
                                         alt={title}/>
                                 </Box>
