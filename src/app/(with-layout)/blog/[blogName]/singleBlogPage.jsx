@@ -22,33 +22,44 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
                     {
                         images[0]?.image ?
                             <Grid sx={{py: 1}} item xs={12}>
-                                <Box width={396} height={396} sx={{display:{md:'none' , xs:'block'} , position:'relative',textAlign: 'center', width: '100%'}}>
-                                    <Image fill
-                                           src={images[0]?.image}
-                                           alt={title}/>
+                                <Box width={396} height={396} sx={{
+                                    display: {md: 'none', xs: 'block'},
+                                    position: 'relative',
+                                    textAlign: 'center',
+                                    width: '100%'
+                                }}>
+                                    <Image
+                                        loading='eager'
+                                        fill
+                                        src={images[0]?.image}
+                                        alt={title}/>
                                 </Box>
-                                <Box width={500} height={400} sx={{display:{md:'block' , xs:'none'},textAlign: 'center', width: '100%'}}>
-                                    <Image width={500} height={400} style={{maxWidth: '100%'}}
-                                           src={images[0]?.image}
-                                           alt={title}/>
+                                <Box width={500} height={400}
+                                     sx={{display: {md: 'block', xs: 'none'}, textAlign: 'center', width: '100%'}}>
+                                    <Image
+                                        loading='eager' width={500}
+                                        height={400}
+                                        style={{maxWidth: '100%'}}
+                                        src={images[0]?.image}
+                                        alt={title}/>
                                 </Box>
                             </Grid>
                             : null
                     }
                     <Grid item xs={12} sx={{py: 1}} display={'flex'} flexDirection={'column'}
                           justifyContent={'space-between'}>
-                        <Typography sx={{mb: 1 , fontSize:'1.17em'}} component={'h1'} fontWeight={'bold'}>
+                        <Typography sx={{mb: 1, fontSize: '1.17em'}} component={'h1'} fontWeight={'bold'}>
                             {
                                 title
                             }
                         </Typography>
                         <Box display={'flex'} flexDirection={{md: 'column', xs: 'column-reverse'}}
                              justifyContent={'space-between'}>
-                                <HtmlDescription boxSx={{
-                                    width: '100%', px: 0
-                                }}>
-                                    {content}
-                                </HtmlDescription>
+                            <HtmlDescription boxSx={{
+                                width: '100%', px: 0
+                            }}>
+                                {content}
+                            </HtmlDescription>
                             <Box my={2} display={'flex'} alignItems={'center'} gap={1}>
                                 <ClockIcon/>
                                 <Typography
