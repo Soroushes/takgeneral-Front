@@ -9,15 +9,15 @@ import {useMemo} from "react";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 
 const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp, url}) => {
-    const breadcrumbData = useMemo(() => [{url: '/blog', name: 'وبلاگ ها'}, {url: `/blog/${url}`, name: title}])
+    // const breadcrumbData = useMemo(() => [{url: '/blog', name: 'وبلاگ ها'}, {url: `/blog/${url}`, name: title}])
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{__html: JSON.stringify(singleBlogSchemaGenerator(images, createdTimeStamp, updatedTimeStamp, title))}}
-            />
+            {/*<script*/}
+            {/*    type="application/ld+json"*/}
+            {/*    dangerouslySetInnerHTML={{__html: JSON.stringify(singleBlogSchemaGenerator(images, createdTimeStamp, updatedTimeStamp, title))}}*/}
+            {/*/>*/}
             <Container mt={3}>
-                <BreadcrumbGenerator hasEmptyUrl={false} breadcrumb={breadcrumbData}/>
+                {/*<BreadcrumbGenerator hasEmptyUrl={false} breadcrumb={breadcrumbData}/>*/}
                 <Grid container justifyContent={'space-between'}>
                     {
                         images[0]?.image ?
