@@ -1,11 +1,10 @@
 import ThemeRegistry from "../components/themeRegister";
-import localFont from 'next/font/local';
 import NextAppDirEmotionCacheProvider from "@/components/emotionCache";
-const myFont = localFont({
-    src: '../assets/font/IRANYekan.woff',
-    display: 'swap',
-    variable: '--iranYekan'
-})
+// const myFont = localFont({
+//     src: '../assets/font/IRANYekan.woff',
+//     display: 'swap',
+//     variable: '--iranYekan'
+// })
 export const metadata = {
     viewport: 'width=device-width, initial-scale=1, maximum-scale=1'
 }
