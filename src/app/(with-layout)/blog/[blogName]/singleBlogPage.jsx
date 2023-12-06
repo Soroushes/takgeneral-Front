@@ -29,7 +29,7 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
                                     width: '100%'
                                 }}>
                                     <Image
-                                        loading='eager'
+                                        priority
                                         fill
                                         src={images[0]?.image}
                                         alt={title}/>
@@ -37,6 +37,7 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
                                 <Box width={500} height={400}
                                      sx={{display: {md: 'block', xs: 'none'}, textAlign: 'center', width: '100%'}}>
                                     <Image
+                                        priority
                                         loading='eager' width={500} height={400} style={{maxWidth: '100%'}}
                                         src={images[0]?.image}
                                         alt={title}/>
