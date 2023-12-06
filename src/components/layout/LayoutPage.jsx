@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer";
 import {useSelector} from "react-redux";
 import CallingButtonIcon from '../../assets/icons/share/call-callingButton.svg';
 import Link from "next/link";
+import '../assets/styles/styles.css' ;
 const LayoutPage = ({children , categoryNames}) => {
     const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight} = useSelector(state => state.deviceInfo);
     return (
