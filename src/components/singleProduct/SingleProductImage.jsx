@@ -3,9 +3,6 @@ import {useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {FreeMode, Pagination, Thumbs} from "swiper";
 import Image from "next/image";
-import 'swiper/swiper.css';
-import "swiper/css/thumbs";
-import 'swiper/css/pagination';
 
 const singleProductImage = ({images, setShowImage}) => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
