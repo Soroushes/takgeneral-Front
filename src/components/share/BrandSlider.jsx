@@ -2,8 +2,6 @@ import SwiperCustomWrapper from "./SwiperCustomWrapper";
 import {Container} from "@mui/material";
 import {SwiperSlide} from "swiper/react";
 import InnerImageSection from "./InnerImageSection";
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 const BrandSlider = ({brands = []}) => {
     return (

@@ -4,15 +4,17 @@ import {Box} from "@mui/material";
 import {useRef} from "react";
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
+import 'swiper/swiper.min.css';
 
-const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween , useSwiper = false, navigation = true}) => {
+const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, useSwiper = false, navigation = true}) => {
     const swiperRef = useRef();
     return (
         <>
-            <Box width={'100%'} height={'100%'} display={useSwiper ? 'flex': {md: 'flex', xs: 'none'}} alignItems={'center'}>
+            <Box width={'100%'} height={'100%'} display={useSwiper ? 'flex' : {md: 'flex', xs: 'none'}}
+                 alignItems={'center'}>
                 {
                     navigation &&
-                    <Box display={{md:'flex' , xs:'none'}} alignItems={'center'} justifyContent={'center'}
+                    <Box display={{md: 'flex', xs: 'none'}} alignItems={'center'} justifyContent={'center'}
                          sx={{
                              backgroundColor: 'white',
                              boxShadow: 3,
@@ -30,7 +32,7 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween , useSwiper 
                     centerInsufficientSlides={false}
                     centeredSlides={false}
                     centeredSlidesBounds={false}
-                    style={{width: '100%' , height:'100%'}}
+                    style={{width: '100%', height: '100%'}}
                     modules={[FreeMode]}
                     slidesPerView={'auto'}
                     onBeforeInit={(swiper) => {
@@ -44,7 +46,8 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween , useSwiper 
                 </Swiper>
                 {
                     navigation &&
-                    <Box display={{md:'flex' , xs:'none'}} className={''} alignItems={'center'} justifyContent={'center'}
+                    <Box display={{md: 'flex', xs: 'none'}} className={''} alignItems={'center'}
+                         justifyContent={'center'}
                          sx={{
                              backgroundColor: 'white',
                              aspectRatio: "1/1",
@@ -60,7 +63,7 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween , useSwiper 
                          }} onClick={() => swiperRef.current?.slideNext()}><ChevronLeftRoundedIcon/></Box>
                 }
             </Box>
-            <Box display={useSwiper ?'none':{xs: 'flex', md: 'none'}} className={'hide-scroll-bar'} sx={{
+            <Box display={useSwiper ? 'none' : {xs: 'flex', md: 'none'}} className={'hide-scroll-bar'} sx={{
                 flexWrap: 'nowrap',
                 overflowX: 'auto',
                 scrollBehavior: 'smooth',

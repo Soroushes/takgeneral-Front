@@ -1,8 +1,6 @@
 'use client'
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation} from "swiper";
-import "swiper/css/navigation";
-import "swiper/css";
 import {Box} from "@mui/material";
 import {useSelector} from "react-redux";
 import Image from "next/image";
