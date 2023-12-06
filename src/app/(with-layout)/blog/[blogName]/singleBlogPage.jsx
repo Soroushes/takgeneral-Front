@@ -22,23 +22,18 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
                     {
                         images[0]?.image ?
                             <Grid sx={{py: 1}} item xs={12}>
-                                <Box width={396} height={396} sx={{
-                                    display: {md: 'none', xs: 'block'},
-                                    position: 'relative',
-                                    textAlign: 'center',
-                                    width: '100%'
-                                }}>
+                                <Box
+                                    sx={{
+                                        aspectRatio: '1/1',
+                                        maxWidth : '500px' ,
+                                        mx : 'auto' ,
+                                        position: 'relative',
+                                        textAlign: 'center',
+                                        width: '100%'
+                                    }}>
                                     <Image
                                         priority
                                         fill
-                                        src={images[0]?.image}
-                                        alt={title}/>
-                                </Box>
-                                <Box width={500} height={400}
-                                     sx={{display: {md: 'block', xs: 'none'}, textAlign: 'center', width: '100%'}}>
-                                    <Image
-                                        priority
-                                        loading='eager' width={500} height={400} style={{maxWidth: '100%'}}
                                         src={images[0]?.image}
                                         alt={title}/>
                                 </Box>
