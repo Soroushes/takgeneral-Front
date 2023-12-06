@@ -1,7 +1,6 @@
 import {Swiper} from "swiper/react";
 import {FreeMode} from "swiper";
 import {Box} from "@mui/material";
-import 'swiper/swiper.css';
 import {useRef} from "react";
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
