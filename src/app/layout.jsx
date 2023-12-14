@@ -2,6 +2,8 @@ import ThemeRegistry from "../components/themeRegister";
 import localFont from 'next/font/local';
 import NextAppDirEmotionCacheProvider from "@/components/emotionCache";
 import Script from "next/script";
+import '../assets/styles/styles.css' ;
+
 const myFont = localFont({
     src: '../assets/font/IRANYekan.woff',
     display: 'swap',
