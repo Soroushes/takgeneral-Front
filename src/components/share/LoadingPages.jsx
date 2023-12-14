@@ -3,7 +3,7 @@ import {CircularProgress , Box} from "@mui/material";
 
 const LoadingPages =()=>{
     return(
-        <Box sx={{height : '70vh' , display : 'flex' , alignItems : 'center' , justifyContent : 'center'}}>
+        <Box sx={{height : '70dvh' , display : 'flex' , alignItems : 'center' , justifyContent : 'center'}}>
             <CircularProgress />
         </Box>
     )
