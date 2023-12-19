@@ -79,10 +79,10 @@ const ProductPreviewCard = ({
                     </Box>
                 </Box>
                 <Box display={{md: 'block', xs: 'none'}}>
-                    <PriceDiscount finalPriceBold={true} discountPrice={price} finalPrice={afterDiscountPrice}/>
+                    <PriceDiscount finalPriceColor={'#333'} finalPriceBold={true} discountPrice={price} finalPrice={afterDiscountPrice}/>
                 </Box>
                 <Box display={{xs: 'block', md: 'none'}}>
-                    <PriceDiscount finalPriceBold={false} discountPrice={price} finalPrice={afterDiscountPrice}/>
+                    <PriceDiscount finalPriceColor={'#333'} finalPriceBold={false} discountPrice={price} finalPrice={afterDiscountPrice}/>
                 </Box>
             </Stack>
         </Link>
