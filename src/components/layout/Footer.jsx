@@ -130,11 +130,10 @@ const Footer = () => {
                                 background: 'white',
                                 borderRadius: 2,
                             }}>
-                                <Image referrerPolicy='origin' width={86} height={94} id='rgvjwlaooeukwlaofukzoeuk' style={{cursor: 'pointer'}}
+                                <img referrerPolicy='origin' width={86} height={94} id='rgvjwlaooeukwlaofukzoeuk' style={{cursor: 'pointer'}}
                                        onClick={()=> {
                                            window.open("https://logo.samandehi.ir/Verify.aspx?id=348468&p=xlaoaodsmcsiaodsgvkamcsi", "Popup", "toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")
                                        }}
-                                       priority
                                        alt='logo-samandehi'
                                        src='https://logo.samandehi.ir/logo.aspx?id=348468&p=qftishwlaqgwshwlwlbqaqgw'/>
                             </Box>
@@ -145,7 +144,7 @@ const Footer = () => {
                             }}>
                                 <a referrerPolicy='origin' target='_blank'
                                    href='https://trustseal.enamad.ir/?id=344613&Code=oFIMPdMkR76yp32fW0aU'>
-                                    <Image priority referrerPolicy='origin' width={86} height={94}
+                                    <img referrerPolicy='origin' width={86} height={94}
                                          src='https://trustseal.enamad.ir/logo.aspx?id=344613&Code=oFIMPdMkR76yp32fW0aU'
                                          alt=''
                                          style={{cursor: 'pointer'}}

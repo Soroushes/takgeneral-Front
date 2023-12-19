@@ -37,6 +37,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                                     transition: 'all .5s',
                                     borderRadius: 2,
                                     height:'100%',
+                                    backgroundColor:'#fff'
                                 }}>
                                     <BlogCard blog={item}/>
                                 </Box>
