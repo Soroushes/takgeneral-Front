@@ -78,12 +78,12 @@ const ProductPreviewCard = ({
                         </Typography>
                     </Box>
                 </Box>
-                <Box display={{md: 'block', xs: 'none'}}>
-                    <PriceDiscount finalPriceBold={true} discountPrice={price} finalPrice={afterDiscountPrice}/>
-                </Box>
-                <Box display={{xs: 'block', md: 'none'}}>
-                    <PriceDiscount finalPriceBold={false} discountPrice={price} finalPrice={afterDiscountPrice}/>
-                </Box>
+                {/*<Box display={{md: 'block', xs: 'none'}}>*/}
+                {/*    <PriceDiscount finalPriceBold={true} discountPrice={price} finalPrice={afterDiscountPrice}/>*/}
+                {/*</Box>*/}
+                {/*<Box display={{xs: 'block', md: 'none'}}>*/}
+                {/*    <PriceDiscount finalPriceBold={false} discountPrice={price} finalPrice={afterDiscountPrice}/>*/}
+                {/*</Box>*/}
             </Stack>
         </Link>
     )
