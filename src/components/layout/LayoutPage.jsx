@@ -27,7 +27,7 @@ const LayoutPage = ({children , categoryNames}) => {
                     {children}
                 </Box>
                 <Link aria-label={'contact-us'} title={'contact-us'} href={'/contact-us'}>
-                    <Button color={'secondary'} variant={'contained'} sx={{borderRadius:'100%' , display:{md:'flex' , xs:'none'}  , zIndex:5 , position:'fixed', bottom: 25 , right: 25 , minWidth:'40px !important' ,aspectRatio:'1/1' , boxShadow:'none' , p:0 }}><CallingButtonIcon/></Button>
+                    <Button aria-label={'contact-us'} color={'secondary'} variant={'contained'} sx={{borderRadius:'100%' , display:{md:'flex' , xs:'none'}  , zIndex:5 , position:'fixed', bottom: 25 , right: 25 , minWidth:'40px !important' ,aspectRatio:'1/1' , boxShadow:'none' , p:0 }}><CallingButtonIcon/></Button>
                 </Link>
                 <Footer/>
             </Box>

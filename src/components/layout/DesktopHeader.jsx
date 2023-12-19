@@ -119,7 +119,7 @@ const DesktopHeader = ({categories}) => {
                                             alignItems: "center ",
                                         }}>
                                         {/*{item.icon}*/}
-                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'} component={'li'}>تماس
+                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>تماس
                                             با
                                             ما</Typography>
                                     </Box>
@@ -134,8 +134,7 @@ const DesktopHeader = ({categories}) => {
                                             alignItems: "center ",
                                         }}>
                                         {/*{item.icon}*/}
-                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'} component={'li'}>درباره
-                                            ما</Typography>
+                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>درباره ما</Typography>
                                     </Box>
                                 </Link>
                             </Box>
@@ -148,8 +147,7 @@ const DesktopHeader = ({categories}) => {
                                             alignItems: "center ",
                                         }}>
                                         {/*{item.icon}*/}
-                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}
-                                                    component={'li'}>وبلاگ</Typography>
+                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>وبلاگ</Typography>
                                     </Box>
                                 </Link>
                             </Box>
@@ -164,8 +162,7 @@ const DesktopHeader = ({categories}) => {
                                                 alignItems: "center ",
                                             }}>
                                             {/*{item.icon}*/}
-                                            <Typography sx={{color: 'text.main'}} variant={'subtitle1'}
-                                                        component={'li'}>{item.name}</Typography>
+                                            <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>{item.name}</Typography>
                                         </Box>
                                     </Link>
                                     </Box>

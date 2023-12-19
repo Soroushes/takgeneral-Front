@@ -115,7 +115,7 @@ const MobileHeader = ({categories}) => {
                                                     }}
                                                 >
 
-                                                    <Typography variant={'body2'} component={'li'}>خانه</Typography>
+                                                    <Typography variant={'body2'}>خانه</Typography>
                                                 </Box>
                                             </Link>
                                             <Link onClick={() => {
@@ -131,7 +131,7 @@ const MobileHeader = ({categories}) => {
                                                     }}
                                                 >
 
-                                                    <Typography variant={'body2'} component={'li'}>تماس با ما</Typography>
+                                                    <Typography variant={'body2'}>تماس با ما</Typography>
                                                 </Box>
                                             </Link>
                                             <Link onClick={() => {
@@ -147,7 +147,7 @@ const MobileHeader = ({categories}) => {
                                                     }}
                                                 >
 
-                                                    <Typography variant={'body2'} component={'li'}>درباره ما</Typography>
+                                                    <Typography variant={'body2'}>درباره ما</Typography>
                                                 </Box>
                                             </Link>
                                             <Link onClick={() => {
@@ -163,7 +163,7 @@ const MobileHeader = ({categories}) => {
                                                     }}
                                                 >
 
-                                                    <Typography variant={'body2'} component={'li'}>وبلاگ</Typography>
+                                                    <Typography variant={'body2'}>وبلاگ</Typography>
                                                 </Box>
                                             </Link>
                                             <Typography sx={{py:1 , borderBottom:'1px solid #eee' , fontWeight:'bold'}}>دسته بندی تک جنرال</Typography>
@@ -182,7 +182,7 @@ const MobileHeader = ({categories}) => {
                                                             }}
                                                         >
 
-                                                            <Typography variant={'body2'} component={'li'}>{item.name}</Typography>
+                                                            <Typography variant={'body2'}>{item.name}</Typography>
                                                         </Box>
                                                     </Link>
                                                 )
