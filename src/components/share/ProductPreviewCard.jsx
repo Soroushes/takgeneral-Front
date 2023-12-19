@@ -36,37 +36,37 @@ const ProductPreviewCard = ({
                     },
                     ...sx
                 }}>
-                {/*{*/}
-                {/*    discountPercent ?*/}
-                {/*        <Typography*/}
-                {/*            variant={'body2'}*/}
-                {/*            color={'text.main'}*/}
-                {/*            sx={{*/}
-                {/*                position: 'absolute',*/}
-                {/*                right: 0,*/}
-                {/*                bottom: 0,*/}
-                {/*                backgroundColor: "secondary.main",*/}
-                {/*                display: 'flex',*/}
-                {/*                justifyContent: 'center',*/}
-                {/*                alignItems: 'center',*/}
-                {/*                width: 35,*/}
-                {/*                height: 35,*/}
-                {/*                borderRadius: '100% 0 0 0 ',*/}
-                {/*                zIndex: 3, pl: .5, pt: 1*/}
-                {/*            }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%*/}
-                {/*        </Typography> : null*/}
-                {/*}*/}
+                {
+                    discountPercent ?
+                        <Typography
+                            variant={'body2'}
+                            color={'text.main'}
+                            sx={{
+                                position: 'absolute',
+                                right: 0,
+                                bottom: 0,
+                                backgroundColor: "secondary.main",
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                width: 35,
+                                height: 35,
+                                borderRadius: '100% 0 0 0 ',
+                                zIndex: 3, pl: .5, pt: 1
+                            }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%
+                        </Typography> : null
+                }
                 <Box>
-                    <Box textAlign={'center'} sx={{aspectRatio: '1/1'}}>
-                        {
-                            image &&
-                            <Image
-                                priority={imagePriority}
-                                width={140} height={140}
-                                style={{transition: 'all .3s', width: '100%', height: 'auto'}}
-                                src={image} alt={alt ?? ''}/>
-                        }
-                    </Box>
+                    {/*<Box textAlign={'center'} sx={{aspectRatio: '1/1'}}>*/}
+                    {/*    {*/}
+                    {/*        image &&*/}
+                    {/*        <Image*/}
+                    {/*            priority={imagePriority}*/}
+                    {/*            width={140} height={140}*/}
+                    {/*            style={{transition: 'all .3s', width: '100%', height: 'auto'}}*/}
+                    {/*            src={image} alt={alt ?? ''}/>*/}
+                    {/*    }*/}
+                    {/*</Box>*/}
                     <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center', my: {md: 1, xs: 0}}}>
                         <Typography
                             component={'h6'}
