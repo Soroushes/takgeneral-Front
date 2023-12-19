@@ -63,7 +63,6 @@ const Navbar = () => {
                 width: "100%",
                 height: "100%",
                 backgroundColor: "#fff",
-                boxShadow:3,
                 borderRadius: '5px 5px 0 0',
             }}>
             {

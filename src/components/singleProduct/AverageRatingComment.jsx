@@ -12,7 +12,7 @@ const AverageRatingComment = ({average, openAddComment , isLoggedIn , productId}
         }
     };
     return (
-        <Box sx={{backgroundColor: '#fff', py: 2, borderRadius: 3, boxShadow: 1}} gap={1.5} display={'flex'}
+        <Box sx={{backgroundColor: '#fff', py: 2, borderRadius: 3}} gap={1.5} display={'flex'}
              flexDirection={'column'}
              alignItems={'center'}>
             {

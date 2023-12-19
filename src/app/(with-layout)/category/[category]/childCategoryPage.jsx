@@ -135,7 +135,7 @@ const ChildCategoryPage = ({
                             </Grid>
                         </Grid>
                         <Grid item md={3.5} sx={{pr: 2, display: {xs: 'none', md: "block"}}}>
-                            <Box sx={{p: 2, borderRadius: 2, backgroundColor: '#fff', boxShadow: 1, width: '100%'}}>
+                            <Box sx={{p: 2, borderRadius: 2, backgroundColor: '#fff', width: '100%'}}>
                                 <CheckBoxFilter category={main_category?.name} key={noQueryPath} subFilter={brands}/>
                             </Box>
                         </Grid>

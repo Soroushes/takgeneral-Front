@@ -7,7 +7,6 @@ const OuterImageSection = ({
                                description,
                                isActive,
                                title,
-                               shadow = 1,
                                descriptionVariant = 'subtitle1',
                                titleVariant = 'h4',
     alt = ''
@@ -23,9 +22,8 @@ const OuterImageSection = ({
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                p: 1,
+                p: 1,backgroundColor:'#fff',
                 gap: 1,
-                boxShadow: shadow,
                 "&:hover img": {
                     md: {
                         transform: "scale(1) !important",

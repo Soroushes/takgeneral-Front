@@ -21,7 +21,7 @@ const ContactUsPage = () => {
             <BreadcrumbGenerator breadcrumb={breadcrumbData} hasEmptyUrl={false}/>
             <Grid container
                   sx={{flexDirection: {xs: 'column', md: 'row'}, gap: {xs: 4, md: 0}, justifyContent: 'space-between'}}>
-                <Grid item md={6} xs={12} sx={{px: {xs: 2, md: 0}}}>
+                <Grid item md={7} xs={12} sx={{px: {xs: 2, md: 0}}}>
                     <Typography component={'h1'} fontWeight={'bold'} variant={'h2'}>با ما در تماس باشید</Typography>
                     <Typography variant={'body1'} sx={{mt: 3}}>کارشناسان ما با پشتیبانی {PN.convertEnToPe(24)} ساعته در
                         سریع ترین زمان ممکن به درخواست های شما
@@ -35,7 +35,6 @@ const ContactUsPage = () => {
                                         backgroundColor: '#fff',
                                         aspectRatio: '1/1',
                                         p: 1.5,
-                                        boxShadow: 1,
                                         borderRadius: '100%',
                                         display: 'flex',
                                         justifyContent: 'center',
@@ -60,7 +59,6 @@ const ContactUsPage = () => {
                                         backgroundColor: '#fff',
                                         aspectRatio: '1/1',
                                         p: 1.5,
-                                        boxShadow: 1,
                                         borderRadius: '100%',
                                         display: 'flex',
                                         justifyContent: 'center',
@@ -85,7 +83,6 @@ const ContactUsPage = () => {
                                         backgroundColor: '#fff',
                                         aspectRatio: '1/1',
                                         p: 1.5,
-                                        boxShadow: 1,
                                         borderRadius: '100%',
                                         display: 'flex',
                                         justifyContent: 'center',
@@ -110,7 +107,6 @@ const ContactUsPage = () => {
                                         backgroundColor: '#fff',
                                         aspectRatio: '1/1',
                                         p: 1.5,
-                                        boxShadow: 1,
                                         borderRadius: '100%',
                                         display: 'flex',
                                         justifyContent: 'center',
@@ -136,7 +132,6 @@ const ContactUsPage = () => {
                                         backgroundColor: '#fff',
                                         aspectRatio: '1/1',
                                         p: 1.5,
-                                        boxShadow: 1,
                                         borderRadius: '100%',
                                         display: 'flex',
                                         justifyContent: 'center',
@@ -162,7 +157,6 @@ const ContactUsPage = () => {
                                         backgroundColor: '#fff',
                                         aspectRatio: '1/1',
                                         p: 1.5,
-                                        boxShadow: 1,
                                         borderRadius: '100%',
                                         display: 'flex',
                                         justifyContent: 'center',
@@ -187,7 +181,6 @@ const ContactUsPage = () => {
                                         backgroundColor: '#fff',
                                         aspectRatio: '1/1',
                                         p: 1.5,
-                                        boxShadow: 1,
                                         borderRadius: '100%',
                                         display: 'flex',
                                         justifyContent: 'center',

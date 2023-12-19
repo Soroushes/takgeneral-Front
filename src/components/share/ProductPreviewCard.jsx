@@ -11,7 +11,6 @@ const ProductPreviewCard = ({
                                 afterDiscountPrice,
                                 price,
                                 id,
-                                shadow,
                                 sx,
                                 alt = '',
                                 url,
@@ -29,7 +28,6 @@ const ProductPreviewCard = ({
                     borderRadius: 4,
                     aspectRatio: '1/1.5',
                     position: "relative",
-                    boxShadow: shadow ? shadow : 0,
                     overflow: 'hidden',
                     '&:hover img': {
                         md: {

@@ -35,7 +35,6 @@ const Blogs = ({blogs}) => {
                                     transition: 'all .5s',
                                     borderRadius: 2,
                                     height:'100%',
-                                    boxShadow: 1,
                                 }}>
                                     <BlogCard blog={item}/>
                                 </Box>

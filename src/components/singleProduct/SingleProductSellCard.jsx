@@ -26,7 +26,7 @@ const SingleProductSellCard = ({
     },[id])
     return (
         <>
-            <Box sx={{mb: 2, backgroundColor: '#fff', py: 2, px: .5, borderRadius: 2, boxShadow: 1}} display={'flex'}
+            <Box sx={{mb: 2, backgroundColor: '#fff', py: 2, px: .5, borderRadius: 2}} display={'flex'}
                  justifyContent={'space-around'}>
                 {
                     madeIn &&
@@ -62,7 +62,6 @@ const SingleProductSellCard = ({
                             mb: 2,
                             p: 2,
                             borderRadius: 2,
-                            boxShadow: 1,
                             display: 'flex',
                             justifyContent: 'space-around',
                             gap: 1,
@@ -94,7 +93,6 @@ const SingleProductSellCard = ({
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2,
-                boxShadow: 1
             }}>
                 <Typography sx={{fontWeight: "bold", borderBottom: '1px solid #eee', py: 2, px: 1.5}}
                             variant={'h5'}>قیمت محصول:</Typography>

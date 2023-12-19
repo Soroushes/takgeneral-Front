@@ -16,8 +16,7 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, useSwiper =
                     navigation &&
                     <Box display={{md: 'flex', xs: 'none'}} alignItems={'center'} justifyContent={'center'}
                          sx={{
-                             backgroundColor: 'white',
-                             boxShadow: 3,
+                             backgroundColor: '#fff',
                              mr: '-10px',
                              height: 40,
                              width: 40,
@@ -51,7 +50,6 @@ const SwiperCustomWrapper = ({swiperOptions, children, spaceBetween, useSwiper =
                          sx={{
                              backgroundColor: 'white',
                              aspectRatio: "1/1",
-                             boxShadow: 3,
                              ml: '-10px',
                              height: 40,
                              width: 40,

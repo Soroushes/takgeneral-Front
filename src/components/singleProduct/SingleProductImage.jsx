@@ -12,7 +12,7 @@ const singleProductImage = ({images, setShowImage}) => {
     const mainImage = images?.find((item) => item.is_main);
     return (
         <Box sx={{borderRadius: 2}}>
-            <Box sx={{mb: 1, boxShadow: 1}}>
+            <Box sx={{mb: 1}}>
                 <Swiper
                     navigation={false}
                     spaceBetween={10}
@@ -65,7 +65,7 @@ const singleProductImage = ({images, setShowImage}) => {
                     className="mySwiper"
                 >
                     <SwiperSlide style={{borderRadius: "8px", padding: '5px'}}>
-                        <Box sx={{width: "100%", textAlign: 'center', boxShadow: 1}}>
+                        <Box sx={{width: "100%", textAlign: 'center'}}>
                             {
                                 mainImage ? <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
                                                    alt={'test'} src={mainImage.image ?? null}/> : null
@@ -78,7 +78,7 @@ const singleProductImage = ({images, setShowImage}) => {
                                 return (
                                     <SwiperSlide style={{borderRadius: "8px", padding: '5px'}}
                                                  key={item.image}>
-                                        <Box sx={{width: "100%", textAlign: 'center', boxShadow: 1}}>
+                                        <Box sx={{width: "100%", textAlign: 'center'}}>
                                             <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
                                                    alt={'test'} src={item.image}/>
                                         </Box>

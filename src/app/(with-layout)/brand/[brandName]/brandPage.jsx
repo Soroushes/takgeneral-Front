@@ -88,7 +88,6 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
                                          py: 1.5,
                                          borderRadius: 2,
                                          backgroundColor: 'white',
-                                         boxShadow: 1
                                      }}>
                                     <Typography variant={'subtitle1'}>فقط کالاهای موجود</Typography>
                                     <Controller
@@ -107,7 +106,7 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
                         </Grid>
                     </Grid>
                     <Grid item md={3.5} sx={{pt: .5, mt: 2, display: {xs: 'none', md: "block"}}}>
-                        <Box sx={{backgroundColor: 'white', boxShadow: 1, mx: 1, px: 2, py: 1.5, borderRadius: 2}}>
+                        <Box sx={{backgroundColor: 'white', mx: 1, px: 2, py: 1.5, borderRadius: 2}}>
                             <Typography variant={'subtitle1'}>محدوده قیمت</Typography>
                         </Box>
                     </Grid>

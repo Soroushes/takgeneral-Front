@@ -21,7 +21,6 @@ const AboutUsPage = () => {
                                 <Box sx={{
                                     backgroundColor: '#fff',
                                     p: 1.5,
-                                    boxShadow: 1,
                                     borderRadius: '100%',
                                     display: 'flex',
                                     justifyContent: 'center',
@@ -42,7 +41,6 @@ const AboutUsPage = () => {
                                     backgroundColor: '#fff',
                                     aspectRatio: '1/1',
                                     p: 1.5,
-                                    boxShadow: 1,
                                     borderRadius: '100%',
                                     display: 'flex',
                                     justifyContent: 'center',
@@ -66,7 +64,6 @@ const AboutUsPage = () => {
                                     backgroundColor: '#fff',
                                     aspectRatio: '1/1',
                                     p: 1.5,
-                                    boxShadow: 1,
                                     borderRadius: '100%',
                                     display: 'flex',
                                     justifyContent: 'center',

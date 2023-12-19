@@ -17,7 +17,7 @@ const DesktopHeader = ({categories}) => {
     const {total_count} = useSelector(state => state.cart)
     const {desktopHeaderHeight} = useSelector(state => state.deviceInfo);
     return (
-        <AppBar sx={{backgroundColor: "#fff", height: desktopHeaderHeight, boxShadow: 1}}>
+        <AppBar sx={{backgroundColor: "#fff", height: desktopHeaderHeight}}>
             <Toolbar sx={{height: '100% !important'}}>
                 <Container maxWidth={'lg'}>
                     <Box
