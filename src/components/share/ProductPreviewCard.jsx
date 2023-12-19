@@ -57,26 +57,26 @@ const ProductPreviewCard = ({
                         </Typography> : null
                 }
                 <Box>
-                    {/*<Box textAlign={'center'} sx={{aspectRatio: '1/1'}}>*/}
-                    {/*    {*/}
-                    {/*        image &&*/}
-                    {/*        <Image*/}
-                    {/*            priority={imagePriority}*/}
-                    {/*            width={140} height={140}*/}
-                    {/*            style={{transition: 'all .3s', width: '100%', height: 'auto'}}*/}
-                    {/*            src={image} alt={alt ?? ''}/>*/}
-                    {/*    }*/}
-                    {/*</Box>*/}
-                    <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center', my: {md: 1, xs: 0}}}>
-                        <Typography
-                            component={'h6'}
-                            variant="body2"
-                            textAlign={'justify'}
-                            maxHeight={'40px'}
-                        >
-                            {title}
-                        </Typography>
+                    <Box textAlign={'center'} sx={{aspectRatio: '1/1'}}>
+                        {
+                            image &&
+                            <Image
+                                priority={imagePriority}
+                                width={140} height={140}
+                                style={{transition: 'all .3s', width: '100%', height: 'auto'}}
+                                src={image} alt={alt ?? ''}/>
+                        }
                     </Box>
+                    {/*<Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center', my: {md: 1, xs: 0}}}>*/}
+                    {/*    <Typography*/}
+                    {/*        component={'h6'}*/}
+                    {/*        variant="body2"*/}
+                    {/*        textAlign={'justify'}*/}
+                    {/*        maxHeight={'40px'}*/}
+                    {/*    >*/}
+                    {/*        {title}*/}
+                    {/*    </Typography>*/}
+                    {/*</Box>*/}
                 </Box>
                 <Box display={{md: 'block', xs: 'none'}}>
                     <PriceDiscount finalPriceBold={true} discountPrice={price} finalPrice={afterDiscountPrice}/>
