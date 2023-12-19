@@ -15,7 +15,7 @@ export const useAxios = () => {
             setLoading(true);
             const {data: result} = await axios({
                 method,
-                url: BASE_URL + url + '/',
+                url: BASE_URL + url +'/',
                 data,
                 headers: {
                     Authorization: token ? 'Bearer ' + accessToken : null

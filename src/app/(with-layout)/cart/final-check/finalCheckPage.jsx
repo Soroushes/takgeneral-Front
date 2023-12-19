@@ -9,20 +9,34 @@ import Link from "next/link";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import PN from "persian-number";
 import CartItems from "@/components/cart/CartItems";
+import {useAxios} from "@/hooks/useAxios";
 
 const FinalCheckPage = () => {
-    const {loading} = useSelector(state => state.userInfo);
+    const {full_name , phone_number , loading} = useSelector(state => state.userInfo);
     const selectedProducts = useSelector(state => state.cart) ;
     const {getValues} = useFormContext();
+    const {callApi} = useAxios();
     const {push} = useRouter();
     const data = getValues();
-
-    console.log(data)
     useEffect(() =>{
         if(!getValues('map')) push('/cart/address-selection')
     }, []);
     const payment = ()=>{
-
+        callApi({
+            method:'POST',
+            url:'request-to-payment',
+            data:{
+                order_id : selectedProducts.order_id,
+                address_id : +data.map,
+                receiver_name : data.myself ? full_name : data.name,
+                receiver_phone : data.myself ? phone_number : data.phone,
+                order_description : data.full_address
+            },
+            token:true,
+            successFunc:(res)=>{
+                push(res.payment_link)
+            }
+        })
     }
     return (
         <>
@@ -45,8 +59,10 @@ const FinalCheckPage = () => {
                                         <Typography
                                             width={'20%'} variant={'h4'} fontWeight={'bold'}>گیرنده:
                                         </Typography>
-                                        <Typography
-                                            variant={'h5'}>فلانی
+                                        <Typography variant={'h5'}>
+                                            {
+                                                data.myself ? full_name : data.name
+                                            }
                                         </Typography>
                                     </Box>
                                     <Box display={'flex'} sx={{borderBottom: '1px solid #eee', py: 3}}>
@@ -55,18 +71,21 @@ const FinalCheckPage = () => {
                                             ارسال به:
                                         </Typography>
                                         <Box width={'100%'}>
-                                            <Typography
-                                                pb={1}
-                                                variant={'h5'}>فلانی
+                                            <Typography pb={1} variant={'h5'}>
+                                                {
+                                                    data?.selectedMap?.title
+                                                }
                                             </Typography>
                                             <Typography
                                                 pb={1}
-                                                variant={'h5'}>فلانی
+                                                variant={'h5'}>{
+                                                data.selectedMap?.full_address
+                                            }
                                             </Typography>
                                             <Box width={'60%'} pt={1} justifyContent={'space-between'} alignItems={'center'} display={'flex'}>
-                                                <Typography variant={'h5'}>واحد: {PN.convertEnToPe(1)}</Typography>
-                                                <Typography variant={'h5'}>پلاک: {PN.convertEnToPe(2)}</Typography>
-                                                <Typography variant={'h5'}>کد پستی: {PN.convertEnToPe(3)}</Typography>
+                                                <Typography variant={'h5'}>واحد: {PN.convertEnToPe(data?.selectedMap?.vahed)}</Typography>
+                                                <Typography variant={'h5'}>پلاک: {PN.convertEnToPe(data?.selectedMap?.pelak)}</Typography>
+                                                <Typography variant={'h5'}>کد پستی: {PN.convertEnToPe(data?.selectedMap?.post_code)}</Typography>
                                             </Box>
                                         </Box>
                                     </Box>
@@ -85,7 +104,7 @@ const FinalCheckPage = () => {
                                         </Box>
                                     </Box>
                                 </Grid>
-                                <PaymentCard submitFn={payment} button={'ادامه تایید آدرس'}/>
+                                <PaymentCard submitFn={payment} button={'پرداخت'}/>
                             </Grid>
                         </Container>
                     </Box>

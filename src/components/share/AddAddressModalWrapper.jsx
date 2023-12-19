@@ -20,7 +20,7 @@ const
     const submitAddress = (value) => {
         if(address){
             callApi({
-                method:'patch',
+                method:'PUT',
                 url:`update-address/${+address.id}`,
                 data:value,
                 token:true,

@@ -17,7 +17,7 @@ const AddressSelectionPage = () => {
     const [addresses, setAddresses] = useState([]);
     const [openAddAddressModals, setOpenAddAddressModals] = useState(false);
     const [inputIsOpen, setInputIsOpen] = useState(false);
-    const {control} = useFormContext()
+    const {control , setValue , getValues} = useFormContext();
     const {push} = useRouter();
     const {callApi} = useAxios();
     const getAddress = () => {
@@ -36,17 +36,21 @@ const AddressSelectionPage = () => {
             push('/login?from=cart/address-selection')
         } else if (!profile_complete) {
             push('/profile?from=/cart/address-selection')
-        }else  getAddress();
+        } else getAddress();
     }, [loading]);
     const onSubmitForm = () => {
-        push('/cart/final-check')
+        const selectedMapId = getValues('map');
+        console.log(selectedMapId)
+        const selectedMap = addresses.find(item=>item.id === +selectedMapId);
+        setValue('selectedMap', selectedMap);
+        push('/cart/final-check');
     };
     return (
         <>
             {
                 loading ? <h1>hi</h1> :
                     <Box
-                         sx={{pt: 2, minHeight: "80vh", display: 'flex'}}>
+                        sx={{pt: 2, minHeight: "80vh", display: 'flex'}}>
                         <Container>
                             <Grid container>
                                 <Grid width={'100%'} item md={8} lg={8.5} xs={12}>
@@ -88,15 +92,26 @@ const AddressSelectionPage = () => {
                                         </Button>
                                     </Box>
                                     <Collapse sx={{width: '100%'}} in={inputIsOpen}>
-                                        <Controller control={control} render={({field}) => <TextField
-                                            sx={{mb: 2}} fullWidth
-                                            placeholder={'نام و نام خانوادگی گیرنده'} value={field.value}
-                                            onChange={field.onChange}/>} name={'name'}/>
+                                        <Grid container justifyContent={'space-between'}>
+                                            <Grid item md={5.5} xs={12}>
+                                                <Controller control={control} rules={{required: 'نام گیرنده اجباری می باشد'}} render={({field}) => <TextField
+                                                    sx={{mb: 2}} fullWidth={true}
+                                                    placeholder={'نام و نام خانوادگی گیرنده'} value={field.value}
+                                                    onChange={field.onChange}/>} name={'name'}/>
+                                            </Grid>
+                                            <Grid item md={5.5} xs={12}>
+                                                <Controller control={control} rules={{required: 'شماره تماس اجباری می باشد'}} render={({field}) => <TextField
+                                                    sx={{mb: 2}} fullWidth={true}
+                                                    placeholder={'شماره تلفن گیرنده'} value={field.value}
+                                                    onChange={field.onChange}/>} name={'phone'}/>
+                                            </Grid>
+                                        </Grid>
                                     </Collapse>
                                     <Controller render={({field}) =>
                                         <RadioGroup
                                             aria-labelledby="demo-controlled-radio-buttons-group"
                                             value={field.value ?? ''}
+                                            rules={{required: 'آدرس اجباری می باشد'}}
                                             onChange={field.onChange}
                                         >
                                             {

@@ -11,7 +11,7 @@ const AddressCard = ({address , selectable , getAddress})=>{
     const DeleteAddress =()=>{
         callApi({
             url:`delete-address/${+address.id}`,
-            method:'POST',
+            method:'DELETE',
             token:true,
             successFunc:()=>{
                 getAddress();
@@ -22,7 +22,7 @@ const AddressCard = ({address , selectable , getAddress})=>{
         <Box sx={{border : '1px solid #eee' , borderRadius:2 , py:2 , boxShadow:1 , mb:2}} width={'100%'}>
             <Box px={1} display={'flex'} pb={1} alignItems={'center'}>
                 {
-                    selectable && <Radio value={address.id} size={'small'} inputProps={{width: '38px' , height:'38px' , p:0}}/>
+                    selectable && <Radio value={+address.id} size={'small'} inputProps={{width: '38px' , height:'38px' , p:0}}/>
 
                 }
                 <Typography px={selectable ? 0 :2} variant={'body2'}>آدرس {address.title}</Typography>
