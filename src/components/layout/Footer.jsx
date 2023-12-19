@@ -69,10 +69,10 @@ const Footer = () => {
                                 <Box mr={1}>
                                     <CallIcon/>
                                 </Box>
-                                <Link title={'_ 09212075118'} aria-label={'_ 09212075118'} passHref target={'_blank'} href={"tel:989212075118"}>
+                                <Link title={'_ 09212075118'} aria-label={`${PN.convertEnToPe('09212075118')} _`} passHref target={'_blank'} href={"tel:989212075118"}>
                                     <Typography>{PN.convertEnToPe('09212075118')} _</Typography>
                                 </Link>
-                                <Link title={'02177500376'} aria-label={'02177500376'} passHref target={'_blank'} href={"tel:+982177500376"}>
+                                <Link title={'02177500376'} aria-label={PN.convertEnToPe('02177500376')} passHref target={'_blank'} href={"tel:+982177500376"}>
                                     <Typography> {PN.convertEnToPe('02177500376')}</Typography>
                                 </Link>
                             </Box>
@@ -85,7 +85,7 @@ const Footer = () => {
                                     <Typography>Takgeneral.com@gmail.com</Typography>
                                 </Box>
                             </Link>
-                            <Link title={'تهران، خیابان طالقانی، نبش چهار راه بهار، پلاک 126'} aria-label={'تهران، خیابان طالقانی، نبش چهار راه بهار، پلاک 126'} passHref target={'_blank'} href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
+                            <Link title={'تهران، خیابان طالقانی، نبش چهار راه بهار، پلاک 126'} aria-label={`تهران، خیابان طالقانی، نبش چهار راه بهار، پلاک ${PN.convertEnToPe(126)}`} passHref target={'_blank'} href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
                                 <Box display={'flex'} gap={1} mt={2}>
                                     <Box>
                                         <LocationIcon/>

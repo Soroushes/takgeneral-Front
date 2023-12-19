@@ -42,7 +42,7 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
                     }
                     <Grid item xs={12} sx={{py: 1}} display={'flex'} flexDirection={'column'}
                           justifyContent={'space-between'}>
-                        <Typography sx={{mb: 1, fontSize: {md:'1.17em' , xs:'14pt'}}} component={'h1'} fontWeight={'bold'}>
+                        <Typography sx={{mb: 1, fontSize: {md:'1.17em' , xs:'14pt'} , lineHeight:'25px'}} component={'h1'} fontWeight={'bold'}>
                             {
                                 title
                             }
