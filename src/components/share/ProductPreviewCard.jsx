@@ -40,7 +40,7 @@ const ProductPreviewCard = ({
                     discountPercent ?
                         <Typography
                             variant={'body2'}
-                            color={'text.main'}
+                            color={'#fff'}
                             sx={{
                                 position: 'absolute',
                                 right: 0,
@@ -78,12 +78,12 @@ const ProductPreviewCard = ({
                         </Typography>
                     </Box>
                 </Box>
-                {/*<Box display={{md: 'block', xs: 'none'}}>*/}
-                {/*    <PriceDiscount finalPriceBold={true} discountPrice={price} finalPrice={afterDiscountPrice}/>*/}
-                {/*</Box>*/}
-                {/*<Box display={{xs: 'block', md: 'none'}}>*/}
-                {/*    <PriceDiscount finalPriceBold={false} discountPrice={price} finalPrice={afterDiscountPrice}/>*/}
-                {/*</Box>*/}
+                <Box display={{md: 'block', xs: 'none'}}>
+                    <PriceDiscount finalPriceBold={true} discountPrice={price} finalPrice={afterDiscountPrice}/>
+                </Box>
+                <Box display={{xs: 'block', md: 'none'}}>
+                    <PriceDiscount finalPriceBold={false} discountPrice={price} finalPrice={afterDiscountPrice}/>
+                </Box>
             </Stack>
         </Link>
     )
