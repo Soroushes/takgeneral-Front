@@ -69,7 +69,7 @@ const Navbar = () => {
                 navbarItems.map((navItem) => {
                     return (
                         <Box key={navItem.name} sx={{display: "flex", flexDirection: "column", alignItems: "center" , width:'25%'}}>
-                            <Link href={navItem.link}>
+                            <Link title={navItem.name} aria-label={navItem.name} href={navItem.link}>
                                 <Typography>{url === navItem.link ? navItem.activeIcon : navItem.icon}</Typography>
                             </Link>
                             <Typography color={'primary'} variant={"body2"}>

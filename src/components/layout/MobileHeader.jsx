@@ -91,14 +91,16 @@ const MobileHeader = ({categories}) => {
                                         }}>
                                         <Box sx={{display: "flex",
                                             flexDirection: "column"}}>
-                                            <Box sx={{borderBottom:'1px solid #eee' , textAlign:'center'}}>
-                                                <Image
-                                                    priority
-                                                    style={{marginBottom:'15px'}}
-                                                    width={125} height={25}
-                                                    src={logo}
-                                                    alt="Takgeneral Logo"
-                                                />
+                                            <Box display={'flex'} justifyContent={'center'}>
+                                                <Box sx={{ textAlign:'center' , width:'70%' , position:'relative' , aspectRatio:'5.6/1'}}>
+                                                    <Image
+                                                        priority
+                                                        style={{marginBottom:'15px'}}
+                                                        src={logo}
+                                                        fill
+                                                        alt="Takgeneral Logo"
+                                                    />
+                                                </Box>
                                             </Box>
                                             <Link onClick={() => {
                                                 setDrawerIsOpen(false)
@@ -214,13 +216,17 @@ const MobileHeader = ({categories}) => {
                                         </Box>
                                     </Box>
                                 </Drawer>
-                                <Link href={urls.home}>
-                                    <Image
-                                        width={125} height={25}
-                                        src={logo}
-                                        priority
-                                        alt="TakgeneralLogo"
-                                    />
+                                <Link style={{width:'100%'}} href={urls.home}>
+                                    <Box display={'flex'} justifyContent={'center'}>
+                                        <Box sx={{ textAlign:'center' , width: {xs:'40%' , sm:'30%'} , position:'relative' , aspectRatio:'5.6/1'}}>
+                                            <Image
+                                                priority
+                                                src={logo}
+                                                fill
+                                                alt="Takgeneral Logo"
+                                            />
+                                        </Box>
+                                    </Box>
                                 </Link>
                                 <Box onClick={toggleSearch}>
                                     <SearchIcon/>

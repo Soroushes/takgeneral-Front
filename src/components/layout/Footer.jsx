@@ -60,7 +60,7 @@ const Footer = () => {
                     <Grid item xs={12} md={4} pt={1} pb={4}>
                         <Box sx={{height: '100%'}} display={'flex'} flexDirection={'column'}
                              justifyContent={'space-between'} alignItems={{md: 'start', xs: 'center'}}>
-                            <Link href={'/'}>
+                            <Link aria-label={'تک جنرال'} href={'/'}>
                                 <Box sx={{mb: 1}}>
                                     <Image priority alt={''} src={logo} width={150} height={50}/>
                                 </Box>
@@ -69,14 +69,14 @@ const Footer = () => {
                                 <Box mr={1}>
                                     <CallIcon/>
                                 </Box>
-                                <Link passHref target={'_blank'} href={"tel:989212075118"}>
+                                <Link title={'پشتیبانی 24 ساعته'} aria-label={'پشتیبانی 24 ساعته'} passHref target={'_blank'} href={"tel:989212075118"}>
                                     <Typography>{PN.convertEnToPe('09212075118')} _</Typography>
                                 </Link>
-                                <Link passHref target={'_blank'} href={"tel:+982177500376"}>
+                                <Link title={'تلفن'} aria-label={'تلفن'} passHref target={'_blank'} href={"tel:+982177500376"}>
                                     <Typography> {PN.convertEnToPe('02177500376')}</Typography>
                                 </Link>
                             </Box>
-                            <Link passHref target={'_blank'}
+                            <Link title={'ایمیل'} aria-label={'ایمیل'} passHref target={'_blank'}
                                   href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
                                 <Box display={'flex'} gap={1} mt={2}>
                                     <Box>
@@ -85,7 +85,7 @@ const Footer = () => {
                                     <Typography>Takgeneral.com@gmail.com</Typography>
                                 </Box>
                             </Link>
-                            <Link passHref target={'_blank'} href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
+                            <Link title={'مکان'} aria-label={'مکان'} passHref target={'_blank'} href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
                                 <Box display={'flex'} gap={1} mt={2}>
                                     <Box>
                                         <LocationIcon/>
@@ -101,16 +101,16 @@ const Footer = () => {
                              justifyContent={{md: 'space-between', xs: 'space-around'}}>
                             <Box sx={{height: '100%'}} display={'flex'} justifyContent={'space-between'}
                                  alignItems={{md: 'start', xs: 'center'}} flexDirection={'column'}>
-                                <Link href={'/'}>
+                                <Link title={'تک جنرال'} aria-label={'تک جنرال'} href={'/'}>
                                     <Typography fontWeight={'bold'} mb={2}>تک جنرال</Typography>
                                 </Link>
-                                <Link href={'/about-us'}>
+                                <Link title={'درباره ما'} aria-label={'درباره ما'} href={'/about-us'}>
                                     <Typography mb={2}>درباره ما</Typography>
                                 </Link>
-                                <Link href={'/contact-us'}>
+                                <Link title={'تماس با ما'} aria-label={'تماس با ما'} href={'/contact-us'}>
                                     <Typography mb={2}>تماس با ما</Typography>
                                 </Link>
-                                <Link href={'/blog'}>
+                                <Link title={'مجله تک جنرال'} aria-label={'مجله تک جنرال'} href={'/blog'}>
                                     <Typography>مجله تک جنرال</Typography>
                                 </Link>
                             </Box>
@@ -142,7 +142,7 @@ const Footer = () => {
                                 background: 'white',
                                 borderRadius: 2,
                             }}>
-                                <a referrerPolicy='origin' target='_blank'
+                                <a title={'enamad'} aria-label={'enamad'} referrerPolicy='origin' target='_blank'
                                    href='https://trustseal.enamad.ir/?id=344613&Code=oFIMPdMkR76yp32fW0aU'>
                                     <img referrerPolicy='origin' width={86} height={94}
                                          src='https://trustseal.enamad.ir/logo.aspx?id=344613&Code=oFIMPdMkR76yp32fW0aU'
@@ -169,13 +169,13 @@ const Footer = () => {
                     <Typography color={'text.muted'} variant={'body1'}>حقوق این سرویس محفوظ و متعلق به شرکت تک جنرال
                         می‌باشد</Typography>
                     <Box display={'flex'}>
-                        <Link passHref target={'_blank'} href={'https://t.me/atworkk'}>
+                        <Link title={'telegram'} aria-label={'telegram'} passHref target={'_blank'} href={'https://t.me/atworkk'}>
                             <TelegramIcon/>
                         </Link>
-                        <Link passHref target={'_blank'} href={'https://instagram.com/_u/tak_general/'}>
+                        <Link title={'instagram'} aria-label={'instagram'} passHref target={'_blank'} href={'https://instagram.com/_u/tak_general/'}>
                             <InstagramIcon/>
                         </Link>
-                        <Link passHref target={'_blank'} href={"https://wa.me/989212075118"}>
+                        <Link title={'whatsapp'} aria-label={'whatsapp'} passHref target={'_blank'} href={"https://wa.me/989212075118"}>
                             <WhatsappIcon/>
                         </Link>
                     </Box>

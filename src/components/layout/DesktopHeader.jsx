@@ -35,8 +35,20 @@ const DesktopHeader = ({categories}) => {
                                 display: "flex",
                                 justifyContent: "space-between"
                             }}>
-                            <Link href={urls.home}>
-                                <Image priority width={180} height={32} alt={'تک جنرال لوگو'} src={logo}/>
+                            <Link style={{width: '20%'}} href={urls.home}>
+                                <Box sx={{
+                                    textAlign: 'center',
+                                    width: '100%',
+                                    position: 'relative',
+                                    aspectRatio: '5.6/1'
+                                }}>
+                                    <Image
+                                        priority
+                                        src={logo}
+                                        fill
+                                        alt="Takgeneral Logo"
+                                    />
+                                </Box>
                             </Link>
                             <Box sx={{width: "40%"}}>
                                 <TextField
@@ -69,7 +81,8 @@ const DesktopHeader = ({categories}) => {
                                             <UserIcon/>
                                         </Button>
                                 }
-                                <Button onClick={() => router.push(urls.cart)} size={'medium'} color={'primary'}
+                                <Button aria-label={'cart'} title={'cart'} onClick={() => router.push(urls.cart)}
+                                        size={'medium'} color={'primary'}
                                         sx={{p: 0, borderRadius: 2.5, border: '1px solid primary', width: 'auto'}}
                                         variant={'outlined'}>
                                     <Badge anchorOrigin={{vertical: 'top', horizontal: 'left',}}
@@ -85,56 +98,65 @@ const DesktopHeader = ({categories}) => {
                                 display: "flex",
                                 gap: 6,
                             }}>
-                            <Link href={'/'}>
-                                <Box
-                                    sx={{
-                                        display: "flex",
-                                        gap: 1,
-                                        alignItems: "center ",
-                                    }}>
-                                    <Typography sx={{color: 'text.main'}} variant={'subtitle1'}
-                                                component={'li'}>خانه</Typography>
-                                </Box>
-                            </Link>
-                            <Link href={'/contact-us'}>
-                                <Box
-                                    sx={{
-                                        display: "flex",
-                                        gap: 1,
-                                        alignItems: "center ",
-                                    }}>
-                                    {/*{item.icon}*/}
-                                    <Typography sx={{color: 'text.main'}} variant={'subtitle1'} component={'li'}>تماس با
-                                        ما</Typography>
-                                </Box>
-                            </Link>
-                            <Link href={'/about-us'}>
-                                <Box
-                                    sx={{
-                                        display: "flex",
-                                        gap: 1,
-                                        alignItems: "center ",
-                                    }}>
-                                    {/*{item.icon}*/}
-                                    <Typography sx={{color: 'text.main'}} variant={'subtitle1'} component={'li'}>درباره
-                                        ما</Typography>
-                                </Box>
-                            </Link>
-                            <Link href={'/blog'}>
-                                <Box
-                                    sx={{
-                                        display: "flex",
-                                        gap: 1,
-                                        alignItems: "center ",
-                                    }}>
-                                    {/*{item.icon}*/}
-                                    <Typography sx={{color: 'text.main'}} variant={'subtitle1'}
-                                                component={'li'}>وبلاگ</Typography>
-                                </Box>
-                            </Link>
+                            <Box component={'li'}>
+                                <Link href={'/'}>
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            gap: 1,
+                                            alignItems: "center ",
+                                        }}>
+                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>خانه</Typography>
+                                    </Box>
+                                </Link>
+                            </Box>
+                            <Box component={'li'}>
+                                <Link href={'/contact-us'}>
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            gap: 1,
+                                            alignItems: "center ",
+                                        }}>
+                                        {/*{item.icon}*/}
+                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'} component={'li'}>تماس
+                                            با
+                                            ما</Typography>
+                                    </Box>
+                                </Link>
+                            </Box>
+                            <Box component={'li'}>
+                                <Link href={'/about-us'}>
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            gap: 1,
+                                            alignItems: "center ",
+                                        }}>
+                                        {/*{item.icon}*/}
+                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'} component={'li'}>درباره
+                                            ما</Typography>
+                                    </Box>
+                                </Link>
+                            </Box>
+                            <Box component={'li'}>
+                                <Link href={'/blog'}>
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            gap: 1,
+                                            alignItems: "center ",
+                                        }}>
+                                        {/*{item.icon}*/}
+                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}
+                                                    component={'li'}>وبلاگ</Typography>
+                                    </Box>
+                                </Link>
+                            </Box>
                             {categories?.map((item) => {
                                 return (
-                                    <Link key={item.name} href={`/category/${item.url}`}>
+                                    <Box key={item.name} component={'li'}>
+                                    <Link href={`/category/${item.url}`}>
                                         <Box
                                             sx={{
                                                 display: "flex",
@@ -146,6 +168,7 @@ const DesktopHeader = ({categories}) => {
                                                         component={'li'}>{item.name}</Typography>
                                         </Box>
                                     </Link>
+                                    </Box>
                                 );
                             })}
                         </Box>
