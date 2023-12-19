@@ -36,26 +36,26 @@ const ProductPreviewCard = ({
                     },
                     ...sx
                 }}>
-                {
-                    discountPercent ?
-                        <Typography
-                            variant={'body2'}
-                            color={'#fff'}
-                            sx={{
-                                position: 'absolute',
-                                right: 0,
-                                bottom: 0,
-                                backgroundColor: "secondary.main",
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                width: 35,
-                                height: 35,
-                                borderRadius: '100% 0 0 0 ',
-                                zIndex: 3, pl: .5, pt: 1
-                            }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%
-                        </Typography> : null
-                }
+                {/*{*/}
+                {/*    discountPercent ?*/}
+                {/*        <Typography*/}
+                {/*            variant={'body2'}*/}
+                {/*            color={'text.main'}*/}
+                {/*            sx={{*/}
+                {/*                position: 'absolute',*/}
+                {/*                right: 0,*/}
+                {/*                bottom: 0,*/}
+                {/*                backgroundColor: "secondary.main",*/}
+                {/*                display: 'flex',*/}
+                {/*                justifyContent: 'center',*/}
+                {/*                alignItems: 'center',*/}
+                {/*                width: 35,*/}
+                {/*                height: 35,*/}
+                {/*                borderRadius: '100% 0 0 0 ',*/}
+                {/*                zIndex: 3, pl: .5, pt: 1*/}
+                {/*            }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%*/}
+                {/*        </Typography> : null*/}
+                {/*}*/}
                 <Box>
                     <Box textAlign={'center'} sx={{aspectRatio: '1/1'}}>
                         {
