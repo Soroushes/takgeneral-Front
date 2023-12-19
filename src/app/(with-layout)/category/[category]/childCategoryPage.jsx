@@ -146,20 +146,11 @@ const ChildCategoryPage = ({
                     {
                         content ?
                             <Box sx={{px: 1}}>
-                                <Box sx={{position: contentIsShow ? '': 'relative'}}>
+                                <Box>
                                     <HtmlDescription boxSx={{
                                         mt: 3,
                                         maxHeight: !contentIsShow ? '170px' : 'auto',
-                                        overflow: 'hidden', textOverflow: 'ellipsis', px: 0 ,
-                                        '&::before': !contentIsShow ?{
-                                            content:'""',
-                                            width:'100%',
-                                            height:'100%',
-                                            position:'absolute',
-                                            left:0,
-                                            top:0,
-                                            background:'linear-gradient(transparent 110px, #FCFCFD)'
-                                        }:null
+                                        overflow: 'hidden', textOverflow: 'ellipsis', px: 0
                                     }}>{content}</HtmlDescription>
                                 </Box>
                                 <Box mt={3} onClick={setContentIsShow.bind(this, prev => !prev)}

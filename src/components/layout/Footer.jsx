@@ -69,14 +69,14 @@ const Footer = () => {
                                 <Box mr={1}>
                                     <CallIcon/>
                                 </Box>
-                                <Link title={'پشتیبانی 24 ساعته'} aria-label={'پشتیبانی 24 ساعته'} passHref target={'_blank'} href={"tel:989212075118"}>
+                                <Link title={'09212075118 _'} aria-label={'09212075118 _'} passHref target={'_blank'} href={"tel:989212075118"}>
                                     <Typography>{PN.convertEnToPe('09212075118')} _</Typography>
                                 </Link>
-                                <Link title={'تلفن'} aria-label={'تلفن'} passHref target={'_blank'} href={"tel:+982177500376"}>
+                                <Link title={'02177500376'} aria-label={'02177500376'} passHref target={'_blank'} href={"tel:+982177500376"}>
                                     <Typography> {PN.convertEnToPe('02177500376')}</Typography>
                                 </Link>
                             </Box>
-                            <Link title={'ایمیل'} aria-label={'ایمیل'} passHref target={'_blank'}
+                            <Link title={'Takgeneral.com@gmail.com'} aria-label={'Takgeneral.com@gmail.com'} passHref target={'_blank'}
                                   href={'mailto:Takgeneral.com@gmail.com?Subject=Hello%20User'}>
                                 <Box display={'flex'} gap={1} mt={2}>
                                     <Box>
@@ -85,13 +85,12 @@ const Footer = () => {
                                     <Typography>Takgeneral.com@gmail.com</Typography>
                                 </Box>
                             </Link>
-                            <Link title={'مکان'} aria-label={'مکان'} passHref target={'_blank'} href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
+                            <Link title={'تهران، خیابان طالقانی، نبش چهار راه بهار، پلاک 126'} aria-label={'تهران، خیابان طالقانی، نبش چهار راه بهار، پلاک 126'} passHref target={'_blank'} href={'https://maps.app.goo.gl/6gatqXgc8vvwEmxf8?g_st=ic'}>
                                 <Box display={'flex'} gap={1} mt={2}>
                                     <Box>
                                         <LocationIcon/>
                                     </Box>
-                                    <Typography>تهران، خیابان طالقانی، نبش چهار راه بهار،
-                                        پلاک {PN.convertEnToPe(126)}</Typography>
+                                    <Typography>تهران، خیابان طالقانی، نبش چهار راه بهار، پلاک {PN.convertEnToPe(126)}</Typography>
                                 </Box>
                             </Link>
                         </Box>
