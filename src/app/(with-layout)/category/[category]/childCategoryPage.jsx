@@ -139,9 +139,9 @@ const ChildCategoryPage = ({
                                 <CheckBoxFilter category={main_category?.name} key={noQueryPath} subFilter={brands}/>
                             </Box>
                         </Grid>
-                        {/*<Grid pb={5.5} item xs={12} md={8.5}>*/}
-                        {/*    <ProductList product={products} page={current_page} count={page_count}/>*/}
-                        {/*</Grid>*/}
+                        <Grid pb={5.5} item xs={12} md={8.5}>
+                            <ProductList product={products} page={current_page} count={page_count}/>
+                        </Grid>
                     </Grid>
                     {
                         content ?
