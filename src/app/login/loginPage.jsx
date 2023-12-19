@@ -80,7 +80,11 @@ const LoginPage = ()=>{
     useEffect(()=>{
         const token = localStorage.getItem('token') ;
         if (token){
-            push('/' ) ;
+            if(from){
+                push('/' + from);
+            }else{
+                push('/');
+            }
         }
     },[])
     return (

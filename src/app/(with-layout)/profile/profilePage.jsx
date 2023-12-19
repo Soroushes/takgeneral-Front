@@ -6,12 +6,19 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import {useAxios} from "@/hooks/useAxios";
 import useAlert from "../../../hooks/useAlert";
 import {useEffect} from "react";
+import {useRouter, useSearchParams} from "next/navigation";
+import {useDispatch} from "react-redux";
+import {fetchInfo} from "@/redux/slices/userInfoSlice";
 
 const ProfilePage = ()=>{
     const {control, handleSubmit, getValues, setValue} = useForm();
     const {callApi: getInfo} = useAxios();
     const {callApi: putInfo, loading: putLoading} = useAxios();
     const {warningAlert, successAlert} = useAlert();
+    const {push} = useRouter();
+    const searchParams = useSearchParams();
+    const from = searchParams.get('from');
+    const dispatch = useDispatch
     const submitForm = () => {
         const data = getValues();
         putInfo({
@@ -21,6 +28,8 @@ const ProfilePage = ()=>{
             data,
             successFunc: () => {
                 successAlert("اطلاعات با موفقیت ثبت شد");
+                dispatch(fetchInfo())
+                if(from) push(from);
             },
             errFunc: (err) => {
                 if (err.response.status === 400 && err.response.data) {

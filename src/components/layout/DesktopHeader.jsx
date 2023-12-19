@@ -12,7 +12,7 @@ import {useSelector} from "react-redux";
 import {useRouter} from "next/navigation";
 
 const DesktopHeader = ({categories}) => {
-    const {phone_number} = useSelector(state => state.userInfo);
+    const {isLoggedIn} = useSelector(state => state.userInfo);
     const router = useRouter();
     const {total_count} = useSelector(state => state.cart)
     const {desktopHeaderHeight} = useSelector(state => state.deviceInfo);
@@ -56,7 +56,7 @@ const DesktopHeader = ({categories}) => {
                             </Box>
                             <Box sx={{display: "flex", gap: 2}}>
                                 {
-                                    phone_number ?
+                                    isLoggedIn ?
                                         <Button onClick={() => router.push(urls.profile)}
                                                 sx={{px: 2, gap: 1, py: .8, borderRadius: 2}} variant={'outlined'}>
                                             حساب کاربری

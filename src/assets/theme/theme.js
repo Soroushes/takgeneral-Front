@@ -2,7 +2,8 @@ import {createTheme, styled, Switch} from "@mui/material";
 const primary = "#1b09f9";
 const primaryDark = '#1206c0' ;
 const secondary = '#ff8301' ;
-const success = '#00966D'
+const success = '#00966D';
+const red = '#f00'
 const textBlack = '#303030' ;
 const lineHeight = ['17px','20px','25px']
     const theme = createTheme({
@@ -20,6 +21,9 @@ const lineHeight = ['17px','20px','25px']
             },
             success :{
                 main:success
+            },
+            error:{
+              main:red
             },
             gray: {
                 main: "#A9A9A9",

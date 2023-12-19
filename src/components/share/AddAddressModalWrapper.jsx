@@ -1,5 +1,5 @@
 'use client'
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useAxios} from "@/hooks/useAxios";
 import {useForm, Controller} from "react-hook-form";
 import MainModal from "./MainModal";
@@ -8,30 +8,57 @@ import {Button, Divider, Grid, TextField, Typography , Box} from "@mui/material"
 import MapControl from "./MapControl";
 import {addressFormData} from "@/data/profile/addressFormData";
 import LoadingButton from "@mui/lab/LoadingButton";
+import 'leaflet/dist/leaflet.css';
 
-const AddAddressModalWrapper = ({open , setOpen , getAddress}) => {
-    const position = [35.701817, 51.428526];
+const
+    AddAddressModalWrapper = ({open , setOpen , getAddress , address}) => {
+    const position = address ?  [address?.lt , address?.lng] : [35.701817, 51.428526];
     const [openSearchModal, setOpenSearchModal] = useState(false);
     const [openAddressModal, setOpenAddressModal] = useState(false);
     const {callApi, loading} = useAxios();
     const {handleSubmit, control, setValue} = useForm();
     const submitAddress = (value) => {
-        callApi({
-            method: 'POST',
-            url: 'user-address',
-            data: value,
-            token: true,
-            successFunc: () => {
-                getAddress?.()
-                setOpenAddressModal(false);
-                setOpen(false);
-                setOpenSearchModal(false);
-            }
-        })
+        if(address){
+            callApi({
+                method:'patch',
+                url:`update-address/${+address.id}`,
+                data:value,
+                token:true,
+                successFunc:()=>{
+                    getAddress?.();
+                    setOpenAddressModal(false);
+                    setOpen(false);
+                    setOpenSearchModal(false);
+                },
+                errFunc:(err)=>{
+                    console.log(err)
+                }
+            })
+        }else{
+            callApi({
+                method: 'POST',
+                url: 'user-address',
+                data: value,
+                token: true,
+                successFunc: () => {
+                    getAddress?.()
+                    setOpenAddressModal(false);
+                    setOpen(false);
+                    setOpenSearchModal(false);
+                }
+            })
+        }
     }
+    useEffect(()=>{
+        if(address){
+            addressFormData.forEach((item)=>{
+                setValue(item.name , address[item.name]);
+            })
+        }
+    },[])
     return (
         <>
-                <MainModal setOpen={setOpen} title={'انتخاب آدرس بر روی نقشه'} open={open} mobileFullHeight={true} desktopFullScreen={true}>
+                <MainModal setOpen={setOpen} title={'انتخاب آدرس بر روی نقشه'} open={open} mobileFullHeight={true} desktopFullScreen={false}>
                 <Box sx={{
                     height : '100%' ,
                     '& .leaflet-container' : {
@@ -47,7 +74,7 @@ const AddAddressModalWrapper = ({open , setOpen , getAddress}) => {
                         center={position}
                         zoom={18}
                     >
-                        <MapControl/>
+                        <MapControl haveAddress={true}/>
                         <MapSearchModal open={openSearchModal} setOpen={setOpenSearchModal}/>
                         <MapSearchPart
                             setOpenAddressModal={setOpenAddressModal}
@@ -65,6 +92,7 @@ const AddAddressModalWrapper = ({open , setOpen , getAddress}) => {
                         {
                             addressFormData.map((address) => (
                                 <Controller
+                                    key={address.name}
                                     name={address.name}
                                     defaultValue={''}
                                     rules={address.rules}

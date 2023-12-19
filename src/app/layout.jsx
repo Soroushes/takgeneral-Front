@@ -7,6 +7,8 @@ const myFont = localFont({
     display: 'swap',
     variable: '--iranYekan'
 })
+//     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+// integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossOrigin=""/>
 export const metadata = {
     viewport: 'width=device-width, initial-scale=1, maximum-scale=1'
 }

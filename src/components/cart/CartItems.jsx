@@ -4,7 +4,7 @@ import Image from "next/image";
 import PriceDiscount from "../share/PriceDiscount";
 import Link from "next/link";
 
-const CartItems = ({product}) => {
+const CartItems = ({product, haveEditionButton = true}) => {
     return (
         <Grid container sx={{justifyContent: 'space-between', mt: 3, borderBottom: '1px solid #eee', pb: 3}}>
             <Grid item xs={4} md={2.5}>
@@ -21,8 +21,11 @@ const CartItems = ({product}) => {
                     <Typography sx={{mb: 1}} variant={'subtitle2'}>{product.warranty}</Typography>
                 </Box>
                 <Box sx={{display: {md: 'flex', xs: 'none'}, justifyContent: 'space-between'}}>
-                    <CartEditionButton hideStatus={true} boxSx={{width: '90px', height: '35px'}}
-                                       id={product.product_variant_id}/>
+                    {
+                        haveEditionButton &&
+                        <CartEditionButton hideStatus={true} boxSx={{width: '90px', height: '35px'}}
+                                           id={product.product_variant_id}/>
+                    }
                     <PriceDiscount
                         finalPriceBold={true} finalPriceColor={'#333'}
                         discountedPriceColor={'text.muted'}
@@ -36,8 +39,11 @@ const CartItems = ({product}) => {
                 </Box>
             </Grid>
             <Grid item xs={12} sx={{display: {xs: 'flex', md: 'none'}, alignItems: 'center', mt: 1}}>
-                <CartEditionButton hideStatus={true} boxSx={{width: '90px', height: '35px'}}
-                                   id={product.product_variant_id}/>
+                {
+                    haveEditionButton &&
+                    <CartEditionButton hideStatus={true} boxSx={{width: '90px', height: '35px' }}
+                                       id={product.product_variant_id}/>
+                }
                 <PriceDiscount
                     finalPriceBold={true} finalPriceColor={'#333'}
                     discountedPriceColor={'text.muted'}
