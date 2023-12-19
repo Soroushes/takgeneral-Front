@@ -139,50 +139,50 @@ const ChildCategoryPage = ({
                                 <CheckBoxFilter category={main_category?.name} key={noQueryPath} subFilter={brands}/>
                             </Box>
                         </Grid>
-                        <Grid pb={5.5} item xs={12} md={8.5}>
-                            <ProductList product={products} page={current_page} count={page_count}/>
-                        </Grid>
+                        {/*<Grid pb={5.5} item xs={12} md={8.5}>*/}
+                        {/*    <ProductList product={products} page={current_page} count={page_count}/>*/}
+                        {/*</Grid>*/}
                     </Grid>
-                    {/*{*/}
-                    {/*    content ?*/}
-                    {/*        <Box sx={{px: 1}}>*/}
-                    {/*            <Box sx={{position: contentIsShow ? '': 'relative'}}>*/}
-                    {/*                <HtmlDescription boxSx={{*/}
-                    {/*                    mt: 3,*/}
-                    {/*                    maxHeight: !contentIsShow ? '170px' : 'auto',*/}
-                    {/*                    overflow: 'hidden', textOverflow: 'ellipsis', px: 0 ,*/}
-                    {/*                    '&::before': !contentIsShow ?{*/}
-                    {/*                        content:'""',*/}
-                    {/*                        width:'100%',*/}
-                    {/*                        height:'100%',*/}
-                    {/*                        position:'absolute',*/}
-                    {/*                        left:0,*/}
-                    {/*                        top:0,*/}
-                    {/*                        background:'linear-gradient(transparent 110px, #FCFCFD)'*/}
-                    {/*                    }:null*/}
-                    {/*                }}>{content}</HtmlDescription>*/}
-                    {/*            </Box>*/}
-                    {/*            <Box mt={3} onClick={setContentIsShow.bind(this, prev => !prev)}*/}
-                    {/*                 sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>*/}
-                    {/*                <Typography*/}
-                    {/*                    variant={"body2"}*/}
-                    {/*                    color={'primary'}*/}
-                    {/*                    sx={{*/}
-                    {/*                        cursor: "pointer",*/}
-                    {/*                        textAlign: "center",*/}
-                    {/*                    }}*/}
-                    {/*                >*/}
-                    {/*                    {*/}
-                    {/*                        contentIsShow ? 'مشاهده کمتر' : "مشاهده بیشتر"*/}
-                    {/*                    }*/}
-                    {/*                </Typography>*/}
-                    {/*                {*/}
-                    {/*                    contentIsShow ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :*/}
-                    {/*                        <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>*/}
-                    {/*                }*/}
-                    {/*            </Box>*/}
-                    {/*        </Box> : null*/}
-                    {/*}*/}
+                    {
+                        content ?
+                            <Box sx={{px: 1}}>
+                                <Box sx={{position: contentIsShow ? '': 'relative'}}>
+                                    <HtmlDescription boxSx={{
+                                        mt: 3,
+                                        maxHeight: !contentIsShow ? '170px' : 'auto',
+                                        overflow: 'hidden', textOverflow: 'ellipsis', px: 0 ,
+                                        '&::before': !contentIsShow ?{
+                                            content:'""',
+                                            width:'100%',
+                                            height:'100%',
+                                            position:'absolute',
+                                            left:0,
+                                            top:0,
+                                            background:'linear-gradient(transparent 110px, #FCFCFD)'
+                                        }:null
+                                    }}>{content}</HtmlDescription>
+                                </Box>
+                                <Box mt={3} onClick={setContentIsShow.bind(this, prev => !prev)}
+                                     sx={{display: "flex", mt: 2, cursor: 'pointer', alignItems: "center", gap: 1}}>
+                                    <Typography
+                                        variant={"body2"}
+                                        color={'primary'}
+                                        sx={{
+                                            cursor: "pointer",
+                                            textAlign: "center",
+                                        }}
+                                    >
+                                        {
+                                            contentIsShow ? 'مشاهده کمتر' : "مشاهده بیشتر"
+                                        }
+                                    </Typography>
+                                    {
+                                        contentIsShow ? <ExpandLessRoundedIcon fontSize={'small'} color={'primary'}/> :
+                                            <ExpandMoreRoundedIcon fontSize={'small'} color={'primary'}/>
+                                    }
+                                </Box>
+                            </Box> : null
+                    }
                 </Container>
                 <MainModal setOpen={setOpenFilterModal} onCloseFn={() => {
                     setDrawerIsOpen(false)
