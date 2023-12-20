@@ -68,14 +68,15 @@ const ProductPreviewCard = ({
                         }
                     </Box>
                     <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center', my: {md: 1, xs: 0}}}>
-                        <Typography
-                            // component={'h6'}
-                            // variant="body2"
-                            // textAlign={'justify'}
-                            // maxHeight={'40px'}
-                        >
-                            {title}
-                        </Typography>
+                        {/*<Typography*/}
+                        {/*    // component={'h6'}*/}
+                        {/*    // variant="body2"*/}
+                        {/*    // textAlign={'justify'}*/}
+                        {/*    // maxHeight={'40px'}*/}
+                        {/*>*/}
+                        {/*    {title}*/}
+                        {/*</Typography>*/}
+                        <h6>{title}</h6>
                     </Box>
                 </Box>
                 <Box display={{md: 'block', xs: 'none'}}>
