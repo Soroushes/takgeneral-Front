@@ -74,6 +74,7 @@ const ProductPreviewCard = ({
                             textAlign={'justify'}
                             maxHeight={'40px'}
                             color={'#111'}
+                            fontWeight={'bold'}
                         >
                             {title}
                         </Typography>
