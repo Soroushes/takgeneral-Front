@@ -73,8 +73,7 @@ const ProductPreviewCard = ({
                             variant="body2"
                             textAlign={'justify'}
                             maxHeight={'40px'}
-                            color={'#111'}
-                            fontWeight={'bold'}
+                            fontFamily={'serif'}
                         >
                             {title}
                         </Typography>
