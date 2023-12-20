@@ -77,7 +77,6 @@ const ProductPreviewCard = ({
                         >
                             {title}
                         </Typography>
-                        <h6>{title}</h6>
                     </Box>
                 </Box>
                 <Box display={{md: 'block', xs: 'none'}}>
