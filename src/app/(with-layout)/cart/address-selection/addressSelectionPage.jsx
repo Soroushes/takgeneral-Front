@@ -11,6 +11,7 @@ import {useAxios} from "@/hooks/useAxios";
 import AddressCard from "@/components/share/AddressCard";
 import AddAddressModalWrapper from "@/components/share/AddAddressModalWrapper";
 import Link from "next/link";
+import useAlert from "@/hooks/useAlert";
 
 const AddressSelectionPage = () => {
     const {isLoggedIn, profile_complete, loading} = useSelector(state => state.userInfo);
@@ -20,6 +21,7 @@ const AddressSelectionPage = () => {
     const {control , setValue , getValues} = useFormContext();
     const {push} = useRouter();
     const {callApi} = useAxios();
+    const {errorAlert} = useAlert();
     const getAddress = () => {
         callApi({
             url: "user-address",
@@ -37,10 +39,17 @@ const AddressSelectionPage = () => {
         } else if (!profile_complete) {
             push('/profile?from=/cart/address-selection')
         } else getAddress();
+        if(getValues('name')){
+            setInputIsOpen(true)
+        }
+            console.log(inputIsOpen)
     }, [loading]);
     const onSubmitForm = () => {
+        if((!getValues('myself') && (!getValues('name') || !getValues('phone'))|| !getValues('map'))) {
+            errorAlert('لطفا اطلاعات گیرنده را کامل وارد کنید')
+            return
+        }
         const selectedMapId = getValues('map');
-        console.log(selectedMapId)
         const selectedMap = addresses.find(item=>item.id === +selectedMapId);
         setValue('selectedMap', selectedMap);
         push('/cart/final-check');
@@ -94,15 +103,15 @@ const AddressSelectionPage = () => {
                                     <Collapse sx={{width: '100%'}} in={inputIsOpen}>
                                         <Grid container justifyContent={'space-between'}>
                                             <Grid item md={5.5} xs={12}>
-                                                <Controller control={control} rules={{required: 'نام گیرنده اجباری می باشد'}} render={({field}) => <TextField
-                                                    sx={{mb: 2}} fullWidth={true}
-                                                    placeholder={'نام و نام خانوادگی گیرنده'} value={field.value}
+                                                <Controller control={control} rules={{required: 'نام گیرنده اجباری می باشد'}} render={({field , fieldState}) => <TextField
+                                                    sx={{mb: 2}} fullWidth={true} error={!!fieldState?.error} helperText={fieldState?.error?.message}
+                                                    placeholder={'نام و نام خانوادگی گیرنده'} value={field.value ??''}
                                                     onChange={field.onChange}/>} name={'name'}/>
                                             </Grid>
                                             <Grid item md={5.5} xs={12}>
-                                                <Controller control={control} rules={{required: 'شماره تماس اجباری می باشد'}} render={({field}) => <TextField
-                                                    sx={{mb: 2}} fullWidth={true}
-                                                    placeholder={'شماره تلفن گیرنده'} value={field.value}
+                                                <Controller control={control} rules={{required: 'شماره تماس اجباری می باشد'}} render={({field,fieldState}) => <TextField
+                                                    sx={{mb: 2}} fullWidth={true} error={!!fieldState?.error} helperText={fieldState?.error?.message}
+                                                    placeholder={'شماره تلفن گیرنده'} value={field.value ?? ''}
                                                     onChange={field.onChange}/>} name={'phone'}/>
                                             </Grid>
                                         </Grid>

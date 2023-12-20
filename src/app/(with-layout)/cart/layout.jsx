@@ -4,7 +4,7 @@ const Layout = ({children})=>{
     const formController = useForm({
         defaultValues: {
             myself: true
-        }
+        },mode:'onSubmit' , reValidateMode:'onSubmit'
     });
     return(
         <FormProvider {...formController}>

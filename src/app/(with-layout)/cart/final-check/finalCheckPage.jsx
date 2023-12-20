@@ -55,7 +55,7 @@ const FinalCheckPage = () => {
                                             <Button sx={{borderRadius: 1.5}}>برگشت<ChevronLeftRoundedIcon/></Button>
                                         </Link>
                                     </Box>
-                                    <Box display={'flex'} sx={{borderBottom: '1px solid #eee', py: 3}}>
+                                    <Box display={'flex'} rowGap={1} flexDirection={{md:'row' , xs:'column'}} sx={{borderBottom: '1px solid #eee', py: 3}}>
                                         <Typography
                                             width={'20%'} variant={'h4'} fontWeight={'bold'}>گیرنده:
                                         </Typography>
@@ -65,12 +65,12 @@ const FinalCheckPage = () => {
                                             }
                                         </Typography>
                                     </Box>
-                                    <Box display={'flex'} sx={{borderBottom: '1px solid #eee', py: 3}}>
+                                    <Box display={'flex'} rowGap={1} flexDirection={{md:'row' , xs:'column'}} sx={{borderBottom: '1px solid #eee', py: 3}}>
                                         <Typography
                                             width={'20%'} variant={'h4'} fontWeight={'bold'}>
                                             ارسال به:
                                         </Typography>
-                                        <Box width={'100%'}>
+                                        <Box px={{xs:1 , md:0}} width={'100%'}>
                                             <Typography pb={1} variant={'h5'}>
                                                 {
                                                     data?.selectedMap?.title
@@ -82,7 +82,7 @@ const FinalCheckPage = () => {
                                                 data.selectedMap?.full_address
                                             }
                                             </Typography>
-                                            <Box width={'60%'} pt={1} justifyContent={'space-between'} alignItems={'center'} display={'flex'}>
+                                            <Box width={{md:'60%' , xs:'80%'}} pt={1} justifyContent={'space-between'} alignItems={'center'} display={'flex'}>
                                                 <Typography variant={'h5'}>واحد: {PN.convertEnToPe(data?.selectedMap?.vahed)}</Typography>
                                                 <Typography variant={'h5'}>پلاک: {PN.convertEnToPe(data?.selectedMap?.pelak)}</Typography>
                                                 <Typography variant={'h5'}>کد پستی: {PN.convertEnToPe(data?.selectedMap?.post_code)}</Typography>
