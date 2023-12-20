@@ -4,7 +4,7 @@ import NextAppDirEmotionCacheProvider from "@/components/emotionCache";
 import '../assets/styles/styles.css';
 
 const myFont = localFont({
-    src: '../assets/font/IRANYekan.woff',
+    src: '../assets/font/Takgeneral.woff2',
     display: 'swap',
     variable: '--iranYekan'
 })
