@@ -59,11 +59,18 @@ const FinalCheckPage = () => {
                                         <Typography
                                             width={'20%'} variant={'h4'} fontWeight={'bold'}>گیرنده:
                                         </Typography>
-                                        <Typography variant={'h5'}>
-                                            {
-                                                data.myself ? full_name : data.name
-                                            }
-                                        </Typography>
+                                        <Box display={'flex'} width={{md:'40%' , xs:'80%'}} justifyContent={'space-between'}>
+                                            <Typography variant={'h5'}>
+                                                {
+                                                    data.myself ? full_name : data.name
+                                                }
+                                            </Typography>
+                                            <Typography variant={'h5'}>
+                                                {
+                                                    data.myself ? phone_number : data.phone
+                                                }
+                                            </Typography>
+                                        </Box>
                                     </Box>
                                     <Box display={'flex'} rowGap={1} flexDirection={{md:'row' , xs:'column'}} sx={{borderBottom: '1px solid #eee', py: 3}}>
                                         <Typography

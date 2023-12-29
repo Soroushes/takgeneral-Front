@@ -2,7 +2,18 @@
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import {useRouter} from "next/navigation";
-import {Box, Button, Checkbox, Collapse, Container, Grid, RadioGroup, TextField, Typography} from "@mui/material";
+import {
+    Box,
+    Button,
+    Checkbox, CircularProgress,
+    Collapse,
+    Container,
+    Grid,
+    InputAdornment,
+    RadioGroup,
+    TextField,
+    Typography
+} from "@mui/material";
 import PaymentCard from "@/components/share/PaymentCard";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import {Controller, useFormContext} from "react-hook-form";
@@ -11,17 +22,15 @@ import {useAxios} from "@/hooks/useAxios";
 import AddressCard from "@/components/share/AddressCard";
 import AddAddressModalWrapper from "@/components/share/AddAddressModalWrapper";
 import Link from "next/link";
-import useAlert from "@/hooks/useAlert";
 
 const AddressSelectionPage = () => {
     const {isLoggedIn, profile_complete, loading} = useSelector(state => state.userInfo);
     const [addresses, setAddresses] = useState([]);
     const [openAddAddressModals, setOpenAddAddressModals] = useState(false);
     const [inputIsOpen, setInputIsOpen] = useState(false);
-    const {control , setValue , getValues} = useFormContext();
+    const {control , setValue , getValues , handleSubmit} = useFormContext();
     const {push} = useRouter();
     const {callApi} = useAxios();
-    const {errorAlert} = useAlert();
     const getAddress = () => {
         callApi({
             url: "user-address",
@@ -39,14 +48,13 @@ const AddressSelectionPage = () => {
         } else if (!profile_complete) {
             push('/profile?from=/cart/address-selection')
         } else getAddress();
-        if(getValues('name')){
+        if(!getValues('myself')){
             setInputIsOpen(true)
         }
-            console.log(inputIsOpen)
     }, [loading]);
     const onSubmitForm = () => {
         if((!getValues('myself') && (!getValues('name') || !getValues('phone'))|| !getValues('map'))) {
-            errorAlert('لطفا اطلاعات گیرنده را کامل وارد کنید')
+            // errorAlert('لطفا اطلاعات گیرنده را کامل وارد کنید')
             return
         }
         const selectedMapId = getValues('map');
@@ -57,11 +65,14 @@ const AddressSelectionPage = () => {
     return (
         <>
             {
-                loading ? <h1>hi</h1> :
+                loading ?
+                    <Box width={'100%'} sx={{ display: 'flex',minHeight: "50vh" , justifyContent:'center' , alignItems:'center' , margin:'auto'}}>
+                        <CircularProgress />
+                    </Box>:
                     <Box
                         sx={{pt: 2, minHeight: "80vh", display: 'flex'}}>
                         <Container>
-                            <Grid container>
+                            <Grid component={'form'} onSubmit={handleSubmit(onSubmitForm)} container>
                                 <Grid width={'100%'} item md={8} lg={8.5} xs={12}>
                                     <Box sx={{borderBottom: '1px solid #eee', pb: 1, pt: 1}} display={'flex'}
                                          justifyContent={'space-between'}>
@@ -109,10 +120,41 @@ const AddressSelectionPage = () => {
                                                     onChange={field.onChange}/>} name={'name'}/>
                                             </Grid>
                                             <Grid item md={5.5} xs={12}>
-                                                <Controller control={control} rules={{required: 'شماره تماس اجباری می باشد'}} render={({field,fieldState}) => <TextField
-                                                    sx={{mb: 2}} fullWidth={true} error={!!fieldState?.error} helperText={fieldState?.error?.message}
-                                                    placeholder={'شماره تلفن گیرنده'} value={field.value ?? ''}
-                                                    onChange={field.onChange}/>} name={'phone'}/>
+                                                <Controller
+                                                    name="phone"
+                                                    control={control}
+                                                    rules={{
+                                                        required: "شماره تلفن را وارد کنید",
+                                                        pattern: {
+                                                            value: /^9[0-3,9]\d{8}$/,
+                                                            message: "لطفا شماره تلفن را به درستی وارد کنید"
+                                                        }
+                                                    }}
+                                                    render={({field, fieldState}) => (
+                                                        <TextField
+                                                            dir={'ltr'}
+                                                            onChange={(e) => {
+                                                                let phoneNumber = e.target.value.replace(/^[0-8].*/, '');
+                                                                phoneNumber = phoneNumber.replace(/\D+/, '');
+                                                                field.onChange(phoneNumber)
+                                                            }}
+                                                            type={'tel'}
+                                                            placeholder={'9xxxxxxxxx'}
+                                                            InputProps={{
+                                                                startAdornment: (
+                                                                    <InputAdornment sx={{ml: 1}} position="start">
+                                                                        <Typography variant="h3" >+98</Typography>
+                                                                    </InputAdornment>
+                                                                )
+                                                            }}
+                                                            helperText={fieldState.error?.message}
+                                                            value={field.value}
+                                                            error={!!fieldState.error}
+                                                            fullWidth
+                                                            hiddenLabel
+                                                        />
+                                                    )}
+                                                />
                                             </Grid>
                                         </Grid>
                                     </Collapse>
