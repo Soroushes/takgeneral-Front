@@ -43,7 +43,7 @@ const AddressCard = ({address, selectable, getAddress}) => {
             </Box>
             <Typography px={3} variant={'body2'} pb={2}>{address.full_address}</Typography>
             <Box pb={1} display={'flex'} justifyContent={'space-between'}>
-                <Box pl={2} width={{xs: '65%', md: '50%'}} justifyContent={'space-between'} alignItems={'center'}
+                <Box pl={3} width={{xs: '65%', md: '50%'}} justifyContent={'space-between'} alignItems={'center'}
                      display={'flex'}>
                     <Typography variant={'body2'}>واحد: {PN.convertEnToPe(address.vahed)}</Typography>
                     <Typography variant={'body2'}>پلاک: {PN.convertEnToPe(address.pelak)}</Typography>

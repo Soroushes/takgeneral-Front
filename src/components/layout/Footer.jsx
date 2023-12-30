@@ -25,7 +25,7 @@ const Footer = () => {
         })
     }, [])
     return (
-        <Box width={'100%'} component={'footer'} sx={{backgroundColor: '#FCFCFD', position: 'relative', zIndex: 4, pb: 4, pt: 2}}>
+        <Box width={'100%'} component={'footer'} sx={{backgroundColor: '#FAFAFA', position: 'relative', zIndex: 4, pb: 4, pt: 2}}>
             <Container>
                 <Box sx={{mt: 2 , borderTop: '1px solid #eee', borderBottom: '1px solid #eee'}} display={'flex'}
                      justifyContent={'center'}>
@@ -129,7 +129,6 @@ const Footer = () => {
                                 mt: 4,
                                 background: 'white',
                                 borderRadius: 2,
-                                boxShadow: 1
                             }}>
                                 <Image referrerPolicy='origin' width={86} height={94} id='rgvjwlaooeukwlaofukzoeuk' style={{cursor: 'pointer'}}
                                        onClick={()=> {
@@ -142,7 +141,6 @@ const Footer = () => {
                                 mt: 4,
                                 background: 'white',
                                 borderRadius: 2,
-                                boxShadow: 1
                             }}>
                                 <a referrerPolicy='origin' target='_blank'
                                    href='https://trustseal.enamad.ir/?id=344613&Code=oFIMPdMkR76yp32fW0aU'>

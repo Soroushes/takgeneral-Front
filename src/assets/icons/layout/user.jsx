@@ -1,8 +1,11 @@
+import {useTheme} from "@mui/material";
+
 const UserIcon = ({active})=>{
+    const {palette} = useTheme() ;
     return (
         <svg
             viewBox="0 0 1024 1024"
-            fill= {active ? 'white'  : "currentColor"}
+            fill= {active ? palette.primary.main : "currentColor"}
             height="20"
             width="20"
         >

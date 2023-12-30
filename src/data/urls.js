@@ -5,6 +5,7 @@ export const urls ={
     login : "/login",
     profile : '/profile',
     ProfileAddress : "/profile/address",
+    individualProfile:'/profile/individual-profile',
     categories : "category",
     contactUs:'/contact-us',
 }

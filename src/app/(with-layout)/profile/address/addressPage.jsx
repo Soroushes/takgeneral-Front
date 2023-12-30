@@ -1,16 +1,19 @@
-'use client' ;
+'use client';
 import {useAxios} from "@/hooks/useAxios";
 import {useEffect, useState} from "react";
-import {Grid, Typography , Box} from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
+import {Grid, Typography, Box, Button} from "@mui/material";
 import dynamic from "next/dynamic";
-const AddressPreview = dynamic(() => import("../../../../components/share/AddressPreview"), { ssr:false })
-const AddAddressModalWrapper = dynamic(() => import("../../../../components/share/AddAddressModalWrapper"), { ssr:false })
-const AddressPage = ()=>{
+import AddressCard from "@/components/share/AddressCard";
+import AddLocation from "@/assets/icons/cart/location-add.svg";
+import Link from "next/link";
+import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
+
+const AddAddressModalWrapper = dynamic(() => import("../../../../components/share/AddAddressModalWrapper"), {ssr: false})
+const AddressPage = () => {
     const {callApi} = useAxios();
     const [addresses, setAddresses] = useState([]);
     const [openAddAddressModals, setOpenAddAddressModals] = useState(false);
-    const getAddress = ()=>{
+    const getAddress = () => {
         callApi({
             url: "user-address",
             method: "GET",
@@ -21,43 +24,41 @@ const AddressPage = ()=>{
         })
     }
     useEffect(() => {
-        getAddress() ;
+        getAddress();
     }, []);
     return (
         <>
-            <Grid rowGap={4} container>
+            <Grid container mb={2} rowGap={1} justifyContent={'space-between'} alignItems={'center'} display={'flex'}>
+                <Grid item xs={6}>
+                    <Typography fontWeight={'bold'}>آدرس های من</Typography>
+                </Grid>
+                <Grid item xs={6} sx={{ display:{md:'none' , xs:'flex'} , justifyContent:'end'}}>
+                        <Link scroll={false} href={'/profile'}>
+                            <Button sx={{borderRadius: 1.5}}>برگشت<ChevronLeftRoundedIcon/></Button>
+                        </Link>
+                </Grid>
+                <Grid item xs={12} md={6} justifyContent={'end'} display={'flex'}>
+                    <Button onClick={() => {
+                        setOpenAddAddressModals(true)
+                    }} size={'small'} sx={{borderRadius: 2, px: 1.5, maxHeight: '35px !important' , display:{}}}
+                            variant={'contained'} color={'secondary'}>
+                        <Typography variant={'body2'} pr={1} color={'white'}>افزودن آدرس
+                            جدید</Typography>
+                        <AddLocation/>
+                    </Button>
+                </Grid>
+            </Grid>
+            <Box>
                 {
                     addresses.map((address) => {
                         return (
-                            <Grid xs={12} sm={6} lg={4} item>
-                                <Box sx={{borderRadius: 4, px: 2}}>
-                                    <AddressPreview  address={address}/>
-                                </Box>
-                            </Grid>
+                            <AddressCard address={address} selectable={false} getAddress={getAddress}/>
                         )
                     })
                 }
-                <Grid sx={{px : 2}} xs={12} sm={6} lg={4} item>
-                    <Box sx={{
-                        width: '100%',
-                        aspectRatio: '1/1',
-                        borderRadius: 4,
-                        backgroundColor: 'gray.lighter',
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: 'center',
-                        flexDirection : "column" ,
-                        gap : 2,
-                        cursor : 'pointer'
-                    }}
-                         onClick={()=>{setOpenAddAddressModals(true)}}
-                    >
-                        <AddIcon fontSize={'large'}/>
-                        <Typography variant={'h5'}>افزودن آدرس جدید</Typography>
-                    </Box>
-                </Grid>
-            </Grid>
-            <AddAddressModalWrapper getAddress={getAddress} open={openAddAddressModals} setOpen={setOpenAddAddressModals}/>
+            </Box>
+            <AddAddressModalWrapper getAddress={getAddress} open={openAddAddressModals}
+                                    setOpen={setOpenAddAddressModals}/>
         </>
     )
 }

@@ -1,5 +1,5 @@
 'use client'
-import {Box, Button, Container, Grid, Typography} from "@mui/material";
+import {Box, Button, CircularProgress, Container, Grid, Typography} from "@mui/material";
 import {useFormContext} from "react-hook-form";
 import PaymentCard from "@/components/share/PaymentCard";
 import {useEffect} from "react";
@@ -41,7 +41,10 @@ const FinalCheckPage = () => {
     return (
         <>
             {
-                loading ? <h1>hi</h1> :
+                loading ?
+                    <Box width={'100%'} sx={{ display: 'flex',minHeight: "50vh" , justifyContent:'center' , alignItems:'center' , margin:'auto'}}>
+                        <CircularProgress />
+                    </Box>:
                     <Box sx={{pt: 2, minHeight: "80vh", display: 'flex'}}>
                         <Container>
                             <Grid container>
