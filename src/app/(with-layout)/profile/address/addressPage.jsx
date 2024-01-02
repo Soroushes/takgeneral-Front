@@ -52,7 +52,7 @@ const AddressPage = () => {
                 {
                     addresses.map((address) => {
                         return (
-                            <AddressCard address={address} selectable={false} getAddress={getAddress}/>
+                            <AddressCard key={address.id} address={address} selectable={false} getAddress={getAddress}/>
                         )
                     })
                 }
