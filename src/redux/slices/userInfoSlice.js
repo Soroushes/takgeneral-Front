@@ -6,7 +6,9 @@ const initialState = {
     full_name: '',
     phone_number: '',
     isLoggedIn : false ,
-    token : null
+    token : null,
+    profile_complete:false,
+    loading:true
 }
 export const fetchInfo = createAsyncThunk(
     'user/info',
@@ -28,15 +30,18 @@ export const fetchInfo = createAsyncThunk(
                     Authorization: token ? 'Bearer ' + token : null
                 }
             })
-            return {...data , isLoggedIn : true , token}
-        } catch (err) {
+            return {...data , isLoggedIn : true , token ,loading:false}
+        }
+        catch (err) {
             if (err?.response?.status===401){
             localStorage.removeItem('token') ;
             return {
                 full_name: '',
                 phone_number: '',
                 isLoggedIn : false ,
-                token : null
+                token : null,
+                loading:false,
+                profile_complete:false
             }
         }
     }}

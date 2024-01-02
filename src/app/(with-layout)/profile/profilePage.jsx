@@ -1,89 +1,28 @@
 'use client';
-import {Grid, TextField, Typography , Box} from "@mui/material";
-import {userInputData} from "@/data/profile/userInputData";
-import {Controller, useForm} from "react-hook-form";
-import LoadingButton from "@mui/lab/LoadingButton";
-import {useAxios} from "@/hooks/useAxios";
-import useAlert from "../../../hooks/useAlert";
-import {useEffect} from "react";
-
+import {Typography , Box} from "@mui/material";
+import CurrentOrder from '../../../assets/icons/profile/currentOrder.svg';
+import DeliveredOrder from '../../../assets/icons/profile/deliveredOrder.svg';
+import CanceledOrder from '../../../assets/icons/profile/canceledOrder.svg';
+import OrderCard from "@/components/profile/OrderCard";
 const ProfilePage = ()=>{
-    const {control, handleSubmit, getValues, setValue} = useForm();
-    const {callApi: getInfo} = useAxios();
-    const {callApi: putInfo, loading: putLoading} = useAxios();
-    const {warningAlert, successAlert} = useAlert();
-    const submitForm = () => {
-        const data = getValues();
-        putInfo({
-            url: "user-info",
-            method: "PUT",
-            token: true,
-            data,
-            successFunc: () => {
-                successAlert("اطلاعات با موفقیت ثبت شد");
-            },
-            errFunc: (err) => {
-                if (err.response.status === 400 && err.response.data) {
-                    const national_code = !!err.response.data.national_code;
-                    const email = !!err.response.data.email;
-                    const title = national_code && email ? "کد ملی و ایمیل" : national_code ? 'کد ملی' : "ایمیل" ;
-                    warningAlert(`حساب دیگری با این ${title} وجود دارد`)
-                }
-            }
-        })
-    }
-    const getUserInfo = () => {
-        getInfo({
-            url: "user-info",
-            method: "GET",
-            token: true,
-            successFunc: (res) => {
-                for (let key in res) {
-                    if (res[key]) {
-                        setValue(key, res[key]);
-                    }
-                }
-            }
-        })
-    }
-    useEffect(() => {
-        getUserInfo();
-    }, [])
     return (
-        <>
-            <Typography component={'h1'} variant={"h3"} sx={{mb: 4}}>مشخصات فردی</Typography>
-            <Grid onSubmit={handleSubmit(submitForm)} justifyContent={"space-between"} component={'form'} rowGap={5}
-                  container>
-                {
-                    userInputData.map((input) => (
-                        <Grid key={input.name} xs={12} md={5.7} item>
-                            <Controller
-                                defaultValue={''}
-                                name={input.name}
-                                control={control}
-                                rules={input.rules}
-                                render={({field, fieldState}) =>
-                                    <TextField
-                                        error={!!fieldState.error}
-                                        helperText={fieldState.error?.message ?? ''}
-                                        {...input.inputProps}
-                                        value={field.value}
-                                        onChange={field.onChange}
-                                        variant={'outlined'} fullWidth={true}
-                                    />
-                                }
-                            />
-                        </Grid>
-                    ))
-                }
-                <Box sx={{width: "100%", mb: 2}}>
-                    <Grid xs={12} md={5.7} item>
-                        <LoadingButton loading={putLoading} type={'submit'} variant={'contained'}
-                                       sx={{p: 1.5, borderRadius: "8px"}} fullWidth>ثبت مشخصات</LoadingButton>
-                    </Grid>
+        <Box>
+            <Box mb={2} sx={{border:'1px solid #eee' , borderRadius:2 , p:2}} display={'flex'} justifyContent={'space-between'}>
+                <Box display={'flex'} flexDirection={{md: 'row', xs: 'column'}} gap={1} alignItems={'center'} justifyContent={{md:'space-between' , xs:'start'}}>
+                    <CurrentOrder/>
+                    <Typography variant={'subtitle1'} textAlign={'center'}>سفارش هاس جاری (0)</Typography>
                 </Box>
-            </Grid>
-        </>
+                <Box display={'flex'} flexDirection={{md: 'row', xs: 'column'}} gap={1} alignItems={'center'} justifyContent={'space-between'}>
+                    <DeliveredOrder/>
+                    <Typography textAlign={'center'} variant={'subtitle1'}>تحویل داده شده (0)</Typography>
+                </Box>
+                <Box display={'flex'} flexDirection={{md: 'row', xs: 'column'}} gap={1} alignItems={'center'} justifyContent={'space-between'}>
+                    <CanceledOrder/>
+                    <Typography variant={'subtitle1'}  textAlign={'center'}>لغو شده (0)</Typography>
+                </Box>
+            </Box>
+            <OrderCard/>
+        </Box>
     )
 }
 export default ProfilePage;

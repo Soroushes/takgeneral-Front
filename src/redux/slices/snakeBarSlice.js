@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
     title : "" ,
-    severity : "" ,
+    severity : "success" ,
     hideDuration : 2000 ,
     show : false ,
 }
