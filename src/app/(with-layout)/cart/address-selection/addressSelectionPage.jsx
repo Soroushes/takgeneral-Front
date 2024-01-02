@@ -20,10 +20,11 @@ import {Controller, useFormContext} from "react-hook-form";
 import AddLocation from '../../../../assets/icons/cart/location-add.svg';
 import {useAxios} from "@/hooks/useAxios";
 import AddressCard from "@/components/share/AddressCard";
-import AddAddressModalWrapper from "@/components/share/AddAddressModalWrapper";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 const AddressSelectionPage = () => {
+    const AddAddressModalWrapper = dynamic(()=>import('../../../../components/share/AddAddressModalWrapper') ,{ssr : false})
     const {isLoggedIn, profile_complete, loading} = useSelector(state => state.userInfo);
     const [addresses, setAddresses] = useState([]);
     const [openAddAddressModals, setOpenAddAddressModals] = useState(false);

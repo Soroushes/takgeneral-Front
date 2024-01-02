@@ -1,5 +1,5 @@
-import AddressPage from "@/app/(with-layout)/profile/address/addressPage";
 import {domainName} from "@/data/urls";
+import dynamic from "next/dynamic";
 export const metadata = {
     title : ' پروفایل | تک جنرال',
     alternates: {
@@ -17,6 +17,7 @@ export const metadata = {
         // }
     }
 }
+const AddressPage = dynamic(()=>import('@/app/(with-layout)/profile/address/addressPage'),  {ssr : false})
 export default function Page(){
     return(<AddressPage/>)
 }

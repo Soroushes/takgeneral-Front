@@ -1,5 +1,5 @@
 import {domainName} from "@/data/urls";
-import AddressSelectionPage from "@/app/(with-layout)/cart/address-selection/addressSelectionPage";
+import dynamic from "next/dynamic";
 
 
 
@@ -20,6 +20,7 @@ export const metadata = {
         // }
     }
 }
+const AddressSelectionPage = dynamic(()=>import("@/app/(with-layout)/cart/address-selection/addressSelectionPage") , {ssr : false})
 export default function Page() {
     return (
         <AddressSelectionPage/>
