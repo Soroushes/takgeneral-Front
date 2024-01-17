@@ -19,6 +19,7 @@ export const fetchInfo = createAsyncThunk(
                 full_name: '',
                 phone_number: '',
                 isLoggedIn : false ,
+                profile_complete :false,
                 token : null
             }
         }

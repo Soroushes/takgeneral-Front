@@ -22,6 +22,8 @@ import {useAxios} from "@/hooks/useAxios";
 import AddressCard from "@/components/share/AddressCard";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import EditProfileModal from "@/components/profile/EditProfileModal";
+import useAlert from "@/hooks/useAlert";
 
 const AddressSelectionPage = () => {
     const AddAddressModalWrapper = dynamic(()=>import('../../../../components/share/AddAddressModalWrapper') ,{ssr : false})
@@ -29,7 +31,9 @@ const AddressSelectionPage = () => {
     const [addresses, setAddresses] = useState([]);
     const [openAddAddressModals, setOpenAddAddressModals] = useState(false);
     const [inputIsOpen, setInputIsOpen] = useState(false);
+    const [editModalIsOpen , setEditModalIsOpen] = useState(false);
     const {control , setValue , getValues , handleSubmit} = useFormContext();
+    const {errorAlert} = useAlert() ;
     const {push} = useRouter();
     const {callApi} = useAxios();
     const getAddress = () => {
@@ -44,21 +48,21 @@ const AddressSelectionPage = () => {
     }
     useEffect(() => {
         if (loading) return
-        if (!isLoggedIn) {
-            push('/login?from=cart/address-selection')
-        } else if (!profile_complete) {
-            push('/profile?from=/cart/address-selection')
-        } else getAddress();
-        if(!getValues('myself')){
-            setInputIsOpen(true)
+        if(profile_complete) {
+            getAddress();
+            setEditModalIsOpen(false);
         }
-    }, [loading]);
+        else if(isLoggedIn) setEditModalIsOpen(true)
+        else if (!isLoggedIn) {
+            push('/login?from=cart/address-selection')
+        }
+    }, [loading , profile_complete , isLoggedIn]);
     const onSubmitForm = () => {
-        if((!getValues('myself') && (!getValues('name') || !getValues('phone'))|| !getValues('map'))) {
-            // errorAlert('لطفا اطلاعات گیرنده را کامل وارد کنید')
+        const selectedMapId = getValues('map');
+        if((!getValues('myself') && (!getValues('name') || !getValues('phone'))|| !getValues('map') || !(addresses.find(item=>item.id === +selectedMapId)))) {
+            errorAlert('لطفا اطلاعات گیرنده را کامل وارد کنید')
             return
         }
-        const selectedMapId = getValues('map');
         const selectedMap = addresses.find(item=>item.id === +selectedMapId);
         setValue('selectedMap', selectedMap);
         push('/cart/final-check');
@@ -149,7 +153,7 @@ const AddressSelectionPage = () => {
                                                                 )
                                                             }}
                                                             helperText={fieldState.error?.message}
-                                                            value={field.value}
+                                                            value={field.value ?? ''}
                                                             error={!!fieldState.error}
                                                             fullWidth
                                                             hiddenLabel
@@ -184,6 +188,7 @@ const AddressSelectionPage = () => {
             }
             <AddAddressModalWrapper getAddress={getAddress} open={openAddAddressModals}
                                     setOpen={setOpenAddAddressModals}/>
+            <EditProfileModal open={editModalIsOpen} setOpen={setEditModalIsOpen}/>
         </>
 
     )

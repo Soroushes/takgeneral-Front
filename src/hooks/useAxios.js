@@ -21,6 +21,7 @@ export const useAxios = () => {
                     Authorization: token ? 'Bearer ' + accessToken : null
                 }
             })
+            setLoading(false)
             successFunc?.(result);
         } catch (err) {
             errFunc?.(err);

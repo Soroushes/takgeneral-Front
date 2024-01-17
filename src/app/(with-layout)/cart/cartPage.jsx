@@ -3,18 +3,31 @@ import {Container, Grid, Typography , Box} from "@mui/material";
 import {useSelector} from "react-redux";
 import CartItems from "../../../components/cart/CartItems";
 import EmptyCart from '../../../assets/icons/cart/emptyCartIcon.svg';
-import {useRouter} from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
 import PaymentCard from "@/components/share/PaymentCard";
+import EditProfileModal from "@/components/profile/EditProfileModal";
+import {useEffect, useState} from "react";
 
 const CartPage =()=> {
     const selectedProducts = useSelector(state => state.cart) ;
+    const [editModalIsOpen , setEditModalIsOpen] = useState(false);
     const {isLoggedIn , profile_complete} = useSelector(state=>state.userInfo);
     const {push} = useRouter();
+    const searchParams = useSearchParams();
+    const from = searchParams.get('from')
     const continueShop = ()=>{
         if(profile_complete) push(`/cart/address-selection`);
-        else if(isLoggedIn) push('/profile?from=/cart/address-selection');
-        else if(!isLoggedIn) push('/login?from=cart/address-selection');
+        else if(isLoggedIn) {
+            setEditModalIsOpen(true);
+            push('/cart?from=cart/address-selection')
+        }
+        else if(!isLoggedIn) push(`/login?from=cart?from=cart/address-selection`);
     }
+    useEffect(()=>{
+        if(from && !profile_complete){
+            setEditModalIsOpen(true);
+        }
+    },[profile_complete])
     return (
         !selectedProducts.products?.length ?
             <Box sx={{width:'100%' , pt:2 , gap:2 , display: 'flex', justifyContent: 'center', alignItems:'center' , flexDirection:'column'}}>
@@ -41,6 +54,7 @@ const CartPage =()=> {
                         <PaymentCard button={'ادامه خرید'} submitFn={continueShop}/>
                     </Grid>
                 </Container>
+                <EditProfileModal open={editModalIsOpen} setOpen={setEditModalIsOpen}/>
             </Box>
     )
 }

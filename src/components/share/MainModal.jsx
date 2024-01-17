@@ -11,7 +11,9 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                 sx={{display: {xs: 'none ', md: 'block'}}}
                 maxWidth={desktopFullScreen ? 'md' : 'sm'}
                 open={open}
-                onClose={() => setOpen(false)}
+                onClose={() => {
+                    setOpen(false)
+                }}
             >
                 <DialogTitle sx={{px: 4}} fontWeight={'bold'} variant={'h6'}>
                     {title}

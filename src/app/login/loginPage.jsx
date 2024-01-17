@@ -19,6 +19,7 @@ const boxStyles = {
 };
 const LoginPage = ()=>{
     const searchParams = useSearchParams();
+    const [profileComplete , setProfileComplete] = useState(false)
     const from = searchParams.get('from');
     const {errorAlert} = useAlert() ;
     const [validate, setValidate] = useState(false);
@@ -40,6 +41,7 @@ const LoginPage = ()=>{
             method: "POST",
             data: {phone_number: '98' + getValues('phoneNumber')},
             successFunc: (result) => {
+                setProfileComplete(result.registered)
                 alert(result.code);
                 setValidate(true);
                 setValue("otp", "") ;
@@ -56,12 +58,15 @@ const LoginPage = ()=>{
             successFunc: (res) => {
                 localStorage.setItem('token' , res.token.access) ;
                 // push(urls.profile) ;
-                if(from){
+                dispatch(fetchInfo());
+                if(from ==='cart?from=cart/address-selection' && profileComplete){
+                    console.log(1)
+                    push('/cart/address-selection')
+                }else if(from){
                     push('/' + from);
                 }else{
                     push('/');
                 }
-                dispatch(fetchInfo());
             }
             , errFunc: (err) => {
                 if(err?.response?.status === 403){

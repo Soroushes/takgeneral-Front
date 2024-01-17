@@ -2,7 +2,7 @@ import MainModal from "@/components/share/MainModal";
 import {useAxios} from "@/hooks/useAxios";
 import useAlert from "@/hooks/useAlert";
 import {useRouter, useSearchParams} from "next/navigation";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {fetchInfo} from "@/redux/slices/userInfoSlice";
 import {Box, TextField, Grid, Button} from "@mui/material";
 import {userInputData} from "@/data/profile/userInputData";
@@ -11,14 +11,15 @@ import {Controller, useForm} from "react-hook-form";
 import {useEffect} from "react";
 
 const EditProfileModal = ({open , setOpen})=>{
-    const {control, handleSubmit, getValues, setValue} = useForm();
+    const {control, handleSubmit, getValues, setValue, reset} = useForm();
     const {callApi: putInfo, loading: putLoading} = useAxios();
     const {callApi: getInfo} = useAxios();
+    const {profile_complete} = useSelector(state=>state.userInfo)
     const {warningAlert, successAlert} = useAlert();
     const {push} = useRouter();
     const searchParams = useSearchParams();
     const from = searchParams.get('from');
-    const dispatch = useDispatch
+    const dispatch = useDispatch();
     const submitForm = () => {
         const data = getValues();
         putInfo({
@@ -27,19 +28,31 @@ const EditProfileModal = ({open , setOpen})=>{
             token: true,
             data,
             successFunc: () => {
+                if(from) {
+                    push('/' + from)
+                }
+                setOpen(false);
                 successAlert("اطلاعات با موفقیت ثبت شد");
-                dispatch(fetchInfo())
-                if(from) push(from);
+                dispatch(fetchInfo());
+
             },
             errFunc: (err) => {
-                if (err.response.status === 400 && err.response.data) {
-                    const national_code = !!err.response.data.national_code;
-                    const email = !!err.response.data.email;
+                if (err?.response?.status === 400 && err?.response?.data) {
+                    const national_code = !!err?.response?.data?.national_code;
+                    const email = !!err?.response?.data?.email;
                     const title = national_code && email ? "کد ملی و ایمیل" : national_code ? 'کد ملی' : "ایمیل" ;
                     warningAlert(`حساب دیگری با این ${title} وجود دارد`)
                 }
             }
         })
+    }
+
+    const cancel = ()=>{
+        if(!profile_complete){
+            push('/cart')
+        }
+        setOpen(false);
+        reset();
     }
     const getUserInfo = () => {
         getInfo({
@@ -91,7 +104,7 @@ const EditProfileModal = ({open , setOpen})=>{
                                            sx={{p: 1, borderRadius: "8px"}} fullWidth>ثبت مشخصات</LoadingButton>
                         </Grid>
                         <Grid xs={12} md={5.9} item>
-                            <Button size={'small'} loading={putLoading} color={'gray'} variant={'outlined'}
+                            <Button size={'small'} onClick={cancel} loading={putLoading} color={'gray'} variant={'outlined'}
                                            sx={{p: 1, borderRadius: "8px"}} fullWidth>لغو</Button>
                         </Grid>
                     </Grid>

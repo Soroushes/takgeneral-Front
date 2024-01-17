@@ -53,6 +53,9 @@ input {
     background-color: #1b09f9;
     color: #fff;
 }
-
+.html-response-elements a{
+    color:  #1b09f9;
+    border-bottom: 1px solid #1b09f9;
+}
 
 
