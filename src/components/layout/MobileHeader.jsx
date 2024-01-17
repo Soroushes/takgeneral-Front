@@ -187,6 +187,22 @@ const MobileHeader = ({categories}) => {
                                                     </Link>
                                                 )
                                             })}
+                                            <Link onClick={() => {
+                                                setDrawerIsOpen(false)
+                                            }} style={{display: 'block', width: "100%"}} href={`/category/flowmeter`}>
+                                                <Box
+                                                    sx={{
+                                                        py: 1.5,
+                                                        display: 'flex',
+                                                        width: "100%",
+                                                        gap: 1,
+                                                        alignItems: 'center'
+                                                    }}
+                                                >
+
+                                                    <Typography variant={'body2'}>فلومتر</Typography>
+                                                </Box>
+                                            </Link>
                                         </Box>
                                         <Box textAlign={'center'} sx={{borderTop:'1px solid #eee'}}>
                                             <Box display={'flex'} gap={1} justifyContent={'center'} mb={1} mt={2}>

@@ -168,6 +168,19 @@ const DesktopHeader = ({categories}) => {
                                     </Box>
                                 );
                             })}
+                            <Box component={'li'}>
+                                <Link href={`/category/flowmeter`}>
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            gap: 1,
+                                            alignItems: "center ",
+                                        }}>
+                                        {/*{item.icon}*/}
+                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>فلومتر</Typography>
+                                    </Box>
+                                </Link>
+                            </Box>
                         </Box>
                     </Box>
                 </Container>
