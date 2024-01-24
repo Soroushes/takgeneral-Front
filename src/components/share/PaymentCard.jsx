@@ -3,7 +3,7 @@ import PN from "persian-number";
 import {useSelector} from "react-redux";
 
 const PaymentCard = ({submitFn , button})=>{
-    const selectedProducts = useSelector(state=>state.cart)
+    const selectedProducts = useSelector(state=>state.cart);
     return(
         <Grid sx={{pl: {md: 3}}} item md={4} lg={3.3} xs={12}>
             <Box sx={{backgroundColor: '#fff', borderRadius: 3, mb: 2, pb: 3}}>
@@ -39,7 +39,7 @@ const PaymentCard = ({submitFn , button})=>{
                     <Typography variant="subtitle1" sx={{
                         color: 'text.muted',
                         fontWeight: 'bold'
-                    }}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(selectedProducts?.total_price)))} تومان</Typography>
+                    }}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(0)))} تومان</Typography>
                 </Box>
                 <Grid item xs={12}
                       sx={{
