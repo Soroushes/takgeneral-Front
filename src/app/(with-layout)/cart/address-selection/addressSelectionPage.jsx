@@ -24,7 +24,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import EditProfileModal from "@/components/profile/EditProfileModal";
 import useAlert from "@/hooks/useAlert";
-
+import AddAddressModalWrapper from "@/components/share/AddAddressModalWrapper";
 const AddressSelectionPage = () => {
     const AddAddressModalWrapper = dynamic(()=>import('../../../../components/share/AddAddressModalWrapper') ,{ssr : false})
     const {isLoggedIn, profile_complete, loading} = useSelector(state => state.userInfo);
