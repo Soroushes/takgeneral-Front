@@ -8,7 +8,7 @@ module.exports = {
     async redirects() {
         const staticRedirects = [{source : '/:path/' , destination : '/:path' , statusCode : 301}]
         const persianRegex = /[\u0600-\u06FF\uFB8A\u067E\u0686\u06AF]/;
-        const res = await fetch(`https://api.takgeneral.com/redirects/`, {cache: 'no-store'});
+        const res = await fetch(`http://localhost:8000/redirects/`, {cache: 'no-store'});
         if (!res.ok) {
             throw new Error('fail to fetch redirects');
         }
