@@ -9,5 +9,5 @@ export const urls ={
     categories : "category",
     contactUs:'/contact-us',
 }
-export const BASE_URL = 'https://api.takgeneral.com/';
+export const BASE_URL = 'http://localhost:8000/';
 export const domainName = 'https://takgeneral.com'
