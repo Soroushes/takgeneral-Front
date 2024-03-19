@@ -5,28 +5,28 @@ module.exports = {
     experimental: {
         appDir: true
     },
-    // async redirects() {
-    //     const staticRedirects = [{source : '/:path/' , destination : '/:path' , statusCode : 301}]
-    //     const persianRegex = /[\u0600-\u06FF\uFB8A\u067E\u0686\u06AF]/;
-    //     const res = await fetch(`https://api.takgeneral.com/redirects/`, {cache: 'no-store'});
-    //     if (!res.ok) {
-    //         throw new Error('fail to fetch redirects');
-    //     }
-    //     const data = await res.json();
-    //     const asyncRedirects = data.map((redirect) => {
-    //         const finalSourceAddress = redirect.source.split('/').map((item)=>{
-    //             if (persianRegex.test(item)){
-    //                 return encodeURI(item)
-    //             } else return item ;
-    //         })
-    //         return {
-    //             source: `${finalSourceAddress.join('/')}`,
-    //             destination: redirect.destination,
-    //             statusCode: redirect.permanent ? 301 : 302
-    //         }
-    //     })
-    //     return [...asyncRedirects , ...staticRedirects] ;
-    // },
+    async redirects() {
+        const staticRedirects = [{source : '/:path/' , destination : '/:path' , statusCode : 301}]
+        const persianRegex = /[\u0600-\u06FF\uFB8A\u067E\u0686\u06AF]/;
+        const res = await fetch(`https://api.takgeneral.com/redirects/`, {cache: 'no-store'});
+        if (!res.ok) {
+            throw new Error('fail to fetch redirects');
+        }
+        const data = await res.json();
+        const asyncRedirects = data.map((redirect) => {
+            const finalSourceAddress = redirect.source.split('/').map((item)=>{
+                if (persianRegex.test(item)){
+                    return encodeURI(item)
+                } else return item ;
+            })
+            return {
+                source: `${finalSourceAddress.join('/')}`,
+                destination: redirect.destination,
+                statusCode: redirect.permanent ? 301 : 302
+            }
+        })
+        return [...asyncRedirects , ...staticRedirects] ;
+    },
     webpack(config) {
         // Grab the existing rule that handles SVG imports
         const fileLoaderRule = config.module.rules.find((rule) =>
