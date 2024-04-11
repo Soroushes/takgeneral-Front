@@ -1,25 +1,20 @@
 'use client'
 import {Box, Container, Grid, Pagination, PaginationItem, Typography} from "@mui/material";
 import BlogCard from "../../../components/share/blogCard";
-import {useEffect, useState} from 'react';
-import {useRouter, useSearchParams} from "next/navigation";
+import {useSearchParams} from "next/navigation";
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
+import Link from "next/link";
 const breadcrumbData = [{url : '/blog' , name : 'وبلاگ ها'}]
 const BlogPage = ({blogs, currentPage, pageCount}) => {
-    const [pageState, setPageState] = useState(1);
     const searchParams = useSearchParams();
-    const params = new URLSearchParams(searchParams);
-    const {push} = useRouter();
-    const handlePaginationChange = (e, value) => {
-        params.set('page', value)
-        push('?' + params)
-        setPageState(value);
+    const newURLSearchParams = new URLSearchParams(searchParams);
+    const handlePaginationChange = (e , value)=>{
+        newURLSearchParams.set('page', value)
+        return newURLSearchParams.toString();
     }
-    useEffect(() => {
-        setPageState(currentPage)
-    }, [params]);
+    console.log(pageCount)
     return (
         <Container sx={{pb: 6}}>
             <BreadcrumbGenerator breadcrumb={breadcrumbData} hasEmptyUrl={false}/>
@@ -51,8 +46,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                     <Pagination
                         sx={{direction: 'rtl'}}
                         shape={'rounded'}
-                        onChange={handlePaginationChange}
-                        page={pageState}
+                        page={currentPage}
                         count={pageCount}
                         color={'secondary'}
                         boundaryCount={0}
@@ -61,6 +55,9 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                             return (
                                 (
                                     <PaginationItem
+                                        component={Link}
+                                        href={`/blog?${handlePaginationChange(this ,item.page)}`}
+
                                         slots={{
                                             previous: ChevronRightRoundedIcon,
                                             next: ChevronLeftRoundedIcon

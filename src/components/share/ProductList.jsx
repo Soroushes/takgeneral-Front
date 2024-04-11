@@ -1,23 +1,18 @@
 import {Grid, Pagination, PaginationItem, Box} from "@mui/material";
 import ProductPreviewCard from "./ProductPreviewCard";
-import { useRouter, useSearchParams} from "next/navigation";
-import {useEffect, useState} from "react";
+import {useParams, useSearchParams} from "next/navigation";
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
+import Link from "next/link";
 
 const ProductList = ({product, count = 8, page = 1}) => {
-    const [pageState, setPageState] = useState(page);
     const searchParams = useSearchParams();
-    const params = new URLSearchParams(searchParams);
-    const {push} = useRouter();
+    const newURLSearchParams = new URLSearchParams(searchParams);
+    const params = useParams();
     const handlePaginationChange = (e, value) => {
-        params.set('page', value)
-        push( '?' + params)
-        setPageState(value);
+        newURLSearchParams.set('page', value)
+        return newURLSearchParams.toString();
     }
-    useEffect(() => {
-        setPageState(page)
-    }, [params])
     return (
         <>
             <Grid container sx={{borderRadius: 2}}>
@@ -43,7 +38,7 @@ const ProductList = ({product, count = 8, page = 1}) => {
                 count > 1 ?
                     <Box sx={{display: "flex", justifyContent: {md: 'end', xs: 'center'}, mt: 4}}>
                         <Pagination
-                            sx={{direction: 'rtl'}} shape={'rounded'} onChange={handlePaginationChange} page={pageState}
+                            sx={{direction: 'rtl'}} shape={'rounded'} page={page}
                             count={count}
                             boundaryCount={0}
                             siblingCount={1}
@@ -52,6 +47,8 @@ const ProductList = ({product, count = 8, page = 1}) => {
                                 return (
                                     (
                                         <PaginationItem
+                                            component={Link}
+                                            href={`/category/${params.category}?${handlePaginationChange(this ,item.page)}`}
                                             slots={{previous: ChevronRightRoundedIcon, next: ChevronLeftRoundedIcon}}
                                             {...item}
                                         />
