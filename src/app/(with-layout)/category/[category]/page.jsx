@@ -4,6 +4,8 @@ import ParentCategoryPage from './parentCategoryPage';
 import {notFound} from "next/navigation";
 import Error from "@/app/error";
 import {metadataGenerator} from "@/hooks/metadataGenerator";
+import logApi from "@/logApi";
+import logRoutes from "@/logRoutes";
 async function getData(params, searchParams) {
     let brands = searchParams.brand ?? [];
     delete searchParams.brand;
@@ -14,6 +16,7 @@ async function getData(params, searchParams) {
     brands.map((brand) => {
         parameters.append('brand[]', brand)
     })
+    logApi(BASE_URL + `products/${params.category}/?` + parameters.toString())
     const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString(),{next:{revalidate :60}})
     if (res.ok) {
         return res.json();
@@ -33,6 +36,7 @@ export async function generateMetadata({params, searchParams}) {
 
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
+    logRoutes(`category : ${params.category}`)
     return (
         <>
             {data.product ?

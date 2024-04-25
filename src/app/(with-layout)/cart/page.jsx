@@ -1,5 +1,6 @@
 import CartPage from "@/app/(with-layout)/cart/cartPage";
 import {domainName} from "@/data/urls";
+import logRoutes from "@/logRoutes";
 
 export const metadata = {
     title : 'سبد خرید| تک جنرال',
@@ -19,6 +20,7 @@ export const metadata = {
     }
 }
 export default function Page(){
+    logRoutes('cart')
     return(
         <CartPage/>
     )

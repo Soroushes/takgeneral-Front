@@ -1,6 +1,8 @@
 import {BASE_URL, domainName} from "@/data/urls";
+import logApi from "@/logApi";
 
 export default async function sitemap() {
+    logApi(`${BASE_URL}sitemap`)
     const res = await fetch(`${BASE_URL}sitemap`, {cache: 'no-store'});
     const data = await res.json();
     const finalSitemap = [] ;

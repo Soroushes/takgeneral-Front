@@ -3,9 +3,12 @@ import {BASE_URL, domainName} from "@/data/urls";
 import {notFound} from "next/navigation";
 import Error from "@/app/error";
 import {metadataGenerator} from "@/hooks/metadataGenerator";
+import logApi from "@/logApi";
+import logRoutes from "@/logRoutes";
 
 const getData = async (params, searchParams) => {
     const parameters = new URLSearchParams(searchParams)
+    logApi(BASE_URL + 'brands/' + params.brandName + '?' + parameters.toString())
     const res = await fetch(BASE_URL + 'brands/' + params.brandName + '?' + parameters.toString() , {next:{revalidate :60}});
     if (res.ok) {
         return res.json();
@@ -26,6 +29,7 @@ export async function generateMetadata({params, searchParams}) {
 
 export default async function Page({params, searchParams}) {
     const data = await getData(params, searchParams);
+    logRoutes(`brand : ${params.brandName}`)
     return (
         <BrandPage brand={data.brand} main_banner={data.main_banner} product={data.products} content={data.page_content}
                    current_page={data.current_page} page_count={data.page_count}/>

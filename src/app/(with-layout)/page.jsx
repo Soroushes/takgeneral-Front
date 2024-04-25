@@ -6,6 +6,8 @@ import DiscountProductSlider from "@/components/home/DiscountProductSlider";
 import Blogs from "@/components/home/blogs";
 import {notFound} from "next/navigation";
 import Error from "@/app/error";
+import logApi from "@/logApi";
+import logRoutes from "@/logRoutes";
 export const metadata = {
     title : 'خانه | تک جنرال',
     alternates: {
@@ -24,7 +26,9 @@ export const metadata = {
     }
 }
 async function getData() {
+    logApi(`${BASE_URL}home/`)
     const res = await fetch(`${BASE_URL}home/`,{next:{revalidate :60}})
+    logApi(`${BASE_URL}home/`)
     if (res.ok) {
         return res.json()
     } else {
@@ -38,7 +42,8 @@ async function getData() {
 
 export default async function Page() {
     const data = await getData();
-    return (
+    logRoutes('home')
+        return (
         <>
             <Slider slides={data?.main_banner}/>
             <div style={{

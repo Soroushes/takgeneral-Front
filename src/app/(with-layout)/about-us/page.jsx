@@ -1,5 +1,6 @@
 import AboutUsPage from "@/app/(with-layout)/about-us/aboutPage";
 import {domainName} from "@/data/urls";
+import logRoutes from "@/logRoutes";
 export const metadata = {
     title : 'درباره ما| تک جنرال',
     alternates: {
@@ -18,6 +19,7 @@ export const metadata = {
     }
 }
 export default function Page(){
+    logRoutes('about us')
     return(
         <AboutUsPage/>
     )

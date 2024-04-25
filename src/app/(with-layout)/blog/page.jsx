@@ -1,5 +1,7 @@
 import BlogPage from './blogPage';
 import {BASE_URL, domainName} from "@/data/urls";
+import logApi from "@/logApi";
+import logRoutes from "@/logRoutes";
 export const metadata = {
     title : 'بلاگ ها | تک جنرال',
     alternates: {
@@ -18,6 +20,7 @@ export const metadata = {
     }
 }
 const getData = async (params , searchParams) => {
+    logApi(`${BASE_URL}blogs/${searchParams.page ? `?page=${searchParams?.page}` :''}`)
     const res = await fetch(`${BASE_URL}blogs/${searchParams.page ? `?page=${searchParams?.page}` :''}`,{next:{revalidate :60}});
     if (res.ok) {
         return res.json();
@@ -27,6 +30,7 @@ const getData = async (params , searchParams) => {
 }
 export default async function Page({params ,searchParams}) {
     const data = await getData(params , searchParams);
+    logRoutes('AllBlog')
     return (
         <BlogPage data={data} blogs={data.blogs} currentPage={data.current_page} pageCount={data.page_count}/>
     )

@@ -3,8 +3,11 @@ import {BASE_URL, domainName} from "@/data/urls";
 import {notFound, redirect} from "next/navigation";
 import Error from "@/app/error";
 import {metadataGenerator} from "@/hooks/metadataGenerator";
+import logApi from "@/logApi";
+import logRoutes from "@/logRoutes";
 
 async function getData(productId) {
+    logApi(`${BASE_URL}product-detail/${productId}/`)
     const res = await fetch(`${BASE_URL}product-detail/${productId}/`,{next:{revalidate :60}})
     if (res.ok) {
         return res.json();
@@ -25,6 +28,7 @@ export async function generateMetadata({params: {productId}}) {
 
 export default async function Page({params: {productId, productSlug}, searchParams: {fromSection}}) {
     const data = await getData(productId);
+    logRoutes(`product ${productId}`)
     if (data.product.url !== productSlug) {
         return (
             redirect(`/product/${productId}/${data.product.url}${fromSection ? `?fromSection=${fromSection}` : ''}`)

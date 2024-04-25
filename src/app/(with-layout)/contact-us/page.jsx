@@ -1,5 +1,6 @@
 import ContactUsPage from "@/app/(with-layout)/contact-us/ContactPage";
 import {domainName} from "@/data/urls";
+import logRoutes from "@/logRoutes";
 export const metadata = {
     title : 'تماس با ما | تک جنرال',
     alternates: {
@@ -18,6 +19,7 @@ export const metadata = {
     }
 }
 export default function Page(){
+    logRoutes('contact us')
     return(
         <ContactUsPage/>
     )
