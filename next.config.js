@@ -3,7 +3,7 @@ module.exports = {
         domains: ['api.takgeneral.com', 'swiperjs.com' , 'logo.samandehi.ir' , 'trustseal.enamad.ir'],
     },
     experimental: {
-        appDir: true
+        missingSuspenseWithCSRBailout: false,
     },
     async redirects() {
         const staticRedirects = [{source : '/:path/' , destination : '/:path' , statusCode : 301}]
