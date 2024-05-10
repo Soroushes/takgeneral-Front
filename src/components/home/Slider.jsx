@@ -21,12 +21,12 @@ const Slider = ({slides}) => {
                                 <SwiperSlide key={slide.id}>
                                         <Box sx={{aspectRatio: '4.5/1', display:{md:'block' , xs:'none'}}}>
                                             <Link href={slide.link_url ?? '/'}>
-                                                <Image fill src={slide.image}  alt={slide.alt}/>
+                                                <Image priority fill src={slide.image}  alt={slide.alt}/>
                                             </Link>
                                         </Box>
                                         <Box sx={{aspectRatio: '1.3/1' , display:{md:'none' , xs:'block'}}}>
                                             <Link href={slide.link_url ?? '/'}>
-                                                <Image fill src={slide.mobile_image}  alt={slide.alt}/>
+                                                <Image priority fill src={slide.mobile_image}  alt={slide.alt}/>
                                             </Link>
                                         </Box>
                                 </SwiperSlide>
