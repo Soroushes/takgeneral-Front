@@ -8,7 +8,7 @@ import logRoutes from "@/logRoutes";
 
 async function getData(productId) {
     logApi(`${BASE_URL}product-detail/${productId}/`)
-    const res = await fetch(`${BASE_URL}product-detail/${productId}/`,{next:{revalidate :60}})
+    const res = await fetch(`${BASE_URL}product-detail/${productId}/`,{cache:'no-store'})
     if (res.ok) {
         return res.json();
     } else {

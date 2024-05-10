@@ -9,7 +9,7 @@ import logRoutes from "@/logRoutes";
 const getData = async (params, searchParams) => {
     const parameters = new URLSearchParams(searchParams)
     logApi(BASE_URL + 'brands/' + params.brandName + '?' + parameters.toString())
-    const res = await fetch(BASE_URL + 'brands/' + params.brandName + '?' + parameters.toString() , {next:{revalidate :60}});
+    const res = await fetch(BASE_URL + 'brands/' + params.brandName + '?' + parameters.toString() , {cache:'no-store'});
     if (res.ok) {
         return res.json();
     } else {
