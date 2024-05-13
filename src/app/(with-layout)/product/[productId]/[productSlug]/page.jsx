@@ -22,8 +22,19 @@ async function getData(productId) {
 
 export async function generateMetadata({params: {productId}}) {
     const result = await getData(productId);
-    if (!result) return
-    return metadataGenerator(result?.meta_tag , result.product.name , `${domainName}/product/${result.product.id}/${result.product.url}` , `${domainName}/product/${result.product.id}/${result.product.url}` ,'website')
+    const finalPrices = result?.product?.options?.product_variant.map((product)=>product.final_price)
+    const prices = result?.product?.options?.product_variant.map((product)=>product.price)
+    const lowestFinalPrice = Math.min(...finalPrices)
+    const lowestPrice = Math.min(...prices)
+    const availability = result?.product?.options?.product_variant.find((product)=>product.Inventory_number)
+    const warranty = result?.product?.options?.product_variant.find((product)=>product.warranty)
+    const image  = result?.product?.all_images.find((image)=>image.is_main)
+    console.log(image)
+    if (!result) return undefined
+    const other = {product_price : lowestFinalPrice , product_old_price : lowestPrice , product_id : result?.product?.id , product_name :  result?.product?.name , availability : availability.Inventory_number ? 'instock' : 'outstock' , guarantee : warranty?.warranty }
+    console.log( metadataGenerator(result?.meta_tag , result.product.name , `${domainName}/product/${result.product.id}/${result.product.url}` , `${domainName}/product/${result.product.id}/${result.product.url}` ,'website' , other , image.image)
+)
+    return metadataGenerator(result?.meta_tag , result.product.name , `${domainName}/product/${result.product.id}/${result.product.url}` , `${domainName}/product/${result.product.id}/${result.product.url}` ,'website' , other , image.image)
 }
 
 export default async function Page({params: {productId, productSlug}, searchParams: {fromSection}}) {

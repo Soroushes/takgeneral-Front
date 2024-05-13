@@ -1,4 +1,4 @@
-export const metadataGenerator =(res , title , canonical , url , type)=>{
+export const metadataGenerator =(res , title , canonical , url , type , other , ogImage)=>{
     const siteNameTitle = `${res.title ? res.title : title} | تک جنرال `;
     return {
         title: siteNameTitle,
@@ -11,7 +11,8 @@ export const metadataGenerator =(res , title , canonical , url , type)=>{
             description: res?.og_desc ? res?.og_desc : res?.desc,
             siteName: res?.og_site_name,
             type : type,
-            url: url
+            url: url,
+            image: ogImage ?? undefined
         },
         robots: {
             index: res.index,
@@ -21,5 +22,7 @@ export const metadataGenerator =(res , title , canonical , url , type)=>{
             //     follow: res.follow,
             // },
         },
+        other: other ?? undefined
+
     }
 }
