@@ -1,3 +1,5 @@
+import {images} from "../../next.config";
+
 export const metadataGenerator =(res , title , canonical , url , type , other , ogImage)=>{
     const siteNameTitle = `${res.title ? res.title : title} | تک جنرال `;
     return {
@@ -12,7 +14,7 @@ export const metadataGenerator =(res , title , canonical , url , type , other , 
             siteName: res?.og_site_name,
             type : type,
             url: url,
-            image: ogImage ?? undefined
+            images : ogImage ?? undefined,
         },
         robots: {
             index: res.index,
