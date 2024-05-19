@@ -1,6 +1,6 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import {Badge, Box, Button, Container, InputAdornment, TextField, Typography} from "@mui/material";
+import {Badge, Box, Button, Container, InputAdornment, Menu, MenuItem, TextField, Typography} from "@mui/material";
 import UserIcon from "../../assets/icons/layout/user";
 import SearchOutlined from "../../assets/icons/layout/searchOutlined";
 import BluBag from '../../assets/icons/layout/blue-bag.svg';
@@ -10,12 +10,23 @@ import Image from "next/image";
 import {urls} from "@/data/urls";
 import {useSelector} from "react-redux";
 import {useRouter} from "next/navigation";
+import {useState} from "react";
 
 const DesktopHeader = ({categories}) => {
     const {isLoggedIn} = useSelector(state => state.userInfo);
     const router = useRouter();
     const {total_count} = useSelector(state => state.cart)
     const {desktopHeaderHeight} = useSelector(state => state.deviceInfo);
+    const [categoryId, setCategoryId] = useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const openCategory = (...arg) => {
+        setAnchorEl(arg[1].currentTarget);
+        setCategoryId(arg[0]);
+    }
+    const handleClose = () => {
+        setAnchorEl(null);
+        setCategoryId(null);
+    };
     return (
         <AppBar sx={{backgroundColor: "#fff", height: desktopHeaderHeight}}>
             <Toolbar sx={{height: '100% !important'}}>
@@ -134,7 +145,8 @@ const DesktopHeader = ({categories}) => {
                                             alignItems: "center ",
                                         }}>
                                         {/*{item.icon}*/}
-                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>درباره ما</Typography>
+                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>درباره
+                                            ما</Typography>
                                     </Box>
                                 </Link>
                             </Box>
@@ -153,18 +165,41 @@ const DesktopHeader = ({categories}) => {
                             </Box>
                             {categories?.map((item) => {
                                 return (
-                                    <Box key={item.name} component={'li'}>
-                                    <Link href={`/category/${item.url}`}>
+                                    <Box key={item.name}>
                                         <Box
+                                            component={'li'}
+                                            onMouseOver={openCategory.bind(this, item.id)}
                                             sx={{
                                                 display: "flex",
                                                 gap: 1,
                                                 alignItems: "center ",
                                             }}>
+                                            <Link href={`/category/${item.url}`}>
                                             {/*{item.icon}*/}
-                                            <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>{item.name}</Typography>
+                                            <Typography sx={{color: 'text.main'}}
+                                                        variant={'subtitle1'}>{item.name}</Typography>
+                                            </Link>
                                         </Box>
-                                    </Link>
+                                            <Menu
+                                                id="basic-menu"
+                                                anchorEl={anchorEl}
+                                                open={item.id === categoryId}
+                                                onClose={handleClose}
+                                                onMouseLeave={handleClose}
+                                                MenuListProps={{
+                                                    'aria-labelledby': 'basic-button',
+                                                }}
+                                            >
+                                                {
+                                                    item.children.map((child)=>{
+                                                        return(
+                                                            <Link href={`/category/${child.url}`}>
+                                                                <MenuItem key={child.name} onClick={handleClose}>{child.name}</MenuItem>
+                                                            </Link>
+                                                        )
+                                                    })
+                                                }
+                                            </Menu>
                                     </Box>
                                 );
                             })}
