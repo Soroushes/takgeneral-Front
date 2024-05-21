@@ -29,7 +29,7 @@ const ContactUsPage = () => {
                     <Grid container rowGap={2} justifyContent={'space-between'} display={'flex'}
                           sx={{mt: {md: 12, xs: 2} , columnGap:{md:1 , xs:0}}}>
                         <Grid item md={3.5} xs={6}>
-                            <Link passHref target={'_blank'} href={"tel://+982177500376"}>
+                            <Link passHref target={'_blank'} title={'02177500376'} href={"tel://+982177500376"}>
                                 <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
                                     <Box sx={{
                                         backgroundColor: '#fff',
@@ -53,7 +53,7 @@ const ContactUsPage = () => {
                             </Link>
                         </Grid>
                         <Grid item md={3.5} xs={6}>
-                            <Link passHref target={'_blank'} href={"tel://+989212075118"}>
+                            <Link title={'09212075118'} passHref target={'_blank'} href={"tel://+989212075118"}>
                                 <Box display={'flex'} flexDirection={'column'} gap={2} alignItems={'center'}>
                                     <Box sx={{
                                         backgroundColor: '#fff',

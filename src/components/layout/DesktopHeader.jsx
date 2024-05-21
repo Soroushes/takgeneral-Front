@@ -117,7 +117,8 @@ const DesktopHeader = ({categories}) => {
                                             gap: 1,
                                             alignItems: "center ",
                                         }}>
-                                        <Typography component={'p'} sx={{color: 'text.main'}} variant={'subtitle1'}>خانه</Typography>
+                                        <Typography component={'p'} sx={{color: 'text.main'}}
+                                                    variant={'subtitle1'}>خانه</Typography>
                                     </Box>
                                 </Link>
                             </Box>
@@ -159,7 +160,8 @@ const DesktopHeader = ({categories}) => {
                                             alignItems: "center ",
                                         }}>
                                         {/*{item.icon}*/}
-                                        <Typography component={'p'} sx={{color: 'text.main'}} variant={'subtitle1'}>وبلاگ</Typography>
+                                        <Typography component={'p'} sx={{color: 'text.main'}}
+                                                    variant={'subtitle1'}>وبلاگ</Typography>
                                     </Box>
                                 </Link>
                             </Box>
@@ -168,38 +170,39 @@ const DesktopHeader = ({categories}) => {
                                     <Box key={item.name}>
                                         <Box
                                             component={'li'}
-                                            onMouseOver={openCategory.bind(this, item.id)}
+                                            onClick={()=>{router.push(`/category/${item.url}`)}}
+                                            onPointerOver={openCategory.bind(this, item.id)}
                                             sx={{
                                                 display: "flex",
                                                 gap: 1,
                                                 alignItems: "center ",
                                             }}>
-                                            <Link href={`/category/${item.url}`}>
                                             {/*{item.icon}*/}
-                                            <Typography component={'p'} sx={{color: 'text.main'}}
-                                                        variant={'subtitle1'}>{item.name}</Typography>
+                                            <Link href={`/category/${item.url}`}>
+                                                <Typography component={'p'} sx={{color: 'text.main'}}
+                                                            variant={'subtitle1'}>{item.name}</Typography>
                                             </Link>
                                         </Box>
-                                            <Menu
-                                                id="basic-menu"
-                                                anchorEl={anchorEl}
-                                                open={item.id === categoryId}
-                                                onClose={handleClose}
-                                                onMouseLeave={handleClose}
-                                                MenuListProps={{
-                                                    'aria-labelledby': 'basic-button',
-                                                }}
-                                            >
-                                                {
-                                                    item.children.map((child)=>{
-                                                        return(
-                                                            <Link href={`/category/${child.url}`}>
-                                                                <MenuItem key={child.name} onClick={handleClose}>{child.name}</MenuItem>
-                                                            </Link>
-                                                        )
-                                                    })
-                                                }
-                                            </Menu>
+
+                                        <Menu
+                                            // closeAfterTransition={true}
+                                            disableScrollLock={true}
+                                            anchorEl={anchorEl}
+                                            open={item.id === categoryId}
+                                            onClose={handleClose}
+                                            onMouseLeave={handleClose}
+                                        >
+                                            {
+                                                item.children.map((child) => {
+                                                    return (
+                                                        <Link href={`/category/${child.url}`}>
+                                                            <MenuItem key={child.name}
+                                                                      onClick={handleClose}>{child.name}</MenuItem>
+                                                        </Link>
+                                                    )
+                                                })
+                                            }
+                                        </Menu>
                                     </Box>
                                 );
                             })}
@@ -212,7 +215,8 @@ const DesktopHeader = ({categories}) => {
                                             alignItems: "center ",
                                         }}>
                                         {/*{item.icon}*/}
-                                        <Typography component={'h6'} sx={{color: 'text.main'}} variant={'subtitle1'}>فلومتر</Typography>
+                                        <Typography component={'h6'} sx={{color: 'text.main'}}
+                                                    variant={'subtitle1'}>فلومتر</Typography>
                                     </Box>
                                 </Link>
                             </Box>

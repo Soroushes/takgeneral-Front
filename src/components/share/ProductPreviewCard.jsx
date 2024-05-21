@@ -17,7 +17,6 @@ const ProductPreviewCard = ({
                                 imagePriority
                             }) => {
     return (
-        <Link style={{height: '100% !important'}} href={`/product/${id}/${url}`}>
             <Stack
                 justifyContent={'space-between'}
                 sx={{
@@ -56,7 +55,7 @@ const ProductPreviewCard = ({
                             }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%
                         </Typography> : null
                 }
-                <Box>
+                <Link style={{height: '100% !important'}} href={`/product/${id}/${url}`}>
                     <Box textAlign={'center'} sx={{aspectRatio: '1/1'}}>
                         {
                             image &&
@@ -76,15 +75,22 @@ const ProductPreviewCard = ({
                             {title}
                         </Typography>
                     </Box>
-                </Box>
-                <Box display={{md: 'block', xs: 'none'}}>
-                    <PriceDiscount finalPriceBold={true} discountPrice={price} finalPrice={afterDiscountPrice}/>
-                </Box>
-                <Box display={{xs: 'block', md: 'none'}}>
-                    <PriceDiscount finalPriceBold={false} discountPrice={price} finalPrice={afterDiscountPrice}/>
-                </Box>
+                </Link>
+                {
+                    price ?
+                        <>
+                            <Box display={{md: 'block', xs: 'none'}}>
+                                <PriceDiscount finalPriceBold={true} discountPrice={price} finalPrice={afterDiscountPrice}/>
+                            </Box>
+                            <Box display={{xs: 'block', md: 'none'}}>
+                                <PriceDiscount finalPriceBold={false} discountPrice={price} finalPrice={afterDiscountPrice}/>
+                            </Box>
+                        </> :
+                        <Link title={'02177500376'} passHref target={'_blank'} href={"tel://+982177500376"}>
+                            <Box display={'flex'} justifyContent={'center'} ><Typography textAlign={'center'} color={'primary'}>برای اطلاع از قیمت تماس بگیرید</Typography></Box>
+                        </Link>
+                }
             </Stack>
-        </Link>
     )
 }
 export default ProductPreviewCard;

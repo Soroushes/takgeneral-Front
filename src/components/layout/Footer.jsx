@@ -69,7 +69,7 @@ const Footer = () => {
                                 <Box mr={1}>
                                     <CallIcon/>
                                 </Box>
-                                <Link title={'_ 09212075118'} aria-label={`${PN.convertEnToPe('09212075118')} _`} passHref target={'_blank'} href={"tel:989212075118"}>
+                                <Link title={'09212075118'} aria-label={`${PN.convertEnToPe('09212075118')} _`} passHref target={'_blank'} href={"tel:989212075118"}>
                                     <Typography>{PN.convertEnToPe('09212075118')} _</Typography>
                                 </Link>
                                 <Link title={'02177500376'} aria-label={PN.convertEnToPe('02177500376')} passHref target={'_blank'} href={"tel:+982177500376"}>

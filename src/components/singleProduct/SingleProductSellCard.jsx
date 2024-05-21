@@ -9,6 +9,7 @@ import WarrantyIcon from '../../assets/icons/single-product/warranty.svg';
 import {useCart} from "@/hooks/useCart";
 import FakeIcon from '../../assets/icons/single-product/iranian.svg';
 import {useEffect, useState} from "react";
+import Link from "next/link";
 const SingleProductSellCard = ({
                                    available,
                                    freeSent,
@@ -85,27 +86,36 @@ const SingleProductSellCard = ({
 
 
             }
-            <Box sx={{
-                px: 1.5,
-                pb: 3,
-                backgroundColor: "#fff",
-                borderRadius: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 2,
-            }}>
-                <Typography component={'p'} sx={{fontWeight: "bold", borderBottom: '1px solid #eee', py: 2, px: 1.5}}
-                            variant={'h5'}>قیمت محصول:</Typography>
-                <Box sx={{my: 2, display: 'flex', justifyContent: 'end', width: '100%', direction: 'ltr'}}>
-                    <PriceDiscount finalPriceBold={true} align={'end'} gap={1.7} justify={{md: 'column', xs: 'row'}}
-                                   discountPrice={priceItem.price ? priceItem.price: price}
-                                   finalPrice={priceItem.finalPrice ? priceItem.finalPrice: finalPrice} discountedPriceColor={'text.muted'}
-                                   finalPriceColor={'text.main'} discountedPriceFont={'h5'} fontSize={'h4'}/>
-                </Box>
-                <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'end', width: '100%'}}>
-                    <CartEditionButton key={id} available={available} boxSx={{width: '110px'}} id={id}/>
-                </Box>
-            </Box>
+
+                    <Box sx={{
+                        px: 1.5,
+                        pb: 3,
+                        backgroundColor: "#fff",
+                        borderRadius: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 2,
+                    }}>
+                        {
+                            price ?
+                                <>
+                                    <Typography component={'p'} sx={{fontWeight: "bold", borderBottom: '1px solid #eee', py: 2, px: 1.5}}
+                                                variant={'h5'}>قیمت محصول:</Typography>
+                                    <Box sx={{my: 2, display: 'flex', justifyContent: 'end', width: '100%', direction: 'ltr'}}>
+                                        <PriceDiscount finalPriceBold={true} align={'end'} gap={1.7} justify={{md: 'column', xs: 'row'}}
+                                                       discountPrice={priceItem.price ? priceItem.price: price}
+                                                       finalPrice={priceItem.finalPrice ? priceItem.finalPrice: finalPrice} discountedPriceColor={'text.muted'}
+                                                       finalPriceColor={'text.main'} discountedPriceFont={'h5'} fontSize={'h4'}/>
+                                    </Box>
+                                    <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'end', width: '100%'}}>
+                                        <CartEditionButton key={id} available={available} boxSx={{width: '110px'}} id={id}/>
+                                    </Box>
+                                </>:
+                                <Link passHref target={'_blank'} href={"tel://+982177500376"}>
+                                    <Box title={'02177500376'} pt={3} display={'flex'} justifyContent={'center'} ><Typography color={'primary'}>برای اطلاع از قیمت تماس بگیرید</Typography></Box>
+                                </Link>
+                        }
+                    </Box>
         </>
     )
 }
