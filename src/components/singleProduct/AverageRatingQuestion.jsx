@@ -14,7 +14,7 @@ const AverageRatingQuestion = ({isLoggedIn, openAddQuestion , productId}) => {
         <Box sx={{backgroundColor: '#fff', py: 2, borderRadius: 3, px: 1}} gap={1.5} display={'flex'}
              flexDirection={'column'}
              alignItems={'center'}>
-            <Typography variant={'h5'} sx={{textAlign:'center', px:{md:1 , xs:10} , mb:4}}>درباره این کالا سوالی دارید؟ سوال خود را ثبت کنید.</Typography>
+            <Typography component={'p'} variant={'h5'} sx={{textAlign:'center', px:{md:1 , xs:10} , mb:4}}>درباره این کالا سوالی دارید؟ سوال خود را ثبت کنید.</Typography>
             <Button onClick={AddQuestion} sx={{height: 40, borderRadius: 2, width: '95%'}}
                     variant={'contained'}><Typography color={'white'} variant={'body1'} sx={{mr: 1}}>بپرسید</Typography><Massage/></Button>
         </Box>

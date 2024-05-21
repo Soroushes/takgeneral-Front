@@ -82,7 +82,7 @@ const AddressSelectionPage = () => {
                                     <Box sx={{borderBottom: '1px solid #eee', pb: 1, pt: 1}} display={'flex'}
                                          justifyContent={'space-between'}>
                                         <Box>
-                                            <Typography variant={'h1'} fontWeight={'bold'}>آدرس گیرنده</Typography>
+                                            <Typography component={'p'} variant={'h1'} fontWeight={'bold'}>آدرس گیرنده</Typography>
                                         </Box>
                                         <Link href={'/cart'}>
                                             <Button sx={{borderRadius: 1.5}}>برگشت<ChevronLeftRoundedIcon/></Button>

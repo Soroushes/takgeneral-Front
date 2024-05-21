@@ -52,11 +52,11 @@ const singleProductAttribute = ({
             <Box display={'flex'} alignItems={'center'} gap={4}>
                 <Box display={'flex'} alignItems={'center'}>
                     <Rating readOnly size={'small'} sx={{mr: .5}} defaultValue={1} max={1}/>
-                    <Typography variant={'subtitle1'}
+                    <Typography component={'p'} variant={'subtitle1'}
                                 textAlign={'center'}>{PN.convertEnToPe(PN.sliceNumber(rate ?? 0))}</Typography>
                 </Box>
                 <Button size={'small'} variant={'text'} color={'secondary'} onClick={scrollToOpinion}>
-                    <Typography color={'secondary'} variant={'subtitle1'}>
+                    <Typography component={'p'} color={'secondary'} variant={'subtitle1'}>
                         دیدگاه کاربران ({PN.convertEnToPe(PN.sliceNumber(comments?.length))})
                     </Typography>
                 </Button>

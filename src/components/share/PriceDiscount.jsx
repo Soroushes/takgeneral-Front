@@ -25,7 +25,7 @@ const PriceDiscount = ({
                 gap: gap,
             }}>
                 {discountPrice !== finalPrice &&
-                        <Typography fontWeight={discountedPriceBold?  'bold' : 'normal'} color={discountedPriceColor} variant={discountedPriceFont} sx={{textDecoration: "line-through"}}>
+                        <Typography component={'p'} fontWeight={discountedPriceBold?  'bold' : 'normal'} color={discountedPriceColor} variant={discountedPriceFont} sx={{textDecoration: "line-through"}}>
                             {PN.convertEnToPe(PN.sliceNumber(Math.trunc(discountPrice)))} تومان
                         </Typography>
                 }

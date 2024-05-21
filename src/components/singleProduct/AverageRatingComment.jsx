@@ -18,13 +18,13 @@ const AverageRatingComment = ({average, openAddComment , isLoggedIn , productId}
             {
                 average ?
                     <>
-                        <Typography variant={'h5'}>میانگین امتیازات کاربران</Typography>
+                        <Typography component={'p'} variant={'h5'}>میانگین امتیازات کاربران</Typography>
                         <Box sx={{display: 'flex', gap: .5}}>
-                            <Typography color={'primary'} fontWeight={'bold'} variant={'h1'}>{PN.convertEnToPe(average)}</Typography>
+                            <Typography component={'p'} color={'primary'} fontWeight={'bold'} variant={'h1'}>{PN.convertEnToPe(average)}</Typography>
                             <Typography>از {PN.convertEnToPe(5)}</Typography>
                         </Box>
                     </> :
-                    <Typography sx={{textAlign:'center' ,px:5}} variant={'h5'}>تا کنون نظری ثبت نشده,  اولین نظر را شما ثبت کنید</Typography>
+                    <Typography component={'p'} sx={{textAlign:'center' ,px:5}} variant={'h5'}>تا کنون نظری ثبت نشده,  اولین نظر را شما ثبت کنید</Typography>
             }
 
             <Rating sx={{mb: 3 , mt:1}} value={average} readOnly size={'small'}/>

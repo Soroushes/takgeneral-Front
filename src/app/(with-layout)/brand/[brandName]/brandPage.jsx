@@ -89,7 +89,7 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
                                          borderRadius: 2,
                                          backgroundColor: 'white',
                                      }}>
-                                    <Typography variant={'subtitle1'}>فقط کالاهای موجود</Typography>
+                                    <Typography component={'p'} variant={'subtitle1'}>فقط کالاهای موجود</Typography>
                                     <Controller
                                         name={'available-product'}
                                         control={control}
@@ -107,16 +107,13 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
                     </Grid>
                     <Grid item md={3.5} sx={{pt: .5, mt: 2, display: {xs: 'none', md: "block"}}}>
                         <Box sx={{backgroundColor: 'white', mx: 1, px: 2, py: 1.5, borderRadius: 2}}>
-                            <Typography variant={'subtitle1'}>محدوده قیمت</Typography>
+                            <Typography component={'p'} variant={'subtitle1'}>محدوده قیمت</Typography>
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={8.5} sx={{mt: 2}}>
                         <ProductList page={current_page} count={page_count} product={product}/>
                     </Grid>
                 </Grid>
-                <Box sx={{}}>
-
-                </Box>
                 {
                     content.desc ?
                         <Box sx={{px: 1}}>

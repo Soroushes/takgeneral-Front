@@ -40,7 +40,7 @@ const CartPage =()=> {
                 <Container>
                     <Grid container rowGap={1} sx={{justifyContent:'space-between'}}>
                         <Grid item md={8} lg={8.5} xs={12}>
-                            <Typography sx={{borderBottom :'1px solid #eee' , pb:1.5}} variant={'h5'} fontWeight={'bold'}>سبد خرید</Typography>
+                            <Typography sx={{borderBottom :'1px solid #eee' , pb:1.5}} component={'p'} variant={'h5'} fontWeight={'bold'}>سبد خرید</Typography>
                             <Box sx={{width:'100%' , my:1.5}}>
                                 {
                                     selectedProducts?.products?.map((product) => {

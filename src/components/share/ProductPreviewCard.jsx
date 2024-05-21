@@ -69,7 +69,6 @@ const ProductPreviewCard = ({
                     </Box>
                     <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center', my: {md: 1, xs: 0}}}>
                         <Typography
-                            component={'h6'}
                             variant="body2"
                             textAlign={'justify'}
                             maxHeight={'40px'}

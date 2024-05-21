@@ -18,7 +18,7 @@ import AverageRatingQuestion from "./AverageRatingQuestion";
 import {useRouter, useSearchParams} from "next/navigation";
 import PN from "persian-number";
 
-const CommentQuestion = ({comments, rate, productId, questions , image}) => {
+const CommentQuestion = ({comments, rate, productId, questions , image , name}) => {
     const {isLoggedIn} = useSelector(state => state.userInfo)
     const [value, setValue] = useState("1");
     const [questionIsShow, setQuestionIsShow] = useState(false);
@@ -178,12 +178,13 @@ const CommentQuestion = ({comments, rate, productId, questions , image}) => {
                                         questions?.map((eachQuestion, index) => {
                                             const show = index < 2 || questionIsShow;
                                             return (
-                                                <Box sx={{display: show ? 'block' : 'none', width: '100%', mb: 6}}
-                                                     key={index}>
-                                                    <Question addAnswer={addAnswer} setAnswerIsOpen={setAnswerIsOpen}
-                                                              answerIsOpen={answerIsOpen} productId={productId}
-                                                              eachQuestion={eachQuestion}/>
-                                                </Box>
+
+                                                    <Box sx={{display: show ? 'block' : 'none', width: '100%', mb: 6}}
+                                                         key={index}>
+                                                        <Question addAnswer={addAnswer} setAnswerIsOpen={setAnswerIsOpen}
+                                                                  answerIsOpen={answerIsOpen} productId={productId}
+                                                                  eachQuestion={eachQuestion}/>
+                                                    </Box>
                                             )
                                         })
                                     }
@@ -219,9 +220,9 @@ const CommentQuestion = ({comments, rate, productId, questions , image}) => {
                     </Grid>
                 </TabPanel>
             </Box>
-            <AddCommentModal image={image} open={commentIsOpen} setOpen={setCommentIsOpen} productId={productId} rate={rate}/>
-            <AddQuestionModal question={true} title={'ثبت پرسش'} setOpen={setQuestionIsOpen} open={questionIsOpen} productId={productId}/>
-            <AddQuestionModal question={false} title={'ثبت پاسخ'} productId={productId} open={answerIsOpen} setOpen={setAnswerIsOpen}/>
+            <AddQuestionModal name={name} question={false} title={'ثبت پاسخ'} productId={productId} open={answerIsOpen} setOpen={setAnswerIsOpen}/>
+            <AddQuestionModal name={name} question={true} title={'ثبت پرسش'} setOpen={setQuestionIsOpen} open={questionIsOpen} productId={productId}/>
+            <AddCommentModal name={name} image={image} open={commentIsOpen} setOpen={setCommentIsOpen} productId={productId} rate={rate}/>
         </TabContext>
 
     )

@@ -271,7 +271,7 @@ const MobileHeader = ({categories}) => {
                                                 <LocationIcon/>
                                             </Link>
                                         </Box>
-                                        <Typography variant={'subtitle2'}>حقوق این سرویس محفوظ و متعلق به شرکت تک جنرال
+                                        <Typography component={'p'} variant={'subtitle2'}>حقوق این سرویس محفوظ و متعلق به شرکت تک جنرال
                                             می‌باشد</Typography>
                                     </Box>
                                 </Box>

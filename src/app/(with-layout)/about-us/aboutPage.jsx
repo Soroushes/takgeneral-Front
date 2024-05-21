@@ -80,7 +80,7 @@ const AboutUsPage = () => {
                         </Link>
                     </Grid>
                 </Grid>
-                <Typography variant={'h5'} lineHeight={'29px'} textAlign={'justify'}>
+                <Typography component={'p'} variant={'h5'} lineHeight={'29px'} textAlign={'justify'}>
                     شرکت جنرال در سال ۱۳۷۰ با تاسیس در خیابان طالقانی آغاز به کار کرد و با فروش ابزار دقیق به صنایع
                     پتروشیمی، شیمیایی، داروسازی، غذایی و پالایشگاه های نفتی، اسم خود را در این صنعت بر سر زبان ها
                     انداخت. حال پس از سال ها خدمت به مشتریان عزیز و کسب تجربه در این زمینه، خدمات خود را به صورت

@@ -47,12 +47,12 @@ const OuterImageSection = ({
             </Box>
             <Typography
                 textAlign={'center'}
-                component={"h5"}
                 variant={titleVariant}
                 sx={{mb: 1, width: '100%'}}
                 overflow={'hidden'}
                 textOverflow={'ellipsis'}
                 whiteSpace={'nowrap'}
+                component={'p'}
             >
                 {title}
             </Typography>

@@ -45,14 +45,14 @@ const Question = ({eachQuestion, addAnswer}) => {
                             )
                         })}
                         <Button variant={'text'} onClick={addAnswer} sx={{mt: 2, display: 'flex', alignItems: 'center', gap: 1, cursor: 'pointer'}}>
-                            <Typography variant={'subtitle1'} color={'primary'}>ثبت پاسخ جدید</Typography>
+                            <Typography component={'p'} variant={'subtitle1'} color={'primary'}>ثبت پاسخ جدید</Typography>
                             <ChevronLeftRoundedIcon fontSize={'small'}/>
                         </Button>
                     </Box>
                 </Box>
                 :
                 <Button variant={'text'} onClick={addAnswer} sx={{mt: 2, display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
-                    <Typography variant={'subtitle1'} color={'primary'}>ثبت پاسخ جدید</Typography>
+                    <Typography component={'p'} variant={'subtitle1'} color={'primary'}>ثبت پاسخ جدید</Typography>
                     <ChevronLeftRoundedIcon fontSize={'small'}/>
                 </Button>
 

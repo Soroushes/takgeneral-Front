@@ -29,7 +29,7 @@ const IndividualPage = ()=>{
             <Box width={'100%'} display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
                 <Typography fontWeight={'bold'}>مشخصات فردی</Typography>
                 <Button  onClick={()=>{setEditModalIsOpen(true)}} sx={{px:1 , display:{md:'flex' , xs:'none'},borderRadius:2 }} variant={'outlined'}>
-                    <Typography variant={'subtitle1'} sx={{mr:1}} color={'primary'}>ویرایش مشخصات</Typography>
+                    <Typography component={'p'} variant={'subtitle1'} sx={{mr:1}} color={'primary'}>ویرایش مشخصات</Typography>
                     <Edit/>
                 </Button>
                 <Box sx={{ display:{md:'none' , xs:'flex'}}}>
@@ -40,24 +40,24 @@ const IndividualPage = ()=>{
             </Box>
             <Grid mt={3} container rowGap={3} sx={{border:'1px solid #eee' , borderRadius:2 , p:2}}>
                 <Grid item md={6} xs={12}>
-                    <Typography color={'text.muted'} variant={'subtitle1'}>نام و نام خانوادگی:</Typography>
-                    <Typography mt={2} variant={'subtitle1'}>{profileInfo.first_name} {profileInfo.last_name}</Typography>
+                    <Typography component={'p'} color={'text.muted'} variant={'subtitle1'}>نام و نام خانوادگی:</Typography>
+                    <Typography component={'p'} mt={2} variant={'subtitle1'}>{profileInfo.first_name} {profileInfo.last_name}</Typography>
                 </Grid>
                 <Grid item md={6} xs={12}>
-                    <Typography color={'text.muted'} variant={'subtitle1'}>ایمیل :</Typography>
-                    <Typography mt={2} variant={'subtitle1'}>{profileInfo.email}</Typography>
+                    <Typography component={'p'} color={'text.muted'} variant={'subtitle1'}>ایمیل :</Typography>
+                    <Typography component={'p'} mt={2} variant={'subtitle1'}>{profileInfo.email}</Typography>
                 </Grid>
                 <Grid item md={6} xs={12}>
-                    <Typography color={'text.muted'} variant={'subtitle1'}>شماره تماس :</Typography>
-                    <Typography mt={2} variant={'subtitle1'}>{profileInfo.phone_number}</Typography>
+                    <Typography component={'p'} color={'text.muted'} variant={'subtitle1'}>شماره تماس :</Typography>
+                    <Typography component={'p'} mt={2} variant={'subtitle1'}>{profileInfo.phone_number}</Typography>
                 </Grid>
                 <Grid item md={6} xs={12}>
-                    <Typography  color={'text.muted'} variant={'subtitle1'}>کد ملی :</Typography>
-                    <Typography mt={2} variant={'subtitle1'}>{profileInfo.national_code}</Typography>
+                    <Typography component={'p'} color={'text.muted'} variant={'subtitle1'}>کد ملی :</Typography>
+                    <Typography component={'p'} mt={2} variant={'subtitle1'}>{profileInfo.national_code}</Typography>
                 </Grid>
             </Grid>
             <Button onClick={()=>{setEditModalIsOpen(true)}} sx={{px:1 , display:{md:'none' , xs:'flex'}, borderRadius:2 , mt:2}} variant={'outlined'}>
-                <Typography sx={{mr:1}} variant={'subtitle1'} color={'primary'}>ویرایش مشخصات</Typography>
+                <Typography component={'p'} sx={{mr:1}} variant={'subtitle1'} color={'primary'}>ویرایش مشخصات</Typography>
                 <Edit/>
             </Button>
             <EditProfileModal open={editModalIsOpen} setOpen={setEditModalIsOpen}/>

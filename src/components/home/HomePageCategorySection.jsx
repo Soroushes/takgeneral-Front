@@ -9,7 +9,7 @@ const HomePageCategorySection = ({mainCategories}) => {
             <Grid justifyContent={'center'} rowGap={5} container>
                 <Grid item xs={12}>
                     <Box gap={.5} justifyContent={'center'} display={'flex'}>
-                        <Typography  fontWeight={'bold'} variant={'h4'}>
+                        <Typography component={'p'} fontWeight={'bold'} variant={'h4'}>
                             دسته بندی های
                         </Typography>
                         <Typography fontWeight={'bold'} variant={'h4'} component={'h1'} color={'secondary'}>
@@ -26,6 +26,7 @@ const HomePageCategorySection = ({mainCategories}) => {
                                 </Box>
                                 <Typography
                                     variant={'h5'}
+                                    component={'p'}
                                     textAlign={'center'}
                                     sx={{width: '100%'}}
                                     // overflow={'hidden'}

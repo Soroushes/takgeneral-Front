@@ -34,25 +34,25 @@ const Footer = () => {
                             {
                                 icons?.factor
                             }
-                            <Typography variant={'subtitle1'} textAlign={'center'}>صدور فاکتور و پیش فاکتور</Typography>
+                            <Typography component={'p'} variant={'subtitle1'} textAlign={'center'}>صدور فاکتور و پیش فاکتور</Typography>
                         </Box>
                         <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
                             {
                                 icons?.delivery
                             }
-                            <Typography variant={'subtitle1'} textAlign={'center'}>ارسال رایگان</Typography>
+                            <Typography component={'p'} variant={'subtitle1'} textAlign={'center'}>ارسال رایگان</Typography>
                         </Box>
                         <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
                             {
                                 icons?.contact
                             }
-                            <Typography variant={'subtitle1'} textAlign={'center'}>مشاوره رایگان</Typography>
+                            <Typography component={'p'} variant={'subtitle1'} textAlign={'center'}>مشاوره رایگان</Typography>
                         </Box>
                         <Box display={'flex'} width={'25%'} gap={1} flexDirection={'column'} alignItems={'center'}>
                             {
                                 icons?.phone
                             }
-                            <Typography variant={'subtitle1'} textAlign={'center'}>پشتیبانی ۲۴ ساعته</Typography>
+                            <Typography component={'p'} variant={'subtitle1'} textAlign={'center'}>پشتیبانی ۲۴ ساعته</Typography>
                         </Box>
                     </Box>
                 </Box>

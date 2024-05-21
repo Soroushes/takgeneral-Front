@@ -6,7 +6,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import useAlert from "../../../hooks/useAlert";
 import MainModal from "../../share/MainModal";
 
-const AddQuestionModal = ({productId, setOpen, open , title , question}) => {
+const AddQuestionModal = ({productId, setOpen, open , title , question , name}) => {
     const {control, getValues, handleSubmit, reset} = useForm();
     const {errorAlert, successAlert} = useAlert();
     const {callApi, loading} = useAxios();
@@ -47,8 +47,8 @@ const AddQuestionModal = ({productId, setOpen, open , title , question}) => {
             <Box onSubmit={handleSubmit(submitForm)} component={'form'}
                  sx={{px: 5, pb: 2, mt: 5}}>
                 <Box display={'flex'} sx={{mb: 3}} gap={.5}>
-                    <Typography sx={{width: '16%'}} variant={'h5'}>{question ?'در مورد': 'در جواب'}</Typography>
-                    <Typography variant={'h4'} fontWeight={'bold'} mb={2}>{question ? 'ست کنترل پنتاکس اصلی هیدروماتیک H2':'سلام برای ساختمان ۴طبقه که پمپ آب درزیرزمین باشد جوابگو هست یا خیر؟'}</Typography>
+                    <Typography sx={{width: '16%'}} component={'p'} variant={'h5'}>{question ?'در مورد': 'در جواب'}</Typography>
+                    <Typography component={'p'} variant={'h4'} fontWeight={'bold'} mb={2}>{question ? name:'سلام برای ساختمان ۴طبقه که پمپ آب درزیرزمین باشد جوابگو هست یا خیر؟'}</Typography>
                 </Box>
                 <Controller
                     defaultValue={''}

@@ -52,23 +52,23 @@ const FinalCheckPage = () => {
                                     <Box sx={{borderBottom: '1px solid #eee', pb: 1, pt: 1}} display={'flex'}
                                          justifyContent={'space-between'}>
                                         <Box>
-                                            <Typography variant={'h1'} fontWeight={'bold'}>نهایی کردن خرید</Typography>
+                                            <Typography component={'p'} variant={'h1'} fontWeight={'bold'}>نهایی کردن خرید</Typography>
                                         </Box>
                                         <Link href={'/cart/address-selection'}>
                                             <Button sx={{borderRadius: 1.5}}>برگشت<ChevronLeftRoundedIcon/></Button>
                                         </Link>
                                     </Box>
                                     <Box display={'flex'} rowGap={1} flexDirection={{md:'row' , xs:'column'}} sx={{borderBottom: '1px solid #eee', py: 3}}>
-                                        <Typography
+                                        <Typography component={'p'}
                                             width={'20%'} variant={'h4'} fontWeight={'bold'}>گیرنده:
                                         </Typography>
                                         <Box display={'flex'} width={{md:'40%' , xs:'80%'}} justifyContent={'space-between'}>
-                                            <Typography variant={'h5'}>
+                                            <Typography component={'p'} variant={'h5'}>
                                                 {
                                                     data.myself ? full_name : data.name
                                                 }
                                             </Typography>
-                                            <Typography variant={'h5'}>
+                                            <Typography component={'p'} variant={'h5'}>
                                                 {
                                                     data.myself ? phone_number : data.phone
                                                 }
@@ -76,31 +76,31 @@ const FinalCheckPage = () => {
                                         </Box>
                                     </Box>
                                     <Box display={'flex'} rowGap={1} flexDirection={{md:'row' , xs:'column'}} sx={{borderBottom: '1px solid #eee', py: 3}}>
-                                        <Typography
+                                        <Typography component={'p'}
                                             width={'20%'} variant={'h4'} fontWeight={'bold'}>
                                             ارسال به:
                                         </Typography>
                                         <Box px={{xs:1 , md:0}} width={'100%'}>
-                                            <Typography pb={1} variant={'h5'}>
+                                            <Typography component={'p'} pb={1} variant={'h5'}>
                                                 {
                                                     data?.selectedMap?.title
                                                 }
                                             </Typography>
-                                            <Typography
+                                            <Typography component={'p'}
                                                 pb={1}
                                                 variant={'h5'}>{
                                                 data.selectedMap?.full_address
                                             }
                                             </Typography>
                                             <Box width={{md:'60%' , xs:'80%'}} pt={1} justifyContent={'space-between'} alignItems={'center'} display={'flex'}>
-                                                <Typography variant={'h5'}>واحد: {PN.convertEnToPe(data?.selectedMap?.vahed)}</Typography>
-                                                <Typography variant={'h5'}>پلاک: {PN.convertEnToPe(data?.selectedMap?.pelak)}</Typography>
-                                                <Typography variant={'h5'}>کد پستی: {PN.convertEnToPe(data?.selectedMap?.post_code)}</Typography>
+                                                <Typography component={'p'} variant={'h5'}>واحد: {PN.convertEnToPe(data?.selectedMap?.vahed)}</Typography>
+                                                <Typography component={'p'} variant={'h5'}>پلاک: {PN.convertEnToPe(data?.selectedMap?.pelak)}</Typography>
+                                                <Typography component={'p'} variant={'h5'}>کد پستی: {PN.convertEnToPe(data?.selectedMap?.post_code)}</Typography>
                                             </Box>
                                         </Box>
                                     </Box>
                                     <Box  sx={{ py: 3}}>
-                                        <Typography
+                                        <Typography component={'p'}
                                             width={'20%'} pb={2} variant={'h4'} fontWeight={'bold'}>سفارش:
                                         </Typography>
                                         <Box sx={{width:'100%' , my:1.5}}>

@@ -9,7 +9,7 @@ import {useSelector} from "react-redux";
 import useAlert from "../../../hooks/useAlert";
 import MainModal from "../../share/MainModal";
 
-const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
+const AddCommentModal = ({rate, productId, setOpen , open , image , name}) => {
     const mainImage = image.find(item => item.is_main === true)
     const {errorAlert, successAlert} = useAlert();
     const {full_name} = useSelector(state => state.userInfo);
@@ -51,10 +51,8 @@ const AddCommentModal = ({rate, productId, setOpen , open , image}) => {
                         <Box sx={{height: '100%'}} display={'flex'} alignItems={'center'}
                              justifyContent={'space-between'}
                              flexDirection={'column'}>
-                            <Typography variant={'h6'} fontWeight={'bold'} sx={{textAlign: 'center' , mb:{md:0 , xs:2} }}>ست کنترل پنتاکس
-                                اصلی
-                                هیدروماتیک
-                                H2
+                            <Typography component={'p'} variant={'h6'} fontWeight={'bold'} sx={{textAlign: 'center' , mb:{md:0 , xs:2} }}>ست کنترل پنتاکس
+                                {name}
                             </Typography>
                             <Box sx={{width: {md: '100%', xs: '50%'}, textAlign: 'center'}}>
                                 <Image height={250} width={250} style={{width: '100%', height: 'auto'}} src={mainImage?.image}

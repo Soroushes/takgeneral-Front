@@ -10,9 +10,9 @@ const PaymentCard = ({submitFn , button})=>{
                 <Typography sx={{textAlign:'center' , py:2 , borderBottom :'1px solid #eee'}}>جزییات خرید</Typography>
                 <Box
                     sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' , px:3 , py:2}}>
-                    <Typography variant="subtitle1">قیمت
+                    <Typography component={'p'} variant="subtitle1">قیمت
                         محصولات:</Typography>
-                    <Typography variant="subtitle1" sx={{
+                    <Typography component={'p'} variant="subtitle1" sx={{
                         color: 'text.muted',
                         fontWeight: 'bold'
                     }}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(selectedProducts?.total_price)))} تومان</Typography>
@@ -22,8 +22,8 @@ const PaymentCard = ({submitFn , button})=>{
                     justifyContent: 'space-between',
                     alignItems: 'center', py: 1 , px:3
                 }}>
-                    <Typography color={'error'} variant="subtitle1">تخفیف محصولات:</Typography>
-                    <Typography color={'error'} variant="subtitle1"
+                    <Typography component={'p'} color={'error'} variant="subtitle1">تخفیف محصولات:</Typography>
+                    <Typography component={'p'} color={'error'} variant="subtitle1"
                                 fontWeight={'bold'}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(selectedProducts?.total_discount_price)))} تومان</Typography>
                 </Box>
                 <Box
@@ -35,8 +35,8 @@ const PaymentCard = ({submitFn , button})=>{
                         alignItems: 'center',
                         py: 2 , px:3
                     }}>
-                    <Typography variant="subtitle1">هزینه ارسال:</Typography>
-                    <Typography variant="subtitle1" sx={{
+                    <Typography component={'p'} variant="subtitle1">هزینه ارسال:</Typography>
+                    <Typography component={'p'} variant="subtitle1" sx={{
                         color: 'text.muted',
                         fontWeight: 'bold'
                     }}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(0)))} تومان</Typography>
@@ -48,8 +48,8 @@ const PaymentCard = ({submitFn , button})=>{
                           alignItems: 'center',
                           py: 2 , px:3
                       }}>
-                    <Typography variant="subtitle1">مبلغ قابل پرداخت:</Typography>
-                    <Typography variant="subtitle1" sx={{
+                    <Typography component={'p'} variant="subtitle1">مبلغ قابل پرداخت:</Typography>
+                    <Typography component={'p'} variant="subtitle1" sx={{
                         color: 'text.muted',
                         fontWeight: 'bold'
                     }}>{PN.convertEnToPe(PN.sliceNumber(Math.trunc(selectedProducts?.total_final_price)))} تومان</Typography>

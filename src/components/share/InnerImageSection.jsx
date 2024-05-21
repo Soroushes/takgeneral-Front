@@ -11,7 +11,7 @@ const InnerImageSection = ({name, image , href}) => {
                 <Box sx={{mx: 'auto', width: '80%', mb: 2, textAlign: 'center' }} position={'relative'}>
                     <Image width={100} height={50} style={{width: '100%', height: 'auto'}} src={image} alt={name}/>
                 </Box>
-                <Typography variant={'subtitle1'} textAlign={'center'}>{name}</Typography>
+                <Typography component={'p'} variant={'subtitle1'} textAlign={'center'}>{name}</Typography>
             </Box>
         </Link>
     )

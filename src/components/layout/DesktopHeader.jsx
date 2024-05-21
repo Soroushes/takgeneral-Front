@@ -117,7 +117,7 @@ const DesktopHeader = ({categories}) => {
                                             gap: 1,
                                             alignItems: "center ",
                                         }}>
-                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>خانه</Typography>
+                                        <Typography component={'p'} sx={{color: 'text.main'}} variant={'subtitle1'}>خانه</Typography>
                                     </Box>
                                 </Link>
                             </Box>
@@ -130,7 +130,7 @@ const DesktopHeader = ({categories}) => {
                                             alignItems: "center ",
                                         }}>
                                         {/*{item.icon}*/}
-                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>تماس
+                                        <Typography component={'p'} sx={{color: 'text.main'}} variant={'subtitle1'}>تماس
                                             با
                                             ما</Typography>
                                     </Box>
@@ -145,7 +145,7 @@ const DesktopHeader = ({categories}) => {
                                             alignItems: "center ",
                                         }}>
                                         {/*{item.icon}*/}
-                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>درباره
+                                        <Typography component={'p'} sx={{color: 'text.main'}} variant={'subtitle1'}>درباره
                                             ما</Typography>
                                     </Box>
                                 </Link>
@@ -159,7 +159,7 @@ const DesktopHeader = ({categories}) => {
                                             alignItems: "center ",
                                         }}>
                                         {/*{item.icon}*/}
-                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>وبلاگ</Typography>
+                                        <Typography component={'p'} sx={{color: 'text.main'}} variant={'subtitle1'}>وبلاگ</Typography>
                                     </Box>
                                 </Link>
                             </Box>
@@ -176,7 +176,7 @@ const DesktopHeader = ({categories}) => {
                                             }}>
                                             <Link href={`/category/${item.url}`}>
                                             {/*{item.icon}*/}
-                                            <Typography sx={{color: 'text.main'}}
+                                            <Typography component={'p'} sx={{color: 'text.main'}}
                                                         variant={'subtitle1'}>{item.name}</Typography>
                                             </Link>
                                         </Box>
@@ -212,7 +212,7 @@ const DesktopHeader = ({categories}) => {
                                             alignItems: "center ",
                                         }}>
                                         {/*{item.icon}*/}
-                                        <Typography sx={{color: 'text.main'}} variant={'subtitle1'}>فلومتر</Typography>
+                                        <Typography component={'h6'} sx={{color: 'text.main'}} variant={'subtitle1'}>فلومتر</Typography>
                                     </Box>
                                 </Link>
                             </Box>

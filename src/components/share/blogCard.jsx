@@ -28,7 +28,7 @@ const BlogCard = ({blog}) => {
                     <Box sx={{display: 'flex', px: .5, mt: 2, justifyContent: 'space-between'}}>
                         <Box display={'flex'} alignItems={'center'} gap={.5}>
                             <ClockIcon/>
-                            <Typography variant={'subtitle1'}
+                            <Typography component={'p'} variant={'subtitle1'}
                                         sx={{textAlign: 'center'}}>{timeStampToDate(blog?.created_time?.timestamp)}</Typography>
                         </Box>
                         <Button variant={'text'}>

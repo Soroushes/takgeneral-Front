@@ -37,21 +37,21 @@ const SingleProductSellCard = ({
                                 :
                                 icons.fake
                         }
-                        <Typography sx={{textAlign: 'center'}} variant={'subtitle1'}>{madeIn}</Typography>
+                        <Typography component={'p'} sx={{textAlign: 'center'}} variant={'subtitle1'}>{madeIn}</Typography>
                     </Box>
                 }
                 {
                     freeSent &&
                     <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: .5}}>
                         {icons.freeDelivery}
-                        <Typography sx={{textAlign: 'center'}} variant={'subtitle1'}>ارسال رایگان</Typography>
+                        <Typography component={'p'} sx={{textAlign: 'center'}} variant={'subtitle1'}>ارسال رایگان</Typography>
                     </Box>
                 }
                 {
                     available &&
                     <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: .5}}>
                         {icons.Available}
-                        <Typography sx={{textAlign: 'center'}} variant={'subtitle2'}>موجود در انبار</Typography>
+                        <Typography component={'p'} sx={{textAlign: 'center'}} variant={'subtitle2'}>موجود در انبار</Typography>
                     </Box>
                 }
             </Box>
@@ -71,14 +71,14 @@ const SingleProductSellCard = ({
                             warranty &&
                             <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
                                 {icons.Warranty}
-                                <Typography textAlign={'center'} variant={'subtitle1'}>{warranty}</Typography>
+                                <Typography component={'p'} textAlign={'center'} variant={'subtitle1'}>{warranty}</Typography>
                             </Box>
                         }
                         {
                             minPrice &&
                             <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
                                 {icons.bestPrice}
-                                <Typography textAlign={'center'} variant={'subtitle1'}>کمترین قیمت در ایران</Typography>
+                                <Typography component={'p'} textAlign={'center'} variant={'subtitle1'}>کمترین قیمت در ایران</Typography>
                             </Box>
                         }
                     </Box>: null
@@ -94,7 +94,7 @@ const SingleProductSellCard = ({
                 flexDirection: 'column',
                 gap: 2,
             }}>
-                <Typography sx={{fontWeight: "bold", borderBottom: '1px solid #eee', py: 2, px: 1.5}}
+                <Typography component={'p'} sx={{fontWeight: "bold", borderBottom: '1px solid #eee', py: 2, px: 1.5}}
                             variant={'h5'}>قیمت محصول:</Typography>
                 <Box sx={{my: 2, display: 'flex', justifyContent: 'end', width: '100%', direction: 'ltr'}}>
                     <PriceDiscount finalPriceBold={true} align={'end'} gap={1.7} justify={{md: 'column', xs: 'row'}}

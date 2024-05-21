@@ -5,10 +5,10 @@ const OrderCard = ()=>{
             <Grid item xs={12}>
                 <Box sx={{borderBottom:'1px solid #eee' , pb:2}} display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
                     <Box>
-                        <Typography textAlign={'center'} variant={'subtitle1'}>در حال پردازش</Typography>
+                        <Typography component={'p'} textAlign={'center'} variant={'subtitle1'}>در حال پردازش</Typography>
                     </Box>
-                    <Typography textAlign={'center'} variant={'subtitle1'}>شماره سفارش :  TLC-854865845</Typography>
-                    <Typography textAlign={'center'} variant={'subtitle1'}>تاریخ سفارش :  ۱۱ خرداد ۱۴۰۲ ۱۸:۴۵:۵۶</Typography>
+                    <Typography component={'p'} textAlign={'center'} variant={'subtitle1'}>شماره سفارش :  TLC-854865845</Typography>
+                    <Typography component={'p'} textAlign={'center'} variant={'subtitle1'}>تاریخ سفارش :  ۱۱ خرداد ۱۴۰۲ ۱۸:۴۵:۵۶</Typography>
                 </Box>
             </Grid>
         </Grid>

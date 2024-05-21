@@ -15,7 +15,7 @@ const MainModal = ({open, setOpen, title, children, mobileFullHeight, desktopFul
                     setOpen(false)
                 }}
             >
-                <DialogTitle sx={{px: 4}} fontWeight={'bold'} variant={'h6'}>
+                <DialogTitle component={'p'} sx={{px: 4}} fontWeight={'bold'} variant={'h6'}>
                     {title}
                 </DialogTitle>
                 <Divider/>

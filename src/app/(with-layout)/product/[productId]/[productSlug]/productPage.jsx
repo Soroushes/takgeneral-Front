@@ -144,7 +144,7 @@ const ProductPage = ({data}) => {
                                                   details={data?.product.attributes}/>
                         </Grid>
                         <Grid ref={opinionTableRef} item xs={12}>
-                            <CommentQuestion image={data?.product.all_images} rate={data?.avg_rate}
+                            <CommentQuestion name={data?.product.name} image={data?.product.all_images} rate={data?.avg_rate}
                                              comments={data?.comments} productId={data?.product.id}
                                              questions={data?.questions}/>
                         </Grid>

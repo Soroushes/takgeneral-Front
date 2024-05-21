@@ -63,7 +63,7 @@ export default function Layout({children}) {
                             {
                                 pathName === urls.profile &&
                                 <Box sx={{border:'1px solid #eee' , borderRadius:2}} mb={2} px={2} py={3} justifyContent={'space-between'} display={'flex'}>
-                                    <Typography variant={'subtitle1'}>نام و نام خانوادگی : {full_name}</Typography>
+                                    <Typography component={'p'} variant={'subtitle1'}>نام و نام خانوادگی : {full_name}</Typography>
                                     <Link href={'/profile/individual-profile'}><Edit/></Link>
                                 </Box>
                             }
@@ -94,7 +94,7 @@ export default function Layout({children}) {
                                                     backgroundColor: 'secondary.main', borderRadius: '0px 5px 5px 0px'
                                                 }}/>}
                                                 {active ? item.activeIcon : item.icon}
-                                                <Typography variant={'subtitle1'} sx={{
+                                                <Typography component={'p'} variant={'subtitle1'} sx={{
                                                     color: active ? "primary.main" : "text.main",
                                                     textAlign: "center",
                                                     whiteSpace: "nowrap"
@@ -121,7 +121,7 @@ export default function Layout({children}) {
                                             alignItems: "center",
                                         }}>
                                         <ExitIcon/>
-                                        <Typography variant={'subtitle1'} sx={{
+                                        <Typography component={'p'} variant={'subtitle1'} sx={{
                                             color: "text.main", textAlign: "center", whiteSpace: "nowrap"
                                         }}>خروج</Typography>
                                     </Box>
@@ -137,7 +137,7 @@ export default function Layout({children}) {
             </Container>
             <MainModal setOpen={setOpenExitModal} open={openExitModal} title={'خروج از حساب کاربری'}>
                 <Box sx={{pb: 4, pt: 2, px: 3}}>
-                    <Typography variant={'h6'}>آیا نسبت به خروج از حساب کاربری خود اطمینان دارید ؟ </Typography>
+                    <Typography component={'p'} variant={'h6'}>آیا نسبت به خروج از حساب کاربری خود اطمینان دارید ؟ </Typography>
                     <Box sx={{mt: 3}} justifyContent={'end'} gap={2} display={'flex'}>
                         <Button onClick={() => setOpenExitModal(false)} size={'large'}
                                 variant={'outlined'}>بازگشت</Button>

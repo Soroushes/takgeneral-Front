@@ -16,9 +16,9 @@ const CartItems = ({product, haveEditionButton = true}) => {
             <Grid item xs={7} md={8.5}
                   sx={{display: 'flex', flexDirection: ' column', justifyContent: 'space-between'}}>
                 <Box>
-                    <Typography sx={{mb: 2}} variant="h5">{product.name}</Typography>
-                    <Typography sx={{mb: 1}} variant={'subtitle2'}>{product.product_variant_key}  : {product.product_variant_value}</Typography>
-                    <Typography sx={{mb: 1}} variant={'subtitle2'}>{product.warranty}</Typography>
+                    <Typography component={'p'} sx={{mb: 2}} variant="h5">{product.name}</Typography>
+                    <Typography component={'p'} sx={{mb: 1}} variant={'subtitle2'}>{product.product_variant_key}  : {product.product_variant_value}</Typography>
+                    <Typography component={'p'} sx={{mb: 1}} variant={'subtitle2'}>{product.warranty}</Typography>
                 </Box>
                 <Box sx={{display: {md: 'flex', xs: 'none'}, justifyContent: 'space-between'}}>
                     {

@@ -42,7 +42,6 @@ const LoginPage = ()=>{
             data: {phone_number: '98' + getValues('phoneNumber')},
             successFunc: (result) => {
                 setProfileComplete(result.registered)
-                alert(result.code);
                 setValidate(true);
                 setValue("otp", "") ;
                 resetTimer();
