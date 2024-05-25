@@ -1,6 +1,16 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import {Badge, Box, Button, Container, InputAdornment, Menu, MenuItem, TextField, Typography} from "@mui/material";
+import {
+    Badge,
+    Box,
+    Button, ClickAwayListener,
+    Container, Grow,
+    InputAdornment,
+    MenuItem,
+    MenuList, Paper, Popper,
+    TextField,
+    Typography
+} from "@mui/material";
 import UserIcon from "../../assets/icons/layout/user";
 import SearchOutlined from "../../assets/icons/layout/searchOutlined";
 import BluBag from '../../assets/icons/layout/blue-bag.svg';
@@ -23,10 +33,10 @@ const DesktopHeader = ({categories}) => {
         setAnchorEl(arg[1].currentTarget);
         setCategoryId(arg[0]);
     }
-    const handleClose = () => {
-        setAnchorEl(null);
-        setCategoryId(null);
-    };
+        const handleClose = () => {
+            setAnchorEl(null);
+            setCategoryId(null);
+        };
     return (
         <AppBar sx={{backgroundColor: "#fff", height: desktopHeaderHeight}}>
             <Toolbar sx={{height: '100% !important'}}>
@@ -172,37 +182,62 @@ const DesktopHeader = ({categories}) => {
                                             component={'li'}
                                             onMouseOver={openCategory.bind(this, item.id)}
                                             sx={{
+                                                cursor:'pointer',
                                                 display: "flex",
                                                 gap: 1,
                                                 alignItems: "center ",
                                             }}>
                                             {/*{item.icon}*/}
-                                                <Typography sx={{color: 'text.main'}}
+                                                <Typography className={'test'} sx={{color: 'text.main'}}
                                                             variant={'subtitle1'}>{item.name}</Typography>
                                         </Box>
-                                        <Menu
-                                            onBackdropClick={()=>{
-                                                router.push(`/category/${item.url}`)
-                                                handleClose();
-                                            }}
-                                            onMouseOut={handleClose}
-                                            closeAfterTransition={true}
-                                            disableScrollLock={true}
-                                            anchorEl={anchorEl}
+                                        <Popper
+                                            onMouseLeave={handleClose}
                                             open={item.id === categoryId}
-                                            onClose={handleClose}
+                                            anchorEl={anchorEl}
+                                            role={undefined}
+                                            id="composition-button"
+                                            transition
+                                            disablePortal
                                         >
-                                            {
-                                                item.children.map((child) => {
-                                                    return (
-                                                        <Link href={`/category/${child.url}`}>
-                                                            <MenuItem key={child.name}
-                                                                      onClick={handleClose}>{child.name}</MenuItem>
-                                                        </Link>
-                                                    )
-                                                })
-                                            }
-                                        </Menu>
+                                            {({ TransitionProps, placement }) => (
+                                                <Grow
+                                                    {...TransitionProps}
+                                                    style={{
+                                                        transformOrigin:
+                                                            placement === 'bottom-start' ? 'left top' : 'left bottom',
+                                                    }}
+                                                >
+                                                    <Paper>
+                                                        <ClickAwayListener onClickAway={(event) => {
+                                                            if(event.target.classList[2] === 'test') {
+                                                                router.push(`/category/${item.url}`)
+                                                            }
+                                                                // console.log(event.target.classList[2] , reason)
+                                                            setAnchorEl(null);
+                                                            setCategoryId(null);
+                                                        }}>
+                                                            <MenuList
+                                                                autoFocusItem={item.id === categoryId}
+                                                                id="composition-menu"
+                                                                aria-labelledby="composition-button"
+                                                            >
+                                                                {
+                                                                    item.children.map((child) => {
+                                                                        return (
+                                                                            <Link href={`/category/${child.url}`}>
+                                                                                <MenuItem key={child.name}
+                                                                                          onClick={handleClose}>{child.name}</MenuItem>
+                                                                            </Link>
+                                                                        )
+                                                                    })
+                                                                }
+                                                            </MenuList>
+                                                        </ClickAwayListener>
+                                                    </Paper>
+                                                </Grow>
+                                            )}
+                                        </Popper>
                                     </Box>
                                 );
                             })}

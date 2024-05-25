@@ -5840,3 +5840,685 @@
 {"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۰:۰۰:۱۷"}
 {"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۰:۰۰:۱۷"}
 {"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۰:۰۰:۱۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/home/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۲۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۲۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۲۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/home/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۲۸"}
+{"level":"info","message":" the page home is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/home/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/pumps/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/pumps/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/pumps/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/home/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۳"}
+{"level":"info","message":" the page home is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۴"}
+{"level":"info","message":" the page category : pumps is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/home/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۷"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/home/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۷"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۷"}
+{"level":"info","message":" the page home is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۷:۵۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/home/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/home/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۱"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۱"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۱"}
+{"level":"info","message":" the page home is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۲"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/home/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/home/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۲"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۳"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۳"}
+{"level":"info","message":" the page home is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/home/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/home/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۷"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۷"}
+{"level":"info","message":" the page home is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۸"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۹"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۰۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۱۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۱۹"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۲۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۲۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۲۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۲۶"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۲۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/pressure-measuring-equipment/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۳۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/pressure-measuring-equipment/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۳۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/pressure-measuring-equipment/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۳۶"}
+{"level":"info","message":" the page category : pressure-measuring-equipment is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۸:۳۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۹:۳۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۹:۳۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۹:۳۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۹:۳۴"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۲۹:۳۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۰۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۰۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۰۱"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۰۳"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۰۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۰۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۰۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۰۴"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۰۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۰۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۱۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۱۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۱۴"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۱۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۲۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/pumps/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۲۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/pumps/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۲۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/pumps/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۲۵"}
+{"level":"info","message":" the page category : pumps is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۲۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۲۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۲۸"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۰:۳۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۰۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۰۰"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۰۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۳۰"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۳۰"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۳۰"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۳۱"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۱:۳۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۰۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۰۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۰۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۰۷"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۰۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۰۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۰۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۰۸"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۰۸"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۰۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۱۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۱۵"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۲:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۶:۴۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۶:۴۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۶:۴۲"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۶:۴۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۶:۴۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۶:۴۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۶:۴۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۶:۴۴"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۶:۴۴"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۶:۴۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۷:۰۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۷:۰۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۷:۰۸"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۷:۰۸"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۳۷:۰۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۰۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۰۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۰۱"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۰۲"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۰۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۰۳"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۰۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۲۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۲۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۲۷"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۲۸"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۲۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۲۹"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۲۹"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۱:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۳:۴۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۳:۴۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۳:۴۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۳:۴۸"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۳:۴۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۷:۵۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۷:۵۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۷:۵۲"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۷:۵۲"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۷:۵۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۷:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۷:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۷:۵۳"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۷:۵۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۷:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۸:۰۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۸:۰۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۸:۰۹"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۸:۱۰"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۸:۱۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۰۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۰۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۰۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۰۷"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۰۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۰۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۰۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۰۷"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۰۷"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۰۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۲۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۲۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۲۱"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۲۲"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۲۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۲۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۲۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۲۳"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۲۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۴۹:۲۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۳۸"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۴۰"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۴۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۴۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۴۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۴۱"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۴۱"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۴۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۰"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۱"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۲"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۲"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۳"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۱:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۲:۴۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۲:۴۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۲:۴۴"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۲:۴۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۲:۴۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۲:۴۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۲:۴۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۲:۴۷"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۲:۴۷"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۲:۴۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۵:۴۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۵:۴۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۵:۴۴"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۵:۴۵"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۵:۴۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۵:۴۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۵:۴۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۵:۴۶"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۵:۴۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۵:۴۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۱۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۱۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۱۹"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۲۰"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۲۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۲۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۲۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۲۱"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۲۱"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۲۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۳۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۳۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۳۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۳۷"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۰:۵۶:۳۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۱:۲۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۱:۲۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۱:۲۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۱:۲۵"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۱:۲۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۱:۲۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۱:۲۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۱:۲۷"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۱:۲۷"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۱:۲۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۴:۲۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۴:۲۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۴:۲۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۴:۲۴"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۴:۲۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۴:۲۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۴:۲۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۴:۲۵"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۴:۲۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۴:۲۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۰"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۳"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۴"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۴"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۴"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۵:۵۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۷:۳۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۷:۳۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۷:۳۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۷:۳۴"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۷:۳۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۷:۴۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۷:۴۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۷:۴۸"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۰۷:۴۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۴:۵۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۴:۵۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۴:۵۷"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۴:۵۹"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۴:۵۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۴:۵۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۴:۵۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۴:۵۹"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۴:۵۹"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۵:۰۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۶:۲۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۶:۲۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۶:۲۴"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۶:۲۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۶:۲۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۷:۱۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۷:۱۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۷:۱۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۷:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۷:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۷:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۷:۱۵"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۷:۱۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۷:۱۵"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۱۷:۱۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۶"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۶"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۷"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۷"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۸"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۸"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۶:۵۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۹:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۹:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۹:۱۵"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۹:۱۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۹:۱۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۹:۱۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۹:۱۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۹:۱۶"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۹:۱۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۲۹:۱۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۵:۱۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۵:۱۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۵:۱۹"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۵:۱۹"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۵:۱۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۵:۱۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۰۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۰۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۰۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۰۶"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۰۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۰۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۳۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۳۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۳۹"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۴۰"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۴۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۴۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۴۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۴۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۴۰"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۴۰"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۶:۴۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۷"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۸"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۹"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۹"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۴۹:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۵۲:۲۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۵۲:۲۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۵۲:۲۳"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۵۲:۲۴"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۵۲:۲۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۵۲:۲۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۵۲:۲۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۱:۵۲:۲۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۱:۵۲:۲۴"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۵۲:۲۴"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۱:۵۲:۲۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۵"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۵"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۶"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۶"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۳۸:۲۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۷"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۷"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۷"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۸"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۸"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۹"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۹"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۹"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۱:۳۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۳:۰۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۳:۰۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۳:۰۴"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۳:۰۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۳:۰۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۳:۰۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۳:۰۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۳:۰۷"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۳:۰۷"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۳:۰۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۲۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۲۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۲۷"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۰"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۱"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۲"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۳۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۴"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۴"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۵"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۵"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۶"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۴:۵۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۶"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۷"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۸"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۸"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۸"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۹"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۹"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۹"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۹"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۵:۳۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۲"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۳"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۴"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۴"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۴"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۵"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۴۹"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۵۰"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۵۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۵۱"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۵۱"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۶:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۷:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۷:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۷:۱۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۷:۱۶"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۷:۱۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۷:۱۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۷:۱۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۷:۱۷"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۷:۱۷"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۷:۱۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۱۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۱۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۱۴"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۱۴"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۱۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۳۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۳۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۳۳"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۳۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/pumps/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۳۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/pumps/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۳۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/pumps/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۳۷"}
+{"level":"info","message":" the page category : pumps is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۳۷"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۴۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۴۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۴۶"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۴۹:۴۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۳"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۳"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۳"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۴"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۴"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۴"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۴"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۵"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۰:۵۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۱:۱۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۱:۱۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۱:۱۲"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۱:۱۵"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۱:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۱:۱۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۱:۱۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۱:۱۶"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۱:۱۶"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۱:۱۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۱"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۲"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۳"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۴"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۰۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۱۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/air-conditioning/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۱۵"}
+{"level":"info","message":" the page category : air-conditioning is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۳۰"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۳۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۳۲"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۲:۳۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۰۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۰۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۰۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۱۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۱۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۱۳"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۱۴"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۱۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۱۵"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/split-air-conditioner/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۱۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۱۵"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۱۵"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۱۶"}
+{"level":"info","message":" the page category : split-air-conditioner is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۱۶"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۲۹"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۳۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۳۱"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۳:۳۱"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۵:۰۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۵:۰۲"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۵:۰۲"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۵:۰۳"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۵:۰۳"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۵:۰۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/all-categories/ is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۵:۰۴"}
+{"level":"info","message":"the API : https://api.takgeneral.com/products/instrumentation/? is called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۵:۰۴"}
+{"level":"info","message":" the page category : instrumentation is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۵:۰۴"}
+{"level":"info","message":" the page layout is called called Time : ۱۴۰۳/۳/۵ / ۱۲:۵۵:۰۵"}
