@@ -170,27 +170,27 @@ const DesktopHeader = ({categories}) => {
                                     <Box key={item.name}>
                                         <Box
                                             component={'li'}
-                                            onClick={()=>{router.push(`/category/${item.url}`)}}
-                                            onPointerOver={openCategory.bind(this, item.id)}
+                                            onMouseOver={openCategory.bind(this, item.id)}
                                             sx={{
                                                 display: "flex",
                                                 gap: 1,
                                                 alignItems: "center ",
                                             }}>
                                             {/*{item.icon}*/}
-                                            <Link href={`/category/${item.url}`}>
-                                                <Typography component={'p'} sx={{color: 'text.main'}}
+                                                <Typography sx={{color: 'text.main'}}
                                                             variant={'subtitle1'}>{item.name}</Typography>
-                                            </Link>
                                         </Box>
-
                                         <Menu
-                                            // closeAfterTransition={true}
+                                            onBackdropClick={()=>{
+                                                router.push(`/category/${item.url}`)
+                                                handleClose();
+                                            }}
+                                            onMouseOut={handleClose}
+                                            closeAfterTransition={true}
                                             disableScrollLock={true}
                                             anchorEl={anchorEl}
                                             open={item.id === categoryId}
                                             onClose={handleClose}
-                                            onMouseLeave={handleClose}
                                         >
                                             {
                                                 item.children.map((child) => {
