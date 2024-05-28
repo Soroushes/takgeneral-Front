@@ -18,7 +18,7 @@ import AverageRatingQuestion from "./AverageRatingQuestion";
 import {useRouter, useSearchParams} from "next/navigation";
 import PN from "persian-number";
 
-const CommentQuestion = ({comments, rate, productId, questions , image , name}) => {
+const CommentQuestion = ({comments, rate, productId, questions, image, name}) => {
     const {isLoggedIn} = useSelector(state => state.userInfo)
     const [value, setValue] = useState("1");
     const [questionIsShow, setQuestionIsShow] = useState(false);
@@ -29,6 +29,7 @@ const CommentQuestion = ({comments, rate, productId, questions , image , name}) 
     const searchParams = useSearchParams();
     const from = searchParams.get('fromSection');
     const Router = useRouter();
+    const [activeAnswer , setActiveAnswer] = useState(undefined)
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -38,7 +39,9 @@ const CommentQuestion = ({comments, rate, productId, questions , image , name}) 
     const showQuestion = () => {
         setQuestionIsShow(prev => !prev)
     };
-    const addAnswer = () => {
+    const addAnswer = (id) => {
+        const question = questions.find((item)=>item.id === id)
+        setActiveAnswer(question.content)
         if (isLoggedIn) {
             setAnswerIsOpen(prev => !prev);
         } else {
@@ -166,7 +169,7 @@ const CommentQuestion = ({comments, rate, productId, questions , image , name}) 
                     flexDirection: 'column',
                 }}>
 
-                    <Grid container  rowGap={5} justifyContent={'space-between'}>
+                    <Grid container rowGap={5} justifyContent={'space-between'}>
                         <Grid item xs={12} md={2.6}>
                             <AverageRatingQuestion productId={productId} isLoggedIn={isLoggedIn}
                                                    openAddQuestion={setQuestionIsOpen}/>
@@ -178,13 +181,13 @@ const CommentQuestion = ({comments, rate, productId, questions , image , name}) 
                                         questions?.map((eachQuestion, index) => {
                                             const show = index < 2 || questionIsShow;
                                             return (
+                                                <Box sx={{display: show ? 'block' : 'none', width: '100%', mb: 6}}
+                                                     key={index}>
+                                                    <Question addAnswer={addAnswer} setAnswerIsOpen={setAnswerIsOpen}
+                                                              answerIsOpen={answerIsOpen} productId={productId}
+                                                              eachQuestion={eachQuestion}/>
+                                                </Box>
 
-                                                    <Box sx={{display: show ? 'block' : 'none', width: '100%', mb: 6}}
-                                                         key={index}>
-                                                        <Question addAnswer={addAnswer} setAnswerIsOpen={setAnswerIsOpen}
-                                                                  answerIsOpen={answerIsOpen} productId={productId}
-                                                                  eachQuestion={eachQuestion}/>
-                                                    </Box>
                                             )
                                         })
                                     }
@@ -220,9 +223,12 @@ const CommentQuestion = ({comments, rate, productId, questions , image , name}) 
                     </Grid>
                 </TabPanel>
             </Box>
-            <AddQuestionModal name={name} question={false} title={'ثبت پاسخ'} productId={productId} open={answerIsOpen} setOpen={setAnswerIsOpen}/>
-            <AddQuestionModal name={name} question={true} title={'ثبت پرسش'} setOpen={setQuestionIsOpen} open={questionIsOpen} productId={productId}/>
-            <AddCommentModal name={name} image={image} open={commentIsOpen} setOpen={setCommentIsOpen} productId={productId} rate={rate}/>
+            <AddQuestionModal name={name} question={activeAnswer} title={'ثبت پاسخ'} productId={productId} open={answerIsOpen}
+                              setOpen={setAnswerIsOpen}/>
+            <AddQuestionModal name={name} question={false} title={'ثبت پرسش'} setOpen={setQuestionIsOpen}
+                              open={questionIsOpen} productId={productId}/>
+            <AddCommentModal name={name} image={image} open={commentIsOpen} setOpen={setCommentIsOpen}
+                             productId={productId} rate={rate}/>
         </TabContext>
 
     )

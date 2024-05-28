@@ -42,7 +42,7 @@ export default function Layout({children}) {
     },{
         title: 'سفارش های من',icon:<Receipt/> , activeIcon: <ActiveReceipt/>,link:''
     }, {
-        title: 'محصولات مورد علاقه',icon: <Favorite/>, activeIcon: <ActiveFavorite/>, link:''
+        title: 'محصولات مورد علاقه',icon: <Favorite/>, activeIcon: <ActiveFavorite/>, link:urls.favoriteProduct
     },{
         title: 'آدرس ها', icon: <LocationIcon/>, activeIcon: <ActiveLocationIcon/>, link: urls.ProfileAddress,
     },{

@@ -19,6 +19,7 @@ import RingingCall from '../../assets/icons/layout/call-calling.svg';
 import Call from '../../assets/icons/layout/call.svg';
 import LocationIcon from '../../assets/icons/layout/location2.svg';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import PN from "persian-number";
 
 const MobileHeader = ({categories}) => {
     const {mobileHeaderHeight} = useSelector(state => state.deviceInfo);
@@ -74,7 +75,9 @@ const MobileHeader = ({categories}) => {
                                 alignItems: "center",
                                 width: "100%",
                             }}>
-                            <HamburgerMenu onClick={toggleDrawer}/>
+                            <Box width={'15%'}>
+                                <HamburgerMenu onClick={toggleDrawer}/>
+                            </Box>
                             <Drawer
                                 anchor={"left"}
                                 open={drawerIsOpen}
@@ -179,42 +182,25 @@ const MobileHeader = ({categories}) => {
                                         <Typography sx={{py: 1, fontWeight: 'bold'}}>دسته بندی تک جنرال</Typography>
                                         {categories?.map((item) => {
                                             return (
-                                                // <Link key={item.id} onClick={() => {
-                                                //     setDrawerIsOpen(false)
-                                                // }} style={{display: 'block', width: "100%"}} href={`/category/${item.url}`}>
-                                                //     <Box
-                                                //         sx={{
-                                                //             py: 1.5,
-                                                //             display: 'flex',
-                                                //             width: "100%",
-                                                //             gap: 1,
-                                                //             alignItems: 'center'
-                                                //         }}
-                                                //     >
-                                                //         <Typography variant={'body2'}>{item.name}</Typography>
-                                                //         <ExpandMoreIcon />
-                                                //     </Box>
-                                                // </Link>
                                                 <Accordion sx={{backgroundColor: "#fff", boxShadow: 'none', p: 0}}>
-                                                    <Box display={'flex'} justifyContent={'space-between'}
-                                                         alignItems={'center'}>
-                                                        <Link key={item.id} onClick={() => {
+                                                    <AccordionSummary
+                                                        sx={{p: 0}}
+                                                        expandIcon={<ExpandMoreIcon/>}
+                                                    >
+                                                        <Link onClick={() => {
                                                             setDrawerIsOpen(false)
                                                         }} href={`/category/${item.url}`}>
                                                             <Typography>{item.name}</Typography>
                                                         </Link>
-                                                        <AccordionSummary
-                                                            sx={{p: 0}}
-                                                            expandIcon={<ExpandMoreIcon/>}
-                                                        >
-                                                        </AccordionSummary>
-                                                    </Box>
+                                                    </AccordionSummary>
                                                     <AccordionDetails sx={{p: 0}}>
                                                         <Box>
                                                             {
                                                                 item.children.map((child) => {
                                                                     return (
-                                                                        <Link key={child.id} onClick={() => {setDrawerIsOpen(false)}} href={`/category/${child.url}`}>
+                                                                        <Link key={child.id} onClick={() => {
+                                                                            setDrawerIsOpen(false)
+                                                                        }} href={`/category/${child.url}`}>
                                                                             <Typography mb={2}>{child.name}</Typography>
                                                                         </Link>
                                                                     )
@@ -236,7 +222,7 @@ const MobileHeader = ({categories}) => {
                                                     width: "100%",
                                                     gap: 1,
                                                     alignItems: 'center',
-                                                    borderTop:'1px solid #ddd'
+                                                    borderTop: '1px solid #ddd'
                                                 }}
                                             >
 
@@ -271,7 +257,8 @@ const MobileHeader = ({categories}) => {
                                                 <LocationIcon/>
                                             </Link>
                                         </Box>
-                                        <Typography component={'p'} variant={'subtitle2'}>حقوق این سرویس محفوظ و متعلق به شرکت تک جنرال
+                                        <Typography component={'p'} variant={'subtitle2'}>حقوق این سرویس محفوظ و متعلق
+                                            به شرکت تک جنرال
                                             می‌باشد</Typography>
                                     </Box>
                                 </Box>
@@ -293,8 +280,16 @@ const MobileHeader = ({categories}) => {
                                     </Box>
                                 </Box>
                             </Link>
-                            <Box onClick={toggleSearch}>
-                                <SearchIcon/>
+                            {/*<Box onClick={toggleSearch}>*/}
+                            {/*    <SearchIcon/>*/}
+                            {/*</Box>*/}
+                            <Box sx={{width:{xs:'20%',sm:'10%'}}}>
+                                <Link title={'09212075118'} aria-label={`${PN.convertEnToPe('09212075118')}`} passHref target={'_blank'} href={"tel:989212075118"}>
+                                    <Typography fontWeight={'bold'} variant={'subtitle1'}>{PN.convertEnToPe('09212075118')}</Typography>
+                                </Link>
+                                <Link title={'02177500376'} aria-label={PN.convertEnToPe('02177500376')} passHref target={'_blank'} href={"tel:+982177500376"}>
+                                    <Typography fontWeight={'bold'} variant={'subtitle1'}>{PN.convertEnToPe('02177500376')}</Typography>
+                                </Link>
                             </Box>
                         </Box>
 

@@ -44,14 +44,14 @@ const Question = ({eachQuestion, addAnswer}) => {
                                 </Box>
                             )
                         })}
-                        <Button variant={'text'} onClick={addAnswer} sx={{mt: 2, display: 'flex', alignItems: 'center', gap: 1, cursor: 'pointer'}}>
+                        <Button variant={'text'} onClick={addAnswer.bind(this , eachQuestion.id)} sx={{mt: 2, display: 'flex', alignItems: 'center', gap: 1, cursor: 'pointer'}}>
                             <Typography component={'p'} variant={'subtitle1'} color={'primary'}>ثبت پاسخ جدید</Typography>
                             <ChevronLeftRoundedIcon fontSize={'small'}/>
                         </Button>
                     </Box>
                 </Box>
                 :
-                <Button variant={'text'} onClick={addAnswer} sx={{mt: 2, display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
+                <Button variant={'text'} onClick={addAnswer.bind(this , eachQuestion.id)} sx={{mt: 2, display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
                     <Typography component={'p'} variant={'subtitle1'} color={'primary'}>ثبت پاسخ جدید</Typography>
                     <ChevronLeftRoundedIcon fontSize={'small'}/>
                 </Button>

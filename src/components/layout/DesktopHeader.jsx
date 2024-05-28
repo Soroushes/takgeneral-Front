@@ -3,11 +3,15 @@ import Toolbar from "@mui/material/Toolbar";
 import {
     Badge,
     Box,
-    Button, ClickAwayListener,
-    Container, Grow,
+    Button,
+    ClickAwayListener,
+    Container,
+    Grow,
     InputAdornment,
     MenuItem,
-    MenuList, Paper, Popper,
+    MenuList,
+    Paper,
+    Popper,
     TextField,
     Typography
 } from "@mui/material";
@@ -21,6 +25,7 @@ import {urls} from "@/data/urls";
 import {useSelector} from "react-redux";
 import {useRouter} from "next/navigation";
 import {useState} from "react";
+import PN from "persian-number";
 
 const DesktopHeader = ({categories}) => {
     const {isLoggedIn} = useSelector(state => state.userInfo);
@@ -33,10 +38,10 @@ const DesktopHeader = ({categories}) => {
         setAnchorEl(arg[1].currentTarget);
         setCategoryId(arg[0]);
     }
-        const handleClose = () => {
-            setAnchorEl(null);
-            setCategoryId(null);
-        };
+    const handleClose = () => {
+        setAnchorEl(null);
+        setCategoryId(null);
+    };
     return (
         <AppBar sx={{backgroundColor: "#fff", height: desktopHeaderHeight}}>
             <Toolbar sx={{height: '100% !important'}}>
@@ -71,21 +76,27 @@ const DesktopHeader = ({categories}) => {
                                     />
                                 </Box>
                             </Link>
-                            <Box sx={{width: "40%"}}>
-                                <TextField
-                                    size={'small'}
-                                    variant={'outlined'}
-                                    fullWidth={true}
-                                    placeholder={'جستجو در تک جنرال'}
-                                    InputProps={{
-                                        sx: {backgroundColor: "btnGray.main", height: "100%", fontSize: 14},
-                                        startAdornment: (
-                                            <InputAdornment position="start">
-                                                <SearchOutlined/>
-                                            </InputAdornment>
-                                        ),
-                                    }}
-                                />
+                            <Box sx={{width: "50%"}} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
+                                {/*<TextField*/}
+                                {/*    size={'small'}*/}
+                                {/*    variant={'outlined'}*/}
+                                {/*    fullWidth={true}*/}
+                                {/*    placeholder={'جستجو در تک جنرال'}*/}
+                                {/*    InputProps={{*/}
+                                {/*        sx: {backgroundColor: "btnGray.main", height: "100%", fontSize: 14},*/}
+                                {/*        startAdornment: (*/}
+                                {/*            <InputAdornment position="start">*/}
+                                {/*                <SearchOutlined/>*/}
+                                {/*            </InputAdornment>*/}
+                                {/*        ),*/}
+                                {/*    }}*/}
+                                {/*/>*/}
+                                <Link title={'09212075118'} aria-label={`${PN.convertEnToPe('09212075118')} _`} passHref target={'_blank'} href={"tel:989212075118"}>
+                                    <Typography fontWeight={'bold'}>تماس 24 ساعته : {PN.convertEnToPe('09212075118')}</Typography>
+                                </Link>
+                                <Link title={'02177500376'} aria-label={PN.convertEnToPe('02177500376')} passHref target={'_blank'} href={"tel:+982177500376"}>
+                                    <Typography fontWeight={'bold'}> تماس در ساعات کاری : {PN.convertEnToPe('02177500376')}</Typography>
+                                </Link>
                             </Box>
                             <Box sx={{display: "flex", gap: 2}}>
                                 {
@@ -177,12 +188,12 @@ const DesktopHeader = ({categories}) => {
                             </Box>
                             {categories?.map((item) => {
                                 return (
-                                    <Box key={item.name}>
+                                    <Box key={item.name} onMouseLeave={handleClose}>
                                         <Box
                                             component={'li'}
                                             onMouseOver={openCategory.bind(this, item.id)}
                                             sx={{
-                                                cursor:'pointer',
+                                                cursor: 'pointer',
                                                 display: "flex",
                                                 gap: 1,
                                                 alignItems: "center ",
@@ -192,15 +203,13 @@ const DesktopHeader = ({categories}) => {
                                                             variant={'subtitle1'}>{item.name}</Typography>
                                         </Box>
                                         <Popper
-                                            onMouseLeave={handleClose}
                                             open={item.id === categoryId}
                                             anchorEl={anchorEl}
                                             role={undefined}
-                                            id="composition-button"
                                             transition
                                             disablePortal
                                         >
-                                            {({ TransitionProps, placement }) => (
+                                            {({TransitionProps, placement}) => (
                                                 <Grow
                                                     {...TransitionProps}
                                                     style={{
@@ -210,22 +219,20 @@ const DesktopHeader = ({categories}) => {
                                                 >
                                                     <Paper>
                                                         <ClickAwayListener onClickAway={(event) => {
-                                                            if(event.target.classList[2] === 'test') {
+                                                            if (event.target.classList[2] === 'test') {
                                                                 router.push(`/category/${item.url}`)
                                                             }
-                                                                // console.log(event.target.classList[2] , reason)
                                                             setAnchorEl(null);
                                                             setCategoryId(null);
                                                         }}>
                                                             <MenuList
                                                                 autoFocusItem={item.id === categoryId}
-                                                                id="composition-menu"
-                                                                aria-labelledby="composition-button"
                                                             >
                                                                 {
                                                                     item.children.map((child) => {
                                                                         return (
-                                                                            <Link href={`/category/${child.url}`}>
+                                                                            <Link key={child.name}
+                                                                                  href={`/category/${child.url}`}>
                                                                                 <MenuItem key={child.name}
                                                                                           onClick={handleClose}>{child.name}</MenuItem>
                                                                             </Link>
