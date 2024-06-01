@@ -14,7 +14,6 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
         newURLSearchParams.set('page', value)
         return newURLSearchParams.toString();
     }
-    console.log(pageCount)
     return (
         <Container sx={{pb: 6}}>
             <BreadcrumbGenerator breadcrumb={breadcrumbData} hasEmptyUrl={false}/>

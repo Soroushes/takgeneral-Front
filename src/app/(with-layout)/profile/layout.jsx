@@ -30,7 +30,6 @@ export default function Layout({children}) {
     const router = useRouter();
     const pathName = usePathname()
     const removeToken = () => {
-        console.log(1)
         dispatch(LOGOUT());
         dispatch(fetchInfo());
         router.push('/');

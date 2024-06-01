@@ -59,7 +59,6 @@ const LoginPage = ()=>{
                 // push(urls.profile) ;
                 dispatch(fetchInfo());
                 if(from ==='cart?from=cart/address-selection' && profileComplete){
-                    console.log(1)
                     push('/cart/address-selection')
                 }else if(from){
                     push('/' + from);

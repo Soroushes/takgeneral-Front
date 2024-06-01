@@ -32,11 +32,8 @@ export async function generateMetadata({params: {productId}}) {
     result?.product?.all_images.map((image)=>{
         images.push(...images , {url: image.image , width:600 , height:600})
     })
-    console.log(images)
     if (!result) return undefined
     const other = {product_price : lowestFinalPrice , product_old_price : lowestPrice , product_id : result?.product?.id , product_name :  result?.product?.name , availability : availability.Inventory_number ? 'instock' : 'outstock' , guarantee : warranty?.warranty }
-    console.log(metadataGenerator(result?.meta_tag , result.product.name , `${domainName}/product/${result.product.id}/${result.product.url}` , `${domainName}/product/${result.product.id}/${result.product.url}` ,'website' , other ,images)
-)
     return metadataGenerator(result?.meta_tag , result.product.name , `${domainName}/product/${result.product.id}/${result.product.url}` , `${domainName}/product/${result.product.id}/${result.product.url}` ,'website' , other ,images)
 }
 
