@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 const singleProductImage = ({images, setShowImage}) => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const mainImage = images?.find((item) => item.is_main);
+    console.log(images)
     return (
         <Box sx={{borderRadius: 2}}>
             <Box sx={{mb: 1}}>
@@ -28,7 +29,7 @@ const singleProductImage = ({images, setShowImage}) => {
                         <Box sx={{width: "100%", textAlign: 'center', aspectRatio: '1/1'}}>
                             {
                                 mainImage ?
-                                    <Image width={300} height={300} style={{width: '100%', height: 'auto'}} alt={'test'}
+                                    <Image alt={mainImage?.alt_text ?? mainImage.name} width={300} height={300} style={{width: '100%', height: 'auto'}}
                                            src={mainImage?.image ?? null}/> : null
                             }
                         </Box>
@@ -45,7 +46,7 @@ const singleProductImage = ({images, setShowImage}) => {
                                     }>
                                         <Box sx={{width: "100%", textAlign: 'center'}}>
                                             <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
-                                                   alt={item.alt_text ?? ''} src={item.image}/>
+                                                   alt={item.alt_text ?? item.name} src={item.image}/>
                                         </Box>
                                     </SwiperSlide>
                                 )
@@ -68,19 +69,20 @@ const singleProductImage = ({images, setShowImage}) => {
                         <Box sx={{width: "100%", textAlign: 'center'}}>
                             {
                                 mainImage ? <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
-                                                   alt={'test'} src={mainImage.image ?? null}/> : null
+                                                   alt={mainImage?.alt_text ?? mainImage.name} src={mainImage.image ?? null}/> : null
                             }
                         </Box>
                     </SwiperSlide>
                     {
                         images?.map((item) => {
+                            console.log(item)
                             if (!item.is_main) {
                                 return (
                                     <SwiperSlide style={{borderRadius: "8px", padding: '5px'}}
                                                  key={item.image}>
                                         <Box sx={{width: "100%", textAlign: 'center'}}>
                                             <Image width={300} height={300} style={{width: '100%', height: 'auto'}}
-                                                   alt={'test'} src={item.image}/>
+                                                   alt={item?.alt_text ?? item.name} src={item.image}/>
                                         </Box>
                                     </SwiperSlide>
                                 )

@@ -111,7 +111,7 @@ const BrandPage = ({product, page_count, current_page , content , main_banner , 
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={8.5} sx={{mt: 2}}>
-                        <ProductList page={current_page} count={page_count} product={product}/>
+                        <ProductList concept={'brand'} page={current_page} count={page_count} product={product}/>
                     </Grid>
                 </Grid>
                 {

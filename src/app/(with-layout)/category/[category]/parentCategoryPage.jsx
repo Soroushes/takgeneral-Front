@@ -55,7 +55,7 @@ export default function ParentCategoryPage({
                             return (
                                 <Grid key={item.id} sx={{px: 2}} item xs={6} md={3}>
                                     <Link href={'/category/' + item.url}>
-                                        <OuterImageSection alt={item.alt ?? ''} shadow={2} image={item.image}
+                                        <OuterImageSection alt={item.alt ?? item.name} shadow={2} image={item.image}
                                                            title={item.name}/>
                                     </Link>
                                 </Grid>

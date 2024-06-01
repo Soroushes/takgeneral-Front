@@ -19,7 +19,7 @@ const CategorySlider = ({category , mainCategory})=>{
                                 <SwiperSlide key={item.url} style={{width: 150, padding: '50px 2px'}}>
                                     <Link scroll={false} href={'/category/'+item.url}>
                                         <Box>
-                                            <OuterImageSection isActive={mainCategory.url === item.url} descriptionVariant={'subtitle2'} titleVariant={'h6'} title={item.name} image={item.image}/>
+                                            <OuterImageSection alt={item.name} isActive={mainCategory.url === item.url} descriptionVariant={'subtitle2'} titleVariant={'h6'} title={item.name} image={item.image}/>
                                         </Box>
                                     </Link>
                                 </SwiperSlide>
