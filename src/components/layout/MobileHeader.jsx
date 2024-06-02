@@ -2,7 +2,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import HamburgerMenu from "../../assets/icons/layout/hamburgerMenu.svg";
 import Link from "next/link";
-import {Accordion, AccordionDetails, AccordionSummary, Box, Drawer, TextField, Typography} from "@mui/material";
+import {Accordion, AccordionDetails, AccordionSummary, Box, Button, Drawer, TextField, Typography} from "@mui/material";
 import {useState} from "react";
 import logo from '../../../public/logo.png'
 import Image from "next/image";
@@ -20,12 +20,14 @@ import Call from '../../assets/icons/layout/call.svg';
 import LocationIcon from '../../assets/icons/layout/location2.svg';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PN from "persian-number";
+import {useRouter} from "next/navigation";
 
 const MobileHeader = ({categories}) => {
     const {mobileHeaderHeight} = useSelector(state => state.deviceInfo);
     const {control} = useForm();
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
+    const router = useRouter();
     const toggleSearch = () => {
         setOpenSearch(prev => !prev)
     }
@@ -75,7 +77,7 @@ const MobileHeader = ({categories}) => {
                                 alignItems: "center",
                                 width: "100%",
                             }}>
-                            <Box width={'15%'}>
+                            <Box sx={{width:{xs:'45%',sm:'20%'},}}>
                                 <HamburgerMenu onClick={toggleDrawer}/>
                             </Box>
                             <Drawer
@@ -102,7 +104,7 @@ const MobileHeader = ({categories}) => {
                                         <Box display={'flex'} justifyContent={'center'}>
                                             <Box sx={{
                                                 textAlign: 'center',
-                                                width: '70%',
+                                                width: '20%',
                                                 position: 'relative',
                                                 aspectRatio: '5.6/1'
                                             }}>
@@ -267,7 +269,7 @@ const MobileHeader = ({categories}) => {
                                 <Box display={'flex'} justifyContent={'center'}>
                                     <Box sx={{
                                         textAlign: 'center',
-                                        width: {xs: '40%', sm: '30%'},
+                                        width: '55%',
                                         position: 'relative',
                                         aspectRatio: '5.6/1'
                                     }}>
@@ -283,13 +285,14 @@ const MobileHeader = ({categories}) => {
                             {/*<Box onClick={toggleSearch}>*/}
                             {/*    <SearchIcon/>*/}
                             {/*</Box>*/}
-                            <Box sx={{width:{xs:'20%',sm:'10%'}}}>
-                                <Link title={'09212075118'} aria-label={`${PN.convertEnToPe('09212075118')}`} passHref target={'_blank'} href={"tel:989212075118"}>
-                                    <Typography fontWeight={'bold'} variant={'subtitle1'}>{PN.convertEnToPe('09212075118')}</Typography>
-                                </Link>
-                                <Link title={'02177500376'} aria-label={PN.convertEnToPe('02177500376')} passHref target={'_blank'} href={"tel:+982177500376"}>
-                                    <Typography fontWeight={'bold'} variant={'subtitle1'}>{PN.convertEnToPe('02177500376')}</Typography>
-                                </Link>
+                            <Box sx={{width:{xs:'45%',sm:'20%'},display:'flex',justifyContent:'end'}}>
+                                {/*<Link title={'09212075118'} aria-label={`${PN.convertEnToPe('09212075118')}`} passHref target={'_blank'} href={"tel:989212075118"}>*/}
+                                {/*    <Typography fontWeight={'bold'} variant={'subtitle1'}>{PN.convertEnToPe('09212075118')}</Typography>*/}
+                                {/*</Link>*/}
+                                {/*<Link title={'02177500376'} aria-label={PN.convertEnToPe('02177500376')} passHref target={'_blank'} href={"tel:+982177500376"}>*/}
+                                {/*    <Typography fontWeight={'bold'} variant={'subtitle1'}>{PN.convertEnToPe('02177500376')}</Typography>*/}
+                                {/*</Link>*/}
+                                <Button sx={{fontSize:'12px',px:0}} size={'small'} variant={'outlined'} onClick={()=>{router.push('/contact-us')}}>تماس با ما</Button>
                             </Box>
                         </Box>
 

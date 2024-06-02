@@ -76,7 +76,7 @@ const DesktopHeader = ({categories}) => {
                                     />
                                 </Box>
                             </Link>
-                            <Box sx={{width: "50%"}} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
+                            <Box sx={{width: "50%" }} display={'flex'} alignItems={'center'} justifyContent={'center'}>
                                 {/*<TextField*/}
                                 {/*    size={'small'}*/}
                                 {/*    variant={'outlined'}*/}
@@ -91,12 +91,13 @@ const DesktopHeader = ({categories}) => {
                                 {/*        ),*/}
                                 {/*    }}*/}
                                 {/*/>*/}
-                                <Link title={'09212075118'} aria-label={`${PN.convertEnToPe('09212075118')} _`} passHref target={'_blank'} href={"tel:989212075118"}>
-                                    <Typography fontWeight={'bold'}>تماس 24 ساعته : {PN.convertEnToPe('09212075118')}</Typography>
-                                </Link>
-                                <Link title={'02177500376'} aria-label={PN.convertEnToPe('02177500376')} passHref target={'_blank'} href={"tel:+982177500376"}>
-                                    <Typography fontWeight={'bold'}> تماس در ساعات کاری : {PN.convertEnToPe('02177500376')}</Typography>
-                                </Link>
+                                {/*<Link title={'09212075118'} aria-label={`${PN.convertEnToPe('09212075118')} _`} passHref target={'_blank'} href={"tel:989212075118"}>*/}
+                                {/*    <Typography fontWeight={'bold'}>تماس 24 ساعته : {PN.convertEnToPe('09212075118')}</Typography>*/}
+                                {/*</Link>*/}
+                                {/*<Link title={'02177500376'} aria-label={PN.convertEnToPe('02177500376')} passHref target={'_blank'} href={"tel:+982177500376"}>*/}
+                                {/*    <Typography fontWeight={'bold'}> تماس در ساعات کاری : {PN.convertEnToPe('02177500376')}</Typography>*/}
+                                {/*</Link>*/}
+                                <Button variant={'outlined'} onClick={()=>{router.push('/contact-us')}}>تماس با ما</Button>
                             </Box>
                             <Box sx={{display: "flex", gap: 2}}>
                                 {
