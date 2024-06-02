@@ -9,7 +9,6 @@ const ProductList = ({product, count = 8, page = 1 , concept = 'category'}) => {
     const searchParams = useSearchParams();
     const newURLSearchParams = new URLSearchParams(searchParams);
     const params = useParams();
-    console.log(`/${concept}/${params[concept === 'category' ? concept : concept + 'Name']}`)
     const handlePaginationChange = (e, value) => {
         newURLSearchParams.set('page', value)
         return newURLSearchParams.toString();

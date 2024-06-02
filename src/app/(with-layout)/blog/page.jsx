@@ -2,6 +2,8 @@ import BlogPage from './blogPage';
 import {BASE_URL, domainName} from "@/data/urls";
 import logApi from "@/logApi";
 import logRoutes from "@/logRoutes";
+import {notFound} from "next/navigation";
+import Error from "@/app/error";
 export const metadata = {
     title : 'بلاگ ها | تک جنرال',
     alternates: {
@@ -25,7 +27,11 @@ const getData = async (params , searchParams) => {
     if (res.ok) {
         return res.json();
     } else {
-        throw new Error('failed to fetch data !');
+        if (res.status === 404 || (res.status === 500 && searchParams.page === '0')) {
+            notFound();
+        } else {
+            throw new Error('failed to fetch data !');
+        }
     }
 }
 export default async function Page({params ,searchParams}) {

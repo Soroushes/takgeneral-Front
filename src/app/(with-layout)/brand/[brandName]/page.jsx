@@ -13,7 +13,7 @@ const getData = async (params, searchParams) => {
     if (res.ok) {
         return res.json();
     } else {
-        if (res.status === 404) {
+        if (res.status === 404 || (res.status === 500 && searchParams.page === '0')) {
             notFound();
         } else {
             throw new Error('failed to fetch data !');
