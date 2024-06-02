@@ -97,7 +97,7 @@ const DesktopHeader = ({categories}) => {
                                 {/*<Link title={'02177500376'} aria-label={PN.convertEnToPe('02177500376')} passHref target={'_blank'} href={"tel:+982177500376"}>*/}
                                 {/*    <Typography fontWeight={'bold'}> تماس در ساعات کاری : {PN.convertEnToPe('02177500376')}</Typography>*/}
                                 {/*</Link>*/}
-                                <Button variant={'outlined'} onClick={()=>{router.push('/contact-us')}}>تماس با ما</Button>
+                                <Button variant={'contained'} onClick={()=>{router.push('/contact-us')}}>تماس با ما</Button>
                             </Box>
                             <Box sx={{display: "flex", gap: 2}}>
                                 {

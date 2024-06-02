@@ -292,7 +292,7 @@ const MobileHeader = ({categories}) => {
                                 {/*<Link title={'02177500376'} aria-label={PN.convertEnToPe('02177500376')} passHref target={'_blank'} href={"tel:+982177500376"}>*/}
                                 {/*    <Typography fontWeight={'bold'} variant={'subtitle1'}>{PN.convertEnToPe('02177500376')}</Typography>*/}
                                 {/*</Link>*/}
-                                <Button sx={{fontSize:'12px',px:0}} size={'small'} variant={'outlined'} onClick={()=>{router.push('/contact-us')}}>تماس با ما</Button>
+                                <Button sx={{fontSize:'12px',px:0}} size={'small'} variant={'contained'} onClick={()=>{router.push('/contact-us')}}>تماس با ما</Button>
                             </Box>
                         </Box>
 
