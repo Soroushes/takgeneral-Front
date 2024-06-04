@@ -145,7 +145,7 @@ const Footer = () => {
                                    href='https://trustseal.enamad.ir/?id=344613&Code=oFIMPdMkR76yp32fW0aU'>
                                     <Image unoptimized={true} referrerPolicy='origin' width={86} height={94}
                                          src='https://trustseal.enamad.ir/logo.aspx?id=344613&Code=oFIMPdMkR76yp32fW0aU'
-                                         alt=''
+                                         alt='enamad takgeberal'
                                          style={{cursor: 'pointer'}}
                                     /></a>
                             </Box>

@@ -7,6 +7,7 @@ export const urls ={
     ProfileAddress : "/profile/address",
     individualProfile:'/profile/individual-profile',
     favoriteProduct:'/profile/favorite-product',
+    profileComment : '/profile/profile-comments',
     categories : "category",
     contactUs:'/contact-us',
 }

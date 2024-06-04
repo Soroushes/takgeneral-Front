@@ -10,7 +10,6 @@ import 'swiper/css/pagination';
 const singleProductImage = ({images, setShowImage}) => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const mainImage = images?.find((item) => item.is_main);
-    console.log(images)
     return (
         <Box sx={{borderRadius: 2}}>
             <Box sx={{mb: 1}}>

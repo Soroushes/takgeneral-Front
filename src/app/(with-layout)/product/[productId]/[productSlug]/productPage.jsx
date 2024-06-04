@@ -162,6 +162,7 @@ const ProductPage = ({data}) => {
                                                     <SwiperSlide key={item.id}
                                                                  style={{width: '200px', marginRight: '16px'}}>
                                                         <ProductPreviewCard
+                                                            alt={item.name}
                                                             url={item.url}
                                                             title={item.name} id={item.id}
                                                             image={item.main_image?.image}

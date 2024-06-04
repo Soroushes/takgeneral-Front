@@ -45,7 +45,7 @@ export default function Layout({children}) {
     },{
         title: 'آدرس ها', icon: <LocationIcon/>, activeIcon: <ActiveLocationIcon/>, link: urls.ProfileAddress,
     },{
-        title:'دیدگاه ها',icon: <Comments/>,activeIcon: <ActiveComments/>,link:''
+        title:'دیدگاه ها',icon: <Comments/>,activeIcon: <ActiveComments/>,link:urls.profileComment
     }]
     useEffect(() => {
         // todo get token from redux

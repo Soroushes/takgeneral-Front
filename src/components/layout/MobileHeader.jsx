@@ -185,7 +185,7 @@ const MobileHeader = ({categories}) => {
                                         <Typography sx={{py: 1, fontWeight: 'bold'}}>دسته بندی تک جنرال</Typography>
                                         {categories?.map((item) => {
                                             return (
-                                                <Accordion sx={{backgroundColor: "#fff", boxShadow: 'none', p: 0}}>
+                                                <Accordion key={item.name} sx={{backgroundColor: "#fff", boxShadow: 'none', p: 0}}>
                                                     <AccordionSummary
                                                         sx={{p: 0}}
                                                         expandIcon={<ExpandMoreIcon/>}
