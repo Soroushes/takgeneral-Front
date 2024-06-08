@@ -6,6 +6,7 @@ import {notFound} from "next/navigation";
 import Error from "@/app/error";
 export const metadata = {
     title : 'بلاگ ها | تک جنرال',
+    description:'بهترین مقالات در زمینه ابزار دقیق از جمله فلومتر و گیج فشار را در این صفحه مطالعه بفرمایید و با اخبار روز ابزار دقیق اشنا شوید',
     alternates: {
         canonical: `${domainName}/blog`
     },

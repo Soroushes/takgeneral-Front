@@ -10,6 +10,7 @@ import logApi from "@/logApi";
 import logRoutes from "@/logRoutes";
 export const metadata = {
     title : 'خانه | تک جنرال',
+    description:'با تک جنرال نگران نیاز های صنعتی و تجهیزات ابزار دقیق نباشید! تامین کننده و وارد کننده انواع محصولات صنعتی',
     alternates: {
         canonical: `${domainName}`
     },

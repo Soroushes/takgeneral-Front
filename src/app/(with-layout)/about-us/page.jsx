@@ -3,6 +3,7 @@ import {domainName} from "@/data/urls";
 import logRoutes from "@/logRoutes";
 export const metadata = {
     title : 'درباره ما| تک جنرال',
+    description:'شرکت ابزار دقیق و تامین قطعات مهندسی تک جنرال افتخار این را دارد تمام نیاز های فنی مهندسی شما را تامین کند',
     alternates: {
         canonical: `${domainName}/about-us`
     },

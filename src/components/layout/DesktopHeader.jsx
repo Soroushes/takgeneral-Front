@@ -200,7 +200,7 @@ const DesktopHeader = ({categories}) => {
                                                 alignItems: "center ",
                                             }}>
                                             {/*{item.icon}*/}
-                                                <Typography className={'test'} sx={{color: 'text.main'}}
+                                                <Typography component={'p'} className={'test'} sx={{color: 'text.main'}}
                                                             variant={'subtitle1'}>{item.name}</Typography>
                                         </Box>
                                         <Popper
@@ -258,7 +258,7 @@ const DesktopHeader = ({categories}) => {
                                             alignItems: "center ",
                                         }}>
                                         {/*{item.icon}*/}
-                                        <Typography component={'h6'} sx={{color: 'text.main'}}
+                                        <Typography component={'p'} sx={{color: 'text.main'}}
                                                     variant={'subtitle1'}>فلومتر</Typography>
                                     </Box>
                                 </Link>
