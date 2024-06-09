@@ -4,7 +4,6 @@ module.exports = {
     },
     experimental: {
         missingSuspenseWithCSRBailout: false,
-        nextScriptWorkers: true,
     },
     async redirects() {
         const staticRedirects = [{source : '/:path/' , destination : '/:path' , statusCode : 301}]
