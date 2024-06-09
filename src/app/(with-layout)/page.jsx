@@ -27,7 +27,7 @@ export const metadata = {
 }
 async function getData() {
     logApi(`${BASE_URL}home/`)
-    const res = await fetch(`${BASE_URL}home/`,{cache:'no-store'})
+    const res = await fetch(`${BASE_URL}home/`,{cache:'default'})
     logApi(`${BASE_URL}home/`)
     if (res.ok) {
         return res.json()
