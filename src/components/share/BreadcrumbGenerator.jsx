@@ -37,7 +37,8 @@ const BreadcrumbGenerator = ({breadcrumb, product, hasEmptyUrl = true}) => {
     }
     return (
         <>
-            <script
+            <Script
+                strategy={'worker'}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{__html: JSON.stringify(convertBreadcrumb())}}
             />

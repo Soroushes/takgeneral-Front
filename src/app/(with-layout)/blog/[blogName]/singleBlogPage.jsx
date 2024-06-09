@@ -13,7 +13,8 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
     const breadcrumbData = useMemo(() => [{url: '/blog', name: 'وبلاگ ها'}, {url: `/blog/${url}`, name: title}])
     return (
         <>
-            <script
+            <Script
+                strategy={'worker'}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{__html: JSON.stringify(singleBlogSchemaGenerator(images, createdTimeStamp, updatedTimeStamp, title))}}
             />
