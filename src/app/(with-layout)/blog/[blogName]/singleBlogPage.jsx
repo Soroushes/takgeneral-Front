@@ -14,7 +14,7 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
     return (
         <>
             <Script
-                strategy={'lazyOnload'}
+                strategy={'afterInteractive'}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{__html: JSON.stringify(singleBlogSchemaGenerator(images, createdTimeStamp, updatedTimeStamp, title))}}
             />
