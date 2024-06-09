@@ -189,9 +189,8 @@ const DesktopHeader = ({categories}) => {
                             </Box>
                             {categories?.map((item) => {
                                 return (
-                                    <Box key={item.name} onMouseLeave={handleClose}>
+                                    <Box component={'li'} key={item.name} onMouseLeave={handleClose}>
                                         <Box
-                                            component={'li'}
                                             onMouseOver={openCategory.bind(this, item.id)}
                                             sx={{
                                                 cursor: 'pointer',

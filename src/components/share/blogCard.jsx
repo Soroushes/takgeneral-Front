@@ -28,11 +28,11 @@ const BlogCard = ({blog}) => {
                     <Box sx={{display: 'flex', px: .5, mt: 2, justifyContent: 'space-between'}}>
                         <Box display={'flex'} alignItems={'center'} gap={.5}>
                             <ClockIcon/>
-                            <Typography component={'p'} variant={'subtitle1'}
+                            <Typography component={'p'} variant={'h6'}
                                         sx={{textAlign: 'center'}}>{timeStampToDate(blog?.created_time?.timestamp)}</Typography>
                         </Box>
                         <Button variant={'text'}>
-                            <Typography color={'primary'}>
+                            <Typography variant={'h6'} color={'primary'}>
                                 ادامه مطلب
                             </Typography>
                             <ChevronLeftRoundedIcon color={'primary'} fontSize={'small'}/>

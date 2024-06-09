@@ -10,15 +10,15 @@ const Blogs = ({blogs}) => {
     return (
         <Container>
             <Box display={'flex'} justifyContent={'space-between'} sx={{mb: 5}}>
-                <Box sx={{width: '40%'}}></Box>
+                <Box sx={{width: '30%'}}></Box>
                 <Box display={'flex'} justifyContent={'space-between'} sx={{width: {md:'55%' , xs:'70%'}}}>
                     <Box display={'flex'} gap={1} justifyContent={'center'}>
                         <Typography fontWeight={'bold'} component={'p'} variant={'h5'}>مجله</Typography>
                         <Typography fontWeight={'bold'} component={'p'} color={'secondary'} variant={'h5'}>تک جنرال</Typography>
                     </Box>
                     <Link href={`/blog`}>
-                        <Box display={'flex'} alignItems={'center'} gap={.5}>
-                            <Typography component={'p'} color={'primary'} variant={'subtitle1'}>مشاهده بیشتر</Typography>
+                        <Box display={'flex'} alignItems={'center'} >
+                            <Typography component={'p'} color={'primary'} variant={'h6'}>مشاهده بیشتر</Typography>
                             <ChevronLeftRoundedIcon color={'primary'} fontSize={'small'}/>
                         </Box>
                     </Link>

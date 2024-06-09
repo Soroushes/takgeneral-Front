@@ -38,7 +38,7 @@ const ProductPreviewCard = ({
                 {
                     discountPercent ?
                         <Typography
-                            variant={'body2'}
+                            variant={'body1'}
                             color={'text.main'}
                             sx={{
                                 position: 'absolute',
@@ -68,7 +68,7 @@ const ProductPreviewCard = ({
                     </Box>
                     <Box sx={{overflow: "hidden", display: 'flex', alignItems: 'center', my: {md: 1, xs: 0}}}>
                         <Typography
-                            variant="body2"
+                            variant="body1"
                             textAlign={'justify'}
                             maxHeight={'40px'}
                         >

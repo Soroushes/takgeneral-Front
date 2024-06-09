@@ -12,7 +12,7 @@ const DiscountProductSlider = ({products , title , backGroundImage = 'linear-gra
                 </Box>
                 <Box sx={{width : {md : '90%'} , mx : 'auto'}}>
                 <Box sx={{mb: 4 , display : 'flex' , justifyContent : 'center' , alignItems : 'center' , gap : 2}}>
-                    <Typography sx={{wordSpacing :'3px'}} textAlign={'center'} variant={'h3'} fontWeight={'bold'} color={'white'}>{title}</Typography>
+                    <Typography sx={{wordSpacing :'3px'}} textAlign={'center'} component={'p'} variant={'h3'} fontWeight={'bold'} color={'white'}>{title}</Typography>
                 </Box>
                 <SwiperCustomWrapper
                 navigation={false}>

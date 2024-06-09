@@ -2,7 +2,7 @@ import {Typography , Box} from "@mui/material";
 import PN from "persian-number";
 
 const PriceDiscount = ({
-                           discountedPriceFont = 'subtitle1',
+                           discountedPriceFont = 'h6',
                            discountPrice,
                            finalPrice,
                            fontSize = 'h6',
