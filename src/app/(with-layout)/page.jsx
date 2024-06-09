@@ -1,13 +1,11 @@
-import Slider from "../../components/home/Slider";
 import {BASE_URL, domainName} from "@/data/urls";
-import HomePageCategorySection from "../../components/home/HomePageCategorySection";
 import ProductBanners from "../../components/share/productBanners";
-import DiscountProductSlider from "@/components/home/DiscountProductSlider";
 import Blogs from "@/components/home/blogs";
 import {notFound} from "next/navigation";
 import Error from "@/app/error";
 import logApi from "@/logApi";
 import logRoutes from "@/logRoutes";
+import dynamic from "next/dynamic";
 export const metadata = {
     title : 'خانه | تک جنرال',
     description:'با تک جنرال نگران نیاز های صنعتی و تجهیزات ابزار دقیق نباشید! تامین کننده و وارد کننده انواع محصولات صنعتی',
@@ -40,6 +38,10 @@ async function getData() {
         }
     }
 }
+const Slider = dynamic(()=>import('../../components/home/Slider'),  {ssr : false})
+const HomePageCategorySection = dynamic(()=>import('../../components/home/HomePageCategorySection'),  {ssr : false})
+const DiscountProductSlider = dynamic(()=>import('@/components/home/DiscountProductSlider'),  {ssr : false})
+const Blogs = dynamic(()=>import('@/components/home/blogs'),  {ssr : false})
 
 export default async function Page() {
     const data = await getData();
@@ -56,10 +58,10 @@ export default async function Page() {
             }}>
                 <HomePageCategorySection mainCategories={data.mother_categories}/>
                 <DiscountProductSlider title={'تخفیف ویژه تک جنرال'} products={data.amazing_offer_product}/>
-                <ProductBanners sizing={{xs: 12, md: 3.8}}
-                                banners={data.mid_banner}/>
+                {/*<ProductBanners sizing={{xs: 12, md: 3.8}}*/}
+                {/*                banners={data.mid_banner}/>*/}
                 {/*<HighRateCategorySlider products={data.popular_categories}/>*/}
-                <ProductBanners sizing={{xs: 12, md: 5.8}} banners={data.end_banner}/>
+                {/*<ProductBanners sizing={{xs: 12, md: 5.8}} banners={data.end_banner}/>*/}
                 <DiscountProductSlider title={'پیشنهادات تک جنرال'} backGroundImage={'linear-gradient(to left, #1B09F9 , #27E1BC)'}
                                        products={data.special_offer_products}/>
                 {/*<DifferentProductScaleSlider/>*/}
