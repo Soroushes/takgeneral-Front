@@ -2,6 +2,7 @@ import Link from "next/link";
 import {Typography, Box} from "@mui/material";
 import {domainName} from "@/data/urls";
 import {useMemo} from "react";
+import Script from "next/script";
 
 const BreadcrumbGenerator = ({breadcrumb, product, hasEmptyUrl = true}) => {
     const allBreadcrumbs = useMemo(() => {
@@ -36,7 +37,8 @@ const BreadcrumbGenerator = ({breadcrumb, product, hasEmptyUrl = true}) => {
     }
     return (
         <>
-            <script
+            <Script
+                strategy={'worker'}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{__html: JSON.stringify(convertBreadcrumb())}}
             />

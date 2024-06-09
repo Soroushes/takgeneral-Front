@@ -7,12 +7,14 @@ import HtmlDescription from "@/components/share/HtmlDescription";
 import {singleBlogSchemaGenerator} from "@/hooks/schemaGenerator";
 import {useMemo} from "react";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
+import Script from "next/script";
 
 const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp, url}) => {
     const breadcrumbData = useMemo(() => [{url: '/blog', name: 'وبلاگ ها'}, {url: `/blog/${url}`, name: title}])
     return (
         <>
-            <script
+            <Script
+                strategy={'worker'}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{__html: JSON.stringify(singleBlogSchemaGenerator(images, createdTimeStamp, updatedTimeStamp, title))}}
             />

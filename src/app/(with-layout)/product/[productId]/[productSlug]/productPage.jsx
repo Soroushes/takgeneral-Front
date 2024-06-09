@@ -13,6 +13,7 @@ import {SwiperSlide} from "swiper/react";
 import {useRouter, useSearchParams} from "next/navigation";
 import {productSchemaGenerator} from "@/hooks/schemaGenerator";
 import Image from "next/image";
+import Script from "next/script";
 
 const ProductPage = ({data}) => {
     const BoxRef = useRef(null);
@@ -45,7 +46,8 @@ const ProductPage = ({data}) => {
     }
     return (
         <>
-            <script
+            <Script
+                strategy={'worker'}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{__html: JSON.stringify(productSchemaGenerator(data?.product.name, data?.product.all_images, data?.meta_tag.desc, data?.product.brand, data?.avg_rate.avg_rate, data?.product.options.product_variant, data.comments.length))}}
             />
