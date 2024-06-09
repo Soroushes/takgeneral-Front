@@ -1,6 +1,5 @@
 import {BASE_URL, domainName} from "@/data/urls";
 import ProductBanners from "../../components/share/productBanners";
-import Blogs from "@/components/home/blogs";
 import {notFound} from "next/navigation";
 import Error from "@/app/error";
 import logApi from "@/logApi";
