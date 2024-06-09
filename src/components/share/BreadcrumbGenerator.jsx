@@ -38,7 +38,7 @@ const BreadcrumbGenerator = ({breadcrumb, product, hasEmptyUrl = true}) => {
     return (
         <>
             <Script
-                strategy={'beforeInteractive'}
+                strategy={'lazyOnload'}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{__html: JSON.stringify(convertBreadcrumb())}}
             />
