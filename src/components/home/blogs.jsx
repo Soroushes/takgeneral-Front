@@ -10,7 +10,7 @@ const Blogs = ({blogs}) => {
     return (
         <Container>
             <Box display={'flex'} justifyContent={'space-between'} sx={{mb: 5}}>
-                <Box sx={{width: '30%'}}></Box>
+                <Box sx={{width: {xs:'35%',sm:'55%'}}}></Box>
                 <Box display={'flex'} justifyContent={'space-between'} sx={{width: {md:'55%' , xs:'70%'}}}>
                     <Box display={'flex'} gap={1} justifyContent={'center'}>
                         <Typography fontWeight={'bold'} component={'p'} variant={'h5'}>مجله</Typography>
