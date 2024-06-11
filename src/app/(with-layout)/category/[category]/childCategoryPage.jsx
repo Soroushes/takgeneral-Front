@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import {Box, Button, Collapse, Container, Grid, Typography} from "@mui/material";
+import {Box, Collapse, Container, Grid, Typography} from "@mui/material";
 import CheckBoxFilter from "@/components/share/CheckBoxFilter";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import MainModal from "../../../../components/share/MainModal";
@@ -118,7 +118,7 @@ const ChildCategoryPage = ({
                                         onClick={() => setOpenFilterModal(true)}
                                         variant={'outlined'}>
                                     <FilterAltIcon/>
-                                    <Typography variant={'subtitle1'} sx={{ml: 1}}> فیلترها</Typography>
+                                    <Typography component={'p'} variant={'subtitle1'} sx={{ml: 1}}> فیلترها</Typography>
                                 </Box>
                                     <SelectionButton selectedValue={sortValueItems?.find((item) => item.id === sortValue).name}  defaultValue={sortValue} modalName={'دسته بندی بر اساس'} items={sortValueItems} itemValues={'name'} handleChangeFn={handleSortOnchange}>
                                         <SortIcon/>
