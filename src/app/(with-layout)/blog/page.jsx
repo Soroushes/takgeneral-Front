@@ -1,9 +1,9 @@
-import BlogPage from './blogPage';
 import {BASE_URL, domainName} from "@/data/urls";
 import logApi from "@/logApi";
 import logRoutes from "@/logRoutes";
 import {notFound} from "next/navigation";
 import Error from "@/app/error";
+import dynamic from "next/dynamic";
 export const metadata = {
     title : 'بلاگ ها | تک جنرال',
     description:'بهترین مقالات در زمینه ابزار دقیق از جمله فلومتر و گیج فشار را در این صفحه مطالعه بفرمایید و با اخبار روز ابزار دقیق اشنا شوید',
@@ -35,6 +35,7 @@ const getData = async (params , searchParams) => {
         }
     }
 }
+const BlogPage  = dynamic(()=>import('./blogPage'))
 export default async function Page({params ,searchParams}) {
     const data = await getData(params , searchParams);
     logRoutes('AllBlog')
