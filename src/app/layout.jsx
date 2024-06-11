@@ -13,9 +13,7 @@ const myFont = localFont({
 export default async function RootLayout({children}) {
     return (
         <html className={myFont.variable} dir='rtl' lang="fa-IR">
-        <head>
-            <GoogleTagManager gtmId="AW-11028003241" />
-        </head>
+        <GoogleTagManager gtmId="AW-11028003241" />
         {/*<Script async={true} dangerouslySetInnerHTML={{__html:`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-11028003241');`}}/>*/}
         <body>
         <NextAppDirEmotionCacheProvider>
