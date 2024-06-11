@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PriceDiscount from "./PriceDiscount";
 import PN from "persian-number";
+import {useRouter} from "next/navigation";
 
 const ProductPreviewCard = ({
                                 title,
@@ -16,8 +17,10 @@ const ProductPreviewCard = ({
                                 url,
                                 imagePriority
                             }) => {
+    const router = useRouter()
     return (
-            <Stack
+        <Link style={{height: '100% !important'}} href={`/product/${id}/${url}`}>
+        <Stack
                 justifyContent={'space-between'}
                 sx={{
                     backgroundColor: "#fff",
@@ -55,7 +58,6 @@ const ProductPreviewCard = ({
                             }}>{PN.convertEnToPe(Math.trunc(discountPercent))}%
                         </Typography> : null
                 }
-                <Link style={{height: '100% !important'}} href={`/product/${id}/${url}`}>
                     <Box textAlign={'center'} sx={{aspectRatio: '1/1'}}>
                         {
                             image &&
@@ -75,7 +77,6 @@ const ProductPreviewCard = ({
                             {title}
                         </Typography>
                     </Box>
-                </Link>
                 {
                     price ?
                         <>
@@ -86,11 +87,13 @@ const ProductPreviewCard = ({
                                 <PriceDiscount finalPriceBold={false} discountPrice={price} finalPrice={afterDiscountPrice}/>
                             </Box>
                         </> :
-                        <Link title={'02177500376'} passHref target={'_blank'} href={"tel://+982177500376"}>
-                            <Box display={'flex'} justifyContent={'center'} ><Typography textAlign={'center'} color={'primary'}>برای اطلاع از قیمت تماس بگیرید</Typography></Box>
-                        </Link>
+                            <Box onClick={(e) => {
+                                e.stopPropagation();
+                                router.push("tel://+982177500376");
+                            }} display={'flex'} justifyContent={'center'} ><Typography variant={'h5'} component={'p'} textAlign={'center'} color={'primary'}>برای اطلاع از قیمت تماس بگیرید</Typography></Box>
                 }
             </Stack>
+        </Link>
     )
 }
 export default ProductPreviewCard;
