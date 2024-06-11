@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 import NextAppDirEmotionCacheProvider from "@/components/emotionCache";
 import '../assets/styles/styles.css';
 import Script from "next/script";
-import { GoogleTagManager } from '@next/third-parties/google'
+import GoogleTagManager from '@next/third-parties/google'
 
 const myFont = localFont({
     src: '../assets/font/Takgeneral.woff2',
