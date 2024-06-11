@@ -32,7 +32,7 @@ const BlogCard = ({blog}) => {
                                         sx={{textAlign: 'center'}}>{timeStampToDate(blog?.created_time?.timestamp)}</Typography>
                         </Box>
                         <Button variant={'text'}>
-                            <Typography variant={'h6'} color={'primary'}>
+                            <Typography variant={'h6'} component={'p'} color={'primary'}>
                                 ادامه مطلب
                             </Typography>
                             <ChevronLeftRoundedIcon color={'primary'} fontSize={'small'}/>
