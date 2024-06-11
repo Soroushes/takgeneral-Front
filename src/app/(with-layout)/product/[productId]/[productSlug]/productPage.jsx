@@ -81,14 +81,15 @@ const ProductPage = ({data}) => {
                             {
                                 data?.product?.all_images.map((item) => {
                                     if (item.image !== imageIsShow?.image) {
+                                        console.log(item)
                                         return (
                                             <SwiperSlide key={item.image}>
                                                 <Box display={{md: 'block', xs: 'none'}}>
-                                                    <Image alt={''} width={400} height={400}
+                                                    <Image loading={'eager'} alt={''} width={400} height={400}
                                                            style={{borderRadius: '3%'}} src={item?.image ?? null}/>
                                                 </Box>
                                                 <Box display={{md: 'none', xs: 'block'}}>
-                                                    <Image alt={''} width={300} height={300}
+                                                    <Image loading={'eager'} alt={''} width={300} height={300}
                                                            style={{borderRadius: '3%'}} src={item?.image ?? null}/>
                                                 </Box>
                                             </SwiperSlide>
