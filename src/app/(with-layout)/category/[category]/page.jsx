@@ -16,7 +16,7 @@ async function getData(params, searchParams) {
         parameters.append('brand[]', brand)
     })
     logApi(BASE_URL + `products/${params.category}/?` + parameters.toString())
-    const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString(),{cache:'default'})
+    const res = await fetch(BASE_URL + `products/${params.category}/?` + parameters.toString(),{cache:'no-cache'})
     if (res.ok) {
         return res.json();
     } else {
