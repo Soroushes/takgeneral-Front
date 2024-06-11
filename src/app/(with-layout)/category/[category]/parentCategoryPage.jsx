@@ -51,11 +51,11 @@ export default function ParentCategoryPage({
                             component={'h1'}>{main_category?.name}</Typography>
                 <Grid container sx={{justifyContent: 'start', padding: '70px 0 60px 0'}} rowGap={10}>
                     {
-                        subCategory?.map((item) => {
+                        subCategory?.map((item , index) => {
                             return (
                                 <Grid key={item.id} sx={{px: 2}} item xs={6} md={3}>
                                     <Link href={'/category/' + item.url}>
-                                        <OuterImageSection alt={item.alt ?? item.name} shadow={2} image={item.image}
+                                        <OuterImageSection imagePriority={index < 3} alt={item.alt ?? item.name} shadow={2} image={item.image}
                                                            title={item.name}/>
                                     </Link>
                                 </Grid>

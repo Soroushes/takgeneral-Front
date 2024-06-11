@@ -6,7 +6,7 @@ import '../assets/styles/styles.css';
 const myFont = localFont({
     src: '../assets/font/Takgeneral.woff2',
     display: 'swap',
-    variable: '--iranYekan'
+    variable: '--iranYekan',preload:''
 })
 export default async function RootLayout({children}) {
     return (

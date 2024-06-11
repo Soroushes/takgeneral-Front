@@ -22,7 +22,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
             </Typography>
             <Grid sx={{mt: 4}} container>
                 {
-                    blogs?.map((item) => {
+                    blogs?.map((item , index) => {
                         return (
                             <Grid sx={{p:.5 , minHeight: '360px'}} key={item?.id} item md={4} xs={12} >
                                 <Box sx={{
@@ -33,7 +33,7 @@ const BlogPage = ({blogs, currentPage, pageCount}) => {
                                     height:'100%',
                                     backgroundColor:'#fff'
                                 }}>
-                                    <BlogCard blog={item}/>
+                                    <BlogCard imagePriority={index<3} blog={item}/>
                                 </Box>
                             </Grid>
                         )

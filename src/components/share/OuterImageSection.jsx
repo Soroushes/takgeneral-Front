@@ -9,7 +9,7 @@ const OuterImageSection = ({
                                title,
                                descriptionVariant = 'subtitle1',
                                titleVariant = 'h4',
-    alt = ''
+    alt = '',imagePriority
                            }) => {
     const {palette} = useTheme();
     return (
@@ -39,6 +39,7 @@ const OuterImageSection = ({
                 aspectRatio: '1/1'
             }}>
                 <Image
+                    priority={imagePriority}
                     alt={alt}
                     width={120}
                     height={120}

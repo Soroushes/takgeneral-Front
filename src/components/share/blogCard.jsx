@@ -6,7 +6,7 @@ import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import {timeStampToDate} from "@/hooks/timeStampToDate";
 import Link from "next/link";
 
-const BlogCard = ({blog}) => {
+const BlogCard = ({blog,imagePriority}) => {
     return (
         <Link href={`/blog/${blog.slug}`} >
             <Box sx={{
@@ -17,7 +17,7 @@ const BlogCard = ({blog}) => {
                 justifyContent: 'space-between'
             }}>
                 <Box sx={{textAlign: 'center', width: '100%', borderRadius: 7, aspectRatio: '1/1' , mb:2}}>
-                    <Image
+                    <Image priority={imagePriority}
                         width={590} height={590} style={{maxWidth: '100%', height: 'auto', borderRadius: 7 , aspectRatio:'1/1'}}
                         src={blog?.main_image?.image}
                         alt={blog.title}/>
