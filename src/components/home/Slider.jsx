@@ -25,7 +25,7 @@ const Slider = ({slides}) => {
                                             </Link>
                                         </Box>
                                         <Box sx={{aspectRatio: '1.33/1' , display:{md:'none' , xs:'block'}}}>
-                                            <Link href={slide.link_url ?? '/'}>
+                                            <Link rel={'preload'} href={slide.link_url ?? '/'}>
                                                 <Image priority loading={'eager'} fill src={slide.mobile_image}  alt={slide.alt}/>
                                             </Link>
                                         </Box>
