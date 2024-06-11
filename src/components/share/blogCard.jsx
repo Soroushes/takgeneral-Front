@@ -18,7 +18,7 @@ const BlogCard = ({blog}) => {
             }}>
                 <Box sx={{textAlign: 'center', width: '100%', borderRadius: 7, aspectRatio: '1/1' , mb:2}}>
                     <Image
-                        width={590} height={290} style={{maxWidth: '100%', height: 'auto', borderRadius: 7}}
+                        width={590} height={590} style={{maxWidth: '100%', height: 'auto', borderRadius: 7 , aspectRatio:'1/1'}}
                         src={blog?.main_image?.image}
                         alt={blog.title}/>
                 </Box>
