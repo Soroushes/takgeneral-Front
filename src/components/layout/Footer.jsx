@@ -62,7 +62,7 @@ const Footer = () => {
                              justifyContent={'space-between'} alignItems={{md: 'start', xs: 'center'}}>
                             <Link aria-label={'تک جنرال'} href={'/'}>
                                 <Box sx={{mb: 1}}>
-                                    <Image priority alt={'تک جنرال'} src={logo} width={150} height={50}/>
+                                    <Image loading={'lazy'} priority alt={'تک جنرال'} src={logo} width={150} height={50}/>
                                 </Box>
                             </Link>
                             <Box display={'flex'} mt={2}>
