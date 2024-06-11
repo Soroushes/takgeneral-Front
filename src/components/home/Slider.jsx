@@ -20,7 +20,7 @@ const Slider = ({slides}) => {
                             return(
                                 <SwiperSlide key={slide.id}>
                                         <Box sx={{aspectRatio: '4.8/1', display:{md:'block' , xs:'none'}}}>
-                                            <Link href={slide.link_url ?? '/'}>
+                                            <Link rel={'preload'} href={slide.link_url ?? '/'}>
                                                 <Image priority fill src={slide.image}  alt={slide.alt}/>
                                             </Link>
                                         </Box>
