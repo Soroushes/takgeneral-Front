@@ -101,16 +101,16 @@ const Footer = () => {
                             <Box sx={{height: '100%'}} display={'flex'} justifyContent={'space-between'}
                                  alignItems={{md: 'start', xs: 'center'}} flexDirection={'column'}>
                                 <Link title={'تک جنرال'} aria-label={'تک جنرال'} href={'/'}>
-                                    <Typography component={'p'} variant={'h6'} fontWeight={'bold'} mb={2}>تک جنرال</Typography>
+                                    <Typography component={'p'} variant={'h5'} fontWeight={'bold'} mb={2}>تک جنرال</Typography>
                                 </Link>
                                 <Link title={'درباره ما'} aria-label={'درباره ما'} href={'/about-us'}>
-                                    <Typography component={'p'} variant={'h6'} mb={2}>درباره ما</Typography>
+                                    <Typography component={'p'} variant={'h5'} mb={2}>درباره ما</Typography>
                                 </Link>
                                 <Link title={'تماس با ما'} aria-label={'تماس با ما'} href={'/contact-us'}>
-                                    <Typography component={'p'} variant={'h6'} mb={2}>تماس با ما</Typography>
+                                    <Typography component={'p'} variant={'h5'} mb={2}>تماس با ما</Typography>
                                 </Link>
                                 <Link title={'مجله تک جنرال'} aria-label={'مجله تک جنرال'} href={'/blog'}>
-                                    <Typography component={'p'} variant={'h6'}>مجله تک جنرال</Typography>
+                                    <Typography component={'p'} variant={'h5'}>مجله تک جنرال</Typography>
                                 </Link>
                             </Box>
                             <Box sx={{height: '100%'}} display={'flex'} justifyContent={'space-between'}
