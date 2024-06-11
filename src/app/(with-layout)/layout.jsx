@@ -20,7 +20,6 @@ const getCategories = async () => {
 };
 export default async function Layout({children}) {
     const categoryNames = await getCategories();
-    console.log(categoryNames)
     logRoutes('layout')
     return (
         <>
