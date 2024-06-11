@@ -3,7 +3,6 @@ import localFont from 'next/font/local';
 import NextAppDirEmotionCacheProvider from "@/components/emotionCache";
 import '../assets/styles/styles.css';
 import Script from "next/script";
-import { GoogleTagManager } from '@next/third-parties/google'
 const myFont = localFont({
     src: '../assets/font/Takgeneral.woff2',
     display: 'swap',
@@ -13,8 +12,8 @@ const myFont = localFont({
 export default async function RootLayout({children}) {
     return (
         <html className={myFont.variable} dir='rtl' lang="fa-IR">
-        <GoogleTagManager gtmId="AW-11028003241" />
-        {/*<Script async={true} dangerouslySetInnerHTML={{__html:`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-11028003241');`}}/>*/}
+        {/*<GoogleTagManager gtmId="AW-11028003241" />*/}
+        <Script async={true} dangerouslySetInnerHTML={{__html:`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-11028003241');`}}/>
         <body>
         <NextAppDirEmotionCacheProvider>
             <ThemeRegistry>
