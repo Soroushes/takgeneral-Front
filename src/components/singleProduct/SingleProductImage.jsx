@@ -28,7 +28,7 @@ const singleProductImage = ({images, setShowImage}) => {
                         <Box sx={{width: "100%", textAlign: 'center', aspectRatio: '1/1'}}>
                             {
                                 mainImage ?
-                                    <Image loading={'eager'} alt={mainImage?.alt_text ?? mainImage.name} width={300} height={300} style={{width: '100%', height: 'auto'}}
+                                    <Image property alt={mainImage?.alt_text ?? mainImage.name} width={300} height={300} style={{width: '100%', height: 'auto'}}
                                            src={mainImage?.image ?? null}/> : null
                             }
                         </Box>
@@ -44,7 +44,7 @@ const singleProductImage = ({images, setShowImage}) => {
                                                 setShowImage({image : item?.image , show:true})}}
                                     }>
                                         <Box sx={{width: "100%", textAlign: 'center'}}>
-                                            <Image loading={'eager'} width={300} height={300} style={{width: '100%', height: 'auto'}}
+                                            <Image priority width={300} height={300} style={{width: '100%', height: 'auto'}}
                                                    alt={item.alt_text ?? item.name} src={item.image}/>
                                         </Box>
                                     </SwiperSlide>

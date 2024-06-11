@@ -16,11 +16,11 @@ const DiscountProductSlider = ({products , title , backGroundImage = 'linear-gra
                 </Box>
                 <SwiperCustomWrapper
                 navigation={false}>
-                    {products?.map((data)=>{
+                    {products?.map((data , index)=>{
                         return(
                             <SwiperSlide key={data.id} style={{width : 'auto', marginRight : '16px'}}>
                                 <Box sx={{width : {md:200 , xs:170}}}>
-                                    <ProductPreviewCard title={data.name} alt={data.main_image?.alt_text} discountPercent={data.min_price?.discount} price={data.min_price?.price} afterDiscountPrice={data.min_price?.final_price} id={data.id} image={data.main_image?.image} url={data.url} />
+                                    <ProductPreviewCard imagePriority={index<2} title={data.name} alt={data.main_image?.alt_text} discountPercent={data.min_price?.discount} price={data.min_price?.price} afterDiscountPrice={data.min_price?.final_price} id={data.id} image={data.main_image?.image} url={data.url} />
                                 </Box>
                             </SwiperSlide>
                         )
