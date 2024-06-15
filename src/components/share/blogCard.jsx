@@ -17,10 +17,13 @@ const BlogCard = ({blog,imagePriority}) => {
                 justifyContent: 'space-between'
             }}>
                 <Box sx={{textAlign: 'center', width: '100%', borderRadius: 7, aspectRatio: '1/1' , mb:2}}>
-                    <Image priority={imagePriority}
-                        width={590} height={590} style={{maxWidth: '100%', height: 'auto', borderRadius: 7 , aspectRatio:'1/1'}}
-                        src={blog?.main_image?.image}
-                        alt={blog.title}/>
+                    {
+                        blog?.main_image?.image ?
+                            <Image priority={imagePriority} sizes="(max-width: 590px) 100vw, (max-width: 590px) 50vw, 33vw"
+                                   width={590} height={590} style={{maxWidth: '100%', height: 'auto', borderRadius: 7 , aspectRatio:'1/1'}}
+                                   src={blog?.main_image?.image}
+                                   alt={blog.title}/>:null
+                    }
                 </Box>
                 <Box sx={{minHeight: '90px' }} display={'flex'} flexDirection={'column'}
                      justifyContent={'space-between'}>
