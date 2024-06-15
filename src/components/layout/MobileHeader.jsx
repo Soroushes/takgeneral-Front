@@ -23,7 +23,6 @@ import PN from "persian-number";
 import {useRouter} from "next/navigation";
 
 const MobileHeader = ({categories}) => {
-    console.log(categories)
     const {mobileHeaderHeight} = useSelector(state => state.deviceInfo);
     const {control} = useForm();
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);

@@ -7,6 +7,7 @@ import SwiperCustomWrapper from "@/components/share/SwiperCustomWrapper";
 import {SwiperSlide} from "swiper/react";
 
 const Blogs = ({blogs}) => {
+    console.log(blogs)
     return (
         <Container>
             <Box display={'flex'} justifyContent={'space-between'} sx={{mb: 5}}>
@@ -37,7 +38,7 @@ const Blogs = ({blogs}) => {
                                     height:'100%',
                                     backgroundColor:'#fff'
                                 }}>
-                                    <BlogCard imagePriority={index<2} blog={item}/>
+                                    <BlogCard imagePriority={index<3} blog={item}/>
                                 </Box>
                             </Grid>
                         )
