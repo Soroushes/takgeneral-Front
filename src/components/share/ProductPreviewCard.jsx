@@ -62,6 +62,7 @@ const ProductPreviewCard = ({
                         {
                             image &&
                             <Image
+                                sizes={'(max-width: 140px) 140px'}
                                 priority={imagePriority}
                                 width={140} height={140}
                                 style={{transition: 'all .3s', width: '100%', height: 'auto'}}

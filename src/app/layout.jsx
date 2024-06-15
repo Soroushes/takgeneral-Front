@@ -9,6 +9,9 @@ const myFont = localFont({
     variable: '--iranYekan',preload:''
 })
 
+// export const metadata = {
+//     viewport: '',
+// }
 export default async function RootLayout({children}) {
     return (
         <html className={myFont.variable} dir='rtl' lang="fa-IR">
