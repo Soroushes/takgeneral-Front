@@ -51,7 +51,7 @@ const Blogs = ({blogs}) => {
                         blogs.map((item,index) => {
                             return(
                                 <SwiperSlide key={item.id} style={{ '&:hover': {transform: 'translateY(-2%)'}, transition: 'all .5s', minHeight: '360px'}}>
-                                    <BlogCard imagePriority={index<1} blog={item}/>
+                                    <BlogCard imagePriority={index===0} blog={item}/>
                                 </SwiperSlide>
                             )
                         })
