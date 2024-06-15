@@ -5,11 +5,16 @@ import ClockIcon from "@/assets/icons/share/clock.svg";
 import {timeStampToDate} from "@/hooks/timeStampToDate";
 import HtmlDescription from "@/components/share/HtmlDescription";
 import {singleBlogSchemaGenerator} from "@/hooks/schemaGenerator";
-import {useMemo} from "react";
+import {useEffect, useMemo} from "react";
 import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 
 const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp, url}) => {
     const breadcrumbData = useMemo(() => [{url: '/blog', name: 'وبلاگ ها'}, {url: `/blog/${url}`, name: title}])
+    let mainImage = null;
+    useEffect(() => {
+        mainImage = images.find((item)=>item.is_main);
+    }, []);
+    console.log(mainImage)
     return (
         <>
             <script
@@ -20,7 +25,7 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
                 <BreadcrumbGenerator hasEmptyUrl={false} breadcrumb={breadcrumbData}/>
                 <Grid container justifyContent={'space-between'}>
                     {
-                        images[0]?.image ?
+                        mainImage ?
                             <Grid sx={{py: 1}} item xs={12}>
                                 <Box
                                     sx={{
@@ -34,7 +39,7 @@ const SingleBlog = ({images, createdTimeStamp, title, content, updatedTimeStamp,
                                     <Image
                                         priority
                                         fill
-                                        src={images[0]?.image}
+                                        src={mainImage}
                                         alt={title}/>
                                 </Box>
                             </Grid>
