@@ -74,7 +74,6 @@ const singleProductImage = ({images, setShowImage}) => {
                     </SwiperSlide>
                     {
                         images?.map((item) => {
-                            console.log(item)
                             if (!item.is_main) {
                                 return (
                                     <SwiperSlide style={{borderRadius: "8px", padding: '5px'}}

@@ -1,10 +1,10 @@
+import SingleBlog from "./singleBlogPage";
 import {BASE_URL, domainName} from "@/data/urls";
 import {notFound} from "next/navigation";
 import Error from "@/app/error";
 import {metadataGenerator} from "@/hooks/metadataGenerator";
 import logApi from "@/logApi";
 import logRoutes from "@/logRoutes";
-import dynamic from "next/dynamic";
 
 const getData = async (blogName) => {
     logApi(`${BASE_URL}blog-detail/${blogName}/`)
@@ -20,7 +20,6 @@ const getData = async (blogName) => {
     }
 }
 
-const SingleBlog = dynamic(import('./singleBlogPage'));
 export async function generateMetadata({params: {blogName}}) {
     const result = await getData(blogName);
     if (!result) return;

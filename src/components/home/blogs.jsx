@@ -7,7 +7,6 @@ import SwiperCustomWrapper from "@/components/share/SwiperCustomWrapper";
 import {SwiperSlide} from "swiper/react";
 
 const Blogs = ({blogs}) => {
-    console.log(blogs)
     return (
         <Container>
             <Box display={'flex'} justifyContent={'space-between'} sx={{mb: 5}}>
