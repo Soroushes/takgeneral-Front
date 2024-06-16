@@ -9,6 +9,7 @@ import {useSelector} from "react-redux";
 import CallingButtonIcon from '../../assets/icons/share/call-callingButton.svg';
 import Link from "next/link";
 const LayoutPage = ({children , categoryNames}) => {
+    console.log(categoryNames)
     const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight} = useSelector(state => state.deviceInfo);
     return (
         <>
