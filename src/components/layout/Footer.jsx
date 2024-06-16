@@ -101,16 +101,16 @@ const Footer = () => {
                             <Box sx={{height: '100%'}} display={'flex'} justifyContent={'space-between'}
                                  alignItems={{md: 'start', xs: 'center'}} flexDirection={'column'}>
                                 <Link title={'تک جنرال'} aria-label={'تک جنرال'} href={'/'}>
-                                    <Typography component={'p'} variant={'h4'} fontWeight={'bold'}>تک جنرال</Typography>
+                                    <Typography component={'p'} variant={'h6'} fontWeight={'bold'}>تک جنرال</Typography>
                                 </Link>
                                 <Link title={'درباره ما'} aria-label={'درباره ما'} href={'/about-us'}>
-                                    <Typography component={'p'} variant={'h4'}>درباره ما</Typography>
+                                    <Typography component={'p'} variant={'h6'}>درباره ما</Typography>
                                 </Link>
                                 <Link title={'تماس با ما'} aria-label={'تماس با ما'} href={'/contact-us'}>
-                                    <Typography component={'p'} variant={'h4'}>تماس با ما</Typography>
+                                    <Typography component={'p'} variant={'h6'}>تماس با ما</Typography>
                                 </Link>
                                 <Link title={'مجله تک جنرال'} aria-label={'مجله تک جنرال'} href={'/blog'}>
-                                    <Typography component={'p'} variant={'h4'}>مجله تک جنرال</Typography>
+                                    <Typography component={'p'} variant={'h6'}>مجله تک جنرال</Typography>
                                 </Link>
                             </Box>
                             <Box sx={{height: '100%'}} display={'flex'} justifyContent={'space-between'}
