@@ -98,7 +98,7 @@ const Footer = () => {
                     <Grid item xs={12} md={3} py={4}>
                         <Box height={'100%'} display={'flex'}
                              justifyContent={{md: 'space-between', xs: 'space-around'}}>
-                            <Box sx={{height: '100%' , gap:{xs:2 , md:0}}} display={'flex'} justifyContent={'space-between'}
+                            <Box sx={{height: '100%' , gap:{xs:3 , md:0}}} display={'flex'} justifyContent={'space-between'}
                                  alignItems={{md: 'start', xs: 'center'}} flexDirection={'column'}>
                                 <Link title={'تک جنرال'} aria-label={'تک جنرال'} href={'/'}>
                                     <Typography component={'p'} variant={'h5'} fontWeight={'bold'}>تک جنرال</Typography>
@@ -113,7 +113,7 @@ const Footer = () => {
                                     <Typography component={'p'} variant={'h5'}>مجله تک جنرال</Typography>
                                 </Link>
                             </Box>
-                            <Box sx={{height: '100%',gap:{xs:2 , md:0}}} display={'flex'} justifyContent={'space-between'}
+                            <Box sx={{height: '100%',gap:{xs:3 , md:0}}} display={'flex'} justifyContent={'space-between'}
                                  alignItems={{md: 'start', xs: 'center'}} flexDirection={'column'}>
                                 <Typography variant={'h5'} component={'p'} fontWeight={'bold'}>خدمات مشتریان</Typography>
                                 <Typography variant={'h5'} component={'p'}>قوانین و مقررات</Typography>
