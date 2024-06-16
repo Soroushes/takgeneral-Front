@@ -101,24 +101,24 @@ const Footer = () => {
                             <Box sx={{height: '100%' , gap:{xs:3 , md:0}}} display={'flex'} justifyContent={'space-between'}
                                  alignItems={{md: 'start', xs: 'center'}} flexDirection={'column'}>
                                 <Link title={'تک جنرال'} aria-label={'تک جنرال'} href={'/'}>
-                                    <Typography component={'p'} variant={'h5'} fontWeight={'bold'}>تک جنرال</Typography>
+                                    <Typography component={'p'} variant={'h4'} fontWeight={'bold'}>تک جنرال</Typography>
                                 </Link>
                                 <Link title={'درباره ما'} aria-label={'درباره ما'} href={'/about-us'}>
-                                    <Typography component={'p'} variant={'h5'}>درباره ما</Typography>
+                                    <Typography component={'p'} variant={'h4'}>درباره ما</Typography>
                                 </Link>
                                 <Link title={'تماس با ما'} aria-label={'تماس با ما'} href={'/contact-us'}>
-                                    <Typography component={'p'} variant={'h5'}>تماس با ما</Typography>
+                                    <Typography component={'p'} variant={'h4'}>تماس با ما</Typography>
                                 </Link>
                                 <Link title={'مجله تک جنرال'} aria-label={'مجله تک جنرال'} href={'/blog'}>
-                                    <Typography component={'p'} variant={'h5'}>مجله تک جنرال</Typography>
+                                    <Typography component={'p'} variant={'h4'}>مجله تک جنرال</Typography>
                                 </Link>
                             </Box>
                             <Box sx={{height: '100%',gap:{xs:3 , md:0}}} display={'flex'} justifyContent={'space-between'}
                                  alignItems={{md: 'start', xs: 'center'}} flexDirection={'column'}>
-                                <Typography variant={'h5'} component={'p'} fontWeight={'bold'}>خدمات مشتریان</Typography>
-                                <Typography variant={'h5'} component={'p'}>قوانین و مقررات</Typography>
-                                <Typography variant={'h5'} component={'p'}>سوالات متداول</Typography>
-                                <Typography variant={'h5'} component={'p'}>پیگیری سفارشات</Typography>
+                                <Typography variant={'h4'} component={'p'} fontWeight={'bold'}>خدمات مشتریان</Typography>
+                                <Typography variant={'h4'} component={'p'}>قوانین و مقررات</Typography>
+                                <Typography variant={'h4'} component={'p'}>سوالات متداول</Typography>
+                                <Typography variant={'h4'} component={'p'}>پیگیری سفارشات</Typography>
                             </Box>
                         </Box>
                     </Grid>
