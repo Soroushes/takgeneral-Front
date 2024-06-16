@@ -28,7 +28,7 @@ const singleProductImage = ({images, setShowImage}) => {
                         <Box sx={{width: "100%", textAlign: 'center', aspectRatio: '1/1'}}>
                             {
                                 mainImage ?
-                                    <Image property alt={mainImage?.alt_text ?? mainImage.name} width={300} height={300} style={{width: '100%', height: 'auto'}}
+                                    <Image priority alt={mainImage?.alt_text ?? mainImage.name} width={300} height={300} style={{width: '100%', height: 'auto'}}
                                            src={mainImage?.image ?? null}/> : null
                             }
                         </Box>
