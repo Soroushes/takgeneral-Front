@@ -22,7 +22,6 @@ const getData = async (blogName) => {
 
 export async function generateMetadata({params: {blogName}}) {
     const result = await getData(blogName);
-    console.log(result.meta_tag)
     if (!result) return;
     return metadataGenerator(result?.meta_tag , result.blog.title , result.meta_tag.canonical ? result.meta_tag.canonical : `${domainName}/blog/${result.blog.slug}/` , `${domainName}/blog/${result.blog.slug}` , 'article')
 }
