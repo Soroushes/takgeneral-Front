@@ -1,10 +1,10 @@
-import ProductPage from "./productPage";
 import {BASE_URL, domainName} from "@/data/urls";
 import {notFound, redirect} from "next/navigation";
 import Error from "@/app/error";
 import {metadataGenerator} from "@/hooks/metadataGenerator";
 import logApi from "@/logApi";
 import logRoutes from "@/logRoutes";
+import dynamic from "next/dynamic";
 
 async function getData(productId) {
     logApi(`${BASE_URL}product-detail/${productId}/`)
@@ -36,6 +36,8 @@ export async function generateMetadata({params: {productId}}) {
     const other = {product_price : lowestFinalPrice , product_old_price : lowestPrice , product_id : result?.product?.id , product_name :  result?.product?.name , availability : availability.Inventory_number ? 'instock' : 'outstock' , guarantee : warranty?.warranty }
     return metadataGenerator(result?.meta_tag , result.product.name , `${domainName}/product/${result.product.id}/${result.product.url}` , `${domainName}/product/${result.product.id}/${result.product.url}` ,'website' , other ,images)
 }
+
+const ProductPage = dynamic(import('./productPage'));
 
 export default async function Page({params: {productId, productSlug}, searchParams: {fromSection}}) {
     const data = await getData(productId);
