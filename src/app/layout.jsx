@@ -2,19 +2,22 @@ import ThemeRegistry from "../components/themeRegister";
 import localFont from 'next/font/local';
 import NextAppDirEmotionCacheProvider from "@/components/emotionCache";
 import '../assets/styles/styles.css';
-import Script from "next/script";
 const myFont = localFont({
     src: '../assets/font/Takgeneral.woff2',
     display: 'swap',
     variable: '--iranYekan',preload:''
 })
 
-// export const metadata = {
-//     viewport: '',
-// }
+export const metadata = {
+    title:'enamad',
+    description:'55550664'
+}
 export default async function RootLayout({children}) {
     return (
         <html className={myFont.variable} dir='rtl' lang="fa-IR">
+        <header>
+            <meta name="enamad" content="55550664"/>
+        </header>
         {/*<GoogleTagManager gtmId="AW-11028003241" />*/}
         {/*<Script async={true} dangerouslySetInnerHTML={{__html:`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-11028003241');`}}/>*/}
         <body>
