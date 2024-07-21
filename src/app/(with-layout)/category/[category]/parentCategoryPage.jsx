@@ -24,7 +24,7 @@ export default function ParentCategoryPage({
         <>
             {
                 main_banner.length ?
-                    <Link href={'/'}>
+                    <>
                         <Box sx={{
                             position: "relative",
                             display: {md: 'block', xs: 'none'},
@@ -41,7 +41,7 @@ export default function ParentCategoryPage({
                         }}>
                             <Image src={main_banner[0]?.mobile_image} style={{borderRadius: '8px'}} fill alt={main_banner[0]?.alt ?? ''}/>
                         </Box>
-                    </Link>:null
+                    </>:null
             }
             <Container disableGutters>
                 <Box sx={{px: 1}}>

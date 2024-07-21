@@ -13,7 +13,6 @@ import BreadcrumbGenerator from "@/components/share/BreadcrumbGenerator";
 import HtmlDescription from "@/components/share/HtmlDescription";
 import ExpandLessRoundedIcon from "@mui/icons-material/ExpandLessRounded";
 import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
-import Link from "next/link";
 import {IOSSwitch} from "@/assets/theme/theme";
 import SelectionButton from "@/components/share/selectionButton";
 
@@ -70,7 +69,6 @@ const ChildCategoryPage = ({
         <>
             {
                 main_banner.length ?
-                    <Link href={'/'}>
                         <Box sx={{
                             width: '100%',
                             aspectRatio: '1.3/1',
@@ -80,7 +78,6 @@ const ChildCategoryPage = ({
                         }}>
                             <Image fill alt={main_banner[0]?.alt ?? ''} src={main_banner[0]?.mobile_image}/>
                         </Box>
-                    </Link>
                     : null
             }
             <Box sx={{minHeight: "70vh"}}>
