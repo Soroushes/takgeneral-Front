@@ -25,12 +25,10 @@ export default async function RootLayout({children}) {
             </ThemeRegistry>
         </NextAppDirEmotionCacheProvider>
         </body>
-        <!-- Google tag (gtag.js) -->
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-XVTV4M71W6"></Script>
         <Script dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-XVTV4M71W6');`}}
         />
         </html>
