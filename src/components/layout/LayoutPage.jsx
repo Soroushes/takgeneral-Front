@@ -1,6 +1,5 @@
 'use client'
 import {Box, Button} from "@mui/material";
-import Navbar from '../../components/layout/Navbar';
 import MobileHeader from "../../components/layout/MobileHeader";
 import DesktopHeader from '../../components/layout/DesktopHeader'
 import AlertSnakeBar from "../../components/share/alertSnakeBar";
@@ -9,8 +8,7 @@ import {useSelector} from "react-redux";
 import CallingButtonIcon from '../../assets/icons/share/call-callingButton.svg';
 import Link from "next/link";
 const LayoutPage = ({children , categoryNames}) => {
-    console.log(categoryNames)
-    const {navbarHeight, mobileHeaderHeight, desktopHeaderHeight} = useSelector(state => state.deviceInfo);
+    const {mobileHeaderHeight, desktopHeaderHeight} = useSelector(state => state.deviceInfo);
     return (
         <>
             <Box sx={{position: 'relative', zIndex: 10}}>
@@ -20,7 +18,6 @@ const LayoutPage = ({children , categoryNames}) => {
             <Box
                 sx={{
                     pt: {xs: `${mobileHeaderHeight}px`, md: `${desktopHeaderHeight}px`},
-                    pb: {xs: `${navbarHeight}px`, md: 0},
                     display:'flex' , flexDirection:'column', alignItems:'end',
                     position:'relative'
                 }}>
@@ -31,18 +28,6 @@ const LayoutPage = ({children , categoryNames}) => {
                     <Button aria-label={'contact-us'} color={'secondary'} variant={'contained'} sx={{borderRadius:'100%' , display:{md:'flex' , xs:'none'}  , zIndex:5 , position:'fixed', bottom: 25 , right: 25 , minWidth:'40px !important' ,aspectRatio:'1/1' , boxShadow:'none' , p:0 }}><CallingButtonIcon/></Button>
                 </Link>
                 <Footer/>
-            </Box>
-            <Box
-                sx={{
-                    display:{md:'none' , xs:'block'},
-                    position: "fixed",
-                    zIndex: 1200,
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: `${navbarHeight}px`,
-                }}>
-                <Navbar/>
             </Box>
             <AlertSnakeBar/>
         </>

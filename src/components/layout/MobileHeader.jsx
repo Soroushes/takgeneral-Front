@@ -7,7 +7,6 @@ import {useState} from "react";
 import logo from '../../../public/logo.png'
 import Image from "next/image";
 import {urls} from "src/data/urls";
-import SearchIcon from '../../assets/icons/layout/search-normal.svg';
 import XIcon from '../../assets/icons/layout/x-shape.svg';
 import {Controller, useForm} from "react-hook-form";
 import {useSelector} from "react-redux";
@@ -18,16 +17,14 @@ import WhatsappIcon from '../../assets/icons/layout/whatsapp.svg';
 import RingingCall from '../../assets/icons/layout/call-calling.svg';
 import Call from '../../assets/icons/layout/call.svg';
 import LocationIcon from '../../assets/icons/layout/location2.svg';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import PN from "persian-number";
-import {useRouter} from "next/navigation";
+import CallIcon from '../../assets/icons/footer/call.svg';
+
 
 const MobileHeader = ({categories}) => {
     const {mobileHeaderHeight} = useSelector(state => state.deviceInfo);
     const {control} = useForm();
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
-    const router = useRouter();
     const toggleSearch = () => {
         setOpenSearch(prev => !prev)
     }
@@ -77,7 +74,7 @@ const MobileHeader = ({categories}) => {
                                 alignItems: "center",
                                 width: "100%",
                             }}>
-                            <Box sx={{width:{xs:'45%',sm:'20%'},}}>
+                            <Box sx={{width:{xs:'50%',sm:'20%'},}}>
                                 <HamburgerMenu onClick={toggleDrawer}/>
                             </Box>
                             <Drawer
@@ -181,56 +178,49 @@ const MobileHeader = ({categories}) => {
                                                 <Typography variant={'body2'}>وبلاگ</Typography>
                                             </Box>
                                         </Link>
-                                        <Typography sx={{py: 1, fontWeight: 'bold'}}>دسته بندی تک جنرال</Typography>
+                                        <Typography sx={{py: 1, fontWeight: 'bold'}} variant='h4'>دسته بندی های تک جنرال</Typography>
                                         {categories?.map((item) => {
                                             return (
-                                                <Accordion key={item.name} sx={{backgroundColor: "#fff", boxShadow: 'none', p: 0}}>
-                                                    <AccordionSummary
-                                                        sx={{p: 0}}
-                                                        expandIcon={<ExpandMoreIcon/>}
-                                                    >
-                                                        <Link onClick={() => {
-                                                            setDrawerIsOpen(false)
-                                                        }} href={`/category/${item.url}`}>
-                                                            <Typography>{item.name}</Typography>
-                                                        </Link>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails sx={{p: 0}}>
-                                                        <Box>
-                                                            {
-                                                                item.children.map((child) => {
-                                                                    return (
-                                                                        <Link key={child.id} onClick={() => {
-                                                                            setDrawerIsOpen(false)
-                                                                        }} href={`/category/${child.url}`}>
-                                                                            <Typography mb={2}>{child.name}</Typography>
-                                                                        </Link>
-                                                                    )
-                                                                })
-                                                            }
-                                                        </Box>
-                                                    </AccordionDetails>
-                                                </Accordion>
+                                               item.children.length ? (
+                                                   <Accordion key={item.name} sx={{backgroundColor: "#fff", boxShadow: 'none', p: 0}}>
+                                                       <AccordionSummary
+                                                           sx={{p: 0}}
+                                                           // expandIcon={<ExpandMoreIcon/>}
+                                                       >
+                                                           <Link onClick={() => {
+                                                               setDrawerIsOpen(false)
+                                                           }} href={`/category/${item.url}`}>
+                                                               <Typography>{item.name}</Typography>
+                                                           </Link>
+                                                       </AccordionSummary>
+                                                       <AccordionDetails sx={{p: 0}}>
+                                                           <Box>
+                                                               {
+                                                                   item.children.map((child) => {
+                                                                       return (
+                                                                           <Link key={child.id} onClick={() => {
+                                                                               setDrawerIsOpen(false)
+                                                                           }} href={`/category/${child.url}`}>
+                                                                               <Typography mb={2}>{child.name}</Typography>
+                                                                           </Link>
+                                                                       )
+                                                                   })
+                                                               }
+                                                           </Box>
+                                                       </AccordionDetails>
+                                                   </Accordion>
+                                               ) : (
+                                                   <Box key={item.name} py='15px'>
+                                                       <Link onClick={() => {
+                                                           setDrawerIsOpen(false)
+                                                       }} href={`/category/${item.url}`}>
+                                                           <Typography>{item.name}</Typography>
+                                                       </Link>
+                                                   </Box>
+                                               )
 
                                             )
                                         })}
-                                        <Link onClick={() => {
-                                            setDrawerIsOpen(false)
-                                        }} style={{display: 'block', width: "100%"}} href={`/category/flowmeter`}>
-                                            <Box
-                                                sx={{
-                                                    py: 1.5,
-                                                    display: 'flex',
-                                                    width: "100%",
-                                                    gap: 1,
-                                                    alignItems: 'center',
-                                                    borderTop: '1px solid #ddd'
-                                                }}
-                                            >
-
-                                                <Typography variant={'body2'}>فلومتر</Typography>
-                                            </Box>
-                                        </Link>
                                     </Box>
                                     <Box textAlign={'center'} sx={{borderTop: '1px solid #eee'}}>
                                         <Box display={'flex'} gap={1} justifyContent={'center'} mb={1} mt={2}>
@@ -285,14 +275,17 @@ const MobileHeader = ({categories}) => {
                             {/*<Box onClick={toggleSearch}>*/}
                             {/*    <SearchIcon/>*/}
                             {/*</Box>*/}
-                            <Box sx={{width:{xs:'45%',sm:'20%'},display:'flex',justifyContent:'end'}}>
+                            <Box sx={{width:{xs:'60%',sm:'20%'},display:'flex',justifyContent:'end'}}>
                                 {/*<Link title={'09212075118'} aria-label={`${PN.convertEnToPe('09212075118')}`} passHref target={'_blank'} href={"tel:989212075118"}>*/}
                                 {/*    <Typography fontWeight={'bold'} variant={'subtitle1'}>{PN.convertEnToPe('09212075118')}</Typography>*/}
                                 {/*</Link>*/}
                                 {/*<Link title={'02177500376'} aria-label={PN.convertEnToPe('02177500376')} passHref target={'_blank'} href={"tel:+982177500376"}>*/}
                                 {/*    <Typography fontWeight={'bold'} variant={'subtitle1'}>{PN.convertEnToPe('02177500376')}</Typography>*/}
                                 {/*</Link>*/}
-                                <Button sx={{fontSize:'12px',px:0}} size={'small'} variant={'contained'} onClick={()=>{router.push('/contact-us')}}>تماس با ما</Button>
+                                <Button fullWidth sx={{px:0}} size={'small'} variant={'contained'}>
+                                    <CallIcon fill='white'/>
+                                    <Link title={'09212075118'} passHref target={'_blank'} href={"tel://+989212075118"}>مشاوره رایگان</Link>
+                                </Button>
                             </Box>
                         </Box>
 

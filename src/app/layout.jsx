@@ -15,9 +15,6 @@ export const metadata = {
 export default async function RootLayout({children}) {
     return (
         <html className={myFont.variable} dir='rtl' lang="fa-IR">
-        <header>
-            <meta name="enamad" content="55550664"/>
-        </header>
         {/*<GoogleTagManager gtmId="AW-11028003241" />*/}
         {/*<Script async={true} dangerouslySetInnerHTML={{__html:`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-11028003241');`}}/>*/}
         <body>

@@ -7,16 +7,13 @@ import {
     ClickAwayListener,
     Container,
     Grow,
-    InputAdornment,
     MenuItem,
     MenuList,
     Paper,
     Popper,
-    TextField,
     Typography
 } from "@mui/material";
 import UserIcon from "../../assets/icons/layout/user";
-import SearchOutlined from "../../assets/icons/layout/searchOutlined";
 import BluBag from '../../assets/icons/layout/blue-bag.svg';
 import Link from "next/link";
 import logo from '../../../public/logo.png';
@@ -25,7 +22,6 @@ import {urls} from "@/data/urls";
 import {useSelector} from "react-redux";
 import {useRouter} from "next/navigation";
 import {useState} from "react";
-import PN from "persian-number";
 
 const DesktopHeader = ({categories}) => {
     const {isLoggedIn} = useSelector(state => state.userInfo);
@@ -97,7 +93,7 @@ const DesktopHeader = ({categories}) => {
                                 {/*<Link title={'02177500376'} aria-label={PN.convertEnToPe('02177500376')} passHref target={'_blank'} href={"tel:+982177500376"}>*/}
                                 {/*    <Typography fontWeight={'bold'}> تماس در ساعات کاری : {PN.convertEnToPe('02177500376')}</Typography>*/}
                                 {/*</Link>*/}
-                                <Button variant={'contained'} onClick={()=>{router.push('/contact-us')}}>تماس با ما</Button>
+                                {/*<Button variant={'contained'} onClick={()=>{router.push('/contact-us')}}>تماس با ما</Button>*/}
                             </Box>
                             <Box sx={{display: "flex", gap: 2}}>
                                 {
@@ -248,20 +244,6 @@ const DesktopHeader = ({categories}) => {
                                     </Box>
                                 );
                             })}
-                            <Box component={'li'}>
-                                <Link href={`/category/flowmeter`}>
-                                    <Box
-                                        sx={{
-                                            display: "flex",
-                                            gap: 1,
-                                            alignItems: "center ",
-                                        }}>
-                                        {/*{item.icon}*/}
-                                        <Typography component={'p'} sx={{color: 'text.main'}}
-                                                    variant={'subtitle1'}>فلومتر</Typography>
-                                    </Box>
-                                </Link>
-                            </Box>
                         </Box>
                     </Box>
                 </Container>
