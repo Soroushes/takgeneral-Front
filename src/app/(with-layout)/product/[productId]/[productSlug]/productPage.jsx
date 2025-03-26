@@ -1,5 +1,5 @@
 'use client'
-import {Container, Grid, Typography, Box} from "@mui/material";
+import {Container, Grid, Typography, Box, Button} from "@mui/material";
 import {useEffect, useRef, useState} from 'react';
 import SingleProductDetails from "../../../../../components/singleProduct/SingleProductDetails";
 import CommentQuestion from "../../../../../components/singleProduct/Comment&Question";
@@ -36,7 +36,7 @@ const ProductPage = ({data}) => {
         params.delete('fromSection');
         push(`?${params}`, {scroll: false});
     }, []);
-    const handleClickOutSide = (event)=>{
+    const handleClickOutSide = ()=>{
         // console.log(imageRef.current.contains(event.target))
         // if(imageRef.current.contains(event.target)){
         //     console.log(1)
@@ -44,7 +44,16 @@ const ProductPage = ({data}) => {
         // }
     }
     return (
-        <>
+        <Box>
+            <Box zIndex={100} px='10px' alignItems='center' bottom={0} left={0} position='fixed' height='90px' width='100%' backgroundColor='white' display='flex' justifyContent='space-between'>
+                <Box>
+                    <Typography fontWeight='bold' color='gray.darker' mb='7px'>قیمت محصول</Typography>
+                    <Typography variant='h5'>از 1,200,000 تا 6,000,000 تومان</Typography>
+                </Box>
+                <Button sx={{height : '50px',width : '150px'}} variant='contained'>
+                    ثبت سفارش
+                </Button>
+            </Box>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{__html: JSON.stringify(productSchemaGenerator(data?.product.name, data?.product.all_images, data?.meta_tag.desc, data?.product.brand, data?.avg_rate.avg_rate, data?.product.options.product_variant, data.comments.length))}}
@@ -179,7 +188,7 @@ const ProductPage = ({data}) => {
                     </Grid>
                 </Container>
             </Box>
-        </>
+        </Box>
     )
 }
 export default ProductPage;
